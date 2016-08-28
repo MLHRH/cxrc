@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:s="http://www.springframework.org/schema/security"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.1.xsd
+                        http://www.springframework.org/schema/security http://www.springframework.org/schema/security/spring-security-3.1.xsd"
+	default-lazy-init="true">
+
+	<description>SpringSecurity安全配置</description>
+
+	<!-- http安全配置 -->
+
+	<s:http pattern="/css/**" security="none" />
+	<s:http pattern="/images/**" security="none" />
+	<s:http pattern="/js/**" security="none" />
+	<s:http pattern="/cors/**" security="none" />
+	<s:http pattern="/static/**" security="none" />
+	<s:http pattern="/*.pdf" security="none" />
+	<s:global-method-security secured-annotations="enabled" />
+	<s:http auto-config="true" access-denied-page="/common/403.jsp">
+		<s:intercept-url pattern="/uploadfile*" access="ROLE_LOGIN" />
+		<s:intercept-url pattern="/UploadServlet*" access="ROLE_LOGIN" />
+		
+		<s:intercept-url pattern="/fileManager*" access="ROLE_LOGIN" />
+		<s:intercept-url pattern="/index*" access="ROLE_LOGIN" />
+		<s:intercept-url pattern="/personalCenter*" access="ROLE_LOGIN" />
+		
+		<s:intercept-url pattern="/ExportFile*" access="ROLE_LOGIN" />
+		<s:intercept-url pattern="/upload*" access="ROLE_LOGIN" />
+
+		<!-- login-page -->
+		<s:form-login login-page="/login" default-target-url="/logon"
+			authentication-failure-url="/login?error=true" always-use-default-target="true" />
+		<s:logout logout-success-url="/login" />
+		<s:remember-me key="e37f4b31-0c45-11dd-bd0b-0800200c9a63" user-service-ref="userDetailsService" />
+	</s:http>
+
+	<bean id="userDetailsService" class="com.jfn.service.UserDetailsServiceImpl" />
+	<s:authentication-manager alias="authenticationManager">
+		<s:authentication-provider user-service-ref="userDetailsService">
+			<s:password-encoder hash="md5" />
+		</s:authentication-provider>
+	</s:authentication-manager>
+</beans>

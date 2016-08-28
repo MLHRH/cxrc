@@ -1,0 +1,97 @@
+package com.jfn.dao;
+
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.DataAccessException;
+import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.jdbc.core.ResultSetExtractor;
+import org.springframework.jdbc.core.simple.ParameterizedRowMapper;
+import org.springframework.stereotype.Repository;
+
+import com.jfn.entity.Calendar;
+
+/**
+ * @create-time 2014-8-18 下午6:18:40
+ * @author 佟德慧
+ * @remarks 无
+ */
+@Repository
+public class CalendarDao {
+	@Autowired
+	private JdbcTemplate jdbcTemplate;
+
+	private final String SQL_INSERT_calendar = "insert into calendar(start_date,end_date,name,jieshao) values(?,?,?,?)";
+
+	private final String SQL_Get_BY_ID = "select * from calendar where Id=?";
+	private final String SQL_GET_calendar_LIST = "select * from calendar order by Id  ";
+	private final String SQL_SET_calendar_UPDATE = "update calendar set start_date=?,end_date=?,name=?,jieshao=? where id=?";
+	private final static String SQL_DEL_BY_ID = "delete from calendar where id = ?";
+
+	public boolean insert(Calendar calendar) {
+		return jdbcTemplate.update(SQL_INSERT_calendar, new Object[] { calendar.getStart_date(), calendar.getEnd_date(), calendar.getName(), calendar.getJieshao() }) == 1;
+	}
+
+	public Calendar get(int id) {
+		return jdbcTemplate.query(SQL_Get_BY_ID, new Object[] { id }, new ResultSetExtractor<Calendar>() {
+			@Override
+			public Calendar extractData(ResultSet rs) throws SQLException, DataAccessException {
+				Calendar calendar = new Calendar();
+				if (rs.next()) {
+					calendar.setId(rs.getInt("id"));
+					calendar.setStart_date(rs.getString("start_date"));
+					calendar.setEnd_date(rs.getString("end_date"));
+					calendar.setName(rs.getString("name"));
+					calendar.setJieshao(rs.getString("jieshao"));
+				}
+				return calendar;
+			}
+		});
+	}
+
+	/**
+	 * 修改保存
+	 * 
+	 * @param request
+	 * @param model
+	 * @return
+	 */
+
+	public boolean Update(Calendar calendar) {
+		Object[] params = new Object[] { calendar.getStart_date(), calendar.getEnd_date(), calendar.getName(), calendar.getJieshao(), calendar.getId() };
+		return jdbcTemplate.update(SQL_SET_calendar_UPDATE, params) == 1;
+	}
+
+	public boolean delete(int id) {
+		return jdbcTemplate.update(SQL_DEL_BY_ID, new Object[] { id }) == 1;
+	}
+
+	public boolean isPropertyUnique(String newLoginName, String oldLoginName) {
+		return false;
+	}
+
+	public List<Calendar> getAll() {
+		// TODO Auto-generated method stub
+		return jdbcTemplate.query(SQL_GET_calendar_LIST, new calendarRowMapper());
+	}
+
+	/**
+	 * 定义内部类实现RowMapper接口
+	 */
+	public class calendarRowMapper implements ParameterizedRowMapper<Calendar> {
+		// 实现mapRow方法
+		@Override
+		public Calendar mapRow(ResultSet rs, int num) throws SQLException {
+			// 对类进行封装
+			Calendar calendar = new Calendar();
+			calendar.setId(rs.getInt("id"));
+			calendar.setStart_date(rs.getString("start_date"));
+			calendar.setEnd_date(rs.getString("end_date"));
+			calendar.setName(rs.getString("name"));
+			calendar.setJieshao(rs.getString("jieshao"));
+			return calendar;
+		}
+	}
+}
