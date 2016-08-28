@@ -1,7 +1,7 @@
 package com.jfn.entity;
 
-public class cxtdDoc02 {
-    private int teamId;
+public class CxtdLeaderInfo {
+	private int teamId;
 
     private int user_id;
 
@@ -36,10 +36,6 @@ public class cxtdDoc02 {
     private String zipCode;
 
     private String addresses;
-
-    private String journalTitle1;
-
-    private String organizationPosition1;
 
     public int getTeamId() {
 		return teamId;
@@ -185,60 +181,5 @@ public class cxtdDoc02 {
 		this.addresses = addresses;
 	}
 
-	public String getJournalTitle1() {
-		return journalTitle1;
-	}
 
-	public void setJournalTitle1(String journalTitle1) {
-		this.journalTitle1 = journalTitle1;
-	}
-
-	public String getOrganizationPosition1() {
-		return organizationPosition1;
-	}
-
-	public void setOrganizationPosition1(String organizationPosition1) {
-		this.organizationPosition1 = organizationPosition1;
-	}
-
-	public String getOrganizationTerm1() {
-		return organizationTerm1;
-	}
-
-	public void setOrganizationTerm1(String organizationTerm1) {
-		this.organizationTerm1 = organizationTerm1;
-	}
-
-	public String getJournalTitle2() {
-		return journalTitle2;
-	}
-
-	public void setJournalTitle2(String journalTitle2) {
-		this.journalTitle2 = journalTitle2;
-	}
-
-	public String getOrganizationPosition2() {
-		return organizationPosition2;
-	}
-
-	public void setOrganizationPosition2(String organizationPosition2) {
-		this.organizationPosition2 = organizationPosition2;
-	}
-
-	public String getOrganizationTerm2() {
-		return organizationTerm2;
-	}
-
-	public void setOrganizationTerm2(String organizationTerm2) {
-		this.organizationTerm2 = organizationTerm2;
-	}
-
-	private String organizationTerm1;
-    private String journalTitle2;
-
-    private String organizationPosition2;
-
-    private String organizationTerm2;
-
-  
 }

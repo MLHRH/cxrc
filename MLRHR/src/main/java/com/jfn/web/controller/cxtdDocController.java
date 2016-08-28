@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
-import com.jfn.entity.cxtdDoc01;
+import com.jfn.entity.CxtdBaseInfo;
 import com.jfn.service.cxtdDocService;
 @Controller
 @RequestMapping("/")
@@ -37,10 +37,10 @@ public class cxtdDocController {
 	
 	@RequestMapping(value = "/cxtdDoc01Update",method = RequestMethod.POST)
 	@ResponseBody
-	public Object cxtdDoc01Update(String cxtddoc01,HttpServletRequest request){
+	public Object cxtdDoc01Update(String cxtdBaseInfo,HttpServletRequest request){
 		JSONObject result = new JSONObject();
 		int user_id =(Integer)request.getSession().getAttribute("user_id");
-		cxtdDoc01 doc01 = JSON.parseObject(cxtddoc01, cxtdDoc01.class);
+		CxtdBaseInfo doc01 = JSON.parseObject(cxtdBaseInfo, CxtdBaseInfo.class);
 		//更新记录
 		cxtdDocService.updateDoc01(doc01,user_id,result);
 		
