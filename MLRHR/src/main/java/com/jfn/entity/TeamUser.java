@@ -1,6 +1,5 @@
 package com.jfn.entity;
 
-import javax.xml.crypto.Data;
 
 public class TeamUser {
 //

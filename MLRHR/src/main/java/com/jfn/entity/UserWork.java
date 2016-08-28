@@ -1,9 +1,5 @@
 package com.jfn.entity;
 
-import java.text.SimpleDateFormat;
-import java.util.Date;
-
-import com.jfn.dao.NewsDao.newsRowMapper;
 
 /**
  * 用户.

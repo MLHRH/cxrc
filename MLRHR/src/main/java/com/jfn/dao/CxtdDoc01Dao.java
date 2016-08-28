@@ -14,6 +14,8 @@ import org.springframework.stereotype.Repository;
 import com.jfn.entity.CxtdBaseInfo;
 import com.jfn.entity.CxtdLeaderInfo;
 import com.jfn.entity.CxtdLeaderZuzhi;
+import com.jfn.entity.CxtdMemberInfo;
+import com.jfn.entity.CxtdMemberNum;
 
 @Repository
 public class CxtdDoc01Dao {
@@ -42,9 +44,9 @@ public class CxtdDoc01Dao {
 	//团队成员情况
 	private final String SQL_SELECT_MEMBER_NUM="select * from cxtd_member_num where team_id=?";
 	private final String SQL_UPDATE_MEMBER_NUM="update cxtd_member_num set age_56=?,age_46_55=?,age_36_45=?"
-			+ "age_35=?,gaoji=?,fugao=?,zhongji=?,z_orther=?,boshi=?,shuoshi=?,benle=?,z_orther=? where team_id=? ";
+			+ "age_35=?,gaoji=?,fugao=?,zhongji=?,z_orther=?,boshi=?,shuoshi=?,benke=?,z_orther=? where team_id=? ";
 	private final String SQL_INSERT_MEMBER_NUM="insert into cxtd_member_num(team_id,age_56,age_46_55,age_36_45,age_35,"
-			+ "gaoji,fugao,zhongji,z_orther,boshi,shuoshi,benke,z_orther)values(?,?,?,?,?,?,?,?,?,?,?,?,?)";
+			+ "gaoji,fugao,zhongji,z_orther,boshi,shuoshi,benke,z_orther)values(?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
 	
 	private final String SQL_SELECT_MEMBER_INFO="select * from cxtd_member_info where team_id=?";
 	private final String SQL_UPDATE_MEMBER_INFO="update cxtd_member_info set name=?,sex?,birthday=?,id_type=?,id_num=?,"
@@ -323,6 +325,164 @@ public class CxtdDoc01Dao {
 					zuzhi.getRenqi(),
 			};
 			return jdbcTemplate.update(SQL_INSERT_ZUZHI, params) == 1;
+		}
+		
+		/**
+		 * 查询团队成员统计情况
+		 * @param userid
+		 * @return
+		 */
+		public CxtdMemberNum queryCxtdMemberNum(int team_id){
+			return jdbcTemplate.query(SQL_SELECT_MEMBER_NUM, new Object[] { team_id },
+					new ResultSetExtractor<CxtdMemberNum>(){
+				
+						public CxtdMemberNum extractData(ResultSet rs) throws SQLException, DataAccessException {
+							CxtdMemberNum num = new CxtdMemberNum();
+							while (rs.next()) {
+								num.setTeam_id(rs.getInt("team_id"));
+								num.setNum(rs.getInt("num"));
+								num.setAge_56(rs.getInt("age_56"));
+								num.setAge_46_55(rs.getInt("age_46_55"));
+								num.setAge_36_45(rs.getInt("age_36_45"));
+								num.setAge_35(rs.getInt("age_35"));
+								num.setGaokji(rs.getInt("gaoji"));
+								num.setFugao(rs.getInt("fugao"));
+								num.setZhongji(rs.getInt("zhongji"));
+								num.setZ_orther(rs.getInt("z_orther"));
+								num.setBoshi(rs.getInt("boshi"));
+								num.setShuoshi(rs.getInt("shoushi"));
+								num.setBenke(rs.getInt("benke"));
+								num.setX_orther(rs.getInt("x_orther"));
+							}
+							return num;
+						}
+			});
+		}
+		
+		/**
+		 * 更新团队成员统计信息
+		 * @param baseinfo
+		 * @param user_id
+		 * @return
+		 */
+		public boolean updateCxtdMemberNum(CxtdMemberNum num,int team_id){
+			Object[] params =new Object[]{
+					num.getAge_56(),
+					num.getAge_46_55(),
+					num.getAge_36_45(),
+					num.getAge_35(),
+					num.getGaokji(),
+					num.getFugao(),
+					num.getZhongji(),
+					num.getZ_orther(),
+					num.getBoshi(),
+					num.getShuoshi(),
+					num.getBenke(),
+					num.getZ_orther(),
+					team_id
+			};
+			return jdbcTemplate.update(SQL_UPDATE_MEMBER_NUM,params) == 1;
+		}
+		/**
+		 * 插入团队成员统计
+		 * @param num
+		 * @param user_id
+		 * @return
+		 */
+		public boolean insertCxtdMemberNum(CxtdMemberNum num,int team_id){
+			Object[] params =new Object[]{
+					team_id,
+					num.getTeam_id(),
+					num.getNum(),
+					num.getAge_56(),
+					num.getAge_46_55(),
+					num.getAge_36_45(),
+					num.getAge_35(),
+					num.getGaokji(),
+					num.getFugao(),
+					num.getZhongji(),
+					num.getZ_orther(),
+					num.getBoshi(),
+					num.getShuoshi(),
+					num.getBenke(),
+					num.getX_orther()
+			};
+			return jdbcTemplate.update(SQL_INSERT_MEMBER_NUM, params) == 1;
+		}
+		
+		/**
+		 * 定义内部类实现RowMapper接口
+		 */
+		public class Member_infoRowMapper implements ParameterizedRowMapper<CxtdMemberInfo> {
+			// 实现mapRow方法
+			@Override
+			public CxtdMemberInfo mapRow(ResultSet rs, int num) throws SQLException {
+				// 对类进行封装
+				CxtdMemberInfo memInfo = new CxtdMemberInfo();
+				memInfo.setId(rs.getInt("id"));
+				memInfo.setTeam_id(rs.getInt("team_id"));
+				memInfo.setName(rs.getString("name"));
+				memInfo.setSex(rs.getString("sex"));
+				memInfo.setBirthday(rs.getString("birthday"));
+				memInfo.setId_type(rs.getString("id_type"));
+				memInfo.setId_num(rs.getString("id_num"));
+				memInfo.setStudy_education(rs.getString("study_education"));
+				memInfo.setDirection(rs.getString("direction"));
+				memInfo.setWork_position(rs.getString("work_position"));
+				memInfo.setWork_company(rs.getString("work_company"));
+				return memInfo;
+			}
+		}
+		
+		/**
+		 * 查询团队成员详细情况
+		 * @param team_id
+		 * @return
+		 */
+		public List<CxtdMemberInfo> queryCxtdMemberInfo(int team_id){
+			return jdbcTemplate.query(SQL_SELECT_MEMBER_INFO, new Object[] { team_id },new Member_infoRowMapper());
+		}
+		/**
+		 * 更新团队成员详细信息
+		 * @param baseinfo
+		 * @param user_id
+		 * @return
+		 */
+		public boolean updateCxtdMemberInfo(CxtdMemberInfo memInfo,int team_id){
+			Object[] params =new Object[]{
+					memInfo.getName(),
+					memInfo.getSex(),
+					memInfo.getBirthday(),
+					memInfo.getId_type(),
+					memInfo.getId_num(),
+					memInfo.getStudy_education(),
+					memInfo.getWork_position(),
+					memInfo.getDirection(),
+					memInfo.getWork_company(),
+					team_id
+			};
+			return jdbcTemplate.update(SQL_UPDATE_MEMBER_INFO,params) == 1;
+		}
+		/**
+		 * 插入团队成员
+		 * @param num
+		 * @param user_id
+		 * @return
+		 */
+		public boolean insertCxtdMemberInfo(CxtdMemberInfo memInfo,int team_id){
+			Object[] params =new Object[]{
+					team_id,
+					memInfo.getName(),
+					memInfo.getSex(),
+					memInfo.getBirthday(),
+					memInfo.getId_type(),
+					memInfo.getId_num(),
+					memInfo.getStudy_education(),
+					memInfo.getWork_position(),
+					memInfo.getDirection(),
+					memInfo.getWork_company(),
+			};
+			return jdbcTemplate.update(SQL_INSERT_MEMBER_INFO, params) == 1;
 		}
 		
 		

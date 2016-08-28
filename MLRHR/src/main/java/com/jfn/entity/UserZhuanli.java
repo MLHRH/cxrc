@@ -1,11 +1,5 @@
 package com.jfn.entity;
 
-import java.util.ArrayList;
-import java.util.List;
-
-
-import org.apache.commons.lang.builder.ToStringBuilder;
-import org.springside.modules.utils.reflection.ConvertUtils;
 
 /**
  * 用户.

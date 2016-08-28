@@ -1,7 +1,7 @@
 package com.jfn.entity;
 
 public class CxtdBaseInfo {
-	 private int id;
+	 private Integer id;
 	    
 	    private int userid;
 
@@ -13,7 +13,7 @@ public class CxtdBaseInfo {
 			this.userid = userid;
 		}
 
-		private int teamId;
+		private Integer teamId;
 
 	    private String teamName;
 

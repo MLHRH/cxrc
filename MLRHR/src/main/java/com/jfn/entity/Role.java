@@ -3,9 +3,8 @@ package com.jfn.entity;
 import java.util.ArrayList;
 import java.util.List;
 
-
-import org.springside.modules.utils.reflection.ConvertUtils;
 import org.apache.commons.lang.builder.ToStringBuilder;
+import org.springside.modules.utils.reflection.ConvertUtils;
 
 
 /**
@@ -67,6 +66,7 @@ public class Role
 		return ConvertUtils.convertElementPropertyToString( authorityList,"name", ", " );
 	}
 
+	@SuppressWarnings("unchecked")
 	public List<Long> getAuthIds()
 	{
 		return ConvertUtils.convertElementPropertyToList( authorityList, "id" );
