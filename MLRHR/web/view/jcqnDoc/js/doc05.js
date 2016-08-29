@@ -25,7 +25,7 @@ function initjcqnDoc05() {
 	
 }
 
-function jcqnDoc05Update() {
+function updatejcqnDoc05() {
 	var arrData = new Array();
 	arrData.push({
 		"name" : "userId",

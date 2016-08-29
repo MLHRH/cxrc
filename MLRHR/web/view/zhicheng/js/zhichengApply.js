@@ -73,8 +73,8 @@ function init(contentName) {
 		case "kjljDoc02" :
 			initkjljDoc02();
 			break;
-		case "jcqnDoc03" :
-			initjcqnDoc03();
+		case "kjljDoc03" :
+			initkjljDoc03();
 			break;
 		case "kjljDoc04" :
 			initkjljDoc04();
@@ -140,8 +140,8 @@ function save() {
 	case "kjljDoc02" :
 		updatekjljDoc02();
 		break;
-	case "jcqnDoc03" :
-		updatejcqnDoc03();
+	case "kjljDoc03" :
+		updatekjljDoc03();
 		break;
 	case "kjljDoc04" :
 		updatekjljDoc04();

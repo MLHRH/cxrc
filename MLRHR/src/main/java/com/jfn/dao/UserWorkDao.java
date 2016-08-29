@@ -36,18 +36,18 @@ public class UserWorkDao {
 	// 通过user_id查询
 	private final String SQL_GET_LIST_BY_USER_ID = "select * from user_work where user_id=?  order by start_date desc ";
 
+	SimpleDateFormat sdf = new SimpleDateFormat("yyyy.MM.dd");
 	public boolean insert(UserWork user_work) {
 		if (Integer.parseInt(user_work.getToNow()) == 1) {
-			SimpleDateFormat sdf = new SimpleDateFormat("yyyy.MM.dd");
 			return jdbcTemplate.update(SQL_INSERT_user_work,
 					new Object[] {user_work.getUser_id(), user_work.getStart_date(),  user_work.getJob(), user_work.getWork_content(),user_work.getZhiwu(), 
-							sdf.format(new Date()),null 
+							sdf.format(new Date()),user_work.getToNow() 
 }) == 1;
 		} else {
 			return jdbcTemplate.update(
 					SQL_INSERT_user_work,
 					new Object[] { user_work.getUser_id(), user_work.getStart_date(),  user_work.getJob(), user_work.getWork_content(),user_work.getZhiwu(), 
-							user_work.getEnd_date(),null }) == 1;
+							user_work.getEnd_date(),user_work.getToNow() }) == 1;
 		}
 	}
 
@@ -105,7 +105,7 @@ public class UserWorkDao {
 		if (Integer.parseInt(user_work.getToNow()) == 1) {
 			Object[] params = new Object[] { user_work.getUser_id(), user_work.getStart_date(), 
 
-user_work.getEnd_date(), user_work.getJob(), user_work.getWork_content(), user_work.getZhiwu(),
+					sdf.format(new Date()), user_work.getJob(), user_work.getWork_content(), user_work.getZhiwu(),
 					 user_work.getToNow(), user_work.getId() };
 			return jdbcTemplate.update(SQL_SET_user_work_UPDATE, params) == 1;
 		} else {

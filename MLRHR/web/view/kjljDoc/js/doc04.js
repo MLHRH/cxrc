@@ -3,11 +3,11 @@ var objUser = new Object();
 var userBaseInfor_id;
 
 
-function initjcqnDoc04() {
+function initkjljDoc04() {
 	$.ajax({
 				type : 'get',
 				dataType : 'json',
-				url : 'jcqnDoc04Init?userId=' + user_id,// 请求的路径
+				url : 'kjljDoc04Init?userId=' + user_id,// 请求的路径
 				error : function() {// 请求失败处理函数
 					alert('请求失败');
 				},
@@ -25,7 +25,7 @@ function initjcqnDoc04() {
 	
 }
 
-function jcqnDoc04Update() {
+function updatekjljDoc04() {
 	var arrData = new Array();
 	arrData.push({
 		"name" : "userId",
@@ -39,7 +39,7 @@ function jcqnDoc04Update() {
 	$.ajax({
 		dataType : "json",
 		type : "post",
-		url : "jcqnDoc04Update",
+		url : "kjljDoc04Update",
 		data :arrData,
 		error : function() {// 请求失败处理函数
 			alert('请求失败');
