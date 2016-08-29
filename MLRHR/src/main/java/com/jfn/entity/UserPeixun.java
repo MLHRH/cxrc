@@ -12,10 +12,10 @@ public class UserPeixun {
 	private String start_date;
 
 	private String end_date;
-	private String content;
-	private String place;
+	private String major;
+	private String country;
 	private String zhengmingren;
-	private String xuewei;
+	private String academy;
 	private String xuezhi;
 	private String xueli;
 	private String isTop;
@@ -36,21 +36,6 @@ public class UserPeixun {
 		this.end_date = end_date;
 	}
 
-	public String getContent() {
-		return content;
-	}
-
-	public void setContent(String content) {
-		this.content = content;
-	}
-
-	public String getPlace() {
-		return place;
-	}
-
-	public void setPlace(String place) {
-		this.place = place;
-	}
 
 	public String getZhengmingren() {
 		return zhengmingren;
@@ -76,14 +61,6 @@ public class UserPeixun {
 		this.user_id = user_id;
 	}
 
-	public String getXuewei() {
-		return xuewei;
-	}
-
-	public void setXuewei(String xuewei) {
-		this.xuewei = xuewei;
-	}
-
 	public String getXuezhi() {
 		return xuezhi;
 	}
@@ -106,6 +83,30 @@ public class UserPeixun {
 
 	public void setIsTop(String isTop) {
 		this.isTop = isTop;
+	}
+
+	public String getMajor() {
+		return major;
+	}
+
+	public void setMajor(String major) {
+		this.major = major;
+	}
+
+	public String getCountry() {
+		return country;
+	}
+
+	public void setCountry(String country) {
+		this.country = country;
+	}
+
+	public String getAcademy() {
+		return academy;
+	}
+
+	public void setAcademy(String academy) {
+		this.academy = academy;
 	}
 
 }

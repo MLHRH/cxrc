@@ -50,15 +50,15 @@ function initUserPeixunDataTables(data) {
 					"data" : "end_date",
 					"class" : "center"
 				}, {
-					"data" : "content"
+					"data" : "major"
 				}, {
-					"data" : "place"
+					"data" : "country"
 				}, {
 					"data" : "zhengmingren"
 				}, {
 					"data" : "xuezhi"
 				}, {
-					"data" : "xuewei"
+					"data" : "academy"
 				}, {
 					"data" : "xueli"
 				}, {

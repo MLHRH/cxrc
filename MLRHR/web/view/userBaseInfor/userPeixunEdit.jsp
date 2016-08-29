@@ -40,25 +40,25 @@
 						</td>
 					</tr>
 					<tr align="center">
-						<td class="td_Left">专业或主要内容：</td>
+						<td class="td_Left">专&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp业：</td>
 						<td class="td_Right">
-							<textarea style="width: 300px; height: 150px" id="user_peixun_content">${user_peixun.content}</textarea>
+							<textarea style="width: 300px; height: 150px" id="user_peixun_major">${user_peixun.major}</textarea>
 						</td>
 					</tr>
 					<tr align="center">
-						<td class="td_Left">学习地点：</td>
+						<td class="td_Left">国&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp家：</td>
 						<td class="td_Right">
-							<input style="width: 300px;" type="text" id="user_peixun_place" value="${user_peixun.place}" />
+							<input style="width: 300px;" type="text" id="user_peixun_country" value="${user_peixun.country}" />
 						</td>
 					</tr>
 					<tr align="center">
-						<td class="td_Left">证&nbsp明&nbsp人：</td>
+						<td class="td_Left">证&nbsp&nbsp明&nbsp&nbsp人：</td>
 						<td class="td_Right">
 							<input style="width: 300px;" type="text" id="user_peixun_zhengmingren" value="${user_peixun.zhengmingren}" />
 						</td>
 					</tr>
 					<tr align="center">
-						<td class="td_Left">学&nbsp&nbsp&nbsp&nbsp制：</td>
+						<td class="td_Left">学&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp制：</td>
 						<td class="td_Right">
 							<select id="user_peixun_xuezhi" name="user_peixun_xuezhi" class="input-block-level" style="width: 220px">
 								<option value="-1">请选择</option>
@@ -68,24 +68,18 @@
 								<option value="4年" <c:if test="${user_peixun.xuezhi == '4年'}">selected</c:if>>4年</option>
 								<option value="5年" <c:if test="${user_peixun.xuezhi == '5年'}">selected</c:if>>5年</option>
 								<option value="6年" <c:if test="${user_peixun.xuezhi == '6年'}">selected</c:if>>6年</option>
-								<option value="其它" <c:if test="${user_peixun.xuewei == '其它'}">selected</c:if>>其它</option>
+								<option value="其它" <c:if test="${user_peixun.xuezhi == '其它'}">selected</c:if>>其它</option>
 							</select>
 						</td>
 					</tr>
 					<tr align="center">
-						<td class="td_Left">学&nbsp&nbsp&nbsp&nbsp位：</td>
+						<td class="td_Left">院&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp校：</td>
 						<td class="td_Right">
-							<select id="user_peixun_xuewei" name="user_peixun_xuewei" class="input-block-level" style="width: 220px">
-								<option value="-1">请选择</option>
-								<option value="学士" <c:if test="${user_peixun.xuewei == '学士'}">selected</c:if>>学士</option>
-								<option value="硕士" <c:if test="${user_peixun.xuewei == '硕士'}">selected</c:if>>硕士</option>
-								<option value="博士" <c:if test="${user_peixun.xuewei == '博士'}">selected</c:if>>博士</option>
-								<option value="其它" <c:if test="${user_peixun.xuewei == '其它'}">selected</c:if>>其它</option>
-							</select>
+							<input style="width: 300px;" type="text" id="user_peixun_academy" value="${user_peixun.academy}" />
 						</td>
 					</tr>
 					<tr align="center">
-						<td class="td_Left">学&nbsp&nbsp&nbsp&nbsp历：</td>
+						<td class="td_Left">学历/学位：</td>
 						<td class="td_Right">
 							<select id="user_peixun_xueli" name="user_peixun_xueli" class="input-block-level" style="width: 220px">
 								<option value="-1">请选择</option>
@@ -94,7 +88,7 @@
 								<option value="本科" <c:if test="${user_peixun.xueli == '本科'}">selected</c:if>>本科</option>
 								<option value="硕士研究生" <c:if test="${user_peixun.xueli == '硕士研究生'}">selected</c:if>>硕士研究生</option>
 								<option value="博士研究生" <c:if test="${user_peixun.xueli == '博士研究生'}">selected</c:if>>博士研究生</option>
-								<option value="其它" <c:if test="${user_peixun.xuewei == '其它'}">selected</c:if>>其它</option>
+								<option value="其它" <c:if test="${user_peixun.xueli == '其它'}">selected</c:if>>其它</option>
 							</select>
 						</td>
 					</tr>

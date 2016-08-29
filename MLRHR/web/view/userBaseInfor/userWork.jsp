@@ -33,8 +33,8 @@
 				<th width="10%" style="text-align: center;">开始时间</th>
 				<th width="10%" style="text-align: center;">结束时间</th>
 				<th width="15%" style="text-align: center;">单 位</th>
-				<th width="19%" style="text-align: center;">从事何种专业技术工作</th>
-				<th width="8%" style="text-align: center;">职务</th>
+				<th width="10%" style="text-align: center;">国家</th>
+				<th width="17%" style="text-align: center;">职务</th>
 				<!-- 				<th width="8%" style="text-align:center;">证明人</th> -->
 				<th width="15%" style="text-align: center;">操作</th>
 			</tr>

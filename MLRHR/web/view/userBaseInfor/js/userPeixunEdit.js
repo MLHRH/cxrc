@@ -19,12 +19,12 @@ function userPeixunEditSave() {
 					"value" : $("#user_peixun_end_date").val()
 				});
 		arrData.push({
-					"name" : "content",
-					"value" : $("#user_peixun_content").val()
+					"name" : "major",
+					"value" : $("#user_peixun_major").val()
 				});
 		arrData.push({
-					"name" : "place",
-					"value" : $("#user_peixun_place").val()
+					"name" : "country",
+					"value" : $("#user_peixun_country").val()
 				});
 		arrData.push({
 					"name" : "zhengmingren",
@@ -37,8 +37,8 @@ function userPeixunEditSave() {
 					});
 		if ($("#user_peixun_xuewei").val() != "-1")
 			arrData.push({
-						"name" : "xuewei",
-						"value" : $("#user_peixun_xuewei").val()
+						"name" : "academy",
+						"value" : $("#user_peixun_academy").val()
 					});
 		if ($("#user_peixun_xueli").val() != "-1")
 			arrData.push({
@@ -96,10 +96,7 @@ function validateuserPeixunEdit() {
 		generatenoty('center', "请选择学制类型", 'error');
 		return false;
 	}
-	if ($("#user_peixun_xuewei").val() == "-1") {
-		generatenoty('center', "请选择学位类型", 'error');
-		return false;
-	}
+	
 	if ($("#user_peixun_xueli").val() == "-1") {
 		generatenoty('center', "请选择学历类型", 'error');
 		return false;
