@@ -25,7 +25,7 @@ function initjcqnDoc04() {
 	
 }
 
-function jcqnDoc04Update() {
+function updatejcqnDoc04() {
 	var arrData = new Array();
 	arrData.push({
 		"name" : "userId",

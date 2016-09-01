@@ -1,19 +1,8 @@
+/.svn/
+/com/
+/org/
+/test/
 <<<<<<< HEAD
-/com/
-/org/
-=======
-/.svn/
-/com/
-/org/
-/test/
-/.svn/
-/com/
-/org/
-/test/
-/.svn/
-/com/
-/org/
-/test/
 >>>>>>> 5fc414f675f92b84f2feb4875b4e711e017d5979
 /com/
 /com/
@@ -155,3 +144,5 @@
 /com/
 /com/
 /com/
+=======
+>>>>>>> 30ce8ca2ac8ebc686decd05406efa63d82300fb0

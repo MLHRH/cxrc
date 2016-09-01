@@ -51,13 +51,14 @@ function getData() {
 				"value" : status
 			});
 	arrData.push({
-				"name" : "apply_name",
-				"value" : $("#apply_name").val()
-			});
-	arrData.push({
-				"name" : "apply_type",
-				"value" : $("#apply_type").val()
-			});
+		"name" : "apply_type",
+		"value" : $("#apply_type").val()
+	});
+//	arrData.push({
+//				"name" : "apply_name",
+//				"value" : $("#apply_name").val()
+//			});
+
 	/*
 	 * arrData.push({ "name" : "apply_rank", "value" : $("#apply_rank").val()
 	 * });
@@ -78,38 +79,38 @@ function initHrstatisticPie(list) {
 	var arrData1 = 0;
 	var arrData2 = 0;
 	var arrData3 = 0;
-	var arrData1_2 = 0;
-	var arrData2_2 = 0;
-	var arrData3_2 = 0;
-	var arrData4_2 = 0;
+//	var arrData1_2 = 0;
+//	var arrData2_2 = 0;
+//	var arrData3_2 = 0;
+//	var arrData4_2 = 0;
 
 	if (list.length > 0) {
 		for (var i = 0; i < list.length; i++) {
-			switch (list[i].apply_name) {
-				case "杰出青年" :
+			switch (list[i].apply_type) {
+				case "0" :
 					arrData1++;
 					break;
-				case "创新团队" :
+				case "1" :
 					arrData2++;
 					break;
-				case "科技领军人物" :
+				case "2" :
 					arrData3++;
 					break;
 			}
-			switch (list[i].apply_type) {
-				case "基础地质" :
-					arrData1_2++;
-					break;
-				case "矿产地质" :
-					arrData2_2++;
-					break;
-				case "水工环" :
-					arrData3_2++;
-					break;
-				case "技术方法" :
-					arrData4_2++;
-					break;
-			}
+//			switch (list[i].apply_name) {
+//				case "基础地质" :
+//					arrData1_2++;
+//					break;
+//				case "矿产地质" :
+//					arrData2_2++;
+//					break;
+//				case "水工环" :
+//					arrData3_2++;
+//					break;
+//				case "技术方法" :
+//					arrData4_2++;
+//					break;
+//			}
 		}
 	}
 
@@ -125,19 +126,19 @@ function initHrstatisticPie(list) {
 			}
 
 	];
-	var paidData01_2 = [{
-				value : arrData1_2,
-				color : "#3D8E3F"
-			}, {
-				value : arrData2_2,
-				color : "#F09E14"
-			}, {
-				value : arrData3_2,
-				color : "#018080"
-			}, {
-				value : arrData4_2,
-				color : "#0180FE"
-			}];
+//	var paidData01_2 = [{
+//				value : arrData1_2,
+//				color : "#3D8E3F"
+//			}, {
+//				value : arrData2_2,
+//				color : "#F09E14"
+//			}, {
+//				value : arrData3_2,
+//				color : "#018080"
+//			}, {
+//				value : arrData4_2,
+//				color : "#0180FE"
+//			}];
 
 	var myDoughnut = new Chart(document.getElementById("pie").getContext("2d")).Doughnut(paidData01);
 	$("#pie").attr("width", "250");
@@ -147,14 +148,14 @@ function initHrstatisticPie(list) {
 	$("#arrData2").html(arrData2);
 	$("#arrData3").html(arrData3);
 
-	var myDoughnut_2 = new Chart(document.getElementById("pie_2").getContext("2d")).Doughnut(paidData01_2);
-	$("#pie_2").attr("width", "250");
-	$("#pie_2").attr("height", "200");
-
-	$("#arrData1_2").html(arrData1_2);
-	$("#arrData2_2").html(arrData2_2);
-	$("#arrData3_2").html(arrData3_2);
-	$("#arrData4_2").html(arrData4_2);
+//	var myDoughnut_2 = new Chart(document.getElementById("pie_2").getContext("2d")).Doughnut(paidData01_2);
+//	$("#pie_2").attr("width", "250");
+//	$("#pie_2").attr("height", "200");
+//
+//	$("#arrData1_2").html(arrData1_2);
+//	$("#arrData2_2").html(arrData2_2);
+//	$("#arrData3_2").html(arrData3_2);
+//	$("#arrData4_2").html(arrData4_2);
 }
 
 function setStatus(sta) {
@@ -206,8 +207,8 @@ function exportDoc07() {
 				"value" : status
 			});
 	arrData.push({
-				"name" : "apply_name",
-				"value" : $("#apply_name").val()
+				"name" : "apply_type",
+				"value" : $("#apply_type").val()
 			});
 	arrData.push({
 				"name" : "apply_rank",

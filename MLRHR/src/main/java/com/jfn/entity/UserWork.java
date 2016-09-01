@@ -19,7 +19,7 @@ public class UserWork {
 
 
 	private String end_date;
-	private String job;
+	private String country;
 	private String toNow;
 	
 	public String getToNow() {
@@ -64,12 +64,13 @@ public class UserWork {
 	public void setEnd_date(String end_date) {
 		this.end_date = end_date;
 	}
-	public String getJob() {
-		return job;
+	public String getCountry() {
+		return country;
 	}
-	public void setJob(String job) {
-		this.job = job;
+	public void setCountry(String country) {
+		this.country = country;
 	}
+
 
 
 	

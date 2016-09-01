@@ -69,9 +69,9 @@
 						</td>
 					</tr>
 					<tr align="center">
-						<td class="td_Left">从事工作：</td>
+						<td class="td_Left">国&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp家：</td>
 						<td class="td_Right">
-							<input type="text" id="user_work_job" value="${user_work.job}" />
+							<input type="text" id="user_work_country" value="${user_work.country}" />
 						</td>
 					</tr>
 					<tr align="center">

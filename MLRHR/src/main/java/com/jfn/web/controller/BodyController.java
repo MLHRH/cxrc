@@ -177,7 +177,7 @@ public class BodyController {
 		String endDate = request.getParameter("endDate");
 		String body_id = request.getParameter("body_id");
 		String status = request.getParameter("status");
-		String apply_name = request.getParameter("apply_name");
+//		String apply_name = request.getParameter("apply_name");
 		String apply_type = request.getParameter("apply_type");
 
 		ArrayList<User> userListNew = new ArrayList<User>();
@@ -194,13 +194,13 @@ public class BodyController {
 				for (User user : userList) {
 					List<ZhichengApply> zhichengApplylist = zhichengapplyservice.getUserByUserIdAndDate(user.getId(), startDate, endDate);
 					if (zhichengApplylist.size() != 0) {
-						if (apply_name.equals("-1") || zhichengApplylist.get(0).getApply_name().equals(apply_name)) {
+//						if (apply_name.equals("-1") || zhichengApplylist.get(0).getApply_name().equals(apply_name)) {
 							if (apply_type.equals("-1") || zhichengApplylist.get(0).getApply_type().equals(apply_type)) {
 								if ((zhichengApplylist.get(0)).getStatus().equals(status)) {
 									userListNew.add(user);
 									zhichengApplylistNew.add(zhichengApplylist.get(0));
 								}
-							}
+//							}
 						}
 					}
 				}

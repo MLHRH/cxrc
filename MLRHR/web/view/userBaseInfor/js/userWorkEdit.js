@@ -24,8 +24,8 @@ function userWorkEditSave() {
 					"value" : $("#user_work_work_content").val()
 				});
 		arrData.push({
-					"name" : "job",
-					"value" : $("#user_work_job").val()
+					"name" : "country",
+					"value" : $("#user_work_country").val()
 				});
 		arrData.push({
 					"name" : "zhiwu",

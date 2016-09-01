@@ -30,12 +30,12 @@
 			<tr>
 				<th width="5%" style="text-align: center;">开始时间</th>
 				<th width="5%" style="text-align: center;">结束时间</th>
-				<th width="16%" style="text-align: center;">专业或主要内容</th>
-				<th width="15%" style="text-align: center;">学习地点</th>
+				<th width="16%" style="text-align: center;">专业</th>
+				<th width="10%" style="text-align: center;">国家</th>
 				<th width="10%" style="text-align: center;">证明人</th>
-				<th width="9%" style="text-align: center;">学制</th>
-				<th width="9%" style="text-align: center;">学位</th>
-				<th width="9%" style="text-align: center;">学历</th>
+				<th width="7%" style="text-align: center;">学制</th>
+				<th width="15%" style="text-align: center;">院校</th>
+				<th width="9%" style="text-align: center;">学历/学位</th>
 				<th width="10%" style="text-align: center;">是否最高学历</th>
 				<th width="15%" style="text-align: center;">操作</th>
 			</tr>

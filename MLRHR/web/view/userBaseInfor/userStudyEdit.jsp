@@ -62,7 +62,7 @@
 								<option value="4年" <c:if test="${user_study.xuezhi == '4年'}">selected</c:if>>4年</option>
 								<option value="5年" <c:if test="${user_study.xuezhi == '5年'}">selected</c:if>>5年</option>
 								<option value="6年" <c:if test="${user_study.xuezhi == '6年'}">selected</c:if>>6年</option>
-								<option value="其它" <c:if test="${user_study.xuewei == '其它'}">selected</c:if>>其它</option>
+								<option value="其它" <c:if test="${user_study.xuezhi == '其它'}">selected</c:if>>其它</option>
 							</select>
 						</td>
 					</tr>

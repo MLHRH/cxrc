@@ -3,11 +3,11 @@ var objUser = new Object();
 var userBaseInfor_id;
 
 
-function initjcqnDoc01() {
+function initkjljDoc01() {
 	$.ajax({
 				type : 'get',
 				dataType : 'json',
-				url : 'jcqnDoc01Init?userId=' + user_id,// 请求的路径
+				url : 'kjljDoc01Init?userId=' + user_id,// 请求的路径
 				error : function() {// 请求失败处理函数
 					alert('请求失败');
 				},
@@ -87,7 +87,7 @@ function initjcqnDoc01() {
 				} 
 			});
 }
-function updatejcqnDoc01() {
+function updatekjljDoc01() {
 	arrData = new Array();
 arrData.push({
 		"name" : "name",
@@ -223,7 +223,7 @@ arrData.push({
 	$.ajax({
 				dataType : "json",
 				type : "post",
-				url : "jcqnDoc01Update",
+				url : "kjljDoc01Update",
 				data :arrData,
 				error : function() {// 请求失败处理函数
 					alert('请求失败');

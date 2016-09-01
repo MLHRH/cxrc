@@ -12,7 +12,7 @@ public class ZhichengApply {
 	private Integer user_id;
 	private String apply_date;
 	private String apply_type;
-	private String apply_name;
+//	private String apply_name;
 	private String status;
 	private String pre_approve_date;
 	private String pre_approve_id;
@@ -58,12 +58,12 @@ public class ZhichengApply {
 	public void setApply_type(String apply_type) {
 		this.apply_type = apply_type;
 	}
-	public String getApply_name() {
-		return apply_name;
-	}
-	public void setApply_name(String apply_name) {
-		this.apply_name = apply_name;
-	}
+//	public String getApply_name() {
+//		return apply_name;
+//	}
+//	public void setApply_name(String apply_name) {
+//		this.apply_name = apply_name;
+//	}
 	public String getStatus() {
 		return status;
 	}

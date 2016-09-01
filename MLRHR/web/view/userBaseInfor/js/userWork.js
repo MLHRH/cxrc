@@ -57,7 +57,7 @@ function initUserWorkDataTables(data) {
 				}, {
 					"data" : "work_content"
 				}, {
-					"data" : "job"
+					"data" : "country"
 				}, {
 					"data" : "zhiwu"
 				},
