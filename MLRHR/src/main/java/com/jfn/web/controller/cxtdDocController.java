@@ -47,11 +47,9 @@ public class cxtdDocController {
 			  if(((CxtdBaseInfo)cxtdDocService.queryCxtdDoc01(user_id).get("baseinfo")) !=null){
 				  
 		        	cxtdDocService.insertDoc01(doc01,user_id,result);
-		        	System.err.println("插入记录");
 		        }
 		        else{
 		        	cxtdDocService.updateDoc01(doc01,user_id, result);
-		        	System.err.println("更新记录");
 		        }
 		}
 		else{
