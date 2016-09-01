@@ -45,20 +45,20 @@
 						<label class="control-label" for="inputtitle">结束时间：</label>
 						<input id="enddate_buy" class="input-small search-query" name="enddate" onfocus="WdatePicker({isShowWeek:true,dateFmt:'yyyy.MM.dd'})" class="required" style="width: 75px;">
 						<label class="control-label" for="inputtitle">申报级别：</label>
-						<select id="apply_name" style="width: 100px">
+						<select id="apply_type" style="width: 100px">
 							<option value="-1">全部</option>
-							<option value="杰出青年">杰出青年</option>
-							<option value="创新团队">创新团队</option>
-							<option value="科技领军人物">科技领军人物</option>
+							<option value="0">杰出青年</option>
+							<option value="1">创新团队</option>
+							<option value="2">科技领军人物</option>
 						</select>
-						<label class="control-label" for="inputtitle">专业分组：</label>
-						<select id="apply_type" style="width: 110px">
+						<!--<label class="control-label" for="inputtitle">专业分组：</label>
+						 <select id="apply_name" style="width: 110px">
 							<option value="-1">全部</option>
 							<option value="0">基础地质</option>
 							<option value="1">矿产地质</option>
 							<option value="2">水工环</option>
 							<option value="3">技术方法</option>
-						</select>
+						</select> -->
 						<!-- 						<label class="control-label" for="inputtitle">专业级别：</label> -->
 						<!-- 						<select id="apply_rank" style="width: 110px"> -->
 						<!-- 							<option value="-1">全部</option> -->
@@ -109,7 +109,7 @@
 
 					</div>
 				</li>
-				<li class="span6">
+				<!-- <li class="span6">
 					<div class="thumbnail">
 						<div style="width: 100%; margin-bottom: 0px; margin-left: 0px; height: 300px;">
 							<div class="caption" style="float: left; margin-left: 0px">
@@ -141,7 +141,7 @@
 						</div>
 
 					</div>
-				</li>
+				</li> -->
 			</ul>
 		</div>
 

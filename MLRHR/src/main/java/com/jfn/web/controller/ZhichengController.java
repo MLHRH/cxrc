@@ -174,7 +174,7 @@ public class ZhichengController {
 	}
 
 	// 职称提交(增加、修改)
-	@RequestMapping(value = "/jcqn_zhichengApplyUpdate", method = RequestMethod.POST)
+	@RequestMapping(value = "/zhichengApplyUpdate", method = RequestMethod.POST)
 	@ResponseBody
 	public String jcqn_zhichengApplyUpdate(HttpServletRequest request, @ModelAttribute ZhichengApply entity) {
 		JsonObject jsonResponse = new JsonObject();

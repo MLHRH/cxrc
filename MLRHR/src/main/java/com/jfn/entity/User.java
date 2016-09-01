@@ -16,7 +16,7 @@ import org.springside.modules.utils.reflection.ConvertUtils;
 public class User
 {
 	private Integer id;
-	private String apply_name;
+	private String apply_type;
 	private String email;
 	private String loginName;
 	private String name;
@@ -31,12 +31,12 @@ public class User
 	@SuppressWarnings("unused")
 	private List<Integer> roleIds;
 
-	public String getApply_name() {
-		return apply_name;
+	public String getApply_type() {
+		return apply_type;
 	}
 
-	public void setApply_name(String apply_name) {
-		this.apply_name = apply_name;
+	public void setApply_type(String apply_type) {
+		this.apply_type = apply_type;
 	}
 
 	public String getZip_code() {

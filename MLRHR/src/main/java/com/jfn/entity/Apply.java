@@ -8,7 +8,7 @@ public class Apply {
 	//申请的类型
    private String apply_type;
    //申请的name
-   private String apply_name;
+//   private String apply_name;
    //申请的状态
    private String status;
    //主管单位操作时间
@@ -78,12 +78,12 @@ public String getApply_type() {
 public void setApply_type(String apply_type) {
 	this.apply_type = apply_type;
 }
-public String getApply_name() {
-	return apply_name;
-}
-public void setApply_name(String apply_name) {
-	this.apply_name = apply_name;
-}
+//public String getApply_name() {
+//	return apply_name;
+//}
+//public void setApply_name(String apply_name) {
+//	this.apply_name = apply_name;
+//}
 public String getStatus() {
 	return status;
 }

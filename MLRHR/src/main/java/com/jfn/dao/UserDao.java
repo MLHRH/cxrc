@@ -26,7 +26,7 @@ public class UserDao {
 	@Autowired
 	private JdbcTemplate jdbcTemplate;
 
-	private final String SQL_INSERT_USER = "insert into acct_user(apply_name,email,login_name,name,password,body_id,id_num,telephone,mobile,telefax,zip_code) values(?,?,?,?,?,?,?,?,?,?,?)";
+	private final String SQL_INSERT_USER = "insert into acct_user(apply_type,email,login_name,name,password,body_id,id_num,telephone,mobile,telefax,zip_code) values(?,?,?,?,?,?,?,?,?,?,?)";
 	private final String SQL_CHECK_LOGIN_NAME = "select count(id) from acct_user where login_name=?";
 	private final String SQL_INSERT_USER_NEW = "insert into acct_user(login_name,name,id_num,email,body_id,password) values(?,?,?,?,?,?)";
 	private final String SQL_Get_BY_ID = "select * from acct_user where Id=?";
@@ -79,7 +79,7 @@ public class UserDao {
 				User user = new User();
 				if (rs.next()) {
 					user.setId(rs.getInt("id"));
-					user.setApply_name(rs.getString("apply_name"));
+					user.setApply_type(rs.getString("apply_type"));
 					user.setEmail(rs.getString("email"));
 					user.setLoginName(rs.getString("login_name"));
 					user.setName(rs.getString("name"));
@@ -103,7 +103,7 @@ public class UserDao {
 				User user = new User();
 				if (rs.next()) {
 					user.setId(rs.getInt("id"));
-					user.setApply_name(rs.getString("apply_name"));
+					user.setApply_type(rs.getString("apply_type"));
 					user.setEmail(rs.getString("email"));
 					user.setLoginName(rs.getString("login_name"));
 					user.setName(rs.getString("name"));
@@ -163,7 +163,7 @@ public class UserDao {
 			// 对类进行封装
 			User user = new User();
 			user.setId(rs.getInt("id"));
-			user.setApply_name(rs.getString("apply_name"));
+			user.setApply_type(rs.getString("apply_type"));
 			user.setEmail(rs.getString("email"));
 			user.setLoginName(rs.getString("login_name"));
 			user.setName(rs.getString("name"));
@@ -199,7 +199,7 @@ public class UserDao {
 				User user = new User();
 				if (rs.next()) {
 					user.setId(rs.getInt("id"));
-					user.setApply_name(rs.getString("apply_name"));
+					user.setApply_type(rs.getString("apply_type"));
 					user.setEmail(rs.getString("email"));
 					user.setLoginName(rs.getString("login_name"));
 					user.setName(rs.getString("name"));

@@ -19,9 +19,9 @@ public class ZhichengApplyDao {
 	@Autowired
 	private JdbcTemplate jdbcTemplate;
 
-	private final String SQL_INSERT_Apply = "insert into apply(user_id,apply_date,apply_type,apply_name,status,"
+	private final String SQL_INSERT_Apply = "insert into apply(user_id,apply_date,apply_type,status,"
 			+ "pre_approve_date,pre_approve_id,pre_approve_sug,finial_approve_date,finial_approve_id,"
-			+ "finial_approve_sug,expert1_date,expert1_id,expert1_score,expert1_sug,expert2_date,expert2_id,expert2_score,expert2_sug) values(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
+			+ "finial_approve_sug,expert1_date,expert1_id,expert1_score,expert1_sug,expert2_date,expert2_id,expert2_score,expert2_sug) values(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
 
 	private final String SQL_Get_BY_ID = "select * from apply where Id=?";
 	private final String SQL_GET_Apply_LIST = "select * from apply order by apply_date desc ";
@@ -29,14 +29,14 @@ public class ZhichengApplyDao {
 	private final String SQL_GET_Apply_LIST_By_UserID = "select * from apply where user_id=? order by apply_date desc ";
 	private final String SQL_GET_Apply_LIST_By_UserIDAndDate = "select * from apply where user_id=? and ( apply_date between ? and ?)  order by apply_date desc ";
 
-	private final String SQL_SET_Apply_UPDATE = "update apply set user_id=?,apply_date = ?,apply_type = ?,apply_name = ?,status = ?,pre_approve_date = ?,pre_approve_id = ?,pre_approve_sug = ?,finial_approve_date=?,finial_approve_id = ?,finial_approve_sug = ?,expert1_date = ?,expert1_id = ?,expert1_score = ?,expert1_sug = ?,expert2_date = ?,expert2_id = ?,expert2_score = ?,expert2_sug = ? where id=?";
+	private final String SQL_SET_Apply_UPDATE = "update apply set user_id=?,apply_date = ?,apply_type = ?,status = ?,pre_approve_date = ?,pre_approve_id = ?,pre_approve_sug = ?,finial_approve_date=?,finial_approve_id = ?,finial_approve_sug = ?,expert1_date = ?,expert1_id = ?,expert1_score = ?,expert1_sug = ?,expert2_date = ?,expert2_id = ?,expert2_score = ?,expert2_sug = ? where id=?";
 
 	private final static String SQL_DEL_BY_ID = "delete from apply where id = ?";
 
 	public boolean insert(ZhichengApply Apply) {
 		return jdbcTemplate.update(
 				SQL_INSERT_Apply,
-				new Object[] { Apply.getUser_id(),Apply.getApply_date(),Apply.getApply_type(), Apply.getApply_name(),
+				new Object[] { Apply.getUser_id(),Apply.getApply_date(),Apply.getApply_type(), 
 						Apply.getStatus(),new Date(),  Apply.getPre_approve_id(),Apply.getPre_approve_sug(),new Date(), Apply.getFinial_approve_id(),
 						Apply.getFinial_approve_sug(),new Date(),Apply.getExpert1_id(),Apply.getExpert1_score(),Apply.getExpert1_sug(),new Date(),Apply.getExpert2_id(),Apply.getExpert2_score(),Apply.getExpert2_sug() }) == 1;
 	}
@@ -49,7 +49,7 @@ public class ZhichengApplyDao {
 				if (rs.next()) {
 					zhichengApply.setId(rs.getInt("id"));
 					zhichengApply.setApply_type(rs.getString("apply_type"));
-					zhichengApply.setApply_name(rs.getString("apply_name"));
+//					zhichengApply.setApply_name(rs.getString("apply_name"));
 					zhichengApply.setUser_id(rs.getInt("user_id"));
 
 					// 下面是截取时间，例：2014-09-15 18:55:50.275 最后.275去掉。
@@ -106,7 +106,7 @@ public class ZhichengApplyDao {
 	 */
 
 	public boolean Update(ZhichengApply zhichengApply) {
-		Object[] params = new Object[] { zhichengApply.getApply_type(), zhichengApply.getApply_name(), zhichengApply.getUser_id(),
+		Object[] params = new Object[] { zhichengApply.getApply_type(), zhichengApply.getUser_id(),
 				zhichengApply.getApply_date(), zhichengApply.getStatus(), zhichengApply.getPre_approve_id(), zhichengApply.getPre_approve_date(), zhichengApply.getPre_approve_sug(),
 				zhichengApply.getFinial_approve_id(), zhichengApply.getFinial_approve_date(), zhichengApply.getFinial_approve_sug(),zhichengApply.getId() };
 		return jdbcTemplate.update(SQL_SET_Apply_UPDATE, params) == 1;
@@ -132,7 +132,7 @@ public class ZhichengApplyDao {
 			ZhichengApply zhichengApply = new ZhichengApply();
 			zhichengApply.setId(rs.getInt("id"));
 			zhichengApply.setApply_type(rs.getString("apply_type"));
-			zhichengApply.setApply_name(rs.getString("apply_name"));
+//			zhichengApply.setApply_name(rs.getString("apply_name"));
 			zhichengApply.setUser_id(rs.getInt("user_id"));
 
 			// 下面是截取时间，例：2014-09-15 18:55:50.275 最后.275去掉。
