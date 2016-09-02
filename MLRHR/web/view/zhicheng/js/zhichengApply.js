@@ -315,12 +315,12 @@ function zhichengApplyUpdate() {
 				});
 		arrData.push({
 					"name" : "apply_type",
-					"value" : $("#zhichengType").val()
+					"value" : $("#apply_type").val()
 				});
-		arrData.push({
-					"name" : "apply_isbreak",
-					"value" : $("#zhichengIsbreak").val()
-				});
+//		arrData.push({
+//					"name" : "apply_isbreak",
+//					"value" : $("#zhichengIsbreak").val()
+//				});
 		arrData.push({
 					"name" : "status",
 					"value" : status
@@ -480,17 +480,17 @@ function getDocList(){
 		'<li id="cxtdDoc06"><a href="javascript:void(0)">6. 承诺与推荐意见</a><br></li>'+
 		'<li id="cxtdDoc06"><a href="javascript:void(0)">7. 报送材料明细</a></li></ul>'
 	$('#orderedlist').remove();
-	if( type == "jcqn"){
+	if( type == "杰出青年"){
 		$('#nav').append(jcqn_list);
-		$('#zhichengType').val("杰出青年");
+		$('#apply_type').val("杰出青年");
 	}
-	if( type == "kjlj"){
+	if( type == "科技领军"){
 		$('#nav').append(kjlj_list);
-		$('#zhichengType').val("科技领军");
+		$('#apply_type').val("科技领军");
 	}
-	if( type == "cxtd"){
+	if( type == "创新团队"){
 		$('#nav').append(cxtd_list);
-		$('#zhichengType').val("创新型团队");
+		$('#apply_type').val("创新团队");
 	}
 }
 function applyMenu() {

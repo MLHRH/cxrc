@@ -87,13 +87,13 @@ function initHrstatisticPie(list) {
 	if (list.length > 0) {
 		for (var i = 0; i < list.length; i++) {
 			switch (list[i].apply_type) {
-				case "0" :
+				case "杰出青年" :
 					arrData1++;
 					break;
-				case "1" :
+				case "创新团队" :
 					arrData2++;
 					break;
-				case "2" :
+				case "科技领军" :
 					arrData3++;
 					break;
 			}

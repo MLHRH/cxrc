@@ -115,11 +115,11 @@ body {
 					<strong>申请类别：</strong>
 				</span>
 				<select id="apply_type" name="apply_type" style="width: 150px;" onchange="applyMenu()">
-					<option value="jcqn" ${type =='jcqn' ?'selected':''}>杰出青年</option>
-					<option value="kjlj" ${type =='kjlj' ?'selected':''}>科技领军</option>
-					<option value="cxtd" ${type =='cxtd' ?'selected':''}>创新型团队</option>
+					<option value="杰出青年" ${type =='杰出青年' ?'selected':''}>杰出青年</option>
+					<option value="科技领军" ${type =='科技领军' ?'selected':''}>科技领军</option>
+					<option value="创新团队" ${type =='创新团队' ?'selected':''}>创新团队</option>
 				</select>
-				<input type="hidden" id="zhichengType">
+			<!-- 	<input type="hidden" id="zhichengType"> -->
 				<span class="text-error isUSER" style="font-size: 20px; margin-left: 18px;">
 					<strong>当前状态：</strong>
 				</span>

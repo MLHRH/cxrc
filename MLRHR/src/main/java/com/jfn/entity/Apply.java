@@ -1,6 +1,7 @@
 package com.jfn.entity;
 
 public class Apply {
+	private int id;
 	//用户ID
 	private Integer user_id;
 	//申请时间
@@ -30,7 +31,7 @@ public class Apply {
    //初审专家ID
    private String expert1_id;
    //初审专家平均分
-   private String expert1_scroe;
+   private String expert1_score;
    //初审专家意见
    private String expert1_sug;
    //复审专家操作时间
@@ -42,6 +43,12 @@ public class Apply {
    //复审专家意见
    private String expert2_sug;
 
+public int getId() {
+	return id;
+}
+public void setId(int id) {
+	this.id = id;
+}
 public String getExpert2_date() {
 	return expert2_date;
 }
@@ -126,11 +133,12 @@ public String getExpert1_id() {
 public void setExpert1_id(String expert1_id) {
 	this.expert1_id = expert1_id;
 }
-public String getExpert1_scroe() {
-	return expert1_scroe;
+
+public String getExpert1_score() {
+	return expert1_score;
 }
-public void setExpert1_scroe(String expert1_scroe) {
-	this.expert1_scroe = expert1_scroe;
+public void setExpert1_score(String expert1_score) {
+	this.expert1_score = expert1_score;
 }
 public String getExpert1_sug() {
 	return expert1_sug;

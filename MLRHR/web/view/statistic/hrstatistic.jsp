@@ -47,9 +47,9 @@
 						<label class="control-label" for="inputtitle">申报级别：</label>
 						<select id="apply_type" style="width: 100px">
 							<option value="-1">全部</option>
-							<option value="0">杰出青年</option>
-							<option value="1">创新团队</option>
-							<option value="2">科技领军人物</option>
+							<option value="杰出青年">杰出青年</option>
+							<option value="创新团队">创新团队</option>
+							<option value="科技领军">科技领军</option>
 						</select>
 						<!--<label class="control-label" for="inputtitle">专业分组：</label>
 						 <select id="apply_name" style="width: 110px">
@@ -100,7 +100,7 @@
 									人
 								</div>
 								<div style="margin: 20px; line-height: 30px;">
-									科技领军人物
+									科技领军
 									<span id="arrData3" class="label label-info"></span>
 									人
 								</div>

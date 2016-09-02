@@ -7,9 +7,6 @@ import java.util.Set;
 
 import javax.servlet.http.HttpServletRequest;
 
-import net.sf.json.JSONArray;
-import net.sf.json.JSONObject;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.context.SecurityContextImpl;
@@ -23,10 +20,11 @@ import org.springframework.web.servlet.ModelAndView;
 import org.springside.modules.security.springsecurity.SpringSecurityUtils;
 
 import com.google.gson.JsonObject;
+import com.jfn.entity.Apply;
 import com.jfn.entity.ApplyMenu;
 import com.jfn.entity.Role;
 import com.jfn.entity.User;
-import com.jfn.entity.ZhichengApply;
+
 import com.jfn.service.AccountManager;
 import com.jfn.service.ApplyMenuService;
 import com.jfn.service.BodyService;
@@ -38,6 +36,9 @@ import com.jfn.service.UserProjectService;
 import com.jfn.service.UserService;
 import com.jfn.service.UserWorkService;
 import com.jfn.service.ZhichengApplyService;
+
+import net.sf.json.JSONArray;
+import net.sf.json.JSONObject;
 
 @Controller
 @RequestMapping("/")
@@ -110,7 +111,7 @@ public class ZhichengController {
 	@ResponseBody
 	public String zhichengApplylistInit(HttpServletRequest request, Model model) {
 		String userId = request.getParameter("userId");
-		List<ZhichengApply> list = zhichengapplyservice.getAllByUserId(Integer.parseInt(userId));
+		List<Apply> list = zhichengapplyservice.getAllByUserId(Integer.parseInt(userId));
 
 		String authority = "";
 		SecurityContextImpl securityContextImpl = (SecurityContextImpl) request.getSession().getAttribute("SPRING_SECURITY_CONTEXT");
@@ -126,7 +127,7 @@ public class ZhichengController {
 		String starDate = calendar.getStart_date();
 		String endDate = calendar.getEnd_date();
 		if (list.size() > 0) {
-			ZhichengApply zhichengapply = list.get(0);
+			Apply zhichengapply = list.get(0);
 			if (zhichengapply.getApply_date().compareTo(starDate) > 0 && zhichengapply.getApply_date().compareTo(endDate) > 0) {
 				jo3.put("hasOne", "1");
 			} else {
@@ -147,13 +148,13 @@ public class ZhichengController {
 		User user = accountManager.findUserByLoginName(SpringSecurityUtils.getCurrentUserName());
 
 		List<Role> myrole = accountManager.getUserRole(user.getId());
-		Set<ZhichengApply> ZhichengApplySet = new LinkedHashSet<ZhichengApply>();
+		Set<Apply> ZhichengApplySet = new LinkedHashSet<Apply>();
 		for (Role roleobj : myrole) {
 			if (roleobj.getName().equals("DepartHR")) {
 				List<User> userlist = uservice.getAllByBodyId(user.getBody_id());
 				for (User userobj : userlist) {
-					List<ZhichengApply> UserZhichengApplylist = zervice.getAllByUserId(userobj.getId());
-					for (ZhichengApply ZhichengApplyobj : UserZhichengApplylist) {
+					List<Apply> UserZhichengApplylist = zervice.getAllByUserId(userobj.getId());
+					for (Apply ZhichengApplyobj : UserZhichengApplylist) {
 						ZhichengApplySet.add((ZhichengApplyobj));
 					}
 				}
@@ -162,8 +163,8 @@ public class ZhichengController {
 				ZhichengApplySet.clear();
 				List<User> userlist = uservice.getAll();
 				for (User userobj : userlist) {
-					List<ZhichengApply> UserZhichengApplylist = zervice.getAllByUserId(userobj.getId());
-					for (ZhichengApply ZhichengApplyobj : UserZhichengApplylist) {
+					List<Apply> UserZhichengApplylist = zervice.getAllByUserId(userobj.getId());
+					for (Apply ZhichengApplyobj : UserZhichengApplylist) {
 						ZhichengApplySet.add((ZhichengApplyobj));
 					}
 				}
@@ -176,7 +177,7 @@ public class ZhichengController {
 	// 职称提交(增加、修改)
 	@RequestMapping(value = "/zhichengApplyUpdate", method = RequestMethod.POST)
 	@ResponseBody
-	public String jcqn_zhichengApplyUpdate(HttpServletRequest request, @ModelAttribute ZhichengApply entity) {
+	public String jcqn_zhichengApplyUpdate(HttpServletRequest request, @ModelAttribute Apply entity) {
 		JsonObject jsonResponse = new JsonObject();
 		int result = 0;// 0:fail;1:success
 		String msg = "Failed to %s this zhicheng";
@@ -237,7 +238,7 @@ public class ZhichengController {
 		JSONArray jsonArray = new JSONArray();
 		String id = request.getParameter("id");
 		if ((id != null) && (id.length() >= 1)) {
-			ZhichengApply zhichengapply = zhichengapplyservice.getById(id);
+			Apply zhichengapply = zhichengapplyservice.getById(id);
 			jsonArray.add(zhichengapply);
 			jsonArray.add(jo3);
 			return jsonArray.toString();
