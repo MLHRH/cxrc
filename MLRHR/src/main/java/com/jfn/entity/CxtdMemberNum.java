@@ -106,6 +106,16 @@ public class CxtdMemberNum {
 	public void setX_orther(Integer x_orther) {
 		this.x_orther = x_orther;
 	}
+	@Override
+	public String toString() {
+		return "CxtdMemberNum [id=" + id + ", num=" + num + ", team_id="
+				+ team_id + ", age_56=" + age_56 + ", age_46_55=" + age_46_55
+				+ ", age_36_45=" + age_36_45 + ", age_35=" + age_35
+				+ ", gaokji=" + gaokji + ", fugao=" + fugao + ", zhongji="
+				+ zhongji + ", z_orther=" + z_orther + ", boshi=" + boshi
+				+ ", shuoshi=" + shuoshi + ", benke=" + benke + ", x_orther="
+				+ x_orther + "]";
+	}
 
 
 }

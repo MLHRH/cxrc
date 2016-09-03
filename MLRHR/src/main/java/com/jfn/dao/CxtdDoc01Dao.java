@@ -26,7 +26,7 @@ public class CxtdDoc01Dao {
 	private final String SQL_UPDATE_BASE = "update cxtd_base_info set team_name=?,research_direction=?,subordinate_subject1=?,subordinate_subject2=?,"
 				+"project_type=?,project_name=?,project_source=?,unit_name=?,organization_code=?,legal_representative=?,competent_department=?,unit_addresses=?,"
 				+"zip_code=?,contacts=?,mobile_phone=?,email=?,fax=?,telephone=? where user_id=?";
-	private final String SQL_INSERT_BASE = "insert into cxtd_base_info( team_id,team_name,research_direction,subordinate_subject1,subordinate_subject2,"
+	private final String SQL_INSERT_BASE = "insert into cxtd_base_info( user_id,team_id,team_name,research_direction,subordinate_subject1,subordinate_subject2,"
 				+"project_type,orther,project_name,project_source,unit_name,organization_code,legal_representative,competent_department,unit_addresses,"
 				+"zip_code,contacts,mobile_phone,email,fax,telephone) values(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
 	//团队负责人信息
@@ -58,10 +58,19 @@ public class CxtdDoc01Dao {
 	 * @param user_id
 	 * @return
 	 */
-	public int getTimeId(int user_id) {
-		  
-		  int team_id = jdbcTemplate.queryForInt(SQL_SELECT_TIME,new Object[]{user_id});
-		  return team_id;
+	public Integer getTimeId(int user_id) {
+		Integer team_id = null;
+		try {
+			 team_id = jdbcTemplate.queryForInt(SQL_SELECT_TIME,new Object[]{user_id});
+		} catch (Exception e) {
+			if(team_id == null){
+				 String sql = "insert into user_team(userid) values('"+user_id+"')";
+					jdbcTemplate.update(sql);
+			 team_id = jdbcTemplate.queryForInt(SQL_SELECT_TIME,new Object[]{user_id});
+			 }
+			System.err.println("创建团队ID");
+		}
+		 return team_id;
 		
 	}
 	/**
@@ -156,6 +165,7 @@ public class CxtdDoc01Dao {
 		jdbcTemplate.update(sql);
 		int teamid = jdbcTemplate.queryForInt("select id from user_team where userid ="+user_id);
 		Object[] params =new Object[]{
+				user_id,
 				teamid,
 				baseinfo.getTeamName(),
 				baseinfo.getResearchDirection(),
@@ -192,6 +202,7 @@ public class CxtdDoc01Dao {
 					public CxtdLeaderInfo extractData(ResultSet rs) throws SQLException, DataAccessException {
 						CxtdLeaderInfo LeaderInfo = new CxtdLeaderInfo();
 						while (rs.next()) {
+							LeaderInfo.setId(rs.getInt("id"));
 							LeaderInfo.setName(rs.getString("name"));
 							LeaderInfo.setSex(rs.getString("sex"));
 							LeaderInfo.setCountry(rs.getString("country"));
@@ -339,6 +350,7 @@ public class CxtdDoc01Dao {
 						public CxtdMemberNum extractData(ResultSet rs) throws SQLException, DataAccessException {
 							CxtdMemberNum num = new CxtdMemberNum();
 							while (rs.next()) {
+								num.setId(rs.getInt("id"));
 								num.setTeam_id(rs.getInt("team_id"));
 								num.setNum(rs.getInt("num"));
 								num.setAge_56(rs.getInt("age_56"));

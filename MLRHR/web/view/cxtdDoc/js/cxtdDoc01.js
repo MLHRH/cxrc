@@ -1,83 +1,124 @@
+//组织期刊的记录条数
+var index_zuzhi = 0;
+//团队成员记录条数
+var index_meminfo = 0;
 //初始化DOC01
 function initcxtdDoc01(){
+	alert("ajax");
 	$.ajax({
 		type : 'get',
 		dataType : 'json',
-		// 请求的路径
-		url : 'cxtdDoc01Init?userId=' + user_id,
-		// 请求失败处理函数
+		url : 'cxtdDoc01Init',
 		error : function() {
-			
+			alert("connect error!");
 		},
 		// 请求成功后处理函数。
 		success : function(data) { 
-			var myDate = new Date();
-			var year = myDate.getFullYear();
-			var month = myDate.getMonth() + 1;
-			var day = myDate.getDate();
-			$('#teamName').val(data[0].teamName);
-			$('#sub_dir').val(data[0].researchDirection);
-			$('#sub_1').val(data[0].subordinateSubject1);
-			$('#sub_2').val(data[0].subordinateSubject2);
-			$('#other').val(data[0].orther);
-			$('#project_name').val(data[0].projectName);
-			$('#project_from').val(data[0].projectSource);
-			$('#unit_name').val(data[0].unitName);
-			$('#org_code').val(data[0].organizationCode);
-			$('#legal_rep').val(data[0].legalRepresentative);
-			$('#competent_dep').val(data[0].competentDepartment);
-			$('#unit_add').val(data[0].unitAddresses);
-			$('#zip_code').val(data[0].zipCode);
-			$('#contacts').val(data[0].contacts);
-			$('#mobile_phone').val(data[0].mobilePhone);
-			$('#t_email').val(data[0].email);
-			$('#fax').val(data[0].fax);
-			$('#telephone').val(data[0].telephone);
-			$('#teamID').val(data[0].teamId)
-			$('#nationality').val(data[1].country);
-			$('#userName').val(data[1].name);
-			$('#sex').val(data[1].sex);
-			$('#national').val(data[1].minzu);
-			$('#technical_position').val(data[1].position);
-			$('#birthday').val(data[1].birthday);
-			$('#document_type').val(data[1].documentType);
-			$('#Id').val(data[1].documentNumber);
-			$('#professional_direction').val(data[1].direction);
-			$('#subject1').val(data[1].subordinateSubject1);
-			$('#subject2').val(data[1].subordinateSubject2);
-			$('#address').val(data[1].addresses);
-			$('#zip_code').val(data[1].zipCode);
-			$('#fax').val(data[1].telephoneFax);
-			$('#phone').val(data[1].mobilePhone);
-			$('#email').val(data[1].email);
-			/*$('#oj_name1').val(data[1].journalTitle1);
-			$('#oj_position1').val(data[1].organizationPosition1);
-			$('#oj_term1').val(data[1].organizationTerm1);
-			$('#oj_name2').val(data[1].journalTitle2);
-			$('#oj_position2').val(data[1].organizationPosition2);
-			$('#oj_term2').val(data[1].organizationTerm2);*/
-			for(var i = 0 ;i < data[2].length;i++){
-				$('#work_country'+(i+1)).val(data[2][i].country);
-				$('#work_institution'+(i+1)).val(data[2][i].body);
-				$('#work_position'+(i+1)).val(data[2][i].position);
-				$('#work_start_date'+(i+1)).val(data[2][i].start_time);
-				$('#work_end_date'+(i+1)).val(data[2][i].end_time);
+			//team baseinfo
+			$('#baseinfoid').val(data.baseinfo.id);
+			$('#teamName').val(data.baseinfo.teamName);
+			$('#sub_dir').val(data.baseinfo.researchDirection);
+			$('#sub_1').val(data.baseinfo.subordinateSubject1);
+			$('#sub_2').val(data.baseinfo.subordinateSubject2);
+			$('#other').val(data.baseinfo.orther);
+			$('#project_name').val(data.baseinfo.projectName);
+			$('#project_from').val(data.baseinfo.projectSource);
+			$('#unit_name').val(data.baseinfo.unitName);
+			$('#org_code').val(data.baseinfo.organizationCode);
+			$('#legal_rep').val(data.baseinfo.legalRepresentative);
+			$('#competent_dep').val(data.baseinfo.competentDepartment);
+			$('#unit_add').val(data.baseinfo.unitAddresses);
+			$('#zip_code').val(data.baseinfo.zipCode);
+			$('#contacts').val(data.baseinfo.contacts);
+			$('#mobile_phone').val(data.baseinfo.mobilePhone);
+			$('#t_email').val(data.baseinfo.email);
+			$('#fax').val(data.baseinfo.fax);
+			$('#telephone').val(data.baseinfo.telephone);
+			$('#teamID').val(data.baseinfo.teamId)
+			//team leader
+			$('#leaderinfoid').val(data.leaderinfo.id);
+			$('#nationality').val(data.leaderinfo.country);
+			$('#userName').val(data.leaderinfo.name);
+			$('#sex').val(data.leaderinfo.sex);
+			$('#national').val(data.leaderinfo.minzu);
+			$('#technical_position').val(data.leaderinfo.position);
+			$('#birthday').val(data.leaderinfo.birthday);
+			$('#document_type').val(data.leaderinfo.documentType);
+			$('#Id').val(data.leaderinfo.documentNumber);
+			$('#professional_direction').val(data.leaderinfo.direction);
+			$('#subject1').val(data.leaderinfo.subordinateSubject1);
+			$('#subject2').val(data.leaderinfo.subordinateSubject2);
+			$('#address').val(data.leaderinfo.addresses);
+			$('#zip_code').val(data.leaderinfo.zipCode);
+			$('#fax').val(data.leaderinfo.telephoneFax);
+			$('#phone').val(data.leaderinfo.mobilePhone);
+			$('#email').val(data.leaderinfo.email);
+			//工作经历
+			addWork(data.wlist.length);
+			for(var i = 0 ;i < (data.wlist).length;i++){
+				$('#work_country'+i).val(data.wlist[i].country);
+				$('#work_institution'+i).val(data.wlist[i].work_content);
+				$('#work_position'+i).val(data.wlist[i].zhiwu);
+				$('#work_start_date'+i).val(data.wlist[i].start_date);
+				$('#work_end_date'+i).val(data.wlist[i].end_date);
 			}
-			for(var i = 0 ;i< data[3].length;i++){
-				$('#study_country'+(i+1)).val(data[3][i].country);
-				$('#study_institution'+(i+1)).val(data[3][i].college);
-				$('#study_position'+(i+1)).val(data[3][i].major);
-				$('#study_start_date'+(i+1)).val(data[3][i].start_time);
-				$('#study_end_date'+(i+1)).val(data[3][i].end_time);
-				$('#degree'+(i+1)).val(data[3][i].degree);
+			//学习经历
+			Study(data.plist.length);
+			for(var i = 0 ;i< (data.plist).length;i++){
+				$('#study_country'+i).val(data.plist[i].country);
+				$('#study_institution'+i).val(data.plist[i].college);
+				$('#study_position'+i).val(data.plist[i].major);
+				$('#study_start_date'+i).val(data.plist[i].start_date);
+				$('#study_end_date'+i).val(data.plist[i].end_date);
+				$('#degree'+i).val(data.plist[i].degree);
 			}
-			if((data[0].projectType).indexOf("0")!=-1){
+			//学术组织期刊任职情况
+			Zhuzhi(data.zlist.length);
+			for( index_zuzhi = 0; index_zuzhi < (data.zlist).length; index_zuzhi++){
+				$('#zuzhi_id'+index_zuzhi).val(data.zlist[index_zuzhi].id);
+				$('#zuzhi_name'+index_zuzhi).val(data.zlist[index_zuzhi].name);
+				$('#zuzhi_job'+index_zuzhi).val(data.zlist[index_zuzhi].job);
+				$('#zuzhi_renqi'+index_zuzhi).val(data.zlist[index_zuzhi].renqi);
+			}
+			//成员分类统计人数
+			$('#memnumid').val(data.memnum.id);
+			$('#member_num').val(data.ememnum.num);
+			$('#age56').val(data.memnum.age_56);
+			$('#age46_55').val(data.memnum.age_46_55);
+			$('#age36_45').val(data.memnum.age_36_45);
+			$('#age35').val(data.memnum.age_35);
+			$('#gaoji').val(data.memnum.gaoji);
+			$('#fugao').val(data.memnum.fugao);
+			$('#zhongji').val(data.memnum.zhongji);
+			$('#z_orther').val(data.memnum.z_orther);
+			$('#boshi').val(data.memnum.boshi);
+			$('#shoushi').val(data.memnum.shoushi);
+			$('#benke').val(data.memnum.benke);
+			$('#x_orther').val(data.memnum.x_orther);
+			
+			//团队成员信息
+			Member(data.mlist.length);
+			for(index_meminfo = 0 ; index_meminfo<data.mlist.length; index_meminfo++){
+				$('#member_id'+index_meminfo).val(data.mlist[index_meminfo].id);
+				$('#member_name'+index_meminfo).val(data.mlist[index_meminfo].name);
+				$('#member_sex'+index_meminfo).val(data.mlist[index_meminfo].sex);
+				$('#member_birthday'+index_meminfo).val(data.mlist[index_meminfo].birthday);
+				$('#member_idtype'+index_meminfo).val(data.mlist[index_meminfo].id_type);
+				$('#member_idnum'+index_meminfo).val(data.mlist[index_meminfo].id_num);
+				$('#member_education'+index_meminfo).val(data.mlist[index_meminfo].study_education);
+				$('#member_position'+index_meminfo).val(data.mlist[index_meminfo].work_position);
+				$('#member_direction'+index_meminfo).val(data.mlist[index_meminfo].direction);
+				$('#member_company'+index_meminfo).val(data.mlist[index_meminfo].work_company);
+			}
+			
+			
+			if((data.baseinfo.projectType).indexOf("0")!=-1){
 				$('#imp_science').prop("checked",true);
 			}
-			if((data[0].projectType).indexOf("1")!=-1){
+			if((data.baseinfo.projectType).indexOf("1")!=-1){
 				$('#imp_project').prop("checked",true);
 			}
-			if((data[0].projectType).indexOf("2")!=-1){
+			if((data.baseinfo.projectType).indexOf("2")!=-1){
 				$('#orther_type').prop("checked",true);
 			}
 		}
@@ -85,14 +126,16 @@ function initcxtdDoc01(){
 	
 }
 function updatecxtdDoc01(){
-	
+	//定义对象
 	var cxtdDoc01 = {};
+	var CxtdBaseInfo = {};
+	var CxtdLeaderinfo = {};
+	var CxtdLeaderZuzhi = {};
+	var CxtdMemberInfo ={};
+	var CxtdMemNum = {};
+	var arrZuzhi = [];
+	var arrMemInfo = [];
 	var type;
-	cxtdDoc01.teamName = $('#teamName').val();
-	cxtdDoc01.researchDirection = $('#sub_dir').val();
-	cxtdDoc01.subordinateSubject1 = $('#sub_1').val();
-	cxtdDoc01.subordinateSubject2 = $('#sub_2').val();
-	
 	if($('#imp_science').is(':checked')){
 		type = "0"
 	}
@@ -103,24 +146,92 @@ function updatecxtdDoc01(){
 		type += "2"
 	}
 	
-	cxtdDoc01.projectType = type;
-	cxtdDoc01.orther = $('#other').val();
-	cxtdDoc01.projectName = $('#project_name').val();
-	cxtdDoc01.projectSource = $('#project_from').val();
-	cxtdDoc01.unitName = $('#unit_name').val();
-	cxtdDoc01.organizationCode = $('#org_code').val();
-	cxtdDoc01.legalRepresentative = $('#legal_rep').val();
-	cxtdDoc01.competentDepartment = $('#competent_dep').val();
-	cxtdDoc01.unitAddresses = $('#unit_add').val();
-	cxtdDoc01.zipCode= $('#zip_code').val();
-	cxtdDoc01.contacts = $('#contacts').val();
-	cxtdDoc01.mobilePhone = $('#mobile_phone').val();
-	cxtdDoc01.fax = $('#fax').val();
-	cxtdDoc01.email = $('#t_email').val();
-	cxtdDoc01.telephone = $('#telephone').val();
-	cxtdDoc01.teamId = $('#teamID').val();
-	cxtdDoc01.userid = user_id;
-	cxtdDoc01.status = 0;
+	//团队基本信息
+	CxtdBaseInfo.id = $('#baseinfoid').val();
+	CxtdBaseInfo.teamName = $('#teamName').val();
+	CxtdBaseInfo.researchDirection = $('#sub_dir').val();
+	CxtdBaseInfo.subordinateSubject1 = $('#sub_1').val();
+	CxtdBaseInfo.subordinateSubject2 = $('#sub_2').val();
+	CxtdBaseInfo.projectType = type;
+	CxtdBaseInfo.orther = $('#orther').val();
+	CxtdBaseInfo.projectSource = $('#project_from').val();
+	CxtdBaseInfo.projectName = $('#project_name').val();
+	CxtdBaseInfo.nuitName = $('#unit_name').val();
+	CxtdBaseInfo.organizationCode = $('#org_code').val();
+	CxtdBaseInfo.legalRepresentative = $('#legal_rep').val();
+	CxtdBaseInfo.competentDepartment = $('#competent_dep').val();
+	CxtdBaseInfo.unitAddresses = $('#unit_add').val();
+	CxtdBaseInfo.zipCode = $('#zip_code').val();
+	CxtdBaseInfo.contacts = $('#contacts').val();
+	CxtdBaseInfo.mobilePhone = $('#mobile_phone').val();
+	CxtdBaseInfo.fax = $('#fax').val();
+	CxtdBaseInfo.email = $('#t_email').val();
+	CxtdBaseInfo.telephone = $('#telephone').val();
+	CxtdBaseInfo.teamId = $('#teamID').val();
+	CxtdBaseInfo.userid = user_id;
+	CxtdBaseInfo.status = 0;
+	//团队负责人信息
+	CxtdLeaderinfo.id = $('#leaderid').val();
+	CxtdLeaderinfo.teamId = $('#leaderName').val();
+	CxtdLeaderinfo.name = $('#leaderName').val();
+	CxtdLeaderinfo.sex = $('#leaderSex').val();
+	CxtdLeaderinfo.country = $('#leaderCountry').val();
+	CxtdLeaderinfo.minzu = $('#leaderNation').val();
+	CxtdLeaderinfo.position = $('#leaderTechnical_position').val();
+	CxtdLeaderinfo.birthday = $('#leaderBirthday').val();
+	CxtdLeaderinfo.documentType = $('#leaderId_type').val();
+	CxtdLeaderinfo.documentNumber = $('#leaderId_num').val();
+	CxtdLeaderinfo.direction = $('#leaderProfessional_direction').val();
+	CxtdLeaderinfo.subordinateSubject1 = $('#leaderSubject1').val();
+	CxtdLeaderinfo.subordinateSubject2 = $('#leaderSubject2').val();
+	CxtdLeaderinfo.telephoneFax = $('#leaderFax').val();
+	CxtdLeaderinfo.mobilePhone = $('#leaderPhone').val();
+	CxtdLeaderinfo.email = $('#leaderEmail').val();
+	CxtdLeaderinfo.zipCode = $('#leaderZip_code').val();
+	CxtdLeaderinfo.addresses = $('#leaderAddress').val();
+	//组织期刊
+	for(var i = 0 ; i <= index_zuzhi ; i++){ 
+		CxtdLeaderZuzhi.id =$('#leaderZuzhiId'+i).val();
+		CxtdLeaderZuzhi.name=$('#leaderZuzhiName'+i).val();
+		CxtdLeaderZuzhi.job = $('#leaderZuzhiJob'+i).val();
+		CxtdLeaderZuzhi.renqi= $('#leaderZuzhiRenqi'+i).val();
+		arrZuzhi[i] = CxtdLeaderZuzhi;
+	}
+	//创新团队人数分类统计
+	CxtdMemNum.num = $('#member_num').val();
+	CxtdMemNum.team_id = $('#teamId').val();
+	CxtdMemNum.age_56 = $('#age56').val();
+	CxtdMemNum.age_46_55 = $('#age46_55').val();
+	CxtdMemNum.age_36_45 = $('#age36_45').val();
+	CxtdMemNum.age_35 = $('#age35').val();
+	CxtdMemNum.gaoji = $('#gaoji').val();
+	CxtdMemNum.fugao = $('#fugao').val();
+	CxtdMemNum.zhongji = $('#gaoji').val();
+	CxtdMemNum.z_orther = $('#z_orther').val();
+	CxtdMemNum.boshi = $('#boshi').val();
+	CxtdMemNum.shoushi =$('#shuoshi').val();
+	CxtdMemNum.benke = $('#benke').val();
+	CxtdMemNum.x_orther = $('#x_orther').val();
+	//团队成员信息
+	for(var i = 0 ; i <= index_meminfo ; i++){
+		CxtdMemberInfo.id = $('#member_id'+i).val();
+		CxtdMemberInfo.name = $('#member_name'+i).val();
+		CxtdMemberInfo.sex = $('#member_sex'+i).val();
+		CxtdMemberInfo.birthday = $('#member_birthday'+i).val();
+		CxtdMemberInfo.id_type = $('#member_idtype'+i).val();
+		CxtdMemberInfo.id_num = $('#member_idnum'+i).val();
+		CxtdMemberInfo.study_education = $('#member_education'+i).val();
+		CxtdMemberInfo.work_position = $('#member_position'+i).val();
+		CxtdMemberInfo.direction = $('#member_direction'+i).val();
+		CxtdMemberInfo.work_company = $('#member_company'+i).val();
+		arrMemInfo[i] = CxtdMemberInfo;
+	}
+	cxtdDoc01.baseInfo = CxtdBaseInfo;
+	cxtdDoc01.leaderInfo = CxtdLeaderinfo;
+	cxtdDoc01.zList = arrZuzhi;
+	cxtdDoc01.mList = arrMemInfo;
+	cxtdDoc01.memNum = CxtdMemNum;
+	
 	var cxtddoc01 = JSON.stringify(cxtdDoc01);
 	$.ajax({
 		type:'POST',
@@ -128,7 +239,7 @@ function updatecxtdDoc01(){
 		data:{"cxtddoc01":cxtddoc01},
 		url:'cxtdDoc01Update',
 		error:function(){
-			alert('请求失败');
+			alert("connect error!");
 		},
 		success:function(data){
 			if (data.result == "更新成功") {
@@ -152,4 +263,169 @@ function updatecxtdDoc01(){
 		}
 	})
 	
+}
+$(function(){
+	addClick();
+})
+function addClick(){
+	$('#addmemeber').click(function(){
+		var flag = index_meminfo;
+		if(flag >15){
+			return ;
+		}
+		var add_div = '</tr><tr style="page-break-inside: avoid" id = "memberinfo'+flag+'">'
+		+'<td width=84 style="width: 62pt; border: solid black 1.0pt; border-left: none; padding: 0cm 5.4pt 0cm 5.4pt; height: 30pt">'
+		+'<input type="text" id="study_country"'+flag+' style="text-align: center; font-size: 14.0pt; font-family: 宋体; display: inline-block; height: 90%; width: 95%; padding: 0px; margin: 3px; border-radius: 0px"   /></td>'
+		+'<td width=84 style="width: 62pt; border: solid black 1.0pt; border-left: none; padding: 0cm 5.4pt 0cm 5.4pt; height: 30pt">'
+		+'<input type="text" id="study_country"'+flag+' style="text-align: center; font-size: 14.0pt; font-family: 宋体; display: inline-block; height: 90%; width: 95%; padding: 0px; margin: 3px; border-radius: 0px"   /></td>'
+		+'<td width=84 style="width: 62pt; border: solid black 1.0pt; border-left: none; padding: 0cm 5.4pt 0cm 5.4pt; height: 30pt">'
+		+'<input type="text" id="study_country"'+flag+' style="text-align: center; font-size: 14.0pt; font-family: 宋体; display: inline-block; height: 90%; width: 95%; padding: 0px; margin: 3px; border-radius: 0px"   /></td>'
+		+'<td width=84 style="width: 62pt; border: solid black 1.0pt; border-left: none; padding: 0cm 5.4pt 0cm 5.4pt; height: 30pt">'
+		+'<input type="text" id="study_country"'+flag+' style="text-align: center; font-size: 14.0pt; font-family: 宋体; display: inline-block; height: 90%; width: 95%; padding: 0px; margin: 3px; border-radius: 0px"   /></td>'
+		+'<td width=84 style="width: 62pt; border: solid black 1.0pt; border-left: none; padding: 0cm 5.4pt 0cm 5.4pt; height: 30pt">'
+		+'<input type="text" id="study_country"'+flag+' style="text-align: center; font-size: 14.0pt; font-family: 宋体; display: inline-block; height: 90%; width: 95%; padding: 0px; margin: 3px; border-radius: 0px"   /></td>'
+	    +'<td width=84 style="width: 62pt; border: solid black 1.0pt; border-left: none; padding: 0cm 5.4pt 0cm 5.4pt; height: 30pt">'
+		+'<input type="text" id="study_country"'+flag+' style="text-align: center; font-size: 14.0pt; font-family: 宋体; display: inline-block; height: 90%; width: 95%; padding: 0px; margin: 3px; border-radius: 0px"   /></td>'
+		+'<td width=84 style="width: 62pt; border: solid black 1.0pt; border-left: none; padding: 0cm 5.4pt 0cm 5.4pt; height: 30pt">'
+		+'<input type="text" id="study_country"'+flag+' style="text-align: center; font-size: 14.0pt; font-family: 宋体; display: inline-block; height: 90%; width: 95%; padding: 0px; margin: 3px; border-radius: 0px"   /></td>'
+		+'<td width=84 style="width: 62pt; border: solid black 1.0pt; border-left: none; padding: 0cm 5.4pt 0cm 5.4pt; height: 30pt">'
+		+'<input type="text" id="study_country"'+flag+' style="text-align: center; font-size: 14.0pt; font-family: 宋体; display: inline-block; height: 90%; width: 95%; padding: 0px; margin: 3px; border-radius: 0px"   /></td>'
+		+'<td width=84 style="width: 62pt; border: solid black 1.0pt; border-left: none; padding: 0cm 5.4pt 0cm 5.4pt; height: 30pt">'
+		+'<input type="text" id="study_country"'+flag+' style="text-align: center; font-size: 14.0pt; font-family: 宋体; display: inline-block; height: 90%; width: 95%; padding: 0px; margin: 3px; border-radius: 0px"   /></td>';
+	    
+	    $('#memberinfo'+(flag-1)).after(add_div);
+	    flag++;
+	});
+	$('#addzuzhi').click(function(){
+		var flag = index_zuzhi;
+		
+		var addZhuzhi_div='<input type="hidden" id=zhuzhi_id'+flag+'/>'
+		+'<tr style="page-break-inside: avoid" id=zhuzhi_div'+flag+'><td width=487 colspan=3 valign=top style="width: 365.5pt; border-top: none; border-left: none;  border: solid black 1.0pt;  padding: 0cm 5.0pt 0cm 5.0pt; height: 30pt">'
+		+'<input type="text" id="zuzhi_name'+flag+'" style="text-align: center; font-size: 14.0pt; font-family: 宋体; display: inline-block; height: 90%; width: 95%; padding: 0px; margin: 3px; border-radius: 0px"/> '
+		+'</td><td width=84 style="width: 62pt; border: solid black 1.0pt; border-left: none; padding: 0cm 5.4pt 0cm 5.4pt; height: 30pt">'
+		+'<input type="text" id="zuzhi_job'+flag+'" style="text-align: center; font-size: 14.0pt; font-family: 宋体; display: inline-block; height: 90%; width: 95%; padding: 0px; margin: 3px; border-radius: 0px"/>'
+		+'</td><td width=84 colspan=2 style="width: 62pt; border: solid black 1.0pt; border-left: none; padding: 0cm 5.4pt 0cm 5.4pt; height: 30pt">'
+		+'<input type="text" id="zuzhi_renqi'+flag+'"style="text-align: center; font-size: 14.0pt; font-family: 宋体; display: inline-block; height: 90%; width: 95%; padding: 0px; margin: 3px; border-radius: 0px" /></td></tr>';
+		if(flag == 0){
+			$('#zhuzhi').after(addZhuzhi_div);
+		}
+		else{
+			$('#zhuzhi_div'+(flag-1)).after(addZhuzhi_div);
+		}
+		index_zuzhi++;
+		
+	});
+	
+}
+function Member(index){
+	var i = index;
+	for(var i = 0 ; i < flag ; i++){
+		var addMem_div = '</tr><tr style="page-break-inside: avoid" id = "memberinfo'+i+'">'
+		+'<td width=84 style="width: 62pt; border: solid black 1.0pt; border-left: none; padding: 0cm 5.4pt 0cm 5.4pt; height: 30pt">'
+		+'<input type="text" id="study_country"'+i+' style="text-align: center; font-size: 14.0pt; font-family: 宋体; display: inline-block; height: 90%; width: 95%; padding: 0px; margin: 3px; border-radius: 0px"   /></td>'
+		+'<td width=84 style="width: 62pt; border: solid black 1.0pt; border-left: none; padding: 0cm 5.4pt 0cm 5.4pt; height: 30pt">'
+		+'<input type="text" id="study_country"'+i+' style="text-align: center; font-size: 14.0pt; font-family: 宋体; display: inline-block; height: 90%; width: 95%; padding: 0px; margin: 3px; border-radius: 0px"   /></td>'
+		+'<td width=84 style="width: 62pt; border: solid black 1.0pt; border-left: none; padding: 0cm 5.4pt 0cm 5.4pt; height: 30pt">'
+		+'<input type="text" id="study_country"'+i+' style="text-align: center; font-size: 14.0pt; font-family: 宋体; display: inline-block; height: 90%; width: 95%; padding: 0px; margin: 3px; border-radius: 0px"   /></td>'
+		+'<td width=84 style="width: 62pt; border: solid black 1.0pt; border-left: none; padding: 0cm 5.4pt 0cm 5.4pt; height: 30pt">'
+		+'<input type="text" id="study_country"'+i+' style="text-align: center; font-size: 14.0pt; font-family: 宋体; display: inline-block; height: 90%; width: 95%; padding: 0px; margin: 3px; border-radius: 0px"   /></td>'
+		+'<td width=84 style="width: 62pt; border: solid black 1.0pt; border-left: none; padding: 0cm 5.4pt 0cm 5.4pt; height: 30pt">'
+		+'<input type="text" id="study_country"'+i+' style="text-align: center; font-size: 14.0pt; font-family: 宋体; display: inline-block; height: 90%; width: 95%; padding: 0px; margin: 3px; border-radius: 0px"   /></td>'
+	    +'<td width=84 style="width: 62pt; border: solid black 1.0pt; border-left: none; padding: 0cm 5.4pt 0cm 5.4pt; height: 30pt">'
+		+'<input type="text" id="study_country"'+i+' style="text-align: center; font-size: 14.0pt; font-family: 宋体; display: inline-block; height: 90%; width: 95%; padding: 0px; margin: 3px; border-radius: 0px"   /></td>'
+		+'<td width=84 style="width: 62pt; border: solid black 1.0pt; border-left: none; padding: 0cm 5.4pt 0cm 5.4pt; height: 30pt">'
+		+'<input type="text" id="study_country"'+i+' style="text-align: center; font-size: 14.0pt; font-family: 宋体; display: inline-block; height: 90%; width: 95%; padding: 0px; margin: 3px; border-radius: 0px"   /></td>'
+		+'<td width=84 style="width: 62pt; border: solid black 1.0pt; border-left: none; padding: 0cm 5.4pt 0cm 5.4pt; height: 30pt">'
+		+'<input type="text" id="study_country"'+i+' style="text-align: center; font-size: 14.0pt; font-family: 宋体; display: inline-block; height: 90%; width: 95%; padding: 0px; margin: 3px; border-radius: 0px"   /></td>'
+		+'<td width=84 style="width: 62pt; border: solid black 1.0pt; border-left: none; padding: 0cm 5.4pt 0cm 5.4pt; height: 30pt">'
+		+'<input type="text" id="study_country"'+i+' style="text-align: center; font-size: 14.0pt; font-family: 宋体; display: inline-block; height: 90%; width: 95%; padding: 0px; margin: 3px; border-radius: 0px"   /></td>';
+	if( i == 0){
+		$('#member').after(addMem_div);
+	}
+	else{
+		$('#memberinfo'+(i-1)).after(addMem_div);
+	}
+	}
+}
+
+function Work(index){
+	var flag = indx;
+	for( var i = 0 ; i < flag ; i++){
+		var addWork_div='<tr style="page-break-inside: avoid;" id="work_index"'+i+'>'
+			+'<td width=84 style="width: 62pt; border: solid black 1.0pt; border-left: none; padding: 0cm 5.4pt 0cm 5.4pt; height: 30pt">'
+			+'<input type="text" id="work_country'+i+'" style="text-align: center; font-size: 14.0pt; font-family: 宋体; display: inline-block; height: 90%; width: 95%; padding: 0px; margin: 3px; border-radius: 0px" /></td>'
+			+'<td width=84 style="width: 62pt; border: solid black 1.0pt; border-left: none; padding: 0cm 5.4pt 0cm 5.4pt; height: 30pt">'
+			+'<input type="text" id="work_institution'+i+'" style="text-align: center; font-size: 14.0pt; font-family: 宋体; display: inline-block; height: 90%; width: 95%; padding: 0px; margin: 3px; border-radius: 0px"/></td>'
+			+'<td width=84 style="width: 62pt; border: solid black 1.0pt; border-left: none; padding: 0cm 5.4pt 0cm 5.4pt; height: 30pt">'
+			+'<input type="text" id="work_position'+i+'" style="text-align: center; font-size: 14.0pt; font-family: 宋体; display: inline-block; height: 90%; width: 95%; padding: 0px; margin: 3px; border-radius: 0px"/></td>'
+			+'<td width=84 style="width: 62pt; border: solid black 1.0pt; border-left: none; padding: 0cm 5.4pt 0cm 5.4pt; height: 30pt">'
+			+'<input type="text" id="work_start_date'+i+'" style="text-align: center; font-size: 14.0pt; font-family: 宋体; display: inline-block; height: 90%; width: 95%; padding: 0px; margin: 3px; border-radius: 0px"/></td>'
+			+'<td width=84  colspan=2 style="width: 62pt; border: solid black 1.0pt; border-left: none; padding: 0cm 5.4pt 0cm 5.4pt; height: 30pt">'
+			+'<input type="text" id="work_end_date'+i+'" style="text-align: center; font-size: 14.0pt; font-family: 宋体; display: inline-block; height: 90%; width: 95%; padding: 0px; margin: 3px; border-radius: 0px"/></td></tr>';
+		if(i == 0){
+			$('#work').after(addWork_div);
+		}
+		else{
+			$('#work_index'+(i-1)).after(addWork_div);
+			
+		}
+	}
+	
+}
+function Study(index){
+	var flag = index;
+	for(var i = 0 ; i < flag ; i++){
+		var addStudy_div='<tr style="page-break-inside: avoid" id=study_index'+i+'>'
+		+'<td width=84 style="width: 62pt; border: solid black 1.0pt; border-left: none; padding: 0cm 5.4pt 0cm 5.4pt; height: 30pt">'
+		+'<input type="text" id="study_country'+i+'" style="text-align: center; font-size: 14.0pt; font-family: 宋体; display: inline-block; height: 90%; width: 95%; padding: 0px; margin: 3px; border-radius: 0px"/></td>'
+		+'<td width=84 style="width: 62pt; border: solid black 1.0pt; border-left: none; padding: 0cm 5.4pt 0cm 5.4pt; height: 30pt">'
+		+'<input type="text" id="study_institution'+i+'" style="text-align: center; font-size: 14.0pt; font-family: 宋体; display: inline-block; height: 90%; width: 95%; padding: 0px; margin: 3px; border-radius: 0px"/></td>'
+		+'<td width=84 style="width: 62pt; border: solid black 1.0pt; border-left: none; padding: 0cm 5.4pt 0cm 5.4pt; height: 30pt">'
+		+'<input type="text" id="study_position'+i+'" style="text-align: center; font-size: 14.0pt; font-family: 宋体; display: inline-block; height: 90%; width: 95%; padding: 0px; margin: 3px; border-radius: 0px"/></td>'
+		+'<td width=84 style="width: 62pt; border: solid black 1.0pt; border-left: none; padding: 0cm 5.4pt 0cm 5.4pt; height: 30pt">'
+		+'<input type="text" id="degree'+i+'" style="text-align: center; font-size: 14.0pt; font-family: 宋体; display: inline-block; height: 90%; width: 95%; padding: 0px; margin: 3px; border-radius: 0px"/></td>'
+		+'<td width=84 style="width: 62pt; border: solid black 1.0pt; border-left: none; padding: 0cm 5.4pt 0cm 5.4pt; height: 30pt">'
+		+'<input type="text" id="study_start_date'+i+'" style="text-align: center; font-size: 14.0pt; font-family: 宋体; display: inline-block; height: 90%; width: 95%; padding: 0px; margin: 3px; border-radius: 0px"/></td>'
+		+'<td width=42 style="width: 31pt; border: solid black 1.0pt; border-left: none; padding: 0cm 5.4pt 0cm 5.4pt; height: 30pt">'
+		+'<input type="text" id="study_end_date'+i+'" style="text-align: center; font-size: 14.0pt; font-family: 宋体; display: inline-block; height: 90%; width: 95%; padding: 0px; margin: 3px; border-radius: 0px" /></td></tr>';
+	if(i == 0){
+		$('#study').after(addStudy_div);
+	}
+	else{
+		$('#study_index'+(i-1)).after(addStudy_div);
+		}
+	}
+}
+function Zhuzhi(index){
+	var flag = index;
+	for(var i = 0 ; i < flag ; i++){
+		var addZhuzhi_div='<input type="hidden" id=zhuzhi_id'+i+'/>'
+		+'<tr style="page-break-inside: avoid" id=zhuzhi_div'+i+'><td width=487 colspan=3 valign=top style="width: 365.5pt; border-top: none; border-left: none;  border: solid black 1.0pt;  padding: 0cm 5.0pt 0cm 5.0pt; height: 30pt">'
+		+'<input type="text" id="zuzhi_name'+i+'" style="text-align: center; font-size: 14.0pt; font-family: 宋体; display: inline-block; height: 90%; width: 95%; padding: 0px; margin: 3px; border-radius: 0px"/> '
+		+'</td><td width=84 style="width: 62pt; border: solid black 1.0pt; border-left: none; padding: 0cm 5.4pt 0cm 5.4pt; height: 30pt">'
+		+'<input type="text" id="zuzhi_job'+i+'" style="text-align: center; font-size: 14.0pt; font-family: 宋体; display: inline-block; height: 90%; width: 95%; padding: 0px; margin: 3px; border-radius: 0px"/>'
+		+'</td><td width=84 colspan=2 style="width: 62pt; border: solid black 1.0pt; border-left: none; padding: 0cm 5.4pt 0cm 5.4pt; height: 30pt">'
+		+'<input type="text" id="zuzhi_renqi'+i+'"style="text-align: center; font-size: 14.0pt; font-family: 宋体; display: inline-block; height: 90%; width: 95%; padding: 0px; margin: 3px; border-radius: 0px" /></td></tr>';
+	if(i == 0){
+		$('#zhuzhi').after(addZhuzhi_div);
+	}
+	else{
+		$('#zhuzhi_div'+(i-1)).after(addZhuzhi_div);
+	}
+		
+	}
+}
+
+function addZhuzhi(){
+	var flag = index_zuzhi;
+	
+	var addZhuzhi_div='<input type="hidden" id=zhuzhi_id'+flag+'/>'
+	+'<tr style="page-break-inside: avoid" id=zhuzhi_div'+flag+'><td width=487 colspan=3 valign=top style="width: 365.5pt; border-top: none; border-left: none;  border: solid black 1.0pt;  padding: 0cm 5.0pt 0cm 5.0pt; height: 30pt">'
+	+'<input type="text" id="zuzhi_name'+flag+'" style="text-align: center; font-size: 14.0pt; font-family: 宋体; display: inline-block; height: 90%; width: 95%; padding: 0px; margin: 3px; border-radius: 0px"/> '
+	+'</td><td width=84 style="width: 62pt; border: solid black 1.0pt; border-left: none; padding: 0cm 5.4pt 0cm 5.4pt; height: 30pt">'
+	+'<input type="text" id="zuzhi_job'+flag+'" style="text-align: center; font-size: 14.0pt; font-family: 宋体; display: inline-block; height: 90%; width: 95%; padding: 0px; margin: 3px; border-radius: 0px"/>'
+	+'</td><td width=84 colspan=2 style="width: 62pt; border: solid black 1.0pt; border-left: none; padding: 0cm 5.4pt 0cm 5.4pt; height: 30pt">'
+	+'<input type="text" id="zuzhi_renqi'+flag+'"style="text-align: center; font-size: 14.0pt; font-family: 宋体; display: inline-block; height: 90%; width: 95%; padding: 0px; margin: 3px; border-radius: 0px" /></td></tr>';
+	
+	index_zuzhi++;
 }

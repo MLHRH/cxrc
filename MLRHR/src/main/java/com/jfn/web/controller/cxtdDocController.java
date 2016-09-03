@@ -10,7 +10,6 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
-import com.jfn.entity.CxtdBaseInfo;
 import com.jfn.entity.CxtdDoc01;
 import com.jfn.service.cxtdDocService;
 @Controller
@@ -30,7 +29,8 @@ public class cxtdDocController {
 		int userid =(Integer)request.getSession().getAttribute("user_id");
 		return  cxtdDocService.queryCxtdDoc01(userid);
 		
-	}
+		}
+		
 	/**
 	 * 更新DOC01
 	 * @param cxtddoc01
@@ -43,20 +43,8 @@ public class cxtdDocController {
 		JSONObject result = new JSONObject();
 		int user_id =(Integer)request.getSession().getAttribute("user_id");
 		CxtdDoc01 doc01 = JSON.parseObject(cxtdDoc01, CxtdDoc01.class);
-		if(doc01 != null){
-			  if(((CxtdBaseInfo)cxtdDocService.queryCxtdDoc01(user_id).get("baseinfo")) !=null){
-				  
-		        	cxtdDocService.insertDoc01(doc01,user_id,result);
-		        }
-		        else{
-		        	cxtdDocService.updateDoc01(doc01,user_id, result);
-		        }
-		}
-		else{
-			result.put("result", "信息为空");
-		}
-
-		return result.toString();
+		cxtdDocService.updateDoc01(doc01, user_id, result);
+		return result;
 		
 	}
 }

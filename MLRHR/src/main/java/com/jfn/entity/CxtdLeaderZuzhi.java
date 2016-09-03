@@ -36,6 +36,11 @@ public class CxtdLeaderZuzhi {
 	public void setRenqi(String renqi) {
 		this.renqi = renqi;
 	}
+	@Override
+	public String toString() {
+		return "CxtdLeaderZuzhi [id=" + id + ", user_id=" + user_id + ", name="
+				+ name + ", job=" + job + ", renqi=" + renqi + "]";
+	}
 	
 
 }

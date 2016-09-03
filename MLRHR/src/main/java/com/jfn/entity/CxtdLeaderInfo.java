@@ -1,6 +1,15 @@
 package com.jfn.entity;
 
 public class CxtdLeaderInfo {
+	private Integer id;
+	public Integer getId() {
+		return id;
+	}
+
+	public void setId(Integer id) {
+		this.id = id;
+	}
+
 	private int teamId;
 
     private int user_id;
@@ -179,6 +188,20 @@ public class CxtdLeaderInfo {
 
 	public void setAddresses(String addresses) {
 		this.addresses = addresses;
+	}
+
+	@Override
+	public String toString() {
+		return "CxtdLeaderInfo [id=" + id + ", teamId=" + teamId + ", user_id="
+				+ user_id + ", name=" + name + ", sex=" + sex + ", country="
+				+ country + ", minzu=" + minzu + ", position=" + position
+				+ ", birthday=" + birthday + ", documentType=" + documentType
+				+ ", documentNumber=" + documentNumber + ", direction="
+				+ direction + ", subordinateSubject1=" + subordinateSubject1
+				+ ", subordinateSubject2=" + subordinateSubject2
+				+ ", telephoneFax=" + telephoneFax + ", mobilePhone="
+				+ mobilePhone + ", email=" + email + ", zipCode=" + zipCode
+				+ ", addresses=" + addresses + "]";
 	}
 
 

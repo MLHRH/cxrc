@@ -19,7 +19,7 @@ public class CxtdBaseInfo {
 
 	    private String researchDirection;
 
-	    private String subordinateSubject1;
+		private String subordinateSubject1;
 
 	    private String subordinateSubject2;
 
@@ -63,11 +63,11 @@ public class CxtdBaseInfo {
 			this.status = status;
 		}
 
-		public int getId() {
+		public Integer getId() {
 	        return id;
 	    }
 
-	    public void setId(int id) {
+	    public void setId(Integer id) {
 	        this.id = id;
 	    }
 
@@ -230,4 +230,22 @@ public class CxtdBaseInfo {
 	    public void setTelephone(String telephone) {
 	        this.telephone = telephone == null ? null : telephone.trim();
 	    }
+	    @Override
+		public String toString() {
+			return "CxtdBaseInfo [id=" + id + ", userid=" + userid
+					+ ", teamId=" + teamId + ", teamName=" + teamName
+					+ ", researchDirection=" + researchDirection
+					+ ", subordinateSubject1=" + subordinateSubject1
+					+ ", subordinateSubject2=" + subordinateSubject2
+					+ ", projectType=" + projectType + ", orther=" + orther
+					+ ", projectName=" + projectName + ", projectSource="
+					+ projectSource + ", unitName=" + unitName
+					+ ", organizationCode=" + organizationCode
+					+ ", legalRepresentative=" + legalRepresentative
+					+ ", competentDepartment=" + competentDepartment
+					+ ", unitAddresses=" + unitAddresses + ", zipCode="
+					+ zipCode + ", contacts=" + contacts + ", mobilePhone="
+					+ mobilePhone + ", email=" + email + ", fax=" + fax
+					+ ", telephone=" + telephone + ", status=" + status + "]";
+		}
 }

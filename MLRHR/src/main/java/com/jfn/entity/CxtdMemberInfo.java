@@ -78,5 +78,14 @@ public class CxtdMemberInfo {
 	public void setWork_company(String work_company) {
 		this.work_company = work_company;
 	}
+	@Override
+	public String toString() {
+		return "CxtdMemberInfo [id=" + id + ", team_id=" + team_id + ", name="
+				+ name + ", sex=" + sex + ", birthday=" + birthday
+				+ ", id_type=" + id_type + ", id_num=" + id_num
+				+ ", study_education=" + study_education + ", work_position="
+				+ work_position + ", direction=" + direction
+				+ ", work_company=" + work_company + "]";
+	}
 
 }
