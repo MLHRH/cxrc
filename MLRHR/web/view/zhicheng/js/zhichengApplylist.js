@@ -152,12 +152,12 @@ function initZhichengApplyDataTables(data) {
 					"data" : "apply_date",
 					"class" : "center"
 				}, {
-					"data" : "apply_name",
-					"class" : "center"
-				}, {
 					"data" : "apply_type",
 					"class" : "center"
-				},  {
+				}, {
+					"data" : "expert1_score",
+					"class" : "center"
+				} ,{
 					"data" : "pre_approve_sug",
 					"class" : "center"
 				}, {
@@ -208,7 +208,7 @@ function initZhichengApplyDataTables(data) {
 }
 
 function zhichengApplyEdit(id) {
-	location.href = 'jcqn_zhichengApply?id=' + id;
+	location.href = 'zhichengApply?id=' + id;
 }
 
 function zhichengApplyDelete(id) {

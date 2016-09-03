@@ -76,7 +76,7 @@ body {
 								<tr>
 									<th width="80px" style="text-align: center;">申请时间</th>
 									<th width="70px" style="text-align: center;">申报级别</th>
-									<th width="70px" style="text-align: center;">专业分组</th>
+									<th width="70px" style="text-align: center;">初审评分</th>
 									<th width="" style="text-align: center;">初审意见</th>
 									<th width="" style="text-align: center;">终审意见</th>
 									<th width="70px" style="text-align: center;">状态</th>
