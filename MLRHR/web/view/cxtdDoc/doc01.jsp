@@ -86,7 +86,7 @@
 					</div>
 					<div class=MsoNormal style="margin-top: 20px;">
 						<span style='font-size: 14.0pt; font-family: 宋体'><label><input type="checkbox" id="orther_type" value="">其他<label></span>
-						<span style='font-size: 14.0pt; font-family: 宋体'><input type="text" id="other" value=""class="x"></span>
+						<span style='font-size: 14.0pt; font-family: 宋体'><input type="text" id="orther" value=""class="x"></span>
 					</div>
 				</td>
 			</tr>
@@ -484,7 +484,7 @@
 				</td>
 				<td>
 					<div style="text-align: left;margin-left:30px">
-						<a class="btn btn-small btn-info" href="javascript:void(0)" id="addzuzhi">
+						<a class="btn btn-small btn-info" href="javascript:void(0)" id="addzuzhi" onclick="addzuzhi()">
 							<i class="icon-plus-sign"></i>添加
 						</a>
 					</div>
@@ -540,7 +540,7 @@
 						<div class=MsoNormal align=center style='text-align: center'>
 						<span style='font-size: 14.0pt; font-family: 宋体'>
 							团队成员共 
-							<input type="text" name = "member_num"  class="x" style="width: 30px;">
+							<input type="text" id = "member_num"  class="x" style="width: 30px;">
 							人
 							</span>
 						</div>
@@ -657,7 +657,7 @@
 				
 				
 			
-				<tr style='page-break-inside: avoid'>
+				<tr style='page-break-inside: avoid' id="memberinfo_div">
 				<td width=36 rowspan=16 valign="middle" style='width: 6pt; border: solid windowtext 1.0pt; border-top: none; padding: 0cm 5.4pt 0cm 5.4pt'>
 					<div class=MsoNormal style='text-align: center'>
 						<span style='font-size: 14.0pt; font-family: 宋体'>团队核心成员（5-15人）</span>
@@ -714,7 +714,7 @@
 		</table>
 		
 		<div style="text-align: left;margin-left:30px">
-			<a class="btn btn-small btn-info" href="javascript:void(0)" id="addmemeber">
+			<a class="btn btn-small btn-info" href="javascript:void(0)" id="addmemeber" onclick="addmember()">
 				<i class="icon-plus-sign"></i>添加
 			</a>
 		</div>

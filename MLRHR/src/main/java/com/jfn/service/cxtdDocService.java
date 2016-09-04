@@ -63,6 +63,9 @@ public class cxtdDocService {
 	@Transactional(rollbackFor = Exception.class)
 	public void updateDoc01(CxtdDoc01 cxtddoc01,int user_id,JSONObject result){
 		Integer team_id = cxtddoc01Dao.getTimeId(user_id);
+		if(team_id ==null){
+			cxtddoc01Dao.insertTeamId(user_id);
+		}
 		CxtdBaseInfo baseInfo = cxtddoc01.getBaseInfo();
 		baseInfo.toString();
 		CxtdLeaderInfo leaderInfo = cxtddoc01.getLeaderInfo();
@@ -83,14 +86,14 @@ public class cxtdDocService {
 				cxtddoc01Dao.updateCxtdBase(baseInfo, user_id);
 			}
 			else{
-				cxtddoc01Dao.insertCxtdBase(baseInfo, user_id);
+				cxtddoc01Dao.insertCxtdBase(baseInfo, user_id , team_id);
 			}
 			//更新团队负责人信息
 			if(leaderInfo.getId()!=null){
 				cxtddoc01Dao.updateCxtdLeaderInfo(leaderInfo, user_id);
 			}
 			else{
-				cxtddoc01Dao.insertCxtdLeaderInfo(leaderInfo, user_id);
+				cxtddoc01Dao.insertCxtdLeaderInfo(leaderInfo, user_id,team_id);
 			}
 			//更新国内外学术组织及重要学术期刊任职情况
 			for(CxtdLeaderZuzhi zuzhi:zList){

@@ -21,20 +21,20 @@ import com.jfn.entity.CxtdMemberNum;
 public class CxtdDoc01Dao {
 	@Autowired
 	private JdbcTemplate jdbcTemplate;
-	private final String SQL_SELECT_TIME = "select id from user_team where userid=?";
+	//private final String SQL_SELECT_TIME = "select id from user_team where userid=?";
 	//团队基本信息
 	private final String SQL_UPDATE_BASE = "update cxtd_base_info set team_name=?,research_direction=?,subordinate_subject1=?,subordinate_subject2=?,"
 				+"project_type=?,project_name=?,project_source=?,unit_name=?,organization_code=?,legal_representative=?,competent_department=?,unit_addresses=?,"
 				+"zip_code=?,contacts=?,mobile_phone=?,email=?,fax=?,telephone=? where user_id=?";
 	private final String SQL_INSERT_BASE = "insert into cxtd_base_info( user_id,team_id,team_name,research_direction,subordinate_subject1,subordinate_subject2,"
 				+"project_type,orther,project_name,project_source,unit_name,organization_code,legal_representative,competent_department,unit_addresses,"
-				+"zip_code,contacts,mobile_phone,email,fax,telephone) values(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
+				+"zip_code,contacts,mobile_phone,email,fax,telephone) values(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
 	//团队负责人信息
 	//private final String SQL_SELECT_LEADER = "select * from cxtd_leader_info where user_id = ?";
 	private final String SQL_UPDATE_LEADER = "update cxtd_leader_info set name=?,sex=?,country=?,minzu=?,position=?,birthday=?,id_type=?,id_num=?,direction=?,subordinate_subject1=?,subordinate_subject2=?,telephone_fax=?,mobile_phone=?,email=?,zip_code=?,"
 			+"addresses=? where user_id=?";
-	private final String SQL_INSERT_LEADER = "insert into cxtd_leader_info(user_id,name,sex,country,minzu,position,birthday,id_type,id_num,direction,subordinate_subject1,subordinate_subject2,telephone_fax,mobile_phone,email,zip_code,"
-			+"addresses) values(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
+	private final String SQL_INSERT_LEADER = "insert into cxtd_leader_info(user_id,team_id,name,sex,country,minzu,position,birthday,id_type,id_num,direction,subordinate_subject1,subordinate_subject2,telephone_fax,mobile_phone,email,zip_code,"
+			+"addresses) values(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
 /*	private final String SQL_SELECT_STUDY = "select * from user_peixun where user_id=?";
 	private final String SQL_SELECT_WORK = "select * from user_work where user_id=?";*/
 	private final String SQL_SELECT_ZUZHI = "select * from cxtd_leader_zuzhi where user_id = ?";
@@ -45,13 +45,13 @@ public class CxtdDoc01Dao {
 	private final String SQL_SELECT_MEMBER_NUM="select * from cxtd_member_num where team_id=?";
 	private final String SQL_UPDATE_MEMBER_NUM="update cxtd_member_num set age_56=?,age_46_55=?,age_36_45=?"
 			+ "age_35=?,gaoji=?,fugao=?,zhongji=?,z_orther=?,boshi=?,shuoshi=?,benke=?,z_orther=? where team_id=? ";
-	private final String SQL_INSERT_MEMBER_NUM="insert into cxtd_member_num(team_id,age_56,age_46_55,age_36_45,age_35,"
-			+ "gaoji,fugao,zhongji,z_orther,boshi,shuoshi,benke,z_orther)values(?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
+	private final String SQL_INSERT_MEMBER_NUM="insert into cxtd_member_num(team_id,num,age_56,age_46_55,age_36_45,age_35,"
+			+ "gaoji,fugao,zhongji,z_orther,boshi,shuoshi,benke,x_orther)values(?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
 	
 	private final String SQL_SELECT_MEMBER_INFO="select * from cxtd_member_info where team_id=?";
 	private final String SQL_UPDATE_MEMBER_INFO="update cxtd_member_info set name=?,sex?,birthday=?,id_type=?,id_num=?,"
 			+ "study_education=?,work_position=?,direction=?,work_company=? where time_id=?";
-	private final String SQL_INSERT_MEMBER_INFO="insert into cxtd_member_info(team_id,name,sex,birthday,id_type,id_num,study_education"
+	private final String SQL_INSERT_MEMBER_INFO="insert into cxtd_member_info(team_id,name,sex,birthday,id_type,id_num,study_education,"
 			+ "work_position,direction,work_company) values(?,?,?,?,?,?,?,?,?,?)";
 	/**
 	 * 查询用户对应的团队ID
@@ -59,18 +59,24 @@ public class CxtdDoc01Dao {
 	 * @return
 	 */
 	public Integer getTimeId(int user_id) {
-		Integer team_id = null;
-		try {
-			 team_id = jdbcTemplate.queryForInt(SQL_SELECT_TIME,new Object[]{user_id});
-		} catch (Exception e) {
-			if(team_id == null){
-				 String sql = "insert into user_team(userid) values('"+user_id+"')";
-					jdbcTemplate.update(sql);
-			 team_id = jdbcTemplate.queryForInt(SQL_SELECT_TIME,new Object[]{user_id});
-			 }
-			System.err.println("创建团队ID");
-		}
-		 return team_id;
+		String SQL_SELECT_TIME = "select id from user_team where userid="+user_id;
+			return jdbcTemplate.query(SQL_SELECT_TIME, new ResultSetExtractor<Integer>(){
+
+				@Override
+				public Integer extractData(ResultSet rs)
+						throws SQLException, DataAccessException {
+					Integer id = null;
+					while(rs.next()){
+						id = rs.getInt("id");
+						System.err.println("团队ID为："+id);
+					}					
+					return id;
+				}
+			});
+}
+	public void insertTeamId(int user_id){
+		String sql = "insert into user_team(userid) values('"+user_id+"')";
+		jdbcTemplate.update(sql);
 		
 	}
 	/**
@@ -160,10 +166,7 @@ public class CxtdDoc01Dao {
 	 * @param user_id
 	 * @return
 	 */
-	public boolean insertCxtdBase(CxtdBaseInfo baseinfo,int user_id){
-		String sql = "insert into user_team(userid) values('"+user_id+"')";
-		jdbcTemplate.update(sql);
-		int teamid = jdbcTemplate.queryForInt("select id from user_team where userid ="+user_id);
+	public boolean insertCxtdBase(CxtdBaseInfo baseinfo,int user_id , int teamid){
 		Object[] params =new Object[]{
 				user_id,
 				teamid,
@@ -208,7 +211,7 @@ public class CxtdDoc01Dao {
 							LeaderInfo.setCountry(rs.getString("country"));
 							LeaderInfo.setMinzu(rs.getString("minzu"));
 							LeaderInfo.setPosition(rs.getString("position"));
-							LeaderInfo.setBirthday(rs.getString("birtyday"));
+							LeaderInfo.setBirthday(rs.getString("birthday"));
 							LeaderInfo.setDocumentType(rs.getString("id_type"));
 							LeaderInfo.setDocumentNumber(rs.getString("id_num"));
 							LeaderInfo.setDirection(rs.getString("direction"));
@@ -258,9 +261,10 @@ public class CxtdDoc01Dao {
 	 * @param user_id
 	 * @return
 	 */
-	public boolean insertCxtdLeaderInfo(CxtdLeaderInfo Leaderinfo,int user_id){
+	public boolean insertCxtdLeaderInfo(CxtdLeaderInfo Leaderinfo,int user_id , int team_id){
 		Object[] params =new Object[]{
 				user_id,
+				team_id,
 				Leaderinfo.getName(),
 				Leaderinfo.getSex(),
 				Leaderinfo.getCountry(),
@@ -357,12 +361,12 @@ public class CxtdDoc01Dao {
 								num.setAge_46_55(rs.getInt("age_46_55"));
 								num.setAge_36_45(rs.getInt("age_36_45"));
 								num.setAge_35(rs.getInt("age_35"));
-								num.setGaokji(rs.getInt("gaoji"));
+								num.setGaoji(rs.getInt("gaoji"));
 								num.setFugao(rs.getInt("fugao"));
 								num.setZhongji(rs.getInt("zhongji"));
 								num.setZ_orther(rs.getInt("z_orther"));
 								num.setBoshi(rs.getInt("boshi"));
-								num.setShuoshi(rs.getInt("shoushi"));
+								num.setShuoshi(rs.getInt("shuoshi"));
 								num.setBenke(rs.getInt("benke"));
 								num.setX_orther(rs.getInt("x_orther"));
 							}
@@ -383,7 +387,7 @@ public class CxtdDoc01Dao {
 					num.getAge_46_55(),
 					num.getAge_36_45(),
 					num.getAge_35(),
-					num.getGaokji(),
+					num.getGaoji(),
 					num.getFugao(),
 					num.getZhongji(),
 					num.getZ_orther(),
@@ -404,13 +408,12 @@ public class CxtdDoc01Dao {
 		public boolean insertCxtdMemberNum(CxtdMemberNum num,int team_id){
 			Object[] params =new Object[]{
 					team_id,
-					num.getTeam_id(),
 					num.getNum(),
 					num.getAge_56(),
 					num.getAge_46_55(),
 					num.getAge_36_45(),
 					num.getAge_35(),
-					num.getGaokji(),
+					num.getGaoji(),
 					num.getFugao(),
 					num.getZhongji(),
 					num.getZ_orther(),

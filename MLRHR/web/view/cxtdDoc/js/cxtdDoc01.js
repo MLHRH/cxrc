@@ -4,13 +4,11 @@ var index_zuzhi = 0;
 var index_meminfo = 0;
 //初始化DOC01
 function initcxtdDoc01(){
-	alert("ajax");
 	$.ajax({
 		type : 'get',
 		dataType : 'json',
 		url : 'cxtdDoc01Init',
 		error : function() {
-			alert("connect error!");
 		},
 		// 请求成功后处理函数。
 		success : function(data) { 
@@ -54,7 +52,7 @@ function initcxtdDoc01(){
 			$('#phone').val(data.leaderinfo.mobilePhone);
 			$('#email').val(data.leaderinfo.email);
 			//工作经历
-			addWork(data.wlist.length);
+			Work(data.wlist.length);
 			for(var i = 0 ;i < (data.wlist).length;i++){
 				$('#work_country'+i).val(data.wlist[i].country);
 				$('#work_institution'+i).val(data.wlist[i].work_content);
@@ -82,7 +80,7 @@ function initcxtdDoc01(){
 			}
 			//成员分类统计人数
 			$('#memnumid').val(data.memnum.id);
-			$('#member_num').val(data.ememnum.num);
+			$('#member_num').val(data.memnum.num);
 			$('#age56').val(data.memnum.age_56);
 			$('#age46_55').val(data.memnum.age_46_55);
 			$('#age36_45').val(data.memnum.age_36_45);
@@ -156,7 +154,7 @@ function updatecxtdDoc01(){
 	CxtdBaseInfo.orther = $('#orther').val();
 	CxtdBaseInfo.projectSource = $('#project_from').val();
 	CxtdBaseInfo.projectName = $('#project_name').val();
-	CxtdBaseInfo.nuitName = $('#unit_name').val();
+	CxtdBaseInfo.unitName = $('#unit_name').val();
 	CxtdBaseInfo.organizationCode = $('#org_code').val();
 	CxtdBaseInfo.legalRepresentative = $('#legal_rep').val();
 	CxtdBaseInfo.competentDepartment = $('#competent_dep').val();
@@ -206,10 +204,10 @@ function updatecxtdDoc01(){
 	CxtdMemNum.age_35 = $('#age35').val();
 	CxtdMemNum.gaoji = $('#gaoji').val();
 	CxtdMemNum.fugao = $('#fugao').val();
-	CxtdMemNum.zhongji = $('#gaoji').val();
+	CxtdMemNum.zhongji = $('#zhongji').val();
 	CxtdMemNum.z_orther = $('#z_orther').val();
 	CxtdMemNum.boshi = $('#boshi').val();
-	CxtdMemNum.shoushi =$('#shuoshi').val();
+	CxtdMemNum.shuoshi =$('#shuoshi').val();
 	CxtdMemNum.benke = $('#benke').val();
 	CxtdMemNum.x_orther = $('#x_orther').val();
 	//团队成员信息
@@ -226,17 +224,17 @@ function updatecxtdDoc01(){
 		CxtdMemberInfo.work_company = $('#member_company'+i).val();
 		arrMemInfo[i] = CxtdMemberInfo;
 	}
-	cxtdDoc01.baseInfo = CxtdBaseInfo;
-	cxtdDoc01.leaderInfo = CxtdLeaderinfo;
-	cxtdDoc01.zList = arrZuzhi;
-	cxtdDoc01.mList = arrMemInfo;
-	cxtdDoc01.memNum = CxtdMemNum;
+	var baseInfo = JSON.stringify(CxtdBaseInfo);
+	var leaderInfo = JSON.stringify(CxtdLeaderinfo);
+	var zList = JSON.stringify(arrZuzhi);
+	var mList = JSON.stringify(arrMemInfo);
+	var memNum = JSON.stringify(CxtdMemNum);
 	
-	var cxtddoc01 = JSON.stringify(cxtdDoc01);
+	//var cxtddoc01 = JSON.stringify(cxtdDoc01);
 	$.ajax({
 		type:'POST',
 		dataType:'json',
-		data:{"cxtddoc01":cxtddoc01},
+		data:{"baseinfo":baseInfo,"leaderinfo":leaderInfo,"zuzhis":zList,"meminfos":mList,"memnum":memNum},
 		url:'cxtdDoc01Update',
 		error:function(){
 			alert("connect error!");
@@ -264,62 +262,9 @@ function updatecxtdDoc01(){
 	})
 	
 }
-$(function(){
-	addClick();
-})
-function addClick(){
-	$('#addmemeber').click(function(){
-		var flag = index_meminfo;
-		if(flag >15){
-			return ;
-		}
-		var add_div = '</tr><tr style="page-break-inside: avoid" id = "memberinfo'+flag+'">'
-		+'<td width=84 style="width: 62pt; border: solid black 1.0pt; border-left: none; padding: 0cm 5.4pt 0cm 5.4pt; height: 30pt">'
-		+'<input type="text" id="study_country"'+flag+' style="text-align: center; font-size: 14.0pt; font-family: 宋体; display: inline-block; height: 90%; width: 95%; padding: 0px; margin: 3px; border-radius: 0px"   /></td>'
-		+'<td width=84 style="width: 62pt; border: solid black 1.0pt; border-left: none; padding: 0cm 5.4pt 0cm 5.4pt; height: 30pt">'
-		+'<input type="text" id="study_country"'+flag+' style="text-align: center; font-size: 14.0pt; font-family: 宋体; display: inline-block; height: 90%; width: 95%; padding: 0px; margin: 3px; border-radius: 0px"   /></td>'
-		+'<td width=84 style="width: 62pt; border: solid black 1.0pt; border-left: none; padding: 0cm 5.4pt 0cm 5.4pt; height: 30pt">'
-		+'<input type="text" id="study_country"'+flag+' style="text-align: center; font-size: 14.0pt; font-family: 宋体; display: inline-block; height: 90%; width: 95%; padding: 0px; margin: 3px; border-radius: 0px"   /></td>'
-		+'<td width=84 style="width: 62pt; border: solid black 1.0pt; border-left: none; padding: 0cm 5.4pt 0cm 5.4pt; height: 30pt">'
-		+'<input type="text" id="study_country"'+flag+' style="text-align: center; font-size: 14.0pt; font-family: 宋体; display: inline-block; height: 90%; width: 95%; padding: 0px; margin: 3px; border-radius: 0px"   /></td>'
-		+'<td width=84 style="width: 62pt; border: solid black 1.0pt; border-left: none; padding: 0cm 5.4pt 0cm 5.4pt; height: 30pt">'
-		+'<input type="text" id="study_country"'+flag+' style="text-align: center; font-size: 14.0pt; font-family: 宋体; display: inline-block; height: 90%; width: 95%; padding: 0px; margin: 3px; border-radius: 0px"   /></td>'
-	    +'<td width=84 style="width: 62pt; border: solid black 1.0pt; border-left: none; padding: 0cm 5.4pt 0cm 5.4pt; height: 30pt">'
-		+'<input type="text" id="study_country"'+flag+' style="text-align: center; font-size: 14.0pt; font-family: 宋体; display: inline-block; height: 90%; width: 95%; padding: 0px; margin: 3px; border-radius: 0px"   /></td>'
-		+'<td width=84 style="width: 62pt; border: solid black 1.0pt; border-left: none; padding: 0cm 5.4pt 0cm 5.4pt; height: 30pt">'
-		+'<input type="text" id="study_country"'+flag+' style="text-align: center; font-size: 14.0pt; font-family: 宋体; display: inline-block; height: 90%; width: 95%; padding: 0px; margin: 3px; border-radius: 0px"   /></td>'
-		+'<td width=84 style="width: 62pt; border: solid black 1.0pt; border-left: none; padding: 0cm 5.4pt 0cm 5.4pt; height: 30pt">'
-		+'<input type="text" id="study_country"'+flag+' style="text-align: center; font-size: 14.0pt; font-family: 宋体; display: inline-block; height: 90%; width: 95%; padding: 0px; margin: 3px; border-radius: 0px"   /></td>'
-		+'<td width=84 style="width: 62pt; border: solid black 1.0pt; border-left: none; padding: 0cm 5.4pt 0cm 5.4pt; height: 30pt">'
-		+'<input type="text" id="study_country"'+flag+' style="text-align: center; font-size: 14.0pt; font-family: 宋体; display: inline-block; height: 90%; width: 95%; padding: 0px; margin: 3px; border-radius: 0px"   /></td>';
-	    
-	    $('#memberinfo'+(flag-1)).after(add_div);
-	    flag++;
-	});
-	$('#addzuzhi').click(function(){
-		var flag = index_zuzhi;
-		
-		var addZhuzhi_div='<input type="hidden" id=zhuzhi_id'+flag+'/>'
-		+'<tr style="page-break-inside: avoid" id=zhuzhi_div'+flag+'><td width=487 colspan=3 valign=top style="width: 365.5pt; border-top: none; border-left: none;  border: solid black 1.0pt;  padding: 0cm 5.0pt 0cm 5.0pt; height: 30pt">'
-		+'<input type="text" id="zuzhi_name'+flag+'" style="text-align: center; font-size: 14.0pt; font-family: 宋体; display: inline-block; height: 90%; width: 95%; padding: 0px; margin: 3px; border-radius: 0px"/> '
-		+'</td><td width=84 style="width: 62pt; border: solid black 1.0pt; border-left: none; padding: 0cm 5.4pt 0cm 5.4pt; height: 30pt">'
-		+'<input type="text" id="zuzhi_job'+flag+'" style="text-align: center; font-size: 14.0pt; font-family: 宋体; display: inline-block; height: 90%; width: 95%; padding: 0px; margin: 3px; border-radius: 0px"/>'
-		+'</td><td width=84 colspan=2 style="width: 62pt; border: solid black 1.0pt; border-left: none; padding: 0cm 5.4pt 0cm 5.4pt; height: 30pt">'
-		+'<input type="text" id="zuzhi_renqi'+flag+'"style="text-align: center; font-size: 14.0pt; font-family: 宋体; display: inline-block; height: 90%; width: 95%; padding: 0px; margin: 3px; border-radius: 0px" /></td></tr>';
-		if(flag == 0){
-			$('#zhuzhi').after(addZhuzhi_div);
-		}
-		else{
-			$('#zhuzhi_div'+(flag-1)).after(addZhuzhi_div);
-		}
-		index_zuzhi++;
-		
-	});
-	
-}
+
 function Member(index){
-	var i = index;
-	for(var i = 0 ; i < flag ; i++){
+	for(var i = 0 ; i < index ; i++){
 		var addMem_div = '</tr><tr style="page-break-inside: avoid" id = "memberinfo'+i+'">'
 		+'<td width=84 style="width: 62pt; border: solid black 1.0pt; border-left: none; padding: 0cm 5.4pt 0cm 5.4pt; height: 30pt">'
 		+'<input type="text" id="study_country"'+i+' style="text-align: center; font-size: 14.0pt; font-family: 宋体; display: inline-block; height: 90%; width: 95%; padding: 0px; margin: 3px; border-radius: 0px"   /></td>'
@@ -340,7 +285,7 @@ function Member(index){
 		+'<td width=84 style="width: 62pt; border: solid black 1.0pt; border-left: none; padding: 0cm 5.4pt 0cm 5.4pt; height: 30pt">'
 		+'<input type="text" id="study_country"'+i+' style="text-align: center; font-size: 14.0pt; font-family: 宋体; display: inline-block; height: 90%; width: 95%; padding: 0px; margin: 3px; border-radius: 0px"   /></td>';
 	if( i == 0){
-		$('#member').after(addMem_div);
+		$('#memberinfo_div').after(addMem_div);
 	}
 	else{
 		$('#memberinfo'+(i-1)).after(addMem_div);
@@ -349,7 +294,7 @@ function Member(index){
 }
 
 function Work(index){
-	var flag = indx;
+	var flag = index;
 	for( var i = 0 ; i < flag ; i++){
 		var addWork_div='<tr style="page-break-inside: avoid;" id="work_index"'+i+'>'
 			+'<td width=84 style="width: 62pt; border: solid black 1.0pt; border-left: none; padding: 0cm 5.4pt 0cm 5.4pt; height: 30pt">'
@@ -399,8 +344,8 @@ function Study(index){
 function Zhuzhi(index){
 	var flag = index;
 	for(var i = 0 ; i < flag ; i++){
-		var addZhuzhi_div='<input type="hidden" id=zhuzhi_id'+i+'/>'
-		+'<tr style="page-break-inside: avoid" id=zhuzhi_div'+i+'><td width=487 colspan=3 valign=top style="width: 365.5pt; border-top: none; border-left: none;  border: solid black 1.0pt;  padding: 0cm 5.0pt 0cm 5.0pt; height: 30pt">'
+		var addZhuzhi_div='<tr><input type="hidden" id=zuzhi_id'+i+'/></tr>'
+		+'<tr style="page-break-inside: avoid" id=zuzhi_div'+i+'><td width=487 colspan=3 valign=top style="width: 365.5pt; border-top: none; border-left: none;  border: solid black 1.0pt;  padding: 0cm 5.0pt 0cm 5.0pt; height: 30pt">'
 		+'<input type="text" id="zuzhi_name'+i+'" style="text-align: center; font-size: 14.0pt; font-family: 宋体; display: inline-block; height: 90%; width: 95%; padding: 0px; margin: 3px; border-radius: 0px"/> '
 		+'</td><td width=84 style="width: 62pt; border: solid black 1.0pt; border-left: none; padding: 0cm 5.4pt 0cm 5.4pt; height: 30pt">'
 		+'<input type="text" id="zuzhi_job'+i+'" style="text-align: center; font-size: 14.0pt; font-family: 宋体; display: inline-block; height: 90%; width: 95%; padding: 0px; margin: 3px; border-radius: 0px"/>'
@@ -410,22 +355,57 @@ function Zhuzhi(index){
 		$('#zhuzhi').after(addZhuzhi_div);
 	}
 	else{
-		$('#zhuzhi_div'+(i-1)).after(addZhuzhi_div);
+		$('#zuzhi_div'+(i-1)).after(addZhuzhi_div);
 	}
-		
 	}
 }
 
-function addZhuzhi(){
-	var flag = index_zuzhi;
+function addzuzhi(){
+	alert("addzuzhi");
+	var flag = index_zuzhi+1;
 	
-	var addZhuzhi_div='<input type="hidden" id=zhuzhi_id'+flag+'/>'
-	+'<tr style="page-break-inside: avoid" id=zhuzhi_div'+flag+'><td width=487 colspan=3 valign=top style="width: 365.5pt; border-top: none; border-left: none;  border: solid black 1.0pt;  padding: 0cm 5.0pt 0cm 5.0pt; height: 30pt">'
+	var addZhuzhi_div='<tr><input type="hidden" id=zuzhi_id'+flag+'/></tr>'
+	+'<tr style="page-break-inside: avoid" id=zuzhi_div'+flag+'><td width=487 colspan=3 valign=top style="width: 365.5pt; border-top: none; border-left: none;  border: solid black 1.0pt;  padding: 0cm 5.0pt 0cm 5.0pt; height: 30pt">'
 	+'<input type="text" id="zuzhi_name'+flag+'" style="text-align: center; font-size: 14.0pt; font-family: 宋体; display: inline-block; height: 90%; width: 95%; padding: 0px; margin: 3px; border-radius: 0px"/> '
 	+'</td><td width=84 style="width: 62pt; border: solid black 1.0pt; border-left: none; padding: 0cm 5.4pt 0cm 5.4pt; height: 30pt">'
 	+'<input type="text" id="zuzhi_job'+flag+'" style="text-align: center; font-size: 14.0pt; font-family: 宋体; display: inline-block; height: 90%; width: 95%; padding: 0px; margin: 3px; border-radius: 0px"/>'
 	+'</td><td width=84 colspan=2 style="width: 62pt; border: solid black 1.0pt; border-left: none; padding: 0cm 5.4pt 0cm 5.4pt; height: 30pt">'
 	+'<input type="text" id="zuzhi_renqi'+flag+'"style="text-align: center; font-size: 14.0pt; font-family: 宋体; display: inline-block; height: 90%; width: 95%; padding: 0px; margin: 3px; border-radius: 0px" /></td></tr>';
-	
+	$('#zuzhi_div'+(index_zuzhi)).after(addZhuzhi_div);
 	index_zuzhi++;
+}
+function addmember(){
+	alert("addmember");
+	var flag = index_meminfo+1;
+	if(flag >15){
+		return ;
+	}
+	var add_div = '</tr><tr style="page-break-inside: avoid" id = "memberinfo'+flag+'">'
+	+'<td width=84 style="width: 62pt; border: solid black 1.0pt; border-left: none; padding: 0cm 5.4pt 0cm 5.4pt; height: 30pt">'
+	+'<input type="text" id="study_country"'+flag+' style="text-align: center; font-size: 14.0pt; font-family: 宋体; display: inline-block; height: 90%; width: 95%; padding: 0px; margin: 3px; border-radius: 0px"   /></td>'
+	+'<td width=84 style="width: 62pt; border: solid black 1.0pt; border-left: none; padding: 0cm 5.4pt 0cm 5.4pt; height: 30pt">'
+	+'<input type="text" id="study_country"'+flag+' style="text-align: center; font-size: 14.0pt; font-family: 宋体; display: inline-block; height: 90%; width: 95%; padding: 0px; margin: 3px; border-radius: 0px"   /></td>'
+	+'<td width=84 style="width: 62pt; border: solid black 1.0pt; border-left: none; padding: 0cm 5.4pt 0cm 5.4pt; height: 30pt">'
+	+'<input type="text" id="study_country"'+flag+' style="text-align: center; font-size: 14.0pt; font-family: 宋体; display: inline-block; height: 90%; width: 95%; padding: 0px; margin: 3px; border-radius: 0px"   /></td>'
+	+'<td width=84 style="width: 62pt; border: solid black 1.0pt; border-left: none; padding: 0cm 5.4pt 0cm 5.4pt; height: 30pt">'
+	+'<input type="text" id="study_country"'+flag+' style="text-align: center; font-size: 14.0pt; font-family: 宋体; display: inline-block; height: 90%; width: 95%; padding: 0px; margin: 3px; border-radius: 0px"   /></td>'
+	+'<td width=84 style="width: 62pt; border: solid black 1.0pt; border-left: none; padding: 0cm 5.4pt 0cm 5.4pt; height: 30pt">'
+	+'<input type="text" id="study_country"'+flag+' style="text-align: center; font-size: 14.0pt; font-family: 宋体; display: inline-block; height: 90%; width: 95%; padding: 0px; margin: 3px; border-radius: 0px"   /></td>'
+    +'<td width=84 style="width: 62pt; border: solid black 1.0pt; border-left: none; padding: 0cm 5.4pt 0cm 5.4pt; height: 30pt">'
+	+'<input type="text" id="study_country"'+flag+' style="text-align: center; font-size: 14.0pt; font-family: 宋体; display: inline-block; height: 90%; width: 95%; padding: 0px; margin: 3px; border-radius: 0px"   /></td>'
+	+'<td width=84 style="width: 62pt; border: solid black 1.0pt; border-left: none; padding: 0cm 5.4pt 0cm 5.4pt; height: 30pt">'
+	+'<input type="text" id="study_country"'+flag+' style="text-align: center; font-size: 14.0pt; font-family: 宋体; display: inline-block; height: 90%; width: 95%; padding: 0px; margin: 3px; border-radius: 0px"   /></td>'
+	+'<td width=84 style="width: 62pt; border: solid black 1.0pt; border-left: none; padding: 0cm 5.4pt 0cm 5.4pt; height: 30pt">'
+	+'<input type="text" id="study_country"'+flag+' style="text-align: center; font-size: 14.0pt; font-family: 宋体; display: inline-block; height: 90%; width: 95%; padding: 0px; margin: 3px; border-radius: 0px"   /></td>'
+	+'<td width=84 style="width: 62pt; border: solid black 1.0pt; border-left: none; padding: 0cm 5.4pt 0cm 5.4pt; height: 30pt">'
+	+'<input type="text" id="study_country"'+flag+' style="text-align: center; font-size: 14.0pt; font-family: 宋体; display: inline-block; height: 90%; width: 95%; padding: 0px; margin: 3px; border-radius: 0px"   /></td>';
+    if(index_meminfo == 0){
+    	alert("tianji!")
+    	$('#memberinfo_div').after(add_div);
+    }
+    else{
+    	   $('#memberinfo'+(index_meminfo)).after(add_div);
+    }
+    index_meminfo++;
+	
 }

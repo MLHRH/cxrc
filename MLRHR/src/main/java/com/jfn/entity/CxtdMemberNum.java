@@ -14,7 +14,7 @@ public class CxtdMemberNum {
 	private Integer age_46_55;
 	private Integer age_36_45;
 	private Integer age_35;
-	private Integer gaokji;
+	private Integer gaoji;
 	private Integer fugao;
 	private Integer zhongji;
 	private Integer z_orther;
@@ -58,11 +58,11 @@ public class CxtdMemberNum {
 	public void setAge_35(Integer age_35) {
 		this.age_35 = age_35;
 	}
-	public Integer getGaokji() {
-		return gaokji;
+	public Integer getGaoji() {
+		return gaoji;
 	}
-	public void setGaokji(Integer gaokji) {
-		this.gaokji = gaokji;
+	public void setGaoji(Integer gaoji) {
+		this.gaoji = gaoji;
 	}
 	public Integer getFugao() {
 		return fugao;
@@ -111,7 +111,7 @@ public class CxtdMemberNum {
 		return "CxtdMemberNum [id=" + id + ", num=" + num + ", team_id="
 				+ team_id + ", age_56=" + age_56 + ", age_46_55=" + age_46_55
 				+ ", age_36_45=" + age_36_45 + ", age_35=" + age_35
-				+ ", gaokji=" + gaokji + ", fugao=" + fugao + ", zhongji="
+				+ ", gaoji=" + gaoji + ", fugao=" + fugao + ", zhongji="
 				+ zhongji + ", z_orther=" + z_orther + ", boshi=" + boshi
 				+ ", shuoshi=" + shuoshi + ", benke=" + benke + ", x_orther="
 				+ x_orther + "]";
