@@ -14,7 +14,7 @@ public class JcqnDoc01 {
 	private String name;
 	private String sex;
 	private String minzu;
-	private Date birthday;
+	private String birthday;
 	private String title;
 	private String document_type;
 	private String document_number;
@@ -30,13 +30,13 @@ public class JcqnDoc01 {
 	private String study_colleges;
 	private String study_major;
 	private String study_education;
-	private Date study_start_time;
-	private Date study_end_time;
+	private String study_start_time;
+	private String study_end_time;
 	private String work_country;
 	private String work_company;
 	private String work_position ;
-	private Date work_start_time;
-	private Date work_end_time;
+	private String work_start_time;
+	private String work_end_time;
 	private String journal_title ;
 	private String organization_position;
 	private String organization_term;
@@ -73,10 +73,10 @@ public class JcqnDoc01 {
 	public void setMinzu(String minzu) {
 		this.minzu = minzu;
 	}
-	public Date getBirthday() {
+	public String getBirthday() {
 		return birthday;
 	}
-	public void setBirthday(Date birthday) {
+	public void setBirthday(String birthday) {
 		this.birthday = birthday;
 	}
 	public String getTitle() {
@@ -169,16 +169,16 @@ public class JcqnDoc01 {
 	public void setStudy_education(String study_education) {
 		this.study_education = study_education;
 	}
-	public Date getStudy_start_time() {
+	public String getStudy_start_time() {
 		return study_start_time;
 	}
-	public void setStudy_start_time(Date study_start_time) {
+	public void setStudy_start_time(String study_start_time) {
 		this.study_start_time = study_start_time;
 	}
-	public Date getStudy_end_time() {
+	public String getStudy_end_time() {
 		return study_end_time;
 	}
-	public void setStudy_end_time(Date study_end_time) {
+	public void setStudy_end_time(String study_end_time) {
 		this.study_end_time = study_end_time;
 	}
 	public String getWork_country() {
@@ -199,16 +199,16 @@ public class JcqnDoc01 {
 	public void setWork_position(String work_position) {
 		this.work_position = work_position;
 	}
-	public Date getWork_start_time() {
+	public String getWork_start_time() {
 		return work_start_time;
 	}
-	public void setWork_start_time(Date work_start_time) {
+	public void setWork_start_time(String work_start_time) {
 		this.work_start_time = work_start_time;
 	}
-	public Date getWork_end_time() {
+	public String getWork_end_time() {
 		return work_end_time;
 	}
-	public void setWork_end_time(Date work_end_time) {
+	public void setWork_end_time(String work_end_time) {
 		this.work_end_time = work_end_time;
 	}
 	public String getJournal_title() {
@@ -283,12 +283,12 @@ public class JcqnDoc01 {
 	public void setWork_fax(String work_fax) {
 		this.work_fax = work_fax;
 	}
-	public JcqnDoc01(Integer user_id, String name, String sex, String minzu, Date birthday, String title,
+	public JcqnDoc01(Integer user_id, String name, String sex, String minzu, String birthday, String title,
 			String document_type, String document_number, String direction, String declaration_area, String telephone,
 			String fax, String mobile_phone, String email, String zip_code, String addresses, String study_country,
-			String study_colleges, String study_major, String study_education, Date study_start_time,
-			Date study_end_time, String work_country, String work_company, String work_position, Date work_start_time,
-			Date work_end_time, String journal_title, String organization_position, String organization_term,
+			String study_colleges, String study_major, String study_education, String study_start_time,
+			String study_end_time, String work_country, String work_company, String work_position, String work_start_time,
+			String work_end_time, String journal_title, String organization_position, String organization_term,
 			String unit_name, String organization_code, String legal_representative, String supervisor_unit,
 			String unit_address, String postcode, String unit_contact, String work_telephone, String work_fax) {
 		super();

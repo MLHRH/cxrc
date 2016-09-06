@@ -20,7 +20,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springside.modules.security.springsecurity.SpringSecurityUtils;
 
 import com.google.gson.JsonObject;
-import com.jfn.entity.Apply;
+import com.jfn.entity.ZhichengApply;
 import com.jfn.entity.Body;
 import com.jfn.entity.Calendar;
 import com.jfn.entity.User;
@@ -182,7 +182,7 @@ public class BodyController {
 		String apply_type = request.getParameter("apply_type");
 
 		ArrayList<User> userListNew = new ArrayList<User>();
-		ArrayList<Apply> zhichengApplylistNew = new ArrayList<Apply>();
+		ArrayList<ZhichengApply> zhichengApplylistNew = new ArrayList<ZhichengApply>();
 		List<User> userList = null;
 		if (body_id != null) {
 
@@ -193,7 +193,7 @@ public class BodyController {
 			}
 			if (userList.size() != 0) {
 				for (User user : userList) {
-					List<Apply> zhichengApplylist = zhichengapplyservice.getUserByUserIdAndDate(user.getId(), startDate, endDate);
+					List<ZhichengApply> zhichengApplylist = zhichengapplyservice.getUserByUserIdAndDate(user.getId(), startDate, endDate);
 					if (zhichengApplylist.size() != 0) {
 //						if (apply_name.equals("-1") || zhichengApplylist.get(0).getApply_name().equals(apply_name)) {
 							if (apply_type.equals("-1") || zhichengApplylist.get(0).getApply_type().equals(apply_type)) {
@@ -229,7 +229,7 @@ public class BodyController {
 		User user = accountManager.findUserByLoginName(SpringSecurityUtils.getCurrentUserName());
 		int result = 1;// 0:fail;1:success
 
-		List<Apply> zhichengApplylist = zhichengapplyservice.getUserByUserIdAndDate(user.getId(), startDate, endDate);
+		List<ZhichengApply> zhichengApplylist = zhichengapplyservice.getUserByUserIdAndDate(user.getId(), startDate, endDate);
 		if (zhichengApplylist.size() != 0) {
 			if ((zhichengApplylist.get(0)).getStatus().equals("未通过") || (zhichengApplylist.get(0)).getStatus().equals("待审核")) {
 				result = 1;

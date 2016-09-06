@@ -8,7 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.jfn.dao.ZhichengApplyDao;
-import com.jfn.entity.Apply;
+import com.jfn.entity.ZhichengApply;
 import com.jfn.entity.ZhichengApply;
 
 @Repository
@@ -18,23 +18,23 @@ public class ZhichengApplyService {
 	@Autowired
 	private ZhichengApplyDao zhichengDao;
 	
-	public List<Apply> getAll()
+	public List<ZhichengApply> getAll()
 	{
 		return zhichengDao.getAll();
 	}
 	
 	
-	public Apply getById(String Id) {
+	public ZhichengApply getById(String Id) {
 		// TODO Auto-generated method stub
 		return zhichengDao.get(Integer.parseInt(Id));
 	}
 
-	public boolean Insert(Apply entity) {
+	public boolean Insert(ZhichengApply entity) {
 		// TODO Auto-generated method stub
 		return zhichengDao.insert(entity);
 	}
 
-	public boolean Update(Apply entity) {
+	public boolean Update(ZhichengApply entity) {
 		// TODO Auto-generated method stub
 		return zhichengDao.Update(entity);
 	}
@@ -45,11 +45,11 @@ public class ZhichengApplyService {
 	}
 
 
-	public List<Apply> getAllByUserId(Integer id) {
+	public List<ZhichengApply> getAllByUserId(Integer id) {
 		// TODO Auto-generated method stub
 		return zhichengDao.getAllByUserId(id);
 	}
-	public List<Apply> getUserByUserIdAndDate(Integer id,String startDate,String endDate) {
+	public List<ZhichengApply> getUserByUserIdAndDate(Integer id,String startDate,String endDate) {
 		// TODO Auto-generated method stub
 		return zhichengDao.getUserByUserIdAndDate(id,startDate,endDate);
 	}

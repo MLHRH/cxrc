@@ -19,8 +19,9 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 import org.springside.modules.security.springsecurity.SpringSecurityUtils;
 
+import com.alibaba.fastjson.JSON;
 import com.google.gson.JsonObject;
-import com.jfn.entity.Apply;
+import com.jfn.entity.ZhichengApply;
 import com.jfn.entity.ApplyMenu;
 import com.jfn.entity.Role;
 import com.jfn.entity.User;
@@ -111,7 +112,7 @@ public class ZhichengController {
 	@ResponseBody
 	public String zhichengApplylistInit(HttpServletRequest request, Model model) {
 		String userId = request.getParameter("userId");
-		List<Apply> list = zhichengapplyservice.getAllByUserId(Integer.parseInt(userId));
+		List<ZhichengApply> list = zhichengapplyservice.getAllByUserId(Integer.parseInt(userId));
 
 		String authority = "";
 		SecurityContextImpl securityContextImpl = (SecurityContextImpl) request.getSession().getAttribute("SPRING_SECURITY_CONTEXT");
@@ -127,7 +128,7 @@ public class ZhichengController {
 		String starDate = calendar.getStart_date();
 		String endDate = calendar.getEnd_date();
 		if (list.size() > 0) {
-			Apply zhichengapply = list.get(0);
+			ZhichengApply zhichengapply = list.get(0);
 			if (zhichengapply.getApply_date().compareTo(starDate) > 0 && zhichengapply.getApply_date().compareTo(endDate) > 0) {
 				jo3.put("hasOne", "1");
 			} else {
@@ -148,13 +149,13 @@ public class ZhichengController {
 		User user = accountManager.findUserByLoginName(SpringSecurityUtils.getCurrentUserName());
 
 		List<Role> myrole = accountManager.getUserRole(user.getId());
-		Set<Apply> ZhichengApplySet = new LinkedHashSet<Apply>();
+		Set<ZhichengApply> ZhichengApplySet = new LinkedHashSet<ZhichengApply>();
 		for (Role roleobj : myrole) {
 			if (roleobj.getName().equals("DepartHR")) {
 				List<User> userlist = uservice.getAllByBodyId(user.getBody_id());
 				for (User userobj : userlist) {
-					List<Apply> UserZhichengApplylist = zervice.getAllByUserId(userobj.getId());
-					for (Apply ZhichengApplyobj : UserZhichengApplylist) {
+					List<ZhichengApply> UserZhichengApplylist = zervice.getAllByUserId(userobj.getId());
+					for (ZhichengApply ZhichengApplyobj : UserZhichengApplylist) {
 						ZhichengApplySet.add((ZhichengApplyobj));
 					}
 				}
@@ -163,8 +164,8 @@ public class ZhichengController {
 				ZhichengApplySet.clear();
 				List<User> userlist = uservice.getAll();
 				for (User userobj : userlist) {
-					List<Apply> UserZhichengApplylist = zervice.getAllByUserId(userobj.getId());
-					for (Apply ZhichengApplyobj : UserZhichengApplylist) {
+					List<ZhichengApply> UserZhichengApplylist = zervice.getAllByUserId(userobj.getId());
+					for (ZhichengApply ZhichengApplyobj : UserZhichengApplylist) {
 						ZhichengApplySet.add((ZhichengApplyobj));
 					}
 				}
@@ -177,7 +178,7 @@ public class ZhichengController {
 	// 职称提交(增加、修改)
 	@RequestMapping(value = "/zhichengApplyUpdate", method = RequestMethod.POST)
 	@ResponseBody
-	public String jcqn_zhichengApplyUpdate(HttpServletRequest request, @ModelAttribute Apply entity) {
+	public String zhichengApplyUpdate(HttpServletRequest request, @ModelAttribute ZhichengApply entity) {
 		JsonObject jsonResponse = new JsonObject();
 		int result = 0;// 0:fail;1:success
 		String msg = "Failed to %s this zhicheng";
@@ -186,11 +187,13 @@ public class ZhichengController {
 			if ((id == null) || (id.length() < 1)) {
 				result = zhichengapplyservice.Insert(entity) ? 1 : 0;
 			} else {
+				System.err.println(JSON.toJSON(entity));
 				result = zhichengapplyservice.Update(entity) ? 1 : 0;
 			}
 		} catch (Exception e) {
 			result = 0;
 			msg = msg + ": " + e.getMessage();
+			System.err.println(e);
 		}
 		jsonResponse.addProperty("result", result);
 		jsonResponse.addProperty("msg", String.format(msg, (id == null) ? "add" : "edit"));
@@ -238,7 +241,7 @@ public class ZhichengController {
 		JSONArray jsonArray = new JSONArray();
 		String id = request.getParameter("id");
 		if ((id != null) && (id.length() >= 1)) {
-			Apply zhichengapply = zhichengapplyservice.getById(id);
+			ZhichengApply zhichengapply = zhichengapplyservice.getById(id);
 			jsonArray.add(zhichengapply);
 			jsonArray.add(jo3);
 			return jsonArray.toString();

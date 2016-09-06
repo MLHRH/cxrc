@@ -46,7 +46,7 @@ public class JcqnDocService {
 			return jcqnDoc01Dao.delete(user_id);
 			
 		}
-		public List<JcqnDoc01> getByUserId01( int user_id ){
+		public JcqnDoc01 getByUserId01( int user_id ){
 			return jcqnDoc01Dao.getByUserId(user_id);
 		}
 		

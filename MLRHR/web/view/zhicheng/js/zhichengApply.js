@@ -317,13 +317,13 @@ function zhichengApplyUpdate() {
 					"name" : "apply_type",
 					"value" : $("#apply_type").val()
 				});
-//		arrData.push({
-//					"name" : "apply_isbreak",
-//					"value" : $("#zhichengIsbreak").val()
-//				});
+		arrData.push({
+					"name" : "expert1_id",
+					"value" : $("#expert1_id").val()
+				});
 		arrData.push({
 					"name" : "status",
-					"value" : status
+					"value" : $("#zhichengapply_status_new").val()
 				});
 		arrData.push({
 					"name" : "pre_approve_date",
