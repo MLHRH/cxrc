@@ -240,6 +240,9 @@ function zhichengApplyUpdate() {
 		var finial_approve_date = null;
 		var finial_approve_id = 0;
 		var finial_approve_sug;
+		var  expert1_id=0;
+		var expert2_id=0;
+		var expert1_score;
 
 		if (zhichengApply == null) {
 			user_id = $("#userId").val();
@@ -322,6 +325,15 @@ function zhichengApplyUpdate() {
 					"value" : $("#expert1_id").val()
 				});
 		arrData.push({
+					"name" : "expert2_id",
+					"value" : $("#expert2_id").val()
+				});
+		arrData.push({
+			"name" : "expert1_score",
+			"value" : $("#expert1_score").val()
+		});
+		
+		arrData.push({
 					"name" : "status",
 					"value" : $("#zhichengapply_status_new").val()
 				});
@@ -386,14 +398,14 @@ function validateZhichengApplyUpdate() {
 	// window.confirm("提示1：提交后将不再允许修改，如需修改请联系管理员。\n提示2：若仅仅想保存当前操作，请点击右侧上方“保存修改”按钮。\n请确认是否继续“提交操作”？");
 	// if (truthBeTold) {
 	// 校验方法
-	if ($("#zhichengnow").val() == "-1") {
+	if ($("#zhichengType").val() == "-1") {
 		generatenoty('center', "请选择申报级别", 'error');
 		return false;
 	}
-	if ($("#zhichengType").val() == "-1") {
-		generatenoty('center', "请选择专业分组", 'error');
-		return false;
-	}
+//	if ($("#zhichengType").val() == "-1") {
+//		generatenoty('center', "请选择专业分组", 'error');
+//		return false;
+//	}
 	/*
 	 * if ($("#zhichengRank").val() == "-1") { generatenoty('center', "请选择专业级别",
 	 * 'error'); return false; }

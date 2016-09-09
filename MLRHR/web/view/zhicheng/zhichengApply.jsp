@@ -119,7 +119,7 @@ body {
 					<option value="科技领军" ${type =='科技领军' ?'selected':''}>科技领军</option>
 					<option value="创新团队" ${type =='创新团队' ?'selected':''}>创新团队</option>
 				</select>
-			<!-- 	<input type="hidden" id="zhichengType"> -->
+				<input type="hidden" id="zhichengType"> 
 				<span class="text-error isUSER" style="font-size: 20px; margin-left: 18px;">
 					<strong>当前状态：</strong>
 				</span>
