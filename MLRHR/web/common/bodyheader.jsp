@@ -25,6 +25,8 @@
 					<li>
 						<a href="${ctx}/index">首页</a>
 					</li>
+	
+			
 					<security:authorize ifAnyGranted="ROLE_USER">
 						<li>
 							<a href="${ctx}/userBaseInfor">我的档案</a>
@@ -39,6 +41,18 @@
 							<a href="${ctx}/bodylist">人才审核</a>
 						</li>
 					</security:authorize>
+					
+                 	<security:authorize ifAnyGranted="ROLE_EXPERT1">
+						<li>
+							<a href="${ctx}/bodylist">人才审核</a>
+						</li>
+					</security:authorize>
+					
+					<security:authorize ifAnyGranted="ROLE_EXPERT2">
+						<li>
+							<a href="${ctx}/bodylist">人才审核</a>
+						</li>
+					</security:authorize> 
 
 					<security:authorize ifAnyGranted="ROLE_HR">
 						<li class="dropdown">

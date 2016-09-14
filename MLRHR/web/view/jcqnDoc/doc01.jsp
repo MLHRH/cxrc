@@ -382,29 +382,29 @@
 				</td>
 			</tr>
 			<tr style='page-break-inside: avoid; height: 38pt'>
-					<td width=99 colspan=2 valign="middle"
+				<td width=99 colspan=2 valign="middle"
 					style='width: 99.2pt; border-top: none; border-left: none; border-bottom: solid windowtext 1.0pt; border-right: solid windowtext 1.0pt; padding: 0cm 5.4pt 0cm 5.4pt; height: 38pt'>
-					<input type="text" id="work_country2"
+					<input type="text" id="user_workcountry"
 						style="text-align: center; font-size: 16.0pt; font-family: 仿宋; display: inline-block; height: 90%; width: 95%; padding: 0px; margin: 3px; border-radius: 0px"   />
 				</td>
 				<td width=99 colspan=2 valign="middle"
 					style='width: 106.3pt; border-top: none; border-left: none; border-bottom: solid windowtext 1.0pt; border-right: solid windowtext 1.0pt; padding: 0cm 5.4pt 0cm 5.4pt; height: 38pt'>
-					<input type="text" id="work_company2"
+					<input type="text" id="user_workcollege"
 						style="text-align: center; font-size: 16.0pt; font-family: 仿宋; display: inline-block; height: 90%; width: 95%; padding: 0px; margin: 3px; border-radius: 0px"   />
 				</td>
 				<td width=99 colspan=2 valign="middle"
 					style='width: 3.0cm; border-top: none; border-left: none; border-bottom: solid windowtext 1.0pt; border-right: solid windowtext 1.0pt; padding: 0cm 5.4pt 0cm 5.4pt; height: 38pt'>
-					<input type="text" id="work_position2"
+					<input type="text" id="user_workmajor"
 						style="text-align: center; font-size: 16.0pt; font-family: 仿宋; display: inline-block; height: 90%; width: 95%; padding: 0px; margin: 3px; border-radius: 0px"   />
 				</td>
 				<td width=99 colspan=3 valign="middle"
 					style='width: 2.0cm; border-top: none; border-left: none; border-bottom: solid windowtext 1.0pt; border-right: solid windowtext 1.0pt; padding: 0cm 5.4pt 0cm 5.4pt; height: 38pt'>
-					<input type="text" id="work_start_time2"
+					<input type="text" id="user_workdegree"
 						style="text-align: center; font-size: 16.0pt; font-family: 仿宋; display: inline-block; height: 90%; width: 95%; padding: 0px; margin: 3px; border-radius: 0px"   />
 				</td>
 				<td width=99 colspan=2 valign="middle"
 					style='width: 99.25pt; border-top: none; border-left: none; border-bottom: solid windowtext 1.0pt; border-right: solid windowtext 1.0pt; padding: 0cm 5.4pt 0cm 5.4pt; height: 38pt'>
-					<input type="text" id="work_end_time2"
+					<input type="text" id="user_workfirsttime"
 						style="text-align: center; font-size: 16.0pt; font-family: 仿宋; display: inline-block; height: 90%; width: 95%; padding: 0px; margin: 3px; border-radius: 0px"   />
 				</td>
 			</tr>

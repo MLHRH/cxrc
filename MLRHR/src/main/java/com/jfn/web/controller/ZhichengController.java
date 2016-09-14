@@ -183,6 +183,9 @@ public class ZhichengController {
 		int result = 0;// 0:fail;1:success
 		String msg = "Failed to %s this zhicheng";
 		String id = request.getParameter("id");
+		System.err.println(request.getParameter("status"));
+		System.err.println(request.getParameter("expert2_score"));
+		System.err.println(request.getParameter("expert2_sug"));
 		try {
 			if ((id == null) || (id.length() < 1)) {
 				result = zhichengapplyservice.Insert(entity) ? 1 : 0;

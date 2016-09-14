@@ -19,6 +19,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springside.modules.security.springsecurity.SpringSecurityUtils;
 
+import com.alibaba.fastjson.JSON;
 import com.google.gson.JsonObject;
 import com.jfn.entity.ZhichengApply;
 import com.jfn.entity.Body;
@@ -193,7 +194,10 @@ public class BodyController {
 			}
 			if (userList.size() != 0) {
 				for (User user : userList) {
+					System.err.println();
+//					System.err.println("输出结果为"+zhichengapplyservice.getUserByUserIdAndDate(user.getId(), startDate, endDate).get(0).getApply_date());
 					List<ZhichengApply> zhichengApplylist = zhichengapplyservice.getUserByUserIdAndDate(user.getId(), startDate, endDate);
+					System.err.println("ID======="+user.getId());
 					if (zhichengApplylist.size() != 0) {
 //						if (apply_name.equals("-1") || zhichengApplylist.get(0).getApply_name().equals(apply_name)) {
 							if (apply_type.equals("-1") || zhichengApplylist.get(0).getApply_type().equals(apply_type)) {

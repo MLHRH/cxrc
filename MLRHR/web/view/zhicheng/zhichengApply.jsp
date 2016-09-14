@@ -77,24 +77,24 @@ body {
 <script type="text/javascript" src="${ctx}/view/cxtdDoc/js/cxtdDoc03.js"></script>
 <script type="text/javascript" src="${ctx}/view/cxtdDoc/js/cxtdDoc04.js"></script>
 <script type="text/javascript" src="${ctx}/view/cxtdDoc/js/cxtdDoc05.js"></script>
-<script type="text/javascript" src="${ctx}/view/cxtdDoc/js/cxtdDoc06.js"></script>
-<script type="text/javascript" src="${ctx}/view/cxtdDoc/js/cxtdDoc07.js"></script>
+<%-- <script type="text/javascript" src="${ctx}/view/cxtdDoc/js/cxtdDoc06.js"></script>
+<script type="text/javascript" src="${ctx}/view/cxtdDoc/js/cxtdDoc07.js"></script> --%>
 
 <script type="text/javascript" src="${ctx}/view/jcqnDoc/js/doc01.js"></script>
 <script type="text/javascript" src="${ctx}/view/jcqnDoc/js/doc02.js"></script>
 <script type="text/javascript" src="${ctx}/view/jcqnDoc/js/doc03.js"></script>
 <script type="text/javascript" src="${ctx}/view/jcqnDoc/js/doc04.js"></script>
 <script type="text/javascript" src="${ctx}/view/jcqnDoc/js/doc05.js"></script>
-<script type="text/javascript" src="${ctx}/view/jcqnDoc/js/doc06.js"></script>
-<script type="text/javascript" src="${ctx}/view/jcqnDoc/js/doc07.js"></script>
+<%-- <script type="text/javascript" src="${ctx}/view/jcqnDoc/js/doc06.js"></script>
+<script type="text/javascript" src="${ctx}/view/jcqnDoc/js/doc07.js"></script> --%>
 
 <script type="text/javascript" src="${ctx}/view/kjljDoc/js/doc01.js"></script>
 <script type="text/javascript" src="${ctx}/view/kjljDoc/js/doc02.js"></script>
 <script type="text/javascript" src="${ctx}/view/kjljDoc/js/doc03.js"></script>
 <script type="text/javascript" src="${ctx}/view/kjljDoc/js/doc04.js"></script>
 <script type="text/javascript" src="${ctx}/view/kjljDoc/js/doc05.js"></script>
-<script type="text/javascript" src="${ctx}/view/kjljDoc/js/doc06.js"></script>
-<script type="text/javascript" src="${ctx}/view/kjljDoc/js/doc07.js"></script>
+<%-- <script type="text/javascript" src="${ctx}/view/kjljDoc/js/doc06.js"></script>
+<script type="text/javascript" src="${ctx}/view/kjljDoc/js/doc07.js"></script> --%>
 
 <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
 <!--[if lt IE 9]>
@@ -137,18 +137,42 @@ body {
 					</div>
 					<div class="control-group isUSER" align="left">
 						<label class="text-error">初审意见：</label>
-						<textarea  autoHeight="true" style="width: 95%; min-height: 100px; overflow:hidden;" id="zhichengapply_pre_approve_sug"></textarea>
+						<textarea  autoHeight="true" style="width: 95%; min-height: 50px; overflow:hidden;" id="zhichengapply_pre_approve_sug"></textarea>
 					</div>
 					<div class="control-group isUSER" align="left">
 						<label class="text-error">终审意见：</label>
-						<textarea autoHeight="true" style="width: 95%; min-height: 100px; overflow:hidden;" id="zhichengapply_finial_approve_sug"></textarea>
+						<textarea autoHeight="true" style="width: 95%; min-height: 50px; overflow:hidden;" id="zhichengapply_finial_approve_sug"></textarea>
 					</div>
-					<div class="control-group isHR" align="left">
+					
+					<div class="control-group isUSER" align="left">
+						<label class="text-error">初审专家评分：</label>
+						<!--  <textarea  autoHeight="true" style="width: 95%; min-height: 10px; overflow:hidden;" id="zhichengapply_expert1_score"></textarea>-->
+						<input type="text" id="zhichengapply_expert1_score" style="text-align: center; font-size: 16.0pt; font-family: 仿宋; display: inline-block; height: 0%; width: 95%; padding: 0px; margin: 3px; border-radius: 0px" />
+					</div>
+					
+					<div class="control-group isUSER" align="left">
+						<label class="text-error">初审专家意见：</label>
+						<textarea  autoHeight="true" style="width: 95%; min-height: 50px; overflow:hidden;" id="zhichengapply_expert1_sug"></textarea>
+					</div>
+					
+						<div class="control-group isUSER" align="left">
+						<label class="text-error">终审专家评分：</label>
+						<!-- <textarea  autoHeight="true" style="width: 95%; min-height: 5px; overflow:hidden;" id="zhichengapply_expert2_score"></textarea> -->
+						<input type="text" id="zhichengapply_expert2_score" style="text-align: center; font-size: 16.0pt; font-family: 仿宋; display: inline-block; height: 0%; width: 95%; padding: 0px; margin: 3px; border-radius: 0px" />
+						
+					</div>
+					
+					<div class="control-group isUSER" align="left">
+						<label class="text-error">终审专家意见：</label>
+						<textarea  autoHeight="true" style="width: 95%; min-height: 50px; overflow:hidden;" id="zhichengapply_expert2_sug"></textarea>
+					</div>
+					
+					<div class="control-group isEXPERT1" align="left">
 						<span class="text-error">审核变更：</span>
 						<select id="zhichengapply_status_new" style="font-size: 14px">
 							<option value="-1">请选择</option>
 							<option value="终审中">初审通过</option>
-							<option value="已通过" class="isPro">终审通过</option>
+							<option value="已通过" class="isEXPERT2">终审通过</option>
 							<option value="未通过">审核不通过</option>
 						</select>
 					</div>
