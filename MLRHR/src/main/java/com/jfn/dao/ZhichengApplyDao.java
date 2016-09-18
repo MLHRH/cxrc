@@ -33,7 +33,7 @@ public class ZhichengApplyDao {
 	private final String SQL_SET_Apply_UPDATE = "update apply set user_id=?,apply_date = ?,apply_type = ?,status = ?,pre_approve_date = ?,pre_approve_id = ?,pre_approve_sug = ?,finial_approve_date=?,finial_approve_id = ?,finial_approve_sug = ?,expert1_date = ?,expert1_id=?,expert1_score = ?,expert1_sug = ?,expert2_date = ?,expert2_id = ?,expert2_score = ?,expert2_sug = ? where id=?";
 
 	private final static String SQL_DEL_BY_ID = "delete from apply where id = ?";
-	SimpleDateFormat sdf = new SimpleDateFormat("yyyy.MM.dd HH:mm:ss");
+	SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 	public boolean insert(ZhichengApply Apply) {
 		Object[] params = new Object[]{Apply.getUser_id(),sdf.format(new Date()),Apply.getApply_type(), 
 				Apply.getStatus(),Apply.getPre_approve_date(),  Apply.getPre_approve_id(),Apply.getPre_approve_sug(),Apply.getFinial_approve_date(), Apply.getFinial_approve_id(),
@@ -59,14 +59,14 @@ public class ZhichengApplyDao {
 
 					// 下面是截取时间，例：2014-09-15 18:55:50.275 最后.275去掉。
 					String apply_date = rs.getString("apply_date");
-//					String a[] = apply_date.split("\\.");
+					String a[] = apply_date.split("\\.");
 
-					String temp = apply_date;
-					if (temp != null) {
+					String temp = a[0];
+					if (temp != null&&temp!="") {
 						String Year = temp.substring(0, 4);
 						String Month = temp.substring(5, 7);
 						String Day = temp.substring(8, 19);
-						temp = Year + "." + Month + "." + Day;
+						temp = Year + "-" + Month + "-" + Day;
 					}
 
 					Apply.setApply_date(temp);
@@ -74,11 +74,11 @@ public class ZhichengApplyDao {
 					Apply.setStatus(rs.getString("status"));
 
 					temp = rs.getString("pre_approve_date");
-					if (temp != null) {
+					if (temp != null&&temp!="") {
 						String Year = temp.substring(0, 4);
 						String Month = temp.substring(5, 7);
 						String Day = temp.substring(8, 10);
-						temp = Year + "." + Month + "." + Day;
+						temp = Year + "-" + Month + "-" + Day;
 					}
 					Apply.setPre_approve_date(temp);
 					Apply.setPre_approve_id(rs.getString("pre_approve_id"));
@@ -86,22 +86,22 @@ public class ZhichengApplyDao {
 					Apply.setPre_approve_sug(rs.getString("pre_approve_sug"));
 
 					temp = rs.getString("finial_approve_date");
-					if (temp != null) {
+					if (temp != null&&temp!="") {
 						String Year = temp.substring(0, 4);
 						String Month = temp.substring(5, 7);
 						String Day = temp.substring(8, 10);
-						temp = Year + "." + Month + "." + Day;
+						temp = Year + "-" + Month + "-" + Day;
 					}
 					Apply.setFinial_approve_date(temp);
 					Apply.setFinial_approve_id(rs.getString("finial_approve_id"));
 					Apply.setFinial_approve_sug(rs.getString("finial_approve_sug"));
 //					expert1_date,expert1_id,expert1_score,expert1_sug,expert2_date,expert2_id,expert2_score,expert2_sug
 					temp = rs.getString("expert1_date");
-					if (temp != null) {
+					if (temp != null&&temp!="") {
 						String Year = temp.substring(0, 4);
 						String Month = temp.substring(5, 7);
 						String Day = temp.substring(8, 10);
-						temp = Year + "." + Month + "." + Day;
+						temp = Year + "-" + Month + "-" + Day;
 					}					
 					Apply.setExpert1_date(temp);
 					Apply.setExpert1_id(rs.getString("expert1_id"));
@@ -109,11 +109,11 @@ public class ZhichengApplyDao {
 					Apply.setExpert1_sug(rs.getString("expert1_sug"));
 				
 					temp = rs.getString("expert2_date");
-					if (temp != null) {
+					if (temp != null&&temp!="") {
 						String Year = temp.substring(0, 4);
 						String Month = temp.substring(5, 7);
 						String Day = temp.substring(8, 10);
-						temp = Year + "." + Month + "." + Day;
+						temp = Year + "-" + Month + "-" + Day;
 					}	
 					
 					Apply.setExpert2_date(temp);
@@ -170,14 +170,14 @@ System.err.println(JSON.toJSON(Apply));
 
 			// 下面是截取时间，例：2014-09-15 18:55:50.275 最后.275去掉。
 			String apply_date = rs.getString("apply_date");
-//			String a[] = apply_date.split("\\.");
-			String a = apply_date;
-			String temp = a;
+			String a[] = apply_date.split("\\.");
+//			String a = apply_date;
+			String temp = a[0];
 			if (temp != null&&temp!="") {
 				String Year = temp.substring(0, 4);
 				String Month = temp.substring(5, 7);
 				String Day = temp.substring(8, 19);
-				temp = Year + "." + Month + "." + Day;
+				temp = Year + "-" + Month + "-" + Day;
 			}
 
 			Apply.setApply_date(temp);
@@ -189,7 +189,7 @@ System.err.println(JSON.toJSON(Apply));
 				String Year = temp.substring(0, 4);
 				String Month = temp.substring(5, 7);
 				String Day = temp.substring(8, 10);
-				temp = Year + "." + Month + "." + Day;
+				temp = Year + "-" + Month + "-" + Day;
 			}
 			Apply.setPre_approve_date(temp);
 			Apply.setPre_approve_id(rs.getString("pre_approve_id"));
@@ -201,7 +201,7 @@ System.err.println(JSON.toJSON(Apply));
 				String Year = temp.substring(0, 4);
 				String Month = temp.substring(5, 7);
 				String Day = temp.substring(8, 10);
-				temp = Year + "." + Month + "." + Day;
+				temp = Year + "-" + Month + "-" + Day;
 			}
 			Apply.setFinial_approve_date(temp);
 			Apply.setFinial_approve_id(rs.getString("finial_approve_id"));
@@ -212,7 +212,7 @@ System.err.println(JSON.toJSON(Apply));
 				String Year = temp.substring(0, 4);
 				String Month = temp.substring(5, 7);
 				String Day = temp.substring(8, 10);
-				temp = Year + "." + Month + "." + Day;
+				temp = Year + "-" + Month + "-" + Day;
 			}					
 			Apply.setExpert1_date(temp);
 			Apply.setExpert1_id(rs.getString("expert1_id"));
@@ -224,7 +224,7 @@ System.err.println(JSON.toJSON(Apply));
 				String Year = temp.substring(0, 4);
 				String Month = temp.substring(5, 7);
 				String Day = temp.substring(8, 10);
-				temp = Year + "." + Month + "." + Day;
+				temp = Year + "-" + Month + "-" + Day;
 			}
 			Apply.setExpert2_date(temp);
 			Apply.setExpert2_id(rs.getString("expert2_id"));

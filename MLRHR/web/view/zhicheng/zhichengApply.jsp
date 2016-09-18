@@ -115,6 +115,7 @@ body {
 					<strong>申请类别：</strong>
 				</span>
 				<select id="apply_type" name="apply_type" style="width: 150px;" onchange="applyMenu()">
+				  
 					<option value="杰出青年" ${type =='杰出青年' ?'selected':''}>杰出青年</option>
 					<option value="科技领军" ${type =='科技领军' ?'selected':''}>科技领军</option>
 					<option value="创新团队" ${type =='创新团队' ?'selected':''}>创新团队</option>
@@ -167,11 +168,12 @@ body {
 						<textarea  autoHeight="true" style="width: 95%; min-height: 50px; overflow:hidden;" id="zhichengapply_expert2_sug"></textarea>
 					</div>
 					
-					<div class="control-group isEXPERT1" align="left">
+					<div class="control-group isUSER" align="left">
 						<span class="text-error">审核变更：</span>
 						<select id="zhichengapply_status_new" style="font-size: 14px">
 							<option value="-1">请选择</option>
-							<option value="终审中">初审通过</option>
+							<option value="待审核" class="isEXPERT1">待审核</option>
+							<option value="终审中" class="isEXPERT1">初审通过</option>
 							<option value="已通过" class="isEXPERT2">终审通过</option>
 							<option value="未通过">审核不通过</option>
 						</select>

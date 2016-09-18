@@ -232,8 +232,8 @@ function initApplication() {
 			if (currentRole == null)
 				for (var i = 0; i < arr.length - 1; i++) {
 					if (arr[i] == "ROLE_EXPERT1") {
-						$(".isHR").show();
-						$(".isPro").hide();
+						$(".isEXPERT1").show();
+						$(".isEXPERT2").hide();
 						$("#zhichengapply_pre_approve_sug").attr("disabled",
 								true);
 						$("#zhichengapply_finial_approve_sug").attr("disabled",
@@ -248,8 +248,8 @@ function initApplication() {
 			if (currentRole == null)
 				for (var i = 0; i < arr.length - 1; i++) {
 					if (arr[i] == "ROLE_EXPERT2") {
-						$(".isHR").show();
-						$(".isPro").hide();
+						$(".isEXPERT1").show();
+						$(".isEXPERT2").show();
 						$("#zhichengapply_pre_approve_sug").attr("disabled",
 								true);
 						$("#zhichengapply_finial_approve_sug").attr("disabled",
@@ -260,7 +260,7 @@ function initApplication() {
 						currentRole = arr[i];
 					}
 				}
-			if (currentRole == null)
+			if (currentRole == null)keyi 
 				for (var i = 0; i < arr.length - 1; i++) {
 					if (arr[i] == "ROLE_USER") {
 						$(".isHR").hide();
@@ -286,7 +286,7 @@ function zhichengApplyUpdate() {
 		arrData = new Array();
 //		 var apply_date;
 //		 var apply_type;
-		var status="待审核";
+		var status;
 		var pre_approve_date = null;
 		var pre_approve_id = 0;
 		var pre_approve_sug;
@@ -308,7 +308,7 @@ function zhichengApplyUpdate() {
 
 			var myDate = new Date();
 			var year = myDate.getFullYear(); // 获取完整的年份(4位,1970-????)
-			var month = myDate.getMonth() + 1; // 获取当前月份(0-11,0代表1月)
+			var month = ("0" + (myDate.getMonth() + 1)).slice(-2); // 获取当前月份(0-11,0代表1月)
 			var date = myDate.getDate(); // 获取当前日(1-31)
 			var mytime = myDate.toLocaleTimeString(); // 获取当前时间
 
@@ -341,7 +341,7 @@ function zhichengApplyUpdate() {
 			if (currentRole == "ROLE_HR") {
 				var myDate = new Date();
 				var year = myDate.getFullYear(); // 获取完整的年份(4位,1970-????)
-				var month = myDate.getMonth() + 1; // 获取当前月份(0-11,0代表1月)
+				var month = ("0" + (myDate.getMonth() + 1)).slice(-2); // 获取当前月份(0-11,0代表1月)
 				var date = myDate.getDate(); // 获取当前日(1-31)
 				pre_approve_date = year + "-" + month + "-" + date;
 				pre_approve_id = $("#userId").val();
@@ -360,7 +360,7 @@ function zhichengApplyUpdate() {
 
 				var myDate = new Date();
 				var year = myDate.getFullYear(); // 获取完整的年份(4位,1970-????)
-				var month = myDate.getMonth() + 1; // 获取当前月份(0-11,0代表1月)
+				var month = ("0" + (myDate.getMonth() + 1)).slice(-2); // 获取当前月份(0-11,0代表1月)
 				var date = myDate.getDate(); // 获取当前日(1-31)
 				finial_approve_date = year + "-" + month + "-" + date;
 				finial_approve_id = $("#userId").val();
@@ -378,10 +378,15 @@ function zhichengApplyUpdate() {
 				finial_approve_date = zhichengApply.finial_approve_date;
 				finial_approve_id = zhichengApply.finial_approve_id;
 				finial_approve_sug = zhichengApply.finial_approve_sug;
+				
+				expert2_date = zhichengApply.expert1_date;
+				expert2_id = zhichengApply.expert1_id;
+				expert2_score = zhichengApply.expert1_score;
+				expert2_sug = zhichengApply.expert1_sug;
 
 				var myDate = new Date();
 				var year = myDate.getFullYear(); // 获取完整的年份(4位,1970-????)
-				var month = myDate.getMonth() + 1; // 获取当前月份(0-11,0代表1月)
+				var month =("0" + (myDate.getMonth() + 1)).slice(-2); // 获取当前月份(0-11,0代表1月)
 				var date = myDate.getDate(); // 获取当前日(1-31)
 				expert1_date = year + "-" + month + "-" + date;
 				
@@ -399,14 +404,16 @@ function zhichengApplyUpdate() {
 				finial_approve_date = zhichengApply.finial_approve_date;
 				finial_approve_id = zhichengApply.finial_approve_id;
 				finial_approve_sug = zhichengApply.finial_approve_sug;
-
+				
+				expert1_date = zhichengApply.expert1_date;
 				expert1_id = zhichengApply.expert1_id;
 				expert1_score = zhichengApply.expert1_score;
 				expert1_sug = zhichengApply.expert1_sug;
 
 				var myDate = new Date();
 				var year = myDate.getFullYear(); // 获取完整的年份(4位,1970-????)
-				var month = myDate.getMonth() + 1; // 获取当前月份(0-11,0代表1月)
+				var month = ("0" + (myDate.getMonth() + 1)).slice(-2);
+//				var month = myDate.getMonth() + 1; // 获取当前月份(0-11,0代表1月)
 				var date = myDate.getDate(); // 获取当前日(1-31)
 				expert2_date = year + "-" + month + "-" + date;
 				expert2_id = $("#userId").val();
@@ -436,7 +443,7 @@ function zhichengApplyUpdate() {
 //		});
 				arrData.push({
 		"name" : "status",
-		"value" : "status"
+		"value" : status
 	});
 		arrData.push({
 			"name" : "pre_approve_date",
@@ -464,36 +471,44 @@ function zhichengApplyUpdate() {
 		});
 		arrData.push({
 			"name" : "expert1_date",
-			"value" : $("#expert1_date").val()
+			"value" : expert1_date
+//			"value" : $("#zhichengapply_expert1_date").val()
 		});
 		arrData.push({
 			"name" : "expert1_id",
-			"value" : $("#expert1_id").val()
+			"value" : expert1_id
+//			"value" : $("#zhichengapply_expert1_id").val()
 		});
 		arrData.push({
 			"name" : "expert1_score",
-			"value" : $("#expert1_score").val()
+			"value" : expert1_score
+//			"value" : $("#zhichengapply_expert1_score").val()
 		});
 		arrData.push({
 			"name" : "expert1_sug",
-			"value" : $("#expert1_sug").val()
+			"value" :expert1_sug
+//			"value" : $("#zhichengapply_expert1_sug").val()
 		});
 
 		arrData.push({
 			"name" : "expert2_date",
-			"value" : $("#expert2_date").val()
+			"value" : expert2_date
+//			"value" : $("#zhichengapply_expert2_date").val()
 		});
 		arrData.push({
 			"name" : "expert2_id",
-			"value" : $("#expert2_id").val()
+			"value" : expert2_id
+//			"value" : $("#zhichengapply_expert2_id").val()
 		});
 		arrData.push({
 			"name" : "expert2_score",
-			"value" : $("#expert2_score").val()
+			"value" : expert2_score
+//			"value" : $("#zhichengapply_expert2_score").val()
 		});
 		arrData.push({
 			"name" : "expert2_sug",
-			"value" : $("#expert2_sug").val()
+			"value" :expert2_sug
+//			"value" : $("#zhichengapply_expert2_sug").val()
 		});
 
 		$.ajax({

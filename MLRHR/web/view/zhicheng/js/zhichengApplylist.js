@@ -182,7 +182,7 @@ function initZhichengApplyDataTables(data) {
 					"data" : null,
 					"class" : "center",
 					"render" : function(data) {
-						if (currentRole == "ROLE_USER") {
+						if (currentRole == "ROLE_HR") {
 							if (data.status != "已通过" && data.status != "终审中")
 								return "<a class='btn btn-small btn-info' style='margin-right: 5px' href='javascript:void(0)' onClick='PDFCreater("
 										+ JSON.stringify(data)
@@ -199,7 +199,12 @@ function initZhichengApplyDataTables(data) {
 						if ((currentRole == "ROLE_EXPERT1") || (currentRole == "ROLE_EXPERT2")) {
 							return "<a class='btn btn-small btn-info' style='margin-right: 5px' href='javascript:void(0)' onClick='PDFCreater(" + JSON.stringify(data)
 									+ ")'><i class='icon-download'></i>导出PDF</a><a class='btn btn-small btn-info' style='margin-right: 5px' href='javascript:void(0)' onClick='zhichengApplyEdit("
-									+ data.id + ")'><i class='icon-search'></i>审核</a>";
+									+ data.id + ")'><i class='icon-search'></i>审核</a>";}
+						if (currentRole == "ROLE_USER") {
+							return "<a class='btn btn-small btn-info' style='margin-right: 5px' href='javascript:void(0)' onClick='zhichengApplyDelete("
+										+ data.id
+										+ ")'><i class='icon-remove'></i>删除</a>";
+							
 
 						}
 					}

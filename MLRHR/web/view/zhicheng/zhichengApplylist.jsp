@@ -79,7 +79,7 @@ body {
 									<th width="70px" style="text-align: center;">初审评分</th>
 									<th width="" style="text-align: center;">初审意见</th>
 									<th width="" style="text-align: center;">终审意见</th>
-									<th width="70px" style="text-align: center;">状态</th>
+									<th width="80px" style="text-align: center;">状态</th>
 									<th width="230px" style="text-align: center;">操作</th>
 								</tr>
 							</thead>
