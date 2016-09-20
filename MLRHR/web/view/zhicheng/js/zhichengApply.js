@@ -23,6 +23,7 @@ $(document).ready(function() {
 	if (id == null) {
 		$(".isHR").hide();
 		$(".isUSER").hide();
+		$(".isEXP").hide();
 	} else {
 		initApplication();
 	}
@@ -192,10 +193,20 @@ function initApplication() {
 					zhichengApply.pre_approve_sug);
 			$("#zhichengapply_finial_approve_sug").val(
 					zhichengApply.finial_approve_sug);
-
+			$("#zhichengapply_expert1_score").val(
+					zhichengApply.expert1_score);
+			$("#zhichengapply_expert1_sug").val(
+							zhichengApply.expert1_sug);	
+			$("#zhichengapply_expert2_score").val(
+					zhichengApply.expert2_score);
+			$("#zhichengapply_expert2_sug").val(
+							zhichengApply.expert2_sug);
 			autoHeight_2($("#zhichengapply_pre_approve_sug")[0]);
 			autoHeight_2($("#zhichengapply_finial_approve_sug")[0]);
-
+			autoHeight_2($("#zhichengapply_expert1_score")[0]);
+			autoHeight_2($("#zhichengapply_expert1_sug")[0]);
+			autoHeight_2($("#zhichengapply_expert2_score")[0]);
+			autoHeight_2($("#zhichengapply_expert2_sug")[0]);
 			user_id = zhichengApply.user_id;
 
 			var authority = data[1].authority;
@@ -204,8 +215,10 @@ function initApplication() {
 			if (currentRole == null)
 				for (var i = 0; i < arr.length - 1; i++) {
 					if (arr[i] == "ROLE_PROFESSOR") {
-						$(".isHR").show();
-						$(".isPro").show();
+						$(".isHR").hide();
+						$(".isEXP").hide();
+						$(".isSTA").show();
+						$(".span2").show();
 						$("#zhichengapply_pre_approve_sug").attr("disabled",
 								true);
 						$("#zhichengapply_expert1_score").attr("disabled", true);
@@ -218,8 +231,10 @@ function initApplication() {
 			if (currentRole == null)
 				for (var i = 0; i < arr.length - 1; i++) {
 					if (arr[i] == "ROLE_HR") {
-						$(".isHR").show();
-						$(".isPro").hide();
+						$(".isHR").hide();
+						$(".isEXP").hide();
+						$(".span2").show();
+						$(".isSTA").show();
 						$("#zhichengapply_finial_approve_sug").attr("disabled",
 								true);
 						$("#zhichengapply_expert1_score").attr("disabled", true);
@@ -232,8 +247,11 @@ function initApplication() {
 			if (currentRole == null)
 				for (var i = 0; i < arr.length - 1; i++) {
 					if (arr[i] == "ROLE_EXPERT1") {
-						$(".isEXPERT1").show();
-						$(".isEXPERT2").hide();
+						$(".isEXP").show();
+						$(".isHR").show();
+						$(".isSTA").show();
+						$(".isUSER").hide();
+						$(".span2").show();
 						$("#zhichengapply_pre_approve_sug").attr("disabled",
 								true);
 						$("#zhichengapply_finial_approve_sug").attr("disabled",
@@ -248,8 +266,11 @@ function initApplication() {
 			if (currentRole == null)
 				for (var i = 0; i < arr.length - 1; i++) {
 					if (arr[i] == "ROLE_EXPERT2") {
-						$(".isEXPERT1").show();
-						$(".isEXPERT2").show();
+						$(".isEXP").show();
+						$(".isHR").show();
+						$(".isSTA").show();
+						$(".isUSER").hide();
+						$("#orderedlist").show();
 						$("#zhichengapply_pre_approve_sug").attr("disabled",
 								true);
 						$("#zhichengapply_finial_approve_sug").attr("disabled",
@@ -260,10 +281,12 @@ function initApplication() {
 						currentRole = arr[i];
 					}
 				}
-			if (currentRole == null)keyi 
+			if (currentRole == null)
 				for (var i = 0; i < arr.length - 1; i++) {
 					if (arr[i] == "ROLE_USER") {
-						$(".isHR").hide();
+			
+						$(".isEXP").hide();
+						$(".isUSER").hide();
 						$("#zhichengapply_pre_approve_sug").attr("disabled",
 								true);
 						$("#zhichengapply_finial_approve_sug").attr("disabled",
@@ -288,17 +311,17 @@ function zhichengApplyUpdate() {
 //		 var apply_type;
 		var status;
 		var pre_approve_date = null;
-		var pre_approve_id = 0;
+		var pre_approve_id;
 		var pre_approve_sug;
 		var finial_approve_date = null;
-		var finial_approve_id = 0;
+		var finial_approve_id;
 		var finial_approve_sug;
 		var expert1_date = null;
-		var expert1_id = 0;
+		var expert1_id ;
 		var expert1_score;
 		var expert1_sug;
-		var expert2_date = null;
-		var expert2_id = 0;
+		var expert2_date=null;
+		var expert2_id ;
 		var expert2_score;
 		var expert2_sug;
 
@@ -321,10 +344,10 @@ function zhichengApplyUpdate() {
 				"name" : "apply_date",
 				"value" : zhichengApply.apply_date
 			});
-			// arrData.push({
-			// "name" : "file_name",
-			// "value" : zhichengApply.file_name
-			// });
+//			 arrData.push({
+//			 "name" : "file_name",
+//			 "value" : zhichengApply.file_name
+//			 });
 			user_id = zhichengApply.user_id;
 
 			if (currentRole == "ROLE_USER") {
@@ -351,7 +374,7 @@ function zhichengApplyUpdate() {
 				finial_approve_id = zhichengApply.finial_approve_id;
 				finial_approve_sug = zhichengApply.finial_approve_sug;
 				status = "待审核";
-				 status = $("#zhichengapply_status_new").val();
+//				 status = $("#zhichengapply_status_new").val();
 			}
 			if (currentRole == "ROLE_PROFESSOR") {
 				pre_approve_date = zhichengApply.pre_approve_date;
@@ -371,13 +394,13 @@ function zhichengApplyUpdate() {
 			}
 
 			if (currentRole == "ROLE_EXPERT1") {
-				pre_approve_date = zhichengApply.pre_approve_date;
-				pre_approve_id = zhichengApply.pre_approve_id;
-				pre_approve_sug = zhichengApply.pre_approve_sug;
-
-				finial_approve_date = zhichengApply.finial_approve_date;
-				finial_approve_id = zhichengApply.finial_approve_id;
-				finial_approve_sug = zhichengApply.finial_approve_sug;
+//				pre_approve_date = zhichengApply.pre_approve_date;
+//				pre_approve_id = zhichengApply.pre_approve_id;
+//				pre_approve_sug = zhichengApply.pre_approve_sug;
+//
+//				finial_approve_date = zhichengApply.finial_approve_date;
+//				finial_approve_id = zhichengApply.finial_approve_id;
+//				finial_approve_sug = zhichengApply.finial_approve_sug;
 				
 				expert2_date = zhichengApply.expert1_date;
 				expert2_id = zhichengApply.expert1_id;
@@ -397,13 +420,13 @@ function zhichengApplyUpdate() {
 			}
 
 			if (currentRole == "ROLE_EXPERT2") {
-				pre_approve_date = zhichengApply.pre_approve_date;
-				pre_approve_id = zhichengApply.pre_approve_id;
-				pre_approve_sug = zhichengApply.pre_approve_sug;
-
-				finial_approve_date = zhichengApply.finial_approve_date;
-				finial_approve_id = zhichengApply.finial_approve_id;
-				finial_approve_sug = zhichengApply.finial_approve_sug;
+//				pre_approve_date = zhichengApply.pre_approve_date;
+//				pre_approve_id = zhichengApply.pre_approve_id;
+//				pre_approve_sug = zhichengApply.pre_approve_sug;
+//
+//				finial_approve_date = zhichengApply.finial_approve_date;
+//				finial_approve_id = zhichengApply.finial_approve_id;
+//				finial_approve_sug = zhichengApply.finial_approve_sug;
 				
 				expert1_date = zhichengApply.expert1_date;
 				expert1_id = zhichengApply.expert1_id;
@@ -472,43 +495,35 @@ function zhichengApplyUpdate() {
 		arrData.push({
 			"name" : "expert1_date",
 			"value" : expert1_date
-//			"value" : $("#zhichengapply_expert1_date").val()
 		});
 		arrData.push({
 			"name" : "expert1_id",
 			"value" : expert1_id
-//			"value" : $("#zhichengapply_expert1_id").val()
 		});
 		arrData.push({
 			"name" : "expert1_score",
 			"value" : expert1_score
-//			"value" : $("#zhichengapply_expert1_score").val()
 		});
 		arrData.push({
 			"name" : "expert1_sug",
 			"value" :expert1_sug
-//			"value" : $("#zhichengapply_expert1_sug").val()
 		});
 
 		arrData.push({
 			"name" : "expert2_date",
 			"value" : expert2_date
-//			"value" : $("#zhichengapply_expert2_date").val()
 		});
 		arrData.push({
 			"name" : "expert2_id",
 			"value" : expert2_id
-//			"value" : $("#zhichengapply_expert2_id").val()
 		});
 		arrData.push({
 			"name" : "expert2_score",
 			"value" : expert2_score
-//			"value" : $("#zhichengapply_expert2_score").val()
 		});
 		arrData.push({
 			"name" : "expert2_sug",
 			"value" :expert2_sug
-//			"value" : $("#zhichengapply_expert2_sug").val()
 		});
 
 		$.ajax({
@@ -565,7 +580,7 @@ function validateZhichengApplyUpdate() {
 		generatenoty('center', "请选择是否破格", 'error');
 		return false;
 	}
-	if ((currentRole == "ROLE_HR") || (currentRole == "ROLE_PROFESSOR")) {
+	if ((currentRole == "ROLE_EXPERT1") || (currentRole == "ROLE_EXPERT2")) {
 		if ($("#zhichengapply_status_new").val() == "-1") {
 			generatenoty('center', "请选择审核变更类型", 'error');
 			return false;

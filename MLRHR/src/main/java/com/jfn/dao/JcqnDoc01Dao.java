@@ -50,7 +50,8 @@ public class JcqnDoc01Dao {
 						jcqndoc01.getStudy_end_time(), jcqndoc01.getWork_country(), jcqndoc01.getWork_company(),
 						jcqndoc01.getWork_position(), jcqndoc01.getWork_start_time(), jcqndoc01.getWork_end_time(),
 						jcqndoc01.getJournal_title(), jcqndoc01.getOrganization_position(),
-						jcqndoc01.getOrganization_term(), jcqndoc01.getUnit_name(), jcqndoc01.getOrganization_code(),
+						jcqndoc01.getOrganization_term(), jcqndoc01.getJournal_titlef(), jcqndoc01.getUnit_name(),
+						jcqndoc01.getOrganization_code(),
 						jcqndoc01.getLegal_representative(), jcqndoc01.getSupervisor_unit(),
 						jcqndoc01.getUnit_address(), jcqndoc01.getPostcode(), jcqndoc01.getUnit_contact(),
 						jcqndoc01.getWork_telephone(), jcqndoc01.getWork_fax(), jcqndoc01.getUser_id() }) == 1;
@@ -65,7 +66,8 @@ public class JcqnDoc01Dao {
 				jcqndoc01.getStudy_colleges(), jcqndoc01.getStudy_major(), jcqndoc01.getStudy_education(),
 				jcqndoc01.getStudy_start_time(), jcqndoc01.getStudy_end_time(), jcqndoc01.getWork_country(),
 				jcqndoc01.getWork_company(), jcqndoc01.getWork_position(), jcqndoc01.getWork_start_time(),
-				jcqndoc01.getWork_end_time(), jcqndoc01.getJournal_title(), jcqndoc01.getOrganization_position(),
+				jcqndoc01.getWork_end_time(), jcqndoc01.getJournal_title(), jcqndoc01.getJournal_titlef(),
+				jcqndoc01.getOrganization_position(),
 				jcqndoc01.getOrganization_term(), jcqndoc01.getUnit_name(), jcqndoc01.getOrganization_code(),
 				jcqndoc01.getLegal_representative(), jcqndoc01.getSupervisor_unit(), jcqndoc01.getUnit_address(),
 				jcqndoc01.getPostcode(), jcqndoc01.getUnit_contact(), jcqndoc01.getWork_telephone(),
@@ -117,6 +119,12 @@ public class JcqnDoc01Dao {
 					jcqndoc01.setJournal_title(rs.getString("journal_title"));
 					jcqndoc01.setOrganization_position(rs.getString("organization_position"));
 					jcqndoc01.setOrganization_term(rs.getString("organization_term"));
+					jcqndoc01.setJournal_titlef(rs.getString("journal_titlef"));
+					jcqndoc01.setOrganization_position1(rs.getString("organization_position1"));
+					jcqndoc01.setOrganization_term1(rs.getString("organization_term1"));
+					jcqndoc01.setJournal_title2(rs.getString("journal_title2"));
+					jcqndoc01.setOrganization_position2(rs.getString("organization_position2"));
+					jcqndoc01.setOrganization_term2(rs.getString("organization_term2"));
 					jcqndoc01.setUnit_name(rs.getString("unit_name"));
 					jcqndoc01.setOrganization_code(rs.getString("organization_code"));
 					jcqndoc01.setLegal_representative(rs.getString("legal_representative"));
@@ -168,6 +176,12 @@ public class JcqnDoc01Dao {
 					jcqndoc01.setJournal_title(rs.getString("journal_title"));
 					jcqndoc01.setOrganization_position(rs.getString("organization_position"));
 					jcqndoc01.setOrganization_term(rs.getString("organization_term"));
+					jcqndoc01.setJournal_titlef(rs.getString("journal_titlef"));
+					jcqndoc01.setOrganization_position1(rs.getString("organization_position1"));
+					jcqndoc01.setOrganization_term1(rs.getString("organization_term1"));
+					jcqndoc01.setJournal_title2(rs.getString("journal_title2"));
+					jcqndoc01.setOrganization_position2(rs.getString("organization_position2"));
+					jcqndoc01.setOrganization_term2(rs.getString("organization_term2"));
 					jcqndoc01.setUnit_name(rs.getString("unit_name"));
 					jcqndoc01.setOrganization_code(rs.getString("organization_code"));
 					jcqndoc01.setLegal_representative(rs.getString("legal_representative"));
@@ -224,6 +238,12 @@ public class JcqnDoc01Dao {
 			jcqndoc01.setJournal_title(rs.getString("journal_title"));
 			jcqndoc01.setOrganization_position(rs.getString("organization_position"));
 			jcqndoc01.setOrganization_term(rs.getString("organization_term"));
+			jcqndoc01.setJournal_titlef(rs.getString("journal_titlef"));
+			// jcqndoc01.setOrganization_position1(rs.getString("organization_position1"));
+			// jcqndoc01.setOrganization_term1(rs.getString("organization_term1"));
+			// jcqndoc01.setJournal_title2(rs.getString("journal_title2"));
+			// jcqndoc01.setOrganization_position2(rs.getString("organization_position2"));
+			// jcqndoc01.setOrganization_term2(rs.getString("organization_term2"));
 			jcqndoc01.setUnit_name(rs.getString("unit_name"));
 			jcqndoc01.setOrganization_code(rs.getString("organization_code"));
 			jcqndoc01.setLegal_representative(rs.getString("legal_representative"));

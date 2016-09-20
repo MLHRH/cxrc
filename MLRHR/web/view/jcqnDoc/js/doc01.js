@@ -18,48 +18,73 @@ function initjcqnDoc01() {
 					var day = myDate.getDate();
 					$('#currentDate').html(year + "年" + month + "月" + day + "日");
 					
-					$('#userName2').val(data[0].name);
+					$('#userName2').val(data[1].name);
 				
-					$('#user_birthday').val(data[0].birthday);
-					$('#sex').val(data[0].sex);
-					$('#user_minzu').val(data[0].minzu);
-				    $('#title').val(data[0].title);
-					$('#document_type').val(data[0].document_type);
-					$('#document_number').val(data[0].document_number);
-					$('#direction').val(data[0].direction);
-					$('#declaration_area').val(data[0].declaration_area);
-					$('#telephone').val(data[0].telephone);
-					$('#fax').val(data[0].fax);
-					$('#mobile_phone').val(data[0].mobile_phone);
-					$('#email').val(data[0].email);
-					$('#zip_code').val(data[0].zip_code);
-					$('#addresses').val(data[0].addresses);
-					$('#study_country').val(data[0].study_country);
-					$('#study_colleges').val(data[0].study_colleges);
-					$('#study_major').val(data[0].study_major);
-					$('#study_education').val(data[0].study_education);
-					$('#study_start_time').val(data[0].study_start_time);
-					$('#study_end_time').val(data[0].study_end_time);
-					$('#work_country').val(data[0].work_country);
-					$('#work_company').val(data[0].work_company);
-					$('#work_position').val(data[0].work_position);
-					$('#work_start_time').val(data[0].work_start_time);
-					$('#work_end_time').val(data[0].work_end_time);
-					$('#journal_title').val(data[0].journal_title);
-					$('#organization_position').val(data[0].organization_position);
-					$('#organization_term').val(data[0].organization_term);
-					$('#unit_name').val(data[0].unit_name);
-					$('#organization_code').val(data[0].organization_code);
-					$('#legal_representative').val(data[0].legal_representative);
-					$('#supervisor_unit').val(data[0].supervisor_unit);
-					$('#unit_address').val(data[0].unit_address);
+					$('#user_birthday').val(data[1].birthday);
+					$('#sex').val(data[1].sex);
+					$('#user_minzu').val(data[1].minzu);
+				    $('#title').val(data[1].title);
+					$('#document_type').val(data[1].document_type);
+					$('#document_number').val(data[1].document_number);
+					$('#direction').val(data[1].direction);
+					$('#declaration_area').val(data[1].declaration_area);
+					$('#telephone').val(data[1].telephone);
+					$('#fax').val(data[1].fax);
+					$('#mobile_phone').val(data[1].mobile_phone);
+					$('#email').val(data[1].email);
+					$('#zip_code').val(data[1].zip_code);
+					$('#addresses').val(data[1].addresses);
+					
+					$('#study_country').val(data[0][0].country);
+					$('#study_colleges').val(data[0][0].academy);
+					$('#study_major').val(data[0][0].major);
+					$('#study_education').val(data[0][0].xueli);
+					$('#study_start_time').val(data[0][0].start_date);
+					$('#study_end_time').val(data[0][0].end_date);
+					
+					$('#user_studcountry2').val(data[0][1].country);
+					$('#user_studcollege2').val(data[0][1].academy);
+					$('#user_studmajor2').val(data[0][1].major);
+					$('#user_studdegree2').val(data[0][1].xueli);
+					$('#user_studfirsttime2').val(data[0][1].start_date);
+					$('#user_studlasttime2').val(data[0][1].end_date);
+					
+					$('#user_workcountry').val(data[2][0].country);
+					$('#user_workcollege').val(data[2][0].work_content);
+					$('#user_workmajor').val(data[2][0].zhiwu);
+					$('#user_workdegree').val(data[2][0].start_date);
+					$('#user_workfirsttime').val(data[2][0].end_date);
+					
+					$('#work_country').val(data[2][1].country);
+					$('#work_company').val(data[2][1].work_content);
+					$('#work_position').val(data[2][1].zhiwu);
+					$('#work_start_time').val(data[2][1].start_date);
+					$('#work_end_time').val(data[2][1].end_date);
+					
+					$('#journal_title').val(data[1].journal_title);
+					$('#organization_position').val(data[1].organization_position);
+					$('#organization_term').val(data[1].organization_term);
+					
+					$('#user_workboard2').val(data[1].journal_titlef);
+					$('#user_zhiwu2').val(data[1].organization_position1);
+					$('#user_renqi2').val(data[1].organization_term1);
+					
+					$('#user_workboard3').val(data[1].journal_title2);
+					$('#user_zhiwu3').val(data[1].organization_position2);
+					$('#user_renqi3').val(data[1].organization_term2);
+					
+					$('#unit_name').val(data[1].unit_name);
+					$('#organization_code').val(data[1].organization_code);
+					$('#legal_representative').val(data[1].legal_representative);
+					$('#supervisor_unit').val(data[1].supervisor_unit);
+					$('#unit_address').val(data[1].unit_address);
 					$('#postcode').val(data[0].postcode);
-					$('#unit_contact').val(data[0].unit_contact);
-					$('#work_telephone').val(data[0].work_telephone);
-					$('#work_fax').val(data[0].work_fax);
-					$('#unit_address').val(data[0].unit_address);
-					$('#postcode').val(data[0].postcode);
-					$('#unit_contact').val(data[0].unit_contact);
+					$('#unit_contact').val(data[1].unit_contact);
+					$('#work_telephone').val(data[1].work_telephone);
+					$('#work_fax').val(data[1].work_fax);
+					$('#unit_address').val(data[1].unit_address);
+					$('#postcode').val(data[1].postcode);
+					$('#unit_contact').val(data[1].unit_contact);
 				} 
 			});
 }

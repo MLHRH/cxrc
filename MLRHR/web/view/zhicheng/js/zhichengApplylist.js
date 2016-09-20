@@ -41,6 +41,20 @@ function initZhichengApply(zhichengId) {
 							}
 						if (currentRole == null)
 							for (var i = 0; i < arr.length - 1; i++) {
+								if (arr[i] == "ROLE_HR") {
+									currentRole = arr[i];
+									$("#roleBack").show();
+								}
+							}
+						if (currentRole == null)
+							for (var i = 0; i < arr.length - 1; i++) {
+								if (arr[i] == "ROLE_PROFESSOR") {
+									currentRole = arr[i];
+									$("#roleBack").show();
+								}
+							}
+						if (currentRole == null)
+							for (var i = 0; i < arr.length - 1; i++) {
 								if (arr[i] == "ROLE_USER") {
 									currentRole = arr[i];
 									$("#roleBack").hide();
@@ -182,21 +196,21 @@ function initZhichengApplyDataTables(data) {
 					"data" : null,
 					"class" : "center",
 					"render" : function(data) {
-						if (currentRole == "ROLE_HR") {
-							if (data.status != "已通过" && data.status != "终审中")
-								return "<a class='btn btn-small btn-info' style='margin-right: 5px' href='javascript:void(0)' onClick='PDFCreater("
-										+ JSON.stringify(data)
-										+ ")'><i class='icon-download'></i>导出PDF</a><a class='btn btn-small btn-info' style='margin-right: 5px' href='javascript:void(0)' onClick='zhichengApplyDelete("
-										+ data.id
-										+ ")'><i class='icon-remove'></i>删除</a><a class='btn btn-small btn-info' style='margin-right: 5px' href='javascript:void(0)' onClick='zhichengApplyEdit("
-										+ data.id + ")'><i class='icon-edit'></i>编辑</a>";
-							else
-								return "<a class='btn btn-small btn-info' style='margin-right: 5px' href='javascript:void(0)' onClick='PDFCreater("
-										+ JSON.stringify(data)
-										+ ")'><i class='icon-download'></i>导出PDF</a><a class='btn btn-small btn-inverse' style='margin-right: 5px' disabled='disabled'  href='javascript:void(0)'><i class='icon-remove'></i>删除</a><a class='btn btn-small btn-inverse' style='margin-right: 5px'  disabled='disabled' href='javascript:void(0)' ><i class='icon-edit'></i>编辑</a>";
+								if (currentRole == "ROLE_USER") {
+									if (data.status != "已通过" && data.status != "终审中")
+										return "<a class='btn btn-small btn-info' style='margin-right: 5px' href='javascript:void(0)' onClick='PDFCreater("
+												+ JSON.stringify(data)
+												+ ")'><i class='icon-download'></i>导出PDF</a><a class='btn btn-small btn-info' style='margin-right: 5px' href='javascript:void(0)' onClick='zhichengApplyDelete("
+												+ data.id
+												+ ")'><i class='icon-remove'></i>删除</a><a class='btn btn-small btn-info' style='margin-right: 5px' href='javascript:void(0)' onClick='zhichengApplyEdit("
+												+ data.id + ")'><i class='icon-edit'></i>编辑</a>";
+									else
+										return "<a class='btn btn-small btn-info' style='margin-right: 5px' href='javascript:void(0)' onClick='PDFCreater("
+												+ JSON.stringify(data)
+												+ ")'><i class='icon-download'></i>导出PDF</a><a class='btn btn-small btn-inverse' style='margin-right: 5px' disabled='disabled'  href='javascript:void(0)'><i class='icon-remove'></i>删除</a><a class='btn btn-small btn-inverse' style='margin-right: 5px'  disabled='disabled' href='javascript:void(0)' ><i class='icon-edit'></i>编辑</a>";
 
-						}
-						if ((currentRole == "ROLE_EXPERT1") || (currentRole == "ROLE_EXPERT2")) {
+								}
+						if ((currentRole == "ROLE_EXPERT1") || (currentRole == "ROLE_EXPERT2")||(currentRole == "ROLE_HR") || (currentRole == "PROFESSOR")) {
 							return "<a class='btn btn-small btn-info' style='margin-right: 5px' href='javascript:void(0)' onClick='PDFCreater(" + JSON.stringify(data)
 									+ ")'><i class='icon-download'></i>导出PDF</a><a class='btn btn-small btn-info' style='margin-right: 5px' href='javascript:void(0)' onClick='zhichengApplyEdit("
 									+ data.id + ")'><i class='icon-search'></i>审核</a>";}

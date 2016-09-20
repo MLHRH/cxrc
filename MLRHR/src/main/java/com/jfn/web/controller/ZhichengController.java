@@ -78,7 +78,7 @@ public class ZhichengController {
 	private CalendarService calendarservice;
 
 	@RequestMapping(value = "zhichengApply", method = RequestMethod.GET)
-	public String jcqn_zhichengApply(HttpServletRequest request, Model model) {
+	public String zhichengApply(HttpServletRequest request, Model model) {
 		return "zhicheng/zhichengApply";
 	}
 

@@ -19,8 +19,10 @@ import com.jfn.entity.JcqnDoc03;
 import com.jfn.entity.JcqnDoc04;
 import com.jfn.entity.JcqnDoc05;
 import com.jfn.entity.UserPeixun;
+import com.jfn.entity.UserWork;
 import com.jfn.service.JcqnDocService;
 import com.jfn.service.UserPeixunService;
+import com.jfn.service.UserWorkService;
 @Controller
 @RequestMapping("/")
 public class JcqnDocController {
@@ -28,54 +30,58 @@ public class JcqnDocController {
 	private JcqnDocService jcqndoc01servive;
 	@Autowired
 	private UserPeixunService ups;
+	@Autowired
+	private UserWorkService uws;
 	//更新操作记录
-		@RequestMapping(value="/jcqnDoc01Update", method =RequestMethod.POST)
-		@ResponseBody
-		public String jcqnDoc01Update(JcqnDoc01 jcqn,HttpServletRequest request){
-			JsonObject jsonResponse = new JsonObject();
-			int user_id =(Integer)request.getSession().getAttribute("user_id");
-			jcqn.setUser_id(user_id);
-			System.err.println(jcqn.getAddresses());
-			int result = 0;
-			try {
-				if(jcqndoc01servive.getByUserId01(user_id).getName() != null){
-				result = jcqndoc01servive.update01(jcqn)? 1:0;}
-				else{
-					result =jcqndoc01servive.insert01(jcqn)?1:0; 
+			@RequestMapping(value="/jcqnDoc01Update", method =RequestMethod.POST)
+			@ResponseBody
+			public String jcqnDoc01Update(JcqnDoc01 jcqn,HttpServletRequest request){
+				JsonObject jsonResponse = new JsonObject();
+				int user_id =(Integer)request.getSession().getAttribute("user_id");
+				jcqn.setUser_id(user_id);
+				System.err.println(jcqn.getAddresses());
+				int result = 0;
+				try {
+					if(jcqndoc01servive.getByUserId01(user_id).getName() != null){
+					result = jcqndoc01servive.update01(jcqn)? 1:0;}
+					else{
+						result =jcqndoc01servive.insert01(jcqn)?1:0; 
+					}
+					
+				} catch (Exception e) {
+					System.err.println(e);
+					result = 0;
 				}
+				jsonResponse.addProperty("result", result);
+				return jsonResponse.toString();
 				
-			} catch (Exception e) {
-				System.err.println(e);
-				result = 0;
+				
 			}
-			jsonResponse.addProperty("result", result);
-			return jsonResponse.toString();
-			
-			
-		}
-		@RequestMapping(value="/jcqnDoc01Init",method=RequestMethod.GET)
-		@ResponseBody
-		public String jcqnDoc01Init(HttpServletRequest request){
-			String userId = request.getParameter("userId");
-			System.err.println("-----------"+userId);
-			List<Object> list =new ArrayList<Object>();
-			JcqnDoc01 jcqn = jcqndoc01servive.getByUserId01(Integer.parseInt(userId));
-			System.err.println(JSON.toJSON(jcqn));
-			ArrayList<UserPeixun> userPeixuns=new ArrayList<UserPeixun>();
-		    for(UserPeixun study:ups.getAllByUserId(userId)) {
-		    	userPeixuns.add(study);
-		    }
-		    list.add(userPeixuns);
-			
-			
-//			UserPeixun study =  (UserPeixun) ups.getAllByUserId(userId);
-		     list.add(jcqn);
-			Gson gson = new Gson();
-			System.err.println(gson.toJson(list).toString());
-			return gson.toJson(list);		
-		}
-	
-	
+			@RequestMapping(value="/jcqnDoc01Init",method=RequestMethod.GET)
+			@ResponseBody
+			public String jcqnDoc01Init(HttpServletRequest request){
+				String userId = request.getParameter("userId");
+
+				List<Object> list =new ArrayList<Object>();
+				JcqnDoc01 jcqn = jcqndoc01servive.getByUserId01(Integer.parseInt(userId));
+
+				ArrayList<UserPeixun> userPeixuns=new ArrayList<UserPeixun>();
+			    for(UserPeixun study:ups.getAllByUserId(userId)) {
+			    	userPeixuns.add(study);
+			    }
+			ArrayList<UserWork> work = new ArrayList<UserWork>();
+			for (UserWork wor : uws.getAllByUserId(userId)) {
+				work.add(wor);
+			}
+
+			list.add(userPeixuns);
+			list.add(jcqn);
+			list.add(work);
+				Gson gson = new Gson();
+
+			return gson.toJson(list);
+
+			}
 	
 	//更新操作记录
 		@RequestMapping(value="/jcqnDoc02Update", method =RequestMethod.POST)

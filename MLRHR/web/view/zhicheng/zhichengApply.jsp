@@ -121,10 +121,10 @@ body {
 					<option value="创新团队" ${type =='创新团队' ?'selected':''}>创新团队</option>
 				</select>
 				<input type="hidden" id="zhichengType"> 
-				<span class="text-error isUSER" style="font-size: 20px; margin-left: 18px;">
+				<span class="text-error isSTA" style="font-size: 20px; margin-left: 18px;">
 					<strong>当前状态：</strong>
 				</span>
-				<span class="isUSER" style="font-size: 20px;" id="zhichengapply_status"> </span>
+				<span class="isSTA" style="font-size: 20px;" id="zhichengapply_status"> </span>
 			</div>
 			<div class="row-fluid" align="center">
 
@@ -136,6 +136,7 @@ body {
             		</c:forEach>  
             		</ul>
 					</div>
+					
 					<div class="control-group isUSER" align="left">
 						<label class="text-error">初审意见：</label>
 						<textarea  autoHeight="true" style="width: 95%; min-height: 50px; overflow:hidden;" id="zhichengapply_pre_approve_sug"></textarea>
@@ -145,30 +146,30 @@ body {
 						<textarea autoHeight="true" style="width: 95%; min-height: 50px; overflow:hidden;" id="zhichengapply_finial_approve_sug"></textarea>
 					</div>
 					
-					<div class="control-group isUSER" align="left">
+					<div class="control-group  isEXP" align="left">
 						<label class="text-error">初审专家评分：</label>
 						<!--  <textarea  autoHeight="true" style="width: 95%; min-height: 10px; overflow:hidden;" id="zhichengapply_expert1_score"></textarea>-->
 						<input type="text" id="zhichengapply_expert1_score" style="text-align: center; font-size: 16.0pt; font-family: 仿宋; display: inline-block; height: 0%; width: 95%; padding: 0px; margin: 3px; border-radius: 0px" />
 					</div>
 					
-					<div class="control-group isUSER" align="left">
+					<div class="control-group isEXP" align="left">
 						<label class="text-error">初审专家意见：</label>
 						<textarea  autoHeight="true" style="width: 95%; min-height: 50px; overflow:hidden;" id="zhichengapply_expert1_sug"></textarea>
 					</div>
 					
-						<div class="control-group isUSER" align="left">
+						<div class="control-group isEXP" align="left">
 						<label class="text-error">终审专家评分：</label>
 						<!-- <textarea  autoHeight="true" style="width: 95%; min-height: 5px; overflow:hidden;" id="zhichengapply_expert2_score"></textarea> -->
 						<input type="text" id="zhichengapply_expert2_score" style="text-align: center; font-size: 16.0pt; font-family: 仿宋; display: inline-block; height: 0%; width: 95%; padding: 0px; margin: 3px; border-radius: 0px" />
 						
 					</div>
 					
-					<div class="control-group isUSER" align="left">
+					<div class="control-group isEXP" align="left">
 						<label class="text-error">终审专家意见：</label>
 						<textarea  autoHeight="true" style="width: 95%; min-height: 50px; overflow:hidden;" id="zhichengapply_expert2_sug"></textarea>
 					</div>
 					
-					<div class="control-group isUSER" align="left">
+					<div class="control-group isHR" align="left">
 						<span class="text-error">审核变更：</span>
 						<select id="zhichengapply_status_new" style="font-size: 14px">
 							<option value="-1">请选择</option>

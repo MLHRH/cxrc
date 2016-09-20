@@ -1,7 +1,5 @@
 package com.jfn.entity;
 
-import java.sql.Date;
-
 public class JcqnDoc01 {     
 	private  int id;
 	public int getId() {
@@ -38,8 +36,22 @@ public class JcqnDoc01 {
 	private String work_start_time;
 	private String work_end_time;
 	private String journal_title ;
+
+	public String getJournal_titlef() {
+		return journal_titlef;
+	}
+
+	public void setJournal_titlef(String journal_titlef) {
+		this.journal_titlef = journal_titlef;
+	}
 	private String organization_position;
 	private String organization_term;
+	private String journal_titlef;
+	private String organization_position1;
+	private String organization_term1;
+	private String journal_title2;
+	private String organization_position2;
+	private String organization_term2;
 	private String unit_name ;
 	private String organization_code;
 	private String legal_representative ;
@@ -49,6 +61,48 @@ public class JcqnDoc01 {
 	private String unit_contact;
 	private String work_telephone;
 	private String work_fax;
+
+
+
+	public String getOrganization_position1() {
+		return organization_position1;
+	}
+
+	public void setOrganization_position1(String organization_position1) {
+		this.organization_position1 = organization_position1;
+	}
+
+	public String getOrganization_term1() {
+		return organization_term1;
+	}
+
+	public void setOrganization_term1(String organization_term1) {
+		this.organization_term1 = organization_term1;
+	}
+
+	public String getJournal_title2() {
+		return journal_title2;
+	}
+
+	public void setJournal_title2(String journal_title2) {
+		this.journal_title2 = journal_title2;
+	}
+
+	public String getOrganization_position2() {
+		return organization_position2;
+	}
+
+	public void setOrganization_position2(String organization_position2) {
+		this.organization_position2 = organization_position2;
+	}
+
+	public String getOrganization_term2() {
+		return organization_term2;
+	}
+
+	public void setOrganization_term2(String organization_term2) {
+		this.organization_term2 = organization_term2;
+	}
 	public Integer getUser_id() {
 		return user_id;
 	}
@@ -289,6 +343,9 @@ public class JcqnDoc01 {
 			String study_colleges, String study_major, String study_education, String study_start_time,
 			String study_end_time, String work_country, String work_company, String work_position, String work_start_time,
 			String work_end_time, String journal_title, String organization_position, String organization_term,
+			String journal_titlef,
+			String organization_position1, String organization_term1, String journal_title2,
+			String organization_position2, String organization_term2,
 			String unit_name, String organization_code, String legal_representative, String supervisor_unit,
 			String unit_address, String postcode, String unit_contact, String work_telephone, String work_fax) {
 		super();
@@ -322,6 +379,12 @@ public class JcqnDoc01 {
 		this.journal_title = journal_title;
 		this.organization_position = organization_position;
 		this.organization_term = organization_term;
+		this.journal_titlef = journal_titlef;
+		this.organization_position1 = organization_position1;
+		this.organization_term1 = organization_term1;
+		this.journal_title2 = journal_title2;
+		this.organization_position2 = organization_position2;
+		this.organization_term2 = organization_term2;
 		this.unit_name = unit_name;
 		this.organization_code = organization_code;
 		this.legal_representative = legal_representative;

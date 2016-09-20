@@ -82,7 +82,7 @@ CREATE TABLE `acct_role_authority` (
   KEY `FKAE2434663FE97564` (`authority_id`),
   CONSTRAINT `acct_role_authority_ibfk_1` FOREIGN KEY (`authority_id`) REFERENCES `acct_authority` (`id`),
   CONSTRAINT `FKAE243466DE3FB930` FOREIGN KEY (`role_id`) REFERENCES `acct_role` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=34 DEFAULT CHARSET=gbk ROW_FORMAT=COMPACT COMMENT='角色-权限对应表';
+) ENGINE=InnoDB AUTO_INCREMENT=33 DEFAULT CHARSET=gbk ROW_FORMAT=COMPACT COMMENT='角色-权限对应表';
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -91,7 +91,7 @@ CREATE TABLE `acct_role_authority` (
 
 LOCK TABLES `acct_role_authority` WRITE;
 /*!40000 ALTER TABLE `acct_role_authority` DISABLE KEYS */;
-INSERT INTO `acct_role_authority` VALUES (1,1,1),(2,1,3),(4,1,2),(6,3,3),(7,4,6),(8,5,7),(10,4,1),(11,1,4),(12,5,1),(13,6,1),(17,1,5),(23,2,3),(24,2,1),(25,3,1),(28,6,3),(31,6,5),(32,3,4),(33,6,4);
+INSERT INTO `acct_role_authority` VALUES (1,1,1),(2,1,3),(3,3,4),(4,1,2),(7,4,6),(8,5,7),(10,4,1),(11,1,4),(12,5,1),(13,6,1),(17,1,5),(23,2,3),(24,2,1),(25,3,1),(31,6,5),(32,6,4);
 /*!40000 ALTER TABLE `acct_role_authority` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -128,7 +128,7 @@ CREATE TABLE `acct_user` (
 
 LOCK TABLES `acct_user` WRITE;
 /*!40000 ALTER TABLE `acct_user` DISABLE KEYS */;
-INSERT INTO `acct_user` VALUES (1,0,'jl@qq.com','tongdehui','蒋磊','96e79218965eb72c92a549dd5a330112',1,'12313244545','','','',NULL),(2,0,'sdfsf@22.com','user1','JL','96e79218965eb72c92a549dd5a330112',1,'371423199301201111','','','',NULL),(3,0,'sdfsf@22.com','hr','初级审核人A','96e79218965eb72c92a549dd5a330112',245,'','010-222222','22222222222','',NULL),(4,0,'sdfsf@22.com','admin','高级审核人A','96e79218965eb72c92a549dd5a330112',244,'','','','',NULL),(5,0,'sdfsf@22.com','user2','初审专家','96e79218965eb72c92a549dd5a330112',253,NULL,'010-444444','44444444444',NULL,NULL),(6,0,'sdfsf@22.comsdfsf@22.com','user3','复审专家','96e79218965eb72c92a549dd5a330112',252,NULL,'010-555555','55555555555',NULL,NULL),(7,0,'sdfsf@22.com','user4','赵五','96e79218965eb72c92a549dd5a330112',245,NULL,'010-666666','66666666666',NULL,NULL),(8,0,'shiyao@163.com','user5','王六','96e79218965eb72c92a549dd5a330112',245,'111111111','010-677777','53646466446',NULL,NULL),(13,0,'11@1.com','11@1.com','test','96e79218965eb72c92a549dd5a330112',254,'1111111','test','test','',NULL),(14,0,'2@1.com','2@1.com','test2','96e79218965eb72c92a549dd5a330112',1,'2222',NULL,NULL,NULL,NULL),(15,0,'1@1.com','1@1.com','user3','96e79218965eb72c92a549dd5a330112',1,'111111111111111111',NULL,NULL,NULL,NULL),(16,0,'123@qq.com','123','lei','96e79218965eb72c92a549dd5a330112',245,'123',NULL,NULL,NULL,NULL),(17,0,'1233@qq.com','1233','111','96e79218965eb72c92a549dd5a330112',244,'123','123','132','','132'),(18,0,'123456@qq.com','123456','张三','96e79218965eb72c92a549dd5a330112',244,'123456',NULL,NULL,NULL,NULL),(19,0,'123456@qq.com','12345654321','张三三','96e79218965eb72c92a549dd5a330112',244,'12345654321',NULL,NULL,NULL,NULL),(20,0,'1234566@qq.com','1234321','张三','96e79218965eb72c92a549dd5a330112',244,'1234321',NULL,NULL,NULL,NULL),(21,0,'22222@163.com','2222','2222','96e79218965eb72c92a549dd5a330112',244,'222222','22222',NULL,NULL,NULL),(22,0,'111@163.com','12343210','jianglei','96e79218965eb72c92a549dd5a330112',244,'12343210',NULL,NULL,NULL,NULL),(24,0,'123123@123.com','123123132','刘德华','96e79218965eb72c92a549dd5a330112',244,'123123132',NULL,NULL,NULL,NULL),(25,0,'123@123.com','123123','王宝强','96e79218965eb72c92a549dd5a330112',244,'123123',NULL,NULL,NULL,NULL),(26,0,'111@163.com','371423199301201221','jiang','96e79218965eb72c92a549dd5a330112',244,'371423199301201221','','','',NULL);
+INSERT INTO `acct_user` VALUES (1,0,'jl@qq.com','tongdehui','蒋磊','96e79218965eb72c92a549dd5a330112',1,'12313244545','','','',NULL),(2,0,'sdfsf@22.com','user1','JL','96e79218965eb72c92a549dd5a330112',1,'371423199301201111','','','',NULL),(3,0,'sdfsf@22.com','hr','初级审核人A','96e79218965eb72c92a549dd5a330112',245,'','010-222222','22222222222','',NULL),(4,0,'sdfsf@22.com','admin','高级审核人A','96e79218965eb72c92a549dd5a330112',244,'','','','',NULL),(5,0,'sdfsf@22.com','user2','初审专家','96e79218965eb72c92a549dd5a330112',253,NULL,'010-444444','44444444444',NULL,NULL),(6,0,'sdfsf@22.comsdfsf@22.com','user3','复审专家','96e79218965eb72c92a549dd5a330112',252,NULL,'010-555555','55555555555',NULL,NULL),(7,0,'sdfsf@22.com','user4','赵五','96e79218965eb72c92a549dd5a330112',244,'371423199301205555','','','',NULL),(8,0,'shiyao@163.com','user5','王六','96e79218965eb72c92a549dd5a330112',245,'111111111','010-677777','53646466446',NULL,NULL),(13,0,'11@1.com','11@1.com','test','96e79218965eb72c92a549dd5a330112',254,'1111111','test','test','',NULL),(14,0,'2@1.com','2@1.com','test2','96e79218965eb72c92a549dd5a330112',1,'2222',NULL,NULL,NULL,NULL),(15,0,'1@1.com','1@1.com','user3','96e79218965eb72c92a549dd5a330112',1,'111111111111111111',NULL,NULL,NULL,NULL),(16,0,'123@qq.com','123','lei','96e79218965eb72c92a549dd5a330112',245,'123',NULL,NULL,NULL,NULL),(17,0,'1233@qq.com','1233','111','96e79218965eb72c92a549dd5a330112',244,'123','123','132','','132'),(18,0,'123456@qq.com','123456','张三','96e79218965eb72c92a549dd5a330112',244,'123456',NULL,NULL,NULL,NULL),(19,0,'123456@qq.com','12345654321','张三三','96e79218965eb72c92a549dd5a330112',244,'12345654321',NULL,NULL,NULL,NULL),(20,0,'1234566@qq.com','1234321','张三','96e79218965eb72c92a549dd5a330112',244,'1234321',NULL,NULL,NULL,NULL),(21,0,'22222@163.com','2222','2222','96e79218965eb72c92a549dd5a330112',244,'222222','22222',NULL,NULL,NULL),(22,0,'111@163.com','12343210','jianglei','96e79218965eb72c92a549dd5a330112',244,'12343210',NULL,NULL,NULL,NULL),(24,0,'123123@123.com','123123132','刘德华','96e79218965eb72c92a549dd5a330112',244,'123123132',NULL,NULL,NULL,NULL),(25,0,'123@123.com','123123','王宝强','96e79218965eb72c92a549dd5a330112',244,'123123',NULL,NULL,NULL,NULL),(26,0,'111@163.com','371423199301201221','jiang','96e79218965eb72c92a549dd5a330112',244,'371423199301201221','','','',NULL);
 /*!40000 ALTER TABLE `acct_user` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -175,23 +175,23 @@ CREATE TABLE `apply` (
   `apply_type` varchar(255) DEFAULT NULL COMMENT '1.杰出青年2.科技领军人物3.创新团队',
   `status` varchar(255) DEFAULT '0' COMMENT '0:初试状态;1:提交初审;2:初审通过;3:初审公示;4:进入复审;5:提交复审;6:复审通过;7:复审公示;7:领导审核;8:评审通过;9:评审不通过',
   `pre_approve_date` varchar(255) DEFAULT NULL COMMENT '主管单位操作时间',
-  `pre_approve_id` varchar(255) DEFAULT '0' COMMENT '主管单位操作者id',
+  `pre_approve_id` varchar(255) DEFAULT NULL COMMENT '主管单位操作者id',
   `pre_approve_sug` text COMMENT '主管单位意见',
   `finial_approve_date` varchar(255) DEFAULT NULL COMMENT '评审小组操作时间',
-  `finial_approve_id` varchar(255) DEFAULT '0' COMMENT '评审小组操作者id',
+  `finial_approve_id` varchar(255) DEFAULT NULL COMMENT '评审小组操作者id',
   `finial_approve_sug` text COMMENT '评审小组意见',
   `expert1_date` varchar(255) DEFAULT NULL COMMENT '初审专家操作时间',
-  `expert1_id` varchar(255) DEFAULT '0' COMMENT '初审专家操作者id',
-  `expert1_score` varchar(255) DEFAULT '0' COMMENT '初审专家平均分',
+  `expert1_id` varchar(255) DEFAULT NULL COMMENT '初审专家操作者id',
+  `expert1_score` varchar(255) DEFAULT NULL COMMENT '初审专家平均分',
   `expert1_sug` text COMMENT '初审专家意见',
   `expert2_date` varchar(255) DEFAULT NULL COMMENT '复审专家操作时间',
-  `expert2_id` varchar(255) DEFAULT '0' COMMENT '复审专家操作者id',
-  `expert2_score` varchar(255) DEFAULT '0' COMMENT '复审专家平均分',
+  `expert2_id` varchar(255) DEFAULT NULL COMMENT '复审专家操作者id',
+  `expert2_score` varchar(255) DEFAULT NULL COMMENT '复审专家平均分',
   `expert2_sug` text COMMENT '复审专家意见',
   PRIMARY KEY (`Id`),
   KEY `user_id` (`user_id`),
   CONSTRAINT `apply_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `acct_user` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=26 DEFAULT CHARSET=utf8 COMMENT='申请记录表';
+) ENGINE=InnoDB AUTO_INCREMENT=32 DEFAULT CHARSET=utf8 COMMENT='申请记录表';
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -200,7 +200,7 @@ CREATE TABLE `apply` (
 
 LOCK TABLES `apply` WRITE;
 /*!40000 ALTER TABLE `apply` DISABLE KEYS */;
-INSERT INTO `apply` VALUES (4,2,'2014-08-08 00:00:00','杰出青年','已通过','2014-08-30','0',NULL,'2014-08-31','0',NULL,'2014-09-01','0','88','可以','2014-09-10','0','88','可以'),(5,3,'2016.08.01 00:00:00','杰出青年','status','2016.08.08','0','','2016.08.08','0','','','','','','','','',''),(7,5,'2016-04-01 00:00:00','创新团队','已通过','2016-04-08','0',NULL,'2016-04-11','0',NULL,'2016-04-16','0','0','','2016-05-01','0','0',''),(8,6,'2016.06.01 00:00:00','杰出青年','status','2016.06.09','0','','2016.06.11','0','','','','','','','','',''),(9,13,'2016-07-01 00:00:00','创新团队','已通过','2016-07-01','0','','2016-07-10','0','','2016-07-13','0','0','','2016-07-15','0','0',''),(10,14,'2016-07-01 00:00:00','科技领军','已通过','2016-07-10','0','','2016-07-15','0','','2016-07-16','0','0','','2016-07-20','0','0',NULL),(12,16,'2016-09-14 11:44:30','杰出青年','终审中','2016-09-14','0','','2016.09.14','0','','2016.09.14','0','0','','','0','0',''),(23,25,'2016-09-14 16:24:47','杰出青年','终审中','2016-09-14','0','','','0','','','','','','','','',''),(24,3,'2016.09.14 18:00:04','杰出青年','status','','0','','','0','','','','','','','','',''),(25,3,'2016.09.14 18:17:48','杰出青年','status','','0','','','0','','','','','','','','','');
+INSERT INTO `apply` VALUES (4,2,'2014-08-08 00:00:00','杰出青年','已通过','2014-08-30','0',NULL,'2014-08-31','0',NULL,'2014-09-01','0','88','可以','2014-09-10','0','88','可以'),(5,3,'2016-08-01 00:00:00','杰出青年','终审中','2016-08-08','0','','2016-08-08','0','',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),(7,5,'2016-04-01 00:00:00','创新团队','已通过','2016-04-08','0',NULL,'2016-04-11','0',NULL,'2016-04-16','0','0','','2016-05-01','0','0',''),(8,6,'2016-06-01 00:00:00','杰出青年','已通过','2016-06-09','0','','2016-06-11','0','','','','','','','','99','很不错，成绩合格，符合要求，予以通过'),(9,13,'2016-07-01 00:00:00','创新团队','已通过','2016-07-01','0','','2016-07-10','0','','2016-07-13','0','0','','2016-07-15','0','0',''),(10,14,'2016-07-01 00:00:00','科技领军','已通过','2016-07-10','0','','2016-07-15','0','','2016-07-16','0','0','','2016-07-20','0','0',NULL),(12,16,'2016-09-14 11:44:30','杰出青年','终审中','2016-09-14','0','','2016-09-14','0','','2016.09.14','0','0','','','0','0',''),(23,25,'2016-09-14 16:24:47','杰出青年','已通过','','','','','','','2016-09-20','25','88','合格，可以进入终审环节','2016-09-20','25','88','合格，可以进入终审环节'),(24,4,'2016-09-14 18:00:04','杰出青年','待审核','2016-09-18','18','建议分到专家一组','2016-09-19','4','可以分到专家一组','','0','','','','0','',''),(29,1,'2016-09-19 11:01:25','杰出青年','未通过','','0','','','0','','2016-09-19','25','88','初审合格','2016-09-19','26','',''),(30,7,'2016-09-19 11:36:14','杰出青年','已通过','2016-09-19','18','建议分到专家一组','2016-09-19','4','同意','2016-09-19','25','88','成绩合格，建议进入复选','2016-09-19','26','99','成绩优秀，予以通过'),(31,1,'2016-09-19 18:18:41','杰出青年','待审核','','0','','','0','','','0','','','','0','','');
 /*!40000 ALTER TABLE `apply` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -351,7 +351,7 @@ CREATE TABLE `cxtd_base_info` (
   `status` int(11) DEFAULT '0' COMMENT '是否提交',
   PRIMARY KEY (`id`),
   KEY `id` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -360,7 +360,7 @@ CREATE TABLE `cxtd_base_info` (
 
 LOCK TABLES `cxtd_base_info` WRITE;
 /*!40000 ALTER TABLE `cxtd_base_info` DISABLE KEYS */;
-INSERT INTO `cxtd_base_info` VALUES (1,1,1,'矿产研究','地质学','地质科学','地质科学','undefined12','123','123','123','开发商','123','55555','你好','海淀区',32,'小五','18366132455','384490769@qq.com','32','5675676575',0),(2,2,2,'中国梦之队','java','计算机','','undefined1','','从入门到放弃','网络','无','10212','蒋','无','无',10000,'无','13838383838','','','',0),(3,2,2,'中国梦之队','java','计算机','','undefined1','','从入门到放弃','网络','无','10212','蒋','无','无',0,'无','13838383838','','','',0),(4,2,2,'中国梦之队','java','计算机','','undefined1','','从入门到放弃','网络','无','10212','蒋','无','无',0,'无','13838383838','','','',0),(5,2,2,'中国梦之队','java','计算机','','undefined1','','从入门到放弃','网络','无','10212','蒋','无','无',100000,'无','13838383838','','1111','',0);
+INSERT INTO `cxtd_base_info` VALUES (1,1,1,'矿产研究','地质学','地质科学','地质科学','undefined12','123','123','123','开发商','123','55555','你好','海淀区',32,'小五','18366132455','384490769@qq.com','32','5675676575',0),(2,2,2,'中国梦之队','java','计算机','','undefined1','','从入门到放弃','网络','无','10212','蒋','无','无',10000,'无','13838383838','','','',0),(3,2,2,'中国梦之队','java','计算机','','undefined1','','从入门到放弃','网络','无','10212','蒋','无','无',0,'无','13838383838','','','',0),(4,2,2,'中国梦之队','java','计算机','','undefined1','','从入门到放弃','网络','无','10212','蒋','无','无',0,'无','13838383838','','','',0),(5,2,2,'中国梦之队','java','计算机','','undefined1','','从入门到放弃','网络','无','10212','蒋','无','无',100000,'无','13838383838','','1111','',0),(6,7,3,'梦之队','土地资源','地质科','','0','','土地的开发与利用','无','国土资源部','10002242','张','地质科学院','北京',10000,'蒋','13666666666','66@qq.com','3636333','13666666666',0),(7,7,3,'梦之队','土地资源','地质科','','0','','土地的开发与利用','无','国土资源部','10002242','张','地质科学院','北京',10000,'蒋','13666666666','66@qq.com','3636333','13666666666',0);
 /*!40000 ALTER TABLE `cxtd_base_info` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -393,7 +393,7 @@ CREATE TABLE `cxtd_leader_info` (
   `addresses` varchar(100) DEFAULT NULL COMMENT '通讯地址',
   `status` int(11) DEFAULT '0' COMMENT '是否提交',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -402,7 +402,7 @@ CREATE TABLE `cxtd_leader_info` (
 
 LOCK TABLES `cxtd_leader_info` WRITE;
 /*!40000 ALTER TABLE `cxtd_leader_info` DISABLE KEYS */;
-INSERT INTO `cxtd_leader_info` VALUES (1,1,NULL,'123','123','32','32','32','32','32','32','32','32','32','32','32','32','32','32',0),(2,2,2,'','','','','','','','','','','','','','','','',0),(3,2,2,'','男','中国','汉','java','1993.01.20','身份证','11111111111111111','java开发','计算机科学','','1111','111111111111111','','100000','北京',0),(4,2,2,'','男','中国','汉','java','1993.01.20','身份证','11111111111111111','java开发','计算机科学','','1111','111111111111111','','100000','北京',0),(5,2,2,'','男','中国','汉','java','1993','身份证','111111','开发','计算机','','3612200','13838383838','','111111','北京',0);
+INSERT INTO `cxtd_leader_info` VALUES (1,1,NULL,'123','123','32','32','32','32','32','32','32','32','32','32','32','32','32','32',0),(2,2,2,'','','','','','','','','','','','','','','','',0),(3,2,2,'','男','中国','汉','java','1993.01.20','身份证','11111111111111111','java开发','计算机科学','','1111','111111111111111','','100000','北京',0),(4,2,2,'','男','中国','汉','java','1993.01.20','身份证','11111111111111111','java开发','计算机科学','','1111','111111111111111','','100000','北京',0),(5,2,2,'','男','中国','汉','java','1993','身份证','111111','开发','计算机','','3612200','13838383838','','111111','北京',0),(6,7,3,'','男','中国','汉','工程师','1993.01.01','身份证','371423222366633336','计算机','计算机与科学','','','136666666666','333qq.com','10000','北京',0),(7,7,3,'','男','中国','汉','工程师','1993.01.01','身份证','371423222366633336','计算机','计算机与科学','','','136666666666','333qq.com','10000','北京',0);
 /*!40000 ALTER TABLE `cxtd_leader_info` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -420,7 +420,7 @@ CREATE TABLE `cxtd_leader_zuzhi` (
   `job` varchar(255) DEFAULT NULL COMMENT '职务',
   `renqi` varchar(255) DEFAULT NULL COMMENT '任期',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=23 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=29 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -429,7 +429,7 @@ CREATE TABLE `cxtd_leader_zuzhi` (
 
 LOCK TABLES `cxtd_leader_zuzhi` WRITE;
 /*!40000 ALTER TABLE `cxtd_leader_zuzhi` DISABLE KEYS */;
-INSERT INTO `cxtd_leader_zuzhi` VALUES (1,2,NULL,NULL,NULL),(2,2,NULL,NULL,NULL),(3,2,NULL,NULL,NULL),(4,2,NULL,NULL,NULL),(5,2,NULL,NULL,NULL),(6,2,NULL,NULL,NULL),(7,2,NULL,NULL,NULL),(8,2,NULL,NULL,NULL),(9,2,NULL,NULL,NULL),(10,2,NULL,NULL,NULL),(11,2,NULL,NULL,NULL),(12,2,NULL,NULL,NULL),(13,2,NULL,NULL,NULL),(14,2,NULL,NULL,NULL),(15,2,NULL,NULL,NULL),(16,2,NULL,NULL,NULL),(17,2,NULL,NULL,NULL),(18,2,NULL,NULL,NULL),(19,2,NULL,NULL,NULL),(20,2,NULL,NULL,NULL),(21,2,NULL,NULL,NULL),(22,2,NULL,NULL,NULL);
+INSERT INTO `cxtd_leader_zuzhi` VALUES (1,2,NULL,NULL,NULL),(2,2,NULL,NULL,NULL),(3,2,NULL,NULL,NULL),(4,2,NULL,NULL,NULL),(5,2,NULL,NULL,NULL),(6,2,NULL,NULL,NULL),(7,2,NULL,NULL,NULL),(8,2,NULL,NULL,NULL),(9,2,NULL,NULL,NULL),(10,2,NULL,NULL,NULL),(11,2,NULL,NULL,NULL),(12,2,NULL,NULL,NULL),(13,2,NULL,NULL,NULL),(14,2,NULL,NULL,NULL),(15,2,NULL,NULL,NULL),(16,2,NULL,NULL,NULL),(17,2,NULL,NULL,NULL),(18,2,NULL,NULL,NULL),(19,2,NULL,NULL,NULL),(20,2,NULL,NULL,NULL),(21,2,NULL,NULL,NULL),(22,2,NULL,NULL,NULL),(23,7,NULL,NULL,NULL),(24,7,NULL,NULL,NULL),(25,7,NULL,NULL,NULL),(26,7,NULL,NULL,NULL),(27,7,NULL,NULL,NULL),(28,7,NULL,NULL,NULL);
 /*!40000 ALTER TABLE `cxtd_leader_zuzhi` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -453,7 +453,7 @@ CREATE TABLE `cxtd_member_info` (
   `direction` varchar(255) DEFAULT NULL COMMENT '现从事专业或研究方向',
   `work_company` varchar(255) DEFAULT NULL COMMENT '工作单位',
   KEY `id` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=23 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -462,7 +462,7 @@ CREATE TABLE `cxtd_member_info` (
 
 LOCK TABLES `cxtd_member_info` WRITE;
 /*!40000 ALTER TABLE `cxtd_member_info` DISABLE KEYS */;
-INSERT INTO `cxtd_member_info` VALUES (1,'2',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),(2,'2',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),(3,'2',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),(4,'2',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),(5,'2',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),(6,'2',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),(7,'2',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),(8,'2',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),(9,'2',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),(10,'2',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),(11,'2',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),(12,'2',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),(13,'2',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),(14,'2',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),(15,'2',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),(16,'2',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL);
+INSERT INTO `cxtd_member_info` VALUES (1,'2',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),(2,'2',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),(3,'2',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),(4,'2',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),(5,'2',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),(6,'2',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),(7,'2',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),(8,'2',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),(9,'2',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),(10,'2',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),(11,'2',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),(12,'2',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),(13,'2',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),(14,'2',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),(15,'2',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),(16,'2',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),(17,'3',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),(18,'3',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),(19,'3',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),(20,'3',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),(21,'3',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),(22,'3',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL);
 /*!40000 ALTER TABLE `cxtd_member_info` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -490,7 +490,7 @@ CREATE TABLE `cxtd_member_num` (
   `benke` int(11) DEFAULT NULL,
   `x_orther` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -499,7 +499,7 @@ CREATE TABLE `cxtd_member_num` (
 
 LOCK TABLES `cxtd_member_num` WRITE;
 /*!40000 ALTER TABLE `cxtd_member_num` DISABLE KEYS */;
-INSERT INTO `cxtd_member_num` VALUES (1,2,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),(2,2,0,0,0,0,0,0,0,0,0,0,NULL,0,0),(3,2,0,0,0,0,0,0,0,0,0,0,NULL,0,0),(4,2,0,0,0,0,0,0,0,0,0,0,NULL,0,0);
+INSERT INTO `cxtd_member_num` VALUES (1,2,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),(2,2,0,0,0,0,0,0,0,0,0,0,NULL,0,0),(3,2,0,0,0,0,0,0,0,0,0,0,NULL,0,0),(4,2,0,0,0,0,0,0,0,0,0,0,NULL,0,0),(5,3,4,1,1,1,1,1,1,1,1,1,1,1,1),(6,3,4,1,1,1,1,1,1,1,1,1,1,1,1);
 /*!40000 ALTER TABLE `cxtd_member_num` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -579,6 +579,12 @@ CREATE TABLE `jcqn_doc01` (
   `journal_title` varchar(255) DEFAULT NULL COMMENT '组织期刊名称',
   `organization_position` varchar(255) DEFAULT NULL COMMENT '组织职务',
   `organization_term` varchar(255) DEFAULT NULL COMMENT '任期',
+  `journal_titlef` varchar(255) DEFAULT NULL,
+  `organization_position1` varchar(255) DEFAULT NULL,
+  `organization_term1` varchar(255) DEFAULT NULL,
+  `journal_title2` varchar(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT NULL,
+  `organization_position2` varchar(255) DEFAULT NULL,
+  `organization_term2` varchar(255) DEFAULT NULL,
   `unit_name` varchar(255) DEFAULT NULL COMMENT '单位名称',
   `organization_code` varchar(255) DEFAULT NULL COMMENT '组织机构代码',
   `legal_representative` varchar(255) DEFAULT NULL COMMENT '法定代表人',
@@ -599,7 +605,7 @@ CREATE TABLE `jcqn_doc01` (
 
 LOCK TABLES `jcqn_doc01` WRITE;
 /*!40000 ALTER TABLE `jcqn_doc01` DISABLE KEYS */;
-INSERT INTO `jcqn_doc01` VALUES (1,1,'','',',',NULL,'','','','','','','','','','','','','','','',NULL,NULL,'','','',NULL,NULL,'','','','','','','','','','','','');
+INSERT INTO `jcqn_doc01` VALUES (1,1,'蒋磊','男','汉','1993-01-20','开发	','java开发','20125','从入门到简单','计算机','13666666666','大','1366666666','99@qq.com','3621121','北京','中国','交院','计算机','计算机专业','2016-01-01','2016-08-08','北京','联想','开发','2015-01-01','2015-08-08','2222','22','222','222','2','222','2','2','2','2	','2','中国','山东','北京','20566','单位','3612200','北京');
 /*!40000 ALTER TABLE `jcqn_doc01` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -1645,7 +1651,7 @@ CREATE TABLE `user_baseinfor` (
 
 LOCK TABLES `user_baseinfor` WRITE;
 /*!40000 ALTER TABLE `user_baseinfor` DISABLE KEYS */;
-INSERT INTO `user_baseinfor` VALUES (1,1,1,'','汉','1989-11-11',NULL,NULL,'无','健康','山东','2016.06.28','无','无','100','无','无','Java工程师','2016.06.29','计算机','Java工程师','北京','2016.07.03','开发','2016.06.28','','','100','10000'),(2,2,1,'男','汉','1993-01-20',NULL,NULL,'无','健康','山东','2015.12.15','无','英语四级','三级','无','无','java开发','2015.12.15','IT','工程师','交院','2016.07.01','无','2016.08.26','','','四级','8888'),(3,3,1,'男','',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),(4,4,1,'男','','2015-06-23',NULL,NULL,'','','',NULL,'','','','','','',NULL,'','','',NULL,'',NULL,'','','',''),(5,5,1,'男',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),(6,6,1,'男',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),(7,7,1,'男',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),(8,8,1,'男',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),(13,13,1,'男','',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),(14,14,1,'男',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),(15,15,1,'男',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),(16,22,NULL,'男',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),(18,24,NULL,'男',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),(19,25,NULL,'男',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),(20,26,NULL,'男','汉','1993-07-01',NULL,NULL,'无','健康','山东','2015.08.05','无','英语 四级','88','无','无','开发工程师','2015.12.26','java开发','工程师','联想','2015.08.29','无',NULL,'','','88','8888');
+INSERT INTO `user_baseinfor` VALUES (1,1,1,'','汉','1989-11-11',NULL,NULL,'无','健康','山东','2016.06.28','无','无','100','无','无','Java工程师','2016.06.29','计算机','Java工程师','北京','2016.07.03','开发','2016.06.28','','','100','10000'),(2,2,1,'男','汉','1993-01-20',NULL,NULL,'无','健康','山东','2015.12.15','无','英语四级','三级','无','无','java开发','2015.12.15','IT','工程师','交院','2016.07.01','无','2016.08.26','','','四级','8888'),(3,3,1,'男','',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),(4,4,1,'男','','2015-06-23',NULL,NULL,'','','',NULL,'','','','','','',NULL,'','','',NULL,'',NULL,'','','',''),(5,5,1,'男',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),(6,6,1,'男',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),(7,7,1,'男','汉','1993-09-01',NULL,NULL,'无','健康','山东','2012.09.05','无','无 ','四级','无','无','开发员','2015.09.16','开发','工程师','无','2016.08.30','经理','2016.09.01','','','六级','5000'),(8,8,1,'男',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),(13,13,1,'男','',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),(14,14,1,'男',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),(15,15,1,'男',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),(16,22,NULL,'男',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),(18,24,NULL,'男',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),(19,25,NULL,'男',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),(20,26,NULL,'男','汉','1993-07-01',NULL,NULL,'无','健康','山东','2015.08.05','无','英语 四级','88','无','无','开发工程师','2015.12.26','java开发','工程师','联想','2015.08.29','无',NULL,'','','88','8888');
 /*!40000 ALTER TABLE `user_baseinfor` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -1694,7 +1700,7 @@ CREATE TABLE `user_exam` (
   `chengji` varchar(255) DEFAULT NULL,
   `zuzhizhe` varchar(2525) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -1703,7 +1709,7 @@ CREATE TABLE `user_exam` (
 
 LOCK TABLES `user_exam` WRITE;
 /*!40000 ALTER TABLE `user_exam` DISABLE KEYS */;
-INSERT INTO `user_exam` VALUES (2,3,'英语六级','2016-07-31','英语','500','交院'),(3,3,'国考','2016-08-01','数学','100','交院'),(4,2,'国考','2013-12-25','英语四级','500','交院'),(5,1,'英语','2016-08-01','六级','500','教育部'),(6,1,'会计','2016-08-01','会计证书','80','交院');
+INSERT INTO `user_exam` VALUES (2,3,'英语六级','2016-07-31','英语','500','交院'),(3,3,'国考','2016-08-01','数学','100','交院'),(4,2,'国考','2013-12-25','英语四级','500','交院'),(5,1,'英语','2016-08-01','六级','500','教育部'),(6,1,'会计','2016-08-01','会计证书','80','交院'),(7,7,'英语','2015-09-03','六级','500','交院');
 /*!40000 ALTER TABLE `user_exam` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -1763,7 +1769,7 @@ CREATE TABLE `user_peixun` (
   PRIMARY KEY (`Id`),
   KEY `user_id` (`user_id`),
   CONSTRAINT `user_peixun_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `acct_user` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=22 DEFAULT CHARSET=utf8 COMMENT='用户_学习经历表';
+) ENGINE=InnoDB AUTO_INCREMENT=23 DEFAULT CHARSET=utf8 COMMENT='用户_学习经历表';
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -1772,7 +1778,7 @@ CREATE TABLE `user_peixun` (
 
 LOCK TABLES `user_peixun` WRITE;
 /*!40000 ALTER TABLE `user_peixun` DISABLE KEYS */;
-INSERT INTO `user_peixun` VALUES (15,4,'2016-08-08','2016-08-29','大','大','1','4年','博士','博士研究生','大'),(16,26,'2012-09-05','2016-07-01','大学学习','山东交通学院','1','4年','学士','本科','冯'),(17,2,'2012-09-05','2016-07-01','信息管理与信息系统','中国','1','4年','山东交通学院','本科','冯'),(19,1,'2012-09-01','2016-07-01','信息科学与信息系统','中国','1','4年','山东交通学院','本科','蒋磊'),(20,1,'2015-09-12','2016-08-08','java开发','中国','1','1年','交院','其它','李'),(21,2,'2015-05-05','2016-05-05','java开发','中国','1','1','交院','其它','磊');
+INSERT INTO `user_peixun` VALUES (15,4,'2016-08-08','2016-08-29','大','大','1','4年','博士','博士研究生','大'),(16,26,'2012-09-05','2016-07-01','大学学习','山东交通学院','1','4年','学士','本科','冯'),(17,2,'2012-09-05','2016-07-01','信息管理与信息系统','中国','1','4年','山东交通学院','本科','冯'),(19,1,'2012-09-01','2016-07-01','信息科学与信息系统','中国','1','4年','山东交通学院','本科','蒋磊'),(20,1,'2015-09-12','2016-08-08','java开发','中国','1','1年','交院','其它','李'),(21,2,'2015-05-05','2016-05-05','java开发','中国','1','1','交院','其它','磊'),(22,7,'2012-09-05','2016-07-01','计算机技术与科学','中国','1','4年','交院','本科','李');
 /*!40000 ALTER TABLE `user_peixun` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -1828,7 +1834,7 @@ CREATE TABLE `user_report` (
   PRIMARY KEY (`Id`),
   KEY `user_id` (`user_id`),
   CONSTRAINT `user_report_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `acct_user` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8 ROW_FORMAT=COMPACT COMMENT='用户_学术会议报告表';
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8 ROW_FORMAT=COMPACT COMMENT='用户_学术会议报告表';
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -1837,7 +1843,7 @@ CREATE TABLE `user_report` (
 
 LOCK TABLES `user_report` WRITE;
 /*!40000 ALTER TABLE `user_report` DISABLE KEYS */;
-INSERT INTO `user_report` VALUES (3,3,'2016-08-01','qq                                                                                                                                                                                                                                                             ','qq','qq','qq'),(4,2,'2016-08-01','现代信息技术研究                                                                                                                                                                                                                                                       ','信息技术飞速发展','人民日报','独著'),(5,1,'2016-08-01','论现代通讯技术的发展                                                                                                                                                                                                                                                     ','信息技术飞速发展，对于网络的利用','人民日报','独、著');
+INSERT INTO `user_report` VALUES (3,3,'2016-08-01','qq                                                                                                                                                                                                                                                             ','qq','qq','qq'),(4,2,'2016-08-01','现代信息技术研究                                                                                                                                                                                                                                                       ','信息技术飞速发展','人民日报','独著'),(5,1,'2016-08-01','论现代通讯技术的发展                                                                                                                                                                                                                                                     ','信息技术飞速发展，对于网络的利用','人民日报','独、著'),(6,7,'2016-09-01','现代通讯技术的发展                                                                                                                                                                                                                                                      ','科学技术的发展','中国期刊','独著');
 /*!40000 ALTER TABLE `user_report` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -1858,7 +1864,7 @@ CREATE TABLE `user_skill` (
   `end_date` date DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `id` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -1867,7 +1873,7 @@ CREATE TABLE `user_skill` (
 
 LOCK TABLES `user_skill` WRITE;
 /*!40000 ALTER TABLE `user_skill` DISABLE KEYS */;
-INSERT INTO `user_skill` VALUES (9,3,'2016-07-31','qq','qq','qq','2016-07-31'),(10,3,'2016-07-31','关于施工平台项目的调研','完成独立调研','顺利完成调研','2016-08-27'),(11,2,'2016-08-01','施工平台的需求调研','独立调研','完成独立调研','2016-08-10'),(12,1,'2015-12-01','环境与保护的课题研究','独立调研','完成调研','2016-08-29'),(13,1,'2016-08-02','现代通讯技术的研究','参与调研，整理文档','实验报告','2016-08-16');
+INSERT INTO `user_skill` VALUES (9,3,'2016-07-31','qq','qq','qq','2016-07-31'),(10,3,'2016-07-31','关于施工平台项目的调研','完成独立调研','顺利完成调研','2016-08-27'),(11,2,'2016-08-01','施工平台的需求调研','独立调研','完成独立调研','2016-08-10'),(12,1,'2015-12-01','环境与保护的课题研究','独立调研','完成调研','2016-08-29'),(13,1,'2016-08-02','现代通讯技术的研究','参与调研，整理文档','实验报告','2016-08-16'),(14,7,'2016-01-01','java工程师','独立开发','独立完成','2016-09-18');
 /*!40000 ALTER TABLE `user_skill` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -1882,7 +1888,7 @@ CREATE TABLE `user_team` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `userid` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -1891,7 +1897,7 @@ CREATE TABLE `user_team` (
 
 LOCK TABLES `user_team` WRITE;
 /*!40000 ALTER TABLE `user_team` DISABLE KEYS */;
-INSERT INTO `user_team` VALUES (1,1),(2,2);
+INSERT INTO `user_team` VALUES (1,1),(2,2),(3,7);
 /*!40000 ALTER TABLE `user_team` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -1914,7 +1920,7 @@ CREATE TABLE `user_work` (
   PRIMARY KEY (`Id`),
   KEY `user_id` (`user_id`),
   CONSTRAINT `fk_user_work` FOREIGN KEY (`user_id`) REFERENCES `acct_user` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=38 DEFAULT CHARSET=utf8 COMMENT='用户_工作经历表';
+) ENGINE=InnoDB AUTO_INCREMENT=40 DEFAULT CHARSET=utf8 COMMENT='用户_工作经历表';
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -1923,7 +1929,7 @@ CREATE TABLE `user_work` (
 
 LOCK TABLES `user_work` WRITE;
 /*!40000 ALTER TABLE `user_work` DISABLE KEYS */;
-INSERT INTO `user_work` VALUES (23,3,'2016-07-31','2016-08-22','交院','学生','班干部',NULL),(24,3,'2016-07-31','2016-08-26','qq','qq','qq',NULL),(25,2,'2015-12-15','2016-08-26','联想','java开发','工程师',NULL),(35,1,'2016-08-01','2016-08-29','中国地质科学院','中国','工程师','0'),(36,1,'2016-08-01','2016-08-29','中国地质科学院','中国','研究院','1'),(37,1,'2016-08-01','2016-08-29','联想','中国','开发员','1');
+INSERT INTO `user_work` VALUES (23,3,'2016-07-31','2016-08-22','交院','学生','班干部',NULL),(24,3,'2016-07-31','2016-08-26','qq','qq','qq',NULL),(25,2,'2015-12-15','2016-08-26','联想','java开发','工程师',NULL),(35,1,'2016-08-01','2016-08-29','中国地质科学院','中国','工程师','0'),(36,1,'2016-08-01','2016-08-29','中国地质科学院','中国','研究院','1'),(37,1,'2016-08-01','2016-08-29','联想','中国','开发员','1'),(38,7,'2015-12-15','2016-09-18','联想','中国','程序员','1'),(39,7,'2016-09-01','2016-09-19','阿里','北京','工程师','1');
 /*!40000 ALTER TABLE `user_work` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -2030,4 +2036,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2016-09-14 18:22:28
+-- Dump completed on 2016-09-20 17:02:23

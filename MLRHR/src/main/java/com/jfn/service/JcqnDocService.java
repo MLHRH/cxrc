@@ -50,6 +50,7 @@ public class JcqnDocService {
 			return jcqnDoc01Dao.getByUserId(user_id);
 		}
 		
+	
 		
 		public boolean insert02(JcqnDocProject jcqnDocProject){
 			return jcqnDoc02Dao.insert(jcqnDocProject);

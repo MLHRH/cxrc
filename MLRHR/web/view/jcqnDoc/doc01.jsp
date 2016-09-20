@@ -275,12 +275,12 @@
 				</td>
 				<td width=99 colspan=2 valign="middle"
 					style='width: 99.25pt; border-top: none; border-left: none; border-bottom: solid windowtext 1.0pt; border-right: solid windowtext 1.0pt; padding: 0cm 5.4pt 0cm 5.4pt; height: 38pt'>
-					<input type="text" id="study_start_time"
+					<input type="text" id="study_start_time" onfocus="WdatePicker({isShowWeek:true,dateFmt:'yyyy.MM.dd'})"
 						style="text-align: center; font-size: 16.0pt; font-family: 仿宋; display: inline-block; height: 90%; width: 95%; padding: 0px; margin: 3px; border-radius: 0px"   />
 				</td>
 				<td width=99 colspan=2 valign="middle"
 					style='width: 99.25pt; border-top: none; border-left: none; border-bottom: solid windowtext 1.0pt; border-right: solid windowtext 1.0pt; padding: 0cm 5.4pt 0cm 5.4pt; height: 38pt'>
-					<input type="text" id="study_end_time"
+					<input type="text" id="study_end_time" onfocus="WdatePicker({isShowWeek:true,dateFmt:'yyyy.MM.dd'})"
 						style="text-align: center; font-size: 16.0pt; font-family: 仿宋; display: inline-block; height: 90%; width: 95%; padding: 0px; margin: 3px; border-radius: 0px"   />
 				</td>
 			</tr>
@@ -307,12 +307,12 @@
 				</td>
 				<td width=99 colspan=2 valign="middle"
 					style='width: 99.25pt; border-top: none; border-left: none; border-bottom: solid windowtext 1.0pt; border-right: solid windowtext 1.0pt; padding: 0cm 5.4pt 0cm 5.4pt; height: 38pt'>
-					<input type="text" id="user_studfirsttime2"
+					<input type="text" id="user_studfirsttime2" onfocus="WdatePicker({isShowWeek:true,dateFmt:'yyyy.MM.dd'})"
 						style="text-align: center; font-size: 16.0pt; font-family: 仿宋; display: inline-block; height: 90%; width: 95%; padding: 0px; margin: 3px; border-radius: 0px"   />
 				</td>
 				<td width=99 colspan=2 valign="middle"
 					style='width: 99.25pt; border-top: none; border-left: none; border-bottom: solid windowtext 1.0pt; border-right: solid windowtext 1.0pt; padding: 0cm 5.4pt 0cm 5.4pt; height: 38pt'>
-					<input type="text" id="user_studlasttime2"
+					<input type="text" id="user_studlasttime2" onfocus="WdatePicker({isShowWeek:true,dateFmt:'yyyy.MM.dd'})"
 						style="text-align: center; font-size: 16.0pt; font-family: 仿宋; display: inline-block; height: 90%; width: 95%; padding: 0px; margin: 3px; border-radius: 0px"   />
 				</td>
 			</tr>
@@ -372,12 +372,12 @@
 				</td>
 				<td width=99 colspan=3 valign="middle"
 					style='width: 2.0cm; border-top: none; border-left: none; border-bottom: solid windowtext 1.0pt; border-right: solid windowtext 1.0pt; padding: 0cm 5.4pt 0cm 5.4pt; height: 38pt'>
-					<input type="text" id="work_start_time"
+					<input type="text" id="work_start_time" onfocus="WdatePicker({isShowWeek:true,dateFmt:'yyyy.MM.dd'})"
 						style="text-align: center; font-size: 16.0pt; font-family: 仿宋; display: inline-block; height: 90%; width: 95%; padding: 0px; margin: 3px; border-radius: 0px"   />
 				</td>
 				<td width=99 colspan=2 valign="middle"
 					style='width: 99.25pt; border-top: none; border-left: none; border-bottom: solid windowtext 1.0pt; border-right: solid windowtext 1.0pt; padding: 0cm 5.4pt 0cm 5.4pt; height: 38pt'>
-					<input type="text" id="work_end_time"
+					<input type="text" id="work_end_time" onfocus="WdatePicker({isShowWeek:true,dateFmt:'yyyy.MM.dd'})"
 						style="text-align: center; font-size: 16.0pt; font-family: 仿宋; display: inline-block; height: 90%; width: 95%; padding: 0px; margin: 3px; border-radius: 0px"   />
 				</td>
 			</tr>
@@ -399,12 +399,12 @@
 				</td>
 				<td width=99 colspan=3 valign="middle"
 					style='width: 2.0cm; border-top: none; border-left: none; border-bottom: solid windowtext 1.0pt; border-right: solid windowtext 1.0pt; padding: 0cm 5.4pt 0cm 5.4pt; height: 38pt'>
-					<input type="text" id="user_workdegree"
+					<input type="text" id="user_workdegree" onfocus="WdatePicker({isShowWeek:true,dateFmt:'yyyy.MM.dd'})"
 						style="text-align: center; font-size: 16.0pt; font-family: 仿宋; display: inline-block; height: 90%; width: 95%; padding: 0px; margin: 3px; border-radius: 0px"   />
 				</td>
 				<td width=99 colspan=2 valign="middle"
 					style='width: 99.25pt; border-top: none; border-left: none; border-bottom: solid windowtext 1.0pt; border-right: solid windowtext 1.0pt; padding: 0cm 5.4pt 0cm 5.4pt; height: 38pt'>
-					<input type="text" id="user_workfirsttime"
+					<input type="text" id="user_workfirsttime" onfocus="WdatePicker({isShowWeek:true,dateFmt:'yyyy.MM.dd'})"
 						style="text-align: center; font-size: 16.0pt; font-family: 仿宋; display: inline-block; height: 90%; width: 95%; padding: 0px; margin: 3px; border-radius: 0px"   />
 				</td>
 			</tr>
