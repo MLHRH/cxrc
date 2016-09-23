@@ -1,9 +1,10 @@
 package com.jfn.entity;
 
 public class JcqnDocReport {
-    private Long id;
+	private int xuhao_id;
+    private int id;
 
-    private Long userId;
+    private int userId;
 
     private String reportName;
 
@@ -17,19 +18,27 @@ public class JcqnDocReport {
 
     private String reportType;
 
-    public Long getId() {
+    public int getXuhao_id() {
+		return xuhao_id;
+	}
+
+	public void setXuhao_id(int xuhao_id) {
+		this.xuhao_id = xuhao_id;
+	}
+
+	public int getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(int id) {
         this.id = id;
     }
 
-    public Long getUserId() {
+    public int getUserId() {
         return userId;
     }
 
-    public void setUserId(Long userId) {
+    public void setUserId(int userId) {
         this.userId = userId;
     }
 

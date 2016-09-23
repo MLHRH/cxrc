@@ -179,8 +179,8 @@ public boolean update(JcqnDocTreatise jcqnDocTreatise){
 				while( rs.next() )
 				{   
 					JcqnDocProject jDocProject = new JcqnDocProject();
-					jDocProject.setId(rs.getLong("id"));
-					jDocProject.setUserId(rs.getLong("user_id"));
+					jDocProject.setId(rs.getInt("id"));
+					jDocProject.setUserId(rs.getInt("user_id"));
 					jDocProject.setEntryName(rs.getString("entry_name"));
 					jDocProject.setFunds(rs.getString("funds"));
 					jDocProject.setProjectNature(rs.getString("project_nature"));
@@ -209,8 +209,8 @@ public boolean update(JcqnDocTreatise jcqnDocTreatise){
 				while( rs.next() )
 				{   
 					JcqnDocPrize jcqnDocPrize = new JcqnDocPrize();
-					jcqnDocPrize.setId(rs.getLong("id"));
-					jcqnDocPrize.setUserId(rs.getLong("user_id"));
+					jcqnDocPrize.setId(rs.getInt("id"));
+					jcqnDocPrize.setUserId(rs.getInt("user_id"));
 					jcqnDocPrize.setAwardItemName(rs.getString("award_item_name"));
 					jcqnDocPrize.setGrade(rs.getString("grade"));
 					jcqnDocPrize.setGrantInstitution(rs.getString("grant_institution"));
@@ -239,8 +239,8 @@ public boolean update(JcqnDocTreatise jcqnDocTreatise){
 				while( rs.next() )
 				{   
 					JcqnDocThesis jcqnDocThesis = new JcqnDocThesis();
-					jcqnDocThesis.setId(rs.getLong("id"));
-					jcqnDocThesis.setUserId(rs.getLong("user_id"));
+					jcqnDocThesis.setId(rs.getInt("id"));
+					jcqnDocThesis.setUserId(rs.getInt("user_id"));
 					jcqnDocThesis.setAuthorSort(rs.getString("author_sort"));
 					jcqnDocThesis.setInfluenceFactor(rs.getString("influence_factor"));
 					jcqnDocThesis.setJournalTitle(rs.getString("journal_title"));
@@ -268,8 +268,8 @@ public boolean update(JcqnDocTreatise jcqnDocTreatise){
 				while( rs.next() )
 				{   
 					JcqnDocPatent jcqnDocPatent = new JcqnDocPatent();
-					jcqnDocPatent.setId(rs.getLong("id"));
-					jcqnDocPatent.setUserId(rs.getLong("user_id"));
+					jcqnDocPatent.setId(rs.getInt("id"));
+					jcqnDocPatent.setUserId(rs.getInt("user_id"));
 					jcqnDocPatent.setAuthorizedNational(rs.getString("authorized_national"));
 					jcqnDocPatent.setAuthorizedTime(rs.getString("authorized_time"));
 					jcqnDocPatent.setGrantNumber(rs.getString("grant_number"));
@@ -298,8 +298,8 @@ public boolean update(JcqnDocTreatise jcqnDocTreatise){
 				while( rs.next() )
 				{   
 					JcqnDocReport jcqnDocReport = new JcqnDocReport();
-					jcqnDocReport.setId(rs.getLong("id"));
-					jcqnDocReport.setUserId(rs.getLong("user_id"));
+					jcqnDocReport.setId(rs.getInt("id"));
+					jcqnDocReport.setUserId(rs.getInt("user_id"));
 					jcqnDocReport.setMeetingName(rs.getString("meeting_name"));
 					jcqnDocReport.setMeetingPlace(rs.getString("meeting_place"));
 					jcqnDocReport.setMeetingTime(rs.getString("meeting_time"));
@@ -411,8 +411,8 @@ public boolean update(JcqnDocTreatise jcqnDocTreatise){
 		{
 			// 对类进行封装
 			JcqnDocProject jDocProject = new JcqnDocProject();
-			jDocProject.setId(rs.getLong("id"));
-			jDocProject.setUserId(rs.getLong("user_id"));
+			jDocProject.setId(rs.getInt("id"));
+			jDocProject.setUserId(rs.getInt("user_id"));
 			jDocProject.setEntryName(rs.getString("entryName"));
 			jDocProject.setFunds(rs.getString("funds"));
 			jDocProject.setProjectNature(rs.getString("projectNature"));

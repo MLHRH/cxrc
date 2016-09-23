@@ -37,8 +37,8 @@ function init(contentName) {
 	case "userBase":
 		initUserBase();
 		break;
-	case "userStudy":
-		initUserStudy();
+	case "userBaogao":
+		initUserBaogao();
 		break;
 	case "userWork":
 		initUserWork();

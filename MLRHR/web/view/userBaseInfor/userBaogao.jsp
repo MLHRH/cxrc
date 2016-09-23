@@ -17,29 +17,29 @@
 }
 </style>
 <body>
-	<form id="userStudyForm" class="form-horizontal"
+	<form id="userBaogaoForm" class="form-horizontal"
 		style="margin: 0 0 0 0"></form>
 	<div style="text-align: left;" class="add">
 		<a class="btn btn-small btn-info" href="javascript:void(0)"
-			onClick="userStudyEdit()">
+			onClick="userBaogaoEdit()">
 			<i class="icon-plus-sign"></i>添加
 		</a>
 		<span>（注：此处仅填写"</span>
-		<span style="color: #FF8000;">教育经历</span>
-		<span>",其他专业学习、培训、国内外进修等经历无需填写） </span>
+		<span style="color: #FF8000;">重要报告</span>
+		<span>",在重要国际学术会议报告情况 </span>
 	</div>
 	<div class="xline" style="height: 5px"></div>
-	<table id="userStudyList"
+	<table id="userBaogaoList"
 		class="table table-hover table-bordered table-striped" style="margin-bottom: 10px;">
 		<thead valign="middle">
 			<tr>
-				<th width="10%"  style="text-align:center;">开始时间</th>
-				<th width="10%"  style="text-align:center;">结束时间</th>
-				<th width="16%"  style="text-align:center;">学校</th>
-				<th width="16%"  style="text-align:center;">专业</th>
-				<th width="8%"  style="text-align:center;">学制</th>
-				<th width="8%"  style="text-align:center;">学位</th>
-				<th width="10%"  style="text-align:center;">学历</th>
+				<th width="10%"  style="text-align:center;">序号</th>
+				<th width="16%"  style="text-align:center;">报告名称</th>
+				<th width="16%"  style="text-align:center;">会议名称</th>
+				<th width="8%"  style="text-align:center;">主办方</th>
+				<th width="10%"  style="text-align:center;">时间</th>
+				<th width="8%"  style="text-align:center;">地点</th>
+				<th width="10%"  style="text-align:center;">报告类别</th>
 <!-- 				<th width="8%"  style="text-align:center;">证明人</th> -->
 				<th width="15%"  style="text-align:center;">操作</th>
 			</tr>

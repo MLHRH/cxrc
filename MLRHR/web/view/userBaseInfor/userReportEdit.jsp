@@ -26,35 +26,40 @@
 			<div class="control-group">
 				<input type="hidden" id="user_report_id" name="id" value="${user_report.id}" />
 				<table width="98%" border="0" cellpadding="2" cellspacing="1" align="center" style="margin-top: 8px">
+				
 					<tr align="center">
-						<td class="td_Left">日期：</td>
+						<td class="td_Left">序号：</td>
 						<td class="td_Right">
-							<input style="width: 300px;" type="text" onfocus="WdatePicker({isShowWeek:true,dateFmt:'yyyy.MM.dd'})" id="user_report_date" value="${user_report.date}" />
+									
+									<input style="width: 300px;" type="text"  id="user_report_name" value="${user_report.name}" />
 						</td>
 					</tr>
 					<tr align="center">
-						<td class="td_Left">名称：</td>
+						<td class="td_Left">专著名称：</td>
 						<td class="td_Right">
-							<textarea style="width: 300px; height: 100px" id="user_report_name">${user_report.name}</textarea>
-						</td>
-					</tr>
-					<tr align="center">
-						<td class="td_Left">内容提要：</td>
-						<td class="td_Right">
-							<textarea style="width: 300px; height: 100px" id="user_report_content_summary">${user_report.content_summary}</textarea>
+							<input style="width: 300px;" type="text"  id="user_report_content_summary" value="${user_report.content_summary}" />
+							
 						</td>
 					</tr>
 
 					<tr align="center">
-						<td class="td_Left">出版、登载获奖或在学术会议上交流情况：</td>
+						<td class="td_Left">出版社：</td>
 						<td class="td_Right">
-							<textarea style="width: 300px; height: 100px" id="user_report_situation">${user_report.situation}</textarea>
+			
+									<input style="width: 300px;" type="text"  id="user_report_situation" value="${user_report.situation}" />
 						</td>
 					</tr>
 					<tr align="center">
-						<td class="td_Left">合（独）著、译：</td>
+						<td class="td_Left">发行国家和地区</td>
 						<td class="td_Right">
-							<input style="width: 300px;" type="text" id="user_report_isAlone" value="${user_report.isAlone}" />
+						
+							<input style="width: 300px;" type="text"  id="user_report_isAlone" value="${user_report.isAlone}" />
+						</td>
+					</tr>
+						<tr align="center">
+						<td class="td_Left">年份：</td>
+						<td class="td_Right">
+							<input style="width: 300px;" type="text"  id="user_report_date" value="${user_report.date}" />
 						</td>
 					</tr>
 				</table>

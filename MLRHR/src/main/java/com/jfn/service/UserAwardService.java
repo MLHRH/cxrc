@@ -8,8 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.jfn.dao.UserAwardDao;
-import com.jfn.entity.User;
-import com.jfn.entity.UserAward;
+import com.jfn.entity.JcqnDocPrize;
 
 
 /**
@@ -24,23 +23,23 @@ public class UserAwardService {
 	@Autowired
 	private UserAwardDao user_awardDao; 
 	
-	public List<UserAward> getAll()
+	public List<JcqnDocPrize> getAll()
 	{
 		return user_awardDao.getAll();
 	}
 	
 
-	public UserAward getById(String user_awardId) {
+	public JcqnDocPrize getById(String user_awardId) {
 		// TODO Auto-generated method stub
 		return user_awardDao.get(Integer.parseInt(user_awardId));
 	}
 
-	public boolean user_awardInsert(UserAward entity) {
+	public boolean user_awardInsert(JcqnDocPrize entity) {
 		// TODO Auto-generated method stub
 		return user_awardDao.insert(entity);
 	}
 
-	public boolean user_awardUpdate(UserAward entity) {
+	public boolean user_awardUpdate(JcqnDocPrize entity) {
 		// TODO Auto-generated method stub
 		return user_awardDao.Update(entity);
 	}
@@ -51,7 +50,7 @@ public class UserAwardService {
 	}
 	
 	//通过body_id查询user
-	public List<UserAward> getAllByUserId(String user_id)
+	public List<JcqnDocPrize> getAllByUserId(String user_id)
 	{
 		return user_awardDao.getAllByUserId(user_id);
 	}

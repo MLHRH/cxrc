@@ -7,6 +7,7 @@ import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -18,11 +19,23 @@ import com.jfn.entity.JcqnDoc01;
 import com.jfn.entity.JcqnDoc03;
 import com.jfn.entity.JcqnDoc04;
 import com.jfn.entity.JcqnDoc05;
+import com.jfn.entity.JcqnDocPatent;
+import com.jfn.entity.JcqnDocPrize;
+import com.jfn.entity.JcqnDocProject;
+import com.jfn.entity.JcqnDocReport;
+import com.jfn.entity.JcqnDocThesis;
 import com.jfn.entity.UserPeixun;
+import com.jfn.entity.UserReport;
 import com.jfn.entity.UserWork;
 import com.jfn.service.JcqnDocService;
+import com.jfn.service.UserAwardService;
+import com.jfn.service.UserBaogaoService;
+import com.jfn.service.UserChengguoService;
 import com.jfn.service.UserPeixunService;
+import com.jfn.service.UserProjectService;
+import com.jfn.service.UserReportService;
 import com.jfn.service.UserWorkService;
+import com.jfn.service.UserZhuanliService;
 @Controller
 @RequestMapping("/")
 public class JcqnDocController {
@@ -32,6 +45,18 @@ public class JcqnDocController {
 	private UserPeixunService ups;
 	@Autowired
 	private UserWorkService uws;
+	@Autowired
+	private UserProjectService upjs;
+	@Autowired
+	private UserAwardService uAwardService;
+	@Autowired
+	private UserChengguoService userChengguoService;
+	@Autowired
+	private UserZhuanliService userZhuanliService;
+	@Autowired
+	private UserBaogaoService userBaogaoService;
+	@Autowired
+	private UserReportService userReportService;
 	//更新操作记录
 			@RequestMapping(value="/jcqnDoc01Update", method =RequestMethod.POST)
 			@ResponseBody
@@ -86,27 +111,52 @@ public class JcqnDocController {
 	//更新操作记录
 		@RequestMapping(value="/jcqnDoc02Update", method =RequestMethod.POST)
 		@ResponseBody
-		public String jcqnDoc02Update(String project,HttpServletRequest request){
-			List<Object> jsonResponse = new ArrayList<Object>();
-			
-			int user_id =(Integer)request.getSession().getAttribute("user_id");
-			System.err.println("----------"+user_id);
-//			List<JcqnDocProject> list = JSONAr
-			//JcqnDocProject result = null;
-			try {
-				if((jcqndoc01servive.getByUserId02(user_id)).size() != 0){
-			  //  result=jcqndoc02servive.update( jcqnDocProject, jcqnDocPrize,jcqnDocThesis, jcqnDocPatent, jcqnDocReport, jcqnDocTreatise);
-			    		}
-			    		
-//				result = jcqndoc02servive.update(jcqnDocProject)? 1:0;}
-				else{
-//					result =jcqndoc02servive.insert(jcqnDocProject, jcqnDocPrize, jcqnDocThesis, jcqnDocPatent, jcqnDocReport, jcqnDocTreatise)?1:0; 
+		public String jcqnDoc02Update(HttpServletRequest request,@ModelAttribute
+				JcqnDocProject entity){
+
+			JsonObject jsonResponse = new JsonObject();
+			int result = 0;// 0:fail;1:success
+			String msg = "Failed to %s this user_project";
+			String id = request.getParameter( "id" );
+			try
+			{
+				if( ( id == null ) || ( id.length() < 1 ) )
+				{
+					result = upjs.user_projectInsert( entity ) ? 1 : 0;
 				}
-				
-			} catch (Exception e) {
-				//result = null;
+				else
+				{
+					result = upjs.user_projectUpdate( entity ) ? 1 : 0;
+				}
 			}
-			//jsonResponse.add(result);
+			catch( Exception e )
+			{
+				result = 0;
+				msg = msg + ": " + e.getMessage();
+			}
+			jsonResponse.addProperty( "result", result );
+			jsonResponse.addProperty( "msg",
+					String.format( msg, ( id == null ) ? "add" : "edit" ) );
+//			List<Object> jsonResponse = new ArrayList<Object>();
+//			
+//			int user_id =(Integer)request.getSession().getAttribute("user_id");
+//			System.err.println("----------"+user_id);
+////			List<JcqnDocProject> list = JSONAr
+//			//JcqnDocProject result = null;
+//			try {
+//				if((jcqndoc01servive.getByUserId02(user_id)).size() != 0){
+//			  //  result=jcqndoc02servive.update( jcqnDocProject, jcqnDocPrize,jcqnDocThesis, jcqnDocPatent, jcqnDocReport, jcqnDocTreatise);
+//			    		}
+//			    		
+////				result = jcqndoc02servive.update(jcqnDocProject)? 1:0;}
+//				else{
+////					result =jcqndoc02servive.insert(jcqnDocProject, jcqnDocPrize, jcqnDocThesis, jcqnDocPatent, jcqnDocReport, jcqnDocTreatise)?1:0; 
+//				}
+//				
+//			} catch (Exception e) {
+//				//result = null;
+//			}
+//			//jsonResponse.add(result);
 			return jsonResponse.toString();
 			
 			
@@ -116,13 +166,28 @@ public class JcqnDocController {
 		public String jcqnDoc02Init(HttpServletRequest request){
 			String userId = request.getParameter("userId");
 			System.err.println("-----------"+userId);
-			List<Object> jcqnDocProjects = jcqndoc01servive.getByUserId02(Integer.parseInt(userId));
+//			List<Object> jcqnDocProjects = jcqndoc01servive.getByUserId02(Integer.parseInt(userId));
+//			TODO
+			List<Object> jcqnDoc02=new ArrayList<Object>() ;
+			List<JcqnDocProject> jcqnDocProjects = upjs.getAllByUserId(userId);
+			List<JcqnDocPrize> jcqnDocPrizes= uAwardService.getAllByUserId(userId);
+			List<JcqnDocThesis> jcqnDocThesis = userChengguoService.getAllByUserId(userId);
+			List<JcqnDocPatent> jcqnDocPatents = userZhuanliService.getAllByUserId(userId);
+			List<JcqnDocReport> jcqnDocReports = userBaogaoService.getAllByUserId(userId);
+			List<UserReport> userReports = userReportService.getAllByUserId(userId);
+			jcqnDoc02.add(jcqnDocProjects);
+			jcqnDoc02.add(jcqnDocPrizes);
+			jcqnDoc02.add(jcqnDocThesis);
+			jcqnDoc02.add(jcqnDocPatents);
+			jcqnDoc02.add(jcqnDocReports);
+			jcqnDoc02.add(userReports);
+			
 			Gson gson = new Gson();
-			for(int i=0;i<jcqnDocProjects.size();i++){
-				System.err.println(gson.toJson(jcqnDocProjects.get(i)).toString());
-			}
-			System.err.println(gson.toJson(jcqnDocProjects).toString());
-			return gson.toJson(jcqnDocProjects);		
+//			for(int i=0;i<jcqnDocProjects.size();i++){
+//				System.err.println(gson.toJson(jcqnDocProjects.get(i)).toString());
+//			}
+//			System.err.println(gson.toJson(jcqnDocProjects).toString());
+			return gson.toJson(jcqnDoc02);		
 		}
 
 	

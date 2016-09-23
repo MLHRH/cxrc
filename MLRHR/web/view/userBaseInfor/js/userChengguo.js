@@ -15,7 +15,7 @@ function initUserChengguo() {
 }
 
 function initUserChengguoDataTables(data) {
-	if (data.length >= 12) {
+	if (data.length >= 5) {
 		$('#userChengguoAddButton').attr("disabled", true);
 		$('#userChengguoAddButton').removeAttr("onclick");
 		$('#userChengguoAddButton').attr("class", "btn btn-small btn-inverse");
@@ -53,18 +53,22 @@ function initUserChengguoDataTables(data) {
 		"processing" : true,
 		"data" : data,
 		"columns" : [{
-					"data" : "cg_name"
-				}, {
-					"data" : "cg_jieshao"
-				}, {
-					"data" : "cg_date",
+					"data" : "xuhao_id",
 					"class" : "center"
 				}, {
-					"data" : "jiaose"
+					"data" : "thesisTopic"
 				}, {
-					"data" : "type"
+					"data" : "authorSort",
+					"class" : "center"
+				}, {
+					"data" : "journalTitle"
+				}, {
+					"data" : "yearVolumePagenumber"
 				},  {
-					"data" : "yingxiangyinzi"
+					"data" : "influenceFactor"
+				},  {
+					"data" : "sciTimes",
+					"class" : "center"
 				}, {
 					"data" : null,
 					"class" : "center",

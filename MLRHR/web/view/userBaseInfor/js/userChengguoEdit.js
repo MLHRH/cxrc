@@ -7,40 +7,44 @@ function userChengguoEditSave() {
 						"value" : $("#user_chengguo_id").val()
 					});
 		arrData.push({
-					"name" : "user_id",
+					"name" : "userId",
 					"value" : user_id
 				});
 		 arrData.push({
-					"name" : "cg_date",
-					"value" : $("#user_chengguo_cg_date").val()
+					"name" : "xuhao_id",
+					"value" : $("#user_chengguo_xuhao").val()
 				});
 				
-		var nameTemp = $("#user_chengguo_cg_name").val();
+		var nameTemp = $("#user_chengguo_thesis_topic").val();
 		while (nameTemp.length < 350) {
 			nameTemp += " ";
 		}
 		arrData.push({
-					"name" : "cg_name",
+					"name" : "thesisTopic",
 					"value" : nameTemp
 				});
 		arrData.push({
-					"name" : "cg_jieshao",
-					"value" : $("#user_chengguo_cg_jieshao").val()
+					"name" : "authorSort",
+					"value" : $("#user_chengguo_author_sort").val()
 				});
 		arrData.push({
-					"name" : "yingxiangyinzi",
-					"value" : $("#user_chengguo_yingxiangyinzi").val()
+					"name" : "journalTitle",
+					"value" : $("#user_chengguo_journal_title").val()
 				});
-		if ($("#user_chengguo_type").val() != "-1")
+//		if ($("#user_chengguo_type").val() != "-1")
 			arrData.push({
-						"name" : "type",
-						"value" : $("#user_chengguo_type").val()
+						"name" : "yearVolumePagenumber",
+						"value" : $("#user_chengguo_year_volume_pagenumber").val()
 					});
-		if ($("#user_chengguo_jiaose").val() != "-1")
+
 			arrData.push({
-						"name" : "jiaose",
-						"value" : $("#user_chengguo_jiaose").val()
+						"name" : "influenceFactor",
+						"value" : $("#user_chengguo_yingxiangyinzi").val()
 					});
+			arrData.push({
+				"name" : "sciTimes",
+				"value" : $("#user_chengguo_sci_times").val()
+			});
 		$.ajax({
 					"dataType" : 'json',
 					"type" : "post",
@@ -71,17 +75,17 @@ function userChengguoEditSave() {
 }
 function validateuserChengguoEdit() {
 	// 校验方法
-	if ($("#user_chengguo_cg_date").val() == "") {
-		generatenoty('center', "请选择日期！", 'error');
-		return false;
-	}
-	if ($("#user_chengguo_jiaose").val() == "-1") {
+//	if ($("#user_chengguo_cg_date").val() == "") {
+//		generatenoty('center', "请选择日期！", 'error');
+//		return false;
+//	}
+	if ($("#user_chengguo_author_sort").val() == "-1") {
 		generatenoty('center', "请选择排名！", 'error');
 		return false;
 	}
-	if ($("#user_chengguo_type").val() == "-1") {
-		generatenoty('center', "请选择级别！", 'error');
-		return false;
-	}
+//	if ($("#user_chengguo_type").val() == "-1") {
+//		generatenoty('center', "请选择级别！", 'error');
+//		return false;
+//	}
 	return true;
 }

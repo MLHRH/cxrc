@@ -15,6 +15,15 @@ function initUserZhuanli() {
 }
 
 function initUserZhuanliDataTables(data) {
+	if (data.length >= 4) {
+		$('#userChengguoAddButton').attr("disabled", true);
+		$('#userChengguoAddButton').removeAttr("onclick");
+		$('#userChengguoAddButton').attr("class", "btn btn-small btn-inverse");
+	} else {
+		$('#userChengguoAddButton').removeAttr("disabled");
+		$('#userChengguoAddButton').attr("onclick", "userChengguoEdit();");
+		$('#userChengguoAddButton').attr("class", "btn btn-small btn-info");
+	}
 	if (oTableUserZhuanli) {
 		oTableUserZhuanli.fnClearTable(false);
 		$('#userZhuanliList').dataTable().fnDestroy();
@@ -44,16 +53,25 @@ function initUserZhuanliDataTables(data) {
 		"processing" : true,
 		"data" : data,
 		"columns" : [{
-					"data" : "date",
+					"data" : "xuhao_id",
 					"class" : "center"
 				}, {
-					"data" : "name"
+					"data" : "patentName",
+						"class" : "center"
 				}, {
-					"data" : "other"
+					"data" : "grantNumber",
+						"class" : "center"
 				}, {
-					"data" : "jiaose"
+					"data" : "type",
+					"class" : "center"
 				}, {
-					"data" : "type"
+					"data" : "inventorSort"
+				}, {
+					"data" : "authorizedTime",
+					"class" : "center"
+				}, {
+					"data" : "authorizedNational",
+					"class" : "center"
 				}, {
 					"data" : null,
 					"class" : "center",

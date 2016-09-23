@@ -4,8 +4,6 @@ import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 
-import net.sf.json.JSONArray;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -13,14 +11,16 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
-import org.springside.modules.security.springsecurity.SpringSecurityUtils;
 
 import com.google.gson.JsonObject;
-import com.jfn.entity.UserProject;
+import com.jfn.entity.JcqnDocProject;
 import com.jfn.entity.User;
+import com.jfn.entity.UserPeixun;
 import com.jfn.service.AccountManager;
 import com.jfn.service.UserProjectService;
 import com.jfn.service.UserService;
+
+import net.sf.json.JSONArray;
 
 
 /**
@@ -51,7 +51,7 @@ public class UserProjectController
 	{
 		String userId = request.getParameter("userId");
 		User user = userservice.getById(userId);
-		List<UserProject> list = service.getAllByUserId(user.getId().toString());
+		List<JcqnDocProject> list = service.getAllByUserId(user.getId().toString());
 		 JSONArray jsonArray = JSONArray.fromObject(list);  
 		return jsonArray.toString();
 	}
@@ -61,7 +61,7 @@ public class UserProjectController
 		String id = request.getParameter( "id" );
 		if( ( id != null ) && ( id.length() >=1 ))
 		{
-			UserProject user_project = service.getById( id );
+			JcqnDocProject user_project = service.getById( id );
 			model.addAttribute( "user_project", user_project );
 		}
 		return "userBaseInfor/userProjectEdit";
@@ -74,7 +74,7 @@ public class UserProjectController
 	@RequestMapping(value = "/userProjectUpdate", method = RequestMethod.POST)
 	@ResponseBody
 	public String userProjectUpdate( HttpServletRequest request, @ModelAttribute
-			UserProject entity )
+			JcqnDocProject entity )
 	{
 		JsonObject jsonResponse = new JsonObject();
 		int result = 0;// 0:fail;1:success
@@ -103,7 +103,7 @@ public class UserProjectController
 	}
 	
 	//通过user_project.id删除专业技术工作业绩单条信息
-	@RequestMapping(value = "userProjectDelete", method = RequestMethod.POST)
+	@RequestMapping(value = "JcqnDocProjectDelete", method = RequestMethod.POST)
 	@ResponseBody
 	public String userProjectDelete( HttpServletRequest request, Model model )
 	{

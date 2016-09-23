@@ -4,8 +4,6 @@ import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 
-import net.sf.json.JSONArray;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -13,14 +11,15 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
-import org.springside.modules.security.springsecurity.SpringSecurityUtils;
 
 import com.google.gson.JsonObject;
-import com.jfn.entity.UserStudy;
+import com.jfn.entity.JcqnDocReport;
 import com.jfn.entity.User;
 import com.jfn.service.AccountManager;
+import com.jfn.service.UserBaogaoService;
 import com.jfn.service.UserService;
-import com.jfn.service.UserStudyService;
+
+import net.sf.json.JSONArray;
 
 
 /**
@@ -30,51 +29,51 @@ import com.jfn.service.UserStudyService;
  */
 @Controller
 @RequestMapping("/")
-public class UserStudyController
+public class UserbaogaoController
 {
 	@Autowired
-	private UserStudyService service;
+	private UserBaogaoService service;
 	@Autowired
 	private UserService userservice;
 	@Autowired
 	private AccountManager accountManager;
 	
-	@RequestMapping(value = "/userStudy", method = RequestMethod.GET)
-	public String userStudy(HttpServletRequest request, Model model) {
-		return "userBaseInfor/userStudy";
+	@RequestMapping(value = "/userBaogao", method = RequestMethod.GET)
+	public String userBaogao(HttpServletRequest request, Model model) {
+		return "userBaseInfor/userBaogao";
 	}
 	
-	@RequestMapping(value = "/userStudyList", method = RequestMethod.GET)
+	@RequestMapping(value = "/userBaogaoList", method = RequestMethod.GET)
 	@ResponseBody
-	public String userStudyList( HttpServletRequest request, Model model )
+	public String userBaogaoList( HttpServletRequest request, Model model )
 	{
 		String userId = request.getParameter("userId");
 		User user = userservice.getById(userId);
-		List<UserStudy> list = service.getAllByUserId(user.getId().toString());
+		List<JcqnDocReport> list = service.getAllByUserId(user.getId().toString());
 		 JSONArray jsonArray = JSONArray.fromObject(list);  
 		return jsonArray.toString();
 	}
 	
-	@RequestMapping(value = "/userStudyEdit", method = RequestMethod.GET)
-	public String userStudyEdit(HttpServletRequest request, Model model) {
+	@RequestMapping(value = "/userBaogaoEdit", method = RequestMethod.GET)
+	public String userBaogaoEdit(HttpServletRequest request, Model model) {
 		String id = request.getParameter( "id" );
 		if( ( id != null ) && ( id.length() >=1 ))
 		{
-			UserStudy user_study = service.getById( id );
+			JcqnDocReport user_study = service.getById( id );
 			model.addAttribute( "user_study", user_study );
 		}
-		return "userBaseInfor/userStudyEdit";
+		return "userBaseInfor/userBaogaoEdit";
 	}
 
 	//教育经历提交(增加、修改)
-	@RequestMapping(value = "/userStudyUpdate", method = RequestMethod.POST)
+	@RequestMapping(value = "/userBaogaoUpdate", method = RequestMethod.POST)
 	@ResponseBody
-	public String userStudyUpdate( HttpServletRequest request, @ModelAttribute
-			UserStudy entity )
+	public String userBaogaoUpdate( HttpServletRequest request, @ModelAttribute
+			JcqnDocReport entity )
 	{
 		JsonObject jsonResponse = new JsonObject();
 		int result = 0;// 0:fail;1:success
-		String msg = "Failed to %s this user_study";
+		String msg = "Failed to %s this user_Baogao";
 		String id = request.getParameter( "id" );
 		try
 		{
@@ -99,19 +98,19 @@ public class UserStudyController
 	}
 	
 	//通过user_study.id删除教育经历单条信息
-	@RequestMapping(value = "userStudyDelete", method = RequestMethod.POST)
+	@RequestMapping(value = "userBaogaoDelete", method = RequestMethod.POST)
 	@ResponseBody
-	public String userStudyDelete( HttpServletRequest request, Model model )
+	public String JcqnDocReportDelete( HttpServletRequest request, Model model )
 	{
 		JsonObject jsonResponse = new JsonObject();
 		String Id = request.getParameter( "id" );
 		int result = 0;// 0:fail;1:success
-		String msg = "Failed to delete this user_study!";
+		String msg = "Failed to delete this user_Baogao!";
 		if( Id != null )
 		{
 		
 			result =  service.deleteuser_study(Id)? 1 : 0;
-			msg = "You have successfully DELETED this user_study.";
+			msg = "You have successfully DELETED this user_Baogao.";
 		}
 		else
 		{

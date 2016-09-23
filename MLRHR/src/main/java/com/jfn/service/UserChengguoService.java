@@ -8,8 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.jfn.dao.UserChengguoDao;
-import com.jfn.entity.User;
-import com.jfn.entity.UserChengguo;
+import com.jfn.entity.JcqnDocThesis;
 
 
 /**
@@ -24,23 +23,23 @@ public class UserChengguoService {
 	@Autowired
 	private UserChengguoDao user_chengguoDao; 
 	
-	public List<UserChengguo> getAll()
+	public List<JcqnDocThesis> getAll()
 	{
 		return user_chengguoDao.getAll();
 	}
 	
 
-	public UserChengguo getById(String user_chengguoId) {
+	public JcqnDocThesis getById(String user_chengguoId) {
 		// TODO Auto-generated method stub
 		return user_chengguoDao.get(Integer.parseInt(user_chengguoId));
 	}
 
-	public boolean user_chengguoInsert(UserChengguo entity) {
+	public boolean user_chengguoInsert(JcqnDocThesis entity) {
 		// TODO Auto-generated method stub
 		return user_chengguoDao.insert(entity);
 	}
 
-	public boolean user_chengguoUpdate(UserChengguo entity) {
+	public boolean user_chengguoUpdate(JcqnDocThesis entity) {
 		// TODO Auto-generated method stub
 		return user_chengguoDao.Update(entity);
 	}
@@ -51,7 +50,7 @@ public class UserChengguoService {
 	}
 	
 	//通过body_id查询user
-	public List<UserChengguo> getAllByUserId(String user_id)
+	public List<JcqnDocThesis> getAllByUserId(String user_id)
 	{
 		return user_chengguoDao.getAllByUserId(user_id);
 	}

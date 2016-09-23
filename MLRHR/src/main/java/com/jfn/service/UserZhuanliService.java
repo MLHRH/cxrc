@@ -9,7 +9,7 @@ import org.springframework.stereotype.Repository;
 
 import com.jfn.dao.UserZhuanliDao;
 import com.jfn.entity.User;
-import com.jfn.entity.UserZhuanli;
+import com.jfn.entity.JcqnDocPatent;
 
 
 /**
@@ -24,23 +24,23 @@ public class UserZhuanliService {
 	@Autowired
 	private UserZhuanliDao user_zhuanliDao; 
 	
-	public List<UserZhuanli> getAll()
+	public List<JcqnDocPatent> getAll()
 	{
 		return user_zhuanliDao.getAll();
 	}
 	
 
-	public UserZhuanli getById(String user_zhuanliId) {
+	public JcqnDocPatent getById(String user_zhuanliId) {
 		// TODO Auto-generated method stub
 		return user_zhuanliDao.get(Integer.parseInt(user_zhuanliId));
 	}
 
-	public boolean user_zhuanliInsert(UserZhuanli entity) {
+	public boolean user_zhuanliInsert(JcqnDocPatent entity) {
 		// TODO Auto-generated method stub
 		return user_zhuanliDao.insert(entity);
 	}
 
-	public boolean user_zhuanliUpdate(UserZhuanli entity) {
+	public boolean user_zhuanliUpdate(JcqnDocPatent entity) {
 		// TODO Auto-generated method stub
 		return user_zhuanliDao.Update(entity);
 	}
@@ -51,7 +51,7 @@ public class UserZhuanliService {
 	}
 	
 	//通过body_id查询user
-	public List<UserZhuanli> getAllByUserId(String user_id)
+	public List<JcqnDocPatent> getAllByUserId(String user_id)
 	{
 		return user_zhuanliDao.getAllByUserId(user_id);
 	}

@@ -1,17 +1,9 @@
 package com.jfn.web.controller;
 
-import java.util.ArrayList;
-import java.util.Calendar;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 
-import net.sf.json.JSONArray;
-
-import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -19,17 +11,15 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.servlet.ModelAndView;
-import org.springside.modules.security.springsecurity.SpringSecurityUtils;
 
 import com.google.gson.JsonObject;
-import com.jfn.entity.UserAward;
+import com.jfn.entity.JcqnDocPrize;
 import com.jfn.entity.User;
-import com.jfn.entity.UserAward;
-import com.jfn.entity.UserStudy;
 import com.jfn.service.AccountManager;
 import com.jfn.service.UserAwardService;
 import com.jfn.service.UserService;
+
+import net.sf.json.JSONArray;
 
 
 /**
@@ -60,7 +50,7 @@ public class UserAwardController
 	{
 		String userId = request.getParameter("userId");
 		User user = userservice.getById(userId);
-		List<UserAward> list = service.getAllByUserId(user.getId().toString());
+		List<JcqnDocPrize> list = service.getAllByUserId(user.getId().toString());
 		 JSONArray jsonArray = JSONArray.fromObject(list);  
 		return jsonArray.toString();
 	}
@@ -70,7 +60,7 @@ public class UserAwardController
 		String id = request.getParameter( "id" );
 		if( ( id != null ) && ( id.length() >=1 ))
 		{
-			UserAward user_award = service.getById( id );
+			JcqnDocPrize user_award = service.getById( id );
 			model.addAttribute( "user_award", user_award );
 		}
 		return "userBaseInfor/userAwardEdit";
@@ -80,7 +70,7 @@ public class UserAwardController
 	@RequestMapping(value = "/userAwardUpdate", method = RequestMethod.POST)
 	@ResponseBody
 	public String userAwardUpdate( HttpServletRequest request, @ModelAttribute
-			UserAward entity )
+			JcqnDocPrize entity )
 	{
 		JsonObject jsonResponse = new JsonObject();
 		int result = 0;// 0:fail;1:success

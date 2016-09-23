@@ -23,8 +23,8 @@
 			<i class="icon-plus-sign"></i>添加
 		</a>
 		<span>（注：此处只填写您为"</span>
-		<span style="color: #FF8000;">第一作者/通讯作者</span>
-		<span>"论文专著，研究员限</span>
+		<span style="color: #FF8000;">第一作者/通讯作者（不超过5篇）</span>
+		<!-- <span>"论文专著，研究员限</span>
 		<span style="color: #FF8000;">10</span>
 		<span>篇、副研限</span>
 		<span style="color: #FF8000;">6</span>
@@ -32,19 +32,20 @@
 		<span style="color: #FF8000;">12</span>
 		<span>篇、破格申报副研限</span>
 		<span style="color: #FF8000;">8</span>
-		<span>篇）</span>
+		<span>篇）</span> -->
 	</div>
 	<div class="xline" style="height: 5px"></div>
 	<table id="userChengguoList" class="table table-hover table-bordered table-striped" style="margin-bottom: 10px;">
 		<thead>
 			<tr>
-				<th width="20%" style="text-align: center;">题目</th>
-				<th width="25%" style="text-align: center;">刊物+论文年份、卷期及页码</th>
-				<th width="10%" style="text-align: center;">日期</th>
-				<th width="10%" style="text-align: center;">排名</th>
-				<th width="10%" style="text-align: center;">级别</th>
+		     	<th width="10%" style="text-align: center;">序号</th>
+			 	<th width="10%" style="text-align: center;">论文题目</th>
+				<th width="15%" style="text-align: center;">作者排序</th>
+			 	<th width="15%" style="text-align: center;">期刊名称</th>
+				<th width="15%" style="text-align: center;">刊物+论文年份、卷期及页码</th>
 				<th width="10%" style="text-align: center;">影响因子</th>
-				<th width="15%" style="text-align: center;">操作</th>
+				<th width="10%" style="text-align: center;">SCI他引次数</th>
+				<th width="20%" style="text-align: center;">操作</th>
 			</tr>
 		</thead>
 	</table>

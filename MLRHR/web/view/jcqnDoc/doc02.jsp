@@ -79,7 +79,7 @@
 				</tr>
 				<tr style='page-break-inside: avoid; height: 3pt'>
 				<td  width=70 style='width: 62pt; border: solid black 1.0pt; padding: 0cm 5.4pt 0cm 5.4pt; height: 3pt'>
-					<input type="text" id="xuhao1" value="1"
+					<input type="text" id="xuhao1" 
 						style="text-align: center; font-size: 16.0pt; font-family: 仿宋; display: inline-block; height: 90%; width: 95%; padding: 0px; margin: 3px; border-radius: 0px"   />
 				</td>
 				<td width=84 style='width: 62pt; border: solid black 1.0pt; border-left: none; padding: 0cm 5.4pt 0cm 5.4pt; height: 3pt'>
@@ -104,7 +104,7 @@
 			</tr>
 					<tr style='page-break-inside: avoid; height: 3pt'>
 					<td  width=70 style='width: 62pt; border: solid black 1.0pt; padding: 0cm 5.4pt 0cm 5.4pt; height: 3pt'>
-					<input type="text" id="xuhao2" value="2"
+					<input type="text" id="xuhao2"
 						style="text-align: center; font-size: 16.0pt; font-family: 仿宋; display: inline-block; height: 90%; width: 95%; padding: 0px; margin: 3px; border-radius: 0px"   />
 				</td>
 				<td width=84 style='width: 62pt; border: solid black 1.0pt; border-left: none; padding: 0cm 5.4pt 0cm 5.4pt; height: 3pt'>
@@ -129,7 +129,7 @@
 			</tr>
 					<tr style='page-break-inside: avoid; height: 3pt'>
 					<td  width=70 style='width: 62pt; border: solid black 1.0pt; padding: 0cm 5.4pt 0cm 5.4pt; height: 3pt'>
-					<input type="text" id="xuhao3" value="3"
+					<input type="text" id="xuhao3"
 						style="text-align: center; font-size: 16.0pt; font-family: 仿宋; display: inline-block; height: 90%; width: 95%; padding: 0px; margin: 3px; border-radius: 0px"   />
 				</td>
 				<td width=84 style='width: 62pt; border: solid black 1.0pt; border-left: none; padding: 0cm 5.4pt 0cm 5.4pt; height: 3pt'>
@@ -154,7 +154,7 @@
 			</tr>
 					<tr style='page-break-inside: avoid; height: 3pt'>
 					<td  width=70 style='width: 62pt; border: solid black 1.0pt; padding: 0cm 5.4pt 0cm 5.4pt; height: 3pt'>
-					<input type="text" id="xuhao4" value="4"
+					<input type="text" id="xuhao4" 
 						style="text-align: center; font-size: 16.0pt; font-family: 仿宋; display: inline-block; height: 90%; width: 95%; padding: 0px; margin: 3px; border-radius: 0px"   />
 				</td>
 				<td width=84 style='width: 62pt; border: solid black 1.0pt; border-left: none; padding: 0cm 5.4pt 0cm 5.4pt; height: 3pt'>
@@ -179,7 +179,7 @@
 			</tr>
 					<tr style='page-break-inside: avoid; height: 3pt'>
 					<td  width=70 style='width: 62pt; border: solid black 1.0pt; padding: 0cm 5.4pt 0cm 5.4pt; height: 3pt'>
-					<input type="text" id="xuhao5" value="5"
+					<input type="text" id="xuhao5" 
 						style="text-align: center; font-size: 16.0pt; font-family: 仿宋; display: inline-block; height: 90%; width: 95%; padding: 0px; margin: 3px; border-radius: 0px"   />
 				</td>
 				<td width=84 style='width: 62pt; border: solid black 1.0pt; border-left: none; padding: 0cm 5.4pt 0cm 5.4pt; height: 3pt'>
@@ -204,7 +204,7 @@
 			</tr>
 					<tr style='page-break-inside: avoid; height: 3pt'>
 					<td  width=70 style='width: 62pt; border: solid black 1.0pt; padding: 0cm 5.4pt 0cm 5.4pt; height: 3pt'>
-					<input type="text" id="xuhao6" value="6"
+					<input type="text" id="xuhao6" 
 						style="text-align: center; font-size: 16.0pt; font-family: 仿宋; display: inline-block; height: 90%; width: 95%; padding: 0px; margin: 3px; border-radius: 0px"   />
 				</td>
 				<td width=84 style='width: 62pt; border: solid black 1.0pt; border-left: none; padding: 0cm 5.4pt 0cm 5.4pt; height: 3pt'>
@@ -282,7 +282,7 @@
 				</tr>
 				<tr style='page-break-inside: avoid; height: 3pt'>
 				<td  width=70 style='width: 62pt; border: solid black 1.0pt; padding: 0cm 5.4pt 0cm 5.4pt; height: 3pt'>
-					<input type="text" id="02xuhao1" value="1"
+					<input type="text" id="02xuhao1" 
 						style="text-align: center; font-size: 16.0pt; font-family: 仿宋; display: inline-block; height: 90%; width: 95%; padding: 0px; margin: 3px; border-radius: 0px"   />
 				</td>
 				<td width=84 style='width: 62pt; border: solid black 1.0pt; border-left: none; padding: 0cm 5.4pt 0cm 5.4pt; height: 3pt'>
@@ -307,7 +307,7 @@
 			</tr>
 					<tr style='page-break-inside: avoid; height: 3pt'>
 				<td  width=70 style='width: 62pt; border: solid black 1.0pt; padding: 0cm 5.4pt 0cm 5.4pt; height: 3pt'>
-					<input type="text" id="02xuhao2" value="2"
+					<input type="text" id="02xuhao2" 
 						style="text-align: center; font-size: 16.0pt; font-family: 仿宋; display: inline-block; height: 90%; width: 95%; padding: 0px; margin: 3px; border-radius: 0px"   />
 				</td>
 				<td width=84 style='width: 62pt; border: solid black 1.0pt; border-left: none; padding: 0cm 5.4pt 0cm 5.4pt; height: 3pt'>
@@ -332,7 +332,7 @@
 			</tr>
 					<tr style='page-break-inside: avoid; height: 3pt'>
 				<td  width=70 style='width: 62pt; border: solid black 1.0pt; padding: 0cm 5.4pt 0cm 5.4pt; height: 3pt'>
-					<input type="text" id="02xuhao3" value="3"
+					<input type="text" id="02xuhao3"
 						style="text-align: center;
 						 font-size: 16.0pt; font-family: 
 						 仿宋; display: inline-block; height: 90%; 
@@ -360,7 +360,7 @@
 			</tr>
 					<tr style='page-break-inside: avoid; height: 3pt'>
 				<td  width=70 style='width: 62pt; border: solid black 1.0pt; padding: 0cm 5.4pt 0cm 5.4pt; height: 3pt'>
-					<input type="text" id="02xuhao4" value="4"
+					<input type="text" id="02xuhao4"
 						style="text-align: center; font-size: 16.0pt; font-family: 仿宋; display: inline-block; height: 90%; width: 95%; padding: 0px; margin: 3px; border-radius: 0px"   />
 				</td>
 				<td width=84 style='width: 62pt; border: solid black 1.0pt; border-left: none; padding: 0cm 5.4pt 0cm 5.4pt; height: 3pt'>
@@ -433,13 +433,13 @@
 					
 						<td width=84 style='width: 62pt; border: solid black 1.0pt; border-left: none; padding: 0cm 5.4pt 0cm 5.4pt; height: 3pt'>
 						<div class=MsoNormal align=center style='text-align: center'>	
-							<span style='font-size: 12.0pt; font-family: 仿宋'>SCI他引次数
+							<span style='font-size: 12.0pt; font-family: 仿宋'>SCI他引次数</span>
 						</div>	
 					</td>
 				</tr>
 				<tr style='page-break-inside: avoid; height: 3pt'>
 				<td  width=70 style='width: 62pt; border: solid black 1.0pt; padding: 0cm 5.4pt 0cm 5.4pt; height: 3pt'>
-					<input type="text" id="03xuhao1" value="1"
+					<input type="text" id="03xuhao1"
 						style="text-align: center; font-size: 16.0pt; font-family: 仿宋; display: inline-block; height: 90%; width: 95%; padding: 0px; margin: 3px; border-radius: 0px"   />
 				</td>
 				<td width=84 style='width: 62pt; border: solid black 1.0pt; border-left: none; padding: 0cm 5.4pt 0cm 5.4pt; height: 3pt'>
@@ -464,7 +464,7 @@
 			</tr>
 					<tr style='page-break-inside: avoid; height: 3pt'>
 				<td  width=70 style='width: 62pt; border: solid black 1.0pt; padding: 0cm 5.4pt 0cm 5.4pt; height: 3pt'>
-					<input type="text" id="03xuhao2" value="2"
+					<input type="text" id="03xuhao2"
 						style="text-align: center; font-size: 16.0pt; font-family: 仿宋; display: inline-block; height: 90%; width: 95%; padding: 0px; margin: 3px; border-radius: 0px"   />
 				</td>
 				<td width=84 style='width: 62pt; border: solid black 1.0pt; border-left: none; padding: 0cm 5.4pt 0cm 5.4pt; height: 3pt'>
@@ -489,7 +489,7 @@
 			</tr>
 					<tr style='page-break-inside: avoid; height: 3pt'>
 				<td  width=70 style='width: 62pt; border: solid black 1.0pt; padding: 0cm 5.4pt 0cm 5.4pt; height: 3pt'>
-					<input type="text" id="03xuhao3" value="3"
+					<input type="text" id="03xuhao3" 
 						style="text-align: center; font-size: 16.0pt; font-family: 仿宋; display: inline-block; height: 90%; width: 95%; padding: 0px; margin: 3px; border-radius: 0px"   />
 				</td>
 				<td width=84 style='width: 62pt; border: solid black 1.0pt; border-left: none; padding: 0cm 5.4pt 0cm 5.4pt; height: 3pt'>
@@ -514,7 +514,7 @@
 			</tr>
 					<tr style='page-break-inside: avoid; height: 3pt'>
 				<td  width=70 style='width: 62pt; border: solid black 1.0pt; padding: 0cm 5.4pt 0cm 5.4pt; height: 3pt'>
-					<input type="text" id="03xuhao4" value="4"
+					<input type="text" id="03xuhao4" 
 						style="text-align: center; font-size: 16.0pt; font-family: 仿宋; display: inline-block; height: 90%; width: 95%; padding: 0px; margin: 3px; border-radius: 0px"   />
 				</td>
 				<td width=84 style='width: 62pt; border: solid black 1.0pt; border-left: none; padding: 0cm 5.4pt 0cm 5.4pt; height: 3pt'>
@@ -539,7 +539,7 @@
 			</tr>
 					<tr style='page-break-inside: avoid; height: 3pt'>
 				<td  width=70 style='width: 62pt; border: solid black 1.0pt; padding: 0cm 5.4pt 0cm 5.4pt; height: 3pt'>
-					<input type="text" id="03xuhao5" value="5"
+					<input type="text" id="03xuhao5"
 						style="text-align: center; font-size: 16.0pt; font-family: 仿宋; display: inline-block; height: 90%; width: 95%; padding: 0px; margin: 3px; border-radius: 0px"   />
 				</td>
 				<td width=84 style='width: 62pt; border: solid black 1.0pt; border-left: none; padding: 0cm 5.4pt 0cm 5.4pt; height: 3pt'>
@@ -564,7 +564,7 @@
 			</tr>
 					<tr style='page-break-inside: avoid; height: 3pt'>
 				<td  width=70 style='width: 62pt; border: solid black 1.0pt; padding: 0cm 5.4pt 0cm 5.4pt; height: 3pt'>
-					<input type="text" id="03xuhao6" value="6"
+					<input type="text" id="03xuhao6" 
 						style="text-align: center; font-size: 16.0pt; font-family: 仿宋; display: inline-block; height: 90%; width: 95%; padding: 0px; margin: 3px; border-radius: 0px"   />
 				</td>
 				<td width=84 style='width: 62pt; border: solid black 1.0pt; border-left: none; padding: 0cm 5.4pt 0cm 5.4pt; height: 3pt'>
@@ -642,7 +642,7 @@
 				</tr>
 				<tr style='page-break-inside: avoid; height: 3pt'>
 				<td  width=70 style='width: 62pt; border: solid black 1.0pt; padding: 0cm 5.4pt 0cm 5.4pt; height: 3pt'>
-					<input type="text" id="04xuhao1" value="1"
+					<input type="text" id="04xuhao1"
 						style="text-align: center; font-size: 16.0pt; font-family: 仿宋; display: inline-block; height: 90%; width: 95%; padding: 0px; margin: 3px; border-radius: 0px"   />
 				</td>
 				<td width=84 style='width: 62pt; border: solid black 1.0pt; border-left: none; padding: 0cm 5.4pt 0cm 5.4pt; height: 3pt'>
@@ -667,7 +667,7 @@
 			</tr>
 					<tr style='page-break-inside: avoid; height: 3pt'>
 				<td  width=70 style='width: 62pt; border: solid black 1.0pt; padding: 0cm 5.4pt 0cm 5.4pt; height: 3pt'>
-					<input type="text" id="04xuhao2" value="2"
+					<input type="text" id="04xuhao2" 
 						style="text-align: center; font-size: 16.0pt; font-family: 仿宋; display: inline-block; height: 90%; width: 95%; padding: 0px; margin: 3px; border-radius: 0px"   />
 				</td>
 				<td width=84 style='width: 62pt; border: solid black 1.0pt; border-left: none; padding: 0cm 5.4pt 0cm 5.4pt; height: 3pt'>
@@ -692,7 +692,7 @@
 			</tr>
 					<tr style='page-break-inside: avoid; height: 3pt'>
 				<td  width=70 style='width: 62pt; border: solid black 1.0pt; padding: 0cm 5.4pt 0cm 5.4pt; height: 3pt'>
-					<input type="text" id="04xuhao3" value="3"
+					<input type="text" id="04xuhao3" 
 						style="text-align: center; font-size: 16.0pt; font-family: 仿宋; display: inline-block; height: 90%; width: 95%; padding: 0px; margin: 3px; border-radius: 0px"   />
 				</td>
 				<td width=84 style='width: 62pt; border: solid black 1.0pt; border-left: none; padding: 0cm 5.4pt 0cm 5.4pt; height: 3pt'>
@@ -717,7 +717,7 @@
 			</tr>
 					<tr style='page-break-inside: avoid; height: 3pt'>
 				<td  width=70 style='width: 62pt; border: solid black 1.0pt; padding: 0cm 5.4pt 0cm 5.4pt; height: 3pt'>
-					<input type="text" id="04xuhao4" value="4"
+					<input type="text" id="04xuhao4" 
 						style="text-align: center; font-size: 16.0pt; font-family: 仿宋; display: inline-block; height: 90%; width: 95%; padding: 0px; margin: 3px; border-radius: 0px"   />
 				</td>
 				<td width=84 style='width: 62pt; border: solid black 1.0pt; border-left: none; padding: 0cm 5.4pt 0cm 5.4pt; height: 3pt'>
@@ -796,7 +796,7 @@
 				</tr>
 				<tr style='page-break-inside: avoid; height: 3pt'>
 				<td  width=70 style='width: 62pt; border: solid black 1.0pt; padding: 0cm 5.4pt 0cm 5.4pt; height: 3pt'>
-					<input type="text" id="05xuhao1" value="1"
+					<input type="text" id="05xuhao1" 
 						style="text-align: center; font-size: 16.0pt; font-family: 仿宋; display: inline-block; height: 90%; width: 95%; padding: 0px; margin: 3px; border-radius: 0px"   />
 				</td>
 				<td width=84 style='width: 62pt; border: solid black 1.0pt; border-left: none; padding: 0cm 5.4pt 0cm 5.4pt; height: 3pt'>
@@ -821,7 +821,7 @@
 			</tr>
 					<tr style='page-break-inside: avoid; height: 3pt'>
 				<td  width=70 style='width: 62pt; border: solid black 1.0pt; padding: 0cm 5.4pt 0cm 5.4pt; height: 3pt'>
-					<input type="text" id="05xuhao2" value="2"
+					<input type="text" id="05xuhao2" 
 						style="text-align: center; font-size: 16.0pt; font-family: 仿宋; display: inline-block; height: 90%; width: 95%; padding: 0px; margin: 3px; border-radius: 0px"   />
 				</td>
 				<td width=84 style='width: 62pt; border: solid black 1.0pt; border-left: none; padding: 0cm 5.4pt 0cm 5.4pt; height: 3pt'>
@@ -846,7 +846,7 @@
 			</tr>
 					<tr style='page-break-inside: avoid; height: 3pt'>
 				<td  width=70 style='width: 62pt; border: solid black 1.0pt; padding: 0cm 5.4pt 0cm 5.4pt; height: 3pt'>
-					<input type="text" id="05xuhao3" value="3"
+					<input type="text" id="05xuhao3" 
 						style="text-align: center; font-size: 16.0pt; font-family: 仿宋; display: inline-block; height: 90%; width: 95%; padding: 0px; margin: 3px; border-radius: 0px"   />
 				</td>
 				<td width=84 style='width: 62pt; border: solid black 1.0pt; border-left: none; padding: 0cm 5.4pt 0cm 5.4pt; height: 3pt'>
@@ -871,7 +871,7 @@
 			</tr>
 					<tr style='page-break-inside: avoid; height: 3pt'>
 				<td  width=70 style='width: 62pt; border: solid black 1.0pt; padding: 0cm 5.4pt 0cm 5.4pt; height: 3pt'>
-					<input type="text" id="05xuhao4" value="4"
+					<input type="text" id="05xuhao4"
 						style="text-align: center; font-size: 16.0pt; font-family: 仿宋; display: inline-block; height: 90%; width: 95%; padding: 0px; margin: 3px; border-radius: 0px"   />
 				</td>
 				<td width=84 style='width: 62pt; border: solid black 1.0pt; border-left: none; padding: 0cm 5.4pt 0cm 5.4pt; height: 3pt'>
@@ -941,7 +941,7 @@
 				</tr>
 				<tr style='page-break-inside: avoid; height: 3pt'>
 				<td  width=70 style='width: 62pt; border: solid black 1.0pt; padding: 0cm 5.4pt 0cm 5.4pt; height: 3pt'>
-					<input type="text" id="06xuhao1"  value="1"
+					<input type="text" id="06xuhao1"  
 						style="text-align: center; font-size: 16.0pt; font-family: 仿宋; display: inline-block; height: 90%; width: 95%; padding: 0px; margin: 3px; border-radius: 0px"   />
 				</td>
 				
@@ -970,7 +970,7 @@
 			</tr>
 			<tr style='page-break-inside: avoid; height: 3pt'>
 				<td  width=70 style='width: 62pt; border: solid black 1.0pt; padding: 0cm 5.4pt 0cm 5.4pt; height: 3pt'>
-					<input type="text" id="06xuhao2" value="2"
+					<input type="text" id="06xuhao2" 
 						style="text-align: center; font-size: 16.0pt; font-family: 仿宋; display: inline-block; height: 90%; width: 95%; padding: 0px; margin: 3px; border-radius: 0px"   />
 				</td>
 				
@@ -999,7 +999,7 @@
 			</tr>
 			<tr style='page-break-inside: avoid; height: 3pt'>
 				<td  width=70 style='width: 62pt; border: solid black 1.0pt; padding: 0cm 5.4pt 0cm 5.4pt; height: 3pt'>
-					<input type="text" id="06xuhao3" value="3"
+					<input type="text" id="06xuhao3" 
 						style="text-align: center; font-size: 16.0pt; font-family: 仿宋; display: inline-block; height: 90%; width: 95%; padding: 0px; margin: 3px; border-radius: 0px"   />
 				</td>
 				
@@ -1026,8 +1026,9 @@
 				
 				
 			</tr>
-					
-	</div>
+			</table>		
+</div>
+</div>
 
 </body>
 

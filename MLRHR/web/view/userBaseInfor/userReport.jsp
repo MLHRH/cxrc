@@ -30,12 +30,12 @@
 	<table id="userReportList" class="table table-hover table-bordered table-striped" style="margin-bottom: 10px;">
 		<thead>
 			<tr>
-				<th width="10%" style="text-align: center;">日期</th>
-				<th width="15%" style="text-align: center;">名称</th>
-				<th width="35%" style="text-align: center;">内容提要</th>
-				<th width="20%" style="text-align: center;">出版、登载获奖或在学术会议上交流情况</th>
-				<th width="10%" style="text-align: center;">合（独）著、译</th>
-				<th width="10%" style="text-align: center;">操作</th>
+				<th width="8%" style="text-align: center;">序号</th>
+				<th width="35%" style="text-align: center;">专著名称</th>
+				<th width="20%" style="text-align: center;">出版社</th>
+				<th width="15%" style="text-align: center;">发行国家和地区</th>
+				<th width="10%" style="text-align: center;">年份</th>
+				<th width="15%" style="text-align: center;">操作</th>
 			</tr>
 		</thead>
 	</table>

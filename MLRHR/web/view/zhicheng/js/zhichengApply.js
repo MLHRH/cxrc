@@ -394,6 +394,7 @@ function zhichengApplyUpdate() {
 			}
 
 			if (currentRole == "ROLE_EXPERT1") {
+				
 //				pre_approve_date = zhichengApply.pre_approve_date;
 //				pre_approve_id = zhichengApply.pre_approve_id;
 //				pre_approve_sug = zhichengApply.pre_approve_sug;
@@ -420,6 +421,9 @@ function zhichengApplyUpdate() {
 			}
 
 			if (currentRole == "ROLE_EXPERT2") {
+		
+				
+				
 //				pre_approve_date = zhichengApply.pre_approve_date;
 //				pre_approve_id = zhichengApply.pre_approve_id;
 //				pre_approve_sug = zhichengApply.pre_approve_sug;

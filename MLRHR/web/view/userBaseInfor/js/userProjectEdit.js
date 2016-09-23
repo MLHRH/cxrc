@@ -7,41 +7,41 @@ function userProjectEditSave() {
 				"value" : $("#user_project_id").val()
 			});
 		arrData.push({
-			"name" : "user_id",
+			"name" : "userId",
 			"value" : user_id
 		});
 		arrData.push({
-			"name" : "start_date",
-			"value" : $("#user_project_start_date").val()
+			"name" : "xuhao_id",
+			"value" : $("#user_project_xuhao_id").val()
 		});
 		arrData.push({
-			"name" : "end_date",
-			"value" : $("#user_project_end_date").val()
-		});
-		arrData.push({
-			"name" : "project_name",
+			"name" : "entryName",
 			"value" : $("#user_project_project_name").val()
 		});
 		arrData.push({
-			"name" : "work_content",
-			"value" : $("#user_project_work_content").val()
+			"name" : "projectNumber",
+			"value" : $("#user_project_project_number").val()
 		});
 		arrData.push({
-			"name" : "jiaose",
-			"value" : $("#user_project_jiaose").val()
+			"name" : "funds",
+			"value" : $("#user_project_funds").val()
 		});
 		arrData.push({
-			"name" : "jine",
-			"value" : $("#user_project_jine").val()
+			"name" : "startStopTime",
+			"value" : $("#user_project_startStopTime").val()
 		});
 		arrData.push({
-			"name" : "laiyuan",
-			"value" : $("#user_project_laiyuan").val()
+			"name" : "projectNature",
+			"value" : $("#user_project_projectNature").val()
 		});
 		arrData.push({
-			"name" : "project_result",
-			"value" : $("#user_project_project_result").val()
+			"name" : "role",
+			"value" : $("#user_project_role").val()
 		});
+//		arrData.push({
+//			"name" : "project_result",
+//			"value" : $("#user_project_project_result").val()
+//		});
 		$.ajax({
 			"dataType" : 'json',
 			"type" : "post",
@@ -72,17 +72,17 @@ function userProjectEditSave() {
 }
 function validateuserProjectEdit() {
 	// 校验方法
-	if ($("#user_project_start_date").val() == "") {
-		generatenoty('center', "请选择开始时间！", 'error');
+	if ($("#user_project_xuhao_id").val() == "") {
+		generatenoty('center', "请填写序号！", 'error');
 		return false;
 	}
-	if ($("#user_project_end_date").val() == "") {
-		generatenoty('center', "请选择结束时间！", 'error');
-		return false;
-	}
-	if ($("#user_project_start_date").val()>$("#user_project_end_date").val()) {
-		generatenoty('center', "开始时间不能晚于结束时间！", 'error');
-		return false;
-	}
+//	if ($("#user_project_end_date").val() == "") {
+//		generatenoty('center', "请选择结束时间！", 'error');
+//		return false;
+//	}
+//	if ($("#user_project_start_date").val()>$("#user_project_end_date").val()) {
+//		generatenoty('center', "开始时间不能晚于结束时间！", 'error');
+//		return false;
+//	}
 	return true;
 }

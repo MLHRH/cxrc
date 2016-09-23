@@ -7,31 +7,39 @@ function userZhuanliEditSave() {
 						"value" : $("#user_zhuanli_id").val()
 					});
 		arrData.push({
-					"name" : "user_id",
+					"name" : "userId",
 					"value" : user_id
 				});
 		arrData.push({
-					"name" : "date",
-					"value" : $("#user_zhuanli_date").val()
+					"name" : "xuhao_id",
+					"value" : $("#user_zhuanli_xuhao").val()
 				});
 		arrData.push({
-					"name" : "name",
+					"name" : "patentName",
 					"value" : $("#user_zhuanli_name").val()
 				});
 		arrData.push({
-					"name" : "other",
-					"value" : $("#user_zhuanli_other").val()
+					"name" : "grantNumber",
+					"value" : $("#user_zhuanli_number").val()
 				});
-		if ($("#user_zhuanli_type").val() != "-1")
+		
 			arrData.push({
 						"name" : "type",
 						"value" : $("#user_zhuanli_type").val()
 					});
-		if ($("#user_zhuanli_jiaose").val() != "-1")
+	
 			arrData.push({
-						"name" : "jiaose",
-						"value" : $("#user_zhuanli_jiaose").val()
+						"name" : "inventorSort",
+						"value" : $("#user_zhuanli_sort").val()
 					});
+			arrData.push({
+				"name" : "authorizedTime",
+				"value" : $("#user_zhuanli_date").val()
+			});
+			arrData.push({
+				"name" : "authorizedNational",
+				"value" : $("#user_zhuanli_authorized_national").val()
+			});
 		$.ajax({
 					"dataType" : 'json',
 					"type" : "post",
@@ -66,13 +74,13 @@ function validateuserZhuanliEdit() {
 		generatenoty('center', "请选择日期！", 'error');
 		return false;
 	}
-	if ($("#user_zhuanli_jiaose").val() == "-1") {
-		generatenoty('center', "请选择排名！", 'error');
-		return false;
-	}
-	if ($("#user_zhuanli_type").val() == "-1") {
-		generatenoty('center', "请选择级别！", 'error');
-		return false;
-	}
+//	if ($("#user_zhuanli_jiaose").val() == "-1") {
+//		generatenoty('center', "请选择排名！", 'error');
+//		return false;
+//	}
+//	if ($("#user_zhuanli_type").val() == "-1") {
+//		generatenoty('center', "请选择级别！", 'error');
+//		return false;
+//	}
 	return true;
 }

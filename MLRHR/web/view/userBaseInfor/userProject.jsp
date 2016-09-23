@@ -32,13 +32,13 @@
 	<table id="userProjectList" class="table table-hover table-bordered table-striped" style="margin-bottom: 10px;">
 		<thead>
 			<tr>
-				<th width="10%" style="text-align: center;">开始时间</th>
-				<th width="10%" style="text-align: center;">结束时间</th>
-				<th width="10%" style="text-align: center;">项目编号</th>
+			    <th width="15%" style="text-align: center;">序号</th>
 				<th width="15%" style="text-align: center;">项目名称</th>
-				<th width="10%" style="text-align: center;">项目来源</th>
+				<th width="10%" style="text-align: center;">项目编号</th>
 				<th width="10%" style="text-align: center;">项目经费</th>
-				<th width="20%" style="text-align: center;">承担任务</th>
+				<th width="10%" style="text-align: center;">起止年月</th>
+				<th width="10%" style="text-align: center;">项目来源</th>
+				<th width="20%" style="text-align: center;">承担角色</th>
 				<th width="15%" style="text-align: center;">操作</th>
 			</tr>
 		</thead>

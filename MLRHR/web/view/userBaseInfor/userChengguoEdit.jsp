@@ -25,63 +25,85 @@
 	<form id="userChengguoForm" class="form-horizontal" style="margin: 0 0 0 0">
 		<div style="text-align: center;">
 			<div class="control-group">
-				<input type="hidden" id="user_chengguo_id" name="id" value="${user_chengguo.id}" />
+				<input type="hidden" id="user_chengguo_id" name="id" value="${jcqn_doc02_03.id}" />
 				<table width="98%" border="0" cellpadding="2" cellspacing="1" align="center" style="margin-top: 8px">
-					<tr align="center">
-						<td class="td_Left">题目：</td>
+				<tr align="center">
+						<td class="td_Left">序号：</td>
 						<td class="td_Right">
-							<textarea style="width: 220px; height: 100px" id="user_chengguo_cg_name">${user_chengguo.cg_name}</textarea>
+							<input type="text"  id="user_chengguo_xuhao" value="${jcqn_doc02_03.xuhao_id}" />
+						</td>
+					</tr>
+					<tr align="center">
+						<td class="td_Left">论文题目：</td>
+						<td class="td_Right">
+						<textarea style="width: 220px; height: 100px" id="user_chengguo_thesis_topic">${jcqn_doc02_03.thesis_topic}</textarea>
+						
+						</td>
+					</tr>
+						<tr align="center">
+						<td class="td_Left">作者排序：</td>
+						<td class="td_Right">
+							<select id="user_chengguo_author_sort" name="user_chengguo_author_sort" class="input-block-level" style="width: 220px">
+								<option value="-1">请选择</option>
+								<option value="第一作者" <c:if test="${jcqn_doc02_03.author_sort == '第一作者'}">selected</c:if>>第一作者</option>
+								<option value="第二作者(通讯作者)" <c:if test="${jcqn_doc02_03.author_sort == '第二作者(通讯作者)'}">selected</c:if>>第二作者(通讯作者)</option>
+								<option value="第三作者(通讯作者)" <c:if test="${jcqn_doc02_03.author_sort == '第三作者(通讯作者)'}">selected</c:if>>第三作者(通讯作者)</option>
+								<option value="第四作者(通讯作者)" <c:if test="${jcqn_doc02_03.author_sort == '第四作者(通讯作者)'}">selected</c:if>>第四作者(通讯作者)</option>
+								<option value="第五作者(通讯作者)" <c:if test="${jcqn_doc02_03.author_sort == '第五作者(通讯作者)'}">selected</c:if>>第五作者(通讯作者)</option>
+								<option value="第六作者(通讯作者)" <c:if test="${jcqn_doc02_03.author_sort == '第六作者(通讯作者)'}">selected</c:if>>第六作者(通讯作者)</option>
+								<option value="第七作者(通讯作者)" <c:if test="${jcqn_doc02_03.author_sort == '第七作者(通讯作者)'}">selected</c:if>>第七作者(通讯作者)</option>
+								<option value="第八作者(通讯作者)" <c:if test="${jcqn_doc02_03.author_sort == '第八作者(通讯作者)'}">selected</c:if>>第八作者(通讯作者)</option>
+								<option value="第九作者(通讯作者)" <c:if test="${jcqn_doc02_03.author_sort == '第九作者(通讯作者)'}">selected</c:if>>第九作者(通讯作者)</option>
+								<option value="第十作者(通讯作者)" <c:if test="${jcqn_doc02_03.author_sort == '第十作者(通讯作者)'}">selected</c:if>>第十作者(通讯作者)</option>
+								<option value="第十一作者(通讯作者)" <c:if test="${jcqn_doc02_03.author_sort == '第十一作者(通讯作者)'}">selected</c:if>>第十一作者(通讯作者)</option>
+								<option value="其它" <c:if test="${jcqn_doc02_03.author_sort == '其它'}">selected</c:if>>其它</option>
+							</select>
+						</td>
+					</tr>
+						
+						<tr align="center">
+						<td class="td_Left">期刊名称：</td>
+						<td class="td_Right">
+							<textarea style="width: 220px; height: 100px" id="user_chengguo_journal_title">${jcqn_doc02_03.journal_title}</textarea>
 						</td>
 					</tr>
 					<tr align="center">
 						<td class="td_Left">刊物+论文年份、卷期及页码：</td>
 						<td class="td_Right">
-							<textarea style="width: 220px; height: 100px" id="user_chengguo_cg_jieshao">${user_chengguo.cg_jieshao}</textarea>
+						<textarea style="width: 220px; height: 100px" id="user_chengguo_year_volume_pagenumber">${jcqn_doc02_03.year_volume_pagenumber}</textarea>
+	
 						</td>
 					</tr>
-
-					<tr align="center">
+                 <tr align="center">
+						<td class="td_Left">影响因子：</td>
+						<td class="td_Right">
+						
+							<input type="text"  id="user_chengguo_yingxiangyinzi" value="${jcqn_doc02_03.influence_factor}" />
+						</td>
+					</tr>
+				<%-- 	<tr align="center">
 						<td class="td_Left">日期：</td>
 						<td class="td_Right">
-							<input type="text" onfocus="WdatePicker({isShowWeek:true,dateFmt:'yyyy.MM.dd'})" id="user_chengguo_cg_date" value="${user_chengguo.cg_date}" />
+							<input type="text" onfocus="WdatePicker({isShowWeek:true,dateFmt:'yyyy.MM.dd'})" id="user_chengguo_cg_date" value="${jcqn_doc02_03.cg_date}" />
 						</td>
-					</tr>
-					<tr align="center">
-						<td class="td_Left">排&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp名：</td>
-						<td class="td_Right">
-							<select id="user_chengguo_jiaose" name="user_chengguo_jiaose" class="input-block-level" style="width: 220px">
-								<option value="-1">请选择</option>
-								<option value="第一作者" <c:if test="${user_chengguo.jiaose == '第一作者'}">selected</c:if>>第一作者</option>
-								<option value="第二作者(通讯作者)" <c:if test="${user_chengguo.jiaose == '第二作者(通讯作者)'}">selected</c:if>>第二作者(通讯作者)</option>
-								<option value="第三作者(通讯作者)" <c:if test="${user_chengguo.jiaose == '第三作者(通讯作者)'}">selected</c:if>>第三作者(通讯作者)</option>
-								<option value="第四作者(通讯作者)" <c:if test="${user_chengguo.jiaose == '第四作者(通讯作者)'}">selected</c:if>>第四作者(通讯作者)</option>
-								<option value="第五作者(通讯作者)" <c:if test="${user_chengguo.jiaose == '第五作者(通讯作者)'}">selected</c:if>>第五作者(通讯作者)</option>
-								<option value="第六作者(通讯作者)" <c:if test="${user_chengguo.jiaose == '第六作者(通讯作者)'}">selected</c:if>>第六作者(通讯作者)</option>
-								<option value="第七作者(通讯作者)" <c:if test="${user_chengguo.jiaose == '第七作者(通讯作者)'}">selected</c:if>>第七作者(通讯作者)</option>
-								<option value="第八作者(通讯作者)" <c:if test="${user_chengguo.jiaose == '第八作者(通讯作者)'}">selected</c:if>>第八作者(通讯作者)</option>
-								<option value="第九作者(通讯作者)" <c:if test="${user_chengguo.jiaose == '第九作者(通讯作者)'}">selected</c:if>>第九作者(通讯作者)</option>
-								<option value="第十作者(通讯作者)" <c:if test="${user_chengguo.jiaose == '第十作者(通讯作者)'}">selected</c:if>>第十作者(通讯作者)</option>
-								<option value="第十一作者(通讯作者)" <c:if test="${user_chengguo.jiaose == '第十一作者(通讯作者)'}">selected</c:if>>第十一作者(通讯作者)</option>
-								<option value="其它" <c:if test="${user_chengguo.type == '其它'}">selected</c:if>>其它</option>
-							</select>
-						</td>
-					</tr>
-					<tr align="center">
+					</tr> --%>
+				
+					<%-- <tr align="center">
 						<td class="td_Left">级&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp别：</td>
 						<td class="td_Right">
 							<select id="user_chengguo_type" name="user_chengguo_type" class="input-block-level" style="width: 220px">
 								<option value="-1">请选择</option>
-								<option value="国际核心SCI（EI）收录" <c:if test="${user_chengguo.type == '国际核心SCI（EI）收录'}">selected</c:if>>国际核心SCI（EI）收录</option>
-								<option value="SCI（EI）收录" <c:if test="${user_chengguo.type == 'SCI（EI）收录'}">selected</c:if>>SCI（EI）收录</option>
-								<option value="中文核心期刊" <c:if test="${user_chengguo.type == '中文核心期刊'}">selected</c:if>>中文核心期刊</option>
-								<option value="其它" <c:if test="${user_chengguo.type == '其它'}">selected</c:if>>其它</option>
+								<option value="国际核心SCI（EI）收录" <c:if test="${jcqn_doc02_03.type == '国际核心SCI（EI）收录'}">selected</c:if>>国际核心SCI（EI）收录</option>
+								<option value="SCI（EI）收录" <c:if test="${jcqn_doc02_03.type == 'SCI（EI）收录'}">selected</c:if>>SCI（EI）收录</option>
+								<option value="中文核心期刊" <c:if test="${jcqn_doc02_03.type == '中文核心期刊'}">selected</c:if>>中文核心期刊</option>
+								<option value="其它" <c:if test="${jcqn_doc02_03.type == '其它'}">selected</c:if>>其它</option>
 							</select>
 						</td>
-					</tr>
+					</tr> --%>
 					<tr align="center">
-						<td class="td_Left">影响因子：</td>
+						<td class="td_Left">SCI他引次数：</td>
 						<td class="td_Right">
-							<input type="text"  id="user_chengguo_yingxiangyinzi" value="${user_chengguo.yingxiangyinzi}" />
+							<input type="text"  id="user_chengguo_sci_times" value="${jcqn_doc02_03.sci_times}" />
 						</td>
 					</tr>
 				</table>

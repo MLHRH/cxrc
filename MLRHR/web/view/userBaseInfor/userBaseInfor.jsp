@@ -40,8 +40,8 @@ body {
 
 <script type="text/javascript" src="${ctx}/view/userBaseInfor/js/userBaseInfo.js"></script>
 <script type="text/javascript" src="${ctx}/view/userBaseInfor/js/userBase.js"></script>
-<script type="text/javascript" src="${ctx}/view/userBaseInfor/js/userStudy.js"></script>
-<script type="text/javascript" src="${ctx}/view/userBaseInfor/js/userStudyEdit.js"></script>
+<script type="text/javascript" src="${ctx}/view/userBaseInfor/js/userBaogao.js"></script>
+<script type="text/javascript" src="${ctx}/view/userBaseInfor/js/userBaogaoEdit.js"></script>
 <script type="text/javascript" src="${ctx}/view/userBaseInfor/js/userWork.js"></script>
 <script type="text/javascript" src="${ctx}/view/userBaseInfor/js/userWorkEdit.js"></script>
 <script type="text/javascript" src="${ctx}/view/userBaseInfor/js/userProject.js"></script>
@@ -100,16 +100,16 @@ body {
 				<div class="well sidebar-nav" style="padding: 9px 0;">
 					<ul class="nav nav-list" id="orderedlist">
 						<li id="userBase"><a href="javascript:void(0)">1. 基本信息</a></li>
-<!-- 						<li id="userStudy"><a href="javascript:void(0)">2. 教育经历</a></li> -->
 						<li id="userPeixun"><a href="javascript:void(0)">2. 学习培训经历</a></li>
 						<li id="userWork"><a href="javascript:void(0)">3. 工作经历</a></li>
 						<li id="userSkill"><a href="javascript:void(0)">4. 任现职前主要专业技术工作业绩登记</a></li>
 						<li id="userExam"><a href="javascript:void(0)">5. 考试经历</a></li>
-						<li id="userReport"><a href="javascript:void(0)">6. 著作、论文及重要技术报告</a></li>
-<!-- 						<li id="userChengguo"><a href="javascript:void(0)">6. 论文专著（概要）</a></li> -->
-<!-- 						<li id="userZhuanli"><a href="javascript:void(0)">8. 专利情况</a></li> -->
-<!-- 						<li id="userAward"><a href="javascript:void(0)">9. 获奖情况</a></li> -->
-<!-- 						<li id="userProject"><a href="javascript:void(0)">10.承担项目</a></li> -->
+						<li id="userReport"><a href="javascript:void(0)">6. 重要专著</a></li>
+				<li id="userChengguo"><a href="javascript:void(0)">7.代表性 论文（概要）</a></li>
+						<li id="userZhuanli"><a href="javascript:void(0)">8. 专利情况</a></li> 
+					<li id="userAward"><a href="javascript:void(0)">9. 获奖情况</a></li>
+				<li id="userProject"><a href="javascript:void(0)">10.承担项目</a></li> 
+					<li id="userBaogao"><a href="javascript:void(0)">11. 学术报告</a></li> 
 <!-- 						<li id="userExam"><a href="javascript:void(0)">11. 考试成绩及答辩情况</a></li> -->
 <!-- 						<li id="doc02_middle"><a href="javascript:void(0)">12. 证书、证明材料管理</a></li> -->
 <!-- 						<li id="doc03_middle"><a href="javascript:void(0)">13. 业绩、成果材料管理</a></li> -->

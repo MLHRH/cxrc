@@ -30,7 +30,7 @@ import com.jfn.service.UserExamService;
 import com.jfn.service.UserPeixunService;
 import com.jfn.service.UserProjectService;
 import com.jfn.service.UserService;
-import com.jfn.service.UserStudyService;
+import com.jfn.service.UserBaogaoService;
 import com.jfn.service.UserWorkService;
 
 @Controller
@@ -49,7 +49,7 @@ public class UserController {
 	@Autowired
 	private UserProjectService userprojectservice;
 	@Autowired
-	private UserStudyService userstudyservice;
+	private UserBaogaoService userstudyservice;
 	@Autowired
 	private UserWorkService userworkservice;
 	@Autowired

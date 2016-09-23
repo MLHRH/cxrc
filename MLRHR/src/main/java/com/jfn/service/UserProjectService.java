@@ -9,7 +9,7 @@ import org.springframework.stereotype.Repository;
 
 import com.jfn.dao.UserProjectDao;
 import com.jfn.entity.UserChengguo;
-import com.jfn.entity.UserProject;
+import com.jfn.entity.JcqnDocProject;
 
 
 /**
@@ -24,23 +24,23 @@ public class UserProjectService {
 	@Autowired
 	private UserProjectDao user_projectDao;
 	
-	public List<UserProject> getAll()
+	public List<JcqnDocProject> getAll()
 	{
 		return user_projectDao.getAll();
 	}
 	
 
-	public UserProject getById(String user_projectId) {
+	public JcqnDocProject getById(String user_projectId) {
 		// TODO Auto-generated method stub
 		return user_projectDao.get(Integer.parseInt(user_projectId));
 	}
 
-	public boolean user_projectInsert(UserProject entity) {
+	public boolean user_projectInsert(JcqnDocProject entity) {
 		// TODO Auto-generated method stub
 		return user_projectDao.insert(entity);
 	}
 
-	public boolean user_projectUpdate(UserProject entity) {
+	public boolean user_projectUpdate(JcqnDocProject entity) {
 		// TODO Auto-generated method stub
 		return user_projectDao.Update(entity);
 	}
@@ -51,7 +51,7 @@ public class UserProjectService {
 	}
 	
 	//通过body_id查询user
-	public List<UserProject> getAllByUserId(String user_id)
+	public List<JcqnDocProject> getAllByUserId(String user_id)
 	{
 		return user_projectDao.getAllByUserId(user_id);
 	}

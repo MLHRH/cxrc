@@ -7,31 +7,41 @@ function userAwardEditSave() {
 						"value" : $("#user_award_id").val()
 					});
 		arrData.push({
-					"name" : "user_id",
+					"name" : "userId",
 					"value" : user_id
 				});
 		arrData.push({
-					"name" : "date",
-					"value" : $("#user_award_date").val()
+					"name" : "xuhao_id",
+					"value" : $("#user_award_xuhao_id").val()
 				});
 		arrData.push({
-					"name" : "name",
+					"name" : "awardItemName",
 					"value" : $("#user_award_name").val()
 				});
 		arrData.push({
-					"name" : "other",
-					"value" : $("#user_award_other").val()
+					"name" : "prizeName",
+					"value" : $("#user_prize_name").val()
 				});
-		if ($("#user_award_type").val() != "-1")
+		if ($("#user_award_grade").val() != "-1")
 			arrData.push({
-						"name" : "type",
-						"value" : $("#user_award_type").val()
+						"name" : "grade",
+						"value" : $("#user_award_grade").val()
 					});
-		if ($("#user_award_jiaose").val() != "-1")
+		if ($("#user_award_sort").val() != "-1")
 			arrData.push({
-						"name" : "jiaose",
-						"value" : $("#user_award_jiaose").val()
+						"name" : "sort",
+						"value" : $("#user_award_sort").val()
 					});
+			arrData.push({
+		"name" : "rewardTime",
+		"value" : $("#user_reward_time").val()
+	});
+		
+			arrData.push({
+				"name" : "grantInstitution",
+				"value" : $("#user_grant_institution").val()
+			});
+		
 		$.ajax({
 					"dataType" : 'json',
 					"type" : "post",
@@ -62,7 +72,7 @@ function userAwardEditSave() {
 }
 function validateuserAwardEdit() {
 	// 校验方法
-	if ($("#user_award_date").val() == "") {
+	if ($("#user_reward_time").val() == "") {
 		generatenoty('center', "请选择开始时间！", 'error');
 		return false;
 	}

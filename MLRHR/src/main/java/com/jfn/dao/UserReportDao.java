@@ -48,14 +48,14 @@ public class UserReportDao {
 					user_report.setUser_id(rs.getString("user_id"));
 					user_report.setName(rs.getString("name"));
 
-					String temp = rs.getString("date");
-					if (temp != null) {
-						String Year = temp.substring(0, 4);
-						String Month = temp.substring(5, 7);
-						String Day = temp.substring(8, 10);
-						temp = Year + "." + Month + "." + Day;
-					}
-					user_report.setDate(temp);
+//					String temp = rs.getString("date");
+//					if (temp != null) {
+//						String Year = temp.substring(0, 4);
+//						String Month = temp.substring(5, 7);
+//						String Day = temp.substring(8, 10);
+//						temp = Year + "." + Month + "." + Day;
+//					}
+					user_report.setDate( rs.getString("date"));
 
 					user_report.setContent_summary(rs.getString("content_summary"));
 					user_report.setSituation(rs.getString("situation"));
@@ -107,14 +107,14 @@ public class UserReportDao {
 			user_report.setUser_id(rs.getString("user_id"));
 			user_report.setName(rs.getString("name"));
 
-			String temp = rs.getString("date");
-			if (temp != null) {
-				String Year = temp.substring(0, 4);
-				String Month = temp.substring(5, 7);
-				String Day = temp.substring(8, 10);
-				temp = Year + "." + Month + "." + Day;
-			}
-			user_report.setDate(temp);
+//			String temp = rs.getString("date");
+//			if (temp != null) {
+//				String Year = temp.substring(0, 4);
+//				String Month = temp.substring(5, 7);
+//				String Day = temp.substring(8, 10);
+//				temp = Year + "." + Month + "." + Day;
+//			}
+			user_report.setDate(rs.getString("date"));
 
 			user_report.setContent_summary(rs.getString("content_summary"));
 			user_report.setSituation(rs.getString("situation"));

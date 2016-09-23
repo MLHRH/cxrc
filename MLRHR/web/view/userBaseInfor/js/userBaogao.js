@@ -1,25 +1,25 @@
-var oTableUserStudy = null;
-function initUserStudy() {
+var oTableUserBaogao = null;
+function initUserBaogao() {
 	$.ajax({
 				type : 'get',
 				dataType : 'json',
-				url : 'userStudyList?userId=' + user_id,// 请求的路径
+				url : 'userBaogaoList?userId=' + user_id,// 请求的路径
 				error : function() {// 请求失败处理函数
 					alert('请求失败');
 				},
 				success : function(data) { // 请求成功后处理函数。
-					initUserStudyDataTables(data);
+					initUserBaogaoDataTables(data);
 				}
 			});
 
 }
 
-function initUserStudyDataTables(data) {
-	if (oTableUserStudy) {
-		oTableUserStudy.fnClearTable(false);
-		$('#userStudyList').dataTable().fnDestroy();
+function initUserBaogaoDataTables(data) {
+	if (oTableUserBaogao) {
+		oTableUserBaogao.fnClearTable(false);
+		$('#userBaogaoList').dataTable().fnDestroy();
 	}
-	oTableUserStudy = $('#userStudyList').dataTable({
+	oTableUserBaogao = $('#userBaogaoList').dataTable({
 		"aaSorting" : [[0, "desc"]],
 		"sDom" : "flrt<ip>",
 		"sPaginationType" : "full_numbers",
@@ -44,19 +44,20 @@ function initUserStudyDataTables(data) {
 		"processing" : true,
 		"data" : data,
 		"columns" : [{
-					"data" : "start_date"
+					"data" : "xuhao_id",
+					"class":"center"						
 				}, {
-					"data" : "end_date"
+					"data" : "reportName"
 				}, {
-					"data" : "xuexiao"
+					"data" : "meetingName"
 				}, {
-					"data" : "zhuanye"
+					"data" : "organizers"
 				}, {
-					"data" : "xuezhi"
+					"data" : "meetingTime"
 				}, {
-					"data" : "xuewei"
+					"data" : "meetingPlace"
 				}, {
-					"data" : "xueli"
+					"data" : "reportType"
 				},
 				// {
 				// "data" : "zhengmingren"
@@ -65,31 +66,31 @@ function initUserStudyDataTables(data) {
 					"data" : null,
 					"class" : "center",
 					"render" : function(data) {
-						return "<a class='btn btn-small btn-info'  style='margin: 2.5px;' href='javascript:void(0)' onClick='userStudyEdit(" + data.id
-								+ ")'><i class='icon-edit'></i>编辑</a><a class='btn btn-small btn-info'  style='margin: 2.5px;' href='javascript:void(0)' onClick='userStudyDelete(" + data.id
+						return "<a class='btn btn-small btn-info'  style='margin: 2.5px;' href='javascript:void(0)' onClick='userBaogaoEdit(" + data.id
+								+ ")'><i class='icon-edit'></i>编辑</a><a class='btn btn-small btn-info'  style='margin: 2.5px;' href='javascript:void(0)' onClick='userBaogaoDelete(" + data.id
 								+ ")' id='btndel'><i class='icon-remove'></i>删除</a>";
 					}
 				}]
 	});
 }
 
-function userStudyEdit(id) {
+function userBaogaoEdit(id) {
 	$("#myModalSave").unbind("click");
 	$("#myModalSave").click(function() {
-				userStudyEditSave();
+				userBaogaoEditSave();
 			});
 	if (id == null) {
-		$("#myModalTitle").text("添加教育经历");
-		$(".modal-body").load("userStudyEdit");
+		$("#myModalTitle").text("添加报告");
+		$(".modal-body").load("userBaogaoEdit");
 		$('#myModal').modal();
 	} else {
-		$("#myModalTitle").text("修改教育经历");
-		$(".modal-body").load("userStudyEdit?id=" + id);
+		$("#myModalTitle").text("修改报告");
+		$(".modal-body").load("userBaogaoEdit?id=" + id);
 		$('#myModal').modal();
 	}
 }
 
-function userStudyDelete(id) {
+function userBaogaoDelete(id) {
 	if (id != null) {
 		noty({
 					text : '是否继续删除该条数据?',
@@ -104,7 +105,7 @@ function userStudyDelete(id) {
 								text : '确定',
 								onClick : function($noty) {
 									$noty.close();
-									var url = 'userStudyDelete';
+									var url = 'userBaogaoDelete';
 									var datas = 'id=' + id;
 									$.ajax({
 												type : 'post',
@@ -123,7 +124,7 @@ function userStudyDelete(id) {
 																	layout : 'center',
 																	callback : {
 																		afterClose : function() {
-																			initUserStudy();
+																			initUserBaogao();
 																		}
 																	},
 																	theme : 'defaultTheme'

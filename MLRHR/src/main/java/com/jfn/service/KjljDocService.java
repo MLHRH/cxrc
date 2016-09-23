@@ -11,8 +11,8 @@ import com.jfn.dao.KjljDoc02Dao;
 import com.jfn.dao.KjljDoc03Dao;
 import com.jfn.dao.KjljDoc04Dao;
 import com.jfn.dao.KjljDoc05Dao;
-import com.jfn.entity.JcqnDoc01;
 import com.jfn.entity.KjljDoc01;
+
 import com.jfn.entity.KjljDoc03;
 import com.jfn.entity.KjljDoc04;
 import com.jfn.entity.KjljDoc05;
@@ -36,38 +36,38 @@ public class KjljDocService {
 	@Autowired
 	private KjljDoc05Dao kjljDoc05Dao;
 	
-	public boolean insert01(KjljDoc01 jcqnDoc01){
-		return kjljDoc01Dao.insert(jcqnDoc01);
+	public boolean insert01(KjljDoc01 kjljDoc01){
+		return kjljDoc01Dao.insert(kjljDoc01);
 		}
 		
-		public boolean update01(KjljDoc01 jcqnDoc01){
-			return kjljDoc01Dao.update(jcqnDoc01);
+		public boolean update01(KjljDoc01 kjljDoc01){
+			return kjljDoc01Dao.update(kjljDoc01);
 		}
 		
 		public boolean delete01( int user_id ){
 			return kjljDoc01Dao.delete(user_id);
 			
 		}
-		public List<KjljDoc01> getByUserId01( int user_id ){
+		public KjljDoc01 getByUserId01( int user_id ){
 			return kjljDoc01Dao.getByUserId(user_id);
 		}
 		
-		public boolean insert02(KjljDocProject jcqnDocProject){
-			return kjljDoc02Dao.insert(jcqnDocProject);
+		public boolean insert02(KjljDocProject kjljDocProject){
+			return kjljDoc02Dao.insert(kjljDocProject);
 			}
 			
-			public KjljDocProject update02(KjljDocProject jcqnDocProject,KjljDocPrize jcqnDocPrize,KjljDocThesis jcqnDocThesis,KjljDocPatent jcqnDocPatent,KjljDocReport jcqnDocReport,KjljDocTreatise jcqnDocTreatise){
+			public KjljDocProject update02(KjljDocProject kjljDocProject,KjljDocPrize kjljDocPrize,KjljDocThesis kjljDocThesis,KjljDocPatent kjljDocPatent,KjljDocReport kjljDocReport,KjljDocTreatise kjljDocTreatise){
 				List<Object> list = new ArrayList<Object>();
-//				return kjljDoc02Dao.update(jcqnDocProject);
+//				return kjljDoc02Dao.update(kjljDocProject);
 				
-				kjljDoc02Dao.update(jcqnDocProject);
-				kjljDoc02Dao.update(jcqnDocPrize);
-				kjljDoc02Dao.update(jcqnDocThesis);
-				kjljDoc02Dao.update(jcqnDocPatent);
-				kjljDoc02Dao.update(jcqnDocReport);
-			    kjljDoc02Dao.update(jcqnDocTreatise);
+				kjljDoc02Dao.update(kjljDocProject);
+				kjljDoc02Dao.update(kjljDocPrize);
+				kjljDoc02Dao.update(kjljDocThesis);
+				kjljDoc02Dao.update(kjljDocPatent);
+				kjljDoc02Dao.update(kjljDocReport);
+			    kjljDoc02Dao.update(kjljDocTreatise);
 //			
-			   return jcqnDocProject; 
+			   return kjljDocProject; 
 			}
 			public boolean delete02( int user_id ){
 				return kjljDoc02Dao.delete(user_id);
@@ -104,8 +104,8 @@ public class KjljDocService {
 				return kjljDoc03Dao.getByUserId(user_id);
 			}
 			
-			public boolean update03(KjljDoc03 jcqnDoc03){
-				return kjljDoc03Dao.update(jcqnDoc03);
+			public boolean update03(KjljDoc03 kjljDoc03){
+				return kjljDoc03Dao.update(kjljDoc03);
 			}
 			
 			
@@ -124,8 +124,8 @@ public class KjljDocService {
 				return kjljDoc04Dao.getByUserId(user_id);
 			}
 			
-			public boolean update04(KjljDoc04 jcqnDoc04){
-				return kjljDoc04Dao.update(jcqnDoc04);
+			public boolean update04(KjljDoc04 kjljDoc04){
+				return kjljDoc04Dao.update(kjljDoc04);
 			}
 			
 			
@@ -144,8 +144,8 @@ public class KjljDocService {
 				return kjljDoc05Dao.getByUserId(user_id);
 			}
 			
-			public boolean update05(KjljDoc05 jcqnDoc05){
-				return kjljDoc05Dao.update(jcqnDoc05);
+			public boolean update05(KjljDoc05 kjljDoc05){
+				return kjljDoc05Dao.update(kjljDoc05);
 			}
 			
 			

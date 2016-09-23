@@ -15,7 +15,7 @@ function initUserProject() {
 }
 
 function initUserProjectDataTables(data) {
-	if(data.length>=3)
+	if(data.length>=6)
 	{
 		$('#userProjectAddButton').attr("disabled",true);
 		$('#userProjectAddButton').removeAttr("onclick");
@@ -56,21 +56,21 @@ function initUserProjectDataTables(data) {
 		"processing" : true,
 		"data" : data,
 		"columns" : [{
-					"data" : "start_date",
+					"data" : "xuhao_id",
 					"class" : "center"
 				}, {
-					"data" : "end_date",
+					"data" : "entryName",
 					"class" : "center"
 				}, {
-					"data" : "project_result"
+					"data" : "projectNumber"
 				},{
-					"data" : "project_name"
+					"data" : "funds"
 				}, {
-					"data" : "laiyuan"
+					"data" : "startStopTime"
 				}, {
-					"data" : "jine"
+					"data" : "projectNature"
 				}, {
-					"data" : "jiaose"
+					"data" : "role"
 				}, {
 					"data" : null,
 					"class" : "center",
@@ -95,7 +95,7 @@ function userProjectEdit(id) {
 	} else {
 		$("#myModalTitle").text("修改承担项目");
 		$(".modal-body").load("userProjectEdit?id=" + id);
-		$('#myModal').modal();
+		$('#myModal').modal('show');
 	}
 }
 

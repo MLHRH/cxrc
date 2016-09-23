@@ -30,12 +30,14 @@
 	<table id="userZhuanliList" class="table table-hover table-bordered table-striped" style="margin-bottom: 10px;">
 		<thead>
 			<tr>
+			   <th width="5%" style="text-align: center;">序号</th>
+				<th width="15%" style="text-align: center;">专利名称</th>
+				<th width="10%" style="text-align: center;">授权号</th>
+				<th width="12%" style="text-align: center;">类别</th>
+				<th width="15%" style="text-align: center;">发明人排序</th>
 				<th width="10%" style="text-align: center;">日期</th>
-				<th width="25%" style="text-align: center;">专利名称</th>
-				<th width="15%" style="text-align: center;">专利数量</th>
-				<th width="18%" style="text-align: center;">排名</th>
-				<th width="17%" style="text-align: center;">级别</th>
-				<th width="15%" style="text-align: center;">操作</th>
+				<th width="15%" style="text-align: center;">授权国别或组织</th>
+				<th width="27%" style="text-align: center;">操作</th>
 			</tr>
 		</thead>
 	</table>
