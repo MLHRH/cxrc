@@ -78,8 +78,26 @@ public class ZhichengController {
 	private CalendarService calendarservice;
 
 	@RequestMapping(value = "zhichengApply", method = RequestMethod.GET)
-	public String zhichengApply(HttpServletRequest request, Model model) {
-		return "zhicheng/zhichengApply";
+	public ModelAndView zhichengApply(HttpServletRequest request, Model model,String applyType) {
+		String type = null;
+		if(applyType != null && applyType !=""){
+			try {
+				type = new String(applyType.getBytes("ISO8859-1"), "UTF-8");
+			} catch (UnsupportedEncodingException e) {
+				e.printStackTrace();
+			}
+			if(type !=null && type.length() > 4){
+				type = type.substring(1, 5);
+			}
+			List<ApplyMenu> menus = applyMenuService.getMenu(type);
+			ModelAndView map = new ModelAndView("zhicheng/zhichengApply");
+			map.addObject("menus", menus);
+			map.addObject("type",menus.get(0).getMenutype());
+			return map;
+		}
+		else{
+			return new ModelAndView("zhicheng/zhichengApply");
+		}
 	}
 
 	@RequestMapping(value = "zhichengApplylist", method = RequestMethod.GET)
@@ -100,6 +118,9 @@ public class ZhichengController {
 			type = new String(applytype.getBytes("ISO8859-1"), "UTF-8");
 		} catch (UnsupportedEncodingException e) {
 			e.printStackTrace();
+		}
+		if(type !=null && type.length() > 4){
+			type = type.substring(1, 5);
 		}
 		List<ApplyMenu> menus = applyMenuService.getMenu(type);
 		ModelAndView map = new ModelAndView("zhicheng/zhichengApply");

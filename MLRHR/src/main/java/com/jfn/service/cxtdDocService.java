@@ -63,9 +63,6 @@ public class cxtdDocService {
 	@Transactional(rollbackFor = Exception.class)
 	public void updateDoc01(CxtdDoc01 cxtddoc01,int user_id,JSONObject result){
 		Integer team_id = cxtddoc01Dao.getTimeId(user_id);
-		if(team_id ==null){
-			cxtddoc01Dao.insertTeamId(user_id);
-		}
 		CxtdBaseInfo baseInfo = cxtddoc01.getBaseInfo();
 		baseInfo.toString();
 		CxtdLeaderInfo leaderInfo = cxtddoc01.getLeaderInfo();
@@ -81,6 +78,10 @@ public class cxtdDocService {
 		CxtdMemberNum memNum = cxtddoc01.getMemNum();
 		memNum.toString();
 		try{
+			if(team_id == null){
+				cxtddoc01Dao.insertTeamId(user_id);
+				team_id = cxtddoc01Dao.getTimeId(user_id);
+			}
 			//基本信息更新
 			if(baseInfo.getId() !=null ){
 				cxtddoc01Dao.updateCxtdBase(baseInfo, user_id);

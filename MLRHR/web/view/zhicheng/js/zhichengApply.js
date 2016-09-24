@@ -1,9 +1,17 @@
+//applyid
 var id = $.query.get("id");
+var type = $.query.get("applyType");
 var contentName = "";
 var zhichengApply;
 var currentRole;
-var user_id = 0;
+var user_id =0;
+//被审核人的ID
+var userId = $.query.get("userid");
+var apply_type="";
 $(document).ready(function() {
+	if(type != null && type !=""){
+		apply_type = type.substring(1,type.length-1);
+	}
 	$.fn.autoHeight = function() {
 		function autoHeight(elem) {
 			elem.style.height = 'auto';
@@ -18,7 +26,6 @@ $(document).ready(function() {
 		});
 	}
 	$('textarea[autoHeight]').autoHeight();
-
 	user_id = $("#userId").val();
 	if (id == null) {
 		$(".isHR").hide();
@@ -29,7 +36,11 @@ $(document).ready(function() {
 	}
 	$("#content").load("docMain");
 	$("#editSave").hide();
-
+	//设置申请类型为不可选择
+	if(apply_type != ""){
+		$("#apply_type").val(apply_type);
+		$("#apply_type").prop("disabled",true);
+	}
 	// 左侧导航添加选中效果
 	$("#orderedlist li").click(function() {
 		$("#editSave").show();
@@ -678,5 +689,7 @@ function getDocList() {
 }
 function applyMenu() {
 	var type = $('#apply_type').val();
-	location.href = 'applyMenu?applytype=' + type;
+	if(type !="请选择"){
+		location.href = 'applyMenu?applytype=' + type;
+	}
 }

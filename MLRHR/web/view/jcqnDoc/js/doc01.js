@@ -2,7 +2,7 @@ var objUser = new Object();
  
 var userBaseInfor_id;
 
-
+var id;
 function initjcqnDoc01() {
 	$.ajax({
 				type : 'get',

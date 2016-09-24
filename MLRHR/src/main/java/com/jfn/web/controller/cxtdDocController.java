@@ -67,7 +67,6 @@ public class cxtdDocController {
 		System.err.println("基本信息"+baseInfo.toString());
 		System.err.println("负责人信息："+leaderInfo.toString());
 		System.err.println("团队成员人数统计"+memNum.toString());
-		
 		cxtdDocService.updateDoc01(doc01, user_id, result);
 		return result;
 		

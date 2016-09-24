@@ -3,11 +3,19 @@ var index_zuzhi = 0;
 //团队成员记录条数
 var index_meminfo = 0;
 //初始化DOC01
+var id;
 function initcxtdDoc01(){
+	//被审核人的ID存在时。此时是审核模式。采用被审核人的ID初始化。
+	if(userId != null && userId !=""){
+		id = userId;
+	}
+	else{
+		id = user_id;
+	}
 	$.ajax({
 		type : 'get',
 		dataType : 'json',
-		url : 'cxtdDoc01Init',
+		url : 'cxtdDoc01Init?userId=' + id,
 		error : function() {
 		},
 		// 请求成功后处理函数。
