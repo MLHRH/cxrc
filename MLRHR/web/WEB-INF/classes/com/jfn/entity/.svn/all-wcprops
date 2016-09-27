@@ -1,0 +1,179 @@
+K 25
+svn:wc:ra_dav:version-url
+V 50
+/svn/MLRHR/!svn/ver/1/src/main/java/com/jfn/entity
+END
+MailItem.java
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/svn/MLRHR/!svn/ver/1/src/main/java/com/jfn/entity/MailItem.java
+END
+Role.java
+K 25
+svn:wc:ra_dav:version-url
+V 60
+/svn/MLRHR/!svn/ver/1/src/main/java/com/jfn/entity/Role.java
+END
+Attachfile.java
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/svn/MLRHR/!svn/ver/1/src/main/java/com/jfn/entity/Attachfile.java
+END
+ZhichengApply.java
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/svn/MLRHR/!svn/ver/1/src/main/java/com/jfn/entity/ZhichengApply.java
+END
+UserProject.java
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/svn/MLRHR/!svn/ver/1/src/main/java/com/jfn/entity/UserProject.java
+END
+UserStudy.java
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/svn/MLRHR/!svn/ver/1/src/main/java/com/jfn/entity/UserStudy.java
+END
+UserPeixun.java
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/svn/MLRHR/!svn/ver/1/src/main/java/com/jfn/entity/UserPeixun.java
+END
+LoginUser.java
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/svn/MLRHR/!svn/ver/1/src/main/java/com/jfn/entity/LoginUser.java
+END
+UserBaseInfor.java
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/svn/MLRHR/!svn/ver/1/src/main/java/com/jfn/entity/UserBaseInfor.java
+END
+UserZhuanli.java
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/svn/MLRHR/!svn/ver/1/src/main/java/com/jfn/entity/UserZhuanli.java
+END
+Calendar.java
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/svn/MLRHR/!svn/ver/1/src/main/java/com/jfn/entity/Calendar.java
+END
+UserReport.java
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/svn/MLRHR/!svn/ver/1/src/main/java/com/jfn/entity/UserReport.java
+END
+News.java
+K 25
+svn:wc:ra_dav:version-url
+V 60
+/svn/MLRHR/!svn/ver/1/src/main/java/com/jfn/entity/News.java
+END
+UserSkill.java
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/svn/MLRHR/!svn/ver/1/src/main/java/com/jfn/entity/UserSkill.java
+END
+User.java
+K 25
+svn:wc:ra_dav:version-url
+V 60
+/svn/MLRHR/!svn/ver/1/src/main/java/com/jfn/entity/User.java
+END
+ActionLog.java
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/svn/MLRHR/!svn/ver/1/src/main/java/com/jfn/entity/ActionLog.java
+END
+UserWork.java
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/svn/MLRHR/!svn/ver/1/src/main/java/com/jfn/entity/UserWork.java
+END
+MailItem2.java
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/svn/MLRHR/!svn/ver/1/src/main/java/com/jfn/entity/MailItem2.java
+END
+AttachItem.java
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/svn/MLRHR/!svn/ver/1/src/main/java/com/jfn/entity/AttachItem.java
+END
+AttachComment.java
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/svn/MLRHR/!svn/ver/1/src/main/java/com/jfn/entity/AttachComment.java
+END
+ZhichengDoc02.java
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/svn/MLRHR/!svn/ver/1/src/main/java/com/jfn/entity/ZhichengDoc02.java
+END
+Authority.java
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/svn/MLRHR/!svn/ver/1/src/main/java/com/jfn/entity/Authority.java
+END
+UserExam.java
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/svn/MLRHR/!svn/ver/1/src/main/java/com/jfn/entity/UserExam.java
+END
+UserBusiness.java
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/svn/MLRHR/!svn/ver/1/src/main/java/com/jfn/entity/UserBusiness.java
+END
+UserAward.java
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/svn/MLRHR/!svn/ver/1/src/main/java/com/jfn/entity/UserAward.java
+END
+Body.java
+K 25
+svn:wc:ra_dav:version-url
+V 60
+/svn/MLRHR/!svn/ver/1/src/main/java/com/jfn/entity/Body.java
+END
+ZhichengDoc08.java
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/svn/MLRHR/!svn/ver/1/src/main/java/com/jfn/entity/ZhichengDoc08.java
+END
+UserChengguo.java
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/svn/MLRHR/!svn/ver/1/src/main/java/com/jfn/entity/UserChengguo.java
+END
+UserSkill_2.java
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/svn/MLRHR/!svn/ver/1/src/main/java/com/jfn/entity/UserSkill_2.java
+END

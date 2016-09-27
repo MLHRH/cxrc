@@ -1,0 +1,47 @@
+K 25
+svn:wc:ra_dav:version-url
+V 56
+/svn/MLRHR/!svn/ver/1/src/main/java/com/jfn/common/pager
+END
+DataTablesResponse.java
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/svn/MLRHR/!svn/ver/1/src/main/java/com/jfn/common/pager/DataTablesResponse.java
+END
+JQueryDataTableParamModel.java
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svn/MLRHR/!svn/ver/1/src/main/java/com/jfn/common/pager/JQueryDataTableParamModel.java
+END
+DataTablesParamUtility.java
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svn/MLRHR/!svn/ver/1/src/main/java/com/jfn/common/pager/DataTablesParamUtility.java
+END
+Pagination.java
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/svn/MLRHR/!svn/ver/1/src/main/java/com/jfn/common/pager/Pagination.java
+END
+PaginationHelper.java
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svn/MLRHR/!svn/ver/1/src/main/java/com/jfn/common/pager/PaginationHelper.java
+END
+Page.java
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/svn/MLRHR/!svn/ver/1/src/main/java/com/jfn/common/pager/Page.java
+END
+DataTablesRequest.java
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svn/MLRHR/!svn/ver/1/src/main/java/com/jfn/common/pager/DataTablesRequest.java
+END

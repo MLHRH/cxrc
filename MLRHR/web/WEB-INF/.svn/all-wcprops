@@ -1,0 +1,35 @@
+K 25
+svn:wc:ra_dav:version-url
+V 33
+/svn/MLRHR/!svn/ver/1/web/WEB-INF
+END
+logback.xml
+K 25
+svn:wc:ra_dav:version-url
+V 45
+/svn/MLRHR/!svn/ver/1/web/WEB-INF/logback.xml
+END
+applicationContext.xml
+K 25
+svn:wc:ra_dav:version-url
+V 56
+/svn/MLRHR/!svn/ver/1/web/WEB-INF/applicationContext.xml
+END
+dispatcher-servlet.xml
+K 25
+svn:wc:ra_dav:version-url
+V 56
+/svn/MLRHR/!svn/ver/1/web/WEB-INF/dispatcher-servlet.xml
+END
+applicationContext-security.xml
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/svn/MLRHR/!svn/ver/1/web/WEB-INF/applicationContext-security.xml
+END
+web.xml
+K 25
+svn:wc:ra_dav:version-url
+V 41
+/svn/MLRHR/!svn/ver/1/web/WEB-INF/web.xml
+END

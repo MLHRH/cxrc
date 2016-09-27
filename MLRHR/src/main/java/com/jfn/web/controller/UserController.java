@@ -1,0 +1,313 @@
+package com.jfn.web.controller;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import javax.servlet.http.HttpServletRequest;
+
+import net.sf.json.JSONArray;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
+import org.springside.modules.security.springsecurity.SpringSecurityUtils;
+import org.springside.modules.utils.MD5Utils;
+
+import com.alibaba.fastjson.JSON;
+import com.google.gson.JsonObject;
+import com.jfn.entity.Role;
+import com.jfn.entity.User;
+import com.jfn.entity.UserBaseInfor;
+import com.jfn.service.AccountManager;
+import com.jfn.service.BodyService;
+import com.jfn.service.UserBaseInforService;
+import com.jfn.service.UserChengguoService;
+import com.jfn.service.UserExamService;
+import com.jfn.service.UserPeixunService;
+import com.jfn.service.UserProjectService;
+import com.jfn.service.UserService;
+import com.jfn.service.UserBaogaoService;
+import com.jfn.service.UserWorkService;
+
+@Controller
+@RequestMapping("/")
+public class UserController {
+	@Autowired
+	private UserService service;
+	@Autowired
+	private UserBaseInforService userbaseinforservice;
+	@Autowired
+	private UserChengguoService userchengguoservice;
+	@Autowired
+	private UserExamService userexamservice;
+	@Autowired
+	private UserPeixunService userpeixunservice;
+	@Autowired
+	private UserProjectService userprojectservice;
+	@Autowired
+	private UserBaogaoService userstudyservice;
+	@Autowired
+	private UserWorkService userworkservice;
+	@Autowired
+	private AccountManager accountManager;
+	@Autowired
+	private BodyService bodyservice;
+
+	@RequestMapping(value = "/adduser", method = RequestMethod.GET)
+	public String userAdd(HttpServletRequest request, Model model) {
+		// model.addAttribute( "bodyList", bodyservice.getAll());
+		return "system/useredit";
+	}
+
+	@RequestMapping(value = "/userBaseInfor", method = RequestMethod.GET)
+	public String list(HttpServletRequest request, Model model) {
+
+		User user = accountManager.findUserByLoginName(SpringSecurityUtils.getCurrentUserName());
+
+		String infoType = request.getParameter("bt");
+		if (infoType == null) {
+			infoType = "base";
+		}
+		if (user == null || user.getId() == null) {
+			model.addAttribute("infoType", infoType);
+			return "userBaseInfor/userBaseInfor";
+		}
+		if (infoType.equals("base")) {
+
+			model.addAttribute("bodyList", bodyservice.getAll());
+		}
+		if (infoType.equals("study")) {
+			model.addAttribute("studylist", userstudyservice.getAllByUserId(user.getId().toString()));
+		}
+		if (infoType.equals("work")) {
+			model.addAttribute("worklist", userworkservice.getAllByUserId(user.getId().toString()));
+		}
+		if (infoType.equals("project")) {
+			model.addAttribute("projectlist", userprojectservice.getAllByUserId(user.getId().toString()));
+		}
+		if (infoType.equals("exam")) {
+			model.addAttribute("examlist", userexamservice.getAllByUserId(user.getId().toString()));
+		}
+		if (infoType.equals("peixun")) {
+			model.addAttribute("peixunlist", userpeixunservice.getAllByUserId(user.getId().toString()));
+		}
+		if (infoType.equals("chengguo")) {
+			model.addAttribute("chengguolist", userchengguoservice.getAllByUserId(user.getId().toString()));
+		}
+
+		model.addAttribute("user", user);
+
+		model.addAttribute("infoType", infoType);
+		return "userBaseInfor/userBaseInfor";
+	}
+
+	@RequestMapping(value = "/userBase", method = RequestMethod.GET)
+	public String userBase(HttpServletRequest request, Model model) {
+
+		User user = accountManager.findUserByLoginName(SpringSecurityUtils.getCurrentUserName());
+		UserBaseInfor userbaseinfor = userbaseinforservice.getByUserId(user.getId().toString());
+		model.addAttribute("bodyList", bodyservice.getAll());
+		model.addAttribute("user", user);
+		model.addAttribute("userbaseinfor", userbaseinfor);
+		return "userBaseInfor/userBase";
+	}
+
+	@RequestMapping(value = "/userEdit", method = RequestMethod.GET)
+	public String edit(HttpServletRequest request, Model model) {
+		String userId = request.getParameter("id");
+		if (userId != null) {
+			User user = service.getById(userId);
+			model.addAttribute("user", user);
+		}
+		return "body/userEdit";
+	}
+
+	@RequestMapping(value = "/userdel", method = RequestMethod.POST)
+	@ResponseBody
+	public String delete(HttpServletRequest request, Model model) {
+		JsonObject jsonResponse = new JsonObject();
+		String userId = request.getParameter("id");
+		int result = 0;// 0:fail;1:success
+		String msg = "Failed to delete this user!";
+		if (userId != null) {
+
+			result = service.deleteUser(userId) ? 1 : 0;
+
+			UserBaseInfor userbaseinfor = userbaseinforservice.getByUserId(userId);
+			result = userbaseinforservice.deleteUserBaseInfor(userbaseinfor.getUser_id().toString()) ? 1 : 0;
+			msg = "You have successfully DELETED this user.";
+		} else {
+			return "404";
+		}
+
+		jsonResponse.addProperty("result", result);
+		jsonResponse.addProperty("msg", msg);
+		return jsonResponse.toString();
+
+	}
+
+	@RequestMapping(value = "/userupdate", method = RequestMethod.POST)
+	@ResponseBody
+	public String userUpdate(HttpServletRequest request) {
+		JsonObject jsonResponse = new JsonObject();
+		int result = 0;// 0:fail;1:success
+		String msg = "Failed to %s this user";
+
+		String id = request.getParameter("id");
+		String name = request.getParameter("name");
+		String id_num = request.getParameter("id_num");
+		String email = request.getParameter("email");
+		String password = request.getParameter("password");
+		String body_id = request.getParameter("body_id");
+		String role_type = request.getParameter("role_type");
+		try {
+			if ((id == null) || (id.length() < 1)) {
+				if (!service.checkUsernameExists(id_num)) {
+					result = 2;
+				} else {
+					result = service.regUser(name, id_num, email, body_id, password) ? 1 : 0;
+					if (result == 1) {
+						User userobj = service.getUserIdByLoginName(id_num);
+						if (role_type.equals("0")) {
+							service.setRight(userobj.getId(), "普通职工");
+						}
+						if (role_type.equals("1")) {
+							service.setRight(userobj.getId(), "初级审核人员");
+						}
+						if (role_type.equals("2")) {
+							service.setRight(userobj.getId(), "高级审核人员");
+						}
+
+						UserBaseInfor userbaseinfor = new UserBaseInfor();
+						userbaseinfor.setUser_id(userobj.getId());
+						userbaseinfor.setGender("男");
+						userbaseinforservice.userBaseInforInsert(userbaseinfor);
+					}
+				}
+			} else {
+				User entity = service.getById(id);
+				entity.setName(name);
+				entity.setId_num(id_num);
+				entity.setLoginName(id_num);
+				if (!body_id.equals("1")) {
+					entity.setBody_id(body_id);
+				}
+				entity.setPassword(MD5Utils.PasswordEncryptByMD5(password));
+				result = service.userUpdate(entity) ? 1 : 0;
+			}
+		} catch (Exception e) {
+			result = 0;
+			msg = msg + ": " + e.getMessage();
+		}
+		jsonResponse.addProperty("result", result);
+		jsonResponse.addProperty("msg", String.format(msg, (id == null) ? "add" : "edit"));
+		return jsonResponse.toString();
+	}
+
+	// //获取登陆用户信息详情
+	// @RequestMapping(value = "/userdetail", method = RequestMethod.GET)
+	// public String useDetail( HttpServletRequest request, Model model )
+	// {
+	// HttpSession session = request.getSession();
+	// if( session.getAttribute( "loginuser" ) != null )
+	// {
+	// User user =
+	// accountManager.findUserByLoginName(SpringSecurityUtils.getCurrentUserName());
+	// // User user2 = service.getById( user.getId().toString() );
+	// model.addAttribute( "user", user );
+	//
+	// return "system/UserDetail";
+	// }
+	// else
+	// {
+	// return "404";
+	// }
+	// }
+
+	// 完善基础信息（不修改login_name,login_pwd）
+	@RequestMapping(value = "/updateUser", method = RequestMethod.POST)
+	@ResponseBody
+	public String updateUser(HttpServletRequest request, @ModelAttribute User entity) {
+		JsonObject jsonResponse = new JsonObject();
+		int result = 0;// 0:fail;1:success
+		String msg = "测试 测试 Failed to %s this user";
+		String id = request.getParameter("id");
+		try {
+			if ((id == null) || (id.length() < 1)) {
+				result = service.userInsert(entity) ? 1 : 0;
+			} else {
+				result = service.userUpdateDetail(entity) ? 1 : 0;
+			}
+		} catch (Exception e) {
+			result = 0;
+			msg = msg + ": " + e.getMessage();
+		}
+		jsonResponse.addProperty("result", result);
+		jsonResponse.addProperty("msg", String.format(msg, (id == null) ? "add" : "edit"));
+		return jsonResponse.toString();
+	}
+
+	@RequestMapping(value = "/updateUserBaseDetail", method = RequestMethod.POST)
+	@ResponseBody
+	public String DetailUpdate_user_base(HttpServletRequest request, @ModelAttribute UserBaseInfor entity) {
+		JsonObject jsonResponse = new JsonObject();
+		int result = 0;// 0:fail;1:success
+		String msg = "Failed to %s this user";
+		String id = request.getParameter("id");
+		try {
+			if ((id == null) || (id.length() < 1)) {
+				result = userbaseinforservice.userBaseInforInsert(entity) ? 1 : 0;
+			} else {
+				result = userbaseinforservice.userBaseInforUpdateDetail(entity) ? 1 : 0;
+			}
+		} catch (Exception e) {
+			result = 0;
+			msg = msg + ": " + e.getMessage();
+		}
+		jsonResponse.addProperty("result", result);
+		jsonResponse.addProperty("msg", String.format(msg, (id == null) ? "add" : "edit"));
+		return jsonResponse.toString();
+	}
+
+	@RequestMapping(value = "/userbybodyid", method = RequestMethod.GET)
+	@ResponseBody
+	public String userbybodyid(HttpServletRequest request, @ModelAttribute User entity) {
+		JsonObject jsonResponse = new JsonObject();
+		int result = 0;// 0:fail;1:success
+		String msg = "Failed to %s this user";
+		String body_id = request.getParameter("body_id");
+		String role_type = request.getParameter("role_type");
+		ArrayList<User> userListNew = new ArrayList<User>();
+		List<User> userList = new ArrayList<User>();
+		if (body_id != null) {
+			if (body_id.equals("1")) {
+				userList = service.getAll();// 数据库中获取源数据
+			} else {
+				userList = service.getAllByBodyId(body_id);// 数据库中获取源数据
+				System.err.println("userList========="+JSON.toJSONString(userList));
+			}
+			if (userList.size() != 0) {
+				for (User user : userList) {
+					List<Role> roleList = service.getUserRole(user.getId());
+				
+					if (role_type.equals("0") && roleList.get(0).getName().equals("普通职工")) {
+				
+						userListNew.add(user);
+				
+					} else if (role_type.equals("1") && roleList.get(0).getName().equals("初级审核人员")) {
+						userListNew.add(user);
+					} else if (role_type.equals("2") && roleList.get(0).getName().equals("高级审核人员")) {
+						userListNew.add(user);
+					}	 
+				}
+			}
+		}
+		JSONArray jsonArray = new JSONArray();
+		jsonArray.add(userListNew);
+		return jsonArray.toString();
+	}
+}

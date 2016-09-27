@@ -1,0 +1,38 @@
+@charset "utf-8";
+
+#wrapper {
+	width: 100%;
+	margin-left: auto;
+	margin-right: auto;
+	padding-top: 30px;
+	font-family: verdana;
+	font-size: 12px;
+}
+
+.question {
+	width: 100%;
+	float: left;
+	background: #fff;
+	padding-left: 20px;
+	padding-top: 10px;
+	cursor: pointer;
+	background-image: url(../images/arrow.gif);
+	background-position: 4px -19px;
+	background-repeat: no-repeat;
+	border-bottom:1px dashed #53A9DA;
+}
+
+.answer {
+	width: 100%;
+	float: left;
+	padding-top: 10px;
+	padding-bottom: 10px;
+	margin-left: 20px;
+	background: #fff;
+}
+
+.active {
+	background-image: url(../images/arrow.gif);
+	background-repeat: no-repeat;
+	background-position: 4px 11px;
+}
