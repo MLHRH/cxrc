@@ -69,7 +69,7 @@
 									</li>
 								</security:authorize>
 								<li>
-									<a href="${ctx}/bodyManger">分组管理</a>
+									<a href="${ctx}/bodyManger">机构管理</a>
 								</li>
 
 							</ul>

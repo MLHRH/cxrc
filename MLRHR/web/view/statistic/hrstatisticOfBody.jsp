@@ -10,7 +10,7 @@
 </head>
 <body>
 	<div class="container-fluid">
-		<h3>职称申报情况统计</h3>
+		<h3>人才申报情况统计</h3>
 		<div style="width: 98%; margin-bottom: 0px; margin-left: 10px;">
 			<div class="caption" style="float: left; margin-left: 20px">
 				<canvas id="canvas" height="180px"></canvas>

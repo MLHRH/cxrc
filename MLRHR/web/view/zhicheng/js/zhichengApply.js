@@ -235,7 +235,8 @@ function initApplication() {
 
 			if (currentRole == null)
 				for (var i = 0; i < arr.length - 1; i++) {
-					if (arr[i] == "ROLE_PROFESSOR") {
+					if (arr[i] == "ROLE_PROFESSOR") {span9
+						$(".icon-edit").hide();
 						$(".isHR").hide();
 						$(".isEXP").hide();
 						$(".isSTA").show();
@@ -252,6 +253,7 @@ function initApplication() {
 			if (currentRole == null)
 				for (var i = 0; i < arr.length - 1; i++) {
 					if (arr[i] == "ROLE_HR") {
+						$(".icon-edit").hide()
 						$(".isHR").hide();
 						$(".isEXP").hide();
 						$(".span2").show();
@@ -268,6 +270,7 @@ function initApplication() {
 			if (currentRole == null)
 				for (var i = 0; i < arr.length - 1; i++) {
 					if (arr[i] == "ROLE_EXPERT1") {
+						$(".btn btn-small btn-info").hide()
 						$(".isEXP").show();
 						$(".isHR").show();
 						$(".isSTA").show();
@@ -287,6 +290,8 @@ function initApplication() {
 			if (currentRole == null)
 				for (var i = 0; i < arr.length - 1; i++) {
 					if (arr[i] == "ROLE_EXPERT2") {
+	
+						$("#editSave").hide();
 						$(".isEXP").show();
 						$(".isHR").show();
 						$(".isSTA").show();
@@ -305,7 +310,8 @@ function initApplication() {
 			if (currentRole == null)
 				for (var i = 0; i < arr.length - 1; i++) {
 					if (arr[i] == "ROLE_USER") {
-			
+						
+						$(".icon-edit").show()
 						$(".isEXP").hide();
 						$(".isUSER").hide();
 						$("#zhichengapply_pre_approve_sug").attr("disabled",
@@ -559,7 +565,7 @@ function zhichengApplyUpdate() {
 			"success" : function(rst) {
 				if (rst.result == 1) {
 					noty({
-						text : '职称申请 更新完成！',
+						text : '人才申请 更新完成！',
 						type : 'success',
 						dismissQueue : false,
 						closeWith : [ 'click', 'button' ],

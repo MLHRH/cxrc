@@ -97,7 +97,7 @@ body {
 	<div class="container-fluid" style="margin-bottom: 20px">
 		<div class="row-fluid">
 			<div class="page-header" align="left">
-				<h2>分组管理</h2>
+				<h2>机构管理</h2>
 			</div>
 			<div class="row-fluid" align="center">
 

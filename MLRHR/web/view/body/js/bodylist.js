@@ -148,7 +148,7 @@ function initBodyListDataTables(data) {
 							"data" : null,
 							"class" : "center",
 							"render" : function(data) {
-								return "<a class='btn btn-small btn-info' href='javascript:void(0)' onClick='bodyListCheck(" + data.id + ")'><i class='icon-search'></i> 职称审核</a>";
+								return "<a class='btn btn-small btn-info' href='javascript:void(0)' onClick='bodyListCheck(" + data.id + ")'><i class='icon-search'></i> 人才审核</a>";
 							}
 						}]
 			});

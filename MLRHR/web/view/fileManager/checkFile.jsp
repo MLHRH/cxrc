@@ -3,7 +3,7 @@
 <html lang="zh-CN">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>中国地质科学院自然科学系列职称申报系统</title>
+<title>国土资源科技创新人才工程管理信息系统</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description" content="">
 <meta name="author" content="">

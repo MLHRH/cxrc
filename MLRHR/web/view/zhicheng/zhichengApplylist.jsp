@@ -58,7 +58,7 @@ body {
 		<div class="row-fluid">
 			<div class="row-fluid">
 				<div class="page-header">
-					<h2>职称申报</h2>
+					<h2>人才申报</h2>
 				</div>
 				<div class="span8" style="width: 90%">
 

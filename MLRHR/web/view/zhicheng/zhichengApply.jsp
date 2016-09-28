@@ -182,7 +182,7 @@ body {
 				</div>
 
 				<div align="center" class="span9" style="margin-left: 20px; border: 1px solid #999; border-radius: 4px; padding: 3px;">
-					<div style="height: 30px;; border-radius: 4px;" id="editSave">
+					<div style="height: 30px;display:inline; border-radius: 4px;" id="editSave">
 						<a style="margin: 0 auto; float: right;" class="btn btn-small btn-info" href="javascript:void(0)" onClick="save()">
 							<i class="icon-edit"></i>保存修改
 						</a>

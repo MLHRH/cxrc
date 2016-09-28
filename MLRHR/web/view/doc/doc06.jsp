@@ -323,7 +323,7 @@
 			<tr style='page-break-inside: avoid; line-height: 50px'>
 				<td colspan=5 style='border: solid windowtext 1.0pt; border-top: none; padding: 0cm 5.4pt 0cm 5.4pt'>
 					<div class=MsoNormal align=center style='text-align: center'>
-						<span style='font-size: 14.0pt; font-family: 华文仿宋'>符合职称申报条件中的</span>
+						<span style='font-size: 14.0pt; font-family: 华文仿宋'>符合人才申报条件中的</span>
 					</div>
 				</td>
 				<td colspan=3 style='border-top: none; border-left: none; border-bottom: solid windowtext 1.0pt; border-right: solid windowtext 1.0pt; padding: 0cm 5.4pt 0cm 5.4pt'>

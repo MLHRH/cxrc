@@ -74,7 +74,7 @@ body {
 	<div class="container-fluid" style="margin-bottom: 20px">
 		<div class="row-fluid">
 			<div class="page-header" align="left">
-				<h2>职称审核</h2>
+				<h2>人才审核</h2>
 			</div>
 			<div class="row-fluid" align="center">
 
