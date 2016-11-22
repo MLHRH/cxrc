@@ -128,6 +128,9 @@ function init(contentName) {
 	case "cxtdDoc06":
 		initcxtdDoc06();
 		break;
+	case "cxtdDoc07":
+		initcxtdDoc07();
+		break;
 	default:
 		break;
 	}
@@ -194,6 +197,9 @@ function save() {
 		break;
 	case "cxtdDoc06":
 		updatecxtdDoc06();
+		break;
+	case "cxtdDoc07":
+		updatecxtdDoc07();
 		break;
 	default:
 		break;
@@ -672,7 +678,7 @@ function getDocList() {
 			+ '<li id="jcqnDoc04"><a href="javascript:void(0)">4. 未来研究计划及当前研究基础</a></li>'
 			+ '<li id="jcqnDoc05"><a href="javascript:void(0)">5. 工作单位发展需求与推荐人选的相关性及工作单位提供的支持保障措施</a></li>'
 			+ '<li id="jcqnDoc06"><a href="javascript:void(0)">6. 承诺与推荐意见</a><br></li>'
-			+ '<li id="jcqnDoc06"><a href="javascript:void(0)">7. 报送材料明细</a></li></ul>'
+			+ '<li id="jcqnDoc07"><a href="javascript:void(0)">7. 专家评分</a></li></ul>'
 	var kjlj_list = '<ul class="nav nav-list" id="orderedlist">'
 			+ '<li id="kjljDoc01"><a href="javascript:void(0)">1. 基本信息 </a></li>'
 			+ '<li id="kjljDoc02"><a href="javascript:void(0)">2. 近5年主要科研情况</a></li>'
@@ -680,7 +686,7 @@ function getDocList() {
 			+ '<li id="kjljDoc04"><a href="javascript:void(0)">4. 未来研究计划及当前研究基础</a></li>'
 			+ '<li id="kjljDoc05"><a href="javascript:void(0)">5. 工作单位发展需求与推荐人选的相关性及工作单位提供的支持保障措施</a></li>'
 			+ '<li id="kjljDoc06"><a href="javascript:void(0)">6. 承诺与推荐意见</a><br></li>'
-			+ '<li id="kjljDoc06"><a href="javascript:void(0)">7. 报送材料明细</a></li></ul>'
+			+ '<li id="kjljDoc06"><a href="javascript:void(0)">7. 专家评分</a></li></ul>'
 	var cxtd_list = '<ul class="nav nav-list" id="orderedlist">'
 			+ '<li id="cxtdDoc01"><a href="javascript:void(0)">1. 基本信息 </a></li>'
 			+ '<li id="cxtdDoc02"><a href="javascript:void(0)">2. 近5年主要科研情况</a></li>'
@@ -688,7 +694,7 @@ function getDocList() {
 			+ '<li id="cxtdDoc04"><a href="javascript:void(0)">4. 团队发展规划及基础情况</a></li>'
 			+ '<li id="cxtdDoc05"><a href="javascript:void(0)">5. 工作单位发展需求与推荐团队的相关性及工作单位提供的支持保障措施</a></li>'
 			+ '<li id="cxtdDoc06"><a href="javascript:void(0)">6. 承诺与推荐意见</a><br></li>'
-			+ '<li id="cxtdDoc06"><a href="javascript:void(0)">7. 报送材料明细</a></li></ul>'
+			+ '<li id="cxtdDoc06"><a href="javascript:void(0)">7. 专家评分</a></li></ul>'
 	$('#orderedlist').remove();
 	if (type == "杰出青年") {
 		$('#nav').append(jcqn_list);

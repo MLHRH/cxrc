@@ -79,15 +79,15 @@ body {
 <script type="text/javascript" src="${ctx}/view/jcqnDoc/js/doc03.js"></script>
 <script type="text/javascript" src="${ctx}/view/jcqnDoc/js/doc04.js"></script>
 <script type="text/javascript" src="${ctx}/view/jcqnDoc/js/doc05.js"></script>
-<%-- <script type="text/javascript" src="${ctx}/view/jcqnDoc/js/doc06.js"></script>
-<script type="text/javascript" src="${ctx}/view/jcqnDoc/js/doc07.js"></script> --%>
+<script type="text/javascript" src="${ctx}/view/jcqnDoc/js/doc06.js"></script>
+<script type="text/javascript" src="${ctx}/view/jcqnDoc/js/doc07.js"></script> 
 
 <script type="text/javascript" src="${ctx}/view/kjljDoc/js/doc01.js"></script>
 <script type="text/javascript" src="${ctx}/view/kjljDoc/js/doc02.js"></script>
 <script type="text/javascript" src="${ctx}/view/kjljDoc/js/doc03.js"></script>
 <script type="text/javascript" src="${ctx}/view/kjljDoc/js/doc04.js"></script>
 <script type="text/javascript" src="${ctx}/view/kjljDoc/js/doc05.js"></script>
-
+<script type="text/javascript" src="${ctx}/view/kjljDoc/js/doc07.js"></script>
 <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
 <!--[if lt IE 9]>
       <script src="../assets/js/html5shiv.js"></script>
