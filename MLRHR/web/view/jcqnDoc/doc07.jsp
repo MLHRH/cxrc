@@ -20,7 +20,7 @@
 			<b> <span style='font-size: 12.0pt;  letter-spacing: 1.0pt'>评语：</span>
 			</b>
 		</p>
-						<textarea style="width: 900px; height: 200px" id="pingyu"></textarea>
+						<textarea style="width: 900px; height: 200px" id="expert_pingyu"></textarea>
 					</td>
 				
 </tr>

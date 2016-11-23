@@ -4,7 +4,8 @@ var type = $.query.get("applyType");
 var contentName = "";
 var zhichengApply;
 var currentRole;
-var user_id =0;
+//登录者Id
+var user_id ;
 //被审核人的ID
 var userId = $.query.get("userid");
 var apply_type="";
@@ -234,7 +235,7 @@ function initApplication() {
 			autoHeight_2($("#zhichengapply_expert1_sug")[0]);
 			autoHeight_2($("#zhichengapply_expert2_score")[0]);
 			autoHeight_2($("#zhichengapply_expert2_sug")[0]);
-			user_id = zhichengApply.user_id;
+			userId = zhichengApply.user_id;
 
 			var authority = data[1].authority;
 			var arr = authority.split("|");
@@ -359,7 +360,7 @@ function zhichengApplyUpdate() {
 		var expert2_sug;
 
 		if (zhichengApply == null) {
-			user_id = $("#userId").val();
+			userId = $("#userId").val();
 			status = "待审核";
 
 			var myDate = new Date();
@@ -381,7 +382,7 @@ function zhichengApplyUpdate() {
 //			 "name" : "file_name",
 //			 "value" : zhichengApply.file_name
 //			 });
-			user_id = zhichengApply.user_id;
+			userId = zhichengApply.user_id;
 
 			if (currentRole == "ROLE_USER") {
 				pre_approve_date = zhichengApply.pre_approve_date;
@@ -486,7 +487,7 @@ function zhichengApplyUpdate() {
 
 		arrData.push({
 			"name" : "user_id",
-			"value" : user_id
+			"value" : userId
 		});
 //		arrData.push({
 //			"name" : "apply_date",

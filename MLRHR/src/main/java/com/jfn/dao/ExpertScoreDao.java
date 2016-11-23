@@ -16,7 +16,7 @@ import com.jfn.entity.JcqnDoc04;
 public class ExpertScoreDao {
 	@Autowired
 	private JdbcTemplate jdbcTemplate;
-	private final String SQL_Get_BY_USERID = "select * from expert_score where expert_id=?";
+	private final String SQL_Get_BY_USERID = "select * from expert_score where expert_id=? and user_id=?";
 	private final String SQL_INSERT = "insert into expert_score(expert_id,user_id,expert_score,expert_pingyu) values(?,?,?,?)";
 	private final String SQL_SET_UPDATE = "update expert_score set user_id=?,expert_score=?,expert_pingyu=? where expert_id=?";
 	
@@ -26,9 +26,9 @@ public class ExpertScoreDao {
 				new Object[] {expertScore.getExpert_id(),expertScore.getUser_id(),expertScore.getExpert_score(),expertScore.getExpert_pingyu()}) == 1;
 	}
 	
-	public ExpertScore getByExpertId( int expert_id )
+	public ExpertScore getByExpertId( int expert_id ,int user_id )
 	{
-		return jdbcTemplate.query( SQL_Get_BY_USERID, new Object[]{expert_id},
+		return jdbcTemplate.query( SQL_Get_BY_USERID, new Object[]{expert_id,user_id},
 				new ResultSetExtractor<ExpertScore>()
 				{
 			@Override

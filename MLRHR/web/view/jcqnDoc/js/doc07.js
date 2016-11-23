@@ -1,16 +1,17 @@
 var objUser = new Object();
  
-var userBaseInfor_id;
+var userBaseInfor_id ;
+
 //专家ID
-var user_id;
+var  user_id;
 // 被审核人ID
-var userId = $.query.get("userid");
+var userid = $.query.get("userid");
 function initjcqnDoc07() {
 	
 	$.ajax({
 				type : 'get',
 				dataType : 'json',
-				url : 'jcqnDoc07Init?user_id=' + user_id,// 请求的路径
+				url : 'jcqnDoc07Init?userid=' + userid +'& expert_id= '+user_id,// 请求的路径
 				error : function() {// 请求失败处理函数
 					alert('请求失败');
 				},
@@ -21,7 +22,7 @@ function initjcqnDoc07() {
 					var day = myDate.getDate();
 					$('#currentDate').html(year + "年" + month + "月" + day + "日");
 					$('#expert_score').val(data.expert_score);	
-					$('#pingyu').val(data.pingyu);				
+					$('#expert_pingyu').val(data.expert_pingyu);				
 					
 				} 
 			});
@@ -32,15 +33,15 @@ function updatejcqnDoc07() {
 	var arrData = new Array();
 	arrData.push({
 		"name" : "user_id",
-		"value" : userId
+		"value" : userid
 	});
 	arrData.push({
 		"name" : "expert_id",
 		"value" : user_id
 	});
 	arrData.push({
-		"name":"pingyu",
-		"value":$('#pingyu').val()
+		"name":"expert_pingyu",
+		"value":$('#expert_pingyu').val()
 	});
 	arrData.push({
 		"name":"expert_score",
