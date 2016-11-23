@@ -129,7 +129,7 @@ body {
             		</ul>
 					</div>
 					
-					<div class="control-group isUSER" align="left">
+					<!-- <div class="control-group isUSER" align="left">
 						<label class="text-error">初审意见：</label>
 						<textarea  autoHeight="true" style="width: 95%; min-height: 50px; overflow:hidden;" id="zhichengapply_pre_approve_sug"></textarea>
 					</div>
@@ -140,7 +140,7 @@ body {
 					
 					<div class="control-group  isEXP" align="left">
 						<label class="text-error">初审专家评分：</label>
-						<!--  <textarea  autoHeight="true" style="width: 95%; min-height: 10px; overflow:hidden;" id="zhichengapply_expert1_score"></textarea>-->
+						 <textarea  autoHeight="true" style="width: 95%; min-height: 10px; overflow:hidden;" id="zhichengapply_expert1_score"></textarea>
 						<input type="text" id="zhichengapply_expert1_score" style="text-align: center; font-size: 16.0pt; font-family: 仿宋; display: inline-block; height: 0%; width: 95%; padding: 0px; margin: 3px; border-radius: 0px" />
 					</div>
 					
@@ -151,7 +151,7 @@ body {
 					
 						<div class="control-group isEXP" align="left">
 						<label class="text-error">终审专家评分：</label>
-						<!-- <textarea  autoHeight="true" style="width: 95%; min-height: 5px; overflow:hidden;" id="zhichengapply_expert2_score"></textarea> -->
+						<textarea  autoHeight="true" style="width: 95%; min-height: 5px; overflow:hidden;" id="zhichengapply_expert2_score"></textarea>
 						<input type="text" id="zhichengapply_expert2_score" style="text-align: center; font-size: 16.0pt; font-family: 仿宋; display: inline-block; height: 0%; width: 95%; padding: 0px; margin: 3px; border-radius: 0px" />
 						
 					</div>
@@ -170,7 +170,7 @@ body {
 							<option value="已通过" class="isEXPERT2">终审通过</option>
 							<option value="未通过">审核不通过</option>
 						</select>
-					</div>
+					</div> -->
 
 					<div class="control-group" align="center">
 						<div class="controls">

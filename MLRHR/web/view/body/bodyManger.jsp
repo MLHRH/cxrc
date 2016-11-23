@@ -110,10 +110,10 @@ body {
 							<a href="javascript:void(0)">普通职工</a>
 						</li>
 						<li id="nav2" onclick="setStatus(1)">
-							<a href="javascript:void(0)">初级审核人员</a>
+							<a href="javascript:void(0)">初级管理员</a>
 						</li>
 						<li id="nav3" onclick="setStatus(2)">
-							<a href="javascript:void(0)">高级审核人员</a>
+							<a href="javascript:void(0)">高级管理员</a>
 						</li>
 					</ul>
 					<div style="text-align: left;">
