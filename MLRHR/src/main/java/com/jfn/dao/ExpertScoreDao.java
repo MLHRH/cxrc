@@ -18,7 +18,7 @@ public class ExpertScoreDao {
 	private JdbcTemplate jdbcTemplate;
 	private final String SQL_Get_BY_USERID = "select * from expert_score where expert_id=? and user_id=?";
 	private final String SQL_INSERT = "insert into expert_score(expert_id,user_id,expert_score,expert_pingyu) values(?,?,?,?)";
-	private final String SQL_SET_UPDATE = "update expert_score set user_id=?,expert_score=?,expert_pingyu=? where expert_id=?";
+	private final String SQL_SET_UPDATE = "update expert_score set expert_score=?,expert_pingyu=? where expert_id=? and user_id=?";
 	
 	
 	public boolean insert(ExpertScore expertScore) {
@@ -53,10 +53,10 @@ public class ExpertScoreDao {
 	public boolean update(ExpertScore expertScore){
 		Object[] params = new Object[] {
 			
-                 expertScore.getExpert_id(),
-                 expertScore.getUser_id(),
 			     expertScore.getExpert_score(),
-			     expertScore.getExpert_pingyu()
+			     expertScore.getExpert_pingyu(),
+			     expertScore.getExpert_id(),
+			     expertScore.getUser_id()
 				
 		};
 		return jdbcTemplate.update(SQL_SET_UPDATE,params) == 1;
