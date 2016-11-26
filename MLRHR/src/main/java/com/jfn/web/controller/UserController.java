@@ -176,10 +176,10 @@ public class UserController {
 							service.setRight(userobj.getId(), "普通职工");
 						}
 						if (role_type.equals("1")) {
-							service.setRight(userobj.getId(), "初级审核人员");
+							service.setRight(userobj.getId(), "初级管理员");
 						}
 						if (role_type.equals("2")) {
-							service.setRight(userobj.getId(), "高级审核人员");
+							service.setRight(userobj.getId(), "高级管理员员");
 						}
 
 						UserBaseInfor userbaseinfor = new UserBaseInfor();
