@@ -2,7 +2,8 @@
 SQLyog Ultimate v12.09 (64 bit)
 MySQL - 5.5.9 : Database - cxrc
 *********************************************************************
-*/
+*/
+
 
 /*!40101 SET NAMES utf8 */;
 
@@ -64,7 +65,7 @@ CREATE TABLE `acct_role_authority` (
 
 /*Data for the table `acct_role_authority` */
 
-insert  into `acct_role_authority`(`id`,`role_id`,`authority_id`) values (1,1,1),(2,1,3),(3,3,4),(4,1,2),(7,4,6),(8,5,7),(10,4,1),(11,1,4),(12,5,1),(13,6,1),(17,1,5),(23,2,3),(24,2,1),(25,3,1),(31,6,5),(32,6,4);
+insert  into `acct_role_authority`(`id`,`role_id`,`authority_id`) values (1,1,1),(3,3,4),(4,1,2),(7,4,6),(8,5,7),(10,4,1),(11,1,4),(12,5,1),(13,6,1),(17,1,5),(23,2,3),(24,2,1),(25,3,1),(31,6,5),(32,6,4);
 
 /*Table structure for table `acct_user` */
 
@@ -87,11 +88,11 @@ CREATE TABLE `acct_user` (
   UNIQUE KEY `login_name` (`login_name`),
   KEY `body_id` (`body_id`),
   CONSTRAINT `acct_user_ibfk_1` FOREIGN KEY (`body_id`) REFERENCES `body` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=36 DEFAULT CHARSET=utf8 ROW_FORMAT=COMPACT COMMENT='用户表';
+) ENGINE=InnoDB AUTO_INCREMENT=45 DEFAULT CHARSET=utf8 ROW_FORMAT=COMPACT COMMENT='用户表';
 
 /*Data for the table `acct_user` */
 
-insert  into `acct_user`(`id`,`apply_type`,`email`,`login_name`,`name`,`password`,`body_id`,`id_num`,`telephone`,`mobile`,`telefax`,`zip_code`) values (1,0,'jl@qq.com','tongdehui','蒋磊','96e79218965eb72c92a549dd5a330112',1,'12313244545','','','',NULL),(28,NULL,'13556588554@16.com','123','普通职工1','96e79218965eb72c92a549dd5a330112',1,'123',NULL,NULL,NULL,NULL),(29,NULL,'18366132576@163.com','1234','初级审核人员','96e79218965eb72c92a549dd5a330112',1,'1234',NULL,NULL,NULL,NULL),(30,NULL,'18366132455@163.com','123456','高级审核人员','96e79218965eb72c92a549dd5a330112',1,'123456',NULL,NULL,NULL,NULL),(31,NULL,'182255525@163.com','121','普通职工2','96e79218965eb72c92a549dd5a330112',2,'121','','','',NULL),(32,NULL,'151515674@163.com','122','普通职工3','96e79218965eb72c92a549dd5a330112',3,'122','','','',NULL),(33,NULL,'156751576@163.com','124','普通职工4','96e79218965eb72c92a549dd5a330112',1,'124',NULL,NULL,NULL,NULL),(34,NULL,'454165156@163.com','expert1','初审专家','96e79218965eb72c92a549dd5a330112',1,'1234567',NULL,NULL,NULL,NULL),(35,NULL,'45164654@163.com','expert2','复审专家','96e79218965eb72c92a549dd5a330112',1,'125255',NULL,NULL,NULL,NULL);
+insert  into `acct_user`(`id`,`apply_type`,`email`,`login_name`,`name`,`password`,`body_id`,`id_num`,`telephone`,`mobile`,`telefax`,`zip_code`) values (1,0,'jl@qq.com','tongdehui','蒋磊','96e79218965eb72c92a549dd5a330112',1,'12313244545','','','',NULL),(28,NULL,'18810514212@163.com','123','普通职工1','96e79218965eb72c92a549dd5a330112',1,'123',NULL,NULL,NULL,NULL),(29,NULL,'18366132576@163.com','1234','初级管理员','96e79218965eb72c92a549dd5a330112',1,'1234',NULL,NULL,NULL,NULL),(30,NULL,'18366132455@163.com','123456','高级管理员','96e79218965eb72c92a549dd5a330112',1,'123456',NULL,NULL,NULL,NULL),(31,NULL,'182255525@163.com','121','普通职工2','96e79218965eb72c92a549dd5a330112',2,'121','','','',NULL),(32,NULL,'151515674@163.com','122','普通职工3','96e79218965eb72c92a549dd5a330112',8,'122','','','',NULL),(33,NULL,'156751576@163.com','124','普通职工4','96e79218965eb72c92a549dd5a330112',1,'124',NULL,NULL,NULL,NULL),(34,NULL,'454165156@163.com','expert1','初审专家','96e79218965eb72c92a549dd5a330112',16,'1234567',NULL,NULL,NULL,NULL),(35,NULL,'45164654@163.com','125255','复审专家','96e79218965eb72c92a549dd5a330112',1,'125255',NULL,NULL,NULL,NULL),(39,NULL,'1111@163.com','1111','初审专家1','96e79218965eb72c92a549dd5a330112',1,'1111',NULL,NULL,NULL,NULL),(40,NULL,'1222@163.com','1222','复审专家2','96e79218965eb72c92a549dd5a330112',1,'1222',NULL,NULL,NULL,NULL),(41,NULL,'1212@163.com','1212','高级管理员1','96e79218965eb72c92a549dd5a330112',1,'1212',NULL,NULL,NULL,NULL),(42,NULL,'1221@163.com','1221','初级管理员2','96e79218965eb72c92a549dd5a330112',1,'1221',NULL,NULL,NULL,NULL),(43,NULL,'125@163.com','125','普通职工5','96e79218965eb72c92a549dd5a330112',1,'125',NULL,NULL,NULL,NULL),(44,NULL,'126@163.com','126','普通职工6','96e79218965eb72c92a549dd5a330112',3,'126',NULL,NULL,NULL,NULL);
 
 /*Table structure for table `acct_user_role` */
 
@@ -106,11 +107,11 @@ CREATE TABLE `acct_user_role` (
   KEY `FKFE85CB3E836A7D10` (`user_id`),
   CONSTRAINT `acct_user_role_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `acct_user` (`id`),
   CONSTRAINT `acct_user_role_ibfk_2` FOREIGN KEY (`role_id`) REFERENCES `acct_role` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=69 DEFAULT CHARSET=gbk ROW_FORMAT=COMPACT COMMENT='用户角色表';
+) ENGINE=InnoDB AUTO_INCREMENT=77 DEFAULT CHARSET=gbk ROW_FORMAT=COMPACT COMMENT='用户角色表';
 
 /*Data for the table `acct_user_role` */
 
-insert  into `acct_user_role`(`id`,`user_id`,`role_id`) values (1,1,1),(61,28,2),(62,29,3),(63,30,6),(64,31,2),(65,32,2),(66,33,2),(67,34,4),(68,35,5);
+insert  into `acct_user_role`(`id`,`user_id`,`role_id`) values (1,1,1),(61,28,2),(62,29,3),(63,30,6),(64,31,2),(65,32,2),(66,33,2),(67,34,4),(68,35,5),(71,39,4),(72,40,5),(73,41,6),(74,42,3),(75,43,2),(76,44,2);
 
 /*Table structure for table `apply` */
 
@@ -143,7 +144,7 @@ CREATE TABLE `apply` (
 
 /*Data for the table `apply` */
 
-insert  into `apply`(`Id`,`user_id`,`apply_date`,`apply_type`,`status`,`pre_approve_date`,`pre_approve_id`,`pre_approve_sug`,`finial_approve_date`,`finial_approve_id`,`finial_approve_sug`,`expert1_date`,`expert1_id`,`expert1_score`,`expert1_sug`,`expert2_date`,`expert2_id`,`expert2_score`,`expert2_sug`) values (32,31,'2016-11-23 23:00:46','杰出青年','','','','','','','','','','','','','','','');
+insert  into `apply`(`Id`,`user_id`,`apply_date`,`apply_type`,`status`,`pre_approve_date`,`pre_approve_id`,`pre_approve_sug`,`finial_approve_date`,`finial_approve_id`,`finial_approve_sug`,`expert1_date`,`expert1_id`,`expert1_score`,`expert1_sug`,`expert2_date`,`expert2_id`,`expert2_score`,`expert2_sug`) values (32,31,'2016-11-23 23:00:46','杰出青年','已通过','','','','','','','','','','','','','','');
 
 /*Table structure for table `apply_group` */
 
@@ -249,9 +250,11 @@ CREATE TABLE `cxtd_base_info` (
   `status` int(11) DEFAULT '0' COMMENT '是否提交',
   PRIMARY KEY (`id`),
   KEY `id` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8;
 
 /*Data for the table `cxtd_base_info` */
+
+insert  into `cxtd_base_info`(`id`,`user_id`,`team_id`,`team_name`,`research_direction`,`subordinate_subject1`,`subordinate_subject2`,`project_type`,`orther`,`project_name`,`project_source`,`unit_name`,`organization_code`,`legal_representative`,`competent_department`,`unit_addresses`,`zip_code`,`contacts`,`mobile_phone`,`email`,`fax`,`telephone`,`status`) values (1,28,1,'中国队','','','',NULL,'','','','','','','','',0,'','','','','',0),(2,28,1,'中国队','java开发','计算机','信电学院','01','','','','','','','','',0,'','','','','',0),(3,28,1,'中国队','java开发','计算机','信电学院','01','计算机','','','','','','','',0,'','','','','',0),(4,28,1,'中国队','java开发','计算机','信电学院','012','计算机','','','','','','','',0,'','','','','',0),(5,28,1,'中国队','java开发','计算机','信电学院','012','','重大科研项目','北京','中电信息科技','120245012115134','','','',0,'','','','','',0),(6,28,1,'中国队','java开发','计算机','信电学院','012','','重大科研项目','北京','中电信息科技','120245012115134','','','',0,'冯永刚','','','','',0),(7,28,1,'中国队','java开发','计算机','信电学院','012','','重大科研项目','北京','中电信息科技','120245012115134','','','',0,'冯永刚','18815454545','','','',0),(8,28,1,'中国队','java开发','计算机','信电学院','012','','重大科研项目','北京','中电信息科技','120245012115134','','','',0,'冯永刚','18815454545','','','',0),(9,28,1,'中国队','java开发','计算机','信电学院','012','','重大科研项目','北京','中电信息科技','120245012115134','','','',0,'冯永刚','18815454545','','','3612452',0),(10,28,1,'中国队','java开发','计算机','信电学院','012','','重大科研项目','北京','中电信息科技','120245012115134','','','',0,'冯永刚','18815454545','','','3612452',0);
 
 /*Table structure for table `cxtd_leader_info` */
 
@@ -279,9 +282,11 @@ CREATE TABLE `cxtd_leader_info` (
   `addresses` varchar(100) DEFAULT NULL COMMENT '通讯地址',
   `status` int(11) DEFAULT '0' COMMENT '是否提交',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8;
 
 /*Data for the table `cxtd_leader_info` */
+
+insert  into `cxtd_leader_info`(`id`,`user_id`,`team_id`,`name`,`sex`,`country`,`minzu`,`position`,`birthday`,`id_type`,`id_num`,`direction`,`subordinate_subject1`,`subordinate_subject2`,`telephone_fax`,`mobile_phone`,`email`,`zip_code`,`addresses`,`status`) values (1,28,1,'','','','','','','','','','','','','','','','',0),(2,28,1,'','','','','','','','','','','','','','','','',0),(3,28,1,'','','','','','','','','','','','','','','','',0),(4,28,1,'','','','','','','','','','','','','','','','',0),(5,28,1,'','','','','','','','','','','','','','','','',0),(6,28,1,'','','','','','','','','','','','','','','','',0),(7,28,1,'','','','','','','','','','','','','','','','',0),(8,28,1,'','','','','','','','','','','','','','','','',0),(9,28,1,'','','','','','','','','','','','','','','','',0),(10,28,1,'','','','','','','','','','','','','','','','',0);
 
 /*Table structure for table `cxtd_leader_zuzhi` */
 
@@ -294,9 +299,11 @@ CREATE TABLE `cxtd_leader_zuzhi` (
   `job` varchar(255) DEFAULT NULL COMMENT '职务',
   `renqi` varchar(255) DEFAULT NULL COMMENT '任期',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=240 DEFAULT CHARSET=utf8;
 
 /*Data for the table `cxtd_leader_zuzhi` */
+
+insert  into `cxtd_leader_zuzhi`(`id`,`user_id`,`name`,`job`,`renqi`) values (1,28,NULL,NULL,NULL),(2,28,NULL,NULL,NULL),(3,28,NULL,NULL,NULL),(4,28,NULL,NULL,NULL),(5,28,NULL,NULL,NULL),(6,28,NULL,NULL,NULL),(7,28,NULL,NULL,NULL),(8,28,NULL,NULL,NULL),(9,28,NULL,NULL,NULL),(10,28,NULL,NULL,NULL),(11,28,NULL,NULL,NULL),(12,28,NULL,NULL,NULL),(13,28,NULL,NULL,NULL),(14,28,NULL,NULL,NULL),(15,28,NULL,NULL,NULL),(16,28,NULL,NULL,NULL),(17,28,NULL,NULL,NULL),(18,28,NULL,NULL,NULL),(19,28,NULL,NULL,NULL),(20,28,NULL,NULL,NULL),(21,28,NULL,NULL,NULL),(22,28,NULL,NULL,NULL),(23,28,NULL,NULL,NULL),(24,28,NULL,NULL,NULL),(25,28,NULL,NULL,NULL),(26,28,NULL,NULL,NULL),(27,28,NULL,NULL,NULL),(28,28,NULL,NULL,NULL),(29,28,NULL,NULL,NULL),(30,28,NULL,NULL,NULL),(31,28,NULL,NULL,NULL),(32,28,NULL,NULL,NULL),(33,28,NULL,NULL,NULL),(34,28,NULL,NULL,NULL),(35,28,NULL,NULL,NULL),(36,28,NULL,NULL,NULL),(37,28,NULL,NULL,NULL),(38,28,NULL,NULL,NULL),(39,28,NULL,NULL,NULL),(40,28,NULL,NULL,NULL),(41,28,NULL,NULL,NULL),(42,28,NULL,NULL,NULL),(43,28,NULL,NULL,NULL),(44,28,NULL,NULL,NULL),(45,28,NULL,NULL,NULL),(46,28,NULL,NULL,NULL),(47,28,NULL,NULL,NULL),(48,28,NULL,NULL,NULL),(49,28,NULL,NULL,NULL),(50,28,NULL,NULL,NULL),(51,28,NULL,NULL,NULL),(52,28,NULL,NULL,NULL),(53,28,NULL,NULL,NULL),(54,28,NULL,NULL,NULL),(55,28,NULL,NULL,NULL),(56,28,NULL,NULL,NULL),(57,28,NULL,NULL,NULL),(58,28,NULL,NULL,NULL),(59,28,NULL,NULL,NULL),(60,28,NULL,NULL,NULL),(61,28,NULL,NULL,NULL),(62,28,NULL,NULL,NULL),(63,28,NULL,NULL,NULL),(64,28,NULL,NULL,NULL),(65,28,NULL,NULL,NULL),(66,28,NULL,NULL,NULL),(67,28,NULL,NULL,NULL),(68,28,NULL,NULL,NULL),(69,28,NULL,NULL,NULL),(70,28,NULL,NULL,NULL),(71,28,NULL,NULL,NULL),(72,28,NULL,NULL,NULL),(73,28,NULL,NULL,NULL),(74,28,NULL,NULL,NULL),(75,28,NULL,NULL,NULL),(76,28,NULL,NULL,NULL),(77,28,NULL,NULL,NULL),(78,28,NULL,NULL,NULL),(79,28,NULL,NULL,NULL),(80,28,NULL,NULL,NULL),(81,28,NULL,NULL,NULL),(82,28,NULL,NULL,NULL),(83,28,NULL,NULL,NULL),(84,28,NULL,NULL,NULL),(85,28,NULL,NULL,NULL),(86,28,NULL,NULL,NULL),(87,28,NULL,NULL,NULL),(88,28,NULL,NULL,NULL),(89,28,NULL,NULL,NULL),(90,28,NULL,NULL,NULL),(91,28,NULL,NULL,NULL),(92,28,NULL,NULL,NULL),(93,28,NULL,NULL,NULL),(94,28,NULL,NULL,NULL),(95,28,NULL,NULL,NULL),(96,28,NULL,NULL,NULL),(97,28,NULL,NULL,NULL),(98,28,NULL,NULL,NULL),(99,28,NULL,NULL,NULL),(100,28,NULL,NULL,NULL),(101,28,NULL,NULL,NULL),(102,28,NULL,NULL,NULL),(103,28,NULL,NULL,NULL),(104,28,NULL,NULL,NULL),(105,28,NULL,NULL,NULL),(106,28,NULL,NULL,NULL),(107,28,NULL,NULL,NULL),(108,28,NULL,NULL,NULL),(109,28,NULL,NULL,NULL),(110,28,NULL,NULL,NULL),(111,28,NULL,NULL,NULL),(112,28,NULL,NULL,NULL),(113,28,NULL,NULL,NULL),(114,28,NULL,NULL,NULL),(115,28,NULL,NULL,NULL),(116,28,NULL,NULL,NULL),(117,28,NULL,NULL,NULL),(118,28,NULL,NULL,NULL),(119,28,NULL,NULL,NULL),(120,28,NULL,NULL,NULL),(121,28,NULL,NULL,NULL),(122,28,NULL,NULL,NULL),(123,28,NULL,NULL,NULL),(124,28,NULL,NULL,NULL),(125,28,NULL,NULL,NULL),(126,28,NULL,NULL,NULL),(127,28,NULL,NULL,NULL),(128,28,NULL,NULL,NULL),(129,28,NULL,NULL,NULL),(130,28,NULL,NULL,NULL),(131,28,NULL,NULL,NULL),(132,28,NULL,NULL,NULL),(133,28,NULL,NULL,NULL),(134,28,NULL,NULL,NULL),(135,28,NULL,NULL,NULL),(136,28,NULL,NULL,NULL),(137,28,NULL,NULL,NULL),(138,28,NULL,NULL,NULL),(139,28,NULL,NULL,NULL),(140,28,NULL,NULL,NULL),(141,28,NULL,NULL,NULL),(142,28,NULL,NULL,NULL),(143,28,NULL,NULL,NULL),(144,28,NULL,NULL,NULL),(145,28,NULL,NULL,NULL),(146,28,NULL,NULL,NULL),(147,28,NULL,NULL,NULL),(148,28,NULL,NULL,NULL),(149,28,NULL,NULL,NULL),(150,28,NULL,NULL,NULL),(151,28,NULL,NULL,NULL),(152,28,NULL,NULL,NULL),(153,28,NULL,NULL,NULL),(154,28,NULL,NULL,NULL),(155,28,NULL,NULL,NULL),(156,28,NULL,NULL,NULL),(157,28,NULL,NULL,NULL),(158,28,NULL,NULL,NULL),(159,28,NULL,NULL,NULL),(160,28,NULL,NULL,NULL),(161,28,NULL,NULL,NULL),(162,28,NULL,NULL,NULL),(163,28,NULL,NULL,NULL),(164,28,NULL,NULL,NULL),(165,28,NULL,NULL,NULL),(166,28,NULL,NULL,NULL),(167,28,NULL,NULL,NULL),(168,28,NULL,NULL,NULL),(169,28,NULL,NULL,NULL),(170,28,NULL,NULL,NULL),(171,28,NULL,NULL,NULL),(172,28,NULL,NULL,NULL),(173,28,NULL,NULL,NULL),(174,28,NULL,NULL,NULL),(175,28,NULL,NULL,NULL),(176,28,NULL,NULL,NULL),(177,28,NULL,NULL,NULL),(178,28,NULL,NULL,NULL),(179,28,NULL,NULL,NULL),(180,28,NULL,NULL,NULL),(181,28,NULL,NULL,NULL),(182,28,NULL,NULL,NULL),(183,28,NULL,NULL,NULL),(184,28,NULL,NULL,NULL),(185,28,NULL,NULL,NULL),(186,28,NULL,NULL,NULL),(187,28,NULL,NULL,NULL),(188,28,NULL,NULL,NULL),(189,28,NULL,NULL,NULL),(190,28,NULL,NULL,NULL),(191,28,NULL,NULL,NULL),(192,28,NULL,NULL,NULL),(193,28,NULL,NULL,NULL),(194,28,NULL,NULL,NULL),(195,28,NULL,NULL,NULL),(196,28,NULL,NULL,NULL),(197,28,NULL,NULL,NULL),(198,28,NULL,NULL,NULL),(199,28,NULL,NULL,NULL),(200,28,NULL,NULL,NULL),(201,28,NULL,NULL,NULL),(202,28,NULL,NULL,NULL),(203,28,NULL,NULL,NULL),(204,28,NULL,NULL,NULL),(205,28,NULL,NULL,NULL),(206,28,NULL,NULL,NULL),(207,28,NULL,NULL,NULL),(208,28,NULL,NULL,NULL),(209,28,NULL,NULL,NULL),(210,28,NULL,NULL,NULL),(211,28,NULL,NULL,NULL),(212,28,NULL,NULL,NULL),(213,28,NULL,NULL,NULL),(214,28,NULL,NULL,NULL),(215,28,NULL,NULL,NULL),(216,28,NULL,NULL,NULL),(217,28,NULL,NULL,NULL),(218,28,NULL,NULL,NULL),(219,28,NULL,NULL,NULL),(220,28,NULL,NULL,NULL),(221,28,NULL,NULL,NULL),(222,28,NULL,NULL,NULL),(223,28,NULL,NULL,NULL),(224,28,NULL,NULL,NULL),(225,28,NULL,NULL,NULL),(226,28,NULL,NULL,NULL),(227,28,NULL,NULL,NULL),(228,28,NULL,NULL,NULL),(229,28,NULL,NULL,NULL),(230,28,NULL,NULL,NULL),(231,28,NULL,NULL,NULL),(232,28,NULL,NULL,NULL),(233,28,NULL,NULL,NULL),(234,28,NULL,NULL,NULL),(235,28,NULL,NULL,NULL),(236,28,NULL,NULL,NULL),(237,28,NULL,NULL,NULL),(238,28,NULL,NULL,NULL),(239,28,NULL,NULL,NULL);
 
 /*Table structure for table `cxtd_member_info` */
 
@@ -315,9 +322,11 @@ CREATE TABLE `cxtd_member_info` (
   `direction` varchar(255) DEFAULT NULL COMMENT '现从事专业或研究方向',
   `work_company` varchar(255) DEFAULT NULL COMMENT '工作单位',
   KEY `id` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=240 DEFAULT CHARSET=utf8;
 
 /*Data for the table `cxtd_member_info` */
+
+insert  into `cxtd_member_info`(`id`,`team_id`,`name`,`sex`,`birthday`,`id_type`,`id_num`,`study_education`,`work_position`,`direction`,`work_company`) values (1,'1',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),(2,'1',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),(3,'1',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),(4,'1',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),(5,'1',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),(6,'1',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),(7,'1',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),(8,'1',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),(9,'1',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),(10,'1',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),(11,'1',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),(12,'1',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),(13,'1',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),(14,'1',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),(15,'1',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),(16,'1',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),(17,'1',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),(18,'1',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),(19,'1',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),(20,'1',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),(21,'1',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),(22,'1',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),(23,'1',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),(24,'1',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),(25,'1',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),(26,'1',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),(27,'1',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),(28,'1',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),(29,'1',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),(30,'1',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),(31,'1',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),(32,'1',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),(33,'1',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),(34,'1',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),(35,'1',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),(36,'1',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),(37,'1',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),(38,'1',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),(39,'1',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),(40,'1',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),(41,'1',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),(42,'1',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),(43,'1',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),(44,'1',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),(45,'1',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),(46,'1',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),(47,'1',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),(48,'1',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),(49,'1',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),(50,'1',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),(51,'1',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),(52,'1',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),(53,'1',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),(54,'1',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),(55,'1',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),(56,'1',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),(57,'1',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),(58,'1',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),(59,'1',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),(60,'1',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),(61,'1',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),(62,'1',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),(63,'1',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),(64,'1',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),(65,'1',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),(66,'1',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),(67,'1',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),(68,'1',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),(69,'1',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),(70,'1',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),(71,'1',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),(72,'1',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),(73,'1',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),(74,'1',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),(75,'1',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),(76,'1',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),(77,'1',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),(78,'1',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),(79,'1',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),(80,'1',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),(81,'1',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),(82,'1',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),(83,'1',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),(84,'1',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),(85,'1',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),(86,'1',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),(87,'1',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),(88,'1',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),(89,'1',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),(90,'1',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),(91,'1',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),(92,'1',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),(93,'1',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),(94,'1',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),(95,'1',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),(96,'1',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),(97,'1',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),(98,'1',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),(99,'1',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),(100,'1',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),(101,'1',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),(102,'1',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),(103,'1',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),(104,'1',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),(105,'1',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),(106,'1',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),(107,'1',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),(108,'1',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),(109,'1',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),(110,'1',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),(111,'1',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),(112,'1',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),(113,'1',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),(114,'1',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),(115,'1',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),(116,'1',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),(117,'1',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),(118,'1',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),(119,'1',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),(120,'1',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),(121,'1',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),(122,'1',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),(123,'1',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),(124,'1',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),(125,'1',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),(126,'1',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),(127,'1',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),(128,'1',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),(129,'1',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),(130,'1',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),(131,'1',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),(132,'1',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),(133,'1',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),(134,'1',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),(135,'1',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),(136,'1',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),(137,'1',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),(138,'1',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),(139,'1',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),(140,'1',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),(141,'1',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),(142,'1',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),(143,'1',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),(144,'1',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),(145,'1',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),(146,'1',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),(147,'1',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),(148,'1',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),(149,'1',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),(150,'1',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),(151,'1',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),(152,'1',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),(153,'1',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),(154,'1',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),(155,'1',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),(156,'1',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),(157,'1',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),(158,'1',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),(159,'1',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),(160,'1',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),(161,'1',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),(162,'1',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),(163,'1',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),(164,'1',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),(165,'1',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),(166,'1',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),(167,'1',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),(168,'1',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),(169,'1',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),(170,'1',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),(171,'1',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),(172,'1',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),(173,'1',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),(174,'1',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),(175,'1',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),(176,'1',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),(177,'1',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),(178,'1',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),(179,'1',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),(180,'1',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),(181,'1',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),(182,'1',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),(183,'1',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),(184,'1',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),(185,'1',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),(186,'1',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),(187,'1',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),(188,'1',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),(189,'1',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),(190,'1',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),(191,'1',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),(192,'1',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),(193,'1',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),(194,'1',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),(195,'1',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),(196,'1',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),(197,'1',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),(198,'1',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),(199,'1',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),(200,'1',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),(201,'1',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),(202,'1',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),(203,'1',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),(204,'1',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),(205,'1',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),(206,'1',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),(207,'1',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),(208,'1',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),(209,'1',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),(210,'1',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),(211,'1',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),(212,'1',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),(213,'1',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),(214,'1',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),(215,'1',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),(216,'1',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),(217,'1',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),(218,'1',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),(219,'1',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),(220,'1',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),(221,'1',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),(222,'1',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),(223,'1',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),(224,'1',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),(225,'1',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),(226,'1',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),(227,'1',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),(228,'1',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),(229,'1',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),(230,'1',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),(231,'1',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),(232,'1',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),(233,'1',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),(234,'1',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),(235,'1',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),(236,'1',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),(237,'1',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),(238,'1',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),(239,'1',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL);
 
 /*Table structure for table `cxtd_member_num` */
 
@@ -340,9 +349,11 @@ CREATE TABLE `cxtd_member_num` (
   `benke` int(11) DEFAULT NULL,
   `x_orther` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8;
 
 /*Data for the table `cxtd_member_num` */
+
+insert  into `cxtd_member_num`(`id`,`team_id`,`num`,`age_56`,`age_46_55`,`age_36_45`,`age_35`,`gaoji`,`fugao`,`zhongji`,`z_orther`,`boshi`,`shuoshi`,`benke`,`x_orther`) values (1,1,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),(2,1,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),(3,1,0,0,0,0,0,0,0,0,0,0,NULL,0,0),(4,1,0,0,0,0,0,0,0,0,0,0,NULL,0,0),(5,1,0,0,0,0,0,0,0,0,0,0,NULL,0,0),(6,1,0,0,0,0,0,0,0,0,0,0,NULL,0,0),(7,1,0,0,0,0,0,0,0,0,0,0,NULL,0,0),(8,1,0,0,0,0,0,0,0,0,0,0,NULL,0,0),(9,1,0,0,0,0,0,0,0,0,0,1,NULL,1,0),(10,1,0,0,0,0,0,0,0,0,0,1,NULL,1,0);
 
 /*Table structure for table `expert_score` */
 
@@ -354,10 +365,13 @@ CREATE TABLE `expert_score` (
   `user_id` int(12) DEFAULT NULL,
   `expert_score` varchar(50) DEFAULT NULL,
   `expert_pingyu` varchar(255) DEFAULT NULL,
+  `apply_id` int(12) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
 
 /*Data for the table `expert_score` */
+
+insert  into `expert_score`(`id`,`expert_id`,`user_id`,`expert_score`,`expert_pingyu`,`apply_id`) values (1,34,31,'100','很好，很不错',32),(2,39,31,'59','申报材料不足，申报人选不达标',32);
 
 /*Table structure for table `expert_user` */
 
@@ -367,7 +381,7 @@ CREATE TABLE `expert_user` (
   `id` bigint(20) NOT NULL AUTO_INCREMENT,
   `user_id` bigint(20) DEFAULT NULL,
   `group_id` bigint(20) DEFAULT NULL COMMENT '所属分组id',
-  `team_leader_type` int(11) DEFAULT '0' COMMENT '1:组长；2：副组长；3:成员',
+  `team_leader_type` varchar(11) DEFAULT '0' COMMENT '1:组长；2：副组长；3:成员',
   `gender` varchar(5) DEFAULT NULL COMMENT '性别',
   `minzu` varchar(20) DEFAULT NULL COMMENT '民族',
   `birthday` date DEFAULT NULL COMMENT '出生年月',
@@ -375,12 +389,16 @@ CREATE TABLE `expert_user` (
   `zhicheng` varchar(255) DEFAULT NULL COMMENT '技术职称',
   `congshizhuanye` varchar(255) DEFAULT NULL COMMENT '从事专业/研究方向',
   `within_beijing` int(11) DEFAULT NULL COMMENT '1:京内 0:京外',
+  `name` varchar(20) DEFAULT NULL COMMENT '姓名',
+  `id_num` varchar(50) DEFAULT NULL COMMENT '身份证号',
+  `canjiashijian` varchar(255) DEFAULT NULL COMMENT '参加工作时间',
+  `xingzhengzhiwu` varchar(255) DEFAULT NULL COMMENT '行政职务',
   PRIMARY KEY (`id`),
   KEY `group_id` (`group_id`),
   KEY `user_id` (`user_id`),
   CONSTRAINT `expert_user_ibfk_1` FOREIGN KEY (`group_id`) REFERENCES `apply_group` (`id`),
   CONSTRAINT `expert_user_ibfk_2` FOREIGN KEY (`user_id`) REFERENCES `acct_user` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 ROW_FORMAT=COMPACT COMMENT='专家_成员表';
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=COMPACT COMMENT='专家_成员表';
 
 /*Data for the table `expert_user` */
 
@@ -437,11 +455,11 @@ CREATE TABLE `jcqn_doc01` (
   `work_fax` varchar(20) DEFAULT NULL COMMENT '单位邮编',
   PRIMARY KEY (`user_id`),
   KEY `id` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
 
 /*Data for the table `jcqn_doc01` */
 
-insert  into `jcqn_doc01`(`id`,`user_id`,`name`,`sex`,`minzu`,`birthday`,`title`,`document_type`,`document_number`,`direction`,`declaration_area`,`telephone`,`fax`,`mobile_phone`,`email`,`zip_code`,`addresses`,`study_country`,`study_colleges`,`study_major`,`study_education`,`study_start_time`,`study_end_time`,`work_country`,`work_company`,`work_position`,`work_start_time`,`work_end_time`,`journal_title`,`organization_position`,`organization_term`,`journal_titlef`,`organization_position1`,`organization_term1`,`journal_title2`,`organization_position2`,`organization_term2`,`unit_name`,`organization_code`,`legal_representative`,`supervisor_unit`,`unit_address`,`postcode`,`unit_contact`,`work_telephone`,`work_fax`) values (2,31,'蒋磊','','汉','1993-11-08','工程师','身份证','3714231993','计算机','3612200','3612200','18366132576','18366132576@163.com','10000','北京','律典科技',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'156120','蒋磊','中国','天畅园','1000','蒋磊','3612205','25623155','31'),(3,32,'冯永刚','','汉','1993-11-03','工程师','身份证','3546121665131','计算机','23323144','124531324','18366132455','564@163.com','56444','北京','世界玖玖',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'754456465','冯永刚','中国','北京','44444','','','','32');
+insert  into `jcqn_doc01`(`id`,`user_id`,`name`,`sex`,`minzu`,`birthday`,`title`,`document_type`,`document_number`,`direction`,`declaration_area`,`telephone`,`fax`,`mobile_phone`,`email`,`zip_code`,`addresses`,`study_country`,`study_colleges`,`study_major`,`study_education`,`study_start_time`,`study_end_time`,`work_country`,`work_company`,`work_position`,`work_start_time`,`work_end_time`,`journal_title`,`organization_position`,`organization_term`,`journal_titlef`,`organization_position1`,`organization_term1`,`journal_title2`,`organization_position2`,`organization_term2`,`unit_name`,`organization_code`,`legal_representative`,`supervisor_unit`,`unit_address`,`postcode`,`unit_contact`,`work_telephone`,`work_fax`) values (2,31,'蒋磊','','汉','1993-11-08','工程师','身份证','3714231993','计算机','3612200','3612200','18366132576','18366132576@163.com','10000','北京','律典科技',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'156120','蒋磊','中国','天畅园','1000','蒋磊','3612205','25623155','31'),(3,32,'冯永刚','','汉','1993-11-03','工程师','身份证','3546121665131','计算机','23323144','124531324','18366132455','564@163.com','56444','北京','世界玖玖',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'754456465','冯永刚','中国','北京','44444','','','','32'),(4,34,'蒋磊','','汉','1993-11-08','工程师','身份证','3714231993','计算机','3612200','3612200','18366132576','18366132576@163.com','10000','北京','律典科技',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'156120','蒋磊','中国','天畅园','1000','蒋磊','3612205','25623155','31');
 
 /*Table structure for table `jcqn_doc02` */
 
@@ -512,11 +530,11 @@ CREATE TABLE `jcqn_doc02_01` (
   `projectNature` varchar(255) DEFAULT NULL COMMENT '项目性质',
   `role` varchar(255) DEFAULT NULL COMMENT '项目角色',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=28 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=29 DEFAULT CHARSET=utf8;
 
 /*Data for the table `jcqn_doc02_01` */
 
-insert  into `jcqn_doc02_01`(`xuhao_id`,`id`,`userId`,`entryName`,`projectNumber`,`funds`,`startStopTime`,`projectNature`,`role`) values (1,27,31,'设计家','1001','25000000','2015.09-2017.11','居然之家','开发');
+insert  into `jcqn_doc02_01`(`xuhao_id`,`id`,`userId`,`entryName`,`projectNumber`,`funds`,`startStopTime`,`projectNature`,`role`) values (1,27,31,'设计家','1001','25000000','2015.09-2017.11','居然之家','开发'),(1,28,32,'科研.','11','10000','2016.1-2016.12','中科院','研究员');
 
 /*Table structure for table `jcqn_doc02_02` */
 
@@ -533,11 +551,11 @@ CREATE TABLE `jcqn_doc02_02` (
   `reward_time` varchar(255) DEFAULT NULL COMMENT '奖励时间',
   `grant_institution` varchar(255) DEFAULT NULL COMMENT '授予机构',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=18 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=19 DEFAULT CHARSET=utf8;
 
 /*Data for the table `jcqn_doc02_02` */
 
-insert  into `jcqn_doc02_02`(`xuhao_id`,`id`,`user_id`,`award_item_name`,`prize_name`,`grade`,`sort`,`reward_time`,`grant_institution`) values (1,17,31,'创新技术','科学技术奖','国家级','第一','2016.11.01','中科院');
+insert  into `jcqn_doc02_02`(`xuhao_id`,`id`,`user_id`,`award_item_name`,`prize_name`,`grade`,`sort`,`reward_time`,`grant_institution`) values (1,17,31,'创新技术','科学技术奖','国家级','第一','2016.11.01','中科院'),(1,18,32,'成果奖','发明','国家级','第一','2016.11.01','中科院');
 
 /*Table structure for table `jcqn_doc02_03` */
 
@@ -554,11 +572,11 @@ CREATE TABLE `jcqn_doc02_03` (
   `influence_factor` varchar(255) DEFAULT NULL COMMENT '影响因子',
   `sci_times` varchar(255) DEFAULT NULL COMMENT 'SCI他引次数',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8;
 
 /*Data for the table `jcqn_doc02_03` */
 
-insert  into `jcqn_doc02_03`(`xuhao_id`,`id`,`user_id`,`thesis_topic`,`author_sort`,`journal_title`,`year_volume_pagenumber`,`influence_factor`,`sci_times`) values (1,11,31,'创新性人才的培养','第一作者','中国杂志','11','无','无');
+insert  into `jcqn_doc02_03`(`xuhao_id`,`id`,`user_id`,`thesis_topic`,`author_sort`,`journal_title`,`year_volume_pagenumber`,`influence_factor`,`sci_times`) values (1,11,31,'创新性人才的培养','第一作者','中国杂志','11','无','无'),(1,12,32,'科技论文','第一作者','中国期刊','11','无','11');
 
 /*Table structure for table `jcqn_doc02_04` */
 
@@ -575,11 +593,11 @@ CREATE TABLE `jcqn_doc02_04` (
   `authorized_time` varchar(255) DEFAULT NULL COMMENT '授权时间',
   `authorized_national` varchar(255) DEFAULT NULL COMMENT '授权组织或国别',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
 
 /*Data for the table `jcqn_doc02_04` */
 
-insert  into `jcqn_doc02_04`(`xuhao_id`,`id`,`user_id`,`patent_name`,`grant_number`,`type`,`inventor_sort`,`authorized_time`,`authorized_national`) values (1,1,31,'人才遴选技术','10502','科技','第一发明人','2015.11.25','中国');
+insert  into `jcqn_doc02_04`(`xuhao_id`,`id`,`user_id`,`patent_name`,`grant_number`,`type`,`inventor_sort`,`authorized_time`,`authorized_national`) values (1,1,31,'人才遴选技术','10502','科技','第一发明人','2015.11.25','中国'),(1,2,32,'科研','11','','技术','2016.11.02','中国');
 
 /*Table structure for table `jcqn_doc02_05` */
 
@@ -596,11 +614,11 @@ CREATE TABLE `jcqn_doc02_05` (
   `meeting_place` varchar(255) DEFAULT NULL COMMENT '地点',
   `report_type` varchar(255) DEFAULT NULL COMMENT '报告类型',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
 
 /*Data for the table `jcqn_doc02_05` */
 
-insert  into `jcqn_doc02_05`(`xuhao_id`,`id`,`user_id`,`report_name`,`meeting_name`,`organizers`,`meeting_time`,`meeting_place`,`report_type`) values (1,1,31,'技术论','一号会议','地科院','2016.11.15','北京','技术类');
+insert  into `jcqn_doc02_05`(`xuhao_id`,`id`,`user_id`,`report_name`,`meeting_name`,`organizers`,`meeting_time`,`meeting_place`,`report_type`) values (1,1,31,'技术论','一号会议','地科院','2016.11.15','北京','技术类'),(1,2,32,'科研成果报告','研讨会','地科院','2016.11.09','北京','科研');
 
 /*Table structure for table `jcqn_doc02_06` */
 
@@ -615,11 +633,11 @@ CREATE TABLE `jcqn_doc02_06` (
   `issuing_country` varchar(255) DEFAULT NULL COMMENT '发行国家和地区',
   `year` varchar(255) DEFAULT NULL COMMENT '年份',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
 
 /*Data for the table `jcqn_doc02_06` */
 
-insert  into `jcqn_doc02_06`(`xuhao_id`,`id`,`user_id`,`treatise_name`,`press`,`issuing_country`,`year`) values (1,2,31,'论信息技术的重要性','中国出版社','中国','2016');
+insert  into `jcqn_doc02_06`(`xuhao_id`,`id`,`user_id`,`treatise_name`,`press`,`issuing_country`,`year`) values (1,2,31,'论信息技术的重要性','中国出版社','中国','2016'),(1,3,32,'研究','中国出版社','中国','2016');
 
 /*Table structure for table `jcqn_doc03` */
 
@@ -631,11 +649,11 @@ CREATE TABLE `jcqn_doc03` (
   `selfAssessment` mediumtext COMMENT '自我评价',
   PRIMARY KEY (`user_id`),
   KEY `id` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8;
 
 /*Data for the table `jcqn_doc03` */
 
-insert  into `jcqn_doc03`(`id`,`user_id`,`selfAssessment`) values (8,31,'我热爱祖国，热爱党，技术过硬，态度良好');
+insert  into `jcqn_doc03`(`id`,`user_id`,`selfAssessment`) values (9,1,'我热爱祖国，热爱党，技术过硬，态度良好'),(8,31,'我热爱祖国，热爱党，技术过硬，态度良好,团队意识强');
 
 /*Table structure for table `jcqn_doc04` */
 
@@ -737,7 +755,7 @@ CREATE TABLE `kjlj_doc01` (
   `work_fax` varchar(10) DEFAULT NULL COMMENT '单位邮编',
   PRIMARY KEY (`user_id`),
   KEY `id` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 /*Data for the table `kjlj_doc01` */
 
@@ -810,7 +828,7 @@ CREATE TABLE `kjlj_doc02_01` (
   `project_nature` varchar(255) DEFAULT NULL COMMENT '项目性质',
   `role` varchar(255) DEFAULT NULL COMMENT '项目角色',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 /*Data for the table `kjlj_doc02_01` */
 
@@ -829,7 +847,7 @@ CREATE TABLE `kjlj_doc02_02` (
   `reward_time` varchar(255) DEFAULT NULL COMMENT '奖励时间',
   `grant_institution` varchar(255) DEFAULT NULL COMMENT '授予机构',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 /*Data for the table `kjlj_doc02_02` */
 
@@ -848,7 +866,7 @@ CREATE TABLE `kjlj_doc02_03` (
   `influence_factor` varchar(255) DEFAULT NULL COMMENT '影响因子',
   `sci_times` varchar(255) DEFAULT NULL COMMENT 'SCI他引次数',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 /*Data for the table `kjlj_doc02_03` */
 
@@ -867,7 +885,7 @@ CREATE TABLE `kjlj_doc02_04` (
   `authorized_time` varchar(255) DEFAULT NULL COMMENT '授权时间',
   `authorized_national` varchar(255) DEFAULT NULL COMMENT '授权组织或国别',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 /*Data for the table `kjlj_doc02_04` */
 
@@ -886,7 +904,7 @@ CREATE TABLE `kjlj_doc02_05` (
   `meeting_place` varchar(255) DEFAULT NULL COMMENT '地点',
   `report_type` varchar(255) DEFAULT NULL COMMENT '报告类型',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 /*Data for the table `kjlj_doc02_05` */
 
@@ -903,7 +921,7 @@ CREATE TABLE `kjlj_doc02_06` (
   `issuing_country` varchar(255) DEFAULT NULL COMMENT '发行国家和地区',
   `year` varchar(255) DEFAULT NULL COMMENT '年份',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 /*Data for the table `kjlj_doc02_06` */
 
@@ -917,7 +935,7 @@ CREATE TABLE `kjlj_doc03` (
   `selfAssessment` mediumtext COMMENT '自我评价',
   PRIMARY KEY (`user_id`),
   KEY `id` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 /*Data for the table `kjlj_doc03` */
 
@@ -931,7 +949,7 @@ CREATE TABLE `kjlj_doc04` (
   `futurePlans` mediumtext COMMENT '未来计划及当前研究基础',
   PRIMARY KEY (`user_id`),
   KEY `id` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 /*Data for the table `kjlj_doc04` */
 
@@ -945,7 +963,7 @@ CREATE TABLE `kjlj_doc05` (
   `needsRelevanceSupport` mediumtext COMMENT '工作单位发展需求与推荐人选的相关性及工作单位提供的支持保障措施',
   PRIMARY KEY (`user_id`),
   KEY `id` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 /*Data for the table `kjlj_doc05` */
 
@@ -1106,7 +1124,7 @@ CREATE TABLE `user_award` (
   PRIMARY KEY (`Id`),
   KEY `user_id` (`user_id`),
   CONSTRAINT `user_award_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `acct_user` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 ROW_FORMAT=COMPACT COMMENT='用户_科研学术奖励表';
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=COMPACT COMMENT='用户_科研学术奖励表';
 
 /*Data for the table `user_award` */
 
@@ -1148,11 +1166,11 @@ CREATE TABLE `user_baseinfor` (
   KEY `user_id` (`user_id`),
   KEY `group_id` (`group_id`) USING BTREE,
   CONSTRAINT `user_baseinfor_ibfk_2` FOREIGN KEY (`group_id`) REFERENCES `apply_group` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=28 DEFAULT CHARSET=utf8 ROW_FORMAT=COMPACT COMMENT='用户_基本信息表';
+) ENGINE=InnoDB AUTO_INCREMENT=35 DEFAULT CHARSET=utf8 ROW_FORMAT=COMPACT COMMENT='用户_基本信息表';
 
 /*Data for the table `user_baseinfor` */
 
-insert  into `user_baseinfor`(`id`,`user_id`,`group_id`,`gender`,`minzu`,`birthday`,`address`,`zhicheng`,`former_name`,`health`,`chushengdi`,`canjiashijian`,`zhengzhi`,`yuyan`,`jisuanji`,`minzhudangpai`,`shehuijianzhi`,`current_zhicheng`,`current_zhicheng_date`,`congshizhuanye`,`renzhizige`,`shenpidanwei`,`shenpishijian`,`xingzhengzhiwu`,`xingzhengshijian`,`kaohe`,`tiaojian`,`yingyu`,`gongzi`) values (22,28,NULL,'男',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),(23,29,NULL,'男',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),(24,30,NULL,'男',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),(25,31,NULL,'男','',NULL,NULL,NULL,'','','',NULL,'','','','','','',NULL,'','','',NULL,'',NULL,'','','',''),(26,32,NULL,'男','',NULL,NULL,NULL,'','','',NULL,'','','','','','',NULL,'','','',NULL,'',NULL,'','','',''),(27,33,NULL,'男',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL);
+insert  into `user_baseinfor`(`id`,`user_id`,`group_id`,`gender`,`minzu`,`birthday`,`address`,`zhicheng`,`former_name`,`health`,`chushengdi`,`canjiashijian`,`zhengzhi`,`yuyan`,`jisuanji`,`minzhudangpai`,`shehuijianzhi`,`current_zhicheng`,`current_zhicheng_date`,`congshizhuanye`,`renzhizige`,`shenpidanwei`,`shenpishijian`,`xingzhengzhiwu`,`xingzhengshijian`,`kaohe`,`tiaojian`,`yingyu`,`gongzi`) values (22,28,NULL,'男',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),(23,29,NULL,'男',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),(24,30,NULL,'男',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),(25,31,NULL,'男','',NULL,NULL,NULL,'','','',NULL,'','','','','','',NULL,'','','',NULL,'',NULL,'','','',''),(26,32,NULL,'男','汉','1986-11-05',NULL,NULL,'无','健康','北京','2013.11.13','2016.11.02','英语 六级','100','无','无','研究员','2015.11.25','地调局','局长','地科院','2015.11.25','党员','2016.11.02','','','600','10000'),(27,33,NULL,'男',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),(28,38,NULL,'男',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),(29,39,NULL,'男',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),(30,40,NULL,'男',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),(31,41,NULL,'男',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),(32,42,NULL,'男',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),(33,43,NULL,'男',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),(34,44,NULL,'男',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL);
 
 /*Table structure for table `user_business` */
 
@@ -1167,7 +1185,7 @@ CREATE TABLE `user_business` (
   PRIMARY KEY (`Id`),
   KEY `user_id` (`user_id`),
   CONSTRAINT `user_business_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `acct_user` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8 COMMENT='用户_附加信息表';
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='用户_附加信息表';
 
 /*Data for the table `user_business` */
 
@@ -1184,11 +1202,11 @@ CREATE TABLE `user_exam` (
   `chengji` varchar(255) DEFAULT NULL,
   `zuzhizhe` varchar(2525) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8;
 
 /*Data for the table `user_exam` */
 
-insert  into `user_exam`(`id`,`user_id`,`type`,`exam_date`,`kemu`,`chengji`,`zuzhizhe`) values (8,31,'英语','2014-10-29','英语六级','540','山东交通学院');
+insert  into `user_exam`(`id`,`user_id`,`type`,`exam_date`,`kemu`,`chengji`,`zuzhizhe`) values (8,31,'英语','2014-10-29','英语六级','540','山东交通学院'),(9,32,'英语','2015-11-18','六级','600','地科院');
 
 /*Table structure for table `user_paper` */
 
@@ -1208,7 +1226,7 @@ CREATE TABLE `user_paper` (
   PRIMARY KEY (`Id`),
   KEY `user_id` (`user_id`),
   CONSTRAINT `user_paper_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `acct_user` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COMMENT='用户_代表性论文表';
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='用户_代表性论文表';
 
 /*Data for the table `user_paper` */
 
@@ -1231,11 +1249,11 @@ CREATE TABLE `user_peixun` (
   PRIMARY KEY (`Id`),
   KEY `user_id` (`user_id`),
   CONSTRAINT `user_peixun_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `acct_user` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=24 DEFAULT CHARSET=utf8 COMMENT='用户_学习经历表';
+) ENGINE=InnoDB AUTO_INCREMENT=26 DEFAULT CHARSET=utf8 COMMENT='用户_学习经历表';
 
 /*Data for the table `user_peixun` */
 
-insert  into `user_peixun`(`Id`,`user_id`,`start_date`,`end_date`,`major`,`country`,`isTop`,`xuezhi`,`academy`,`xueli`,`zhengmingren`) values (23,31,'2012-11-15','2016-11-16','计算机技术与科学','中国','1','4年','山东交通学院','本科','蒋磊');
+insert  into `user_peixun`(`Id`,`user_id`,`start_date`,`end_date`,`major`,`country`,`isTop`,`xuezhi`,`academy`,`xueli`,`zhengmingren`) values (23,31,'2012-11-15','2016-11-16','计算机技术与科学','中国','1','4年','山东交通学院','本科','蒋磊'),(24,32,'2016-11-01','2016-12-02','计算机','中国','1','5年','山东交通学院','本科','蒋磊'),(25,28,'2012-10-31','2016-11-09','计算机','中国','1','4年','山东交通学院','本科','蒋磊');
 
 /*Table structure for table `user_project` */
 
@@ -1255,7 +1273,7 @@ CREATE TABLE `user_project` (
   PRIMARY KEY (`Id`),
   KEY `user_id` (`user_id`),
   CONSTRAINT `user_project_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `acct_user` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8 COMMENT='用户_科研任务表';
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='用户_科研任务表';
 
 /*Data for the table `user_project` */
 
@@ -1274,7 +1292,7 @@ CREATE TABLE `user_report` (
   PRIMARY KEY (`Id`),
   KEY `user_id` (`user_id`),
   CONSTRAINT `user_report_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `acct_user` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8 ROW_FORMAT=COMPACT COMMENT='用户_学术会议报告表';
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=COMPACT COMMENT='用户_学术会议报告表';
 
 /*Data for the table `user_report` */
 
@@ -1292,11 +1310,11 @@ CREATE TABLE `user_skill` (
   `end_date` date DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `id` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=18 DEFAULT CHARSET=utf8;
 
 /*Data for the table `user_skill` */
 
-insert  into `user_skill`(`id`,`user_id`,`start_date`,`project_name`,`jiaose`,`project_result`,`end_date`) values (16,31,'2015-11-27','设计家项目设计与开发','软件开发','设计家项目正式上线','2016-11-16');
+insert  into `user_skill`(`id`,`user_id`,`start_date`,`project_name`,`jiaose`,`project_result`,`end_date`) values (16,31,'2015-11-27','设计家项目设计与开发','软件开发','设计家项目正式上线','2016-11-16'),(17,32,'2015-11-10','土地科研','独立研究','成就奖','2016-11-16');
 
 /*Table structure for table `user_team` */
 
@@ -1306,9 +1324,11 @@ CREATE TABLE `user_team` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `userid` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
 
 /*Data for the table `user_team` */
+
+insert  into `user_team`(`id`,`userid`) values (1,28);
 
 /*Table structure for table `user_work` */
 
@@ -1326,11 +1346,11 @@ CREATE TABLE `user_work` (
   PRIMARY KEY (`Id`),
   KEY `user_id` (`user_id`),
   CONSTRAINT `fk_user_work` FOREIGN KEY (`user_id`) REFERENCES `acct_user` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=41 DEFAULT CHARSET=utf8 COMMENT='用户_工作经历表';
+) ENGINE=InnoDB AUTO_INCREMENT=42 DEFAULT CHARSET=utf8 COMMENT='用户_工作经历表';
 
 /*Data for the table `user_work` */
 
-insert  into `user_work`(`Id`,`user_id`,`start_date`,`end_date`,`work_content`,`country`,`zhiwu`,`toNow`) values (40,31,'2015-11-18','2016-11-23','联想科技','中国','工程师','1');
+insert  into `user_work`(`Id`,`user_id`,`start_date`,`end_date`,`work_content`,`country`,`zhiwu`,`toNow`) values (40,31,'2015-11-18','2016-11-23','联想科技','中国','工程师','1'),(41,32,'2015-11-04','2016-11-26','联想','中国','工程师','1');
 
 /*Table structure for table `user_zhuanli` */
 
@@ -1349,7 +1369,7 @@ CREATE TABLE `user_zhuanli` (
   PRIMARY KEY (`Id`),
   KEY `user_id` (`user_id`),
   CONSTRAINT `user_zhuanli_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `acct_user` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 ROW_FORMAT=COMPACT COMMENT='用户_授权专利表';
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=COMPACT COMMENT='用户_授权专利表';
 
 /*Data for the table `user_zhuanli` */
 
@@ -1368,7 +1388,7 @@ CREATE TABLE `user_zhuanzhu` (
   PRIMARY KEY (`Id`),
   KEY `user_id` (`user_id`),
   CONSTRAINT `user_zhuanzhu_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `acct_user` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8 COMMENT='用户_专著情况表';
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='用户_专著情况表';
 
 /*Data for the table `user_zhuanzhu` */
 
