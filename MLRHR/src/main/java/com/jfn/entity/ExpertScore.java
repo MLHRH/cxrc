@@ -6,6 +6,14 @@ private int expert_id ;
 private int user_id ;
 private String expert_score ;
 private String expert_pingyu ;
+private int apply_id;
+
+public int getApply_id() {
+	return apply_id;
+}
+public void setApply_id(int apply_id) {
+	this.apply_id = apply_id;
+}
 public int getId() {
 	return id;
 }

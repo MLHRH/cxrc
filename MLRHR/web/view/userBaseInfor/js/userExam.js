@@ -1,14 +1,25 @@
 var oTableUserExam = null;
+var id ;
+var userId ;
 function initUserExam() {
+	if(userId != null && userId !=""){
+		id = userId;
+	}
+	else{
+		id = user_id;
+	}
 	$.ajax({
 				type : 'get',
 				dataType : 'json',
-				url : 'userExamList?userId=' + user_id,// 请求的路径
+				url : 'userExamList?userId=' + id,// 请求的路径
 				error : function() {// 请求失败处理函数
 					alert('请求失败');
 				},
 				success : function(data) { // 请求成功后处理函数。
 					initUserExamDataTables(data);
+					if(userId != null && userId !=""){
+						$("#userExamAddbtn").hide();					
+					}
 				}
 			});
 
@@ -58,12 +69,16 @@ function initUserExamDataTables(data) {
 					"data" : null,
 					"class" : "center",
 					"render" : function(data) {
+						if(userId == null || userId ==""){
 						return "<a class='btn btn-small btn-info'   style='margin: 2.5px;' href='javascript:void(0)' onClick='userExamEdit("
 								+ data.id
 								+ ")'><i class='icon-edit'></i>编辑</a><a class='btn btn-small btn-info' style='margin: 2.5px;' href='javascript:void(0)' onClick='userExamDelete("
 								+ data.id
 								+ ")' id='btndel'><i class='icon-remove'></i>删除</a>";
+					}else{
+						return null;
 					}
+						}
 				}]
 	});
 }

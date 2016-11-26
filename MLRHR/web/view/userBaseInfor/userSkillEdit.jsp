@@ -41,13 +41,13 @@
 					<tr align="center">
 						<td class="td_Left">专业技术工作名称（项目、课题、成果等）：</td>
 						<td class="td_Right">
-							<textarea style="width: 300px; height: 100px" id="user_skill_project_name">${user_skill.project_name}</textarea>
+							<textarea style="width: 300px; height: 50px" id="user_skill_project_name">${user_skill.project_name}</textarea>
 						</td>
 					</tr>
 					<tr align="center">
 						<td class="td_Left">工作内容、本人起何作用（主持、参加、独立）：</td>
 						<td class="td_Right">
-							<textarea style="width: 300px; height: 100px" id="user_skill_jiaose">${user_skill.jiaose}</textarea>
+							<textarea style="width: 300px; height: 50px" id="user_skill_jiaose">${user_skill.jiaose}</textarea>
 						</td>
 					</tr>
 					<!-- 					<tr align="center"> -->
@@ -68,7 +68,7 @@
 					<tr align="center">
 						<td class="td_Left">完成情况及效果（获何奖励效益或专利）：</td>
 						<td class="td_Right">
-							<textarea style="width: 300px; height: 100px" id="user_skill_project_result">${user_skill.project_result}</textarea>
+							<textarea style="width: 300px; height: 50px" id="user_skill_project_result">${user_skill.project_result}</textarea>
 						</td>
 					</tr>
 				</table>

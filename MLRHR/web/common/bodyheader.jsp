@@ -40,17 +40,26 @@
 						<li>
 							<a href="${ctx}/bodylist">人才审核</a>
 						</li>
+						<li>
+							<a href="${ctx}/expertUserBase">我的档案</a>
+						</li>
 					</security:authorize>
 					
                  	<security:authorize ifAnyGranted="ROLE_EXPERT1">
 						<li>
 							<a href="${ctx}/bodylist">人才审核</a>
 						</li>
+						<li>
+							<a href="${ctx}/expertBaseinfo">我的档案</a>
+						</li>
 					</security:authorize>
 					
 					<security:authorize ifAnyGranted="ROLE_EXPERT2">
 						<li>
 							<a href="${ctx}/bodylist">人才审核</a>
+						</li>
+						<li>
+							<a href="${ctx}/expertBaseinfo">我的档案</a>
 						</li>
 					</security:authorize> 
 

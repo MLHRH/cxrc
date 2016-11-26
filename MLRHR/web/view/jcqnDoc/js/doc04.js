@@ -2,6 +2,7 @@ var objUser = new Object();
  
 var userBaseInfor_id;
 var id;
+var currentRole;
 function initjcqnDoc04() {
 	//被审核人的ID存在时。此时是审核模式。采用被审核人的ID初始化。
 	if(userId != null && userId !=""){
@@ -24,8 +25,20 @@ function initjcqnDoc04() {
 					var day = myDate.getDate();
 					$('#currentDate').html(year + "年" + month + "月" + day + "日");
 					
-					$('#futurePlans').val(data.futurePlans);				
-					
+					$('#futurePlans').val(data[0].futurePlans);				
+					var authority = data[1].authority;
+					var arr = authority.split("|");
+//					if (currentRole == null)
+					var isUser = false;
+						for (var i = 0; i < arr.length - 1; i++) {
+							if (arr[i] == "ROLE_USER") {
+									isUser = true;
+							}
+						}
+						if(isUser == false){
+							$("#futurePlans").attr("disabled",
+									true);
+						}
 				} 
 			});
 	

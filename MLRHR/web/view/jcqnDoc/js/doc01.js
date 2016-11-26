@@ -4,6 +4,7 @@ var userBaseInfor_id;
 
 var id;
 var userid;
+var currentRole;
 function initjcqnDoc01() {
 	//被审核人的ID存在时。此时是审核模式。采用被审核人的ID初始化。
 	if(userId != null && userId !=""){
@@ -96,6 +97,23 @@ function initjcqnDoc01() {
 					$('#unit_address').val(data[1].unit_address);
 					$('#postcode').val(data[1].postcode);
 					$('#unit_contact').val(data[1].unit_contact);
+					var authority = data[3].authority;
+					var arr = authority.split("|");
+//					if (currentRole == null)
+					var isUser = false;
+						for (var i = 0; i < arr.length - 1; i++) {
+							if (arr[i] == "ROLE_USER") {
+									isUser = true;
+							}
+						}
+						if(isUser == false){
+							$("#selfAssessment").attr("disabled",
+									true);
+							$("input").each(function(){
+								$(this).attr("disabled",
+										true);
+							});
+						}
 				} 
 			});
 }

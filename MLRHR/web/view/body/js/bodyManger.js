@@ -54,7 +54,12 @@ function init() {
 	if (activeLiId == "nav3") {
 		role_type = 2;
 	}
-
+	if (activeLiId == "nav4") {
+		role_type = 3;
+	}
+	if (activeLiId == "nav5") {
+		role_type = 4;
+	}
 	$.ajax({
 				type : 'get',
 				dataType : 'json',
@@ -103,6 +108,10 @@ function zTreeBeforeClick(treeId, treeNode, clickFlag) {
 		return false;
 	}
 	if (currentRole == "ROLE_HR") {
+		return false;
+	}if (currentRole == "ROLE_EXPERT1") {
+		return false;
+	}if (currentRole == "ROLE_EXPERT2") {
 		return false;
 	}
 	if (currentRole == "ROLE_PROFESSOR") {
@@ -402,15 +411,35 @@ function setStatus(sta) {
 		$("#nav1").addClass("active")
 		$("#nav2").removeClass("active")
 		$("#nav3").removeClass("active")
+		$("#nav4").removeClass("active")
+		$("#nav5").removeClass("active")
 	} else if (sta == 1) {
 		$("#nav2").addClass("active")
 		$("#nav1").removeClass("active")
 		$("#nav3").removeClass("active")
-	} else {
+	    $("#nav4").removeClass("active")
+		$("#nav5").removeClass("active")
+	} else if(sta == 2){
 		$("#nav3").addClass("active")
 		$("#nav1").removeClass("active")
 		$("#nav2").removeClass("active")
+		$("#nav4").removeClass("active")
+		$("#nav5").removeClass("active")
 	}
+	 else if(sta == 3){
+	    $("#nav4").addClass("active")
+		$("#nav1").removeClass("active")
+		$("#nav2").removeClass("active")
+		$("#nav3").removeClass("active")
+		$("#nav5").removeClass("active")
+		}
+	 else if(sta == 4){
+		$("#nav5").addClass("active")
+		$("#nav1").removeClass("active")
+		$("#nav2").removeClass("active")
+		$("#nav3").removeClass("active")
+		$("#nav4").removeClass("active")
+		}
 	role_type = sta;
 	initUser();
 }

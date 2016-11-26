@@ -159,7 +159,7 @@ body {
 					<div class="control-group isEXP" align="left">
 						<label class="text-error">终审专家意见：</label>
 						<textarea  autoHeight="true" style="width: 95%; min-height: 50px; overflow:hidden;" id="zhichengapply_expert2_sug"></textarea>
-					</div>
+					</div>-->
 					
 					<div class="control-group isHR" align="left">
 						<span class="text-error">审核变更：</span>
@@ -170,7 +170,7 @@ body {
 							<option value="已通过" class="isEXPERT2">终审通过</option>
 							<option value="未通过">审核不通过</option>
 						</select>
-					</div> -->
+					</div> 
 
 					<div class="control-group" align="center">
 						<div class="controls">

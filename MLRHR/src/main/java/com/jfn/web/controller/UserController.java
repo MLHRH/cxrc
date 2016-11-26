@@ -179,7 +179,13 @@ public class UserController {
 							service.setRight(userobj.getId(), "初级管理员");
 						}
 						if (role_type.equals("2")) {
-							service.setRight(userobj.getId(), "高级管理员员");
+							service.setRight(userobj.getId(), "高级管理员");
+						}
+						if (role_type.equals("3")) {
+							service.setRight(userobj.getId(), "初审专家");
+						}
+						if (role_type.equals("4")) {
+							service.setRight(userobj.getId(), "复审专家");
 						}
 
 						UserBaseInfor userbaseinfor = new UserBaseInfor();
@@ -298,9 +304,13 @@ public class UserController {
 				
 						userListNew.add(user);
 				
-					} else if (role_type.equals("1") && roleList.get(0).getName().equals("初级审核人员")) {
+					} else if (role_type.equals("1") && roleList.get(0).getName().equals("初级管理员")) {
 						userListNew.add(user);
-					} else if (role_type.equals("2") && roleList.get(0).getName().equals("高级审核人员")) {
+					} else if (role_type.equals("2") && roleList.get(0).getName().equals("高级管理员")) {
+						userListNew.add(user);
+					}else if (role_type.equals("3") && roleList.get(0).getName().equals("初审专家")) {
+						userListNew.add(user);
+					}else if (role_type.equals("4") && roleList.get(0).getName().equals("复审专家")) {
 						userListNew.add(user);
 					}	 
 				}

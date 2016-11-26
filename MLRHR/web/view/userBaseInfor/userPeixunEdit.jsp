@@ -42,7 +42,7 @@
 					<tr align="center">
 						<td class="td_Left">专&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp业：</td>
 						<td class="td_Right">
-							<textarea style="width: 300px; height: 150px" id="user_peixun_major">${user_peixun.major}</textarea>
+							<textarea style="width: 300px; height: 40px" id="user_peixun_major">${user_peixun.major}</textarea>
 						</td>
 					</tr>
 					<tr align="center">

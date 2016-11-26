@@ -19,7 +19,7 @@
 <body>
 	<form id="userReportForm" class="form-horizontal" style="margin: 0 0 0 0"></form>
 	<div style="text-align: left;" class="add">
-		<a class="btn btn-small btn-info" href="javascript:void(0)" onClick="userReportEdit()">
+		<a id="userReportAddbtn" class="btn btn-small btn-info" href="javascript:void(0)" onClick="userReportEdit()">
 			<i class="icon-plus-sign"></i>添加
 		</a>
 		<span>（注：“内容提要”请控制在</span>

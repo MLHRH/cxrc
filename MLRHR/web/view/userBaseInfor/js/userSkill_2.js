@@ -1,9 +1,17 @@
 var oTableUserSkill_2 = null;
+var id;
+var userId ;
 function initUserSkill_2() {
+	if(userId != null && userId !=""){
+		id = userId;
+	}
+	else{
+		id = user_id;
+	}
 	$.ajax({
 				type : 'get',
 				dataType : 'json',
-				url : 'userSkill_2List?userId=' + user_id,// 请求的路径
+				url : 'userSkill_2List?userId=' + id,// 请求的路径
 				error : function() {// 请求失败处理函数
 					alert('请求失败');
 				},

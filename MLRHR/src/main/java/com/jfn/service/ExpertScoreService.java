@@ -23,8 +23,8 @@ public boolean insert01(ExpertScore expertScore){
 //		return expertScoreDao.delete(expert_id);
 //		
 //	}
-	public ExpertScore getByExpertId01( int expert_id ,int user_id){
-		return expertScoreDao.getByExpertId(expert_id,user_id);
+	public ExpertScore getByExpertId01( int expert_id ,int apply_id){
+		return expertScoreDao.getByExpertId(expert_id,apply_id);
 	}
 
 }

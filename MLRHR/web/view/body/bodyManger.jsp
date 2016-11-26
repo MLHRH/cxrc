@@ -115,6 +115,12 @@ body {
 						<li id="nav3" onclick="setStatus(2)">
 							<a href="javascript:void(0)">高级管理员</a>
 						</li>
+						<li id="nav4" onclick="setStatus(3)">
+							<a href="javascript:void(0)">初审专家</a>
+						</li>
+						<li id="nav5" onclick="setStatus(4)">
+							<a href="javascript:void(0)">复审专家</a>
+						</li>
 					</ul>
 					<div style="text-align: left;">
 						<a class="btn btn-small btn-info" href="javascript:void(0)" onClick="userEdit()">

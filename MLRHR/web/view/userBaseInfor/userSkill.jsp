@@ -19,7 +19,7 @@
 <body>
 	<form id="userSkillForm" class="form-horizontal" style="margin: 0 0 0 0"></form>
 	<div style="text-align: left;" class="add">
-		<a class="btn btn-small btn-info" href="javascript:void(0)" onClick="userSkillEdit()">
+		<a id="userSkillAddBtn" class="btn btn-small btn-info" href="javascript:void(0)" onClick="userSkillEdit()">
 			<i class="icon-plus-sign"></i>添加
 		</a>
 <!-- 		<span>（注：该数据将在"</span> -->

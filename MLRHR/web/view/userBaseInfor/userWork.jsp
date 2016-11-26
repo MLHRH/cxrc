@@ -19,7 +19,7 @@
 <body>
 	<form id="userWorkForm" class="form-horizontal" style="margin: 0 0 0 0"></form>
 	<div style="text-align: left;" class="add">
-		<a class="btn btn-small btn-info" href="javascript:void(0)" onClick="userWorkEdit()">
+		<a id="userWorkAddBtn" class="btn btn-small btn-info" href="javascript:void(0)" onClick="userWorkEdit()">
 			<i class="icon-plus-sign"></i>添加
 		</a>
 <!-- 		<span>（注：该数据将在"</span> -->

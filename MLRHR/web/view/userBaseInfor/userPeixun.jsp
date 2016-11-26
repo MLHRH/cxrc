@@ -19,7 +19,7 @@
 <body>
 	<form id="userPeixunForm" class="form-horizontal" style="margin: 0 0 0 0"></form>
 	<div style="text-align: left;" class="add">
-		<a class="btn btn-small btn-info" href="javascript:void(0)" onClick="userPeixunEdit()">
+		<a id="userPeixunAddbtn" class="btn btn-small btn-info" href="javascript:void(0)" onClick="userPeixunEdit()">
 			<i class="icon-plus-sign"></i>添加
 		</a>
 		<span>（注：包括参加专业学习、培训、国内外进修等） </span>

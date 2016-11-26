@@ -1,14 +1,25 @@
 var oTableUserWork = null;
+var id ;
+var userId ;
 function initUserWork() {
+	if(userId != null && userId !=""){
+		id = userId;
+	}
+	else{
+		id = user_id;
+	}
 	$.ajax({
 				type : 'get',
 				dataType : 'json',
-				url : 'userWorkList?userId=' + user_id,// 请求的路径
+				url : 'userWorkList?userId=' + id,// 请求的路径
 				error : function() {// 请求失败处理函数
 					alert('请求失败');
 				},
 				success : function(data) { // 请求成功后处理函数。
 					initUserWorkDataTables(data);
+					if(userId != null && userId !=""){
+						$("#userWorkAddBtn").hide();					
+					}
 				}
 			});
 
@@ -68,10 +79,14 @@ function initUserWorkDataTables(data) {
 					"data" : null,
 					"class" : "center",
 					"render" : function(data) {
+						if(userId == null || userId ==""){
 						return "<a class='btn btn-small btn-info'   style='margin: 2.5px;' href='javascript:void(0)' onClick='userWorkEdit(" + data.id
 								+ ")'><i class='icon-edit'></i>编辑</a><a class='btn btn-small btn-info'  style='margin: 2.5px;'  href='javascript:void(0)' onClick='userWorkDelete(" + data.id
 								+ ")' id='btndel'><i class='icon-remove'></i>删除</a>";
+					}else{
+						return null;
 					}
+						}
 				}]
 	});
 }

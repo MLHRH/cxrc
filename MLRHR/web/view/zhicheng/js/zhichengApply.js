@@ -248,6 +248,7 @@ function initApplication() {
 						$(".isEXP").hide();
 						$(".isSTA").show();
 						$(".span2").show();
+						$("#editSave").hide();
 						$("#zhichengapply_pre_approve_sug").attr("disabled",
 								true);
 						$("#zhichengapply_expert1_score").attr("disabled", true);
@@ -265,6 +266,7 @@ function initApplication() {
 						$(".isEXP").hide();
 						$(".span2").show();
 						$(".isSTA").show();
+						$("#editSave").hide();
 						$("#zhichengapply_finial_approve_sug").attr("disabled",
 								true);
 						$("#zhichengapply_expert1_score").attr("disabled", true);
@@ -283,6 +285,7 @@ function initApplication() {
 						$(".isSTA").show();
 						$(".isUSER").hide();
 						$(".span2").show();
+						$("#editSave").hide();
 						$("#zhichengapply_pre_approve_sug").attr("disabled",
 								true);
 						$("#zhichengapply_finial_approve_sug").attr("disabled",
@@ -304,6 +307,7 @@ function initApplication() {
 						$(".isSTA").show();
 						$(".isUSER").hide();
 						$("#orderedlist").show();
+						$("#editSave").hide();
 						$("#zhichengapply_pre_approve_sug").attr("disabled",
 								true);
 						$("#zhichengapply_finial_approve_sug").attr("disabled",
@@ -321,6 +325,7 @@ function initApplication() {
 						$(".icon-edit").show()
 						$(".isEXP").hide();
 						$(".isUSER").hide();
+						$("#editSave").show();
 						$("#zhichengapply_pre_approve_sug").attr("disabled",
 								true);
 						$("#zhichengapply_finial_approve_sug").attr("disabled",

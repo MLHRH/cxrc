@@ -24,9 +24,9 @@ public class ExpertScoreController {
 	public ExpertScore jcqnDoc07Init(HttpServletRequest request) {
 		// String userId = request.getParameter("user_id");
 		String expertId = request.getParameter("expert_id");
-		String userId = request.getParameter("userid");
+		String apply_id = request.getParameter("apply_id");
 		System.err.println("-----------" + expertId);
-		ExpertScore expertScore = expertScoreService.getByExpertId01(Integer.parseInt(expertId),Integer.parseInt(userId));
+		ExpertScore expertScore = expertScoreService.getByExpertId01(Integer.parseInt(expertId),Integer.parseInt(apply_id));
 		// Gson gson = new Gson();
 		System.err.println(expertScore);
 		// return gson.toJson(jcqn);
@@ -40,15 +40,15 @@ public class ExpertScoreController {
 		JsonObject jsonResponse = new JsonObject();
 		int expert_id = (Integer) request.getSession().getAttribute("user_id");
 //		System.err.println(request.getParameter("expert_id"));
-		int user_id =Integer.valueOf(request.getParameter("user_id"));
+		int apply_id =Integer.valueOf(request.getParameter("apply_id"));
 		expertScore.setExpert_id(expert_id);
 
-		System.err.println("score="+expertScoreService.getByExpertId01(expert_id ,user_id).getExpert_score());
-		System.err.println("pingyu="+expertScoreService.getByExpertId01(expert_id,user_id).getExpert_pingyu());
+		System.err.println("score="+expertScoreService.getByExpertId01(expert_id ,apply_id).getExpert_score());
+		System.err.println("pingyu="+expertScoreService.getByExpertId01(expert_id,apply_id).getExpert_pingyu());
 
 		int result = 0;
 		try {
-			if (expertScoreService.getByExpertId01(expert_id,user_id).getExpert_score() != null && expertScoreService.getByExpertId01(expert_id,user_id).getExpert_pingyu() !=null) {
+			if (expertScoreService.getByExpertId01(expert_id,apply_id).getExpert_score() != null && expertScoreService.getByExpertId01(expert_id,apply_id).getExpert_pingyu() !=null) {
 				result = expertScoreService.update01(expertScore) ? 1 : 0;
 				System.err.println(result);
 			}

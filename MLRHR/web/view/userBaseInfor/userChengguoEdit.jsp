@@ -36,7 +36,7 @@
 					<tr align="center">
 						<td class="td_Left">论文题目：</td>
 						<td class="td_Right">
-						<textarea style="width: 220px; height: 100px" id="user_chengguo_thesis_topic">${user_chengguo.thesisTopic}</textarea>
+						<textarea style="width: 205px; height: 60px" id="user_chengguo_thesis_topic">${user_chengguo.thesisTopic}</textarea>
 						
 						</td>
 					</tr>
@@ -64,7 +64,7 @@
 						<tr align="center">
 						<td class="td_Left">期刊名称：</td>
 						<td class="td_Right">
-							<textarea style="width: 220px; height: 100px" id="user_chengguo_journal_title">${user_chengguo.journalTitle}</textarea>
+							<textarea style="width: 205px; height: 60px" id="user_chengguo_journal_title">${user_chengguo.journalTitle}</textarea>
 						</td>
 					</tr>
 					<tr align="center">

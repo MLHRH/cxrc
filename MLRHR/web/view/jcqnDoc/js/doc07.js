@@ -5,6 +5,8 @@ var userBaseInfor_id ;
 var  user_id;
 // 被审核人ID
 var userid = $.query.get("userid");
+
+var apply_id = id ;
 function initjcqnDoc07() {
 //	user_id = user_id;
 	var arrData = new Array();
@@ -13,8 +15,8 @@ function initjcqnDoc07() {
 		"value" : user_id
 	});
 	arrData.push({
-		"name" : "userid",
-		"value" : userid
+		"name" : "apply_id",
+		"value" : apply_id
 	});
 	$.ajax({
 				type : 'post',
@@ -55,6 +57,10 @@ function updatejcqnDoc07() {
 	arrData.push({
 		"name":"expert_score",
 		"value":$('#expert_score').val()
+	});
+	arrData.push({
+		"name":"apply_id",
+		"value":apply_id
 	});
 	$.ajax({
 		dataType : "json",

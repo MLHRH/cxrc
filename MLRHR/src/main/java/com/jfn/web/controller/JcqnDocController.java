@@ -6,6 +6,8 @@ import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.context.SecurityContextImpl;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -37,6 +39,10 @@ import com.jfn.service.UserProjectService;
 import com.jfn.service.UserReportService;
 import com.jfn.service.UserWorkService;
 import com.jfn.service.UserZhuanliService;
+import com.sun.script.javascript.JSAdapter;
+
+import net.sf.json.JSONArray;
+import net.sf.json.JSONObject;
 @Controller
 @RequestMapping("/")
 public class JcqnDocController {
@@ -86,6 +92,20 @@ public class JcqnDocController {
 			@RequestMapping(value="/jcqnDoc01Init",method=RequestMethod.GET)
 			@ResponseBody
 			public String jcqnDoc01Init(HttpServletRequest request){
+				
+				String authority = "";
+
+				SecurityContextImpl securityContextImpl = (SecurityContextImpl) request.getSession().getAttribute("SPRING_SECURITY_CONTEXT");
+				@SuppressWarnings("unchecked")
+				List<GrantedAuthority> authorities = (List<GrantedAuthority>) securityContextImpl.getAuthentication().getAuthorities();
+				for (GrantedAuthority grantedAuthority : authorities) {
+					authority = authority + grantedAuthority.getAuthority() + "|";
+				}
+
+				JSONObject jo3 = new JSONObject();
+				jo3.put("authority", authority);
+//				JSONArray jsonArray = new JSONArray();
+				
 				String userId = request.getParameter("userId");
 
 				List<Object> list =new ArrayList<Object>();
@@ -103,8 +123,9 @@ public class JcqnDocController {
 			list.add(userPeixuns);
 			list.add(jcqn);
 			list.add(work);
+			list.add(jo3);
 				Gson gson = new Gson();
-
+         
 			return gson.toJson(list);
 
 			}
@@ -196,14 +217,29 @@ public class JcqnDocController {
 	//获取信息
 		@RequestMapping(value="/jcqnDoc03Init", method =RequestMethod.GET)
 		@ResponseBody
-		public JcqnDoc03 jcqnDoc03Init(HttpServletRequest request){
+		public String jcqnDoc03Init(HttpServletRequest request){
+			
+			String authority = "";
+
+			SecurityContextImpl securityContextImpl = (SecurityContextImpl) request.getSession().getAttribute("SPRING_SECURITY_CONTEXT");
+			@SuppressWarnings("unchecked")
+			List<GrantedAuthority> authorities = (List<GrantedAuthority>) securityContextImpl.getAuthentication().getAuthorities();
+			for (GrantedAuthority grantedAuthority : authorities) {
+				authority = authority + grantedAuthority.getAuthority() + "|";
+			}
+
+			JSONObject jo3 = new JSONObject();
+			jo3.put("authority", authority);
+			JSONArray jsonArray = new JSONArray();
 			String userId = request.getParameter("userId");
 			System.err.println("-----------"+userId);
 			JcqnDoc03 jcqn = jcqndoc01servive.getByUserId03(Integer.parseInt(userId));
 //			Gson gson = new Gson();
 			System.err.println(jcqn);
 //			return gson.toJson(jcqn);	
-			return jcqn;
+			jsonArray.add(jcqn);
+			jsonArray.add(jo3);
+			return jsonArray.toString();
 		}
 		
 		//添加、更新操作记录
@@ -240,14 +276,29 @@ public class JcqnDocController {
 		//获取信息
 				@RequestMapping(value="/jcqnDoc04Init", method =RequestMethod.GET)
 				@ResponseBody
-				public JcqnDoc04 jcqnDoc04Init(HttpServletRequest request){
+				public String jcqnDoc04Init(HttpServletRequest request){
+					
+					String authority = "";
+
+					SecurityContextImpl securityContextImpl = (SecurityContextImpl) request.getSession().getAttribute("SPRING_SECURITY_CONTEXT");
+					@SuppressWarnings("unchecked")
+					List<GrantedAuthority> authorities = (List<GrantedAuthority>) securityContextImpl.getAuthentication().getAuthorities();
+					for (GrantedAuthority grantedAuthority : authorities) {
+						authority = authority + grantedAuthority.getAuthority() + "|";
+					}
+
+					JSONObject jo3 = new JSONObject();
+					jo3.put("authority", authority);
+					JSONArray jsonArray = new JSONArray();
 					String userId = request.getParameter("userId");
 					System.err.println("-----------"+userId);
 					JcqnDoc04 jcqn = jcqndoc01servive.getByUserId04(Integer.parseInt(userId));
 //					Gson gson = new Gson();
 					System.err.println(jcqn);
-//					return gson.toJson(jcqn);	
-					return jcqn;
+//					return gson.toJson(jcqn);
+					jsonArray.add(jcqn);
+					jsonArray.add(jo3);
+					return jsonArray.toString();
 				}
 				
 				//添加、更新操作记录
@@ -282,14 +333,28 @@ public class JcqnDocController {
 				//获取信息
 				@RequestMapping(value="/jcqnDoc05Init", method =RequestMethod.GET)
 				@ResponseBody
-				public JcqnDoc05 jcqnDoc05Init(HttpServletRequest request){
+				public String jcqnDoc05Init(HttpServletRequest request){
+					String authority = "";
+
+					SecurityContextImpl securityContextImpl = (SecurityContextImpl) request.getSession().getAttribute("SPRING_SECURITY_CONTEXT");
+					@SuppressWarnings("unchecked")
+					List<GrantedAuthority> authorities = (List<GrantedAuthority>) securityContextImpl.getAuthentication().getAuthorities();
+					for (GrantedAuthority grantedAuthority : authorities) {
+						authority = authority + grantedAuthority.getAuthority() + "|";
+					}
+
+					JSONObject jo3 = new JSONObject();
+					jo3.put("authority", authority);
+					JSONArray jsonArray = new JSONArray();
 					String userId = request.getParameter("userId");
 					System.err.println("-----------"+userId);
 					JcqnDoc05 jcqn = jcqndoc01servive.getByUserId05(Integer.parseInt(userId));
 //					Gson gson = new Gson();
 					System.err.println(jcqn);
+					jsonArray.add(jcqn);
+					jsonArray.add(jo3);
 //					return gson.toJson(jcqn);	
-					return jcqn;
+					return jsonArray.toString();
 				}
 				
 				//添加、更新操作记录

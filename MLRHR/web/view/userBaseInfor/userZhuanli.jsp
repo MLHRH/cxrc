@@ -19,7 +19,7 @@
 <body>
 	<form id="userZhuanliForm" class="form-horizontal" style="margin: 0 0 0 0"></form>
 	<div style="text-align: left;" class="add">
-		<a class="btn btn-small btn-info" href="javascript:void(0)" onClick="userZhuanliEdit()">
+		<a id="userZhuanliAddBtn" class="btn btn-small btn-info" href="javascript:void(0)" onClick="userZhuanliEdit()">
 			<i class="icon-plus-sign"></i>添加
 		</a>
 		<span>（注：此处只填写您为"</span>
