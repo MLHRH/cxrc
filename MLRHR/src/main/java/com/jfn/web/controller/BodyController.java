@@ -5,9 +5,6 @@ import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 
-import net.sf.json.JSONArray;
-import net.sf.json.JSONObject;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.context.SecurityContextImpl;
@@ -19,18 +16,19 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springside.modules.security.springsecurity.SpringSecurityUtils;
 
-import com.alibaba.fastjson.JSON;
 import com.google.gson.JsonObject;
-import com.jfn.entity.ZhichengApply;
 import com.jfn.entity.Body;
 import com.jfn.entity.Calendar;
 import com.jfn.entity.User;
-
+import com.jfn.entity.ZhichengApply;
 import com.jfn.service.AccountManager;
 import com.jfn.service.BodyService;
 import com.jfn.service.CalendarService;
 import com.jfn.service.UserService;
 import com.jfn.service.ZhichengApplyService;
+
+import net.sf.json.JSONArray;
+import net.sf.json.JSONObject;
 
 /**
  * @create-time 2014-8-8 下午8:25:28

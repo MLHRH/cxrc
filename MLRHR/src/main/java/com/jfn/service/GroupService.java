@@ -62,7 +62,7 @@ public class GroupService {
 	 * @param teamLeaderType
 	 * @param expertId
 	 */
-	public void updateExpertGroup(Integer groupId,String teamLeaderType,Integer expertId,
+	public void updateExpertGroup(Integer groupId,Integer teamLeaderType,Integer expertId,
 			JSONObject result){
 		boolean flag = groupDao.updateExpertGroup(groupId, teamLeaderType, expertId);
 		if(flag){
@@ -100,5 +100,56 @@ public class GroupService {
 			expertGroup.setGroups(groups);
 		}
 		return expertGroup;
+	}
+	/**
+	 * 添加分组
+	 * @param group
+	 * @return
+	 */
+	public JSONObject addGroup(Group group){
+		boolean flag = groupDao.addGroup(group);
+		JSONObject result = new JSONObject();
+		if(flag){
+			result.put(Constant.STATUS, Constant.STATUS_SUCCESS);
+			result.put(Constant.MSG, "添加分组成功");
+		}else{
+			result.put(Constant.STATUS, Constant.STAUS_FAIL);
+			result.put(Constant.MSG, "添加分组失败");
+		}
+		return result;
+	}
+	/**
+	 * 更新分组名字
+	 * @param group
+	 * @return
+	 */
+	public JSONObject updateGruop(Group group) {
+		boolean flag = groupDao.updateGroup(group);
+		JSONObject result = new JSONObject();
+		if(flag){
+			result.put(Constant.STATUS, Constant.STATUS_SUCCESS);
+			result.put(Constant.MSG, "更新分组成功");
+		}else{
+			result.put(Constant.STATUS, Constant.STAUS_FAIL);
+			result.put(Constant.MSG, "更新分组失败");
+		}
+		return result;
+	}
+	/**
+	 * 删除分组信息
+	 * @param group
+	 * @return
+	 */
+	public JSONObject delGroup(Group group){
+		boolean flag = groupDao.delGroup(group);
+		JSONObject result = new JSONObject();
+		if(flag){
+			result.put(Constant.STATUS, Constant.STATUS_SUCCESS);
+			result.put(Constant.MSG, "删除分组成功");
+		}else{
+			result.put(Constant.STATUS, Constant.STAUS_FAIL);
+			result.put(Constant.MSG, "删除分组失败,请确认次分组中还有有效信息");
+		}
+		return result;
 	}
 }

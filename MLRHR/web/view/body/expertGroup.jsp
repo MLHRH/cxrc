@@ -25,30 +25,50 @@
 	<form id="userStudyForm" class="form-horizontal" style="margin: 0 0 0 0">
 		<div style="text-align: center;">
 			<div class="control-group">
-				<input type="hidden" id="user_id" name="id" value="${user.id}" />
+				<input type="hidden" id="expertId" name="expertId" value="${expertInfo.expertId}" />
 				<table width="98%" border="0" cellpadding="2" cellspacing="1" align="center" style="margin-top: 8px">
 					<tr align="center" style="line-height: 50px">
 						<td class="td_Left">姓名：</td>
 						<td class="td_Right">
-							<input type="text" id="user_name" value="${user.name}" />
+							${expertInfo.name}
 						</td>
 					</tr>
 					<tr align="center" style="line-height: 50px">
-						<td class="td_Left">登陆名(身份证号码)：</td>
+						<td class="td_Left">所在机构：</td>
 						<td class="td_Right">
-							<input type="text" id="user_id_num" value="${user.id_num}" />
+							${expertInfo.body}
 						</td>
 					</tr>
 					<tr align="center" style="line-height: 50px">
-						<td class="td_Left">邮箱：</td>
+						<td class="td_Left">技术职称：</td>
 						<td class="td_Right">
-							<input type="text" id="user_email" value="${user.email}" />
+							${expertInfo.zhiCheng}
 						</td>
 					</tr>
 					<tr align="center" style="line-height: 50px">
-						<td class="td_Left">登陆密码：</td>
+						<td class="td_Left">研究方向：</td>
 						<td class="td_Right">
-							<input type="text" id="user_password" />
+							${expertInfo.congShiFangXiang}
+						</td>
+					</tr>
+					<tr align="center" style="line-height: 50px">
+						<td class="td_Left">组内级别：</td>
+						<td class="td_Right">
+							<select name="level" id="team_leader_type">
+								<option value = "3" ${expertInfo.level == 3?'selected':'' }>成员</option>
+								<option value = "2" ${expertInfo.level == 2?'selected':'' }>副组长</option>
+								<option value = "1" ${expertInfo.level == 1?'selected':'' }>组长</option>
+							</select>
+						</td>
+					</tr>
+					<tr align="center" style="line-height: 50px">
+						<td class="td_Left">所在分组：</td>
+						<td class="td_Right">
+							<select name="group" id="group">
+								<c:forEach items="${expertInfo.groups }" var="group">
+									<option value="${group.id }" ${group.name eq expertInfo.group?'selected':'' }>${group.name}</option>
+								</c:forEach>
+							</select>
 						</td>
 					</tr>
 				</table>

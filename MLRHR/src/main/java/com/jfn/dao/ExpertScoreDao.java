@@ -10,8 +10,6 @@ import org.springframework.jdbc.core.ResultSetExtractor;
 import org.springframework.stereotype.Repository;
 
 import com.jfn.entity.ExpertScore;
-import com.jfn.entity.JcqnDoc03;
-import com.jfn.entity.JcqnDoc04;
 @Repository
 public class ExpertScoreDao {
 	@Autowired

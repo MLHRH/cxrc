@@ -20,6 +20,9 @@ public class GroupDao {
 	@Autowired
 	private JdbcTemplate jdbcTemplate;
 	private final String SQL_GET_GROUP_LIST="select * from group_tree order by id";
+	private final String SQL_INSERT_GROUP = "INSERT INTO group_tree (pId,name) values(?,?)";
+	private final String SQL_UPDATE_GROUP = "UPDATE group_tree SET name = ? WHERE id = ? ";
+	private final String SQL_DEL_GROUP= "DELETE FROM group_tree where id = ? ";
 	private final String SQL_GET_APPLY_GROUP = "SELECT p.id,p.group_id,bo.`name` AS 'body',p.apply_date ,p.apply_type,u.`name` ,t.name AS 'group',ar.`name` AS role from apply p"
 			+" LEFT JOIN group_tree t on t.id = p.group_id"
 			+" LEFT JOIN acct_user u ON u.id = p.user_id"
@@ -47,7 +50,7 @@ public class GroupDao {
 			+" WHERE e.id = ?";
 	
 	private final String SQL_UPDATE_APPLY_GROUP = "update apply set group_id = ? where id = ? ";
-	private final String SQL_UPDATE_EXPERT_GROUP = "update expert_user set group_id = ? ,team_leader_type = ? where user_id = ?";
+	private final String SQL_UPDATE_EXPERT_GROUP = "update expert_user set group_id = ? ,team_leader_type = ? where id = ?";
 	/**
 	 * 根据groupID获取对应分组信息
 	 * @param id
@@ -76,6 +79,34 @@ public class GroupDao {
 		return jdbcTemplate.query(SQL_GET_GROUP_LIST, new groupRowMapper());
 	}
 	/**
+	 * 添加分组
+	 * @param group
+	 * @return
+	 */
+	public boolean addGroup(Group group){
+		Object [] params = new Object[] {group.getpId(),group.getName()};
+		return jdbcTemplate.update(SQL_INSERT_GROUP, params)==1;
+	}
+	/**
+	 * 更新分组信息
+	 * @param group
+	 * @return
+	 */
+	public boolean updateGroup(Group group){
+		Object [] params = new Object[]{group.getName(),group.getId()};
+		return jdbcTemplate.update(SQL_UPDATE_GROUP, params)==1;
+	}
+	/**
+	 * 删除分组节点
+	 * @param group
+	 * @return
+	 */
+	public boolean delGroup(Group group){
+		Object [] params = new Object[]{group.getId()};
+		return jdbcTemplate.update(SQL_DEL_GROUP, params) == 1;
+	}
+	
+	/**
 	 * 申请更新分组信息
 	 * @param applyId
 	 * @return
@@ -84,6 +115,7 @@ public class GroupDao {
 		Object [] params = new Object[]{groupId,applyId};
 		return jdbcTemplate.update(SQL_UPDATE_APPLY_GROUP, params) == 1;
 	}
+	
 	/**
 	 * 更新专家分组信息
 	 * @param groupId
@@ -91,7 +123,7 @@ public class GroupDao {
 	 * @param userId
 	 * @return
 	 */
-	public boolean updateExpertGroup(Integer groupId,String level,Integer userId){
+	public boolean updateExpertGroup(Integer groupId,Integer level,Integer userId){
 		Object [] params = new Object[]{groupId,level,userId};
 		return jdbcTemplate.update(SQL_UPDATE_EXPERT_GROUP, params) == 1;
 	}
@@ -136,13 +168,12 @@ public class GroupDao {
 				ExpertGroup group = null;
 				if(rs.next()){
 					group = new ExpertGroup();
-					group.setId(rs.getInt("id"));
 					group.setName(rs.getString("name"));
 					group.setBody(rs.getString("body"));
-					group.setExpertId(rs.getInt("user_id"));
+					group.setExpertId(rs.getInt("id"));
 					group.setZhiCheng(rs.getString("zhicheng"));
 					group.setCongShiFangXiang(rs.getString("congshizhuanye"));
-					group.setLevel(rs.getString("team_leader_type"));
+					group.setLevel(rs.getInt("team_leader_type"));
 					group.setGroup(rs.getString("group"));
 				}
 				return group;
@@ -163,7 +194,7 @@ public class GroupDao {
 			Group group = new Group();
 			group.setId(rs.getInt("id"));
 			group.setName(rs.getString("name"));
-			group.setPid(rs.getString("pId"));
+			group.setpId(rs.getString("pId"));
 			return group;
 		}
 	}
@@ -204,7 +235,7 @@ public class GroupDao {
 			group.setExpertId(rs.getInt("id"));
 			group.setZhiCheng(rs.getString("zhicheng"));
 			group.setCongShiFangXiang(rs.getString("congshizhuanye"));
-			group.setLevel(rs.getString("team_leader_type"));
+			group.setLevel(rs.getInt("team_leader_type"));
 			return group;
 		}
 	}

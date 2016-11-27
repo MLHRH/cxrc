@@ -4,7 +4,7 @@ import java.util.List;
 
 public class ExpertGroup extends Group{
 	private Integer expertId;
-	private String level;
+	private Integer level;
 	private String zhiCheng;
 	private String body;
 	private String congShiFangXiang;
@@ -17,10 +17,10 @@ public class ExpertGroup extends Group{
 	public void setExpertId(Integer expertId) {
 		this.expertId = expertId;
 	}
-	public String getLevel() {
+	public Integer getLevel() {
 		return level;
 	}
-	public void setLevel(String level) {
+	public void setLevel(Integer level) {
 		this.level = level;
 	}
 	public String getZhiCheng() {

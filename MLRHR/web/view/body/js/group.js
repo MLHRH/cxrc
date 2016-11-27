@@ -53,10 +53,10 @@ function init() {
 					alert('请求失败');
 				},
 				success : function(data) { // 请求成功后处理函数。
-					$.fn.zTree.init($("#treeDemo"), setting, data);
+					$.fn.zTree.init($("#treeDemo"), setting, data[0]);
 					var treeObj = $.fn.zTree.getZTreeObj("treeDemo");
 					treeObj.expandAll(true);
-					var selectedTreeId = $("#groupId").val();
+					var selectedTreeId = data[0][0].id;
 					currentNode = treeObj.getNodeByParam("id", selectedTreeId);
 					treeObj.selectNode(currentNode, false);
 					setDetail(currentNode);
@@ -85,12 +85,12 @@ function beforeRemove(treeId, treeNode) {
 function onRemove(e, treeId, treeNode) {
 	$.ajax({
 				"dataType" : 'json',
-				"type" : "post",
-				"url" : "bodydel?id=" + treeNode.id,
-				"success" : function(rst) {
-					if (rst.result == 1) {
+				"type" : "get",
+				"url" : "delGroup?id=" + treeNode.id,
+				"success" : function(data) {
+					if (data.status == 0) {
 						noty({
-									text : '删除成功！',
+									text : data.msg,
 									type : 'success',
 									dismissQueue : false,
 									closeWith : ['click', 'button'],
@@ -104,7 +104,7 @@ function onRemove(e, treeId, treeNode) {
 									theme : 'defaultTheme'
 								});
 					} else {
-						generatenoty('center', rst.msg, 'error');
+						generatenoty('center', data.msg, 'error');
 					}
 				}
 			});
@@ -138,12 +138,12 @@ function onRename(e, treeId, treeNode, isCancel) {
 	$.ajax({
 				"dataType" : 'json',
 				"type" : "post",
-				"url" : "bodyupdate",
+				"url" : "updateGroup",
 				"data" : arrData,
-				"success" : function(rst) {
-					if (rst.result == 1) {
+				"success" : function(data) {
+					if (data.status == 0) {
 					} else {
-						generatenoty('center', rst.msg, 'error');
+						generatenoty('center', data.msg, 'error');
 					}
 				}
 			});
@@ -179,12 +179,12 @@ function addHoverDom(treeId, treeNode) {
 					$.ajax({
 								"dataType" : 'json',
 								"type" : "post",
-								"url" : "bodyupdate",
+								"url" : "updateGroup",
 								"data" : arrData,
-								"success" : function(rst) {
-									if (rst.result == 1) {
+								"success" : function(data) {
+									if (data.status == 0) {
 										noty({
-													text : '添加成功！',
+													text : data.msg,
 													type : 'success',
 													dismissQueue : false,
 													closeWith : ['click', 'button'],
@@ -198,7 +198,7 @@ function addHoverDom(treeId, treeNode) {
 													theme : 'defaultTheme'
 												});
 									} else {
-										generatenoty('center', rst.msg, 'error');
+										generatenoty('center', data.msg, 'error');
 									}
 								}
 							});
@@ -318,7 +318,20 @@ function initExpertMangerDataTables(data) {
 					"class" : "center",
 				}, {
 					"data" : "level",
-					"class" : "center"
+					"class" : "center",
+					"render" : function(data) {
+						var team_leader_type = "";
+						if(data == 1 ){
+							team_leader_type = "组长";
+						}
+						else if(data == 2){
+							team_leader_type = "副组长";
+						}
+						else{
+							team_leader_type = "成员";
+						}
+						return team_leader_type
+					}
 				}, {
 					"data" : "congShiFangXiang",
 					"class" : "center"
@@ -353,15 +366,16 @@ function expertEdit(id) {
 		expertGroupSave();
 			});
 	if (id == null) {
-		$("#myModalTitle").text("添加人员信息");
+		$("#myModalTitle").text("暂无分组信息");
 		$(".modal-body").load("expertGroupInfo");
 		$('#myModal').modal();
 	} else {
-		$("#myModalTitle").text("修改人员信息");
+		$("#myModalTitle").text("修改分组信息");
 		$(".modal-body").load("expertGroupInfo?expertId=" + id);
 		$('#myModal').modal();
 	}
 }
+
 function setStatus(sta) {
 	if (sta == 2) {
 		$("#nav1").addClass("active");

@@ -6,18 +6,18 @@ public class Group {
 	//分组name
 	private String name;
 	//分组ID
-	private String Pid;
+	private String pId;
 	public String getName() {
 		return name;
 	}
+	public String getpId() {
+		return pId;
+	}
+	public void setpId(String pId) {
+		this.pId = pId;
+	}
 	public void setName(String name) {
 		this.name = name;
-	}
-	public String getPid() {
-		return Pid;
-	}
-	public void setPid(String pid) {
-		Pid = pid;
 	}
 	public Integer getId() {
 		return id;
@@ -27,7 +27,7 @@ public class Group {
 	}
 	@Override
 	public String toString() {
-		return "ApplyGroup [id=" + id + ", name=" + name + ", Pid=" + Pid +"]";
+		return "ApplyGroup [id=" + id + ", name=" + name + ", Pid=" + pId +"]";
 	}
 	
 }

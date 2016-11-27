@@ -2,8 +2,8 @@ function expertGroupSave() {
 	arrData = new Array();
 	if ($("#expertId").val() != "") {
 		arrData.push({
-					"name" : "expertId",
-					"value" : $("#expertId").val()
+			"name" : "expertId",
+			"value" : $("#expertId").val()
 				});
 		arrData.push({
 			"name" : "groupId",
@@ -11,7 +11,7 @@ function expertGroupSave() {
 		});
 		arrData.push({
 			"name" : "teamLeaderType",
-			"value" : $("#teamLeaderType").val()
+			"value" : $("#team_leader_type").val()
 		});
 		
 		$.ajax({

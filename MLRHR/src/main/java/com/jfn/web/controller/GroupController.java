@@ -5,17 +5,23 @@ import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.context.SecurityContextImpl;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.alibaba.fastjson.JSONObject;
+import com.jfn.common.util.Constant;
 import com.jfn.entity.ApplyGroup;
 import com.jfn.entity.ExpertGroup;
 import com.jfn.entity.Group;
 import com.jfn.service.GroupService;
+
+import net.sf.json.JSONArray;
 
 @Controller
 public class GroupController {
@@ -34,9 +40,23 @@ public class GroupController {
 	 */
 	@ResponseBody
 	@RequestMapping(value = "groupTree", method = RequestMethod.GET)
-	public Object groupTree(HttpServletRequest request, Model model) {
+	public String groupTree(HttpServletRequest request, Model model) {
 		List<Group> groupList = groupService.getAllGroupTree();
-		return groupList;
+		
+		String authority = "";
+		SecurityContextImpl securityContextImpl = (SecurityContextImpl) request.getSession().getAttribute("SPRING_SECURITY_CONTEXT");
+		@SuppressWarnings("unchecked")
+		List<GrantedAuthority> authorities = (List<GrantedAuthority>) securityContextImpl.getAuthentication().getAuthorities();
+		for (GrantedAuthority grantedAuthority : authorities) {
+			authority = authority + grantedAuthority.getAuthority() + "|";
+		}
+		JSONObject jo3 = new JSONObject();
+		jo3.put("authority", authority);
+
+		JSONArray jsonArray = new JSONArray();
+		jsonArray.add(groupList);
+		jsonArray.add(jo3);
+		return jsonArray.toString();
 	}
 	/**
 	 * 获取申请的分组情况列表
@@ -106,9 +126,37 @@ public class GroupController {
 		String groupId = request.getParameter("groupId");
 		String teamLeaderType = request.getParameter("teamLeaderType");
 		JSONObject result = new JSONObject();
-		groupService.updateExpertGroup(Integer.valueOf(groupId), teamLeaderType,
+		groupService.updateExpertGroup(Integer.valueOf(groupId), Integer.valueOf(teamLeaderType),
 				Integer.valueOf(expertId) ,result);
 		
+		return result;
+	}
+	
+	@ResponseBody
+	@RequestMapping(value = "updateGroup",method = RequestMethod.POST)
+	public Object updateGroup(HttpServletRequest request, @ModelAttribute Group entity){
+		JSONObject result = new JSONObject();
+		String id = request.getParameter("id");
+		if ((id == null) || (id.length() < 1)) {
+
+			result = groupService.addGroup(entity);
+		} else {
+			result = groupService.updateGruop(entity);
+		}
+		return result;
+	}
+	@ResponseBody
+	@RequestMapping(value = "delGroup",method=RequestMethod.GET)
+	public Object delGroup(HttpServletRequest request){
+		String id = request.getParameter("id");
+		JSONObject result = new JSONObject();
+		result.put(Constant.STATUS, Constant.STAUS_FAIL);
+		result.put(Constant.MSG, "删除分组信息失败");
+		Group group = new Group();
+		if(id != null){
+			group.setId(Integer.valueOf(id));
+			result = groupService.delGroup(group);
+		}
 		return result;
 	}
 }
