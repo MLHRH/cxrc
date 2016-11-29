@@ -3,6 +3,7 @@ package com.jfn.entity;
 import java.util.List;
 
 public class ApplyGroup extends Group{
+	private Integer user_id ;
 	private Integer apply_id;
 	private String role;
 	private String name;
@@ -12,6 +13,12 @@ public class ApplyGroup extends Group{
 	private String group;
 	private List<Body> bodys;
 	private List<Group> groups;
+	public Integer getUser_id() {
+		return user_id;
+	}
+	public void setUser_id(Integer user_id) {
+		this.user_id = user_id;
+	}
 	public Integer getApply_id() {
 		return apply_id;
 	}

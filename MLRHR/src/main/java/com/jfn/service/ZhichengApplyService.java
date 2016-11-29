@@ -8,6 +8,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.jfn.dao.ZhichengApplyDao;
+import com.jfn.entity.ExpertUser;
+import com.jfn.entity.JcqnDoc04;
 import com.jfn.entity.ZhichengApply;
 import com.jfn.entity.ZhichengApply;
 
@@ -53,6 +55,18 @@ public class ZhichengApplyService {
 		// TODO Auto-generated method stub
 		return zhichengDao.getUserByUserIdAndDate(id,startDate,endDate);
 	}
+	
+	
+	public List<ZhichengApply> getAllByGroupId(Integer id) {
+		// TODO Auto-generated method stub
+		return zhichengDao.getAllByGroupId(id);
+	}
 
 
+	public ExpertUser getByUserId( int user_id ){
+		return zhichengDao.getByUserId(user_id);
+	}
+	
+	
+	
 }

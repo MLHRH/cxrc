@@ -15,6 +15,8 @@ import org.springframework.stereotype.Repository;
 
 import com.alibaba.fastjson.JSON;
 import com.jfn.dao.NewsDao.newsRowMapper;
+import com.jfn.entity.ExpertUser;
+import com.jfn.entity.JcqnDoc04;
 import com.jfn.entity.ZhichengApply;
 
 @Repository
@@ -33,6 +35,11 @@ public class ZhichengApplyDao {
 	private final String SQL_SET_Apply_UPDATE = "update apply set user_id=?,apply_date = ?,apply_type = ?,status = ?,pre_approve_date = ?,pre_approve_id = ?,pre_approve_sug = ?,finial_approve_date=?,finial_approve_id = ?,finial_approve_sug = ?,expert1_date = ?,expert1_id=?,expert1_score = ?,expert1_sug = ?,expert2_date = ?,expert2_id = ?,expert2_score = ?,expert2_sug = ? where id=?";
 
 	private final static String SQL_DEL_BY_ID = "delete from apply where id = ?";
+	
+	private final String SQL_GET_Apply_LIST_By_GroupID = "select * from apply where group_id=? order by apply_date desc ";
+	
+	private final String SQL_Get_BY_USERID = "select * from expert_user where user_id=?";
+	
 	SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 	public boolean insert(ZhichengApply Apply) {
 		Object[] params = new Object[]{Apply.getUser_id(),sdf.format(new Date()),Apply.getApply_type(), 
@@ -246,5 +253,44 @@ System.err.println(JSON.toJSON(Apply));
 		else
 			return jdbcTemplate.query(SQL_GET_Apply_LIST_By_UserIDAndDate, new Object[] { userid, startDate, endDate }, new ApplyRowMapper());
 	}
+	
+	
+	public List<ZhichengApply> getAllByGroupId(Integer groupId) {
+		// TODO Auto-generated method stub
+		return jdbcTemplate.query(SQL_GET_Apply_LIST_By_GroupID, new Object[] { groupId }, new ApplyRowMapper());
+	}
+	
+	
+	public ExpertUser getByUserId( int user_id )
+	{
+		return jdbcTemplate.query( SQL_Get_BY_USERID, new Object[]{user_id},
+				new ResultSetExtractor<ExpertUser>()
+				{
+			@Override
+			public ExpertUser extractData( ResultSet rs )
+					throws SQLException, DataAccessException
+					{
+				ExpertUser expertUser = new ExpertUser(); 
+				if( rs.next() )
+				{
+					expertUser.setUser_id(rs.getInt("id"));
+					expertUser.setUser_id(rs.getInt("user_id"));
+					expertUser.setGroup_id(rs.getInt("group_id"));
+					expertUser.setTeam_leader_type(rs.getInt("team_leader_type"));
+					expertUser.setGender(rs.getString("gender"));
+					expertUser.setMinzu(rs.getString("minzu"));
+					expertUser.setBirthday(rs.getString("birthday"));
+					expertUser.setAddress(rs.getString("address"));
+					expertUser.setZhicheng(rs.getString("zhicheng"));
+					expertUser.setCongshizhuanye(rs.getString("congshizhuanye"));
+					expertUser.setWithin_beijing(rs.getInt("within_beijing"));
+		
+				}
+				return expertUser;
+					}
+				} );
+	}
+	
+	
 
 }

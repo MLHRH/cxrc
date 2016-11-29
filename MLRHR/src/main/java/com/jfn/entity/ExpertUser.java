@@ -1,6 +1,7 @@
 package com.jfn.entity;
 
 public class ExpertUser {
+	private Integer id;
 	//专家ID
 	private Integer user_id;
 	//所属分组id
@@ -21,6 +22,14 @@ public class ExpertUser {
 	private String congshizhuanye;
 	//1:京内 0:京外
 	private Integer within_beijing;
+	
+	
+	public Integer getId() {
+		return id;
+	}
+	public void setId(Integer id) {
+		this.id = id;
+	}
 	public Integer getUser_id() {
 		return user_id;
 	}

@@ -22,7 +22,10 @@ import org.springside.modules.security.springsecurity.SpringSecurityUtils;
 import com.alibaba.fastjson.JSON;
 import com.google.gson.JsonObject;
 import com.jfn.entity.ZhichengApply;
+import com.jfn.entity.ApplyGroup;
 import com.jfn.entity.ApplyMenu;
+import com.jfn.entity.ExpertUser;
+import com.jfn.entity.JcqnDoc04;
 import com.jfn.entity.Role;
 import com.jfn.entity.User;
 
@@ -30,6 +33,7 @@ import com.jfn.service.AccountManager;
 import com.jfn.service.ApplyMenuService;
 import com.jfn.service.BodyService;
 import com.jfn.service.CalendarService;
+import com.jfn.service.GroupService;
 import com.jfn.service.UserChengguoService;
 import com.jfn.service.UserExamService;
 import com.jfn.service.UserPeixunService;
@@ -76,7 +80,8 @@ public class ZhichengController {
 	private ZhichengApplyService zhichengapplyservice;
 	@Autowired
 	private CalendarService calendarservice;
-
+    @Autowired
+    private GroupService groupService;
 	@RequestMapping(value = "zhichengApply", method = RequestMethod.GET)
 	public ModelAndView zhichengApply(HttpServletRequest request, Model model,String applyType) {
 		String type = null;
@@ -103,6 +108,11 @@ public class ZhichengController {
 	@RequestMapping(value = "zhichengApplylist", method = RequestMethod.GET)
 	public String zhichengApplylist(HttpServletRequest request, Model model) {
 		return "zhicheng/zhichengApplylist";
+	}
+	
+	@RequestMapping(value = "expertzhichengApplylist", method = RequestMethod.GET)
+	public String expertZhichengApplylist(HttpServletRequest request, Model model) {
+		return "zhicheng/expertzhichengApplylist";
 	}
 	
 	/**
@@ -272,4 +282,30 @@ public class ZhichengController {
 		}
 		return null;
 	}
+	
+	
+	
+	@RequestMapping(value = "expertzhichengApplylistInit", method = RequestMethod.GET)
+	@ResponseBody
+	public Object initApplyGroup(HttpServletRequest request){
+		String group_id = request.getParameter("groupId");
+		String role_type = request.getParameter("role_type");
+		List<ApplyGroup> list = groupService.getApplyGroupById(Integer.valueOf(group_id),
+				Integer.valueOf(role_type));
+		return list;
+	}
+	
+	
+	//获取信息
+	@RequestMapping(value="/ExpertUserInit", method =RequestMethod.GET)
+	@ResponseBody
+	public ExpertUser jcqnDoc04Init(HttpServletRequest request){
+		JSONArray jsonArray = new JSONArray();
+		String userId = request.getParameter("userId");
+		System.err.println("-----------"+userId);
+		ExpertUser  expertUser = zhichengapplyservice.getByUserId(Integer.parseInt(userId));
+		return expertUser;
+	}
+	
+	
 }

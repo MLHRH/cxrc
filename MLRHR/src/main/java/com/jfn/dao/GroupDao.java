@@ -36,7 +36,7 @@ public class GroupDao {
 			+" LEFT JOIN acct_role ar ON ar.id = aur.role_id"
 			+" LEFT JOIN body b ON b.id = a.body_id"
 			+" WHERE e.group_id = ? AND ar.id= ?";
-	private final String SQL_GET_APPLY_INFO = "SELECT p.id,p.group_id,bo.`name` AS 'body',p.apply_date ,p.apply_type,u.`name` ,t.name AS 'group',ar.`name` AS role from apply p"
+	private final String SQL_GET_APPLY_INFO = "SELECT u.id As 'userId',p.id,p.group_id,bo.`name` AS 'body',p.apply_date ,p.apply_type,u.`name` ,t.name AS 'group',ar.`name` AS role from apply p"
 			+" LEFT JOIN group_tree t on t.id = p.group_id"
 			+" LEFT JOIN acct_user u ON u.id = p.user_id"
 			+" LEFT JOIN acct_user_role r ON r.user_id = p.user_id"
@@ -141,6 +141,7 @@ public class GroupDao {
 				ApplyGroup group  = null;
 				if(rs.next()){
 					group = new ApplyGroup();
+					group.setUser_id(rs.getInt("userId"));
 					group.setName(rs.getString("name"));
 					group.setGroup(rs.getString("group"));
 					group.setApply_id(rs.getInt("id"));
@@ -209,6 +210,7 @@ public class GroupDao {
 		{
 			// 对类进行封装
 			ApplyGroup group = new ApplyGroup();
+			group.setUser_id(rs.getInt("userId"));
 			group.setName(rs.getString("name"));
 			group.setGroup(rs.getString("group"));
 			group.setApply_id(rs.getInt("id"));

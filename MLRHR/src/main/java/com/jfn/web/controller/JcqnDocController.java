@@ -14,7 +14,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.alibaba.fastjson.JSON;
 import com.google.gson.Gson;
 import com.google.gson.JsonObject;
 import com.jfn.entity.JcqnDoc01;
@@ -28,7 +27,6 @@ import com.jfn.entity.JcqnDocReport;
 import com.jfn.entity.JcqnDocThesis;
 import com.jfn.entity.JcqnDocTreatise;
 import com.jfn.entity.UserPeixun;
-import com.jfn.entity.UserReport;
 import com.jfn.entity.UserWork;
 import com.jfn.service.JcqnDocService;
 import com.jfn.service.UserAwardService;
@@ -39,7 +37,6 @@ import com.jfn.service.UserProjectService;
 import com.jfn.service.UserReportService;
 import com.jfn.service.UserWorkService;
 import com.jfn.service.UserZhuanliService;
-import com.sun.script.javascript.JSAdapter;
 
 import net.sf.json.JSONArray;
 import net.sf.json.JSONObject;
