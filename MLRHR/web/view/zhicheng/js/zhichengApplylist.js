@@ -170,13 +170,7 @@ function initZhichengApplyDataTables(data) {
 					"data" : "apply_type",
 					"class" : "center"
 				}, {
-					"data" : "expert1_score",
-					"class" : "center"
-				} ,{
-					"data" : "expert1_sug",
-					"class" : "center"
-				}, {
-					"data" : "expert2_sug",
+					"data" : "group_id",
 					"class" : "center"
 				},{
 					"data" : null,

@@ -6,6 +6,7 @@ public class ZhichengApply {
 	private int id;
 	//用户ID
 	private Integer user_id;
+	private String group_id;
 	//申请时间
 	private String apply_date;
 	//申请的类型
@@ -46,6 +47,14 @@ public class ZhichengApply {
    private String expert2_score;
    //复审专家意见
    private String expert2_sug;
+   
+
+public String getGroup_id() {
+	return group_id;
+}
+public void setGroup_id(String group_id) {
+	this.group_id = group_id;
+}
 public int getId() {
 	return id;
 }

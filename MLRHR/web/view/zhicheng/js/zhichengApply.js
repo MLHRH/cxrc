@@ -4,11 +4,14 @@ var type = $.query.get("applyType");
 var contentName = "";
 var zhichengApply;
 var currentRole;
+var group_id = 1 ;
+var expert =$.query.get("expert"); 
 //登录者Id
 var user_id ;
 //被审核人的ID
-var userId = $.query.get("userid");
+var userId = $.query.get("userId");
 var apply_type="";
+var expert_id =$.query.get("expert_id");
 $(document).ready(function() {
 	if(type != null && type !=""){
 		apply_type = type.substring(1,type.length-1);
@@ -499,6 +502,10 @@ function zhichengApplyUpdate() {
 //			"value" : $("#apply_date").val()
 //		});
 		arrData.push({
+			"name" : "group_id",
+			"value" :group_id
+		});
+		arrData.push({
 			"name" : "apply_type",
 			"value" : $("#apply_type").val()
 		});
@@ -585,11 +592,15 @@ function zhichengApplyUpdate() {
 						layout : 'top',
 						callback : {
 							afterClose : function() {
+								if (expert != "true") {
 								if (zhichengApply == null)
 									location.href = 'zhichengApplylist';
 								else
 									location.href = 'zhichengApplylist?id='
 											+ zhichengApply.user_id;
+								}else{
+									location.href = 'expertzhichengApplylist';
+								}
 							}
 						},
 						theme : 'defaultTheme'

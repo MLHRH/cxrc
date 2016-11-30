@@ -66,10 +66,11 @@ public class GroupController {
 	@ResponseBody
 	@RequestMapping(value = "initApplyByGroupId", method = RequestMethod.GET)
 	public Object initApplyGroup(HttpServletRequest request){
-		String group_id = request.getParameter("groupId");
+		String group_id = request.getParameter("group_id");
 		String role_type = request.getParameter("role_type");
 		List<ApplyGroup> list = groupService.getApplyGroupById(Integer.valueOf(group_id),
 				Integer.valueOf(role_type));
+
 		return list;
 	}
 	/**

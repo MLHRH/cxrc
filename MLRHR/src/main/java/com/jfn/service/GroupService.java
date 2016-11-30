@@ -10,6 +10,7 @@ import com.jfn.common.util.Constant;
 import com.jfn.dao.GroupDao;
 import com.jfn.entity.ApplyGroup;
 import com.jfn.entity.ExpertGroup;
+import com.jfn.entity.ExpertScore;
 import com.jfn.entity.Group;
 
 @Repository
@@ -151,5 +152,10 @@ public class GroupService {
 			result.put(Constant.MSG, "删除分组失败,请确认次分组中还有有效信息");
 		}
 		return result;
+	}
+	
+	
+	public Group getGroupTreeById( int groupId){
+		return groupDao.getGroupTreebyId(groupId);
 	}
 }

@@ -6,52 +6,24 @@ var hasOne;
 var createNewPDF = true;
 var zhichengId = $("#userId").val();
 var role_type = 2 ;
+var user_id ;
+
 //initUser() ;
 $(document).ready(function() {
 			if (id == null) {
 				zhichengId = $("#userId").val();
+				initZhichengApply();
 			} else {
 				zhichengId = id;
 			}
-			ExpertUserInit();
-			initZhichengApply(zhichengId);
-//			initCheckCalendar();
 		});
 
-function ExpertUserInit() {
-	console.log(currentRole);
-	$.ajax({
-				type : 'get',
-				dataType : 'json',
-				url : 'ExpertUserInit?userId=' + zhichengId,// 请求的路径
-				error : function() {// 请求失败处理函数
-					alert('请求失败');
-				},
-				success : function(data) { // 请求成功后处理函数。
-					var myDate = new Date();
-					var year = myDate.getFullYear();
-					var month = myDate.getMonth() + 1;
-					var day = myDate.getDate();
-					$('#currentDate').html(year + "年" + month + "月" + day + "日");			
-					$('#group_id').val(data.group_id);	
-					groupId = data.group_id;
-					initZhichengApply();
-				} 
-			});
-	
-}
-
-
-
-function initZhichengApply(groupId) {
+var groupId ;
+function initZhichengApply() {
 	console.log(groupId);
-	var groupId  = 2;
 //	if (zhichengId != null)
 	var arrData = new Array();
-	arrData.push({
-		"name" : "groupId",
-		"value" : groupId
-	});
+
 arrData.push({
 		"name" : "role_type",
 		"value" : role_type
@@ -129,15 +101,15 @@ function initZhichengApplyDataTables(data) {
 					"render" : function(data) {
 					
 							return "<a class='btn btn-small btn-info' style='margin-right: 5px' href='javascript:void(0)' onClick='zhichengApplyEdit("
-									+ data.apply_id +","+"\/"+data.type+"\/"+","+zhichengId+")'><i class='icon-search'></i>审核</a>";
+									+ data.apply_id +","+"\/"+data.type+"\/"+","+data.user_id+","+zhichengId+","+"true"+")'><i class='icon-search'></i>审核</a>";
 					}
 				}]
 	});
 }
 
-function zhichengApplyEdit(id,type,userid) {
+function zhichengApplyEdit(id,type,userId,expert_id,expert) {
 	console.log("申请类型："+type);
-	location.href = 'zhichengApply?id=' + id+"&applyType="+type+"&userid="+userid;
+	location.href = 'zhichengApply?apply_id=' + id+"&applyType="+type+"&userId="+userId+"&expert_id="+expert_id+"&expert="+expert;
 }
 
 

@@ -1,11 +1,13 @@
 package com.jfn.web.controller;
 
 import java.io.UnsupportedEncodingException;
+import java.util.ArrayList;
 import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Set;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.GrantedAuthority;
@@ -25,6 +27,7 @@ import com.jfn.entity.ZhichengApply;
 import com.jfn.entity.ApplyGroup;
 import com.jfn.entity.ApplyMenu;
 import com.jfn.entity.ExpertUser;
+import com.jfn.entity.Group;
 import com.jfn.entity.JcqnDoc04;
 import com.jfn.entity.Role;
 import com.jfn.entity.User;
@@ -158,7 +161,15 @@ public class ZhichengController {
 		com.jfn.entity.Calendar calendar = calendarservice.getById("1");
 		String starDate = calendar.getStart_date();
 		String endDate = calendar.getEnd_date();
+		List<Group> groups =new ArrayList<Group>();
 		if (list.size() > 0) {
+			for(int i =0 ;i < list.size(); i++){
+				Group group =groupService.getGroupTreeById(Integer.valueOf(list.get(i).getGroup_id()));
+				list.get(i).setGroup_id(group.getName());
+			}
+			
+			
+			
 			ZhichengApply zhichengapply = list.get(0);
 			if (zhichengapply.getApply_date().compareTo(starDate) > 0 && zhichengapply.getApply_date().compareTo(endDate) > 0) {
 				jo3.put("hasOne", "1");
@@ -288,9 +299,12 @@ public class ZhichengController {
 	@RequestMapping(value = "expertzhichengApplylistInit", method = RequestMethod.GET)
 	@ResponseBody
 	public Object initApplyGroup(HttpServletRequest request){
+		HttpSession session = request.getSession();
+		User user =(User) session.getAttribute("loginuser");
+		ExpertUser  expertUser = zhichengapplyservice.getByUserId(user.getId());
 		String group_id = request.getParameter("groupId");
 		String role_type = request.getParameter("role_type");
-		List<ApplyGroup> list = groupService.getApplyGroupById(Integer.valueOf(group_id),
+		List<ApplyGroup> list = groupService.getApplyGroupById(Integer.valueOf(expertUser.getGroup_id()),
 				Integer.valueOf(role_type));
 		return list;
 	}

@@ -24,7 +24,7 @@ public class ZhichengApplyDao {
 	@Autowired
 	private JdbcTemplate jdbcTemplate;
 
-	private final String SQL_INSERT_Apply = "insert into apply(user_id,apply_date,apply_type,status,pre_approve_date,pre_approve_id,pre_approve_sug,finial_approve_date,finial_approve_id,finial_approve_sug,expert1_date,expert1_id,expert1_score,expert1_sug,expert2_date,expert2_id,expert2_score,expert2_sug) values(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
+	private final String SQL_INSERT_Apply = "insert into apply(user_id,group_id,apply_date,apply_type,status,pre_approve_date,pre_approve_id,pre_approve_sug,finial_approve_date,finial_approve_id,finial_approve_sug,expert1_date,expert1_id,expert1_score,expert1_sug,expert2_date,expert2_id,expert2_score,expert2_sug) values(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
 
 	private final String SQL_Get_BY_ID = "select * from apply where Id=?";
 	private final String SQL_GET_Apply_LIST = "select * from apply order by apply_date desc ";
@@ -32,7 +32,7 @@ public class ZhichengApplyDao {
 	private final String SQL_GET_Apply_LIST_By_UserID = "select * from apply where user_id=? order by apply_date desc ";
 	private final String SQL_GET_Apply_LIST_By_UserIDAndDate = "select * from apply where user_id=? and ( apply_date between ? and ?)  order by apply_date desc ";
 
-	private final String SQL_SET_Apply_UPDATE = "update apply set user_id=?,apply_date = ?,apply_type = ?,status = ?,pre_approve_date = ?,pre_approve_id = ?,pre_approve_sug = ?,finial_approve_date=?,finial_approve_id = ?,finial_approve_sug = ?,expert1_date = ?,expert1_id=?,expert1_score = ?,expert1_sug = ?,expert2_date = ?,expert2_id = ?,expert2_score = ?,expert2_sug = ? where id=?";
+	private final String SQL_SET_Apply_UPDATE = "update apply set user_id=?,group_id=?,apply_date = ?,apply_type = ?,status = ?,pre_approve_date = ?,pre_approve_id = ?,pre_approve_sug = ?,finial_approve_date=?,finial_approve_id = ?,finial_approve_sug = ?,expert1_date = ?,expert1_id=?,expert1_score = ?,expert1_sug = ?,expert2_date = ?,expert2_id = ?,expert2_score = ?,expert2_sug = ? where id=?";
 
 	private final static String SQL_DEL_BY_ID = "delete from apply where id = ?";
 	
@@ -42,7 +42,7 @@ public class ZhichengApplyDao {
 	
 	SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 	public boolean insert(ZhichengApply Apply) {
-		Object[] params = new Object[]{Apply.getUser_id(),sdf.format(new Date()),Apply.getApply_type(), 
+		Object[] params = new Object[]{Apply.getUser_id(),Apply.getGroup_id(),sdf.format(new Date()),Apply.getApply_type(), 
 				Apply.getStatus(),Apply.getPre_approve_date(),  Apply.getPre_approve_id(),Apply.getPre_approve_sug(),Apply.getFinial_approve_date(), Apply.getFinial_approve_id(),
 				Apply.getFinial_approve_sug(),Apply.getExpert1_date(),Apply.getExpert1_id(),Apply.getExpert1_score(),Apply.getExpert1_sug(),Apply.getExpert2_date(),Apply.getExpert2_id(),Apply.getExpert2_score(),Apply.getExpert2_sug()};
 		return jdbcTemplate.update(SQL_INSERT_Apply, params) == 1;
@@ -63,7 +63,7 @@ public class ZhichengApplyDao {
 					Apply.setApply_type(rs.getString("apply_type"));
 //					Apply.setApply_name(rs.getString("apply_name"));
 					Apply.setUser_id(rs.getInt("user_id"));
-
+                 Apply.setGroup_id(rs.getString("group_id"));
 					// 下面是截取时间，例：2014-09-15 18:55:50.275 最后.275去掉。
 					String apply_date = rs.getString("apply_date");
 					String a[] = apply_date.split("\\.");
@@ -145,7 +145,7 @@ public class ZhichengApplyDao {
 
 	public boolean Update(ZhichengApply Apply) {
 //		sdf.format(new Date());
-		Object[] params = new Object[] { Apply.getUser_id(),Apply.getApply_date(),Apply.getApply_type(), 
+		Object[] params = new Object[] { Apply.getUser_id(),Apply.getGroup_id(),Apply.getApply_date(),Apply.getApply_type(), 
 				Apply.getStatus(),Apply.getPre_approve_date(),  Apply.getPre_approve_id(),Apply.getPre_approve_sug(),Apply.getFinial_approve_date(), Apply.getFinial_approve_id(),
 				Apply.getFinial_approve_sug(),Apply.getExpert1_date(),Apply.getExpert1_id(),Apply.getExpert1_score(),Apply.getExpert1_sug(),Apply.getExpert2_date(),Apply.getExpert2_id(),Apply.getExpert2_score(),Apply.getExpert2_sug(),Apply.getId() };
 System.err.println(JSON.toJSON(Apply));
@@ -174,7 +174,7 @@ System.err.println(JSON.toJSON(Apply));
 			Apply.setApply_type(rs.getString("apply_type"));
 //			Apply.setApply_name(rs.getString("apply_name"));
 			Apply.setUser_id(rs.getInt("user_id"));
-
+          Apply.setGroup_id(rs.getString("group_id"));
 			// 下面是截取时间，例：2014-09-15 18:55:50.275 最后.275去掉。
 			String apply_date = rs.getString("apply_date");
 			String a[] = apply_date.split("\\.");
@@ -273,7 +273,7 @@ System.err.println(JSON.toJSON(Apply));
 				ExpertUser expertUser = new ExpertUser(); 
 				if( rs.next() )
 				{
-					expertUser.setUser_id(rs.getInt("id"));
+					expertUser.setId(rs.getInt("id"));
 					expertUser.setUser_id(rs.getInt("user_id"));
 					expertUser.setGroup_id(rs.getInt("group_id"));
 					expertUser.setTeam_leader_type(rs.getInt("team_leader_type"));

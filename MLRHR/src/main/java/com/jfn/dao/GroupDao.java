@@ -4,6 +4,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.List;
 
+import org.omg.CORBA.OBJ_ADAPTER;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataAccessException;
 import org.springframework.jdbc.core.JdbcTemplate;
@@ -13,6 +14,7 @@ import org.springframework.stereotype.Repository;
 
 import com.jfn.entity.ApplyGroup;
 import com.jfn.entity.ExpertGroup;
+import com.jfn.entity.ExpertScore;
 import com.jfn.entity.Group;
 
 @Repository
@@ -23,7 +25,7 @@ public class GroupDao {
 	private final String SQL_INSERT_GROUP = "INSERT INTO group_tree (pId,name) values(?,?)";
 	private final String SQL_UPDATE_GROUP = "UPDATE group_tree SET name = ? WHERE id = ? ";
 	private final String SQL_DEL_GROUP= "DELETE FROM group_tree where id = ? ";
-	private final String SQL_GET_APPLY_GROUP = "SELECT p.id,p.group_id,bo.`name` AS 'body',p.apply_date ,p.apply_type,u.`name` ,t.name AS 'group',ar.`name` AS role from apply p"
+	private final String SQL_GET_APPLY_GROUP = "SELECT p.id,p.user_id,bo.`name` AS 'body',p.apply_date ,p.apply_type,u.`name` ,t.name AS 'group',ar.`name` AS role from apply p"
 			+" LEFT JOIN group_tree t on t.id = p.group_id"
 			+" LEFT JOIN acct_user u ON u.id = p.user_id"
 			+" LEFT JOIN acct_user_role r ON r.user_id = p.user_id"
@@ -36,7 +38,7 @@ public class GroupDao {
 			+" LEFT JOIN acct_role ar ON ar.id = aur.role_id"
 			+" LEFT JOIN body b ON b.id = a.body_id"
 			+" WHERE e.group_id = ? AND ar.id= ?";
-	private final String SQL_GET_APPLY_INFO = "SELECT u.id As 'userId',p.id,p.group_id,bo.`name` AS 'body',p.apply_date ,p.apply_type,u.`name` ,t.name AS 'group',ar.`name` AS role from apply p"
+	private final String SQL_GET_APPLY_INFO = "SELECT u.id AS `user_id`,p.id,p.group_id,bo.`name` AS 'body',p.apply_date ,p.apply_type,u.`name` ,t.name AS 'group',ar.`name` AS role from apply p"
 			+" LEFT JOIN group_tree t on t.id = p.group_id"
 			+" LEFT JOIN acct_user u ON u.id = p.user_id"
 			+" LEFT JOIN acct_user_role r ON r.user_id = p.user_id"
@@ -51,6 +53,9 @@ public class GroupDao {
 	
 	private final String SQL_UPDATE_APPLY_GROUP = "update apply set group_id = ? where id = ? ";
 	private final String SQL_UPDATE_EXPERT_GROUP = "update expert_user set group_id = ? ,team_leader_type = ? where id = ?";
+	
+	
+	private final String SQL_Get_BY_GROUP = "select * from group_tree where id=?";
 	/**
 	 * 根据groupID获取对应分组信息
 	 * @param id
@@ -141,7 +146,7 @@ public class GroupDao {
 				ApplyGroup group  = null;
 				if(rs.next()){
 					group = new ApplyGroup();
-					group.setUser_id(rs.getInt("userId"));
+					group.setUser_id(rs.getInt("user_id"));
 					group.setName(rs.getString("name"));
 					group.setGroup(rs.getString("group"));
 					group.setApply_id(rs.getInt("id"));
@@ -210,7 +215,7 @@ public class GroupDao {
 		{
 			// 对类进行封装
 			ApplyGroup group = new ApplyGroup();
-			group.setUser_id(rs.getInt("userId"));
+			group.setUser_id(rs.getInt("user_id"));
 			group.setName(rs.getString("name"));
 			group.setGroup(rs.getString("group"));
 			group.setApply_id(rs.getInt("id"));
@@ -241,4 +246,28 @@ public class GroupDao {
 			return group;
 		}
 	}
+	
+	
+	public Group getGroupTreebyId(Integer groupId )
+	{
+		return jdbcTemplate.query( SQL_Get_BY_GROUP, new Object[]{groupId},
+				new ResultSetExtractor<Group>()
+				{
+			@Override
+			public Group extractData( ResultSet rs )
+					throws SQLException, DataAccessException
+					{
+				Group expertScore = new Group(); 
+				if( rs.next() )
+				{
+					expertScore.setId(rs.getInt("id"));
+					expertScore.setName(rs.getString("name"));
+				 expertScore.setpId(rs.getString("PId"));
+		
+				}
+				return expertScore;
+					}
+				} );
+	}
+	
 }

@@ -4,9 +4,9 @@ var userBaseInfor_id ;
 //专家ID
 var  user_id;
 // 被审核人ID
-var userid = $.query.get("userid");
+var userid = $.query.get("userId");
 
-var apply_id = id ;
+var apply_id =  $.query.get("apply_id") ;
 function initjcqnDoc07() {
 //	user_id = user_id;
 	var arrData = new Array();
