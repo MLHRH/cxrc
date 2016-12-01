@@ -4,7 +4,7 @@ var type = $.query.get("applyType");
 var contentName = "";
 var zhichengApply;
 var currentRole;
-var group_id = 1 ;
+var group_id ;
 var expert =$.query.get("expert"); 
 //登录者Id
 var user_id ;
@@ -219,6 +219,7 @@ function initApplication() {
 		},
 		success : function(data) { // 请求成功后处理函数。
 			zhichengApply = data[0];
+			group_id = zhichengApply.group_id;
 			$("#zhichengapply_status").html(zhichengApply.status);
 			$("#zhichengapply_pre_approve_sug").val(
 					zhichengApply.pre_approve_sug);

@@ -40,17 +40,17 @@ public class CxtdDoc01Dao {
 	private final String SQL_SELECT_ZUZHI = "select * from cxtd_leader_zuzhi where user_id = ?";
 	private final String SQL_UPDATE_ZUZHI ="update cxtd_leader_zuzhi set name=?,job=?,renqi=? where user_id=?";
 	private final String SQL_INSERT_ZUZHI ="insert into cxtd_leader_zuzhi(user_id,name,job,renqi) values(?,?,?,?)";
-			
+    private final String SQL_DEL_ZUZHI="delete from cxtd_leader_zuzhi where user_id=?";	
 	//团队成员情况
 	private final String SQL_SELECT_MEMBER_NUM="select * from cxtd_member_num where team_id=?";
-	private final String SQL_UPDATE_MEMBER_NUM="update cxtd_member_num set age_56=?,age_46_55=?,age_36_45=?"
+	private final String SQL_UPDATE_MEMBER_NUM="update cxtd_member_num set age_56=?,age_46_55=?,age_36_45=?,"
 			+ "age_35=?,gaoji=?,fugao=?,zhongji=?,z_orther=?,boshi=?,shuoshi=?,benke=?,z_orther=? where team_id=? ";
 	private final String SQL_INSERT_MEMBER_NUM="insert into cxtd_member_num(team_id,num,age_56,age_46_55,age_36_45,age_35,"
 			+ "gaoji,fugao,zhongji,z_orther,boshi,shuoshi,benke,x_orther)values(?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
 	
 	private final String SQL_SELECT_MEMBER_INFO="select * from cxtd_member_info where team_id=?";
-	private final String SQL_UPDATE_MEMBER_INFO="update cxtd_member_info set name=?,sex?,birthday=?,id_type=?,id_num=?,"
-			+ "study_education=?,work_position=?,direction=?,work_company=? where time_id=?";
+	private final String SQL_UPDATE_MEMBER_INFO="update cxtd_member_info set name=?,sex=?,birthday=?,id_type=?,id_num=?,"
+			+ "study_education=?,work_position=?,direction=?,work_company=? where team_id=?";
 	private final String SQL_INSERT_MEMBER_INFO="insert into cxtd_member_info(team_id,name,sex,birthday,id_type,id_num,study_education,"
 			+ "work_position,direction,work_company) values(?,?,?,?,?,?,?,?,?,?)";
 	/**
@@ -129,7 +129,9 @@ public class CxtdDoc01Dao {
 			
 		});
 	}
-	
+	public void deletezu(int user_id) {
+		jdbcTemplate.update(SQL_DEL_ZUZHI, new Object[] { user_id });
+	}
 	/**
 	 * 更新基本信息
 	 * @param baseinfo

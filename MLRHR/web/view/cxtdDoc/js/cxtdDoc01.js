@@ -43,21 +43,21 @@ function initcxtdDoc01(){
 			$('#teamID').val(data.baseinfo.teamId)
 			//team leader
 			$('#leaderinfoid').val(data.leaderinfo.id);
-			$('#nationality').val(data.leaderinfo.country);
-			$('#userName').val(data.leaderinfo.name);
-			$('#sex').val(data.leaderinfo.sex);
-			$('#national').val(data.leaderinfo.minzu);
-			$('#technical_position').val(data.leaderinfo.position);
-			$('#birthday').val(data.leaderinfo.birthday);
-			$('#document_type').val(data.leaderinfo.documentType);
-			$('#Id').val(data.leaderinfo.documentNumber);
-			$('#professional_direction').val(data.leaderinfo.direction);
-			$('#subject1').val(data.leaderinfo.subordinateSubject1);
-			$('#subject2').val(data.leaderinfo.subordinateSubject2);
-			$('#address').val(data.leaderinfo.addresses);
-			$('#zip_code').val(data.leaderinfo.zipCode);
-			$('#fax').val(data.leaderinfo.telephoneFax);
-			$('#phone').val(data.leaderinfo.mobilePhone);
+			$('#leaderCountry').val(data.leaderinfo.country);
+			$('#leaderName').val(data.leaderinfo.name);
+			$('#leaderSex').val(data.leaderinfo.sex);
+			$('#leaderNation').val(data.leaderinfo.minzu);
+			$('#leaderTechnical_position').val(data.leaderinfo.position);
+			$('#leaderBirthday').val(data.leaderinfo.birthday);
+			$('#leaderId_type').val(data.leaderinfo.documentType);
+			$('#leaderId_num').val(data.leaderinfo.documentNumber);
+			$('#leaderProfessional_direction').val(data.leaderinfo.direction);
+			$('#leaderSubject1').val(data.leaderinfo.subordinateSubject1);
+			$('#leaderSubject2').val(data.leaderinfo.subordinateSubject2);
+			$('#leaderAddress').val(data.leaderinfo.addresses);
+			$('#leaderZip_code').val(data.leaderinfo.zipCode);
+			$('#leaderFax').val(data.leaderinfo.telephoneFax);
+			$('#leaderPhone').val(data.leaderinfo.mobilePhone);
 			$('#email').val(data.leaderinfo.email);
 			//工作经历
 			Work(data.wlist.length);
@@ -72,11 +72,11 @@ function initcxtdDoc01(){
 			Study(data.plist.length);
 			for(var i = 0 ;i< (data.plist).length;i++){
 				$('#study_country'+i).val(data.plist[i].country);
-				$('#study_institution'+i).val(data.plist[i].college);
+				$('#study_institution'+i).val(data.plist[i].academy);
 				$('#study_position'+i).val(data.plist[i].major);
 				$('#study_start_date'+i).val(data.plist[i].start_date);
-				$('#study_end_date'+i).val(data.plist[i].end_date);
-				$('#degree'+i).val(data.plist[i].degree);
+				$('#study_end_date'+i).val(data.plist[i].xueli);
+				$('#degree'+i).val(data.plist[i].xueli);
 			}
 			//学术组织期刊任职情况
 			Zhuzhi(data.zlist.length);
@@ -98,23 +98,23 @@ function initcxtdDoc01(){
 			$('#zhongji').val(data.memnum.zhongji);
 			$('#z_orther').val(data.memnum.z_orther);
 			$('#boshi').val(data.memnum.boshi);
-			$('#shoushi').val(data.memnum.shoushi);
+			$('#shuoshi').val(data.memnum.shuoshi);
 			$('#benke').val(data.memnum.benke);
 			$('#x_orther').val(data.memnum.x_orther);
 			
 			//团队成员信息
 			Member(data.mlist.length);
 			for(index_meminfo = 0 ; index_meminfo<data.mlist.length; index_meminfo++){
-				$('#member_id'+index_meminfo).val(data.mlist[index_meminfo].id);
-				$('#member_name'+index_meminfo).val(data.mlist[index_meminfo].name);
-				$('#member_sex'+index_meminfo).val(data.mlist[index_meminfo].sex);
-				$('#member_birthday'+index_meminfo).val(data.mlist[index_meminfo].birthday);
-				$('#member_idtype'+index_meminfo).val(data.mlist[index_meminfo].id_type);
-				$('#member_idnum'+index_meminfo).val(data.mlist[index_meminfo].id_num);
-				$('#member_education'+index_meminfo).val(data.mlist[index_meminfo].study_education);
-				$('#member_position'+index_meminfo).val(data.mlist[index_meminfo].work_position);
-				$('#member_direction'+index_meminfo).val(data.mlist[index_meminfo].direction);
-				$('#member_company'+index_meminfo).val(data.mlist[index_meminfo].work_company);
+				$('#chenyuanid'+index_meminfo).val(data.mlist[index_meminfo].id);
+				$('#chengyuanname'+index_meminfo).val(data.mlist[index_meminfo].name);
+				$('#chnengyuansex'+index_meminfo).val(data.mlist[index_meminfo].sex);
+				$('#chengyuanbir'+index_meminfo).val(data.mlist[index_meminfo].birthday);
+				$('#chengyuantype'+index_meminfo).val(data.mlist[index_meminfo].id_type);
+				$('#chengyuannum'+index_meminfo).val(data.mlist[index_meminfo].id_num);
+				$('#chengyuanedu'+index_meminfo).val(data.mlist[index_meminfo].study_education);
+				$('#chengyuanp'+index_meminfo).val(data.mlist[index_meminfo].work_position);
+				$('#chengyuand'+index_meminfo).val(data.mlist[index_meminfo].direction);
+				$('#chengyuancompany'+index_meminfo).val(data.mlist[index_meminfo].work_company);
 			}
 			
 			
@@ -196,11 +196,11 @@ function updatecxtdDoc01(){
 	CxtdLeaderinfo.zipCode = $('#leaderZip_code').val();
 	CxtdLeaderinfo.addresses = $('#leaderAddress').val();
 	//组织期刊
-	for(var i = 0 ; i <= index_zuzhi ; i++){ 
-		CxtdLeaderZuzhi.id =$('#leaderZuzhiId'+i).val();
-		CxtdLeaderZuzhi.name=$('#leaderZuzhiName'+i).val();
-		CxtdLeaderZuzhi.job = $('#leaderZuzhiJob'+i).val();
-		CxtdLeaderZuzhi.renqi= $('#leaderZuzhiRenqi'+i).val();
+	for(var i = 0 ; i <= index_zuzhi-1; i++){ 
+		CxtdLeaderZuzhi.id =$('#zuzhi_id'+i).val();
+		CxtdLeaderZuzhi.name=$('#zuzhi_name'+i).val();
+		CxtdLeaderZuzhi.job = $('#zuzhi_job'+i).val();
+		CxtdLeaderZuzhi.renqi= $('#zuzhi_renqi'+i).val();
 		arrZuzhi[i] = CxtdLeaderZuzhi;
 	}
 	//创新团队人数分类统计
@@ -275,23 +275,23 @@ function Member(index){
 	for(var i = 0 ; i < index ; i++){
 		var addMem_div = '</tr><tr style="page-break-inside: avoid" id = "memberinfo'+i+'">'
 		+'<td width=84 style="width: 62pt; border: solid black 1.0pt; border-left: none; padding: 0cm 5.4pt 0cm 5.4pt; height: 30pt">'
-		+'<input type="text" id="study_country"'+i+' style="text-align: center; font-size: 14.0pt; font-family: 宋体; display: inline-block; height: 90%; width: 95%; padding: 0px; margin: 3px; border-radius: 0px"   /></td>'
+		+'<input type="text" id="chengyuanname"'+i+' style="text-align: center; font-size: 14.0pt; font-family: 宋体; display: inline-block; height: 90%; width: 95%; padding: 0px; margin: 3px; border-radius: 0px"   /></td>'
 		+'<td width=84 style="width: 62pt; border: solid black 1.0pt; border-left: none; padding: 0cm 5.4pt 0cm 5.4pt; height: 30pt">'
-		+'<input type="text" id="study_country"'+i+' style="text-align: center; font-size: 14.0pt; font-family: 宋体; display: inline-block; height: 90%; width: 95%; padding: 0px; margin: 3px; border-radius: 0px"   /></td>'
+		+'<input type="text" id="chnengyuansex"'+i+' style="text-align: center; font-size: 14.0pt; font-family: 宋体; display: inline-block; height: 90%; width: 95%; padding: 0px; margin: 3px; border-radius: 0px"   /></td>'
 		+'<td width=84 style="width: 62pt; border: solid black 1.0pt; border-left: none; padding: 0cm 5.4pt 0cm 5.4pt; height: 30pt">'
-		+'<input type="text" id="study_country"'+i+' style="text-align: center; font-size: 14.0pt; font-family: 宋体; display: inline-block; height: 90%; width: 95%; padding: 0px; margin: 3px; border-radius: 0px"   /></td>'
+		+'<input type="text" id="chengyuanbir"'+i+' style="text-align: center; font-size: 14.0pt; font-family: 宋体; display: inline-block; height: 90%; width: 95%; padding: 0px; margin: 3px; border-radius: 0px"   /></td>'
 		+'<td width=84 style="width: 62pt; border: solid black 1.0pt; border-left: none; padding: 0cm 5.4pt 0cm 5.4pt; height: 30pt">'
-		+'<input type="text" id="study_country"'+i+' style="text-align: center; font-size: 14.0pt; font-family: 宋体; display: inline-block; height: 90%; width: 95%; padding: 0px; margin: 3px; border-radius: 0px"   /></td>'
+		+'<input type="text" id="chengyuantype"'+i+' style="text-align: center; font-size: 14.0pt; font-family: 宋体; display: inline-block; height: 90%; width: 95%; padding: 0px; margin: 3px; border-radius: 0px"   /></td>'
 		+'<td width=84 style="width: 62pt; border: solid black 1.0pt; border-left: none; padding: 0cm 5.4pt 0cm 5.4pt; height: 30pt">'
-		+'<input type="text" id="study_country"'+i+' style="text-align: center; font-size: 14.0pt; font-family: 宋体; display: inline-block; height: 90%; width: 95%; padding: 0px; margin: 3px; border-radius: 0px"   /></td>'
+		+'<input type="text" id="chengyuannum"'+i+' style="text-align: center; font-size: 14.0pt; font-family: 宋体; display: inline-block; height: 90%; width: 95%; padding: 0px; margin: 3px; border-radius: 0px"   /></td>'
 	    +'<td width=84 style="width: 62pt; border: solid black 1.0pt; border-left: none; padding: 0cm 5.4pt 0cm 5.4pt; height: 30pt">'
-		+'<input type="text" id="study_country"'+i+' style="text-align: center; font-size: 14.0pt; font-family: 宋体; display: inline-block; height: 90%; width: 95%; padding: 0px; margin: 3px; border-radius: 0px"   /></td>'
+		+'<input type="text" id="chengyuanedu"'+i+' style="text-align: center; font-size: 14.0pt; font-family: 宋体; display: inline-block; height: 90%; width: 95%; padding: 0px; margin: 3px; border-radius: 0px"   /></td>'
 		+'<td width=84 style="width: 62pt; border: solid black 1.0pt; border-left: none; padding: 0cm 5.4pt 0cm 5.4pt; height: 30pt">'
-		+'<input type="text" id="study_country"'+i+' style="text-align: center; font-size: 14.0pt; font-family: 宋体; display: inline-block; height: 90%; width: 95%; padding: 0px; margin: 3px; border-radius: 0px"   /></td>'
+		+'<input type="text" id="chengyuanp"'+i+' style="text-align: center; font-size: 14.0pt; font-family: 宋体; display: inline-block; height: 90%; width: 95%; padding: 0px; margin: 3px; border-radius: 0px"   /></td>'
 		+'<td width=84 style="width: 62pt; border: solid black 1.0pt; border-left: none; padding: 0cm 5.4pt 0cm 5.4pt; height: 30pt">'
-		+'<input type="text" id="study_country"'+i+' style="text-align: center; font-size: 14.0pt; font-family: 宋体; display: inline-block; height: 90%; width: 95%; padding: 0px; margin: 3px; border-radius: 0px"   /></td>'
+		+'<input type="text" id="#chengyuand"'+i+' style="text-align: center; font-size: 14.0pt; font-family: 宋体; display: inline-block; height: 90%; width: 95%; padding: 0px; margin: 3px; border-radius: 0px"   /></td>'
 		+'<td width=84 style="width: 62pt; border: solid black 1.0pt; border-left: none; padding: 0cm 5.4pt 0cm 5.4pt; height: 30pt">'
-		+'<input type="text" id="study_country"'+i+' style="text-align: center; font-size: 14.0pt; font-family: 宋体; display: inline-block; height: 90%; width: 95%; padding: 0px; margin: 3px; border-radius: 0px"   /></td>';
+		+'<input type="text" id="#chengyuancompany"'+i+' style="text-align: center; font-size: 14.0pt; font-family: 宋体; display: inline-block; height: 90%; width: 95%; padding: 0px; margin: 3px; border-radius: 0px"   /></td>';
 	if( i == 0){
 		$('#memberinfo_div').after(addMem_div);
 	}
@@ -390,23 +390,23 @@ function addmember(){
 	}
 	var add_div = '</tr><tr style="page-break-inside: avoid" id = "memberinfo'+flag+'">'
 	+'<td width=84 style="width: 62pt; border: solid black 1.0pt; border-left: none; padding: 0cm 5.4pt 0cm 5.4pt; height: 30pt">'
-	+'<input type="text" id="study_country"'+flag+' style="text-align: center; font-size: 14.0pt; font-family: 宋体; display: inline-block; height: 90%; width: 95%; padding: 0px; margin: 3px; border-radius: 0px"   /></td>'
+	+'<input type="text" id="chengyuanname"'+flag+' style="text-align: center; font-size: 14.0pt; font-family: 宋体; display: inline-block; height: 90%; width: 95%; padding: 0px; margin: 3px; border-radius: 0px"   /></td>'
 	+'<td width=84 style="width: 62pt; border: solid black 1.0pt; border-left: none; padding: 0cm 5.4pt 0cm 5.4pt; height: 30pt">'
-	+'<input type="text" id="study_country"'+flag+' style="text-align: center; font-size: 14.0pt; font-family: 宋体; display: inline-block; height: 90%; width: 95%; padding: 0px; margin: 3px; border-radius: 0px"   /></td>'
+	+'<input type="text" id="chnengyuansex"'+flag+' style="text-align: center; font-size: 14.0pt; font-family: 宋体; display: inline-block; height: 90%; width: 95%; padding: 0px; margin: 3px; border-radius: 0px"   /></td>'
 	+'<td width=84 style="width: 62pt; border: solid black 1.0pt; border-left: none; padding: 0cm 5.4pt 0cm 5.4pt; height: 30pt">'
-	+'<input type="text" id="study_country"'+flag+' style="text-align: center; font-size: 14.0pt; font-family: 宋体; display: inline-block; height: 90%; width: 95%; padding: 0px; margin: 3px; border-radius: 0px"   /></td>'
+	+'<input type="text" id="chengyuanbir"'+flag+' style="text-align: center; font-size: 14.0pt; font-family: 宋体; display: inline-block; height: 90%; width: 95%; padding: 0px; margin: 3px; border-radius: 0px"   /></td>'
 	+'<td width=84 style="width: 62pt; border: solid black 1.0pt; border-left: none; padding: 0cm 5.4pt 0cm 5.4pt; height: 30pt">'
-	+'<input type="text" id="study_country"'+flag+' style="text-align: center; font-size: 14.0pt; font-family: 宋体; display: inline-block; height: 90%; width: 95%; padding: 0px; margin: 3px; border-radius: 0px"   /></td>'
+	+'<input type="text" id="chengyuantype"'+flag+' style="text-align: center; font-size: 14.0pt; font-family: 宋体; display: inline-block; height: 90%; width: 95%; padding: 0px; margin: 3px; border-radius: 0px"   /></td>'
 	+'<td width=84 style="width: 62pt; border: solid black 1.0pt; border-left: none; padding: 0cm 5.4pt 0cm 5.4pt; height: 30pt">'
-	+'<input type="text" id="study_country"'+flag+' style="text-align: center; font-size: 14.0pt; font-family: 宋体; display: inline-block; height: 90%; width: 95%; padding: 0px; margin: 3px; border-radius: 0px"   /></td>'
+	+'<input type="text" id="chengyuannum"'+flag+' style="text-align: center; font-size: 14.0pt; font-family: 宋体; display: inline-block; height: 90%; width: 95%; padding: 0px; margin: 3px; border-radius: 0px"   /></td>'
     +'<td width=84 style="width: 62pt; border: solid black 1.0pt; border-left: none; padding: 0cm 5.4pt 0cm 5.4pt; height: 30pt">'
-	+'<input type="text" id="study_country"'+flag+' style="text-align: center; font-size: 14.0pt; font-family: 宋体; display: inline-block; height: 90%; width: 95%; padding: 0px; margin: 3px; border-radius: 0px"   /></td>'
+	+'<input type="text" id="chengyuanp"'+flag+' style="text-align: center; font-size: 14.0pt; font-family: 宋体; display: inline-block; height: 90%; width: 95%; padding: 0px; margin: 3px; border-radius: 0px"   /></td>'
 	+'<td width=84 style="width: 62pt; border: solid black 1.0pt; border-left: none; padding: 0cm 5.4pt 0cm 5.4pt; height: 30pt">'
-	+'<input type="text" id="study_country"'+flag+' style="text-align: center; font-size: 14.0pt; font-family: 宋体; display: inline-block; height: 90%; width: 95%; padding: 0px; margin: 3px; border-radius: 0px"   /></td>'
+	+'<input type="text" id="chengyuanp"'+flag+' style="text-align: center; font-size: 14.0pt; font-family: 宋体; display: inline-block; height: 90%; width: 95%; padding: 0px; margin: 3px; border-radius: 0px"   /></td>'
 	+'<td width=84 style="width: 62pt; border: solid black 1.0pt; border-left: none; padding: 0cm 5.4pt 0cm 5.4pt; height: 30pt">'
-	+'<input type="text" id="study_country"'+flag+' style="text-align: center; font-size: 14.0pt; font-family: 宋体; display: inline-block; height: 90%; width: 95%; padding: 0px; margin: 3px; border-radius: 0px"   /></td>'
+	+'<input type="text" id="chengyuand"'+flag+' style="text-align: center; font-size: 14.0pt; font-family: 宋体; display: inline-block; height: 90%; width: 95%; padding: 0px; margin: 3px; border-radius: 0px"   /></td>'
 	+'<td width=84 style="width: 62pt; border: solid black 1.0pt; border-left: none; padding: 0cm 5.4pt 0cm 5.4pt; height: 30pt">'
-	+'<input type="text" id="study_country"'+flag+' style="text-align: center; font-size: 14.0pt; font-family: 宋体; display: inline-block; height: 90%; width: 95%; padding: 0px; margin: 3px; border-radius: 0px"   /></td>';
+	+'<input type="text" id="chengyuancompany"'+flag+' style="text-align: center; font-size: 14.0pt; font-family: 宋体; display: inline-block; height: 90%; width: 95%; padding: 0px; margin: 3px; border-radius: 0px"   /></td>';
     if(index_meminfo == 0){
     	alert("tianji!")
     	$('#memberinfo_div').after(add_div);

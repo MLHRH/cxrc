@@ -399,7 +399,7 @@
 						<input type="text" id="leaderEmail"  style="text-align: center; font-size: 14.0pt; font-family: 宋体; display: inline-block; height: 95%; width: 90%; padding: 0px; margin: 3px; border-radius: 0px" />
 					</td>
 			</tr>
-			<tr style='page-break-inside: avoid'>
+			<!-- <tr style='page-break-inside: avoid'>
 				<td>
 					<div class=MsoNormal style='text-align: center'>
 						<span style='font-size: 14.0pt; font-family: 宋体'>学习经历</span>
@@ -475,7 +475,7 @@
 			</tr>
 			
 			
-			<!-- 团队负责人组织期刊任职情况-->
+			团队负责人组织期刊任职情况
 			<tr style='page-break-inside: avoid'>
 				<td>
 					<div class=MsoNormal style='text-align: center'>
@@ -506,7 +506,7 @@
 						<span style='font-size: 14.0pt; font-family: 宋体'>任期</span>
 					</div>
 				</td>
-			</tr>
+			</tr> -->
 		</table>
 		<input type="hidden" id="teamID" value="">
 		

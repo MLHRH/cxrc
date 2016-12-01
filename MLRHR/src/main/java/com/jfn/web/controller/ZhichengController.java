@@ -260,6 +260,7 @@ public class ZhichengController {
 		System.err.println(request.getParameter("expert2_sug"));
 		try {
 			if ((id == null) || (id.length() < 1)) {
+				entity.setGroup_id("1");
 				result = zhichengapplyservice.Insert(entity) ? 1 : 0;
 			} else {
 				System.err.println(JSON.toJSON(entity));

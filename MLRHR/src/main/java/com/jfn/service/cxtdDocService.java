@@ -47,6 +47,7 @@ public class cxtdDocService {
 			List<CxtdLeaderZuzhi> zList = cxtddoc01Dao.getAllByUserId(String.valueOf(user_id));
 			CxtdMemberNum memNum = cxtddoc01Dao.queryCxtdMemberNum(team_id);
 		    List<CxtdMemberInfo> mList = cxtddoc01Dao.queryCxtdMemberInfo(team_id);
+		    System.err.print(mList);
 			
 			doc01.put("baseinfo", baseInfo);
 			doc01.put("leaderinfo", leaderInfo);
@@ -82,31 +83,37 @@ public class cxtdDocService {
 				cxtddoc01Dao.insertTeamId(user_id);
 				team_id = cxtddoc01Dao.getTimeId(user_id);
 			}
+			CxtdBaseInfo baseIfo = cxtddoc01Dao.queryCxtdBase(user_id);
 			//基本信息更新
-			if(baseInfo.getId() !=null ){
+			if(baseIfo !=null ){
 				cxtddoc01Dao.updateCxtdBase(baseInfo, user_id);
 			}
 			else{
 				cxtddoc01Dao.insertCxtdBase(baseInfo, user_id , team_id);
 			}
 			//更新团队负责人信息
-			if(leaderInfo.getId()!=null){
+			CxtdLeaderInfo leadeInfo = cxtddoc01Dao.queryCxtdLeaderInfo(user_id);
+			if(leadeInfo!=null){
 				cxtddoc01Dao.updateCxtdLeaderInfo(leaderInfo, user_id);
 			}
 			else{
 				cxtddoc01Dao.insertCxtdLeaderInfo(leaderInfo, user_id,team_id);
 			}
 			//更新国内外学术组织及重要学术期刊任职情况
-			for(CxtdLeaderZuzhi zuzhi:zList){
-				if(zuzhi.getId() != null){
-					cxtddoc01Dao.updateCxtdLeaderZuzhi(zuzhi, user_id);
-				}
-				else{
-					cxtddoc01Dao.insertCxtdLeaderZuzhi(zuzhi, user_id);
-				}
+			List<CxtdLeaderZuzhi> List = cxtddoc01Dao.getAllByUserId(String.valueOf(user_id));
+		          	cxtddoc01Dao.deletezu(user_id);
+					for(CxtdLeaderZuzhi ss : zList){
+					
+					cxtddoc01Dao.insertCxtdLeaderZuzhi(ss, user_id);
+					
+					
+				
+
+				
 			}
 			//团队人数统计
-			if(memNum.getId() != null){
+			CxtdMemberNum mNum = cxtddoc01Dao.queryCxtdMemberNum(team_id);
+			if(mNum!= null){
 				cxtddoc01Dao.updateCxtdMemberNum(memNum, team_id);
 			}
 			else{
@@ -114,7 +121,7 @@ public class cxtdDocService {
 			}
 			//团队成员信息
 			for(CxtdMemberInfo mem:mList){
-				if(mem.getId() != null){
+				if(baseIfo!= null){
 					cxtddoc01Dao.updateCxtdMemberInfo(mem, team_id);
 				}
 				else{
