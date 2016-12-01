@@ -198,7 +198,7 @@ function initZhichengApplyDataTables(data) {
 												+ ")'><i class='icon-download'></i>导出PDF</a><a class='btn btn-small btn-info' style='margin-right: 5px' href='javascript:void(0)' onClick='zhichengApplyDelete("
 												+ data.id
 												+ ")'><i class='icon-remove'></i>删除</a><a class='btn btn-small btn-info' style='margin-right: 5px' href='javascript:void(0)' onClick='zhichengApplyEdit("
-												+ data.id + ")'><i class='icon-edit'></i>编辑</a>";
+												+ data.id + ","+"\/"+data.apply_type+"\/"+","+zhichengId+")'><i class='icon-edit'></i>编辑</a>";
 									else
 										return "<a class='btn btn-small btn-info' style='margin-right: 5px' href='javascript:void(0)' onClick='PDFCreater("
 												+ JSON.stringify(data)

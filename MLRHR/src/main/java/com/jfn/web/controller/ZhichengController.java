@@ -24,6 +24,7 @@ import org.springside.modules.security.springsecurity.SpringSecurityUtils;
 import com.alibaba.fastjson.JSON;
 import com.google.gson.JsonObject;
 import com.jfn.entity.ZhichengApply;
+import com.jfn.entity.AcctUserRole;
 import com.jfn.entity.ApplyGroup;
 import com.jfn.entity.ApplyMenu;
 import com.jfn.entity.ExpertUser;
@@ -98,8 +99,23 @@ public class ZhichengController {
 				type = type.substring(1, 5);
 			}
 			List<ApplyMenu> menus = applyMenuService.getMenu(type);
+			
 			ModelAndView map = new ModelAndView("zhicheng/zhichengApply");
+			HttpSession session = request.getSession();
+			User user =(User) session.getAttribute("loginuser");
+			AcctUserRole acctUserRole =zhichengapplyservice.getRoleByUserId(user.getId());
+			if(acctUserRole.getRole_id() != 4 && acctUserRole.getRole_id() != 5 ){			
+				List<ApplyMenu> menus2 =new ArrayList<ApplyMenu>();
+				        menus2.add(menus.get(0));
+				        menus2.add(menus.get(1));
+				        menus2.add(menus.get(2));
+				        menus2.add(menus.get(3));
+				        menus2.add(menus.get(4));
+				        menus2.add(menus.get(5));
+				         map.addObject("menus", menus2);
+			}else {
 			map.addObject("menus", menus);
+			}
 			map.addObject("type",menus.get(0).getMenutype());
 			return map;
 		}
@@ -125,7 +141,7 @@ public class ZhichengController {
 	 */
 	@ResponseBody
 	@RequestMapping(value = "applyMenu", method = RequestMethod.GET)
-	public ModelAndView ApplyMenu(String applytype){
+	public ModelAndView ApplyMenu(HttpServletRequest request,String applytype){
 		String type = null;
 		try {
 			type = new String(applytype.getBytes("ISO8859-1"), "UTF-8");
@@ -137,7 +153,21 @@ public class ZhichengController {
 		}
 		List<ApplyMenu> menus = applyMenuService.getMenu(type);
 		ModelAndView map = new ModelAndView("zhicheng/zhichengApply");
+		HttpSession session = request.getSession();
+		User user =(User) session.getAttribute("loginuser");
+		AcctUserRole acctUserRole =zhichengapplyservice.getRoleByUserId(user.getId());
+		if(acctUserRole.getRole_id() != 4 && acctUserRole.getRole_id() != 5 ){			
+			List<ApplyMenu> menus2 =new ArrayList<ApplyMenu>();
+			        menus2.add(menus.get(0));
+			        menus2.add(menus.get(1));
+			        menus2.add(menus.get(2));
+			        menus2.add(menus.get(3));
+			        menus2.add(menus.get(4));
+			        menus2.add(menus.get(5));
+			         map.addObject("menus", menus2);
+		}else {
 		map.addObject("menus", menus);
+		}
 		map.addObject("type",menus.get(0).getMenutype());
 		return map;
 	}

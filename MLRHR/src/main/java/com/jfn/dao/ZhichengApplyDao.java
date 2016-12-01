@@ -15,6 +15,7 @@ import org.springframework.stereotype.Repository;
 
 import com.alibaba.fastjson.JSON;
 import com.jfn.dao.NewsDao.newsRowMapper;
+import com.jfn.entity.AcctUserRole;
 import com.jfn.entity.ExpertUser;
 import com.jfn.entity.JcqnDoc04;
 import com.jfn.entity.ZhichengApply;
@@ -39,6 +40,8 @@ public class ZhichengApplyDao {
 	private final String SQL_GET_Apply_LIST_By_GroupID = "select * from apply where group_id=? order by apply_date desc ";
 	
 	private final String SQL_Get_BY_USERID = "select * from expert_user where user_id=?";
+	
+	private final String SQL_GetROLE_BY_USERID = "select * from acct_user_role where user_id=?";
 	
 	SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 	public boolean insert(ZhichengApply Apply) {
@@ -283,14 +286,32 @@ System.err.println(JSON.toJSON(Apply));
 					expertUser.setAddress(rs.getString("address"));
 					expertUser.setZhicheng(rs.getString("zhicheng"));
 					expertUser.setCongshizhuanye(rs.getString("congshizhuanye"));
-					expertUser.setWithin_beijing(rs.getInt("within_beijing"));
+					expertUser.setWithin_beijing(rs.getString("within_beijing"));
 		
 				}
 				return expertUser;
 					}
 				} );
 	}
-	
-	
-
+	public AcctUserRole getRoleByUserId( int user_id )
+	{
+		return jdbcTemplate.query( SQL_GetROLE_BY_USERID, new Object[]{user_id},
+				new ResultSetExtractor<AcctUserRole>()
+				{
+			@Override
+			public AcctUserRole extractData( ResultSet rs )
+					throws SQLException, DataAccessException
+					{
+				AcctUserRole expertUser = new AcctUserRole(); 
+				if( rs.next() )
+				{
+					expertUser.setId(rs.getInt("id"));
+					expertUser.setUser_id(rs.getInt("user_id"));
+			expertUser.setRole_id(rs.getInt("role_id"));
+		
+				}
+				return expertUser;
+					}
+				} );
+	}
 }

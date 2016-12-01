@@ -21,9 +21,17 @@ public class ExpertUser {
 	//从事专业/研究方向
 	private String congshizhuanye;
 	//1:京内 0:京外
-	private Integer within_beijing;
+	private String within_beijing;
+   // 行政职务
+	private String xingzhengzhiwu;
 	
 	
+	public String getXingzhengzhiwu() {
+		return xingzhengzhiwu;
+	}
+	public void setXingzhengzhiwu(String xingzhengzhiwu) {
+		this.xingzhengzhiwu = xingzhengzhiwu;
+	}
 	public Integer getId() {
 		return id;
 	}
@@ -84,12 +92,13 @@ public class ExpertUser {
 	public void setCongshizhuanye(String congshizhuanye) {
 		this.congshizhuanye = congshizhuanye;
 	}
-	public Integer getWithin_beijing() {
+	public String getWithin_beijing() {
 		return within_beijing;
 	}
-	public void setWithin_beijing(Integer within_beijing) {
+	public void setWithin_beijing(String within_beijing) {
 		this.within_beijing = within_beijing;
 	}
+
 	
 
 }

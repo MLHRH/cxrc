@@ -1,23 +1,27 @@
 package com.jfn.web.controller;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springside.modules.security.springsecurity.SpringSecurityUtils;
 
+import com.alibaba.fastjson.JSON;
+import com.google.gson.Gson;
 import com.google.gson.JsonObject;
-import com.jfn.entity.ExpertBaseInfor;
+import com.jfn.entity.ExpertUser;
 import com.jfn.entity.User;
-import com.jfn.entity.UserBaseInfor;
 import com.jfn.service.AccountManager;
 import com.jfn.service.BodyService;
 import com.jfn.service.ExpertBaseInforService;
+import com.jfn.service.ExpertUserService;
 import com.jfn.service.UserService;
 @Controller
 public class ExpertBaseController {
@@ -29,19 +33,27 @@ public class ExpertBaseController {
 	private UserService service;
 	@Autowired
 	private BodyService bodyservice;
+	@Autowired
+	private  ExpertUserService expertUserService;
 //	@RequestMapping(value = "expertUserBase", method = RequestMethod.GET)
 //	public String bodyManger(HttpServletRequest request, Model model) {
 //		return "userBaseInfor/expertUserBase";
 //	}
+	@ResponseBody
 	@RequestMapping(value = "/expertBase", method = RequestMethod.GET)
-	public String userBase(HttpServletRequest request, Model model) {
-
+	public String userBase(HttpServletRequest request) {
+		String userId = request.getParameter("userId");
 		User user = accountManager.findUserByLoginName(SpringSecurityUtils.getCurrentUserName());
-		ExpertBaseInfor userbaseinfor = expertbaseinforservice.getByUserId(user.getId().toString());
-		model.addAttribute("bodyList", bodyservice.getAll());
-		model.addAttribute("user", user);
-		model.addAttribute("userbaseinfor", userbaseinfor);
-		return "userBaseInfor/expertUserBase";
+		// ExpertBaseInfor userbaseinfor =
+		// expertbaseinforservice.getByUserId(user.getId().toString());
+		ExpertUser expertUser = expertUserService.getByUserId(user.getId());
+		List<Object> list =new ArrayList<Object>();
+		list.add(user);
+		list.add(expertUser);
+	
+		Gson gson = new Gson();
+        
+		return gson.toJson(list);
 	}
 	@RequestMapping(value = "/userEdit", method = RequestMethod.GET)
 	public String edit(HttpServletRequest request, Model model) {
@@ -52,67 +64,51 @@ public class ExpertBaseController {
 		}
 		return "body/userEdit";
 	}
-	@RequestMapping(value = "/updateExpertBaseDetail", method = RequestMethod.POST)
+
+	@RequestMapping(value = "/baseEdit", method = RequestMethod.POST)
 	@ResponseBody
-	public String DetailUpdate_user_base(HttpServletRequest request, @ModelAttribute ExpertBaseInfor entity) {
+	public String ExperbaseUpdate(String data, HttpServletRequest request) {
 		JsonObject jsonResponse = new JsonObject();
-		int result = 0;// 0:fail;1:success
-		String msg = "Failed to %s this user";
-		String id = request.getParameter("id");
+		int user_id = (Integer) request.getSession().getAttribute("user_id");
+		ExpertUser expertUser = JSON.parseObject(data, ExpertUser.class);
+		expertUser.setUser_id(user_id);
+		int result = 0;
 		try {
-			if ((id == null) || (id.length() < 1)) {
-				result = expertbaseinforservice.userBaseInforInsert(entity) ? 1 : 0;
+			if (expertUserService.getByUserId(user_id).getUser_id() != null) {
+				result = expertUserService.updateExpert(expertUser) ? 1 : 0;
 			} else {
-				result = expertbaseinforservice.userBaseInforUpdateDetail(entity) ? 1 : 0;
+				expertUser.setGroup_id(1);
+				result = expertUserService.insertExpert(expertUser) ? 1 : 0;
 			}
+
 		} catch (Exception e) {
+			System.err.println(e);
 			result = 0;
-			msg = msg + ": " + e.getMessage();
 		}
 		jsonResponse.addProperty("result", result);
-		jsonResponse.addProperty("msg", String.format(msg, (id == null) ? "add" : "edit"));
 		return jsonResponse.toString();
+
 	}
-	@RequestMapping(value = "/updateExpert", method = RequestMethod.POST)
-	@ResponseBody
-	public String updateUser(HttpServletRequest request, @ModelAttribute User entity) {
-		JsonObject jsonResponse = new JsonObject();
-		int result = 0;// 0:fail;1:success
-		String msg = "测试 测试 Failed to %s this user";
-		String id = request.getParameter("id");
-		try {
-			if ((id == null) || (id.length() < 1)) {
-				result = service.userInsert(entity) ? 1 : 0;
-			} else {
-				result = service.userUpdateDetail(entity) ? 1 : 0;
-			}
-		} catch (Exception e) {
-			result = 0;
-			msg = msg + ": " + e.getMessage();
-		}
-		jsonResponse.addProperty("result", result);
-		jsonResponse.addProperty("msg", String.format(msg, (id == null) ? "add" : "edit"));
-		return jsonResponse.toString();
-	}
-	
 
 	@RequestMapping(value = "/expertBaseinfo", method = RequestMethod.GET)
 	public String list(HttpServletRequest request, Model model) {
 
 		User user = accountManager.findUserByLoginName(SpringSecurityUtils.getCurrentUserName());
-
+		
+		Integer user_id = user.getId();
+	
 		String infoType = request.getParameter("bt");
+		
 		if (infoType == null) {
 			infoType = "base";
-		}
+	}
 		if (user == null || user.getId() == null) {
 			model.addAttribute("infoType", infoType);
-			return "userBaseInfor/expertBaseinfo";
-		}
-		if (infoType.equals("base")) {
+			return "userBaseInfor/expertBaseinfo";		}
+	if (infoType.equals("base")) {
 
 			model.addAttribute("bodyList", bodyservice.getAll());
-		}
+	}
 		model.addAttribute("user", user);
 
 		model.addAttribute("infoType", infoType);

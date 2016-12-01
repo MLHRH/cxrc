@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.jfn.dao.ZhichengApplyDao;
+import com.jfn.entity.AcctUserRole;
 import com.jfn.entity.ExpertUser;
 import com.jfn.entity.JcqnDoc04;
 import com.jfn.entity.ZhichengApply;
@@ -68,5 +69,7 @@ public class ZhichengApplyService {
 	}
 	
 	
-	
+	public AcctUserRole getRoleByUserId( int user_id ){
+		return zhichengDao.getRoleByUserId(user_id);
+	}
 }

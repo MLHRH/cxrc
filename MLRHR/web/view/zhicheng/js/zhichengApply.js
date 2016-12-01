@@ -289,6 +289,7 @@ function initApplication() {
 						$(".isUSER").hide();
 						$(".span2").show();
 						$("#editSave").hide();
+						$("#tijiaoBtn").hide();
 						$("#zhichengapply_pre_approve_sug").attr("disabled",
 								true);
 						$("#zhichengapply_finial_approve_sug").attr("disabled",
@@ -303,7 +304,7 @@ function initApplication() {
 			if (currentRole == null)
 				for (var i = 0; i < arr.length - 1; i++) {
 					if (arr[i] == "ROLE_EXPERT2") {
-	
+						$("#tijiaoBtn").hide();
 						$("#editSave").hide();
 						$(".isEXP").show();
 						$(".isHR").show();
@@ -684,9 +685,14 @@ function autoHeight_2(elem) {
 	elem.style.height = 'auto';
 	elem.scrollTop = 0; // 防抖动
 	elem.style.height = elem.scrollHeight + 'px';
+	if(expert != "true"){
+		alert(expert);
+		$("#jcqnDoc07").hide();
+	}
 }
 
 function getDocList() {
+
 	var type = $('#apply_type').val();
 	var jcqn_list = '<ul class="nav nav-list" id="orderedlist">'
 			+ '<li id="jcqnDoc01"><a href="javascript:void(0)">1. 基本信息 </a></li>'
