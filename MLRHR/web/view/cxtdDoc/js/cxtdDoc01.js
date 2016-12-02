@@ -219,17 +219,17 @@ function updatecxtdDoc01(){
 	CxtdMemNum.benke = $('#benke').val();
 	CxtdMemNum.x_orther = $('#x_orther').val();
 	//团队成员信息
-	for(var i = 0 ; i <= index_meminfo ; i++){
-		CxtdMemberInfo.id = $('#member_id'+i).val();
-		CxtdMemberInfo.name = $('#member_name'+i).val();
-		CxtdMemberInfo.sex = $('#member_sex'+i).val();
-		CxtdMemberInfo.birthday = $('#member_birthday'+i).val();
-		CxtdMemberInfo.id_type = $('#member_idtype'+i).val();
-		CxtdMemberInfo.id_num = $('#member_idnum'+i).val();
-		CxtdMemberInfo.study_education = $('#member_education'+i).val();
-		CxtdMemberInfo.work_position = $('#member_position'+i).val();
-		CxtdMemberInfo.direction = $('#member_direction'+i).val();
-		CxtdMemberInfo.work_company = $('#member_company'+i).val();
+	for(var i = 0 ; i <= index_meminfo-1; i++){
+		CxtdMemberInfo.id = $('#chenyuanid'+i).val();
+		CxtdMemberInfo.name = $('#chengyuanname'+i).val();
+		CxtdMemberInfo.sex = $('#chnengyuansex'+i).val();
+		CxtdMemberInfo.birthday = $('#chengyuanbir'+i).val();
+		CxtdMemberInfo.id_type = $('#chengyuantype'+i).val();
+		CxtdMemberInfo.id_num = $('#chengyuannum'+i).val();
+		CxtdMemberInfo.study_education = $('#chengyuanedu'+i).val();
+		CxtdMemberInfo.work_position = $('#chengyuanp'+i).val();
+		CxtdMemberInfo.direction = $('#chengyuand'+i).val();
+		CxtdMemberInfo.work_company = $('#chengyuancompany'+i).val();
 		arrMemInfo[i] = CxtdMemberInfo;
 	}
 	var baseInfo = JSON.stringify(CxtdBaseInfo);
@@ -275,23 +275,23 @@ function Member(index){
 	for(var i = 0 ; i < index ; i++){
 		var addMem_div = '</tr><tr style="page-break-inside: avoid" id = "memberinfo'+i+'">'
 		+'<td width=84 style="width: 62pt; border: solid black 1.0pt; border-left: none; padding: 0cm 5.4pt 0cm 5.4pt; height: 30pt">'
-		+'<input type="text" id="chengyuanname"'+i+' style="text-align: center; font-size: 14.0pt; font-family: 宋体; display: inline-block; height: 90%; width: 95%; padding: 0px; margin: 3px; border-radius: 0px"   /></td>'
+		+'<input type="text" id="chengyuanname'+i+'" style="text-align: center; font-size: 14.0pt; font-family: 宋体; display: inline-block; height: 90%; width: 95%; padding: 0px; margin: 3px; border-radius: 0px"   /></td>'
 		+'<td width=84 style="width: 62pt; border: solid black 1.0pt; border-left: none; padding: 0cm 5.4pt 0cm 5.4pt; height: 30pt">'
-		+'<input type="text" id="chnengyuansex"'+i+' style="text-align: center; font-size: 14.0pt; font-family: 宋体; display: inline-block; height: 90%; width: 95%; padding: 0px; margin: 3px; border-radius: 0px"   /></td>'
+		+'<input type="text" id="chnengyuansex'+i+'" style="text-align: center; font-size: 14.0pt; font-family: 宋体; display: inline-block; height: 90%; width: 95%; padding: 0px; margin: 3px; border-radius: 0px"   /></td>'
 		+'<td width=84 style="width: 62pt; border: solid black 1.0pt; border-left: none; padding: 0cm 5.4pt 0cm 5.4pt; height: 30pt">'
-		+'<input type="text" id="chengyuanbir"'+i+' style="text-align: center; font-size: 14.0pt; font-family: 宋体; display: inline-block; height: 90%; width: 95%; padding: 0px; margin: 3px; border-radius: 0px"   /></td>'
+		+'<input type="text" id="chengyuanbir'+i+'" style="text-align: center; font-size: 14.0pt; font-family: 宋体; display: inline-block; height: 90%; width: 95%; padding: 0px; margin: 3px; border-radius: 0px"   /></td>'
 		+'<td width=84 style="width: 62pt; border: solid black 1.0pt; border-left: none; padding: 0cm 5.4pt 0cm 5.4pt; height: 30pt">'
-		+'<input type="text" id="chengyuantype"'+i+' style="text-align: center; font-size: 14.0pt; font-family: 宋体; display: inline-block; height: 90%; width: 95%; padding: 0px; margin: 3px; border-radius: 0px"   /></td>'
+		+'<input type="text" id="chengyuantype'+i+'" style="text-align: center; font-size: 14.0pt; font-family: 宋体; display: inline-block; height: 90%; width: 95%; padding: 0px; margin: 3px; border-radius: 0px"   /></td>'
 		+'<td width=84 style="width: 62pt; border: solid black 1.0pt; border-left: none; padding: 0cm 5.4pt 0cm 5.4pt; height: 30pt">'
-		+'<input type="text" id="chengyuannum"'+i+' style="text-align: center; font-size: 14.0pt; font-family: 宋体; display: inline-block; height: 90%; width: 95%; padding: 0px; margin: 3px; border-radius: 0px"   /></td>'
+		+'<input type="text" id="chengyuannum'+i+'" style="text-align: center; font-size: 14.0pt; font-family: 宋体; display: inline-block; height: 90%; width: 95%; padding: 0px; margin: 3px; border-radius: 0px"   /></td>'
 	    +'<td width=84 style="width: 62pt; border: solid black 1.0pt; border-left: none; padding: 0cm 5.4pt 0cm 5.4pt; height: 30pt">'
-		+'<input type="text" id="chengyuanedu"'+i+' style="text-align: center; font-size: 14.0pt; font-family: 宋体; display: inline-block; height: 90%; width: 95%; padding: 0px; margin: 3px; border-radius: 0px"   /></td>'
+		+'<input type="text" id="chengyuanedu'+i+'" style="text-align: center; font-size: 14.0pt; font-family: 宋体; display: inline-block; height: 90%; width: 95%; padding: 0px; margin: 3px; border-radius: 0px"   /></td>'
 		+'<td width=84 style="width: 62pt; border: solid black 1.0pt; border-left: none; padding: 0cm 5.4pt 0cm 5.4pt; height: 30pt">'
-		+'<input type="text" id="chengyuanp"'+i+' style="text-align: center; font-size: 14.0pt; font-family: 宋体; display: inline-block; height: 90%; width: 95%; padding: 0px; margin: 3px; border-radius: 0px"   /></td>'
+		+'<input type="text" id="chengyuanp'+i+'" style="text-align: center; font-size: 14.0pt; font-family: 宋体; display: inline-block; height: 90%; width: 95%; padding: 0px; margin: 3px; border-radius: 0px"   /></td>'
 		+'<td width=84 style="width: 62pt; border: solid black 1.0pt; border-left: none; padding: 0cm 5.4pt 0cm 5.4pt; height: 30pt">'
-		+'<input type="text" id="#chengyuand"'+i+' style="text-align: center; font-size: 14.0pt; font-family: 宋体; display: inline-block; height: 90%; width: 95%; padding: 0px; margin: 3px; border-radius: 0px"   /></td>'
+		+'<input type="text" id="#chengyuand'+i+'" style="text-align: center; font-size: 14.0pt; font-family: 宋体; display: inline-block; height: 90%; width: 95%; padding: 0px; margin: 3px; border-radius: 0px"   /></td>'
 		+'<td width=84 style="width: 62pt; border: solid black 1.0pt; border-left: none; padding: 0cm 5.4pt 0cm 5.4pt; height: 30pt">'
-		+'<input type="text" id="#chengyuancompany"'+i+' style="text-align: center; font-size: 14.0pt; font-family: 宋体; display: inline-block; height: 90%; width: 95%; padding: 0px; margin: 3px; border-radius: 0px"   /></td>';
+		+'<input type="text" id="#chengyuancompany'+i+'" style="text-align: center; font-size: 14.0pt; font-family: 宋体; display: inline-block; height: 90%; width: 95%; padding: 0px; margin: 3px; border-radius: 0px"   /></td>';
 	if( i == 0){
 		$('#memberinfo_div').after(addMem_div);
 	}
@@ -388,25 +388,25 @@ function addmember(){
 	if(flag >15){
 		return ;
 	}
-	var add_div = '</tr><tr style="page-break-inside: avoid" id = "memberinfo'+flag+'">'
+	var add_div = '<tr><input type="hidden" id=chenyuanid'+flag+'/></tr>'
 	+'<td width=84 style="width: 62pt; border: solid black 1.0pt; border-left: none; padding: 0cm 5.4pt 0cm 5.4pt; height: 30pt">'
-	+'<input type="text" id="chengyuanname"'+flag+' style="text-align: center; font-size: 14.0pt; font-family: 宋体; display: inline-block; height: 90%; width: 95%; padding: 0px; margin: 3px; border-radius: 0px"   /></td>'
+	+'<input type="text" id="chengyuanname'+flag+'" style="text-align: center; font-size: 14.0pt; font-family: 宋体; display: inline-block; height: 90%; width: 95%; padding: 0px; margin: 3px; border-radius: 0px"/></td>'
 	+'<td width=84 style="width: 62pt; border: solid black 1.0pt; border-left: none; padding: 0cm 5.4pt 0cm 5.4pt; height: 30pt">'
-	+'<input type="text" id="chnengyuansex"'+flag+' style="text-align: center; font-size: 14.0pt; font-family: 宋体; display: inline-block; height: 90%; width: 95%; padding: 0px; margin: 3px; border-radius: 0px"   /></td>'
+	+'<input type="text" id="chnengyuansex'+flag+'" style="text-align: center; font-size: 14.0pt; font-family: 宋体; display: inline-block; height: 90%; width: 95%; padding: 0px; margin: 3px; border-radius: 0px"/></td>'
 	+'<td width=84 style="width: 62pt; border: solid black 1.0pt; border-left: none; padding: 0cm 5.4pt 0cm 5.4pt; height: 30pt">'
-	+'<input type="text" id="chengyuanbir"'+flag+' style="text-align: center; font-size: 14.0pt; font-family: 宋体; display: inline-block; height: 90%; width: 95%; padding: 0px; margin: 3px; border-radius: 0px"   /></td>'
+	+'<input type="text" id="chengyuanbir'+flag+'" style="text-align: center; font-size: 14.0pt; font-family: 宋体; display: inline-block; height: 90%; width: 95%; padding: 0px; margin: 3px; border-radius: 0px"/></td>'
 	+'<td width=84 style="width: 62pt; border: solid black 1.0pt; border-left: none; padding: 0cm 5.4pt 0cm 5.4pt; height: 30pt">'
-	+'<input type="text" id="chengyuantype"'+flag+' style="text-align: center; font-size: 14.0pt; font-family: 宋体; display: inline-block; height: 90%; width: 95%; padding: 0px; margin: 3px; border-radius: 0px"   /></td>'
+	+'<input type="text" id="chengyuantype'+flag+'" style="text-align: center; font-size: 14.0pt; font-family: 宋体; display: inline-block; height: 90%; width: 95%; padding: 0px; margin: 3px; border-radius: 0px"/></td>'
 	+'<td width=84 style="width: 62pt; border: solid black 1.0pt; border-left: none; padding: 0cm 5.4pt 0cm 5.4pt; height: 30pt">'
-	+'<input type="text" id="chengyuannum"'+flag+' style="text-align: center; font-size: 14.0pt; font-family: 宋体; display: inline-block; height: 90%; width: 95%; padding: 0px; margin: 3px; border-radius: 0px"   /></td>'
+	+'<input type="text" id="chengyuannum'+flag+'" style="text-align: center; font-size: 14.0pt; font-family: 宋体; display: inline-block; height: 90%; width: 95%; padding: 0px; margin: 3px; border-radius: 0px"/></td>'
     +'<td width=84 style="width: 62pt; border: solid black 1.0pt; border-left: none; padding: 0cm 5.4pt 0cm 5.4pt; height: 30pt">'
-	+'<input type="text" id="chengyuanp"'+flag+' style="text-align: center; font-size: 14.0pt; font-family: 宋体; display: inline-block; height: 90%; width: 95%; padding: 0px; margin: 3px; border-radius: 0px"   /></td>'
+	+'<input type="text" id="chengyuanp'+flag+'" style="text-align: center; font-size: 14.0pt; font-family: 宋体; display: inline-block; height: 90%; width: 95%; padding: 0px; margin: 3px; border-radius: 0px"/></td>'
 	+'<td width=84 style="width: 62pt; border: solid black 1.0pt; border-left: none; padding: 0cm 5.4pt 0cm 5.4pt; height: 30pt">'
-	+'<input type="text" id="chengyuanp"'+flag+' style="text-align: center; font-size: 14.0pt; font-family: 宋体; display: inline-block; height: 90%; width: 95%; padding: 0px; margin: 3px; border-radius: 0px"   /></td>'
+	+'<input type="text" id="chengyuanp'+flag+'" style="text-align: center; font-size: 14.0pt; font-family: 宋体; display: inline-block; height: 90%; width: 95%; padding: 0px; margin: 3px; border-radius: 0px"/></td>'
 	+'<td width=84 style="width: 62pt; border: solid black 1.0pt; border-left: none; padding: 0cm 5.4pt 0cm 5.4pt; height: 30pt">'
-	+'<input type="text" id="chengyuand"'+flag+' style="text-align: center; font-size: 14.0pt; font-family: 宋体; display: inline-block; height: 90%; width: 95%; padding: 0px; margin: 3px; border-radius: 0px"   /></td>'
+	+'<input type="text" id="chengyuand'+flag+'" style="text-align: center; font-size: 14.0pt; font-family: 宋体; display: inline-block; height: 90%; width: 95%; padding: 0px; margin: 3px; border-radius: 0px"/></td>'
 	+'<td width=84 style="width: 62pt; border: solid black 1.0pt; border-left: none; padding: 0cm 5.4pt 0cm 5.4pt; height: 30pt">'
-	+'<input type="text" id="chengyuancompany"'+flag+' style="text-align: center; font-size: 14.0pt; font-family: 宋体; display: inline-block; height: 90%; width: 95%; padding: 0px; margin: 3px; border-radius: 0px"   /></td>';
+	+'<input type="text" id="chengyuancompany'+flag+'" style="text-align: center; font-size: 14.0pt; font-family: 宋体; display: inline-block; height: 90%; width: 95%; padding: 0px; margin: 3px; border-radius: 0px"/></td>';
     if(index_meminfo == 0){
     	alert("tianji!")
     	$('#memberinfo_div').after(add_div);

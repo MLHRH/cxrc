@@ -113,20 +113,18 @@ public class cxtdDocService {
 			}
 			//团队人数统计
 			CxtdMemberNum mNum = cxtddoc01Dao.queryCxtdMemberNum(team_id);
-			if(mNum!= null){
+			if (mNum.getAge_35() != null) {
 				cxtddoc01Dao.updateCxtdMemberNum(memNum, team_id);
 			}
 			else{
 				cxtddoc01Dao.insertCxtdMemberNum(memNum, team_id);
 			}
-			//团队成员信息
+			//团队成yuan 	 	
+			cxtddoc01Dao.deleteme(team_id);
 			for(CxtdMemberInfo mem:mList){
-				if(baseIfo!= null){
-					cxtddoc01Dao.updateCxtdMemberInfo(mem, team_id);
-				}
-				else{
-					cxtddoc01Dao.insertCxtdMemberInfo(mem, team_id);
-				}
+				cxtddoc01Dao.insertCxtdMemberInfo(mem, team_id);
+	
+				
 			}
 			result.put("result", "更新成功");
 		}catch(Exception e){

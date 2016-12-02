@@ -53,13 +53,16 @@ public class CxtdDoc01Dao {
 			+ "study_education=?,work_position=?,direction=?,work_company=? where team_id=?";
 	private final String SQL_INSERT_MEMBER_INFO="insert into cxtd_member_info(team_id,name,sex,birthday,id_type,id_num,study_education,"
 			+ "work_position,direction,work_company) values(?,?,?,?,?,?,?,?,?,?)";
+	private final String SQL_DEL_MEM="delete from cxtd_member_info where team_id=?";
+
+	private final String SQL_SELECT_BASE = "select * from cxtd_base_info where user_id=?";
 	/**
 	 * 查询用户对应的团队ID
 	 * @param user_id
 	 * @return
 	 */
 	public Integer getTimeId(int user_id) {
-		String SQL_SELECT_TIME = "select id from user_team where userid="+user_id;
+		String SQL_SELECT_TIME = "select id from user_team where userid=" + user_id;
 			return jdbcTemplate.query(SQL_SELECT_TIME, new ResultSetExtractor<Integer>(){
 
 				@Override
@@ -95,15 +98,11 @@ public class CxtdDoc01Dao {
 	 * @return
 	 */
 	public CxtdBaseInfo queryCxtdBase(int userid){
-		String SQL_SELECT_ID = "select * from cxtd_base_info where status = 0 and user_id="+userid ;
-		return jdbcTemplate.query(SQL_SELECT_ID,
-				new ResultSetExtractor<CxtdBaseInfo>(){
-
+		return jdbcTemplate.query(SQL_SELECT_BASE, new Object[] { userid }, new ResultSetExtractor<CxtdBaseInfo>() {
 					@Override
 					public CxtdBaseInfo extractData(ResultSet rs) throws SQLException, DataAccessException {
 						CxtdBaseInfo baseinfo = new CxtdBaseInfo();
 						while (rs.next()) {
-							baseinfo.setTeamId(rs.getInt("team_id"));
 							baseinfo.setTeamName(rs.getString("team_name"));
 							baseinfo.setResearchDirection(rs.getString("research_direction"));
 							baseinfo.setSubordinateSubject1(rs.getString("subordinate_subject1"));
@@ -123,6 +122,7 @@ public class CxtdDoc01Dao {
 							baseinfo.setEmail(rs.getString("email"));
 							baseinfo.setFax(rs.getString("fax"));
 							baseinfo.setTelephone(rs.getString("telephone"));
+					baseinfo.setUserid(rs.getInt("user_id"));
 						}
 						return baseinfo;
 					}
@@ -131,6 +131,9 @@ public class CxtdDoc01Dao {
 	}
 	public void deletezu(int user_id) {
 		jdbcTemplate.update(SQL_DEL_ZUZHI, new Object[] { user_id });
+	}
+	public void deleteme(int team_id) {
+		jdbcTemplate.update(SQL_DEL_MEM, new Object[] { team_id });
 	}
 	/**
 	 * 更新基本信息
@@ -203,7 +206,6 @@ public class CxtdDoc01Dao {
 		String SQL_SELECT_ID = "select * from cxtd_leader_info where user_id="+userid ;
 		return jdbcTemplate.query(SQL_SELECT_ID,
 				new ResultSetExtractor<CxtdLeaderInfo>(){
-			
 					public CxtdLeaderInfo extractData(ResultSet rs) throws SQLException, DataAccessException {
 						CxtdLeaderInfo LeaderInfo = new CxtdLeaderInfo();
 						while (rs.next()) {
