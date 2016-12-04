@@ -3,6 +3,7 @@ var zNodes = "";
 var currentRole;
 var currentNode;
 var body_id;
+var userId = $("#userId").val();
 var setting = {
 	data : {
 		key : {

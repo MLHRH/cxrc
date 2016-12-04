@@ -178,7 +178,7 @@ function updatecxtdDoc01(){
 	CxtdBaseInfo.status = 0;
 	//团队负责人信息
 	CxtdLeaderinfo.id = $('#leaderid').val();
-	CxtdLeaderinfo.teamId = $('#leaderName').val();
+	CxtdLeaderinfo.teamId = $('#teamId').val();
 	CxtdLeaderinfo.name = $('#leaderName').val();
 	CxtdLeaderinfo.sex = $('#leaderSex').val();
 	CxtdLeaderinfo.country = $('#leaderCountry').val();

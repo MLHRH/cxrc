@@ -1,7 +1,6 @@
 package com.jfn.web.controller;
 
 import java.util.List;
-import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -14,7 +13,6 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
-import com.google.gson.Gson;
 import com.jfn.entity.CxtdBaseInfo;
 import com.jfn.entity.CxtdDoc01;
 import com.jfn.entity.CxtdLeaderInfo;
@@ -37,10 +35,8 @@ public class cxtdDocController {
 	public Object cxtdDoc01Init(HttpServletRequest request){
 		
 		int userid =(Integer)request.getSession().getAttribute("user_id");
-		Map<String, Object> ss = cxtdDocService.queryCxtdDoc01(userid);
-		Gson gson = new Gson();
-
-		return gson.toJson(ss);
+		return  cxtdDocService.queryCxtdDoc01(userid);
+		
 		}
 		
 	/**

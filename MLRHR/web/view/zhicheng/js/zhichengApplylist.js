@@ -26,6 +26,21 @@ function initZhichengApply(zhichengId) {
 					success : function(data) { // 请求成功后处理函数。
 						var authority = data[1].authority;
 						var arr = authority.split("|");
+						
+						if (currentRole == null)
+							for (var i = 0; i < arr.length - 1; i++) {
+								if (arr[i] == "ROLE_PROFESSOR") {
+									currentRole = arr[i];
+									$("#roleBack").show();
+								}
+							}
+						if (currentRole == null)
+							for (var i = 0; i < arr.length - 1; i++) {
+								if (arr[i] == "ROLE_HR") {
+									currentRole = arr[i];
+									$("#roleBack").show();
+								}
+							}
 						if (currentRole == null)
 							for (var i = 0; i < arr.length - 1; i++) {
 								if (arr[i] == "ROLE_EXPERT2") {
@@ -40,20 +55,8 @@ function initZhichengApply(zhichengId) {
 									$("#roleBack").show();
 								}
 							}
-						if (currentRole == null)
-							for (var i = 0; i < arr.length - 1; i++) {
-								if (arr[i] == "ROLE_HR") {
-									currentRole = arr[i];
-									$("#roleBack").show();
-								}
-							}
-						if (currentRole == null)
-							for (var i = 0; i < arr.length - 1; i++) {
-								if (arr[i] == "ROLE_PROFESSOR") {
-									currentRole = arr[i];
-									$("#roleBack").show();
-								}
-							}
+					
+						
 						if (currentRole == null)
 							for (var i = 0; i < arr.length - 1; i++) {
 								if (arr[i] == "ROLE_USER") {
@@ -61,7 +64,8 @@ function initZhichengApply(zhichengId) {
 									$("#roleBack").hide();
 								}
 							}
-
+ 
+						
 						initZhichengApplyDataTables(data[0]);
 						var hasOne = data[1].hasOne;
 						if (hasOne == 1) {
@@ -72,6 +76,9 @@ function initZhichengApply(zhichengId) {
 							$('#zhichengAddButton').removeAttr("disabled");
 							$('#zhichengAddButton').attr("href", "zhichengApply");
 							$('#zhichengAddButton').attr("class", "btn btn-small btn-info");
+						}
+						if(currentRole !="ROLE_USER"){
+							$('#zhichengAddButton').hide();
 						}
 						checkApply();
 					}
@@ -205,7 +212,7 @@ function initZhichengApplyDataTables(data) {
 												+ ")'><i class='icon-download'></i>导出PDF</a><a class='btn btn-small btn-inverse' style='margin-right: 5px' disabled='disabled'  href='javascript:void(0)'><i class='icon-remove'></i>删除</a><a class='btn btn-small btn-inverse' style='margin-right: 5px'  disabled='disabled' href='javascript:void(0)' ><i class='icon-edit'></i>编辑</a>";
 
 								}
-						if ((currentRole == "ROLE_EXPERT1") || (currentRole == "ROLE_EXPERT2")||(currentRole == "ROLE_HR") || (currentRole == "PROFESSOR")) {
+						if ((currentRole == "ROLE_EXPERT1") || (currentRole == "ROLE_EXPERT2")||(currentRole == "ROLE_HR") || (currentRole == "ROLE_PROFESSOR")) {
 							return "<a class='btn btn-small btn-info' style='margin-right: 5px' href='javascript:void(0)' onClick='PDFCreater(" + JSON.stringify(data)
 									+ ")'><i class='icon-download'></i>导出PDF</a><a class='btn btn-small btn-info' style='margin-right: 5px' href='javascript:void(0)' onClick='zhichengApplyEdit("
 									+ data.id +","+"\/"+data.apply_type+"\/"+","+id+")'><i class='icon-search'></i>审核</a>";}

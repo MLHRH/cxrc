@@ -209,10 +209,12 @@ public class ZhichengController {
 		} else {
 			jo3.put("hasOne", "0");
 		}
-
+		HttpSession session = request.getSession();
+		User user =(User) session.getAttribute("loginuser");
 		JSONArray jsonArray = new JSONArray();
 		jsonArray.add(list);
 		jsonArray.add(jo3);
+		jsonArray.add(user);
 		return jsonArray.toString();
 	}
 

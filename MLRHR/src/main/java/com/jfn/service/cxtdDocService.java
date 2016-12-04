@@ -113,7 +113,7 @@ public class cxtdDocService {
 			}
 			//团队人数统计
 			CxtdMemberNum mNum = cxtddoc01Dao.queryCxtdMemberNum(team_id);
-			if (mNum.getAge_35() != null) {
+			if(mNum!= null){
 				cxtddoc01Dao.updateCxtdMemberNum(memNum, team_id);
 			}
 			else{

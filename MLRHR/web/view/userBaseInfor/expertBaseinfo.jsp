@@ -106,7 +106,7 @@ body {
 				<tr align="left">
 					<td style="width: 150px">民族：</td>
 					<td>
-						<input type="text" id="user_minzu" style="width: 200px" value="${userbaseinfor.minzu}" />
+						<input type="text" id="user_minzu" style="width: 200px"/>
 					</td>
 					<td style="width: 130px; padding-left: 50px">身份证：</td>
 					<td>
@@ -117,7 +117,7 @@ body {
 					
 					<td style="width: 150px">出生日期：</td>
 					<td>
-						<input type="text" id="user_birthday" style="width: 200px" onfocus="WdatePicker({isShowWeek:true,dateFmt:'yyyy.MM.dd'}) value="${userbaseinfor.birthday}" />
+						<input type="text" id="user_birthday" style="width: 200px" />
 					</td>
 					<td style="width: 150px; padding-left: 50px">电子邮箱：</td>
 					<td>
