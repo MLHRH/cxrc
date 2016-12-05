@@ -4,6 +4,7 @@ var currentRole;
 var jcqn_zhichengApply;
 var hasOne;
 var createNewPDF = true;
+//登陆者Id
 var zhichengId = $("#userId").val();
 var role_type = 2 ;
 var user_id ;
@@ -109,7 +110,7 @@ function initZhichengApplyDataTables(data) {
 
 function zhichengApplyEdit(id,type,userId,expert_id,expert) {
 	console.log("申请类型："+type);
-	location.href = 'zhichengApply?apply_id=' + id+"&applyType="+type+"&userId="+userId+"&expert_id="+expert_id+"&expert="+expert;
+	location.href = 'zhichengApply?apply_id=' + id+"&applyType="+type+"&userId="+userId+"&user_id="+expert_id+"&expert="+expert;
 }
 
 

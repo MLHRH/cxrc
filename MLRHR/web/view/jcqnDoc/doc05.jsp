@@ -16,7 +16,7 @@
  </div></td></tr>
 <tr style='page-break-inside: avoid; height: 3pt'>
 <td colspan="3">
-						<textarea style="width: 900px; height: 1000px" id="needsRelevanceSupport"></textarea>
+						<textarea style="width: 1200px; height: 1000px" id="needsRelevanceSupport"></textarea>
 					</td>
 </td></tr>
 </body>

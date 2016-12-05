@@ -1,13 +1,19 @@
+//被审核ID
 var id = $.query.get("id");
 var oTable = null;
 var currentRole;
 var jcqn_zhichengApply;
 var hasOne;
+var user_id ;
 var createNewPDF = true;
+
 $(document).ready(function() {
+	      user_id =$("#userId").val();
 			if (id == null) {
 				zhichengId = $("#userId").val();
+//				user_id=$("#userId").val;
 			} else {
+//				user_id=$("#userId").val;
 				zhichengId = id;
 			}
 			initZhichengApply(zhichengId);
@@ -68,6 +74,7 @@ function initZhichengApply(zhichengId) {
 						
 						initZhichengApplyDataTables(data[0]);
 						var hasOne = data[1].hasOne;
+//						var userId = data[2].id;
 						if (hasOne == 1) {
 							$('#zhichengAddButton').attr("disabled", true);
 							$('#zhichengAddButton').removeAttr("href");
@@ -146,6 +153,7 @@ function initZhichengApplyDataTables(data) {
 		oTable.fnClearTable(false);
 		$('#zhichengApplyList').dataTable().fnDestroy();
 	}
+	
 	oTable = $('#zhichengApplyList').dataTable({
 		"aaSorting" : [[0, "desc"]],
 		"sDom" : "flrt<ip>",
@@ -215,7 +223,7 @@ function initZhichengApplyDataTables(data) {
 						if ((currentRole == "ROLE_EXPERT1") || (currentRole == "ROLE_EXPERT2")||(currentRole == "ROLE_HR") || (currentRole == "ROLE_PROFESSOR")) {
 							return "<a class='btn btn-small btn-info' style='margin-right: 5px' href='javascript:void(0)' onClick='PDFCreater(" + JSON.stringify(data)
 									+ ")'><i class='icon-download'></i>导出PDF</a><a class='btn btn-small btn-info' style='margin-right: 5px' href='javascript:void(0)' onClick='zhichengApplyEdit("
-									+ data.id +","+"\/"+data.apply_type+"\/"+","+id+")'><i class='icon-search'></i>审核</a>";}
+									+ data.id +","+"\/"+data.apply_type+"\/"+","+id+","+user_id+")'><i class='icon-search'></i>审核</a>";}
 						if (currentRole == "ROLE_USER") {
 							return "<a class='btn btn-small btn-info' style='margin-right: 5px' href='javascript:void(0)' onClick='zhichengApplyDelete("
 										+ data.id
@@ -228,9 +236,9 @@ function initZhichengApplyDataTables(data) {
 	});
 }
 
-function zhichengApplyEdit(id,type,userid) {
+function zhichengApplyEdit(id,type,userId,user_id) {
 	console.log("申请类型："+type);
-	location.href = 'zhichengApply?id=' + id+"&applyType="+type+"&userid="+userid;
+	location.href = 'zhichengApply?id=' + id+"&applyType="+type+"&userId="+userId+"&user_id="+user_id;
 }
 
 function zhichengApplyDelete(id) {

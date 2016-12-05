@@ -2,20 +2,20 @@ var objUser = new Object();
  
 var userBaseInfor_id;
 var currentRole;
-var id;
+var userid;
 function initjcqnDoc03() {
 	//被审核人的ID存在时。此时是审核模式。采用被审核人的ID初始化。
 	if(userId != null && userId !=""){
-		id = userId;
+		userid = userId;
 	}
 	else{
-		id = user_id;
+		userid = user_id;
 	}
 	console.log(currentRole);
 	$.ajax({
 				type : 'get',
 				dataType : 'json',
-				url : 'jcqnDoc03Init?userId=' + id,// 请求的路径
+				url : 'jcqnDoc03Init?userId=' + userid,// 请求的路径
 				error : function() {// 请求失败处理函数
 					alert('请求失败');
 				},

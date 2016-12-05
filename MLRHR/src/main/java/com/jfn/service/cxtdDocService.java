@@ -85,15 +85,17 @@ public class cxtdDocService {
 			}
 			CxtdBaseInfo baseIfo = cxtddoc01Dao.queryCxtdBase(user_id);
 			//基本信息更新
-			if(baseIfo !=null ){
-				cxtddoc01Dao.updateCxtdBase(baseInfo, user_id);
+			if (baseIfo.getId() == null) {
+				cxtddoc01Dao.insertCxtdBase(baseInfo, user_id, team_id);
+
 			}
 			else{
-				cxtddoc01Dao.insertCxtdBase(baseInfo, user_id , team_id);
+				cxtddoc01Dao.updateCxtdBase(baseInfo, user_id);
+				// cxtddoc01Dao.updateCxtdBase(baseInfo, user_id);
 			}
 			//更新团队负责人信息
 			CxtdLeaderInfo leadeInfo = cxtddoc01Dao.queryCxtdLeaderInfo(user_id);
-			if(leadeInfo!=null){
+			if (leadeInfo.getId() != null) {
 				cxtddoc01Dao.updateCxtdLeaderInfo(leaderInfo, user_id);
 			}
 			else{
@@ -103,17 +105,11 @@ public class cxtdDocService {
 			List<CxtdLeaderZuzhi> List = cxtddoc01Dao.getAllByUserId(String.valueOf(user_id));
 		          	cxtddoc01Dao.deletezu(user_id);
 					for(CxtdLeaderZuzhi ss : zList){
-					
-					cxtddoc01Dao.insertCxtdLeaderZuzhi(ss, user_id);
-					
-					
-				
-
-				
+				cxtddoc01Dao.insertCxtdLeaderZuzhi(ss, user_id);
 			}
 			//团队人数统计
 			CxtdMemberNum mNum = cxtddoc01Dao.queryCxtdMemberNum(team_id);
-			if(mNum!= null){
+			if (mNum.getId() != null) {
 				cxtddoc01Dao.updateCxtdMemberNum(memNum, team_id);
 			}
 			else{

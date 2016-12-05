@@ -243,31 +243,31 @@
 		<table class=MsoNormalTable border=0 cellspacing=0 cellpadding=0 style='border-collapse: collapse'>
 				
 				<tr class="form-group form-group-lg">
-					<td width=70 style='width: 62pt; border: solid black 1.0pt; padding: 0cm 5.4pt 0cm 5.4pt; height: 30pt'>
+					<td width=70 style='width: 80pt; border: solid black 1.0pt; padding: 0cm 5.4pt 0cm 5.4pt; height: 30pt'>
 						<div class=MsoNormal align=center style='text-align: center'>
 							<span style='font-size: 14.0pt; font-family: 宋体'>姓名
 							</span>
 						</div>
 					</td>
-					<td width=84 style='text-align: center; width: 62pt; border: solid black 1.0pt; border-left: none; padding: 0; padding: 0; height: 30pt'>
+					<td width=95 style='text-align: center; width: 210pt; border: solid black 1.0pt; border-left: none; padding: 0; padding: 0; height: 30pt'>
 						<input type="text" id="leaderName"  style="text-align: center; font-size: 14.0pt; font-family: 宋体; display: inline-block; height: 95%; width: 90%; padding: 0px; margin: 3px; border-radius: 0px" />
 					</td>
-					<td width=84 style='width: 62pt; border: solid black 1.0pt; border-left: none; padding: 0cm 5.4pt 0cm 5.4pt; height: 30pt'>
+					<td width=84 style='width: 80pt; border: solid black 1.0pt; border-left: none; padding: 0cm 5.4pt 0cm 5.4pt; height: 30pt'>
 						<div class=MsoNormal align=center style='text-align: center'>	
 							<span style='font-size: 14.0pt; font-family: 宋体'>性别 
 							</span>
 						</div>	
 					</td>
-						<td width=84 style='text-align: center; width: 62pt; border: solid black 1.0pt; border-left: none; padding: 0; padding: 0; height: 30pt'>
+						<td width=84 style='text-align: center; width: 210pt; border: solid black 1.0pt; border-left: none; padding: 0; padding: 0; height: 30pt'>
 						<input type="text" id="leaderSex"  style="text-align: center; font-size: 14.0pt; font-family: 宋体; display: inline-block; height: 95%; width: 90%; padding: 0px; margin: 3px; border-radius: 0px" />
 					</td>
-						<td width=84 style='width: 62pt; border: solid black 1.0pt; border-left: none; padding: 0cm 5.4pt 0cm 5.4pt; height: 30pt'>
+						<td width=84 style='width: 80pt; border: solid black 1.0pt; border-left: none; padding: 0cm 5.4pt 0cm 5.4pt; height: 30pt'>
 						<div class=MsoNormal align=center style='text-align: center'>	
 							<span style='font-size: 14.0pt; font-family: 宋体'>国籍 
 							</span>
 						</div>	
 					</td>
-						<td width=84 colspan=2 style='text-align: center; width: 62pt; border: solid black 1.0pt; border-left: none; padding: 0; padding: 0; height: 30pt'>
+						<td width=84 colspan=2 style='text-align: center; width: 205pt; border: solid black 1.0pt; border-left: none; padding: 0; padding: 0; height: 30pt'>
 						<input type="text" id="leaderCountry"  style="text-align: center; font-size: 14.0pt; font-family: 宋体; display: inline-block; height: 95%; width: 90%; padding: 0px; margin: 3px; border-radius: 0px" />
 					</td>
 				</tr>
@@ -399,7 +399,7 @@
 						<input type="text" id="leaderEmail"  style="text-align: center; font-size: 14.0pt; font-family: 宋体; display: inline-block; height: 95%; width: 90%; padding: 0px; margin: 3px; border-radius: 0px" />
 					</td>
 			</tr>
-			<tr style='page-break-inside: avoid'>
+		<!-- 	<tr style='page-break-inside: avoid'>
 				<td>
 					<div class=MsoNormal style='text-align: center'>
 						<span style='font-size: 14.0pt; font-family: 宋体'>学习经历</span>
@@ -475,7 +475,7 @@
 			</tr>
 			
 			
-			<!-- 团队负责人组织期刊任职情况-->
+			团队负责人组织期刊任职情况
 			<tr style='page-break-inside: avoid'>
 				<td>
 					<div class=MsoNormal style='text-align: center'>
@@ -506,7 +506,7 @@
 						<span style='font-size: 14.0pt; font-family: 宋体'>任期</span>
 					</div>
 				</td>
-			</tr>
+			</tr> -->
 		</table>
 		<input type="hidden" id="teamID" value="">
 		
@@ -559,7 +559,7 @@
 					<td  colspan=2 style='text-align: center; width: 100pt; border: solid black 1.0pt; border-left: none; padding: 0; padding: 0; height: 30pt'>
 							<span style='font-size: 14.0pt; font-family: 宋体'>36-45岁</span>
 					</td>
-					<td  colspan=2 style='text-align: center; width: 100pt; border: solid black 1.0pt; border-left: none; padding: 0; padding: 0; height: 30pt'>
+					<td  colspan=2 style='text-align: center; width: 300pt; border: solid black 1.0pt; border-left: none; padding: 0; padding: 0; height: 30pt'>
 							<span style='font-size: 14.0pt; font-family: 宋体'>35岁以下</span>
 					</td>
 				</tr>
@@ -573,7 +573,7 @@
 					<td colspan=2  style='text-align: center; width: 62pt; border: solid black 1.0pt; border-left: none; padding: 0; padding: 0; height: 30pt'>
 						<input type="text" id="age36_45"  style="text-align: center; font-size: 14.0pt; font-family: 宋体; display: inline-block; height: 95%; width: 90%; padding: 0px; margin: 3px; border-radius: 0px" />
 					</td>
-					<td colspan=1 style='text-align: center; width: 62pt; border: solid black 1.0pt; border-left: none; padding: 0; padding: 0; height: 30pt'>
+					<td colspan=1 style='text-align: center; width: 80pt; border: solid black 1.0pt; border-left: none; padding: 0; padding: 0; height: 30pt'>
 						<input type="text" id="age35"  style="text-align: center; font-size: 14.0pt; font-family: 宋体; display: inline-block; height: 95%; width: 90%; padding: 0px; margin: 3px; border-radius: 0px" />
 					</td>
 				</tr>
