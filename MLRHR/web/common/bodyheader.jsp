@@ -40,9 +40,9 @@
 						<li>
 							<a href="${ctx}/bodylist">人才审核</a>
 						</li>
-						<li>
+						<%-- <li>
 							<a href="${ctx}/expertUserBase">我的档案</a>
-						</li>
+						</li> --%>
 					</security:authorize>
 					
                  	<security:authorize ifAnyGranted="ROLE_EXPERT1">

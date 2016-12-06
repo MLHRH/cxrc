@@ -24,16 +24,16 @@
 	<div class="container-fluid" style="padding: 0">
 		<ul class="nav nav-tabs" id="myTab">
 			<li id="nav1" class="active" onclick="setStatus(0)">
-				<a href="javascript:void(0)">审核通过</a>
+				<a href="javascript:void(0)">已提交</a>
 			</li>
 			<li id="nav2" onclick="setStatus(1)">
-				<a href="javascript:void(0)">审核未通过</a>
+				<a href="javascript:void(0)">打分阶段</a>
 			</li>
 			<li id="nav3" onclick="setStatus(2)">
-				<a href="javascript:void(0)">待审核</a>
+				<a href="javascript:void(0)">打分完成</a>
 			</li>
 			<li id="nav4" onclick="setStatus(3)">
-				<a href="javascript:void(0)">终审中</a>
+				<a href="javascript:void(0)">已结束</a>
 			</li>
 		</ul>
 		<div class="tab-pane active" id="jh">

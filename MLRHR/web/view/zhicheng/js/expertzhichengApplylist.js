@@ -117,7 +117,7 @@ function zhichengApplyEdit(id,type,userId,expert_id,expert) {
 // 生成PDF
 function PDFCreater(object) {
 	zhichengApply = object;
-	if (zhichengApply.status == "已通过" && zhichengApply.file_name != ""&&!createNewPDF) {
+	if (zhichengApply.status == "已结束" && zhichengApply.file_name != ""&&!createNewPDF) {
 		var curWwwPath = window.document.location.href;
 		// 获取主机地址之后的目录，如： uimcardprj/share/meun.jsp
 		var pathName = window.document.location.pathname;

@@ -86,6 +86,7 @@ public class ExpertBaseController {
 			result = 0;
 		}
 		jsonResponse.addProperty("result", result);
+		System.err.println(jsonResponse.toString());
 		return jsonResponse.toString();
 
 	}

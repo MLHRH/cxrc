@@ -12,7 +12,7 @@ var user_id =$.query.get("user_id") ;
 var userId=$.query.get("userId") ;;
 var apply_type="";
 var expert_id =$.query.get("expert_id");
-var status ;
+//var status ;
 $(document).ready(function() {
 	if(type != null && type !=""){
 		apply_type = type.substring(1,type.length-1);
@@ -225,47 +225,19 @@ function initApplication() {
 			status = zhichengApply.status;
 //			userId = zhichengApply.user_id;
 			$("#zhichengapply_status").html(zhichengApply.status);
-//			$("#zhichengapply_pre_approve_sug").val(
-//					zhichengApply.pre_approve_sug);
-//			$("#zhichengapply_finial_approve_sug").val(
-//					zhichengApply.finial_approve_sug);
-//			$("#zhichengapply_expert1_score").val(
-//					zhichengApply.expert1_score);
-//			$("#zhichengapply_expert1_sug").val(
-//							zhichengApply.expert1_sug);	
-//			$("#zhichengapply_expert2_score").val(
-//					zhichengApply.expert2_score);
-//			$("#zhichengapply_expert2_sug").val(
-//							zhichengApply.expert2_sug);
-//			userId = $("#user_id").val;
-//			userId = zhichengApply.user_id;
-//			autoHeight_2($("#zhichengapply_pre_approve_sug")[0]);
-//			autoHeight_2($("#zhichengapply_finial_approve_sug")[0]);
-//			autoHeight_2($("#zhichengapply_expert1_score")[0]);
-//			autoHeight_2($("#zhichengapply_expert1_sug")[0]);
-//			autoHeight_2($("#zhichengapply_expert2_score")[0]);
-//			autoHeight_2($("#zhichengapply_expert2_sug")[0]);
-//			autoHeight_2($("#userId")[0]);
-//			userId=$("#userId").val();
 
 			var authority = data[1].authority;
 			var arr = authority.split("|");
 
 			if (currentRole == null)
 				for (var i = 0; i < arr.length - 1; i++) {
-					if (arr[i] == "ROLE_PROFESSOR") {span9
+					if (arr[i] == "ROLE_PROFESSOR") {
 						$(".icon-edit").hide();
-						$(".isHR").hide();
+						$(".isHR").show();
 						$(".isEXP").hide();
 						$(".isSTA").show();
 						$(".span2").show();
 						$("#editSave").hide();
-						$("#zhichengapply_pre_approve_sug").attr("disabled",
-								true);
-//						$("#zhichengapply_expert1_score").attr("disabled", true);
-//			        	$("#zhichengapply_expert1_sug").attr("disabled", true);
-//						$("#zhichengapply_expert2_score").attr("disabled", true);
-//				       $("#zhichengapply_expert2_sug").attr("disabled", true);
 						currentRole = arr[i];
 					}
 				}
@@ -273,17 +245,11 @@ function initApplication() {
 				for (var i = 0; i < arr.length - 1; i++) {
 					if (arr[i] == "ROLE_HR") {
 						$(".icon-edit").hide()
-						$(".isHR").hide();
+						$(".isHR").show();
 						$(".isEXP").hide();
 						$(".span2").show();
 						$(".isSTA").show();
 						$("#editSave").hide();
-						$("#zhichengapply_finial_approve_sug").attr("disabled",
-								true);
-//						$("#zhichengapply_expert1_score").attr("disabled", true);
-//			        	$("#zhichengapply_expert1_sug").attr("disabled", true);
-//						$("#zhichengapply_expert2_score").attr("disabled", true);
-//				       $("#zhichengapply_expert2_sug").attr("disabled", true);
 						currentRole = arr[i];
 					}
 				}
@@ -291,20 +257,14 @@ function initApplication() {
 				for (var i = 0; i < arr.length - 1; i++) {
 					if (arr[i] == "ROLE_EXPERT1") {
 						$(".btn btn-small btn-info").hide()
-						$(".isEXP").show();
-						$(".isHR").show();
+//						$(".isEXP").show();
+						$(".isHR").hide();
 						$(".isSTA").show();
 						$(".isUSER").hide();
 						$(".span2").show();
 						$("#editSave").hide();
-						$("#tijiaoBtn").hide();
-//						$("#zhichengapply_pre_approve_sug").attr("disabled",
-//								true);
-//						$("#zhichengapply_finial_approve_sug").attr("disabled",
-//								true);
-//						$("#zhichengapply_expert2_score")
-//								.attr("disabled", true);
-//						$("#zhichengapply_expert2_sug").attr("disabled", true);
+//						$(".btn-success").hide();
+						document.getElementById("tijiaoBtn").style.display = "none";
 						currentRole = arr[i];
 					}
 				}
@@ -315,18 +275,11 @@ function initApplication() {
 						$("#tijiaoBtn").hide();
 						$("#editSave").hide();
 						$(".isEXP").show();
-						$(".isHR").show();
+						$(".isHR").hide();
 						$(".isSTA").show();
 						$(".isUSER").hide();
 						$("#orderedlist").show();
 						$("#editSave").hide();
-//						$("#zhichengapply_pre_approve_sug").attr("disabled",
-//								true);
-//						$("#zhichengapply_finial_approve_sug").attr("disabled",
-//								true);
-//						$("#zhichengapply_expert1_score")
-//								.attr("disabled", true);
-//						$("#zhichengapply_expert1_sug").attr("disabled", true);
 						currentRole = arr[i];
 					}
 				}
@@ -338,16 +291,7 @@ function initApplication() {
 						$(".isEXP").hide();
 						$(".isUSER").hide();
 						$("#editSave").show();
-						$("#zhichengapply_pre_approve_sug").attr("disabled",
-								true);
-						$("#zhichengapply_finial_approve_sug").attr("disabled",
-								true);
-						$("#zhichengapply_expert1_score")
-								.attr("disabled", true);
-						$("#zhichengapply_expert1_sug").attr("disabled", true);
-						$("#zhichengapply_expert2_score")
-								.attr("disabled", true);
-						$("#zhichengapply_expert2_sug").attr("disabled", true);
+						$(".isHR").hide();
 						currentRole = arr[i];
 					}
 				}
@@ -358,27 +302,9 @@ function initApplication() {
 function zhichengApplyUpdate() {
 	if (validateZhichengApplyUpdate()) {
 		arrData = new Array();
-//		 var apply_date;
-//		 var apply_type;
-		var status;
-//		var pre_approve_date = null;
-//		var pre_approve_id;
-//		var pre_approve_sug;
-//		var finial_approve_date = null;
-//		var finial_approve_id;
-//		var finial_approve_sug;
-//		var expert1_date = null;
-//		var expert1_id ;
-//		var expert1_score;
-//		var expert1_sug;
-//		var expert2_date=null;
-//		var expert2_id ;
-//		var expert2_score;
-//		var expert2_sug;
-
 		if (zhichengApply == null) {
 			userId = $("#userId").val();
-			status = "待审核";
+			var status = "已提交";
 
 			var myDate = new Date();
 			var year = myDate.getFullYear(); // 获取完整的年份(4位,1970-????)
@@ -395,16 +321,10 @@ function zhichengApplyUpdate() {
 				"name" : "apply_date",
 				"value" : zhichengApply.apply_date
 			});
-//			 arrData.push({
-//			 "name" : "file_name",
-//			 "value" : zhichengApply.file_name
-//			 });
-//			userId = zhichengApply.user_id;
 
-
-				if (currentRole == "ROLE_HR" || currentRole == "ROLE_PROFESSOR") {
-				 status = $("#zhichengapply_status_new").val();
-			}
+//				if (currentRole == "ROLE_HR" || currentRole == "ROLE_PROFESSOR") {
+//				 status = $("#zhichengapply_status_new").val();
+//			}
 
 		}
 
@@ -412,10 +332,7 @@ function zhichengApplyUpdate() {
 			"name" : "user_id",
 			"value" : userId
 		});
-//		arrData.push({
-//			"name" : "apply_date",
-//			"value" : $("#apply_date").val()
-//		});
+
 		arrData.push({
 			"name" : "group_id",
 			"value" :group_id
@@ -424,72 +341,25 @@ function zhichengApplyUpdate() {
 			"name" : "apply_type",
 			"value" : $("#apply_type").val()
 		});
-
-//		arrData.push({
-//			"name" : "status",
-//			"value" : $("#zhichengapply_status_new").val()
-//		});
-				arrData.push({
+		if (currentRole == "ROLE_HR" || currentRole == "ROLE_PROFESSOR") 
+		{
+		    arrData.push({
+			"name" : "status",
+			"value" : $("#zhichengapply_status_new").val()
+		});
+		}else{
+			if (zhichengApply == null){
+		arrData.push({
 		"name" : "status",
-		"value" : status
-	});
-//		arrData.push({
-//			"name" : "pre_approve_date",
-//			"value" : pre_approve_date
-//		});
-//		arrData.push({
-//			"name" : "pre_approve_id",
-//			"value" : pre_approve_id
-//		});
-//		arrData.push({
-//			"name" : "pre_approve_sug",
-//			"value" : pre_approve_sug
-//		});
-//		arrData.push({
-//			"name" : "finial_approve_date",
-//			"value" : finial_approve_date
-//		});
-//		arrData.push({
-//			"name" : "finial_approve_id",
-//			"value" : finial_approve_id
-//		});
-//		arrData.push({
-//			"name" : "finial_approve_sug",
-//			"value" : finial_approve_sug
-//		});
-//		arrData.push({
-//			"name" : "expert1_date",
-//			"value" : expert1_date
-//		});
-//		arrData.push({
-//			"name" : "expert1_id",
-//			"value" : expert1_id
-//		});
-//		arrData.push({
-//			"name" : "expert1_score",
-//			"value" : expert1_score
-//		});
-//		arrData.push({
-//			"name" : "expert1_sug",
-//			"value" :expert1_sug
-//		});
-//
-//		arrData.push({
-//			"name" : "expert2_date",
-//			"value" : expert2_date
-//		});
-//		arrData.push({
-//			"name" : "expert2_id",
-//			"value" : expert2_id
-//		});
-//		arrData.push({
-//			"name" : "expert2_score",
-//			"value" : expert2_score
-//		});
-//		arrData.push({
-//			"name" : "expert2_sug",
-//			"value" :expert2_sug
-//		});
+		"value" : "已提交"
+     	});
+		}else{
+			arrData.push({
+				"name" : "status",
+				"value" : zhichengApply.status
+			});
+			}
+			}
 
 		$.ajax({
 			"dataType" : 'json',

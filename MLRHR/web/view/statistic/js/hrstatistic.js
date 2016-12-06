@@ -1,6 +1,6 @@
 var colorArr = ["#FE0000", "#FEA501", "#FFFF00", "#99CC33", "#028002", "#018080", "#0180FE", "#0443BC", "#800180", "#C41884","#008080"];
 var numArr01 = [3500, 1200, 900, 800, 600, 400, 300, 200, 100, 50, 2200];
-var status = "已通过";
+var status = "已提交";
 function initHrstatistic() {
 	init();
 	initDataSelected();
@@ -9,13 +9,13 @@ function initHrstatistic() {
 function init() {
 	var activeLiId = $("#myTab .active").attr('id');
 	if (activeLiId == "nav1") {
-		status = "已通过";
+		status = "已提交";
 	} else if (activeLiId == "nav2") {
-		status = "未通过";
+		status = "打分阶段";
 	} else if (activeLiId == "nav3") {
-		status = "待审核";
+		status = "打分完成";
 	} else if (activeLiId == "nav4") {
-		status = "终审中";
+		status = "已结束";
 	}
 }
 function initDataSelected() {
@@ -164,25 +164,25 @@ function setStatus(sta) {
 		$("#nav2").removeClass("active")
 		$("#nav3").removeClass("active")
 		$("#nav4").removeClass("active")
-		status = "已通过";
+		status = "已提交";
 	} else if (sta == 1) {
 		$("#nav2").addClass("active")
 		$("#nav1").removeClass("active")
 		$("#nav3").removeClass("active")
 		$("#nav4").removeClass("active")
-		status = "未通过";
+		status = "打分阶段";
 	} else if (sta == 2) {
 		$("#nav3").addClass("active")
 		$("#nav1").removeClass("active")
 		$("#nav2").removeClass("active")
 		$("#nav4").removeClass("active")
-		status = "待审核";
+		status = "打分完成";
 	} else if (sta == 3) {
 		$("#nav4").addClass("active")
 		$("#nav1").removeClass("active")
 		$("#nav2").removeClass("active")
 		$("#nav3").removeClass("active")
-		status = "终审中";
+		status = "已结束";
 	}
 	getData();
 }

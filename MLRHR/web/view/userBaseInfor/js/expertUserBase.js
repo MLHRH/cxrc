@@ -15,9 +15,10 @@ function update() {
 		dataType : "json",
 		type : "post",
 		url : "baseEdit",
-		data :{"data": baseInfo},
+//		data : baseInfo ,
+		data :{"data":baseInfo},
 		error : function() {// 请求失败处理函数
-			alert('请求rrrrrr失败');
+			alert('请求失败');
 		},
 		success : function(rst) {
 			if (rst.result == 1) {

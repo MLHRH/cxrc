@@ -191,14 +191,14 @@ function initZhichengApplyDataTables(data) {
 					"data" : null,
 					"class" : "center",
 					"render" : function(data) {
-						if (data.status == "待审核")
-							return "<a id='unpaid' href='javascript:void(0)' class='btn btn-small '><i class='icon-refresh'></i>待审核</a>";
-						if (data.status == "终审中")
-							return "<a id='unpaid' href='javascript:void(0)' class='btn btn-small btn-warning'><i class='icon-play-circle'></i>终审中</a>";
-						if (data.status == "已通过")
-							return "<a id='unpaid' href='javascript:void(0)' class='btn btn-small btn-success'><i class='icon-ok'></i>已通过</a>";
-						if (data.status == "未通过")
-							return "<a id='unpaid' href='javascript:void(0)' class='btn btn-small btn-danger'><i class='icon-remove'></i>未通过</a>";
+						if (data.status == "已提交")
+							return "<a id='unpaid' href='javascript:void(0)' class='btn btn-small '><i class='icon-refresh'></i>已提交</a>";
+						if (data.status == "打分阶段")
+							return "<a id='unpaid' href='javascript:void(0)' class='btn btn-small btn-warning'><i class='icon-play-circle'></i>打分阶段</a>";
+						if (data.status == "打分完成")
+							return "<a id='unpaid' href='javascript:void(0)' class='btn btn-small btn-success'><i class='icon-ok'></i>打分完成</a>";
+						if (data.status == "已结束")
+							return "<a id='unpaid' href='javascript:void(0)' class='btn btn-small btn-danger'><i class='icon-remove'></i>已结束</a>";
 						else
 							return "0";
 					}
@@ -207,7 +207,7 @@ function initZhichengApplyDataTables(data) {
 					"class" : "center",
 					"render" : function(data) {
 								if (currentRole == "ROLE_USER") {
-									if (data.status != "已通过" && data.status != "终审中")
+									if (data.status != "打分阶段" && data.status != "打分完成")
 										return "<a class='btn btn-small btn-info' style='margin-right: 5px' href='javascript:void(0)' onClick='PDFCreater("
 												+ JSON.stringify(data)
 												+ ")'><i class='icon-download'></i>导出PDF</a><a class='btn btn-small btn-info' style='margin-right: 5px' href='javascript:void(0)' onClick='zhichengApplyDelete("
@@ -300,7 +300,7 @@ function zhichengApplyDelete(id) {
 // 生成PDF
 function PDFCreater(object) {
 	zhichengApply = object;
-	if (zhichengApply.status == "已通过" && zhichengApply.file_name != ""&&!createNewPDF) {
+	if (zhichengApply.status == "已结束" && zhichengApply.file_name != ""&&!createNewPDF) {
 		var curWwwPath = window.document.location.href;
 		// 获取主机地址之后的目录，如： uimcardprj/share/meun.jsp
 		var pathName = window.document.location.pathname;

@@ -165,10 +165,10 @@ body {
 						<span class="text-error">审核变更：</span>
 						<select id="zhichengapply_status_new" style="font-size: 14px">
 							<option value="-1">请选择</option>
-							<option value="待审核" class="isEXPERT1">待审核</option>
-							<option value="终审中" class="isEXPERT1">初审通过</option>
-							<option value="已通过" class="isEXPERT2">终审通过</option>
-							<option value="未通过">审核不通过</option>
+							<option value="已提交" class="isEXPERT1">已提交</option>
+							<option value="打分阶段" class="isEXPERT1">打分阶段</option>
+							<option value="打分完成" class="isEXPERT2">打分完成</option>
+							<option value="已结束">已结束</option>
 						</select>
 					</div> 
 

@@ -233,7 +233,7 @@ public class BodyController {
 
 		List<ZhichengApply> zhichengApplylist = zhichengapplyservice.getUserByUserIdAndDate(user.getId(), startDate, endDate);
 		if (zhichengApplylist.size() != 0) {
-			if ((zhichengApplylist.get(0)).getStatus().equals("未通过") || (zhichengApplylist.get(0)).getStatus().equals("待审核")) {
+			if ((zhichengApplylist.get(0)).getStatus().equals("已结束") || (zhichengApplylist.get(0)).getStatus().equals("已提交")) {
 				result = 1;
 			} else {
 				result = 0;
