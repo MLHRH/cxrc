@@ -1,6 +1,8 @@
 package com.jfn.web.controller;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -74,9 +76,9 @@ public class AttachController {
 	public Object showUpLoadFile(HttpServletRequest request, Model model) {
 		int applyid =(Integer)request.getSession().getAttribute("applyid");
 		Attachfile file = fileService.getFileByApplyId(applyid);
-		JSONObject result = new JSONObject();
-		result.put("info", file);
-		return result;
+		List<Attachfile> files = new ArrayList<Attachfile>();
+		files.add(file);
+		return files;
 		}
 
 }
