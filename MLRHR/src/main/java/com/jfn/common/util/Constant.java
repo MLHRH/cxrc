@@ -9,5 +9,7 @@ public class Constant {
 	public static final String STATUS = "status";
 	/**状态信息表示 msg */
 	public static final String MSG = "msg";
+	/**文件上传路径*/
+	public static final String FILE_PATH="../file/";
 
 }

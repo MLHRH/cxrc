@@ -4,7 +4,6 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.List;
 
-import org.omg.CORBA.OBJ_ADAPTER;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataAccessException;
 import org.springframework.jdbc.core.JdbcTemplate;
@@ -14,7 +13,6 @@ import org.springframework.stereotype.Repository;
 
 import com.jfn.entity.ApplyGroup;
 import com.jfn.entity.ExpertGroup;
-import com.jfn.entity.ExpertScore;
 import com.jfn.entity.Group;
 
 @Repository

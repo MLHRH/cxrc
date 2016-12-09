@@ -4,12 +4,15 @@ package com.jfn.entity;
 public class Attachfile
 {
 	private int id;
+	private int userid;
+	private int applyid;
 	private String file_name;
 	private String file_path;
 	private long file_size; 
 	private String upload_time; 
 	private int uploader_id;
 	private int file_type;
+	private String update;
 	/*
 	 * 1图片类型（jpg、png、bmp）
 	 * 2文档类型（doc、pdf）
@@ -29,8 +32,26 @@ public class Attachfile
 	public int getFile_type() {
 		return file_type;
 	}
+	public int getUserid() {
+		return userid;
+	}
+	public void setUserid(int userid) {
+		this.userid = userid;
+	}
+	public int getApplyid() {
+		return applyid;
+	}
+	public void setApplyid(int applyid) {
+		this.applyid = applyid;
+	}
 	public void setFile_type(int file_type) {
 		this.file_type = file_type;
+	}
+	public String getUpdate() {
+		return update;
+	}
+	public void setUpdate(String update) {
+		this.update = update;
 	}
 	public int getFile_type_num() {
 		return file_type_num;

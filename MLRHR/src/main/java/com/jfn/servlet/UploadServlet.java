@@ -6,6 +6,7 @@ import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
@@ -103,7 +104,8 @@ public class UploadServlet extends HttpServlet {
 			try {
 				FileService fileservice = (FileService) ContextUtil.getInst().getBean("fileService");
 
-				List<Attachfile> attachfile = fileservice.getFilesByUploaderAndTypeAndNum(userId, fileType, fileTypeNum);
+				//List<Attachfile> attachfile = fileservice.getFilesByUploaderAndTypeAndNum(userId, fileType, fileTypeNum);
+				List<Attachfile> attachfile = new ArrayList<Attachfile>();
 				for (Attachfile fileobj : attachfile) {
 					JSONObject jsono = new JSONObject();
 					jsono.put("name", fileobj.getFile_name());
