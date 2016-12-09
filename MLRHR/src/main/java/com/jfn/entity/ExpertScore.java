@@ -7,7 +7,15 @@ private int user_id ;
 private String expert_score ;
 private String expert_pingyu ;
 private int apply_id;
+private String name ;
 
+
+public String getName() {
+	return name;
+}
+public void setName(String name) {
+	this.name = name;
+}
 public int getApply_id() {
 	return apply_id;
 }
