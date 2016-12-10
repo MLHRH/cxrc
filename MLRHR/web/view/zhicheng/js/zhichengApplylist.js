@@ -298,10 +298,11 @@ function zhichengApplyDelete(id) {
 	}
 }
 //获取专家打分
-function ExpertScore(id) {
+function ExpertScore(apply_id) {
+	
 	$("#myModalSave").unbind("click");
 	$("#myModalSave").click(function() {
-		initExpertScore();
+		initExpertScore(apply_id);
 	});
 }
 // 生成PDF

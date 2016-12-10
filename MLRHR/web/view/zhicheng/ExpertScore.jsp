@@ -40,7 +40,7 @@
 	</table>
 		<div class="control-group" align="center">
 						<div class="controls">
-							<!-- 							<a class='btn btn-info' style='margin-right: 5px' href='javascript:void(0)' onClick='PDFTemp()'><i class='icon-download'></i>导出PDF</a> -->
+							<!-- <a class='btn btn-info' style='margin-right: 5px' href='javascript:void(0)' onClick='PDFTemp()'><i class='icon-download'></i>导出PDF</a> -->
 							<button type="button" class="btn " onClick="javascript:history.back(-1);" style="margin-left: 10px">返回</button>
 						</div>
 					</div>

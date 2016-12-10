@@ -46,7 +46,7 @@ public class ZhichengApplyDao {
 	
 	private final String SQL_GetROLE_BY_USERID = "select * from acct_user_role where user_id=?";
 	
-	private final String SQL_GET_EXPERT_SCORE ="SELECT es.expert_score AS score ,au.`name` FROM expert_score es LEFT JOIN acct_user au ON au.id = es.expert_id WHERE es.apply_id =?";
+	private final String SQL_GET_EXPERT_SCORE ="SELECT es.expert_score AS score ,au.`name` FROM expert_score es LEFT JOIN acct_user au ON au.id = es.expert_id where es.apply_id =?";
 	
 	SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 	public boolean insert(ZhichengApply Apply) {
@@ -328,10 +328,12 @@ System.err.println(JSON.toJSON(Apply));
 	 * @return
 	 */
 	public List<ExpertScore> getExpertScore(Integer id){
-		Object [] params = new Object[]{id};
-		return jdbcTemplate.query(SQL_GET_EXPERT_SCORE, params, new expertScoreRowMapper());
+//		Object [] params = new Object[]{id};
+		return jdbcTemplate.query(SQL_GET_EXPERT_SCORE, 
+				new Object[] { id }, 
+				new ExpertScoreRowMapper());
 	}
-	public class expertScoreRowMapper implements ParameterizedRowMapper<ExpertScore>
+	public class ExpertScoreRowMapper implements ParameterizedRowMapper<ExpertScore>
 	{
 		// 实现mapRow方法
 		@Override
@@ -339,7 +341,7 @@ System.err.println(JSON.toJSON(Apply));
 		{
 			// 对类进行封装
 			ExpertScore group = new ExpertScore();
-			group.setExpert_score(rs.getString("expert_score"));
+			group.setExpert_score(rs.getString("score"));
 			group.setName(rs.getString("name"));
 			return group;
 		}

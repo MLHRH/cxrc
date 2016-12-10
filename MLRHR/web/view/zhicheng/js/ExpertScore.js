@@ -1,10 +1,10 @@
-function initExpertScore() {
+function initExpertScore(apply_id) {
 	
-	var apply_id=$.query.get("id");
+//	var apply_id;
 	$.ajax({
 		type : 'get',
 		dataType : 'json',
-		url : 'expertScoreList?appluy_id=' + apply_id,// 请求的路径
+		url : 'expertScoreList?apply_id=' + apply_id,// 请求的路径
 		error : function() {// 请求失败处理函数
 			alert('请求失败');
 		},
