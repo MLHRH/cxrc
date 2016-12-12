@@ -52,6 +52,7 @@ body {
 <script type="text/javascript" src="${ctx}/static/jquery/notify.function.js"></script>
 <script type="text/javascript" src="${ctx}/static/jquery/openWindow.js"></script>
 <script type="text/javascript" src="${ctx}/view/zhicheng/js/zhichengApplylist.js"></script>
+<script type="text/javascript" src="${ctx}/view/zhicheng/js/ExpertScore.js"></script>
 </head>
 <body><%@ include file="/common/bodyheader.jsp"%>
 	<div class="container-fluid">

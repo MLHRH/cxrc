@@ -218,19 +218,7 @@ function initZhichengApplyDataTables(data) {
 										return "<a class='btn btn-small btn-info' style='margin-right: 5px' href='javascript:void(0)' onClick='PDFCreater("
 												+ JSON.stringify(data)
 												+ ")'><i class='icon-download'></i>导出PDF</a><a class='btn btn-small btn-inverse' style='margin-right: 5px' disabled='disabled'  href='javascript:void(0)'><i class='icon-remove'></i>删除</a><a class='btn btn-small btn-inverse' style='margin-right: 5px'  disabled='disabled' href='javascript:void(0)' ><i class='icon-edit'></i>编辑</a>";
-
 								}
-						if ((currentRole == "ROLE_EXPERT1") || (currentRole == "ROLE_EXPERT2")||(currentRole == "ROLE_HR") || (currentRole == "ROLE_PROFESSOR")) {
-							return "<a class='btn btn-small btn-info' style='margin-right: 5px' href='javascript:void(0)' onClick='PDFCreater(" + JSON.stringify(data)
-									+ ")'><i class='icon-download'></i>导出PDF</a><a class='btn btn-small btn-info' style='margin-right: 5px' href='javascript:void(0)' onClick='zhichengApplyEdit("
-									+ data.id+")'><i class='icon-search'></i>审核</a>";}
-						if (currentRole == "ROLE_USER") {
-							return "<a class='btn btn-small btn-info' style='margin-right: 5px' href='javascript:void(0)' onClick='zhichengApplyDelete("
-										+ data.id
-										+ ")'><i class='icon-remove'></i>删除</a>";
-							
-
-						}
 					}
 				}]
 	});
@@ -296,6 +284,14 @@ function zhichengApplyDelete(id) {
 							}]
 				});
 	}
+}
+//获取专家打分
+function ExpertScore(apply_id) {
+	
+	$("#myModalSave").unbind("click");
+	$("#myModalSave").click(function() {
+		initExpertScore(apply_id);
+	});
 }
 // 生成PDF
 function PDFCreater(object) {

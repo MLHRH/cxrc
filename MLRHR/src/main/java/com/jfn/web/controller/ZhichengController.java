@@ -29,6 +29,8 @@ import com.google.gson.JsonObject;
 import com.jfn.entity.AcctUserRole;
 import com.jfn.entity.ApplyGroup;
 import com.jfn.entity.ApplyMenu;
+import com.jfn.entity.ExpertGroup;
+import com.jfn.entity.ExpertScore;
 import com.jfn.entity.ExpertUser;
 import com.jfn.entity.Group;
 import com.jfn.entity.Role;
@@ -387,6 +389,20 @@ public class ZhichengController {
 		System.err.println("-----------"+userId);
 		ExpertUser  expertUser = zhichengapplyservice.getByUserId(Integer.parseInt(userId));
 		return expertUser;
+	}
+	
+	/**
+	 * 获取专家打分情况列表
+	 * @param request
+	 * @return
+	 */
+	@ResponseBody
+	@RequestMapping(value = "expertScoreList", method = RequestMethod.GET)
+	public Object initExpertScore(HttpServletRequest request){
+		String apply_id = request.getParameter("apply_id");
+//		String role_type = request.getParameter("role_type");
+		List<ExpertScore> groups = zhichengapplyservice.gExpertScore(Integer.valueOf(apply_id));
+		return groups;
 	}
 	
 	

@@ -14,8 +14,11 @@ import org.springframework.jdbc.core.simple.ParameterizedRowMapper;
 import org.springframework.stereotype.Repository;
 
 import com.alibaba.fastjson.JSON;
+import com.jfn.dao.GroupDao.expertGroupRowMapper;
 import com.jfn.dao.NewsDao.newsRowMapper;
 import com.jfn.entity.AcctUserRole;
+import com.jfn.entity.ExpertGroup;
+import com.jfn.entity.ExpertScore;
 import com.jfn.entity.ExpertUser;
 import com.jfn.entity.JcqnDoc04;
 import com.jfn.entity.ZhichengApply;
@@ -42,6 +45,8 @@ public class ZhichengApplyDao {
 	private final String SQL_Get_BY_USERID = "select * from expert_user where user_id=?";
 	
 	private final String SQL_GetROLE_BY_USERID = "select * from acct_user_role where user_id=?";
+	
+	private final String SQL_GET_EXPERT_SCORE ="SELECT es.expert_score AS score ,au.`name` FROM expert_score es LEFT JOIN acct_user au ON au.id = es.expert_id where es.apply_id =?";
 	
 	SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 	public boolean insert(ZhichengApply Apply) {
@@ -313,5 +318,32 @@ System.err.println(JSON.toJSON(Apply));
 				return expertUser;
 					}
 				} );
+	}
+	
+	
+	/**
+	 * 查找专家的打分情况
+	 * @param id
+	 * @param role
+	 * @return
+	 */
+	public List<ExpertScore> getExpertScore(Integer id){
+//		Object [] params = new Object[]{id};
+		return jdbcTemplate.query(SQL_GET_EXPERT_SCORE, 
+				new Object[] { id }, 
+				new ExpertScoreRowMapper());
+	}
+	public class ExpertScoreRowMapper implements ParameterizedRowMapper<ExpertScore>
+	{
+		// 实现mapRow方法
+		@Override
+		public ExpertScore mapRow( ResultSet rs, int num ) throws SQLException
+		{
+			// 对类进行封装
+			ExpertScore group = new ExpertScore();
+			group.setExpert_score(rs.getString("score"));
+			group.setName(rs.getString("name"));
+			return group;
+		}
 	}
 }
