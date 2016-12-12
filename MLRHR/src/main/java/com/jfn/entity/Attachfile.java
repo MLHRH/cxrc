@@ -12,7 +12,6 @@ public class Attachfile
 	private String upload_time; 
 	private int uploader_id;
 	private int file_type;
-	private String update;
 	/*
 	 * 1图片类型（jpg、png、bmp）
 	 * 2文档类型（doc、pdf）
@@ -46,12 +45,6 @@ public class Attachfile
 	}
 	public void setFile_type(int file_type) {
 		this.file_type = file_type;
-	}
-	public String getUpdate() {
-		return update;
-	}
-	public void setUpdate(String update) {
-		this.update = update;
 	}
 	public int getFile_type_num() {
 		return file_type_num;

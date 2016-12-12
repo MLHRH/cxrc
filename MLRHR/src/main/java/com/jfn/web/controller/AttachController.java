@@ -20,7 +20,9 @@ import com.alibaba.fastjson.JSONObject;
 import com.jfn.common.util.Constant;
 import com.jfn.common.util.FileUtil;
 import com.jfn.entity.Attachfile;
+import com.jfn.entity.User;
 import com.jfn.service.FileService;
+import com.jfn.service.ZhichengApplyService;
 
 @Controller
 @RequestMapping("/")
@@ -29,28 +31,26 @@ public class AttachController {
 
 	@Autowired
 	private FileService fileService;
+	@Autowired
+	private ZhichengApplyService zhichengApplyService;
 	
-	/*
-     *采用spring提供的上传文件的方法
-     */
 	@ResponseBody
-    @RequestMapping(value = "UploadFile",method = RequestMethod.POST)
+    @RequestMapping(value = "uploadFile",method = RequestMethod.POST)
     public Object  uploadFile(HttpServletRequest request){
-    	int userid =(Integer)request.getSession().getAttribute("user_id");
-    	int applyid =(Integer)request.getSession().getAttribute("applyid");
+		User user = (User) request.getSession().getAttribute("loginuser");
     	JSONObject result = new JSONObject();
-    	Attachfile file = null;
     	try {
     		//上传文件到服务器
-			file = FileUtil.uploadFile(request, file);
-			file.setUserid(userid);
-			file.setApplyid(applyid);
-			//插入上传文件记录
-			result = fileService.insetFile(file);
-		} catch (IllegalStateException e) {
-			result.put(Constant.STATUS, Constant.STAUS_FAIL);
-			result.put(Constant.MSG, "上传文件失败，请重新上传！");
-		} catch (IOException e) {
+    		Attachfile file = FileUtil.saveRequestFiles(request);
+    		if(file != null){
+    			//插入上传文件记录
+    			result = fileService.insetFileLog(file,user);
+    		}
+    		else{
+    			result.put(Constant.STATUS, Constant.STAUS_FAIL);
+    			result.put(Constant.MSG, "上传文件失败，请重新上传！");
+    		}
+		} catch (Exception e) {
 			result.put(Constant.STATUS, Constant.STAUS_FAIL);
 			result.put(Constant.MSG, "上传文件失败，请重新上传！");
 		}
@@ -70,6 +70,12 @@ public class AttachController {
 			}
 		}
 	}
+	/**
+	 * 显示文件信息
+	 * @param request
+	 * @param model
+	 * @return
+	 */
 	
 	@ResponseBody
 	@RequestMapping(value = "showUpLoadFile", method = RequestMethod.GET)
@@ -79,6 +85,20 @@ public class AttachController {
 		List<Attachfile> files = new ArrayList<Attachfile>();
 		files.add(file);
 		return files;
+		}
+	
+	/**
+	 * 删除文件
+	 * @param request
+	 * @param model
+	 * @return
+	 */
+	@ResponseBody
+	@RequestMapping(value = "delFile", method = RequestMethod.GET)
+	public Object delFile(HttpServletRequest request, Model model) {
+		String fileid = request.getParameter("fileId");
+		JSONObject result = fileService.delFile(Integer.valueOf(fileid));
+		return result;
 		}
 
 }

@@ -18,16 +18,11 @@ function initUpFile() {
 					alert('请求失败');
 				},
 				success : function(data) { // 请求成功后处理函数。
-					if(role_type == 2){
-						initApplyMangerDataTables(data);
-					}
-					else{
-						initExpertMangerDataTables(data);
-					}
+					initFileMangerDataTables(data);
 				}
 			});
 }
-function initApplyMangerDataTables(data) {
+function initFileMangerDataTables(data) {
 	if (oTable) {
 		oTable.fnClearTable(false);
 		$('#fileManager').dataTable().fnDestroy();
@@ -57,33 +52,83 @@ function initApplyMangerDataTables(data) {
 		"processing" : true,
 		"data" : data,
 		"columns" : [{
-					"data" : "name",
+					"data" : "file_name",
 					"class" : "center"
 				}, {
-					"data" : "body",
-					"class" : "center",
-					"render" : function(data) {
-							if(data == null){
-								return "";
-							}
-							return data;
-						}
-				}, {
-					"data" : "type",
+					"data" : "file_size",
 					"class" : "center",
 				}, {
-					"data" : "date",
-					"class" : "center"
-				}, {
-					"data" : "group",
+					"data" : "upload_time",
 					"class" : "center"
 				},{
 					"data" : null,
 					"class" : "center",
 					"render" : function(data) {
-						return "<a class='btn btn-small btn-info'  style='margin: 2.5px;' href='javascript:void(0)' onClick='applyEdit(" + data.apply_id
-								+ ")'><i class='icon-edit'></i>编辑</a>";
+						if(role_type != 2){
+							return "<a class='btn btn-small btn-info'  style='margin: 2.5px;' href='javascript:void(0)' onClick='download(" + data.id
+							+ ")'><i class='icon-edit'></i>下载</a>";
+						}
+						else{
+							return "<a class='btn btn-small btn-info'  style='margin: 2.5px;' href='javascript:void(0)' onClick='download(" + data.id
+							+ ")'><i class='icon-edit'></i>下载</a>"
+							+"<a class='btn btn-small btn-info'  style='margin: 2.5px;' href='javascript:void(0)' onClick='delFile(" + data.id
+							+ ")'><i class='icon-edit'></i>删除</a>";
+						}
 					}
 				}]
 	});
+}
+
+function delFile(id){
+	arrData = new Array();
+	if ($("#applyId").val() != "") {
+		arrData.push({
+					"name" : "fileId",
+					"value" : id
+				});
+		$.ajax({
+			"dataType" : 'json',
+			"type" : "post",
+			"url" : "updateApplyGroup",
+			"data" : arrData,
+			"success" : function(data) {
+				if (data.status == 0) {
+					noty({
+						text : data.msg,
+						type : 'success',
+						dismissQueue : false,
+						closeWith : ['click', 'button'],
+						timeout : 3000,
+						layout : 'top',
+						callback : {
+							afterClose : function() {
+								$('#myModal').modal('hide');
+							}
+						},
+						theme : 'defaultTheme'
+					});
+				} else if (data.status == 1) {
+					noty({
+						text : data.msg,
+						type : 'error',
+						dismissQueue : false,
+						closeWith : ['click', 'button'],
+						timeout : 3000,
+						layout : 'center',
+						callback : {
+							afterClose : function() {
+							}
+						},
+						theme : 'defaultTheme'
+					});
+				} 
+			}
+		});
+	}
+	else{
+		generatenoty('center', '更新失败！', 'error');
+	}
+}
+function download(id){
+	
 }

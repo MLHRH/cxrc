@@ -30,7 +30,7 @@ public class UploadFileDao {
 	 */
 	public boolean insertUploadFile(Attachfile file){
 		Object[] params  = new Object[]{file.getUserid(),file.getApplyid(),file.getFile_name(),
-				file.getUpdate(),file.getFile_path()};
+				file.getUpload_time(),file.getFile_path()};
 			 return jdbcTemplate.update(SQL_INSERT_FILE, params) == 1;
 	}
 	/**
@@ -53,7 +53,7 @@ public class UploadFileDao {
 					file.setUserid(rs.getInt("userid"));
 					file.setFile_name(rs.getString("filename"));
 					file.setFile_path(rs.getString("location"));
-					file.setUpdate(rs.getString("update"));
+					file.setUpload_time(rs.getString("update"));
 				}
 				return file;
 			}
@@ -80,7 +80,7 @@ public class UploadFileDao {
 					file.setUserid(rs.getInt("userid"));
 					file.setFile_name(rs.getString("filename"));
 					file.setFile_path(rs.getString("location"));
-					file.setUpdate(rs.getString("update"));
+					file.setUpload_time(rs.getString("update"));
 				}
 				return file;
 			}
@@ -107,7 +107,7 @@ public class UploadFileDao {
 			file.setId(rs.getInt("id"));
 			file.setFile_name(rs.getString("filename"));
 			file.setFile_path(rs.getString("location"));
-			file.setUpdate(rs.getString("update"));
+			file.setUpload_time(rs.getString("update"));
 			return file;
 		}
 	}

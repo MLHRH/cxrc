@@ -9,6 +9,9 @@ import java.util.Set;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
+import net.sf.json.JSONArray;
+import net.sf.json.JSONObject;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.context.SecurityContextImpl;
@@ -23,16 +26,14 @@ import org.springside.modules.security.springsecurity.SpringSecurityUtils;
 
 import com.alibaba.fastjson.JSON;
 import com.google.gson.JsonObject;
-import com.jfn.entity.ZhichengApply;
 import com.jfn.entity.AcctUserRole;
 import com.jfn.entity.ApplyGroup;
 import com.jfn.entity.ApplyMenu;
 import com.jfn.entity.ExpertUser;
 import com.jfn.entity.Group;
-import com.jfn.entity.JcqnDoc04;
 import com.jfn.entity.Role;
 import com.jfn.entity.User;
-
+import com.jfn.entity.ZhichengApply;
 import com.jfn.service.AccountManager;
 import com.jfn.service.ApplyMenuService;
 import com.jfn.service.BodyService;
@@ -45,9 +46,6 @@ import com.jfn.service.UserProjectService;
 import com.jfn.service.UserService;
 import com.jfn.service.UserWorkService;
 import com.jfn.service.ZhichengApplyService;
-
-import net.sf.json.JSONArray;
-import net.sf.json.JSONObject;
 
 @Controller
 @RequestMapping("/")
@@ -86,19 +84,60 @@ public class ZhichengController {
 	private CalendarService calendarservice;
     @Autowired
     private GroupService groupService;
+    /**
+     * 申请编辑
+     * @param request
+     * @param model
+     * @return
+     */
+	@RequestMapping(value = "zhichengApplyEdit", method = RequestMethod.GET)
+	public ModelAndView zhichengApplyEdit(HttpServletRequest request, Model model) {
+			String applyid = request.getParameter("applyid");
+			//根据id查询申请类型
+			ZhichengApply apply = zhichengapplyservice.getById(applyid);
+			//根据申请类型查询对应菜单
+			List<ApplyMenu> menus = applyMenuService.getMenu(apply.getApply_type());
+			
+			ModelAndView map = new ModelAndView("zhicheng/zhichengApply");
+			HttpSession session = request.getSession();
+			User user =(User) session.getAttribute("loginuser");
+			AcctUserRole acctUserRole =zhichengapplyservice.getRoleByUserId(user.getId());
+			if(acctUserRole.getRole_id() != 4 && acctUserRole.getRole_id() != 5 ){			
+				List<ApplyMenu> menus2 =new ArrayList<ApplyMenu>();
+				        menus2.add(menus.get(0));
+				        menus2.add(menus.get(1));
+				        menus2.add(menus.get(2));
+				        menus2.add(menus.get(3));
+				        menus2.add(menus.get(4));
+				        menus2.add(menus.get(5));
+				        //申请状态为初审通过则显示文件上传选项
+				        if(apply.getStatus().equals("2")){
+				        	menus2.add(menus.get(6));
+				        }
+				         map.addObject("menus", menus2);
+			}else {
+			map.addObject("menus", menus);
+			}
+			map.addObject("type",menus.get(0).getMenutype());
+			map.addObject("applyid",applyid);
+			map.addObject("apply_userid",apply.getUser_id());
+			return map;
+	}
+	
+	/**
+	 * 添加申请
+	 * @param request
+	 * @param model
+	 * @return
+	 */
 	@RequestMapping(value = "zhichengApply", method = RequestMethod.GET)
-	public ModelAndView zhichengApply(HttpServletRequest request, Model model,String applyType) {
-		String type = null;
-		if(applyType != null && applyType !=""){
-			try {
-				type = new String(applyType.getBytes("ISO8859-1"), "UTF-8");
-			} catch (UnsupportedEncodingException e) {
-				e.printStackTrace();
+	public ModelAndView zhichengApply(HttpServletRequest request, Model model) {
+			String applyType = request.getParameter("apply_type");
+			if(applyType == null){
+				applyType = "杰出青年";
 			}
-			if(type !=null && type.length() > 4){
-				type = type.substring(1, 5);
-			}
-			List<ApplyMenu> menus = applyMenuService.getMenu(type);
+			//根据申请类型查询对应菜单
+			List<ApplyMenu> menus = applyMenuService.getMenu(applyType);
 			
 			ModelAndView map = new ModelAndView("zhicheng/zhichengApply");
 			HttpSession session = request.getSession();
@@ -116,12 +155,9 @@ public class ZhichengController {
 			}else {
 			map.addObject("menus", menus);
 			}
-			map.addObject("type",menus.get(0).getMenutype());
+			map.addObject("type",applyType);
+			map.addObject("apply_userid",user.getId());
 			return map;
-		}
-		else{
-			return new ModelAndView("zhicheng/zhichengApply");
-		}
 	}
 
 	@RequestMapping(value = "zhichengApplylist", method = RequestMethod.GET)
@@ -191,7 +227,6 @@ public class ZhichengController {
 		com.jfn.entity.Calendar calendar = calendarservice.getById("1");
 		String starDate = calendar.getStart_date();
 		String endDate = calendar.getEnd_date();
-		List<Group> groups =new ArrayList<Group>();
 		if (list.size() > 0) {
 			for(int i =0 ;i < list.size(); i++){
 				Group group =groupService.getGroupTreeById(Integer.valueOf(list.get(i).getGroup_id()));

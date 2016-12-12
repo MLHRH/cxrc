@@ -17,7 +17,7 @@ import com.jfn.entity.ApplyMenu;
 public class ApplyMenuDao {
 	@Autowired
 	private JdbcTemplate jdbcTemplate;
-	private static final String SQL_SELECT="SELECT * FROM apply_menu WHERE menu_type = ?";
+	private static final String SQL_SELECT="SELECT * FROM apply_menu WHERE menu_type = ? or menu_type='ALL' ORDER BY id";
 	public List<ApplyMenu> getMenu(String applytype){
 		return jdbcTemplate.query( SQL_SELECT, new Object[]{ applytype},
 				new ResultSetExtractor<List<ApplyMenu>>()

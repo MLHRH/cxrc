@@ -10,24 +10,28 @@ import com.alibaba.fastjson.JSONObject;
 import com.jfn.common.util.Constant;
 import com.jfn.dao.UploadFileDao;
 import com.jfn.entity.Attachfile;
+import com.jfn.entity.User;
 
 @Repository
 public class FileService
 {
 	@Autowired
 	private UploadFileDao uploadFileDao;
+	@Autowired
+	private ZhichengApplyService zhichengApplyService;
 	
 	/**
 	 * 上传文件
 	 * @param file
 	 * @return
 	 */
-	public JSONObject insetFile(Attachfile file){
+	public JSONObject insetFileLog(Attachfile file,User user){
 		JSONObject result = new JSONObject();
 		result.put(Constant.STATUS, Constant.STAUS_FAIL);
 		result.put(Constant.MSG, "上传文件失败，请重新上传！");
 		boolean flag = false;
-		file.setUpdate(dateFormat(new Date()));
+		file.setUserid(user.getId());
+		file.setUpload_time(dateFormat(new Date()));
 		//判断之前上传的文件是否删除
 		if(isNotExisted(file)){
 			flag = uploadFileDao.insertUploadFile(file);

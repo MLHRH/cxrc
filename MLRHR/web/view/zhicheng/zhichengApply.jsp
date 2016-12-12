@@ -107,7 +107,6 @@ body {
 					<strong>申请类别：</strong>
 				</span>
 				<select id="apply_type" name="apply_type" style="width: 150px;" onchange="applyMenu()">
-				    <option value="请选择">请选择申请类型</option>
 					<option value="杰出青年" ${type =='杰出青年' ?'selected':''}>杰出青年</option>
 					<option value="科技领军" ${type =='科技领军' ?'selected':''}>科技领军</option>
 					<option value="创新团队" ${type =='创新团队' ?'selected':''}>创新团队</option>
@@ -203,6 +202,7 @@ body {
 
 	<!--/.fluid-container-->
 	<input type="hidden" id="userId" value="${sessionScope.loginuser.id}" />
+	<input type="hidden" id="apply_userid" value="${apply_userid}">
 	<%@ include file="/common/footer.jsp"%>
 </body>
 </html>
