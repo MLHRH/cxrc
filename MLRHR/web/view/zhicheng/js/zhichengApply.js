@@ -419,12 +419,12 @@ function validateZhichengApplyUpdate() {
 		generatenoty('center', "请选择是否破格", 'error');
 		return false;
 	}
-	if ((currentRole == "ROLE_EXPERT1") || (currentRole == "ROLE_EXPERT2")) {
-		if ($("#zhichengapply_status_new").val() == "-1") {
-			generatenoty('center', "请选择审核变更类型", 'error');
-			return false;
-		}
-	}
+//	if ((currentRole == "ROLE_EXPERT1") || (currentRole == "ROLE_EXPERT2")) {
+//		if ($("#zhichengapply_status_new").val() == "-1") {
+//			generatenoty('center', "请选择审核变更类型", 'error');
+//			return false;
+//		}
+//	}
 	return true;
 	// }
 

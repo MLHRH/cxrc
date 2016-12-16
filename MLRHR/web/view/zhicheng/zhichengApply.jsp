@@ -165,8 +165,12 @@ body {
 						<select id="zhichengapply_status_new" style="font-size: 14px">
 							<option value="-1">请选择</option>
 							<option value="已提交" class="isEXPERT1">已提交</option>
-							<option value="打分阶段" class="isEXPERT1">打分阶段</option>
-							<option value="打分完成" class="isEXPERT2">打分完成</option>
+							<option value="初审中" class="isEXPERT1">初审中</option>
+							<option value="初审未通过" class="isEXPERT1">初审未通过</option>
+							<option value="初审通过" class="isEXPERT1">初审通过</option>
+							<option value="复审中" class="isEXPERT1">复审中</option>
+							<option value="复审通过" class="isEXPERT1">复审通过</option>
+							<option value="复审未通过" class="isEXPERT1">复审未通过</option>
 							<option value="已结束">已结束</option>
 						</select>
 					</div> 

@@ -193,10 +193,18 @@ function initZhichengApplyDataTables(data) {
 					"render" : function(data) {
 						if (data.status == "已提交")
 							return "<a id='unpaid' href='javascript:void(0)' class='btn btn-small '><i class='icon-refresh'></i>已提交</a>";
-						if (data.status == "打分阶段")
-							return "<a id='unpaid' href='javascript:void(0)' class='btn btn-small btn-warning'><i class='icon-play-circle'></i>打分阶段</a>";
-						if (data.status == "打分完成")
-							return "<a id='unpaid' href='javascript:void(0)' class='btn btn-small btn-success'><i class='icon-ok'></i>打分完成</a>";
+						if (data.status == "初审中")
+							return "<a id='unpaid' href='javascript:void(0)' class='btn btn-small btn-warning'><i class='icon-play-circle'></i>初审中</a>";
+						if (data.status == "初审未通过")
+							return "<a id='unpaid' href='javascript:void(0)' class='btn btn-small btn-danger'><i class='icon-remove'></i>初审未通过</a>";
+						if (data.status == "初审通过")
+							return "<a id='unpaid' href='javascript:void(0)' class='btn btn-small btn-success'><i class='icon-ok'></i>初审通过</a>";
+						if (data.status == "复审中")
+							return "<a id='unpaid' href='javascript:void(0)' class='btn btn-small btn-warning'><i class='icon-play-circle'></i>复审中</a>";
+						if (data.status == "复审通过")
+							return "<a id='unpaid' href='javascript:void(0)' class='btn btn-small btn-success'><i class='icon-ok'></i>复审通过</a>";
+						if (data.status == "复审未通过")
+							return "<a id='unpaid' href='javascript:void(0)' class='btn btn-small btn-danger'><i class='icon-remove'></i>复审未通过</a>";
 						if (data.status == "已结束")
 							return "<a id='unpaid' href='javascript:void(0)' class='btn btn-small btn-danger'><i class='icon-remove'></i>已结束</a>";
 						else
@@ -207,7 +215,7 @@ function initZhichengApplyDataTables(data) {
 					"class" : "center",
 					"render" : function(data) {
 								if (currentRole == "ROLE_USER") {
-									if (data.status != "打分阶段" && data.status != "打分完成")
+									if (data.status == "已提交" || data.status == "初审通过")
 										return "<a class='btn btn-small btn-info' style='margin-right: 5px' href='javascript:void(0)' onClick='PDFCreater("
 												+ JSON.stringify(data)
 												+ ")'><i class='icon-download'></i>导出PDF</a><a class='btn btn-small btn-info' style='margin-right: 5px' href='javascript:void(0)' onClick='zhichengApplyDelete("
@@ -218,15 +226,27 @@ function initZhichengApplyDataTables(data) {
 										return "<a class='btn btn-small btn-info' style='margin-right: 5px' href='javascript:void(0)' onClick='PDFCreater("
 												+ JSON.stringify(data)
 												+ ")'><i class='icon-download'></i>导出PDF</a><a class='btn btn-small btn-inverse' style='margin-right: 5px' disabled='disabled'  href='javascript:void(0)'><i class='icon-remove'></i>删除</a><a class='btn btn-small btn-inverse' style='margin-right: 5px'  disabled='disabled' href='javascript:void(0)' ><i class='icon-edit'></i>编辑</a>";
+
 								}
+						if ((currentRole == "ROLE_EXPERT1") || (currentRole == "ROLE_EXPERT2")||(currentRole == "ROLE_HR") || (currentRole == "ROLE_PROFESSOR")) {
+							return "<a class='btn btn-small btn-info' style='margin-right: 5px' href='javascript:void(0)' onClick='PDFCreater(" + JSON.stringify(data)
+									+ ")'><i class='icon-download'></i>导出PDF</a><a class='btn btn-small btn-info' style='margin-right: 5px' href='javascript:void(0)' onClick='zhichengApplyEdit("
+									+ data.id +","+"\/"+data.apply_type+"\/"+","+id+","+user_id+")'><i class='icon-search'></i>审核</a>";}
+						if (currentRole == "ROLE_USER") {
+							return "<a class='btn btn-small btn-info' style='margin-right: 5px' href='javascript:void(0)' onClick='zhichengApplyDelete("
+										+ data.id
+										+ ")'><i class='icon-remove'></i>删除</a>";
+							
+
+						}
 					}
 				}]
 	});
 }
 
-function zhichengApplyEdit(id) {
-	console.log("申请ID："+id);
-	location.href = 'zhichengApplyEdit?applyid='id;
+function zhichengApplyEdit(id,type,userId,user_id) {
+	console.log("申请类型："+type);
+	location.href = 'zhichengApply?id=' + id+"&applyType="+type+"&userId="+userId+"&user_id="+user_id;
 }
 
 function zhichengApplyDelete(id) {
@@ -284,14 +304,6 @@ function zhichengApplyDelete(id) {
 							}]
 				});
 	}
-}
-//获取专家打分
-function ExpertScore(apply_id) {
-	
-	$("#myModalSave").unbind("click");
-	$("#myModalSave").click(function() {
-		initExpertScore(apply_id);
-	});
 }
 // 生成PDF
 function PDFCreater(object) {

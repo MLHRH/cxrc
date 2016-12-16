@@ -27,12 +27,24 @@
 				<a href="javascript:void(0)">已提交</a>
 			</li>
 			<li id="nav2" onclick="setStatus(1)">
-				<a href="javascript:void(0)">打分阶段</a>
+				<a href="javascript:void(0)">初审中</a>
 			</li>
 			<li id="nav3" onclick="setStatus(2)">
-				<a href="javascript:void(0)">打分完成</a>
+				<a href="javascript:void(0)">初审未通过</a>
 			</li>
 			<li id="nav4" onclick="setStatus(3)">
+				<a href="javascript:void(0)">初审通过</a>
+			</li>
+			<li id="nav5" onclick="setStatus(4)">
+				<a href="javascript:void(0)">复审中</a>
+			</li>
+			<li id="nav6" onclick="setStatus(5)">
+				<a href="javascript:void(0)">复审通过</a>
+			</li>
+			<li id="nav7" onclick="setStatus(6)">
+				<a href="javascript:void(0)">复审未通过</a>
+			</li>
+			<li id="nav8" onclick="setStatus(7)">
 				<a href="javascript:void(0)">已结束</a>
 			</li>
 		</ul>

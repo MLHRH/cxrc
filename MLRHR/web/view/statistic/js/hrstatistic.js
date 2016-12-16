@@ -11,10 +11,18 @@ function init() {
 	if (activeLiId == "nav1") {
 		status = "已提交";
 	} else if (activeLiId == "nav2") {
-		status = "打分阶段";
+		status = "初审中";
 	} else if (activeLiId == "nav3") {
-		status = "打分完成";
+		status = "初审未通过";
 	} else if (activeLiId == "nav4") {
+		status = "初审通过";
+	} else if (activeLiId == "nav5") {
+		status = "复审中";
+	} else if (activeLiId == "nav6") {
+		status = "复审通过";
+	} else if (activeLiId == "nav7") {
+		status = "复审未通过";
+	} else if (activeLiId == "nav8") {
 		status = "已结束";
 	}
 }
@@ -164,24 +172,80 @@ function setStatus(sta) {
 		$("#nav2").removeClass("active")
 		$("#nav3").removeClass("active")
 		$("#nav4").removeClass("active")
+		$("#nav5").removeClass("active")
+		$("#nav6").removeClass("active")
+		$("#nav7").removeClass("active")
+		$("#nav8").removeClass("active")
 		status = "已提交";
 	} else if (sta == 1) {
 		$("#nav2").addClass("active")
 		$("#nav1").removeClass("active")
 		$("#nav3").removeClass("active")
 		$("#nav4").removeClass("active")
-		status = "打分阶段";
+		$("#nav5").removeClass("active")
+		$("#nav6").removeClass("active")
+		$("#nav7").removeClass("active")
+		$("#nav8").removeClass("active")
+		status = "初审中";
 	} else if (sta == 2) {
 		$("#nav3").addClass("active")
 		$("#nav1").removeClass("active")
 		$("#nav2").removeClass("active")
 		$("#nav4").removeClass("active")
-		status = "打分完成";
+		$("#nav5").removeClass("active")
+		$("#nav6").removeClass("active")
+		$("#nav7").removeClass("active")
+		$("#nav8").removeClass("active")
+		status = "初审未通过";
 	} else if (sta == 3) {
 		$("#nav4").addClass("active")
 		$("#nav1").removeClass("active")
 		$("#nav2").removeClass("active")
 		$("#nav3").removeClass("active")
+		$("#nav5").removeClass("active")
+		$("#nav6").removeClass("active")
+		$("#nav7").removeClass("active")
+		$("#nav8").removeClass("active")
+		status = "初审通过";
+	}else if (sta == 4) {
+		$("#nav5").addClass("active")
+		$("#nav1").removeClass("active")
+		$("#nav2").removeClass("active")
+		$("#nav3").removeClass("active")
+		$("#nav4").removeClass("active")
+		$("#nav6").removeClass("active")
+		$("#nav7").removeClass("active")
+		$("#nav8").removeClass("active")
+		status = "复审中";
+	}else if (sta == 5) {
+		$("#nav6").addClass("active")
+		$("#nav1").removeClass("active")
+		$("#nav2").removeClass("active")
+		$("#nav3").removeClass("active")
+		$("#nav4").removeClass("active")
+		$("#nav5").removeClass("active")
+		$("#nav7").removeClass("active")
+		$("#nav8").removeClass("active")
+		status = "复审通过";
+	}else if (sta == 6) {
+		$("#nav7").addClass("active")
+		$("#nav1").removeClass("active")
+		$("#nav2").removeClass("active")
+		$("#nav3").removeClass("active")
+		$("#nav4").removeClass("active")
+		$("#nav5").removeClass("active")
+		$("#nav6").removeClass("active")
+		$("#nav8").removeClass("active")
+		status = "复审未通过";
+	}else if (sta == 7) {
+		$("#nav8").addClass("active")
+		$("#nav1").removeClass("active")
+		$("#nav2").removeClass("active")
+		$("#nav3").removeClass("active")
+		$("#nav4").removeClass("active")
+		$("#nav5").removeClass("active")
+		$("#nav6").removeClass("active")
+		$("#nav7").removeClass("active")
 		status = "已结束";
 	}
 	getData();
