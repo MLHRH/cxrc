@@ -13,6 +13,7 @@ var userId=$.query.get("userId") ;;
 var apply_type="";
 var expert_id =$.query.get("expert_id");
 //var status ;
+//applyMenu();
 $(document).ready(function() {
 	if(type != null && type !=""){
 		apply_type = type.substring(1,type.length-1);
@@ -119,7 +120,17 @@ function init(contentName) {
 		initcxtdDoc01();
 		break;
 	case "cxtdDoc02":
-		initcxtdDoc02();
+//		initcxtdDoc02();
+		initUserPeixun();
+		initUserWork();
+		initUserSkill();
+		initUserExam();
+		initUserReport();
+		initUserChengguo();
+		initUserZhuanli();
+		initUserAward();
+		initUserProject();
+		initUserBaogao();
 		break;
 	case "cxtdDoc03":
 		initcxtdDoc03();
@@ -189,7 +200,16 @@ function save() {
 		updatecxtdDoc01();
 		break;
 	case "cxtdDoc02":
-		updatecxtdDoc02();
+		initUserPeixun();
+		initUserWork();
+		initUserSkill();
+		initUserExam();
+		initUserReport();
+		initUserChengguo();
+		initUserZhuanli();
+		initUserAward();
+		initUserProject();
+		initUserBaogao();
 		break;
 	case "cxtdDoc03":
 		updatecxtdDoc03();
@@ -515,7 +535,7 @@ function getDocList() {
 }
 function applyMenu() {
 	var type = $('#apply_type').val();
-	if(type !="请选择"){
+	if(type !="杰出青年"){
 		location.href = 'applyMenu?applytype=' + type;
 	}
 }

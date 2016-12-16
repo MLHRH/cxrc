@@ -3,7 +3,7 @@ var objUser = new Object();
 var userBaseInfor_id;
 
 
-function initjcqnDoc03() {
+function initcxtdDoc03() {
 	$.ajax({
 				type : 'get',
 				dataType : 'json',

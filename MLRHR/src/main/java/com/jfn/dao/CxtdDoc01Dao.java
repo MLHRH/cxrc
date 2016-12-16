@@ -43,7 +43,7 @@ public class CxtdDoc01Dao {
     private final String SQL_DEL_ZUZHI="delete from cxtd_leader_zuzhi where user_id=?";	
 	//团队成员情况
 	private final String SQL_SELECT_MEMBER_NUM="select * from cxtd_member_num where team_id=?";
-	private final String SQL_UPDATE_MEMBER_NUM="update cxtd_member_num set age_56=?,age_46_55=?,age_36_45=?,"
+	private final String SQL_UPDATE_MEMBER_NUM = "update cxtd_member_num set num=?,age_56=?,age_46_55=?,age_36_45=?,"
 			+ "age_35=?,gaoji=?,fugao=?,zhongji=?,z_orther=?,boshi=?,shuoshi=?,benke=?,z_orther=? where team_id=? ";
 	private final String SQL_INSERT_MEMBER_NUM="insert into cxtd_member_num(team_id,num,age_56,age_46_55,age_36_45,age_35,"
 			+ "gaoji,fugao,zhongji,z_orther,boshi,shuoshi,benke,x_orther)values(?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
@@ -389,6 +389,7 @@ public class CxtdDoc01Dao {
 		 */
 		public boolean updateCxtdMemberNum(CxtdMemberNum num,int team_id){
 			Object[] params =new Object[]{
+				num.getNum(),
 					num.getAge_56(),
 					num.getAge_46_55(),
 					num.getAge_36_45(),

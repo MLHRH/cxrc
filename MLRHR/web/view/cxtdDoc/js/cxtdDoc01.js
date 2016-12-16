@@ -58,7 +58,7 @@ function initcxtdDoc01(){
 			$('#leaderZip_code').val(data.leaderinfo.zipCode);
 			$('#leaderFax').val(data.leaderinfo.telephoneFax);
 			$('#leaderPhone').val(data.leaderinfo.mobilePhone);
-			$('#email').val(data.leaderinfo.email);
+			$('#leaderEmail').val(data.leaderinfo.email);
 			//工作经历
 			Work(data.wlist.length);
 			for(var i = 0 ;i < (data.wlist).length;i++){
@@ -113,7 +113,7 @@ function initcxtdDoc01(){
 				$('#chengyuannum'+index_meminfo).val(data.mlist[index_meminfo].id_num);
 				$('#chengyuanedu'+index_meminfo).val(data.mlist[index_meminfo].study_education);
 				$('#chengyuanp'+index_meminfo).val(data.mlist[index_meminfo].work_position);
-				$('#chengyuand'+index_meminfo).val(data.mlist[index_meminfo].direction);
+				$('#chengs'+index_meminfo).val(data.mlist[index_meminfo].direction);
 				$('#chengyuancompany'+index_meminfo).val(data.mlist[index_meminfo].work_company);
 			}
 			
@@ -137,7 +137,7 @@ function updatecxtdDoc01(){
 	var CxtdBaseInfo = {};
 	var CxtdLeaderinfo = {};
 	var CxtdLeaderZuzhi = {};
-	var CxtdMemberInfo ={};
+	
 	var CxtdMemNum = {};
 	var arrZuzhi = [];
 	var arrMemInfo = [];
@@ -220,6 +220,7 @@ function updatecxtdDoc01(){
 	CxtdMemNum.x_orther = $('#x_orther').val();
 	//团队成员信息
 	for(var i = 0 ; i <= index_meminfo-1; i++){
+		var CxtdMemberInfo ={};
 		CxtdMemberInfo.id = $('#chenyuanid'+i).val();
 		CxtdMemberInfo.name = $('#chengyuanname'+i).val();
 		CxtdMemberInfo.sex = $('#chnengyuansex'+i).val();
@@ -228,9 +229,9 @@ function updatecxtdDoc01(){
 		CxtdMemberInfo.id_num = $('#chengyuannum'+i).val();
 		CxtdMemberInfo.study_education = $('#chengyuanedu'+i).val();
 		CxtdMemberInfo.work_position = $('#chengyuanp'+i).val();
-		CxtdMemberInfo.direction = $('#chengyuand'+i).val();
+		CxtdMemberInfo.direction = $('#chengs'+i).val();
 		CxtdMemberInfo.work_company = $('#chengyuancompany'+i).val();
-		arrMemInfo[i] = CxtdMemberInfo;
+		arrMemInfo.push(CxtdMemberInfo);
 	}
 	var baseInfo = JSON.stringify(CxtdBaseInfo);
 	var leaderInfo = JSON.stringify(CxtdLeaderinfo);
@@ -289,7 +290,7 @@ function Member(index){
 		+'<td width=84 style="width: 62pt; border: solid black 1.0pt; border-left: none; padding: 0cm 5.4pt 0cm 5.4pt; height: 30pt">'
 		+'<input type="text" id="chengyuanp'+i+'" style="text-align: center; font-size: 14.0pt; font-family: 宋体; display: inline-block; height: 90%; width: 95%; padding: 0px; margin: 3px; border-radius: 0px"   /></td>'
 		+'<td width=84 style="width: 62pt; border: solid black 1.0pt; border-left: none; padding: 0cm 5.4pt 0cm 5.4pt; height: 30pt">'
-		+'<input type="text" id="#chengyuand'+i+'" style="text-align: center; font-size: 14.0pt; font-family: 宋体; display: inline-block; height: 90%; width: 95%; padding: 0px; margin: 3px; border-radius: 0px"   /></td>'
+		+'<input type="text" id="#chengs'+i+'" style="text-align: center; font-size: 14.0pt; font-family: 宋体; display: inline-block; height: 90%; width: 95%; padding: 0px; margin: 3px; border-radius: 0px"   /></td>'
 		+'<td width=84 style="width: 62pt; border: solid black 1.0pt; border-left: none; padding: 0cm 5.4pt 0cm 5.4pt; height: 30pt">'
 		+'<input type="text" id="#chengyuancompany'+i+'" style="text-align: center; font-size: 14.0pt; font-family: 宋体; display: inline-block; height: 90%; width: 95%; padding: 0px; margin: 3px; border-radius: 0px"   /></td>';
 	if( i == 0){
@@ -400,11 +401,11 @@ function addmember(){
 	+'<td width=84 style="width: 62pt; border: solid black 1.0pt; border-left: none; padding: 0cm 5.4pt 0cm 5.4pt; height: 30pt">'
 	+'<input type="text" id="chengyuannum'+flag+'" style="text-align: center; font-size: 14.0pt; font-family: 宋体; display: inline-block; height: 90%; width: 95%; padding: 0px; margin: 3px; border-radius: 0px"/></td>'
     +'<td width=84 style="width: 62pt; border: solid black 1.0pt; border-left: none; padding: 0cm 5.4pt 0cm 5.4pt; height: 30pt">'
-	+'<input type="text" id="chengyuanp'+flag+'" style="text-align: center; font-size: 14.0pt; font-family: 宋体; display: inline-block; height: 90%; width: 95%; padding: 0px; margin: 3px; border-radius: 0px"/></td>'
+	+'<input type="text" id="chengyuanedu'+flag+'" style="text-align: center; font-size: 14.0pt; font-family: 宋体; display: inline-block; height: 90%; width: 95%; padding: 0px; margin: 3px; border-radius: 0px"/></td>'
 	+'<td width=84 style="width: 62pt; border: solid black 1.0pt; border-left: none; padding: 0cm 5.4pt 0cm 5.4pt; height: 30pt">'
 	+'<input type="text" id="chengyuanp'+flag+'" style="text-align: center; font-size: 14.0pt; font-family: 宋体; display: inline-block; height: 90%; width: 95%; padding: 0px; margin: 3px; border-radius: 0px"/></td>'
 	+'<td width=84 style="width: 62pt; border: solid black 1.0pt; border-left: none; padding: 0cm 5.4pt 0cm 5.4pt; height: 30pt">'
-	+'<input type="text" id="chengyuand'+flag+'" style="text-align: center; font-size: 14.0pt; font-family: 宋体; display: inline-block; height: 90%; width: 95%; padding: 0px; margin: 3px; border-radius: 0px"/></td>'
+	+'<input type="text" id="chengs'+flag+'" style="text-align: center; font-size: 14.0pt; font-family: 宋体; display: inline-block; height: 90%; width: 95%; padding: 0px; margin: 3px; border-radius: 0px"/></td>'
 	+'<td width=84 style="width: 62pt; border: solid black 1.0pt; border-left: none; padding: 0cm 5.4pt 0cm 5.4pt; height: 30pt">'
 	+'<input type="text" id="chengyuancompany'+flag+'" style="text-align: center; font-size: 14.0pt; font-family: 宋体; display: inline-block; height: 90%; width: 95%; padding: 0px; margin: 3px; border-radius: 0px"/></td>';
     if(index_meminfo == 0){
@@ -412,7 +413,8 @@ function addmember(){
     	$('#memberinfo_div').after(add_div);
     }
     else{
-    	   $('#memberinfo'+(index_meminfo)).after(add_div);
+    	   // $('#memberinfo_div'+(index_meminfo)).after(add_div);
+    	$('#memberinfo_div').after(add_div);
     }
     index_meminfo++;
 	

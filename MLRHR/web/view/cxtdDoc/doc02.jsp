@@ -3,1791 +3,233 @@
 <html lang="en">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>doc01</title>
+<title>doc02</title>
 </head>
-<body>
-		<p class=MsoNormal align=left style='text-align: left'>
-			<span style='font-size: 14.0pt; font-family: 宋体'>附件<span lang=EN-US>2</span></span>
-		</p> 
+<body bgcolor=white lang=ZH-CN style='text-justify-trim: punctuation'>
+
+	<div class=WordSection1 style='layout-grid: 15.6pt; padding: 10px 50px 10px 60px;'>
+
+
+		 <p class=MsoNormal align=left style='text-align: left'>
+			<span style='font-size: 16.0pt; font-family: 仿宋'>
+				附件
+				<span lang=EN-US>2(此表需到“我的档案”中完善)</span>
+			</span>
+		</p>
+
+
+		<div class="xline" style="border-bottom: 1px solid #b3b3b3; height: 10px;"></div>
+
+
 		<p class=MsoNormal style='text-align: center'>
-			<b> <span style='font-size: 22.0pt; font-family: 幼圆; letter-spacing: 1.0pt'>团队近5年主要科研情况</span>
+			<span lang=EN-US style='font-size: 16.0pt'>&nbsp;</span>
+		</p>
+
+		<p class=MsoNormal style='text-align: center'>
+			<span lang=EN-US style='font-size: 16.0pt'>&nbsp;</span>
+		</p>
+
+		<p class=MsoNormal style='text-align: center'>
+			<b> <span style='font-size: 18.0pt; font-family: 宋体'>学&nbsp;习&nbsp;培&nbsp;训&nbsp;经&nbsp;历</span>
+			</b>
+		</p>
+
+		<p class=MsoNormal style='text-align: center'>
+			<b> <span style='font-size: 15.0pt; font-family: 宋体'>（包括参加专业学习、培训、国内外进修等）</span>
+			</b>
+		</p>
+
+		<div class="modal hide" id="myModal" style="width: 600px;">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+				<h3 id="myModalTitle">附件窗口</h3>
+			</div>
+			<div class="modal-body" style="min-height: 300px; max-height: 600px; padding-left: 0; padding-right: 0;"></div>
+			<div class="modal-footer">
+				<a id="myModalSave" class="btn btn-primary" style="margin-right: 5px" href='javascript:void(0)' onclick="" class='btn'>保存</a>
+				<a href='javascript:void(0)' data-dismiss='modal' class='btn'>取消</a>
+			</div>
+		</div>
+<%-- 		<jsp:include  page="" /view/userBaseInfor/userPeixun.jspflush="true"/>
+ --%>		 
+      <%@ include file="/view/userBaseInfor/userPeixun.jsp"%>
+ 
+
+		<p class=MsoNormal style='text-align: center'>
+			<b> <span lang=EN-US style='font-size: 18.0pt'>&nbsp;</span>
+			</b>
+		</p>
+
+		<!-- 		工&nbsp;作&nbsp;经&nbsp;历 -->
+		<div class="xline" style="border-bottom: 1px solid #b3b3b3; height: 10px;"></div>
+		<p class=MsoNormal style='text-align: center'>
+			<b> <span lang=EN-US style='font-size: 18.0pt'>&nbsp;</span>
+			</b>
+		</p>
+		<p class=MsoNormal style='text-align: center'>
+			<b> <span style='font-size: 18.0pt; font-family: 宋体'>工&nbsp;作&nbsp;经&nbsp;历</span>
+			</b>
+		</p>
+		<%@ include file="/view/userBaseInfor/userWork.jsp"%>
+		<p class=MsoNormal style='text-align: center'>
+			<b> <span lang=EN-US style='font-size: 7.5pt'>&nbsp;</span>
+			</b>
+		</p>
+
+
+		<!-- 任现职前主要专业技术工作业绩登记 -->
+		<div class="xline" style="border-bottom: 1px solid #b3b3b3; height: 10px;"></div>
+		<p class=MsoNormal style='text-align: center'>
+			<b> <span lang=EN-US style='font-size: 18.0pt'>&nbsp;</span>
+			</b>
+		</p>
+		<p class=MsoNormal style='text-align: center'>
+			<b> <span lang=EN-US style='font-size: 18.0pt'>&nbsp;</span>
+			</b>
+		</p>
+		<p class=MsoNormal style='text-align: center'>
+			<b> <span style='font-size: 18.0pt; font-family: 宋体'>任现职前主要专业技术工作业绩登记</span>
+			</b>
+		</p>
+		<p class=MsoNormal style='text-align: center'>
+			<b> <span lang=EN-US style='font-size: 7.5pt'>&nbsp;</span>
+			</b>
+		</p>
+		<%@ include file="/view/userBaseInfor/userSkill.jsp"%>
+		<p class=MsoNormal style='text-align: center'>
+			<b> <span lang=EN-US style='font-size: 7.5pt'>&nbsp;</span>
+			</b>
+		</p>
+
+		
+		<!-- 		考&nbsp;试&nbsp;经&nbsp;历 -->
+		<div class="xline" style="border-bottom: 1px solid #b3b3b3; height: 10px;"></div>
+		<p class=MsoNormal style='text-align: center'>
+			<b> <span lang=EN-US style='font-size: 18.0pt'>&nbsp;</span>
+			</b>
+		</p>
+		<p class=MsoNormal style='text-align: center'>
+			<b> <span style='font-size: 18.0pt; font-family: 宋体'>考&nbsp;试&nbsp;经&nbsp;历</span>
+			</b>
+		</p>
+		<%@ include file="/view/userBaseInfor/userExam.jsp"%>
+		<p class=MsoNormal style='text-align: center'>
+			<b> <span lang=EN-US style='font-size: 7.5pt'>&nbsp;</span>
 			</b>
 		</p>
 		
 		
-		<table class=MsoNormalTable border=0 cellspacing=0 cellpadding=0 style='border-collapse: collapse'>
-				
-				<tr class="form-group form-group-lg">
-					<td width=40  colspan =12 style='width: 10pt; border: solid black 1.0pt; padding: 0cm 5.4pt 0cm 5.4pt; height: 30pt'>
-						<div class=MsoNormal>
-						<span style='font-size: 14.0pt; font-family: 宋体'>
-						1．承担主要科研任务情况	
-						</span>
-						</div>
-					</td>
-				</tr>
-				<tr style='page-break-inside: avoid'>
-				<td width=36 valign="middle" style='width: 6pt; border: solid windowtext 1.0pt; border-top: none; padding: 0cm 5.4pt 0cm 5.4pt'>
-					<div class=MsoNormal style='text-align: center'>
-						<span style='font-size: 14.0pt; font-family: 宋体'></span>
-					</div>
-				</td>
-				<td style='width: 62pt; border: solid black 1.0pt; border-left: none; padding: 0cm 5.4pt 0cm 5.4pt; height: 30pt' >
-					<div class=MsoNormal style='text-align: center'>
-						<span style='font-size: 14.0pt; font-family: 宋体'>序号</span>
-					</div>
-				</td>
-				<td  style='width: 62pt; border: solid black 1.0pt; border-left: none; padding: 0cm 5.4pt 0cm 5.4pt; height: 30pt' colspan =2>
-					<div class=MsoNormal  style='text-align: center'>
-						<span style='font-size: 14.0pt; font-family: 宋体'>项目名称</span>
-					</div>
-				</td>
-				<td  style='width: 62pt; border: solid black 1.0pt; border-left: none; padding: 0cm 5.4pt 0cm 5.4pt; height: 30pt' colspan =2>
-					<div class=MsoNormal style='text-align: center'>
-						<span style='font-size: 14.0pt; font-family: 宋体'>立项编号</span>
-					</div>
-				</td>
-				<td  style='width: 62pt; border: solid black 1.0pt; border-left: none; padding: 0cm 5.4pt 0cm 5.4pt; height: 30pt'>
-					<div class=MsoNormal style='text-align: center'>
-						<span style='font-size: 14.0pt; font-family: 宋体'>经费(万元)
-						</span>
-					</div>
-				</td>
-				<td style='width: 62pt; border: solid black 1.0pt; border-left: none; padding: 0cm 5.4pt 0cm 5.4pt; height: 30pt'>
-					<div class=MsoNormal style='text-align: center'>
-						<span style='font-size: 14.0pt; font-family: 宋体'>起止年月 </span>
-					</div>
-				</td>
-				<td style='width: 62pt; border: solid black 1.0pt; border-left: none; padding: 0cm 5.4pt 0cm 5.4pt; height: 30pt'>
-					<div class=MsoNormal style='text-align: center'>
-						<span style='font-size: 14.0pt; font-family: 宋体'>性质及来源 </span>
-					</div>
-				</td>
-				<td  style='width: 62pt; border: solid black 1.0pt; border-left: none; padding: 0cm 5.4pt 0cm 5.4pt; height: 30pt'>
-					<div class=MsoNormal style='text-align: center'>
-						<span style='font-size: 14.0pt; font-family: 宋体'>参与的其他团队成员 </span>
-					</div>
-				</td>
-			</tr>
-			<tr style='page-break-inside: avoid' id = "memberinfo1">
-				<td width=36 rowspan=15 valign="middle" style='width: 6pt; border: solid windowtext 1.0pt; border-top: none; padding: 0cm 5.4pt 0cm 5.4pt'>
-					<div class=MsoNormal style='text-align: center'>
-						<span style='font-size: 14.0pt; font-family: 宋体'>团队负责人主持的</span>
-					</div>
-				</td>
-				<td width=84 style='width: 20pt; border: solid black 1.0pt; border-left: none; padding: 0cm 5.4pt 0cm 5.4pt; height: 30pt'>
-					<input type="text" id=""
-						style="text-align: center; font-size: 8.0pt; font-family: 宋体; display: inline-block; height: 90%; width: 95%; padding: 0px; margin: 3px; border-radius: 0px"   />
-				</td>
-				<td width=84 style='width: 124pt; border: solid black 1.0pt; border-left: none; padding: 0cm 5.4pt 0cm 5.4pt; height: 30pt' colspan="2">
-					<input type="text" id="study_institution1"
-						style="text-align: center; font-size: 8.0pt; font-family: 宋体; display: inline-block; height: 90%; width: 95%; padding: 0px; margin: 3px; border-radius: 0px"   />
-				</td>
-				<td width=84 style='width: 62pt; border: solid black 1.0pt; border-left: none; padding: 0cm 5.4pt 0cm 5.4pt; height: 30pt' colspan="2">
-					<input type="text" id="study_position1"
-						style="text-align: center; font-size: 8.0pt; font-family: 宋体; display: inline-block; height: 90%; width: 95%; padding: 0px; margin: 3px; border-radius: 0px"   />
-				</td>
-				<td width=84 style='width: 62pt; border: solid black 1.0pt; border-left: none; padding: 0cm 5.4pt 0cm 5.4pt; height: 30pt'>
-					<input type="text" id="study_start_date1"
-						style="text-align: center; font-size: 8.0pt; font-family: 宋体; display: inline-block; height: 90%; width: 95%; padding: 0px; margin: 3px; border-radius: 0px"   />
-				</td>
-				<td width=84 style='width: 84pt; border: solid black 1.0pt; border-left: none; padding: 0cm 5.4pt 0cm 5.4pt; height: 30pt'>
-					<input type="text" id="study_end_date1"
-						style="text-align: center; font-size: 8.0pt; font-family: 宋体; display: inline-block; height: 90%; width: 95%; padding: 0px; margin: 3px; border-radius: 0px"   />
-			   </td>
-			   <td width=84 style='width: 84pt; border: solid black 1.0pt; border-left: none; padding: 0cm 5.4pt 0cm 5.4pt; height: 30pt'>
-					<input type="text" id=""
-						style="text-align: center; font-size: 8.0pt; font-family: 宋体; display: inline-block; height: 90%; width: 95%; padding: 0px; margin: 3px; border-radius: 0px"   />
-				</td>
-				<td width=84 style='width: 84pt; border: solid black 1.0pt; border-left: none; padding: 0cm 5.4pt 0cm 5.4pt; height: 30pt'>
-					<input type="text" id="study_institution1"
-						style="text-align: center; font-size: 8.0pt; font-family: 宋体; display: inline-block; height: 90%; width: 95%; padding: 0px; margin: 3px; border-radius: 0px"   />
-				</td>
-			</tr>
-			<tr style='page-break-inside: avoid' id = "memberinfo2">
-				<td width=84 style='width: 62pt; border: solid black 1.0pt; border-left: none; padding: 0cm 5.4pt 0cm 5.4pt; height: 30pt'>
-					<input type="text" id=""
-						style="text-align: center; font-size: 8.0pt; font-family: 宋体; display: inline-block; height: 90%; width: 95%; padding: 0px; margin: 3px; border-radius: 0px"   />
-				</td>
-				<td width=84 style='width: 62pt; border: solid black 1.0pt; border-left: none; padding: 0cm 5.4pt 0cm 5.4pt; height: 30pt' colspan="2">
-					<input type="text" id="study_institution1"
-						style="text-align: center; font-size: 8.0pt; font-family: 宋体; display: inline-block; height: 90%; width: 95%; padding: 0px; margin: 3px; border-radius: 0px"   />
-				</td>
-				<td width=84 style='width: 62pt; border: solid black 1.0pt; border-left: none; padding: 0cm 5.4pt 0cm 5.4pt; height: 30pt' colspan="2">
-					<input type="text" id="study_position1"
-						style="text-align: center; font-size: 8.0pt; font-family: 宋体; display: inline-block; height: 90%; width: 95%; padding: 0px; margin: 3px; border-radius: 0px"   />
-				</td>
-				<td width=84 style='width: 62pt; border: solid black 1.0pt; border-left: none; padding: 0cm 5.4pt 0cm 5.4pt; height: 30pt'>
-					<input type="text" id="study_start_date1"
-						style="text-align: center; font-size: 8.0pt; font-family: 宋体; display: inline-block; height: 90%; width: 95%; padding: 0px; margin: 3px; border-radius: 0px"   />
-				</td>
-				<td width=84 style='width: 62pt; border: solid black 1.0pt; border-left: none; padding: 0cm 5.4pt 0cm 5.4pt; height: 30pt'>
-					<input type="text" id="study_end_date1"
-						style="text-align: center; font-size: 8.0pt; font-family: 宋体; display: inline-block; height: 90%; width: 95%; padding: 0px; margin: 3px; border-radius: 0px"   />
-			   </td>
-			   <td width=84 style='width: 62pt; border: solid black 1.0pt; border-left: none; padding: 0cm 5.4pt 0cm 5.4pt; height: 30pt'>
-					<input type="text" id=""
-						style="text-align: center; font-size: 8.0pt; font-family: 宋体; display: inline-block; height: 90%; width: 95%; padding: 0px; margin: 3px; border-radius: 0px"   />
-				</td>
-				<td width=84 style='width: 62pt; border: solid black 1.0pt; border-left: none; padding: 0cm 5.4pt 0cm 5.4pt; height: 30pt'>
-					<input type="text" id="study_institution1"
-						style="text-align: center; font-size: 8.0pt; font-family: 宋体; display: inline-block; height: 90%; width: 95%; padding: 0px; margin: 3px; border-radius: 0px"   />
-				</td>
-				
-			</tr>
-			<tr style='page-break-inside: avoid' id = "memberinfo2">
-				<td width=84 style='width: 62pt; border: solid black 1.0pt; border-left: none; padding: 0cm 5.4pt 0cm 5.4pt; height: 30pt'>
-					<input type="text" id=""
-						style="text-align: center; font-size: 8.0pt; font-family: 宋体; display: inline-block; height: 90%; width: 95%; padding: 0px; margin: 3px; border-radius: 0px"   />
-				</td>
-				<td width=84 style='width: 62pt; border: solid black 1.0pt; border-left: none; padding: 0cm 5.4pt 0cm 5.4pt; height: 30pt' colspan="2">
-					<input type="text" id="study_institution1"
-						style="text-align: center; font-size: 8.0pt; font-family: 宋体; display: inline-block; height: 90%; width: 95%; padding: 0px; margin: 3px; border-radius: 0px"   />
-				</td>
-				<td width=84 style='width: 62pt; border: solid black 1.0pt; border-left: none; padding: 0cm 5.4pt 0cm 5.4pt; height: 30pt' colspan="2">
-					<input type="text" id="study_position1"
-						style="text-align: center; font-size: 8.0pt; font-family: 宋体; display: inline-block; height: 90%; width: 95%; padding: 0px; margin: 3px; border-radius: 0px"   />
-				</td>
-				<td width=84 style='width: 62pt; border: solid black 1.0pt; border-left: none; padding: 0cm 5.4pt 0cm 5.4pt; height: 30pt'>
-					<input type="text" id="study_start_date1"
-						style="text-align: center; font-size: 8.0pt; font-family: 宋体; display: inline-block; height: 90%; width: 95%; padding: 0px; margin: 3px; border-radius: 0px"   />
-				</td>
-				<td width=84 style='width: 62pt; border: solid black 1.0pt; border-left: none; padding: 0cm 5.4pt 0cm 5.4pt; height: 30pt'>
-					<input type="text" id="study_end_date1"
-						style="text-align: center; font-size: 8.0pt; font-family: 宋体; display: inline-block; height: 90%; width: 95%; padding: 0px; margin: 3px; border-radius: 0px"   />
-			   </td>
-			   <td width=84 style='width: 62pt; border: solid black 1.0pt; border-left: none; padding: 0cm 5.4pt 0cm 5.4pt; height: 30pt'>
-					<input type="text" id=""
-						style="text-align: center; font-size: 8.0pt; font-family: 宋体; display: inline-block; height: 90%; width: 95%; padding: 0px; margin: 3px; border-radius: 0px"   />
-				</td>
-				<td width=84 style='width: 62pt; border: solid black 1.0pt; border-left: none; padding: 0cm 5.4pt 0cm 5.4pt; height: 30pt'>
-					<input type="text" id="study_institution1"
-						style="text-align: center; font-size: 8.0pt; font-family: 宋体; display: inline-block; height: 90%; width: 95%; padding: 0px; margin: 3px; border-radius: 0px"   />
-				</td>
-				
-			</tr>
-			<tr style='page-break-inside: avoid' id = "memberinfo2">
-				<td width=84 style='width: 62pt; border: solid black 1.0pt; border-left: none; padding: 0cm 5.4pt 0cm 5.4pt; height: 30pt'>
-					<input type="text" id=""
-						style="text-align: center; font-size: 8.0pt; font-family: 宋体; display: inline-block; height: 90%; width: 95%; padding: 0px; margin: 3px; border-radius: 0px"   />
-				</td>
-				<td width=84 style='width: 62pt; border: solid black 1.0pt; border-left: none; padding: 0cm 5.4pt 0cm 5.4pt; height: 30pt' colspan="2">
-					<input type="text" id="study_institution1"
-						style="text-align: center; font-size: 8.0pt; font-family: 宋体; display: inline-block; height: 90%; width: 95%; padding: 0px; margin: 3px; border-radius: 0px"   />
-				</td>
-				<td width=84 style='width: 62pt; border: solid black 1.0pt; border-left: none; padding: 0cm 5.4pt 0cm 5.4pt; height: 30pt' colspan="2">
-					<input type="text" id="study_position1"
-						style="text-align: center; font-size: 8.0pt; font-family: 宋体; display: inline-block; height: 90%; width: 95%; padding: 0px; margin: 3px; border-radius: 0px"   />
-				</td>
-				<td width=84 style='width: 62pt; border: solid black 1.0pt; border-left: none; padding: 0cm 5.4pt 0cm 5.4pt; height: 30pt'>
-					<input type="text" id="study_start_date1"
-						style="text-align: center; font-size: 8.0pt; font-family: 宋体; display: inline-block; height: 90%; width: 95%; padding: 0px; margin: 3px; border-radius: 0px"   />
-				</td>
-				<td width=84 style='width: 62pt; border: solid black 1.0pt; border-left: none; padding: 0cm 5.4pt 0cm 5.4pt; height: 30pt'>
-					<input type="text" id="study_end_date1"
-						style="text-align: center; font-size: 8.0pt; font-family: 宋体; display: inline-block; height: 90%; width: 95%; padding: 0px; margin: 3px; border-radius: 0px"   />
-			   </td>
-			   <td width=84 style='width: 62pt; border: solid black 1.0pt; border-left: none; padding: 0cm 5.4pt 0cm 5.4pt; height: 30pt'>
-					<input type="text" id=""
-						style="text-align: center; font-size: 8.0pt; font-family: 宋体; display: inline-block; height: 90%; width: 95%; padding: 0px; margin: 3px; border-radius: 0px"   />
-				</td>
-				<td width=84 style='width: 62pt; border: solid black 1.0pt; border-left: none; padding: 0cm 5.4pt 0cm 5.4pt; height: 30pt'>
-					<input type="text" id="study_institution1"
-						style="text-align: center; font-size: 8.0pt; font-family: 宋体; display: inline-block; height: 90%; width: 95%; padding: 0px; margin: 3px; border-radius: 0px"   />
-				</td>
-				
-			</tr>
-			<tr style='page-break-inside: avoid' id = "memberinfo2">
-				<td width=84 style='width: 62pt; border: solid black 1.0pt; border-left: none; padding: 0cm 5.4pt 0cm 5.4pt; height: 30pt'>
-					<input type="text" id=""
-						style="text-align: center; font-size: 8.0pt; font-family: 宋体; display: inline-block; height: 90%; width: 95%; padding: 0px; margin: 3px; border-radius: 0px"   />
-				</td>
-				<td width=84 style='width: 62pt; border: solid black 1.0pt; border-left: none; padding: 0cm 5.4pt 0cm 5.4pt; height: 30pt' colspan="2">
-					<input type="text" id="study_institution1"
-						style="text-align: center; font-size: 8.0pt; font-family: 宋体; display: inline-block; height: 90%; width: 95%; padding: 0px; margin: 3px; border-radius: 0px"   />
-				</td>
-				<td width=84 style='width: 62pt; border: solid black 1.0pt; border-left: none; padding: 0cm 5.4pt 0cm 5.4pt; height: 30pt' colspan="2">
-					<input type="text" id="study_position1"
-						style="text-align: center; font-size: 8.0pt; font-family: 宋体; display: inline-block; height: 90%; width: 95%; padding: 0px; margin: 3px; border-radius: 0px"   />
-				</td>
-				<td width=84 style='width: 62pt; border: solid black 1.0pt; border-left: none; padding: 0cm 5.4pt 0cm 5.4pt; height: 30pt'>
-					<input type="text" id="study_start_date1"
-						style="text-align: center; font-size: 8.0pt; font-family: 宋体; display: inline-block; height: 90%; width: 95%; padding: 0px; margin: 3px; border-radius: 0px"   />
-				</td>
-				<td width=84 style='width: 62pt; border: solid black 1.0pt; border-left: none; padding: 0cm 5.4pt 0cm 5.4pt; height: 30pt'>
-					<input type="text" id="study_end_date1"
-						style="text-align: center; font-size: 8.0pt; font-family: 宋体; display: inline-block; height: 90%; width: 95%; padding: 0px; margin: 3px; border-radius: 0px"   />
-			   </td>
-			   <td width=84 style='width: 62pt; border: solid black 1.0pt; border-left: none; padding: 0cm 5.4pt 0cm 5.4pt; height: 30pt'>
-					<input type="text" id=""
-						style="text-align: center; font-size: 8.0pt; font-family: 宋体; display: inline-block; height: 90%; width: 95%; padding: 0px; margin: 3px; border-radius: 0px"   />
-				</td>
-				<td width=84 style='width: 62pt; border: solid black 1.0pt; border-left: none; padding: 0cm 5.4pt 0cm 5.4pt; height: 30pt'>
-					<input type="text" id="study_institution1"
-						style="text-align: center; font-size: 8.0pt; font-family: 宋体; display: inline-block; height: 90%; width: 95%; padding: 0px; margin: 3px; border-radius: 0px"   />
-				</td>
-				
-			</tr>
-			</table>
-			
-			<div style="text-align: left;margin-left:30px">
-							<a class="btn btn-small btn-info" href="javascript:void(0)" id="addmemeber">
-								<i class="icon-plus-sign"></i>添加
-							</a>
-		</div>
-		<table class=MsoNormalTable border=0 cellspacing=0 cellpadding=0 style='border-collapse: collapse'>
-			<tr style='page-break-inside: avoid' id = "memberinfo1">
-				<td width=36 rowspan=15 valign="middle" style='width: 6pt; border: solid windowtext 1.0pt; padding: 0cm 5.4pt 0cm 5.4pt'>
-					<div class=MsoNormal style='text-align: center'>
-						<span style='font-size: 14.0pt; font-family: 宋体'>团队核心成员主持的</span>
-					</div>
-				</td>
-				<td width=84 style='width: 20pt; border: solid black 1.0pt; border-left: none; padding: 0cm 5.4pt 0cm 5.4pt; height: 30pt'>
-					<input type="text" id=""
-						style="text-align: center; font-size: 8.0pt; font-family: 宋体; display: inline-block; height: 90%; width: 95%; padding: 0px; margin: 3px; border-radius: 0px"   />
-				</td>
-				<td width=84 style='width: 124pt; border: solid black 1.0pt; border-left: none; padding: 0cm 5.4pt 0cm 5.4pt; height: 30pt' colspan="2">
-					<input type="text" id="study_institution1"
-						style="text-align: center; font-size: 8.0pt; font-family: 宋体; display: inline-block; height: 90%; width: 95%; padding: 0px; margin: 3px; border-radius: 0px"   />
-				</td>
-				<td width=84 style='width: 62pt; border: solid black 1.0pt; border-left: none; padding: 0cm 5.4pt 0cm 5.4pt; height: 30pt' colspan="2">
-					<input type="text" id="study_position1"
-						style="text-align: center; font-size: 8.0pt; font-family: 宋体; display: inline-block; height: 90%; width: 95%; padding: 0px; margin: 3px; border-radius: 0px"   />
-				</td>
-				<td width=84 style='width: 62pt; border: solid black 1.0pt; border-left: none; padding: 0cm 5.4pt 0cm 5.4pt; height: 30pt'>
-					<input type="text" id="study_start_date1"
-						style="text-align: center; font-size: 8.0pt; font-family: 宋体; display: inline-block; height: 90%; width: 95%; padding: 0px; margin: 3px; border-radius: 0px"   />
-				</td>
-				<td width=84 style='width: 84pt; border: solid black 1.0pt; border-left: none; padding: 0cm 5.4pt 0cm 5.4pt; height: 30pt'>
-					<input type="text" id="study_end_date1"
-						style="text-align: center; font-size: 8.0pt; font-family: 宋体; display: inline-block; height: 90%; width: 95%; padding: 0px; margin: 3px; border-radius: 0px"   />
-			   </td>
-			   <td width=84 style='width: 84pt; border: solid black 1.0pt; border-left: none; padding: 0cm 5.4pt 0cm 5.4pt; height: 30pt'>
-					<input type="text" id=""
-						style="text-align: center; font-size: 8.0pt; font-family: 宋体; display: inline-block; height: 90%; width: 95%; padding: 0px; margin: 3px; border-radius: 0px"   />
-				</td>
-				<td width=84 style='width: 84pt; border: solid black 1.0pt; border-left: none; padding: 0cm 5.4pt 0cm 5.4pt; height: 30pt'>
-					<input type="text" id="study_institution1"
-						style="text-align: center; font-size: 8.0pt; font-family: 宋体; display: inline-block; height: 90%; width: 95%; padding: 0px; margin: 3px; border-radius: 0px"   />
-				</td>
-			</tr>
-			<tr style='page-break-inside: avoid' id = "memberinfo2">
-				<td width=84 style='width: 62pt; border: solid black 1.0pt; border-left: none; padding: 0cm 5.4pt 0cm 5.4pt; height: 30pt'>
-					<input type="text" id=""
-						style="text-align: center; font-size: 8.0pt; font-family: 宋体; display: inline-block; height: 90%; width: 95%; padding: 0px; margin: 3px; border-radius: 0px"   />
-				</td>
-				<td width=84 style='width: 62pt; border: solid black 1.0pt; border-left: none; padding: 0cm 5.4pt 0cm 5.4pt; height: 30pt' colspan="2">
-					<input type="text" id="study_institution1"
-						style="text-align: center; font-size: 8.0pt; font-family: 宋体; display: inline-block; height: 90%; width: 95%; padding: 0px; margin: 3px; border-radius: 0px"   />
-				</td>
-				<td width=84 style='width: 62pt; border: solid black 1.0pt; border-left: none; padding: 0cm 5.4pt 0cm 5.4pt; height: 30pt' colspan="2">
-					<input type="text" id="study_position1"
-						style="text-align: center; font-size: 8.0pt; font-family: 宋体; display: inline-block; height: 90%; width: 95%; padding: 0px; margin: 3px; border-radius: 0px"   />
-				</td>
-				<td width=84 style='width: 62pt; border: solid black 1.0pt; border-left: none; padding: 0cm 5.4pt 0cm 5.4pt; height: 30pt'>
-					<input type="text" id="study_start_date1"
-						style="text-align: center; font-size: 8.0pt; font-family: 宋体; display: inline-block; height: 90%; width: 95%; padding: 0px; margin: 3px; border-radius: 0px"   />
-				</td>
-				<td width=84 style='width: 62pt; border: solid black 1.0pt; border-left: none; padding: 0cm 5.4pt 0cm 5.4pt; height: 30pt'>
-					<input type="text" id="study_end_date1"
-						style="text-align: center; font-size: 8.0pt; font-family: 宋体; display: inline-block; height: 90%; width: 95%; padding: 0px; margin: 3px; border-radius: 0px"   />
-			   </td>
-			   <td width=84 style='width: 62pt; border: solid black 1.0pt; border-left: none; padding: 0cm 5.4pt 0cm 5.4pt; height: 30pt'>
-					<input type="text" id=""
-						style="text-align: center; font-size: 8.0pt; font-family: 宋体; display: inline-block; height: 90%; width: 95%; padding: 0px; margin: 3px; border-radius: 0px"   />
-				</td>
-				<td width=84 style='width: 62pt; border: solid black 1.0pt; border-left: none; padding: 0cm 5.4pt 0cm 5.4pt; height: 30pt'>
-					<input type="text" id="study_institution1"
-						style="text-align: center; font-size: 8.0pt; font-family: 宋体; display: inline-block; height: 90%; width: 95%; padding: 0px; margin: 3px; border-radius: 0px"   />
-				</td>
-				
-			</tr>
-			<tr style='page-break-inside: avoid' id = "memberinfo2">
-				<td width=84 style='width: 62pt; border: solid black 1.0pt; border-left: none; padding: 0cm 5.4pt 0cm 5.4pt; height: 30pt'>
-					<input type="text" id=""
-						style="text-align: center; font-size: 8.0pt; font-family: 宋体; display: inline-block; height: 90%; width: 95%; padding: 0px; margin: 3px; border-radius: 0px"   />
-				</td>
-				<td width=84 style='width: 62pt; border: solid black 1.0pt; border-left: none; padding: 0cm 5.4pt 0cm 5.4pt; height: 30pt' colspan="2">
-					<input type="text" id="study_institution1"
-						style="text-align: center; font-size: 8.0pt; font-family: 宋体; display: inline-block; height: 90%; width: 95%; padding: 0px; margin: 3px; border-radius: 0px"   />
-				</td>
-				<td width=84 style='width: 62pt; border: solid black 1.0pt; border-left: none; padding: 0cm 5.4pt 0cm 5.4pt; height: 30pt' colspan="2">
-					<input type="text" id="study_position1"
-						style="text-align: center; font-size: 8.0pt; font-family: 宋体; display: inline-block; height: 90%; width: 95%; padding: 0px; margin: 3px; border-radius: 0px"   />
-				</td>
-				<td width=84 style='width: 62pt; border: solid black 1.0pt; border-left: none; padding: 0cm 5.4pt 0cm 5.4pt; height: 30pt'>
-					<input type="text" id="study_start_date1"
-						style="text-align: center; font-size: 8.0pt; font-family: 宋体; display: inline-block; height: 90%; width: 95%; padding: 0px; margin: 3px; border-radius: 0px"   />
-				</td>
-				<td width=84 style='width: 62pt; border: solid black 1.0pt; border-left: none; padding: 0cm 5.4pt 0cm 5.4pt; height: 30pt'>
-					<input type="text" id="study_end_date1"
-						style="text-align: center; font-size: 8.0pt; font-family: 宋体; display: inline-block; height: 90%; width: 95%; padding: 0px; margin: 3px; border-radius: 0px"   />
-			   </td>
-			   <td width=84 style='width: 62pt; border: solid black 1.0pt; border-left: none; padding: 0cm 5.4pt 0cm 5.4pt; height: 30pt'>
-					<input type="text" id=""
-						style="text-align: center; font-size: 8.0pt; font-family: 宋体; display: inline-block; height: 90%; width: 95%; padding: 0px; margin: 3px; border-radius: 0px"   />
-				</td>
-				<td width=84 style='width: 62pt; border: solid black 1.0pt; border-left: none; padding: 0cm 5.4pt 0cm 5.4pt; height: 30pt'>
-					<input type="text" id="study_institution1"
-						style="text-align: center; font-size: 8.0pt; font-family: 宋体; display: inline-block; height: 90%; width: 95%; padding: 0px; margin: 3px; border-radius: 0px"   />
-				</td>
-				
-			</tr>
-			<tr style='page-break-inside: avoid' id = "memberinfo2">
-				<td width=84 style='width: 62pt; border: solid black 1.0pt; border-left: none; padding: 0cm 5.4pt 0cm 5.4pt; height: 30pt'>
-					<input type="text" id=""
-						style="text-align: center; font-size: 8.0pt; font-family: 宋体; display: inline-block; height: 90%; width: 95%; padding: 0px; margin: 3px; border-radius: 0px"   />
-				</td>
-				<td width=84 style='width: 62pt; border: solid black 1.0pt; border-left: none; padding: 0cm 5.4pt 0cm 5.4pt; height: 30pt' colspan="2">
-					<input type="text" id="study_institution1"
-						style="text-align: center; font-size: 8.0pt; font-family: 宋体; display: inline-block; height: 90%; width: 95%; padding: 0px; margin: 3px; border-radius: 0px"   />
-				</td>
-				<td width=84 style='width: 62pt; border: solid black 1.0pt; border-left: none; padding: 0cm 5.4pt 0cm 5.4pt; height: 30pt' colspan="2">
-					<input type="text" id="study_position1"
-						style="text-align: center; font-size: 8.0pt; font-family: 宋体; display: inline-block; height: 90%; width: 95%; padding: 0px; margin: 3px; border-radius: 0px"   />
-				</td>
-				<td width=84 style='width: 62pt; border: solid black 1.0pt; border-left: none; padding: 0cm 5.4pt 0cm 5.4pt; height: 30pt'>
-					<input type="text" id="study_start_date1"
-						style="text-align: center; font-size: 8.0pt; font-family: 宋体; display: inline-block; height: 90%; width: 95%; padding: 0px; margin: 3px; border-radius: 0px"   />
-				</td>
-				<td width=84 style='width: 62pt; border: solid black 1.0pt; border-left: none; padding: 0cm 5.4pt 0cm 5.4pt; height: 30pt'>
-					<input type="text" id="study_end_date1"
-						style="text-align: center; font-size: 8.0pt; font-family: 宋体; display: inline-block; height: 90%; width: 95%; padding: 0px; margin: 3px; border-radius: 0px"   />
-			   </td>
-			   <td width=84 style='width: 62pt; border: solid black 1.0pt; border-left: none; padding: 0cm 5.4pt 0cm 5.4pt; height: 30pt'>
-					<input type="text" id=""
-						style="text-align: center; font-size: 8.0pt; font-family: 宋体; display: inline-block; height: 90%; width: 95%; padding: 0px; margin: 3px; border-radius: 0px"   />
-				</td>
-				<td width=84 style='width: 62pt; border: solid black 1.0pt; border-left: none; padding: 0cm 5.4pt 0cm 5.4pt; height: 30pt'>
-					<input type="text" id="study_institution1"
-						style="text-align: center; font-size: 8.0pt; font-family: 宋体; display: inline-block; height: 90%; width: 95%; padding: 0px; margin: 3px; border-radius: 0px"   />
-				</td>
-				
-			</tr>
-			<tr style='page-break-inside: avoid' id = "memberinfo2">
-				<td width=84 style='width: 62pt; border: solid black 1.0pt; border-left: none; padding: 0cm 5.4pt 0cm 5.4pt; height: 30pt'>
-					<input type="text" id=""
-						style="text-align: center; font-size: 8.0pt; font-family: 宋体; display: inline-block; height: 90%; width: 95%; padding: 0px; margin: 3px; border-radius: 0px"   />
-				</td>
-				<td width=84 style='width: 62pt; border: solid black 1.0pt; border-left: none; padding: 0cm 5.4pt 0cm 5.4pt; height: 30pt' colspan="2">
-					<input type="text" id="study_institution1"
-						style="text-align: center; font-size: 8.0pt; font-family: 宋体; display: inline-block; height: 90%; width: 95%; padding: 0px; margin: 3px; border-radius: 0px"   />
-				</td>
-				<td width=84 style='width: 62pt; border: solid black 1.0pt; border-left: none; padding: 0cm 5.4pt 0cm 5.4pt; height: 30pt' colspan="2">
-					<input type="text" id="study_position1"
-						style="text-align: center; font-size: 8.0pt; font-family: 宋体; display: inline-block; height: 90%; width: 95%; padding: 0px; margin: 3px; border-radius: 0px"   />
-				</td>
-				<td width=84 style='width: 62pt; border: solid black 1.0pt; border-left: none; padding: 0cm 5.4pt 0cm 5.4pt; height: 30pt'>
-					<input type="text" id="study_start_date1"
-						style="text-align: center; font-size: 8.0pt; font-family: 宋体; display: inline-block; height: 90%; width: 95%; padding: 0px; margin: 3px; border-radius: 0px"   />
-				</td>
-				<td width=84 style='width: 62pt; border: solid black 1.0pt; border-left: none; padding: 0cm 5.4pt 0cm 5.4pt; height: 30pt'>
-					<input type="text" id="study_end_date1"
-						style="text-align: center; font-size: 8.0pt; font-family: 宋体; display: inline-block; height: 90%; width: 95%; padding: 0px; margin: 3px; border-radius: 0px"   />
-			   </td>
-			   <td width=84 style='width: 62pt; border: solid black 1.0pt; border-left: none; padding: 0cm 5.4pt 0cm 5.4pt; height: 30pt'>
-					<input type="text" id=""
-						style="text-align: center; font-size: 8.0pt; font-family: 宋体; display: inline-block; height: 90%; width: 95%; padding: 0px; margin: 3px; border-radius: 0px"   />
-				</td>
-				<td width=84 style='width: 62pt; border: solid black 1.0pt; border-left: none; padding: 0cm 5.4pt 0cm 5.4pt; height: 30pt'>
-					<input type="text" id="study_institution1"
-						style="text-align: center; font-size: 8.0pt; font-family: 宋体; display: inline-block; height: 90%; width: 95%; padding: 0px; margin: 3px; border-radius: 0px"   />
-				</td>
-				
-			</tr>
-		</table>
 		
-		<div style="text-align: left;margin-left:30px">
-							<a class="btn btn-small btn-info" href="javascript:void(0)" id="addmemeber">
-								<i class="icon-plus-sign"></i>添加
-							</a>
-		</div>
+		<!-- 		著作、论文及重要技术报告登记 -->
+		<div class="xline" style="border-bottom: 1px solid #b3b3b3; height: 10px;"></div>
+		<p class=MsoNormal style='text-align: center'>
+			<b> <span lang=EN-US style='font-size: 7.5pt'>&nbsp;</span>
+			</b>
+		</p>
+
+		<p class=MsoNormal style='text-align: center'>
+			<b> <span lang=EN-US style='font-size: 18.0pt'>&nbsp;</span>
+			</b>
+		</p>
+
+		<p class=MsoNormal style='text-align: center'>
+			<b> <span style='font-size: 18.0pt; font-family: 宋体'>著作、论文及重要技术报告登记</span>
+			</b>
+		</p>
+		<p class=MsoNormal style='text-align: center'>
+			<b> <span lang=EN-US style='font-size: 7.5pt'>&nbsp;</span>
+			</b>
+		</p>
+		<%@ include file="/view/userBaseInfor/userReport.jsp"%>
+		<p class=MsoNormal style='text-align: center'>
+			<b> <span lang=EN-US style='font-size: 7.5pt'>&nbsp;</span>
+			</b>
+		</p>
+
+		<div class="xline" style="border-bottom: 1px solid #b3b3b3; height: 10px;"></div>
+		<p class=MsoNormal style='text-align: center'>
+			<b> <span lang=EN-US style='font-size: 18.0pt'>&nbsp;</span>
+			</b>
+		</p>
+		<p class=MsoNormal style='text-align: center'>
+			<b> <span style='font-size: 18.0pt; font-family: 宋体'>代&nbsp;表&nbsp;性&nbsp;论&nbsp;文</span>
+			</b>
+		</p>
+		<%@ include file="/view/userBaseInfor/userChengguo.jsp"%>
+		<p class=MsoNormal style='text-align: center'>
+			<b> <span lang=EN-US style='font-size: 7.5pt'>&nbsp;</span>
+			</b>
+		</p>
 		
-		<table class=MsoNormalTable border=0 cellspacing=0 cellpadding=0 style='border-collapse: collapse'>
-				
-				<tr class="form-group form-group-lg">
-					<td width=40  colspan =12 style='width: 10pt; border: solid black 1.0pt; padding: 0cm 5.4pt 0cm 5.4pt; height: 30pt'>
-						<div class=MsoNormal>
-						<span style='font-size: 14.0pt; font-family: 宋体'>
-						２．获得重要科研学术奖励情况
-						</span>
-						</div>
-					</td>
-				</tr>
-				<tr style='page-break-inside: avoid'>
-				<td width=36 valign="middle" style='width: 6pt; border: solid windowtext 1.0pt; border-top: none; padding: 0cm 5.4pt 0cm 5.4pt'>
-					<div class=MsoNormal style='text-align: center'>
-						<span style='font-size: 14.0pt; font-family: 宋体'></span>
-					</div>
-				</td>
-				<td style='width: 62pt; border: solid black 1.0pt; border-left: none; padding: 0cm 5.4pt 0cm 5.4pt; height: 30pt' >
-					<div class=MsoNormal style='text-align: center'>
-						<span style='font-size: 14.0pt; font-family: 宋体'>序号</span>
-					</div>
-				</td>
-				<td  style='width: 62pt; border: solid black 1.0pt; border-left: none; padding: 0cm 5.4pt 0cm 5.4pt; height: 30pt' colspan =2>
-					<div class=MsoNormal  style='text-align: center'>
-						<span style='font-size: 14.0pt; font-family: 宋体'>获奖项目名称</span>
-					</div>
-				</td>
-				<td  style='width: 62pt; border: solid black 1.0pt; border-left: none; padding: 0cm 5.4pt 0cm 5.4pt; height: 30pt' colspan =2>
-					<div class=MsoNormal style='text-align: center'>
-						<span style='font-size: 14.0pt; font-family: 宋体'>奖励名称</span>
-					</div>
-				</td>
-				<td  style='width: 62pt; border: solid black 1.0pt; border-left: none; padding: 0cm 5.4pt 0cm 5.4pt; height: 30pt'>
-					<div class=MsoNormal style='text-align: center'>
-						<span style='font-size: 14.0pt; font-family: 宋体'>等级
-						</span>
-					</div>
-				</td>
-				<td style='width: 62pt; border: solid black 1.0pt; border-left: none; padding: 0cm 5.4pt 0cm 5.4pt; height: 30pt'>
-					<div class=MsoNormal style='text-align: center'>
-						<span style='font-size: 14.0pt; font-family: 宋体'>授予机构</span>
-					</div>
-				</td>
-				<td style='width: 30pt; border: solid black 1.0pt; border-left: none; padding: 0cm 5.4pt 0cm 5.4pt; height: 30pt'>
-					<div class=MsoNormal style='text-align: center'>
-						<span style='font-size: 14.0pt; font-family: 宋体'>获奖时间 </span>
-					</div>
-				</td>
-				<td  style='width: 30pt; border: solid black 1.0pt; border-left: none; padding: 0cm 5.4pt 0cm 5.4pt; height: 30pt'>
-					<div class=MsoNormal style='text-align: center'>
-						<span style='font-size: 14.0pt; font-family: 宋体'>获奖人及排序</span>
-					</div>
-				</td>
-			</tr>
-			<tr style='page-break-inside: avoid' id = "memberinfo1">
-				<td width=36 rowspan=15 valign="middle" style='width: 6pt; border: solid windowtext 1.0pt; border-top: none; padding: 0cm 5.4pt 0cm 5.4pt'>
-					<div class=MsoNormal style='text-align: center'>
-						<span style='font-size: 14.0pt; font-family: 宋体'>团队负责人</span>
-					</div>
-				</td>
-				<td width=84 style='width: 20pt; border: solid black 1.0pt; border-left: none; padding: 0cm 5.4pt 0cm 5.4pt; height: 30pt'>
-					<input type="text" id=""
-						style="text-align: center; font-size: 8.0pt; font-family: 宋体; display: inline-block; height: 90%; width: 95%; padding: 0px; margin: 3px; border-radius: 0px"   />
-				</td>
-				<td width=84 style='width: 124pt; border: solid black 1.0pt; border-left: none; padding: 0cm 5.4pt 0cm 5.4pt; height: 30pt' colspan="2">
-					<input type="text" id="study_institution1"
-						style="text-align: center; font-size: 8.0pt; font-family: 宋体; display: inline-block; height: 90%; width: 95%; padding: 0px; margin: 3px; border-radius: 0px"   />
-				</td>
-				<td width=84 style='width: 62pt; border: solid black 1.0pt; border-left: none; padding: 0cm 5.4pt 0cm 5.4pt; height: 30pt' colspan="2">
-					<input type="text" id="study_position1"
-						style="text-align: center; font-size: 8.0pt; font-family: 宋体; display: inline-block; height: 90%; width: 95%; padding: 0px; margin: 3px; border-radius: 0px"   />
-				</td>
-				<td width=84 style='width: 62pt; border: solid black 1.0pt; border-left: none; padding: 0cm 5.4pt 0cm 5.4pt; height: 30pt'>
-					<input type="text" id="study_start_date1"
-						style="text-align: center; font-size: 8.0pt; font-family: 宋体; display: inline-block; height: 90%; width: 95%; padding: 0px; margin: 3px; border-radius: 0px"   />
-				</td>
-				<td width=84 style='width: 84pt; border: solid black 1.0pt; border-left: none; padding: 0cm 5.4pt 0cm 5.4pt; height: 30pt'>
-					<input type="text" id="study_end_date1"
-						style="text-align: center; font-size: 8.0pt; font-family: 宋体; display: inline-block; height: 90%; width: 95%; padding: 0px; margin: 3px; border-radius: 0px"   />
-			   </td>
-			   <td width=84 style='width: 84pt; border: solid black 1.0pt; border-left: none; padding: 0cm 5.4pt 0cm 5.4pt; height: 30pt'>
-					<input type="text" id=""
-						style="text-align: center; font-size: 8.0pt; font-family: 宋体; display: inline-block; height: 90%; width: 95%; padding: 0px; margin: 3px; border-radius: 0px"   />
-				</td>
-				<td width=84 style='width: 84pt; border: solid black 1.0pt; border-left: none; padding: 0cm 5.4pt 0cm 5.4pt; height: 30pt'>
-					<input type="text" id="study_institution1"
-						style="text-align: center; font-size: 8.0pt; font-family: 宋体; display: inline-block; height: 90%; width: 95%; padding: 0px; margin: 3px; border-radius: 0px"   />
-				</td>
-			</tr>
-			<tr style='page-break-inside: avoid' id = "memberinfo2">
-				<td width=84 style='width: 62pt; border: solid black 1.0pt; border-left: none; padding: 0cm 5.4pt 0cm 5.4pt; height: 30pt'>
-					<input type="text" id=""
-						style="text-align: center; font-size: 8.0pt; font-family: 宋体; display: inline-block; height: 90%; width: 95%; padding: 0px; margin: 3px; border-radius: 0px"   />
-				</td>
-				<td width=84 style='width: 62pt; border: solid black 1.0pt; border-left: none; padding: 0cm 5.4pt 0cm 5.4pt; height: 30pt' colspan="2">
-					<input type="text" id="study_institution1"
-						style="text-align: center; font-size: 8.0pt; font-family: 宋体; display: inline-block; height: 90%; width: 95%; padding: 0px; margin: 3px; border-radius: 0px"   />
-				</td>
-				<td width=84 style='width: 62pt; border: solid black 1.0pt; border-left: none; padding: 0cm 5.4pt 0cm 5.4pt; height: 30pt' colspan="2">
-					<input type="text" id="study_position1"
-						style="text-align: center; font-size: 8.0pt; font-family: 宋体; display: inline-block; height: 90%; width: 95%; padding: 0px; margin: 3px; border-radius: 0px"   />
-				</td>
-				<td width=84 style='width: 62pt; border: solid black 1.0pt; border-left: none; padding: 0cm 5.4pt 0cm 5.4pt; height: 30pt'>
-					<input type="text" id="study_start_date1"
-						style="text-align: center; font-size: 8.0pt; font-family: 宋体; display: inline-block; height: 90%; width: 95%; padding: 0px; margin: 3px; border-radius: 0px"   />
-				</td>
-				<td width=84 style='width: 62pt; border: solid black 1.0pt; border-left: none; padding: 0cm 5.4pt 0cm 5.4pt; height: 30pt'>
-					<input type="text" id="study_end_date1"
-						style="text-align: center; font-size: 8.0pt; font-family: 宋体; display: inline-block; height: 90%; width: 95%; padding: 0px; margin: 3px; border-radius: 0px"   />
-			   </td>
-			   <td width=84 style='width: 62pt; border: solid black 1.0pt; border-left: none; padding: 0cm 5.4pt 0cm 5.4pt; height: 30pt'>
-					<input type="text" id=""
-						style="text-align: center; font-size: 8.0pt; font-family: 宋体; display: inline-block; height: 90%; width: 95%; padding: 0px; margin: 3px; border-radius: 0px"   />
-				</td>
-				<td width=84 style='width: 62pt; border: solid black 1.0pt; border-left: none; padding: 0cm 5.4pt 0cm 5.4pt; height: 30pt'>
-					<input type="text" id="study_institution1"
-						style="text-align: center; font-size: 8.0pt; font-family: 宋体; display: inline-block; height: 90%; width: 95%; padding: 0px; margin: 3px; border-radius: 0px"   />
-				</td>
-				
-			</tr>
-			<tr style='page-break-inside: avoid' id = "memberinfo2">
-				<td width=84 style='width: 62pt; border: solid black 1.0pt; border-left: none; padding: 0cm 5.4pt 0cm 5.4pt; height: 30pt'>
-					<input type="text" id=""
-						style="text-align: center; font-size: 8.0pt; font-family: 宋体; display: inline-block; height: 90%; width: 95%; padding: 0px; margin: 3px; border-radius: 0px"   />
-				</td>
-				<td width=84 style='width: 62pt; border: solid black 1.0pt; border-left: none; padding: 0cm 5.4pt 0cm 5.4pt; height: 30pt' colspan="2">
-					<input type="text" id="study_institution1"
-						style="text-align: center; font-size: 8.0pt; font-family: 宋体; display: inline-block; height: 90%; width: 95%; padding: 0px; margin: 3px; border-radius: 0px"   />
-				</td>
-				<td width=84 style='width: 62pt; border: solid black 1.0pt; border-left: none; padding: 0cm 5.4pt 0cm 5.4pt; height: 30pt' colspan="2">
-					<input type="text" id="study_position1"
-						style="text-align: center; font-size: 8.0pt; font-family: 宋体; display: inline-block; height: 90%; width: 95%; padding: 0px; margin: 3px; border-radius: 0px"   />
-				</td>
-				<td width=84 style='width: 62pt; border: solid black 1.0pt; border-left: none; padding: 0cm 5.4pt 0cm 5.4pt; height: 30pt'>
-					<input type="text" id="study_start_date1"
-						style="text-align: center; font-size: 8.0pt; font-family: 宋体; display: inline-block; height: 90%; width: 95%; padding: 0px; margin: 3px; border-radius: 0px"   />
-				</td>
-				<td width=84 style='width: 62pt; border: solid black 1.0pt; border-left: none; padding: 0cm 5.4pt 0cm 5.4pt; height: 30pt'>
-					<input type="text" id="study_end_date1"
-						style="text-align: center; font-size: 8.0pt; font-family: 宋体; display: inline-block; height: 90%; width: 95%; padding: 0px; margin: 3px; border-radius: 0px"   />
-			   </td>
-			   <td width=84 style='width: 62pt; border: solid black 1.0pt; border-left: none; padding: 0cm 5.4pt 0cm 5.4pt; height: 30pt'>
-					<input type="text" id=""
-						style="text-align: center; font-size: 8.0pt; font-family: 宋体; display: inline-block; height: 90%; width: 95%; padding: 0px; margin: 3px; border-radius: 0px"   />
-				</td>
-				<td width=84 style='width: 62pt; border: solid black 1.0pt; border-left: none; padding: 0cm 5.4pt 0cm 5.4pt; height: 30pt'>
-					<input type="text" id="study_institution1"
-						style="text-align: center; font-size: 8.0pt; font-family: 宋体; display: inline-block; height: 90%; width: 95%; padding: 0px; margin: 3px; border-radius: 0px"   />
-				</td>
-				
-			</tr>
-			<tr style='page-break-inside: avoid' id = "memberinfo2">
-				<td width=84 style='width: 62pt; border: solid black 1.0pt; border-left: none; padding: 0cm 5.4pt 0cm 5.4pt; height: 30pt'>
-					<input type="text" id=""
-						style="text-align: center; font-size: 8.0pt; font-family: 宋体; display: inline-block; height: 90%; width: 95%; padding: 0px; margin: 3px; border-radius: 0px"   />
-				</td>
-				<td width=84 style='width: 62pt; border: solid black 1.0pt; border-left: none; padding: 0cm 5.4pt 0cm 5.4pt; height: 30pt' colspan="2">
-					<input type="text" id="study_institution1"
-						style="text-align: center; font-size: 8.0pt; font-family: 宋体; display: inline-block; height: 90%; width: 95%; padding: 0px; margin: 3px; border-radius: 0px"   />
-				</td>
-				<td width=84 style='width: 62pt; border: solid black 1.0pt; border-left: none; padding: 0cm 5.4pt 0cm 5.4pt; height: 30pt' colspan="2">
-					<input type="text" id="study_position1"
-						style="text-align: center; font-size: 8.0pt; font-family: 宋体; display: inline-block; height: 90%; width: 95%; padding: 0px; margin: 3px; border-radius: 0px"   />
-				</td>
-				<td width=84 style='width: 62pt; border: solid black 1.0pt; border-left: none; padding: 0cm 5.4pt 0cm 5.4pt; height: 30pt'>
-					<input type="text" id="study_start_date1"
-						style="text-align: center; font-size: 8.0pt; font-family: 宋体; display: inline-block; height: 90%; width: 95%; padding: 0px; margin: 3px; border-radius: 0px"   />
-				</td>
-				<td width=84 style='width: 62pt; border: solid black 1.0pt; border-left: none; padding: 0cm 5.4pt 0cm 5.4pt; height: 30pt'>
-					<input type="text" id="study_end_date1"
-						style="text-align: center; font-size: 8.0pt; font-family: 宋体; display: inline-block; height: 90%; width: 95%; padding: 0px; margin: 3px; border-radius: 0px"   />
-			   </td>
-			   <td width=84 style='width: 62pt; border: solid black 1.0pt; border-left: none; padding: 0cm 5.4pt 0cm 5.4pt; height: 30pt'>
-					<input type="text" id=""
-						style="text-align: center; font-size: 8.0pt; font-family: 宋体; display: inline-block; height: 90%; width: 95%; padding: 0px; margin: 3px; border-radius: 0px"   />
-				</td>
-				<td width=84 style='width: 62pt; border: solid black 1.0pt; border-left: none; padding: 0cm 5.4pt 0cm 5.4pt; height: 30pt'>
-					<input type="text" id="study_institution1"
-						style="text-align: center; font-size: 8.0pt; font-family: 宋体; display: inline-block; height: 90%; width: 95%; padding: 0px; margin: 3px; border-radius: 0px"   />
-				</td>
-				
-			</tr>
-			<tr style='page-break-inside: avoid' id = "memberinfo2">
-				<td width=84 style='width: 62pt; border: solid black 1.0pt; border-left: none; padding: 0cm 5.4pt 0cm 5.4pt; height: 30pt'>
-					<input type="text" id=""
-						style="text-align: center; font-size: 8.0pt; font-family: 宋体; display: inline-block; height: 90%; width: 95%; padding: 0px; margin: 3px; border-radius: 0px"   />
-				</td>
-				<td width=84 style='width: 62pt; border: solid black 1.0pt; border-left: none; padding: 0cm 5.4pt 0cm 5.4pt; height: 30pt' colspan="2">
-					<input type="text" id="study_institution1"
-						style="text-align: center; font-size: 8.0pt; font-family: 宋体; display: inline-block; height: 90%; width: 95%; padding: 0px; margin: 3px; border-radius: 0px"   />
-				</td>
-				<td width=84 style='width: 62pt; border: solid black 1.0pt; border-left: none; padding: 0cm 5.4pt 0cm 5.4pt; height: 30pt' colspan="2">
-					<input type="text" id="study_position1"
-						style="text-align: center; font-size: 8.0pt; font-family: 宋体; display: inline-block; height: 90%; width: 95%; padding: 0px; margin: 3px; border-radius: 0px"   />
-				</td>
-				<td width=84 style='width: 62pt; border: solid black 1.0pt; border-left: none; padding: 0cm 5.4pt 0cm 5.4pt; height: 30pt'>
-					<input type="text" id="study_start_date1"
-						style="text-align: center; font-size: 8.0pt; font-family: 宋体; display: inline-block; height: 90%; width: 95%; padding: 0px; margin: 3px; border-radius: 0px"   />
-				</td>
-				<td width=84 style='width: 62pt; border: solid black 1.0pt; border-left: none; padding: 0cm 5.4pt 0cm 5.4pt; height: 30pt'>
-					<input type="text" id="study_end_date1"
-						style="text-align: center; font-size: 8.0pt; font-family: 宋体; display: inline-block; height: 90%; width: 95%; padding: 0px; margin: 3px; border-radius: 0px"   />
-			   </td>
-			   <td width=84 style='width: 62pt; border: solid black 1.0pt; border-left: none; padding: 0cm 5.4pt 0cm 5.4pt; height: 30pt'>
-					<input type="text" id=""
-						style="text-align: center; font-size: 8.0pt; font-family: 宋体; display: inline-block; height: 90%; width: 95%; padding: 0px; margin: 3px; border-radius: 0px"   />
-				</td>
-				<td width=84 style='width: 62pt; border: solid black 1.0pt; border-left: none; padding: 0cm 5.4pt 0cm 5.4pt; height: 30pt'>
-					<input type="text" id="study_institution1"
-						style="text-align: center; font-size: 8.0pt; font-family: 宋体; display: inline-block; height: 90%; width: 95%; padding: 0px; margin: 3px; border-radius: 0px"   />
-				</td>
-				
-			</tr>
-			</table>
-			<div style="text-align: left;margin-left:30px">
-							<a class="btn btn-small btn-info" href="javascript:void(0)" id="addmemeber">
-								<i class="icon-plus-sign"></i>添加
-							</a>
-		</div>
-		<table class=MsoNormalTable border=0 cellspacing=0 cellpadding=0 style='border-collapse: collapse'>
-		<tr style='page-break-inside: avoid' id = "memberinfo1">
-				<td width=36 rowspan=15 valign="middle" style='width: 6pt; border: solid windowtext 1.0pt;padding: 0cm 5.4pt 0cm 5.4pt'>
-					<div class=MsoNormal style='text-align: center'>
-						<span style='font-size: 14.0pt; font-family: 宋体'>团队核心成员</span>
-					</div>
-				</td>
-				<td width=84 style='width: 20pt; border: solid black 1.0pt; border-left: none; padding: 0cm 5.4pt 0cm 5.4pt; height: 30pt'>
-					<input type="text" id=""
-						style="text-align: center; font-size: 8.0pt; font-family: 宋体; display: inline-block; height: 90%; width: 95%; padding: 0px; margin: 3px; border-radius: 0px"   />
-				</td>
-				<td width=84 style='width: 124pt; border: solid black 1.0pt; border-left: none; padding: 0cm 5.4pt 0cm 5.4pt; height: 30pt' colspan="2">
-					<input type="text" id="study_institution1"
-						style="text-align: center; font-size: 8.0pt; font-family: 宋体; display: inline-block; height: 90%; width: 95%; padding: 0px; margin: 3px; border-radius: 0px"   />
-				</td>
-				<td width=84 style='width: 62pt; border: solid black 1.0pt; border-left: none; padding: 0cm 5.4pt 0cm 5.4pt; height: 30pt' colspan="2">
-					<input type="text" id="study_position1"
-						style="text-align: center; font-size: 8.0pt; font-family: 宋体; display: inline-block; height: 90%; width: 95%; padding: 0px; margin: 3px; border-radius: 0px"   />
-				</td>
-				<td width=84 style='width: 62pt; border: solid black 1.0pt; border-left: none; padding: 0cm 5.4pt 0cm 5.4pt; height: 30pt'>
-					<input type="text" id="study_start_date1"
-						style="text-align: center; font-size: 8.0pt; font-family: 宋体; display: inline-block; height: 90%; width: 95%; padding: 0px; margin: 3px; border-radius: 0px"   />
-				</td>
-				<td width=84 style='width: 84pt; border: solid black 1.0pt; border-left: none; padding: 0cm 5.4pt 0cm 5.4pt; height: 30pt'>
-					<input type="text" id="study_end_date1"
-						style="text-align: center; font-size: 8.0pt; font-family: 宋体; display: inline-block; height: 90%; width: 95%; padding: 0px; margin: 3px; border-radius: 0px"   />
-			   </td>
-			   <td width=84 style='width: 84pt; border: solid black 1.0pt; border-left: none; padding: 0cm 5.4pt 0cm 5.4pt; height: 30pt'>
-					<input type="text" id=""
-						style="text-align: center; font-size: 8.0pt; font-family: 宋体; display: inline-block; height: 90%; width: 95%; padding: 0px; margin: 3px; border-radius: 0px"   />
-				</td>
-				<td width=84 style='width: 84pt; border: solid black 1.0pt; border-left: none; padding: 0cm 5.4pt 0cm 5.4pt; height: 30pt'>
-					<input type="text" id="study_institution1"
-						style="text-align: center; font-size: 8.0pt; font-family: 宋体; display: inline-block; height: 90%; width: 95%; padding: 0px; margin: 3px; border-radius: 0px"   />
-				</td>
-			</tr>
-			<tr style='page-break-inside: avoid' id = "memberinfo2">
-				<td width=84 style='width: 62pt; border: solid black 1.0pt; border-left: none; padding: 0cm 5.4pt 0cm 5.4pt; height: 30pt'>
-					<input type="text" id=""
-						style="text-align: center; font-size: 8.0pt; font-family: 宋体; display: inline-block; height: 90%; width: 95%; padding: 0px; margin: 3px; border-radius: 0px"   />
-				</td>
-				<td width=84 style='width: 62pt; border: solid black 1.0pt; border-left: none; padding: 0cm 5.4pt 0cm 5.4pt; height: 30pt' colspan="2">
-					<input type="text" id="study_institution1"
-						style="text-align: center; font-size: 8.0pt; font-family: 宋体; display: inline-block; height: 90%; width: 95%; padding: 0px; margin: 3px; border-radius: 0px"   />
-				</td>
-				<td width=84 style='width: 62pt; border: solid black 1.0pt; border-left: none; padding: 0cm 5.4pt 0cm 5.4pt; height: 30pt' colspan="2">
-					<input type="text" id="study_position1"
-						style="text-align: center; font-size: 8.0pt; font-family: 宋体; display: inline-block; height: 90%; width: 95%; padding: 0px; margin: 3px; border-radius: 0px"   />
-				</td>
-				<td width=84 style='width: 62pt; border: solid black 1.0pt; border-left: none; padding: 0cm 5.4pt 0cm 5.4pt; height: 30pt'>
-					<input type="text" id="study_start_date1"
-						style="text-align: center; font-size: 8.0pt; font-family: 宋体; display: inline-block; height: 90%; width: 95%; padding: 0px; margin: 3px; border-radius: 0px"   />
-				</td>
-				<td width=84 style='width: 62pt; border: solid black 1.0pt; border-left: none; padding: 0cm 5.4pt 0cm 5.4pt; height: 30pt'>
-					<input type="text" id="study_end_date1"
-						style="text-align: center; font-size: 8.0pt; font-family: 宋体; display: inline-block; height: 90%; width: 95%; padding: 0px; margin: 3px; border-radius: 0px"   />
-			   </td>
-			   <td width=84 style='width: 62pt; border: solid black 1.0pt; border-left: none; padding: 0cm 5.4pt 0cm 5.4pt; height: 30pt'>
-					<input type="text" id=""
-						style="text-align: center; font-size: 8.0pt; font-family: 宋体; display: inline-block; height: 90%; width: 95%; padding: 0px; margin: 3px; border-radius: 0px"   />
-				</td>
-				<td width=84 style='width: 62pt; border: solid black 1.0pt; border-left: none; padding: 0cm 5.4pt 0cm 5.4pt; height: 30pt'>
-					<input type="text" id="study_institution1"
-						style="text-align: center; font-size: 8.0pt; font-family: 宋体; display: inline-block; height: 90%; width: 95%; padding: 0px; margin: 3px; border-radius: 0px"   />
-				</td>
-				
-			</tr>
-			<tr style='page-break-inside: avoid' id = "memberinfo2">
-				<td width=84 style='width: 62pt; border: solid black 1.0pt; border-left: none; padding: 0cm 5.4pt 0cm 5.4pt; height: 30pt'>
-					<input type="text" id=""
-						style="text-align: center; font-size: 8.0pt; font-family: 宋体; display: inline-block; height: 90%; width: 95%; padding: 0px; margin: 3px; border-radius: 0px"   />
-				</td>
-				<td width=84 style='width: 62pt; border: solid black 1.0pt; border-left: none; padding: 0cm 5.4pt 0cm 5.4pt; height: 30pt' colspan="2">
-					<input type="text" id="study_institution1"
-						style="text-align: center; font-size: 8.0pt; font-family: 宋体; display: inline-block; height: 90%; width: 95%; padding: 0px; margin: 3px; border-radius: 0px"   />
-				</td>
-				<td width=84 style='width: 62pt; border: solid black 1.0pt; border-left: none; padding: 0cm 5.4pt 0cm 5.4pt; height: 30pt' colspan="2">
-					<input type="text" id="study_position1"
-						style="text-align: center; font-size: 8.0pt; font-family: 宋体; display: inline-block; height: 90%; width: 95%; padding: 0px; margin: 3px; border-radius: 0px"   />
-				</td>
-				<td width=84 style='width: 62pt; border: solid black 1.0pt; border-left: none; padding: 0cm 5.4pt 0cm 5.4pt; height: 30pt'>
-					<input type="text" id="study_start_date1"
-						style="text-align: center; font-size: 8.0pt; font-family: 宋体; display: inline-block; height: 90%; width: 95%; padding: 0px; margin: 3px; border-radius: 0px"   />
-				</td>
-				<td width=84 style='width: 62pt; border: solid black 1.0pt; border-left: none; padding: 0cm 5.4pt 0cm 5.4pt; height: 30pt'>
-					<input type="text" id="study_end_date1"
-						style="text-align: center; font-size: 8.0pt; font-family: 宋体; display: inline-block; height: 90%; width: 95%; padding: 0px; margin: 3px; border-radius: 0px"   />
-			   </td>
-			   <td width=84 style='width: 62pt; border: solid black 1.0pt; border-left: none; padding: 0cm 5.4pt 0cm 5.4pt; height: 30pt'>
-					<input type="text" id=""
-						style="text-align: center; font-size: 8.0pt; font-family: 宋体; display: inline-block; height: 90%; width: 95%; padding: 0px; margin: 3px; border-radius: 0px"   />
-				</td>
-				<td width=84 style='width: 62pt; border: solid black 1.0pt; border-left: none; padding: 0cm 5.4pt 0cm 5.4pt; height: 30pt'>
-					<input type="text" id="study_institution1"
-						style="text-align: center; font-size: 8.0pt; font-family: 宋体; display: inline-block; height: 90%; width: 95%; padding: 0px; margin: 3px; border-radius: 0px"   />
-				</td>
-				
-			</tr>
-			<tr style='page-break-inside: avoid' id = "memberinfo2">
-				<td width=84 style='width: 62pt; border: solid black 1.0pt; border-left: none; padding: 0cm 5.4pt 0cm 5.4pt; height: 30pt'>
-					<input type="text" id=""
-						style="text-align: center; font-size: 8.0pt; font-family: 宋体; display: inline-block; height: 90%; width: 95%; padding: 0px; margin: 3px; border-radius: 0px"   />
-				</td>
-				<td width=84 style='width: 62pt; border: solid black 1.0pt; border-left: none; padding: 0cm 5.4pt 0cm 5.4pt; height: 30pt' colspan="2">
-					<input type="text" id="study_institution1"
-						style="text-align: center; font-size: 8.0pt; font-family: 宋体; display: inline-block; height: 90%; width: 95%; padding: 0px; margin: 3px; border-radius: 0px"   />
-				</td>
-				<td width=84 style='width: 62pt; border: solid black 1.0pt; border-left: none; padding: 0cm 5.4pt 0cm 5.4pt; height: 30pt' colspan="2">
-					<input type="text" id="study_position1"
-						style="text-align: center; font-size: 8.0pt; font-family: 宋体; display: inline-block; height: 90%; width: 95%; padding: 0px; margin: 3px; border-radius: 0px"   />
-				</td>
-				<td width=84 style='width: 62pt; border: solid black 1.0pt; border-left: none; padding: 0cm 5.4pt 0cm 5.4pt; height: 30pt'>
-					<input type="text" id="study_start_date1"
-						style="text-align: center; font-size: 8.0pt; font-family: 宋体; display: inline-block; height: 90%; width: 95%; padding: 0px; margin: 3px; border-radius: 0px"   />
-				</td>
-				<td width=84 style='width: 62pt; border: solid black 1.0pt; border-left: none; padding: 0cm 5.4pt 0cm 5.4pt; height: 30pt'>
-					<input type="text" id="study_end_date1"
-						style="text-align: center; font-size: 8.0pt; font-family: 宋体; display: inline-block; height: 90%; width: 95%; padding: 0px; margin: 3px; border-radius: 0px"   />
-			   </td>
-			   <td width=84 style='width: 62pt; border: solid black 1.0pt; border-left: none; padding: 0cm 5.4pt 0cm 5.4pt; height: 30pt'>
-					<input type="text" id=""
-						style="text-align: center; font-size: 8.0pt; font-family: 宋体; display: inline-block; height: 90%; width: 95%; padding: 0px; margin: 3px; border-radius: 0px"   />
-				</td>
-				<td width=84 style='width: 62pt; border: solid black 1.0pt; border-left: none; padding: 0cm 5.4pt 0cm 5.4pt; height: 30pt'>
-					<input type="text" id="study_institution1"
-						style="text-align: center; font-size: 8.0pt; font-family: 宋体; display: inline-block; height: 90%; width: 95%; padding: 0px; margin: 3px; border-radius: 0px"   />
-				</td>
-				
-			</tr>
-			<tr style='page-break-inside: avoid' id = "memberinfo2">
-				<td width=84 style='width: 62pt; border: solid black 1.0pt; border-left: none; padding: 0cm 5.4pt 0cm 5.4pt; height: 30pt'>
-					<input type="text" id=""
-						style="text-align: center; font-size: 8.0pt; font-family: 宋体; display: inline-block; height: 90%; width: 95%; padding: 0px; margin: 3px; border-radius: 0px"   />
-				</td>
-				<td width=84 style='width: 62pt; border: solid black 1.0pt; border-left: none; padding: 0cm 5.4pt 0cm 5.4pt; height: 30pt' colspan="2">
-					<input type="text" id="study_institution1"
-						style="text-align: center; font-size: 8.0pt; font-family: 宋体; display: inline-block; height: 90%; width: 95%; padding: 0px; margin: 3px; border-radius: 0px"   />
-				</td>
-				<td width=84 style='width: 62pt; border: solid black 1.0pt; border-left: none; padding: 0cm 5.4pt 0cm 5.4pt; height: 30pt' colspan="2">
-					<input type="text" id="study_position1"
-						style="text-align: center; font-size: 8.0pt; font-family: 宋体; display: inline-block; height: 90%; width: 95%; padding: 0px; margin: 3px; border-radius: 0px"   />
-				</td>
-				<td width=84 style='width: 62pt; border: solid black 1.0pt; border-left: none; padding: 0cm 5.4pt 0cm 5.4pt; height: 30pt'>
-					<input type="text" id="study_start_date1"
-						style="text-align: center; font-size: 8.0pt; font-family: 宋体; display: inline-block; height: 90%; width: 95%; padding: 0px; margin: 3px; border-radius: 0px"   />
-				</td>
-				<td width=84 style='width: 62pt; border: solid black 1.0pt; border-left: none; padding: 0cm 5.4pt 0cm 5.4pt; height: 30pt'>
-					<input type="text" id="study_end_date1"
-						style="text-align: center; font-size: 8.0pt; font-family: 宋体; display: inline-block; height: 90%; width: 95%; padding: 0px; margin: 3px; border-radius: 0px"   />
-			   </td>
-			   <td width=84 style='width: 62pt; border: solid black 1.0pt; border-left: none; padding: 0cm 5.4pt 0cm 5.4pt; height: 30pt'>
-					<input type="text" id=""
-						style="text-align: center; font-size: 8.0pt; font-family: 宋体; display: inline-block; height: 90%; width: 95%; padding: 0px; margin: 3px; border-radius: 0px"   />
-				</td>
-				<td width=84 style='width: 62pt; border: solid black 1.0pt; border-left: none; padding: 0cm 5.4pt 0cm 5.4pt; height: 30pt'>
-					<input type="text" id="study_institution1"
-						style="text-align: center; font-size: 8.0pt; font-family: 宋体; display: inline-block; height: 90%; width: 95%; padding: 0px; margin: 3px; border-radius: 0px"   />
-				</td>
-				
-			</tr>
-		</table>
-			<div style="text-align: left;margin-left:30px">
-				<a class="btn btn-small btn-info" href="javascript:void(0)" id="addmemeber">
-					<i class="icon-plus-sign"></i>添加
-				</a>
-			</div>
-			<table class=MsoNormalTable border=0 cellspacing=0 cellpadding=0 style='border-collapse: collapse'>
-				
-				<tr class="form-group form-group-lg">
-					<td width=40  colspan =12 style='width: 10pt; border: solid black 1.0pt; padding: 0cm 5.4pt 0cm 5.4pt; height: 30pt'>
-						<div class=MsoNormal>
-						<span style='font-size: 14.0pt; font-family: 宋体'>
-						 3．获得授权专利情况
-						</span>
-						</div>
-					</td>
-				</tr>
-				<tr style='page-break-inside: avoid'>
-				<td width=36 valign="middle" style='width: 6pt; border: solid windowtext 1.0pt; border-top: none; padding: 0cm 5.4pt 0cm 5.4pt'>
-					<div class=MsoNormal style='text-align: center'>
-						<span style='font-size: 14.0pt; font-family: 宋体'></span>
-					</div>
-				</td>
-				<td style='width: 62pt; border: solid black 1.0pt; border-left: none; padding: 0cm 5.4pt 0cm 5.4pt; height: 30pt' >
-					<div class=MsoNormal style='text-align: center'>
-						<span style='font-size: 14.0pt; font-family: 宋体'>序号</span>
-					</div>
-				</td>
-				<td  style='width: 62pt; border: solid black 1.0pt; border-left: none; padding: 0cm 5.4pt 0cm 5.4pt; height: 30pt' colspan =2>
-					<div class=MsoNormal  style='text-align: center'>
-						<span style='font-size: 14.0pt; font-family: 宋体'>专利名称</span>
-					</div>
-				</td>
-				<td  style='width: 62pt; border: solid black 1.0pt; border-left: none; padding: 0cm 5.4pt 0cm 5.4pt; height: 30pt' colspan =2>
-					<div class=MsoNormal style='text-align: center'>
-						<span style='font-size: 14.0pt; font-family: 宋体'>授权号</span>
-					</div>
-				</td>
-				<td  style='width: 62pt; border: solid black 1.0pt; border-left: none; padding: 0cm 5.4pt 0cm 5.4pt; height: 30pt'>
-					<div class=MsoNormal style='text-align: center'>
-						<span style='font-size: 14.0pt; font-family: 宋体'>类别
-						</span>
-					</div>
-				</td>
-				<td style='width: 62pt; border: solid black 1.0pt; border-left: none; padding: 0cm 5.4pt 0cm 5.4pt; height: 30pt'>
-					<div class=MsoNormal style='text-align: center'>
-						<span style='font-size: 14.0pt; font-family: 宋体'>发明人或设计人排序</span>
-					</div>
-				</td>
-				<td style='width: 30pt; border: solid black 1.0pt; border-left: none; padding: 0cm 5.4pt 0cm 5.4pt; height: 30pt'>
-					<div class=MsoNormal style='text-align: center'>
-						<span style='font-size: 14.0pt; font-family: 宋体'>授予时间 </span>
-					</div>
-				</td>
-				<td  style='width: 30pt; border: solid black 1.0pt; border-left: none; padding: 0cm 5.4pt 0cm 5.4pt; height: 30pt'>
-					<div class=MsoNormal style='text-align: center'>
-						<span style='font-size: 14.0pt; font-family: 宋体'>授予国家或组织</span>
-					</div>
-				</td>
-			</tr>
-			<tr style='page-break-inside: avoid' id = "memberinfo1">
-				<td width=36 rowspan=15 valign="middle" style='width: 6pt; border: solid windowtext 1.0pt; border-top: none; padding: 0cm 5.4pt 0cm 5.4pt'>
-					<div class=MsoNormal style='text-align: center'>
-						<span style='font-size: 14.0pt; font-family: 宋体'>团队负责人</span>
-					</div>
-				</td>
-				<td width=84 style='width: 20pt; border: solid black 1.0pt; border-left: none; padding: 0cm 5.4pt 0cm 5.4pt; height: 30pt'>
-					<input type="text" id=""
-						style="text-align: center; font-size: 8.0pt; font-family: 宋体; display: inline-block; height: 90%; width: 95%; padding: 0px; margin: 3px; border-radius: 0px"   />
-				</td>
-				<td width=84 style='width: 124pt; border: solid black 1.0pt; border-left: none; padding: 0cm 5.4pt 0cm 5.4pt; height: 30pt' colspan="2">
-					<input type="text" id="study_institution1"
-						style="text-align: center; font-size: 8.0pt; font-family: 宋体; display: inline-block; height: 90%; width: 95%; padding: 0px; margin: 3px; border-radius: 0px"   />
-				</td>
-				<td width=84 style='width: 62pt; border: solid black 1.0pt; border-left: none; padding: 0cm 5.4pt 0cm 5.4pt; height: 30pt' colspan="2">
-					<input type="text" id="study_position1"
-						style="text-align: center; font-size: 8.0pt; font-family: 宋体; display: inline-block; height: 90%; width: 95%; padding: 0px; margin: 3px; border-radius: 0px"   />
-				</td>
-				<td width=84 style='width: 62pt; border: solid black 1.0pt; border-left: none; padding: 0cm 5.4pt 0cm 5.4pt; height: 30pt'>
-					<input type="text" id="study_start_date1"
-						style="text-align: center; font-size: 8.0pt; font-family: 宋体; display: inline-block; height: 90%; width: 95%; padding: 0px; margin: 3px; border-radius: 0px"   />
-				</td>
-				<td width=84 style='width: 84pt; border: solid black 1.0pt; border-left: none; padding: 0cm 5.4pt 0cm 5.4pt; height: 30pt'>
-					<input type="text" id="study_end_date1"
-						style="text-align: center; font-size: 8.0pt; font-family: 宋体; display: inline-block; height: 90%; width: 95%; padding: 0px; margin: 3px; border-radius: 0px"   />
-			   </td>
-			   <td width=84 style='width: 84pt; border: solid black 1.0pt; border-left: none; padding: 0cm 5.4pt 0cm 5.4pt; height: 30pt'>
-					<input type="text" id=""
-						style="text-align: center; font-size: 8.0pt; font-family: 宋体; display: inline-block; height: 90%; width: 95%; padding: 0px; margin: 3px; border-radius: 0px"   />
-				</td>
-				<td width=84 style='width: 84pt; border: solid black 1.0pt; border-left: none; padding: 0cm 5.4pt 0cm 5.4pt; height: 30pt'>
-					<input type="text" id="study_institution1"
-						style="text-align: center; font-size: 8.0pt; font-family: 宋体; display: inline-block; height: 90%; width: 95%; padding: 0px; margin: 3px; border-radius: 0px"   />
-				</td>
-			</tr>
-			<tr style='page-break-inside: avoid' id = "memberinfo2">
-				<td width=84 style='width: 62pt; border: solid black 1.0pt; border-left: none; padding: 0cm 5.4pt 0cm 5.4pt; height: 30pt'>
-					<input type="text" id=""
-						style="text-align: center; font-size: 8.0pt; font-family: 宋体; display: inline-block; height: 90%; width: 95%; padding: 0px; margin: 3px; border-radius: 0px"   />
-				</td>
-				<td width=84 style='width: 62pt; border: solid black 1.0pt; border-left: none; padding: 0cm 5.4pt 0cm 5.4pt; height: 30pt' colspan="2">
-					<input type="text" id="study_institution1"
-						style="text-align: center; font-size: 8.0pt; font-family: 宋体; display: inline-block; height: 90%; width: 95%; padding: 0px; margin: 3px; border-radius: 0px"   />
-				</td>
-				<td width=84 style='width: 62pt; border: solid black 1.0pt; border-left: none; padding: 0cm 5.4pt 0cm 5.4pt; height: 30pt' colspan="2">
-					<input type="text" id="study_position1"
-						style="text-align: center; font-size: 8.0pt; font-family: 宋体; display: inline-block; height: 90%; width: 95%; padding: 0px; margin: 3px; border-radius: 0px"   />
-				</td>
-				<td width=84 style='width: 62pt; border: solid black 1.0pt; border-left: none; padding: 0cm 5.4pt 0cm 5.4pt; height: 30pt'>
-					<input type="text" id="study_start_date1"
-						style="text-align: center; font-size: 8.0pt; font-family: 宋体; display: inline-block; height: 90%; width: 95%; padding: 0px; margin: 3px; border-radius: 0px"   />
-				</td>
-				<td width=84 style='width: 62pt; border: solid black 1.0pt; border-left: none; padding: 0cm 5.4pt 0cm 5.4pt; height: 30pt'>
-					<input type="text" id="study_end_date1"
-						style="text-align: center; font-size: 8.0pt; font-family: 宋体; display: inline-block; height: 90%; width: 95%; padding: 0px; margin: 3px; border-radius: 0px"   />
-			   </td>
-			   <td width=84 style='width: 62pt; border: solid black 1.0pt; border-left: none; padding: 0cm 5.4pt 0cm 5.4pt; height: 30pt'>
-					<input type="text" id=""
-						style="text-align: center; font-size: 8.0pt; font-family: 宋体; display: inline-block; height: 90%; width: 95%; padding: 0px; margin: 3px; border-radius: 0px"   />
-				</td>
-				<td width=84 style='width: 62pt; border: solid black 1.0pt; border-left: none; padding: 0cm 5.4pt 0cm 5.4pt; height: 30pt'>
-					<input type="text" id="study_institution1"
-						style="text-align: center; font-size: 8.0pt; font-family: 宋体; display: inline-block; height: 90%; width: 95%; padding: 0px; margin: 3px; border-radius: 0px"   />
-				</td>
-				
-			</tr>
-			<tr style='page-break-inside: avoid' id = "memberinfo2">
-				<td width=84 style='width: 62pt; border: solid black 1.0pt; border-left: none; padding: 0cm 5.4pt 0cm 5.4pt; height: 30pt'>
-					<input type="text" id=""
-						style="text-align: center; font-size: 8.0pt; font-family: 宋体; display: inline-block; height: 90%; width: 95%; padding: 0px; margin: 3px; border-radius: 0px"   />
-				</td>
-				<td width=84 style='width: 62pt; border: solid black 1.0pt; border-left: none; padding: 0cm 5.4pt 0cm 5.4pt; height: 30pt' colspan="2">
-					<input type="text" id="study_institution1"
-						style="text-align: center; font-size: 8.0pt; font-family: 宋体; display: inline-block; height: 90%; width: 95%; padding: 0px; margin: 3px; border-radius: 0px"   />
-				</td>
-				<td width=84 style='width: 62pt; border: solid black 1.0pt; border-left: none; padding: 0cm 5.4pt 0cm 5.4pt; height: 30pt' colspan="2">
-					<input type="text" id="study_position1"
-						style="text-align: center; font-size: 8.0pt; font-family: 宋体; display: inline-block; height: 90%; width: 95%; padding: 0px; margin: 3px; border-radius: 0px"   />
-				</td>
-				<td width=84 style='width: 62pt; border: solid black 1.0pt; border-left: none; padding: 0cm 5.4pt 0cm 5.4pt; height: 30pt'>
-					<input type="text" id="study_start_date1"
-						style="text-align: center; font-size: 8.0pt; font-family: 宋体; display: inline-block; height: 90%; width: 95%; padding: 0px; margin: 3px; border-radius: 0px"   />
-				</td>
-				<td width=84 style='width: 62pt; border: solid black 1.0pt; border-left: none; padding: 0cm 5.4pt 0cm 5.4pt; height: 30pt'>
-					<input type="text" id="study_end_date1"
-						style="text-align: center; font-size: 8.0pt; font-family: 宋体; display: inline-block; height: 90%; width: 95%; padding: 0px; margin: 3px; border-radius: 0px"   />
-			   </td>
-			   <td width=84 style='width: 62pt; border: solid black 1.0pt; border-left: none; padding: 0cm 5.4pt 0cm 5.4pt; height: 30pt'>
-					<input type="text" id=""
-						style="text-align: center; font-size: 8.0pt; font-family: 宋体; display: inline-block; height: 90%; width: 95%; padding: 0px; margin: 3px; border-radius: 0px"   />
-				</td>
-				<td width=84 style='width: 62pt; border: solid black 1.0pt; border-left: none; padding: 0cm 5.4pt 0cm 5.4pt; height: 30pt'>
-					<input type="text" id="study_institution1"
-						style="text-align: center; font-size: 8.0pt; font-family: 宋体; display: inline-block; height: 90%; width: 95%; padding: 0px; margin: 3px; border-radius: 0px"   />
-				</td>
-				
-			</tr>
-			<tr style='page-break-inside: avoid' id = "memberinfo2">
-				<td width=84 style='width: 62pt; border: solid black 1.0pt; border-left: none; padding: 0cm 5.4pt 0cm 5.4pt; height: 30pt'>
-					<input type="text" id=""
-						style="text-align: center; font-size: 8.0pt; font-family: 宋体; display: inline-block; height: 90%; width: 95%; padding: 0px; margin: 3px; border-radius: 0px"   />
-				</td>
-				<td width=84 style='width: 62pt; border: solid black 1.0pt; border-left: none; padding: 0cm 5.4pt 0cm 5.4pt; height: 30pt' colspan="2">
-					<input type="text" id="study_institution1"
-						style="text-align: center; font-size: 8.0pt; font-family: 宋体; display: inline-block; height: 90%; width: 95%; padding: 0px; margin: 3px; border-radius: 0px"   />
-				</td>
-				<td width=84 style='width: 62pt; border: solid black 1.0pt; border-left: none; padding: 0cm 5.4pt 0cm 5.4pt; height: 30pt' colspan="2">
-					<input type="text" id="study_position1"
-						style="text-align: center; font-size: 8.0pt; font-family: 宋体; display: inline-block; height: 90%; width: 95%; padding: 0px; margin: 3px; border-radius: 0px"   />
-				</td>
-				<td width=84 style='width: 62pt; border: solid black 1.0pt; border-left: none; padding: 0cm 5.4pt 0cm 5.4pt; height: 30pt'>
-					<input type="text" id="study_start_date1"
-						style="text-align: center; font-size: 8.0pt; font-family: 宋体; display: inline-block; height: 90%; width: 95%; padding: 0px; margin: 3px; border-radius: 0px"   />
-				</td>
-				<td width=84 style='width: 62pt; border: solid black 1.0pt; border-left: none; padding: 0cm 5.4pt 0cm 5.4pt; height: 30pt'>
-					<input type="text" id="study_end_date1"
-						style="text-align: center; font-size: 8.0pt; font-family: 宋体; display: inline-block; height: 90%; width: 95%; padding: 0px; margin: 3px; border-radius: 0px"   />
-			   </td>
-			   <td width=84 style='width: 62pt; border: solid black 1.0pt; border-left: none; padding: 0cm 5.4pt 0cm 5.4pt; height: 30pt'>
-					<input type="text" id=""
-						style="text-align: center; font-size: 8.0pt; font-family: 宋体; display: inline-block; height: 90%; width: 95%; padding: 0px; margin: 3px; border-radius: 0px"   />
-				</td>
-				<td width=84 style='width: 62pt; border: solid black 1.0pt; border-left: none; padding: 0cm 5.4pt 0cm 5.4pt; height: 30pt'>
-					<input type="text" id="study_institution1"
-						style="text-align: center; font-size: 8.0pt; font-family: 宋体; display: inline-block; height: 90%; width: 95%; padding: 0px; margin: 3px; border-radius: 0px"   />
-				</td>
-				
-			</tr>
-			<tr style='page-break-inside: avoid' id = "memberinfo2">
-				<td width=84 style='width: 62pt; border: solid black 1.0pt; border-left: none; padding: 0cm 5.4pt 0cm 5.4pt; height: 30pt'>
-					<input type="text" id=""
-						style="text-align: center; font-size: 8.0pt; font-family: 宋体; display: inline-block; height: 90%; width: 95%; padding: 0px; margin: 3px; border-radius: 0px"   />
-				</td>
-				<td width=84 style='width: 62pt; border: solid black 1.0pt; border-left: none; padding: 0cm 5.4pt 0cm 5.4pt; height: 30pt' colspan="2">
-					<input type="text" id="study_institution1"
-						style="text-align: center; font-size: 8.0pt; font-family: 宋体; display: inline-block; height: 90%; width: 95%; padding: 0px; margin: 3px; border-radius: 0px"   />
-				</td>
-				<td width=84 style='width: 62pt; border: solid black 1.0pt; border-left: none; padding: 0cm 5.4pt 0cm 5.4pt; height: 30pt' colspan="2">
-					<input type="text" id="study_position1"
-						style="text-align: center; font-size: 8.0pt; font-family: 宋体; display: inline-block; height: 90%; width: 95%; padding: 0px; margin: 3px; border-radius: 0px"   />
-				</td>
-				<td width=84 style='width: 62pt; border: solid black 1.0pt; border-left: none; padding: 0cm 5.4pt 0cm 5.4pt; height: 30pt'>
-					<input type="text" id="study_start_date1"
-						style="text-align: center; font-size: 8.0pt; font-family: 宋体; display: inline-block; height: 90%; width: 95%; padding: 0px; margin: 3px; border-radius: 0px"   />
-				</td>
-				<td width=84 style='width: 62pt; border: solid black 1.0pt; border-left: none; padding: 0cm 5.4pt 0cm 5.4pt; height: 30pt'>
-					<input type="text" id="study_end_date1"
-						style="text-align: center; font-size: 8.0pt; font-family: 宋体; display: inline-block; height: 90%; width: 95%; padding: 0px; margin: 3px; border-radius: 0px"   />
-			   </td>
-			   <td width=84 style='width: 62pt; border: solid black 1.0pt; border-left: none; padding: 0cm 5.4pt 0cm 5.4pt; height: 30pt'>
-					<input type="text" id=""
-						style="text-align: center; font-size: 8.0pt; font-family: 宋体; display: inline-block; height: 90%; width: 95%; padding: 0px; margin: 3px; border-radius: 0px"   />
-				</td>
-				<td width=84 style='width: 62pt; border: solid black 1.0pt; border-left: none; padding: 0cm 5.4pt 0cm 5.4pt; height: 30pt'>
-					<input type="text" id="study_institution1"
-						style="text-align: center; font-size: 8.0pt; font-family: 宋体; display: inline-block; height: 90%; width: 95%; padding: 0px; margin: 3px; border-radius: 0px"   />
-				</td>
-				
-			</tr>
-			</table>
-			<div style="text-align: left;margin-left:30px">
-							<a class="btn btn-small btn-info" href="javascript:void(0)" id="addmemeber">
-								<i class="icon-plus-sign"></i>添加
-							</a>
-		</div>
-		<table class=MsoNormalTable border=0 cellspacing=0 cellpadding=0 style='border-collapse: collapse'>
-		<tr style='page-break-inside: avoid' id = "memberinfo1">
-				<td width=36 rowspan=15 valign="middle" style='width: 6pt; border: solid windowtext 1.0pt;padding: 0cm 5.4pt 0cm 5.4pt'>
-					<div class=MsoNormal style='text-align: center'>
-						<span style='font-size: 14.0pt; font-family: 宋体'>团队核心成员</span>
-					</div>
-				</td>
-				<td width=84 style='width: 20pt; border: solid black 1.0pt; border-left: none; padding: 0cm 5.4pt 0cm 5.4pt; height: 30pt'>
-					<input type="text" id=""
-						style="text-align: center; font-size: 8.0pt; font-family: 宋体; display: inline-block; height: 90%; width: 95%; padding: 0px; margin: 3px; border-radius: 0px"   />
-				</td>
-				<td width=84 style='width: 124pt; border: solid black 1.0pt; border-left: none; padding: 0cm 5.4pt 0cm 5.4pt; height: 30pt' colspan="2">
-					<input type="text" id="study_institution1"
-						style="text-align: center; font-size: 8.0pt; font-family: 宋体; display: inline-block; height: 90%; width: 95%; padding: 0px; margin: 3px; border-radius: 0px"   />
-				</td>
-				<td width=84 style='width: 62pt; border: solid black 1.0pt; border-left: none; padding: 0cm 5.4pt 0cm 5.4pt; height: 30pt' colspan="2">
-					<input type="text" id="study_position1"
-						style="text-align: center; font-size: 8.0pt; font-family: 宋体; display: inline-block; height: 90%; width: 95%; padding: 0px; margin: 3px; border-radius: 0px"   />
-				</td>
-				<td width=84 style='width: 62pt; border: solid black 1.0pt; border-left: none; padding: 0cm 5.4pt 0cm 5.4pt; height: 30pt'>
-					<input type="text" id="study_start_date1"
-						style="text-align: center; font-size: 8.0pt; font-family: 宋体; display: inline-block; height: 90%; width: 95%; padding: 0px; margin: 3px; border-radius: 0px"   />
-				</td>
-				<td width=84 style='width: 84pt; border: solid black 1.0pt; border-left: none; padding: 0cm 5.4pt 0cm 5.4pt; height: 30pt'>
-					<input type="text" id="study_end_date1"
-						style="text-align: center; font-size: 8.0pt; font-family: 宋体; display: inline-block; height: 90%; width: 95%; padding: 0px; margin: 3px; border-radius: 0px"   />
-			   </td>
-			   <td width=84 style='width: 84pt; border: solid black 1.0pt; border-left: none; padding: 0cm 5.4pt 0cm 5.4pt; height: 30pt'>
-					<input type="text" id=""
-						style="text-align: center; font-size: 8.0pt; font-family: 宋体; display: inline-block; height: 90%; width: 95%; padding: 0px; margin: 3px; border-radius: 0px"   />
-				</td>
-				<td width=84 style='width: 84pt; border: solid black 1.0pt; border-left: none; padding: 0cm 5.4pt 0cm 5.4pt; height: 30pt'>
-					<input type="text" id="study_institution1"
-						style="text-align: center; font-size: 8.0pt; font-family: 宋体; display: inline-block; height: 90%; width: 95%; padding: 0px; margin: 3px; border-radius: 0px"   />
-				</td>
-			</tr>
-			<tr style='page-break-inside: avoid' id = "memberinfo2">
-				<td width=84 style='width: 62pt; border: solid black 1.0pt; border-left: none; padding: 0cm 5.4pt 0cm 5.4pt; height: 30pt'>
-					<input type="text" id=""
-						style="text-align: center; font-size: 8.0pt; font-family: 宋体; display: inline-block; height: 90%; width: 95%; padding: 0px; margin: 3px; border-radius: 0px"   />
-				</td>
-				<td width=84 style='width: 62pt; border: solid black 1.0pt; border-left: none; padding: 0cm 5.4pt 0cm 5.4pt; height: 30pt' colspan="2">
-					<input type="text" id="study_institution1"
-						style="text-align: center; font-size: 8.0pt; font-family: 宋体; display: inline-block; height: 90%; width: 95%; padding: 0px; margin: 3px; border-radius: 0px"   />
-				</td>
-				<td width=84 style='width: 62pt; border: solid black 1.0pt; border-left: none; padding: 0cm 5.4pt 0cm 5.4pt; height: 30pt' colspan="2">
-					<input type="text" id="study_position1"
-						style="text-align: center; font-size: 8.0pt; font-family: 宋体; display: inline-block; height: 90%; width: 95%; padding: 0px; margin: 3px; border-radius: 0px"   />
-				</td>
-				<td width=84 style='width: 62pt; border: solid black 1.0pt; border-left: none; padding: 0cm 5.4pt 0cm 5.4pt; height: 30pt'>
-					<input type="text" id="study_start_date1"
-						style="text-align: center; font-size: 8.0pt; font-family: 宋体; display: inline-block; height: 90%; width: 95%; padding: 0px; margin: 3px; border-radius: 0px"   />
-				</td>
-				<td width=84 style='width: 62pt; border: solid black 1.0pt; border-left: none; padding: 0cm 5.4pt 0cm 5.4pt; height: 30pt'>
-					<input type="text" id="study_end_date1"
-						style="text-align: center; font-size: 8.0pt; font-family: 宋体; display: inline-block; height: 90%; width: 95%; padding: 0px; margin: 3px; border-radius: 0px"   />
-			   </td>
-			   <td width=84 style='width: 62pt; border: solid black 1.0pt; border-left: none; padding: 0cm 5.4pt 0cm 5.4pt; height: 30pt'>
-					<input type="text" id=""
-						style="text-align: center; font-size: 8.0pt; font-family: 宋体; display: inline-block; height: 90%; width: 95%; padding: 0px; margin: 3px; border-radius: 0px"   />
-				</td>
-				<td width=84 style='width: 62pt; border: solid black 1.0pt; border-left: none; padding: 0cm 5.4pt 0cm 5.4pt; height: 30pt'>
-					<input type="text" id="study_institution1"
-						style="text-align: center; font-size: 8.0pt; font-family: 宋体; display: inline-block; height: 90%; width: 95%; padding: 0px; margin: 3px; border-radius: 0px"   />
-				</td>
-				
-			</tr>
-			<tr style='page-break-inside: avoid' id = "memberinfo2">
-				<td width=84 style='width: 62pt; border: solid black 1.0pt; border-left: none; padding: 0cm 5.4pt 0cm 5.4pt; height: 30pt'>
-					<input type="text" id=""
-						style="text-align: center; font-size: 8.0pt; font-family: 宋体; display: inline-block; height: 90%; width: 95%; padding: 0px; margin: 3px; border-radius: 0px"   />
-				</td>
-				<td width=84 style='width: 62pt; border: solid black 1.0pt; border-left: none; padding: 0cm 5.4pt 0cm 5.4pt; height: 30pt' colspan="2">
-					<input type="text" id="study_institution1"
-						style="text-align: center; font-size: 8.0pt; font-family: 宋体; display: inline-block; height: 90%; width: 95%; padding: 0px; margin: 3px; border-radius: 0px"   />
-				</td>
-				<td width=84 style='width: 62pt; border: solid black 1.0pt; border-left: none; padding: 0cm 5.4pt 0cm 5.4pt; height: 30pt' colspan="2">
-					<input type="text" id="study_position1"
-						style="text-align: center; font-size: 8.0pt; font-family: 宋体; display: inline-block; height: 90%; width: 95%; padding: 0px; margin: 3px; border-radius: 0px"   />
-				</td>
-				<td width=84 style='width: 62pt; border: solid black 1.0pt; border-left: none; padding: 0cm 5.4pt 0cm 5.4pt; height: 30pt'>
-					<input type="text" id="study_start_date1"
-						style="text-align: center; font-size: 8.0pt; font-family: 宋体; display: inline-block; height: 90%; width: 95%; padding: 0px; margin: 3px; border-radius: 0px"   />
-				</td>
-				<td width=84 style='width: 62pt; border: solid black 1.0pt; border-left: none; padding: 0cm 5.4pt 0cm 5.4pt; height: 30pt'>
-					<input type="text" id="study_end_date1"
-						style="text-align: center; font-size: 8.0pt; font-family: 宋体; display: inline-block; height: 90%; width: 95%; padding: 0px; margin: 3px; border-radius: 0px"   />
-			   </td>
-			   <td width=84 style='width: 62pt; border: solid black 1.0pt; border-left: none; padding: 0cm 5.4pt 0cm 5.4pt; height: 30pt'>
-					<input type="text" id=""
-						style="text-align: center; font-size: 8.0pt; font-family: 宋体; display: inline-block; height: 90%; width: 95%; padding: 0px; margin: 3px; border-radius: 0px"   />
-				</td>
-				<td width=84 style='width: 62pt; border: solid black 1.0pt; border-left: none; padding: 0cm 5.4pt 0cm 5.4pt; height: 30pt'>
-					<input type="text" id="study_institution1"
-						style="text-align: center; font-size: 8.0pt; font-family: 宋体; display: inline-block; height: 90%; width: 95%; padding: 0px; margin: 3px; border-radius: 0px"   />
-				</td>
-				
-			</tr>
-			<tr style='page-break-inside: avoid' id = "memberinfo2">
-				<td width=84 style='width: 62pt; border: solid black 1.0pt; border-left: none; padding: 0cm 5.4pt 0cm 5.4pt; height: 30pt'>
-					<input type="text" id=""
-						style="text-align: center; font-size: 8.0pt; font-family: 宋体; display: inline-block; height: 90%; width: 95%; padding: 0px; margin: 3px; border-radius: 0px"   />
-				</td>
-				<td width=84 style='width: 62pt; border: solid black 1.0pt; border-left: none; padding: 0cm 5.4pt 0cm 5.4pt; height: 30pt' colspan="2">
-					<input type="text" id="study_institution1"
-						style="text-align: center; font-size: 8.0pt; font-family: 宋体; display: inline-block; height: 90%; width: 95%; padding: 0px; margin: 3px; border-radius: 0px"   />
-				</td>
-				<td width=84 style='width: 62pt; border: solid black 1.0pt; border-left: none; padding: 0cm 5.4pt 0cm 5.4pt; height: 30pt' colspan="2">
-					<input type="text" id="study_position1"
-						style="text-align: center; font-size: 8.0pt; font-family: 宋体; display: inline-block; height: 90%; width: 95%; padding: 0px; margin: 3px; border-radius: 0px"   />
-				</td>
-				<td width=84 style='width: 62pt; border: solid black 1.0pt; border-left: none; padding: 0cm 5.4pt 0cm 5.4pt; height: 30pt'>
-					<input type="text" id="study_start_date1"
-						style="text-align: center; font-size: 8.0pt; font-family: 宋体; display: inline-block; height: 90%; width: 95%; padding: 0px; margin: 3px; border-radius: 0px"   />
-				</td>
-				<td width=84 style='width: 62pt; border: solid black 1.0pt; border-left: none; padding: 0cm 5.4pt 0cm 5.4pt; height: 30pt'>
-					<input type="text" id="study_end_date1"
-						style="text-align: center; font-size: 8.0pt; font-family: 宋体; display: inline-block; height: 90%; width: 95%; padding: 0px; margin: 3px; border-radius: 0px"   />
-			   </td>
-			   <td width=84 style='width: 62pt; border: solid black 1.0pt; border-left: none; padding: 0cm 5.4pt 0cm 5.4pt; height: 30pt'>
-					<input type="text" id=""
-						style="text-align: center; font-size: 8.0pt; font-family: 宋体; display: inline-block; height: 90%; width: 95%; padding: 0px; margin: 3px; border-radius: 0px"   />
-				</td>
-				<td width=84 style='width: 62pt; border: solid black 1.0pt; border-left: none; padding: 0cm 5.4pt 0cm 5.4pt; height: 30pt'>
-					<input type="text" id="study_institution1"
-						style="text-align: center; font-size: 8.0pt; font-family: 宋体; display: inline-block; height: 90%; width: 95%; padding: 0px; margin: 3px; border-radius: 0px"   />
-				</td>
-				
-			</tr>
-			<tr style='page-break-inside: avoid' id = "memberinfo2">
-				<td width=84 style='width: 62pt; border: solid black 1.0pt; border-left: none; padding: 0cm 5.4pt 0cm 5.4pt; height: 30pt'>
-					<input type="text" id=""
-						style="text-align: center; font-size: 8.0pt; font-family: 宋体; display: inline-block; height: 90%; width: 95%; padding: 0px; margin: 3px; border-radius: 0px"   />
-				</td>
-				<td width=84 style='width: 62pt; border: solid black 1.0pt; border-left: none; padding: 0cm 5.4pt 0cm 5.4pt; height: 30pt' colspan="2">
-					<input type="text" id="study_institution1"
-						style="text-align: center; font-size: 8.0pt; font-family: 宋体; display: inline-block; height: 90%; width: 95%; padding: 0px; margin: 3px; border-radius: 0px"   />
-				</td>
-				<td width=84 style='width: 62pt; border: solid black 1.0pt; border-left: none; padding: 0cm 5.4pt 0cm 5.4pt; height: 30pt' colspan="2">
-					<input type="text" id="study_position1"
-						style="text-align: center; font-size: 8.0pt; font-family: 宋体; display: inline-block; height: 90%; width: 95%; padding: 0px; margin: 3px; border-radius: 0px"   />
-				</td>
-				<td width=84 style='width: 62pt; border: solid black 1.0pt; border-left: none; padding: 0cm 5.4pt 0cm 5.4pt; height: 30pt'>
-					<input type="text" id="study_start_date1"
-						style="text-align: center; font-size: 8.0pt; font-family: 宋体; display: inline-block; height: 90%; width: 95%; padding: 0px; margin: 3px; border-radius: 0px"   />
-				</td>
-				<td width=84 style='width: 62pt; border: solid black 1.0pt; border-left: none; padding: 0cm 5.4pt 0cm 5.4pt; height: 30pt'>
-					<input type="text" id="study_end_date1"
-						style="text-align: center; font-size: 8.0pt; font-family: 宋体; display: inline-block; height: 90%; width: 95%; padding: 0px; margin: 3px; border-radius: 0px"   />
-			   </td>
-			   <td width=84 style='width: 62pt; border: solid black 1.0pt; border-left: none; padding: 0cm 5.4pt 0cm 5.4pt; height: 30pt'>
-					<input type="text" id=""
-						style="text-align: center; font-size: 8.0pt; font-family: 宋体; display: inline-block; height: 90%; width: 95%; padding: 0px; margin: 3px; border-radius: 0px"   />
-				</td>
-				<td width=84 style='width: 62pt; border: solid black 1.0pt; border-left: none; padding: 0cm 5.4pt 0cm 5.4pt; height: 30pt'>
-					<input type="text" id="study_institution1"
-						style="text-align: center; font-size: 8.0pt; font-family: 宋体; display: inline-block; height: 90%; width: 95%; padding: 0px; margin: 3px; border-radius: 0px"   />
-				</td>
-				
-			</tr>
-		</table>
-			<div style="text-align: left;margin-left:30px">
-				<a class="btn btn-small btn-info" href="javascript:void(0)" id="addmemeber">
-					<i class="icon-plus-sign"></i>添加
-				</a>
-			</div>
-			<table class=MsoNormalTable border=0 cellspacing=0 cellpadding=0 style='border-collapse: collapse'>
-				
-				<tr class="form-group form-group-lg">
-					<td width=40  colspan =12 style='width: 10pt; border: solid black 1.0pt; padding: 0cm 5.4pt 0cm 5.4pt; height: 30pt'>
-						<div class=MsoNormal>
-						<span style='font-size: 14.0pt; font-family: 宋体'>
-						 4．重要国际学术会议报告情况
-						</span>
-						</div>
-					</td>
-				</tr>
-				<tr style='page-break-inside: avoid'>
-				<td width=36 valign="middle" style='width: 6pt; border: solid windowtext 1.0pt; border-top: none; padding: 0cm 5.4pt 0cm 5.4pt'>
-					<div class=MsoNormal style='text-align: center'>
-						<span style='font-size: 14.0pt; font-family: 宋体'></span>
-					</div>
-				</td>
-				<td style='width: 30pt; border: solid black 1.0pt; border-left: none; padding: 0cm 5.4pt 0cm 5.4pt; height: 30pt' >
-					<div class=MsoNormal style='text-align: center'>
-						<span style='font-size: 14.0pt; font-family: 宋体'>序号</span>
-					</div>
-				</td>
-				<td  style='width: 62pt; border: solid black 1.0pt; border-left: none; padding: 0cm 5.4pt 0cm 5.4pt; height: 30pt' colspan =2>
-					<div class=MsoNormal  style='text-align: center'>
-						<span style='font-size: 14.0pt; font-family: 宋体'>报告名称</span>
-					</div>
-				</td>
-				<td  style='width: 62pt; border: solid black 1.0pt; border-left: none; padding: 0cm 5.4pt 0cm 5.4pt; height: 30pt' colspan =2>
-					<div class=MsoNormal style='text-align: center'>
-						<span style='font-size: 14.0pt; font-family: 宋体'>会议名称</span>
-					</div>
-				</td>
-				<td  style='width: 62pt; border: solid black 1.0pt; border-left: none; padding: 0cm 5.4pt 0cm 5.4pt; height: 30pt'>
-					<div class=MsoNormal style='text-align: center'>
-						<span style='font-size: 14.0pt; font-family: 宋体'>主办方
-						</span>
-					</div>
-				</td>
-				<td style='width: 30pt; border: solid black 1.0pt; border-left: none; padding: 0cm 5.4pt 0cm 5.4pt; height: 30pt'>
-					<div class=MsoNormal style='text-align: center'>
-						<span style='font-size: 14.0pt; font-family: 宋体'>时间</span>
-					</div>
-				</td>
-				<td style='width: 30pt; border: solid black 1.0pt; border-left: none; padding: 0cm 5.4pt 0cm 5.4pt; height: 30pt'>
-					<div class=MsoNormal style='text-align: center'>
-						<span style='font-size: 14.0pt; font-family: 宋体'>地点</span>
-					</div>
-				</td>
-				<td  style='width: 30pt; border: solid black 1.0pt; border-left: none; padding: 0cm 5.4pt 0cm 5.4pt; height: 30pt'>
-					<div class=MsoNormal style='text-align: center'>
-						<span style='font-size: 14.0pt; font-family: 宋体'>报告类别</span>
-					</div>
-				</td><td  style='width: 50pt; border: solid black 1.0pt; border-left: none; padding: 0cm 5.4pt 0cm 5.4pt; height: 30pt'>
-					<div class=MsoNormal style='text-align: center'>
-						<span style='font-size: 14.0pt; font-family: 宋体'>报告人</span>
-					</div>
-				</td>
-			</tr>
-			<tr style='page-break-inside: avoid' id = "memberinfo1">
-				<td width=36 rowspan=15 valign="middle" style='width: 6pt; border: solid windowtext 1.0pt; border-top: none; padding: 0cm 5.4pt 0cm 5.4pt'>
-					<div class=MsoNormal style='text-align: center'>
-						<span style='font-size: 14.0pt; font-family: 宋体'>团队负责人</span>
-					</div>
-				</td>
-				<td  style='width: 30pt; border: solid black 1.0pt; border-left: none; padding: 0cm 5.4pt 0cm 5.4pt; height: 30pt'>
-					<input type="text" id=""
-						style="text-align: center; font-size: 8.0pt; font-family: 宋体; display: inline-block; height: 90%; width: 95%; padding: 0px; margin: 3px; border-radius: 0px"   />
-				</td>
-				<td  style='width: 62pt; border: solid black 1.0pt; border-left: none; padding: 0cm 5.4pt 0cm 5.4pt; height: 30pt' colspan="2">
-					<input type="text" id="study_institution1"
-						style="text-align: center; font-size: 8.0pt; font-family: 宋体; display: inline-block; height: 90%; width: 95%; padding: 0px; margin: 3px; border-radius: 0px"   />
-				</td>
-				<td  style='width: 62pt; border: solid black 1.0pt; border-left: none; padding: 0cm 5.4pt 0cm 5.4pt; height: 30pt' colspan="2">
-					<input type="text" id="study_position1"
-						style="text-align: center; font-size: 8.0pt; font-family: 宋体; display: inline-block; height: 90%; width: 95%; padding: 0px; margin: 3px; border-radius: 0px"   />
-				</td>
-				<td  style='width: 62pt; border: solid black 1.0pt; border-left: none; padding: 0cm 5.4pt 0cm 5.4pt; height: 30pt'>
-					<input type="text" id="study_start_date1"
-						style="text-align: center; font-size: 8.0pt; font-family: 宋体; display: inline-block; height: 90%; width: 95%; padding: 0px; margin: 3px; border-radius: 0px"   />
-				</td>
-				<td style='width: 84pt; border: solid black 1.0pt; border-left: none; padding: 0cm 5.4pt 0cm 5.4pt; height: 30pt'>
-					<input type="text" id="study_end_date1"
-						style="text-align: center; font-size: 8.0pt; font-family: 宋体; display: inline-block; height: 90%; width: 95%; padding: 0px; margin: 3px; border-radius: 0px"   />
-			   </td>
-			   <td style='width: 84pt; border: solid black 1.0pt; border-left: none; padding: 0cm 5.4pt 0cm 5.4pt; height: 30pt'>
-					<input type="text" id=""
-						style="text-align: center; font-size: 8.0pt; font-family: 宋体; display: inline-block; height: 90%; width: 95%; padding: 0px; margin: 3px; border-radius: 0px"   />
-				</td>
-				<td style='width: 84pt; border: solid black 1.0pt; border-left: none; padding: 0cm 5.4pt 0cm 5.4pt; height: 30pt'>
-					<input type="text" id="study_institution1"
-						style="text-align: center; font-size: 8.0pt; font-family: 宋体; display: inline-block; height: 90%; width: 95%; padding: 0px; margin: 3px; border-radius: 0px"   />
-				</td>
-				<td  style='width: 50pt; border: solid black 1.0pt; border-left: none; padding: 0cm 5.4pt 0cm 5.4pt; height: 30pt'>
-					<input type="text" id="study_institution1"
-						style="text-align: center; font-size: 8.0pt; font-family: 宋体; display: inline-block; height: 90%; width: 95%; padding: 0px; margin: 3px; border-radius: 0px"   />
-				</td>
-			</tr>
-			<tr style='page-break-inside: avoid' id = "memberinfo2">
-				<td width=84 style='width: 62pt; border: solid black 1.0pt; border-left: none; padding: 0cm 5.4pt 0cm 5.4pt; height: 30pt'>
-					<input type="text" id=""
-						style="text-align: center; font-size: 8.0pt; font-family: 宋体; display: inline-block; height: 90%; width: 95%; padding: 0px; margin: 3px; border-radius: 0px"   />
-				</td>
-				<td width=84 style='width: 62pt; border: solid black 1.0pt; border-left: none; padding: 0cm 5.4pt 0cm 5.4pt; height: 30pt' colspan="2">
-					<input type="text" id="study_institution1"
-						style="text-align: center; font-size: 8.0pt; font-family: 宋体; display: inline-block; height: 90%; width: 95%; padding: 0px; margin: 3px; border-radius: 0px"   />
-				</td>
-				<td width=84 style='width: 62pt; border: solid black 1.0pt; border-left: none; padding: 0cm 5.4pt 0cm 5.4pt; height: 30pt' colspan="2">
-					<input type="text" id="study_position1"
-						style="text-align: center; font-size: 8.0pt; font-family: 宋体; display: inline-block; height: 90%; width: 95%; padding: 0px; margin: 3px; border-radius: 0px"   />
-				</td>
-				<td width=84 style='width: 62pt; border: solid black 1.0pt; border-left: none; padding: 0cm 5.4pt 0cm 5.4pt; height: 30pt'>
-					<input type="text" id="study_start_date1"
-						style="text-align: center; font-size: 8.0pt; font-family: 宋体; display: inline-block; height: 90%; width: 95%; padding: 0px; margin: 3px; border-radius: 0px"   />
-				</td>
-				<td width=84 style='width: 62pt; border: solid black 1.0pt; border-left: none; padding: 0cm 5.4pt 0cm 5.4pt; height: 30pt'>
-					<input type="text" id="study_end_date1"
-						style="text-align: center; font-size: 8.0pt; font-family: 宋体; display: inline-block; height: 90%; width: 95%; padding: 0px; margin: 3px; border-radius: 0px"   />
-			   </td>
-			   <td width=84 style='width: 62pt; border: solid black 1.0pt; border-left: none; padding: 0cm 5.4pt 0cm 5.4pt; height: 30pt'>
-					<input type="text" id=""
-						style="text-align: center; font-size: 8.0pt; font-family: 宋体; display: inline-block; height: 90%; width: 95%; padding: 0px; margin: 3px; border-radius: 0px"   />
-				</td>
-				<td width=84 style='width: 62pt; border: solid black 1.0pt; border-left: none; padding: 0cm 5.4pt 0cm 5.4pt; height: 30pt'>
-					<input type="text" id="study_institution1"
-						style="text-align: center; font-size: 8.0pt; font-family: 宋体; display: inline-block; height: 90%; width: 95%; padding: 0px; margin: 3px; border-radius: 0px"   />
-				</td>
-				<td width=84 style='width: 50pt; border: solid black 1.0pt; border-left: none; padding: 0cm 5.4pt 0cm 5.4pt; height: 30pt'>
-					<input type="text" id="study_institution1"
-						style="text-align: center; font-size: 8.0pt; font-family: 宋体; display: inline-block; height: 90%; width: 95%; padding: 0px; margin: 3px; border-radius: 0px"   />
-				</td>
-				
-			</tr>
-			</table>
-			<div style="text-align: left;margin-left:30px">
-							<a class="btn btn-small btn-info" href="javascript:void(0)" id="addmemeber">
-								<i class="icon-plus-sign"></i>添加
-							</a>
-		</div>
-		<table class=MsoNormalTable border=0 cellspacing=0 cellpadding=0 style='border-collapse: collapse'>
-		<tr style='page-break-inside: avoid' id = "memberinfo1">
-				<td width=36 rowspan=15 valign="middle" style='width: 6pt; border: solid windowtext 1.0pt;padding: 0cm 5.4pt 0cm 5.4pt'>
-					<div class=MsoNormal style='text-align: center'>
-						<span style='font-size: 14.0pt; font-family: 宋体'>团队核心成员</span>
-					</div>
-				</td>
-				<td width=84 style='width: 20pt; border: solid black 1.0pt; border-left: none; padding: 0cm 5.4pt 0cm 5.4pt; height: 30pt'>
-					<input type="text" id=""
-						style="text-align: center; font-size: 8.0pt; font-family: 宋体; display: inline-block; height: 90%; width: 95%; padding: 0px; margin: 3px; border-radius: 0px"   />
-				</td>
-				<td width=84 style='width: 60pt; border: solid black 1.0pt; border-left: none; padding: 0cm 5.4pt 0cm 5.4pt; height: 30pt' colspan="2">
-					<input type="text" id="study_institution1"
-						style="text-align: center; font-size: 8.0pt; font-family: 宋体; display: inline-block; height: 90%; width: 95%; padding: 0px; margin: 3px; border-radius: 0px"   />
-				</td>
-				<td width=84 style='width: 62pt; border: solid black 1.0pt; border-left: none; padding: 0cm 5.4pt 0cm 5.4pt; height: 30pt' colspan="2">
-					<input type="text" id="study_position1"
-						style="text-align: center; font-size: 8.0pt; font-family: 宋体; display: inline-block; height: 90%; width: 95%; padding: 0px; margin: 3px; border-radius: 0px"   />
-				</td>
-				<td width=84 style='width: 62pt; border: solid black 1.0pt; border-left: none; padding: 0cm 5.4pt 0cm 5.4pt; height: 30pt'>
-					<input type="text" id="study_start_date1"
-						style="text-align: center; font-size: 8.0pt; font-family: 宋体; display: inline-block; height: 90%; width: 95%; padding: 0px; margin: 3px; border-radius: 0px"   />
-				</td>
-				<td width=84 style='width: 84pt; border: solid black 1.0pt; border-left: none; padding: 0cm 5.4pt 0cm 5.4pt; height: 30pt'>
-					<input type="text" id="study_end_date1"
-						style="text-align: center; font-size: 8.0pt; font-family: 宋体; display: inline-block; height: 90%; width: 95%; padding: 0px; margin: 3px; border-radius: 0px"   />
-			   </td>
-			   <td width=84 style='width: 84pt; border: solid black 1.0pt; border-left: none; padding: 0cm 5.4pt 0cm 5.4pt; height: 30pt'>
-					<input type="text" id=""
-						style="text-align: center; font-size: 8.0pt; font-family: 宋体; display: inline-block; height: 90%; width: 95%; padding: 0px; margin: 3px; border-radius: 0px"   />
-				</td>
-				<td width=84 style='width: 84pt; border: solid black 1.0pt; border-left: none; padding: 0cm 5.4pt 0cm 5.4pt; height: 30pt'>
-					<input type="text" id="study_institution1"
-						style="text-align: center; font-size: 8.0pt; font-family: 宋体; display: inline-block; height: 90%; width: 95%; padding: 0px; margin: 3px; border-radius: 0px"   />
-				</td>
-				<td width=84 style='width: 50pt; border: solid black 1.0pt; border-left: none; padding: 0cm 5.4pt 0cm 5.4pt; height: 30pt'>
-					<input type="text" id="study_institution1"
-						style="text-align: center; font-size: 8.0pt; font-family: 宋体; display: inline-block; height: 90%; width: 95%; padding: 0px; margin: 3px; border-radius: 0px"   />
-				</td>
-			</tr>
-			<tr style='page-break-inside: avoid' id = "memberinfo2">
-				<td width=84 style='width: 62pt; border: solid black 1.0pt; border-left: none; padding: 0cm 5.4pt 0cm 5.4pt; height: 30pt'>
-					<input type="text" id=""
-						style="text-align: center; font-size: 8.0pt; font-family: 宋体; display: inline-block; height: 90%; width: 95%; padding: 0px; margin: 3px; border-radius: 0px"   />
-				</td>
-				<td width=84 style='width: 62pt; border: solid black 1.0pt; border-left: none; padding: 0cm 5.4pt 0cm 5.4pt; height: 30pt' colspan="2">
-					<input type="text" id="study_institution1"
-						style="text-align: center; font-size: 8.0pt; font-family: 宋体; display: inline-block; height: 90%; width: 95%; padding: 0px; margin: 3px; border-radius: 0px"   />
-				</td>
-				<td width=84 style='width: 62pt; border: solid black 1.0pt; border-left: none; padding: 0cm 5.4pt 0cm 5.4pt; height: 30pt' colspan="2">
-					<input type="text" id="study_position1"
-						style="text-align: center; font-size: 8.0pt; font-family: 宋体; display: inline-block; height: 90%; width: 95%; padding: 0px; margin: 3px; border-radius: 0px"   />
-				</td>
-				<td width=84 style='width: 62pt; border: solid black 1.0pt; border-left: none; padding: 0cm 5.4pt 0cm 5.4pt; height: 30pt'>
-					<input type="text" id="study_start_date1"
-						style="text-align: center; font-size: 8.0pt; font-family: 宋体; display: inline-block; height: 90%; width: 95%; padding: 0px; margin: 3px; border-radius: 0px"   />
-				</td>
-				<td width=84 style='width: 62pt; border: solid black 1.0pt; border-left: none; padding: 0cm 5.4pt 0cm 5.4pt; height: 30pt'>
-					<input type="text" id="study_end_date1"
-						style="text-align: center; font-size: 8.0pt; font-family: 宋体; display: inline-block; height: 90%; width: 95%; padding: 0px; margin: 3px; border-radius: 0px"   />
-			   </td>
-			   <td width=84 style='width: 62pt; border: solid black 1.0pt; border-left: none; padding: 0cm 5.4pt 0cm 5.4pt; height: 30pt'>
-					<input type="text" id=""
-						style="text-align: center; font-size: 8.0pt; font-family: 宋体; display: inline-block; height: 90%; width: 95%; padding: 0px; margin: 3px; border-radius: 0px"   />
-				</td>
-				<td width=84 style='width: 62pt; border: solid black 1.0pt; border-left: none; padding: 0cm 5.4pt 0cm 5.4pt; height: 30pt'>
-					<input type="text" id="study_institution1"
-						style="text-align: center; font-size: 8.0pt; font-family: 宋体; display: inline-block; height: 90%; width: 95%; padding: 0px; margin: 3px; border-radius: 0px"   />
-				</td>
-				<td width=84 style='width: 50pt; border: solid black 1.0pt; border-left: none; padding: 0cm 5.4pt 0cm 5.4pt; height: 30pt'>
-					<input type="text" id="study_institution1"
-						style="text-align: center; font-size: 8.0pt; font-family: 宋体; display: inline-block; height: 90%; width: 95%; padding: 0px; margin: 3px; border-radius: 0px"   />
-				</td>
-				
-			</tr>
-		</table>
-			<div style="text-align: left;margin-left:30px">
-				<a class="btn btn-small btn-info" href="javascript:void(0)" id="addmemeber">
-					<i class="icon-plus-sign"></i>添加
-				</a>
-			</div>
-			<table class=MsoNormalTable border=0 cellspacing=0 cellpadding=0 style='border-collapse: collapse'>
-				
-				<tr class="form-group form-group-lg">
-					<td width=40  colspan =12 style='width: 10pt; border: solid black 1.0pt; padding: 0cm 5.4pt 0cm 5.4pt; height: 30pt'>
-						<div class=MsoNormal>
-						<span style='font-size: 14.0pt; font-family: 宋体'>
-						 5．重要著作情况（不超过5项）
-						</span>
-						</div>
-					</td>
-				</tr>
-				<tr style='page-break-inside: avoid'>
-				<td width=36 valign="middle" style='width: 6pt; border: solid windowtext 1.0pt; border-top: none; padding: 0cm 5.4pt 0cm 5.4pt'>
-					<div class=MsoNormal style='text-align: center'>
-						<span style='font-size: 14.0pt; font-family: 宋体'></span>
-					</div>
-				</td>
-				<td style='width: 30pt; border: solid black 1.0pt; border-left: none; padding: 0cm 5.4pt 0cm 5.4pt; height: 30pt' >
-					<div class=MsoNormal style='text-align: center'>
-						<span style='font-size: 14.0pt; font-family: 宋体'>序号</span>
-					</div>
-				</td>
-				<td  style='width: 122pt; border: solid black 1.0pt; border-left: none; padding: 0cm 5.4pt 0cm 5.4pt; height: 30pt' colspan =2>
-					<div class=MsoNormal  style='text-align: center'>
-						<span style='font-size: 14.0pt; font-family: 宋体'>著作名称</span>
-					</div>
-				</td>
-				<td  style='width: 122pt; border: solid black 1.0pt; border-left: none; padding: 0cm 5.4pt 0cm 5.4pt; height: 30pt' colspan =2>
-					<div class=MsoNormal style='text-align: center'>
-						<span style='font-size: 14.0pt; font-family: 宋体'>出版社</span>
-					</div>
-				</td>
-				<td  style='width: 62pt; border: solid black 1.0pt; border-left: none; padding: 0cm 5.4pt 0cm 5.4pt; height: 30pt'>
-					<div class=MsoNormal style='text-align: center'>
-						<span style='font-size: 14.0pt; font-family: 宋体'>作者
-						</span>
-					</div>
-				</td>
-				<td style='width: 122pt; border: solid black 1.0pt; border-left: none; padding: 0cm 5.4pt 0cm 5.4pt; height: 30pt'>
-					<div class=MsoNormal style='text-align: center'>
-						<span style='font-size: 14.0pt; font-family: 宋体'>发行国家和地区</span>
-					</div>
-				</td>
-				<td style='width: 30pt; border: solid black 1.0pt; border-left: none; padding: 0cm 5.4pt 0cm 5.4pt; height: 30pt'>
-					<div class=MsoNormal style='text-align: center'>
-						<span style='font-size: 14.0pt; font-family: 宋体'>年份</span>
-					</div>
-				</td>
-			</tr>
-			<tr style='page-break-inside: avoid' id = "memberinfo1">
-				<td width=36 rowspan=15 valign="middle" style='width: 6pt; border: solid windowtext 1.0pt; border-top: none; padding: 0cm 5.4pt 0cm 5.4pt'>
-					<div class=MsoNormal style='text-align: center'>
-						<span style='font-size: 14.0pt; font-family: 宋体'>团队负责人</span>
-					</div>
-				</td>
-				<td  style='width: 30pt; border: solid black 1.0pt; border-left: none; padding: 0cm 5.4pt 0cm 5.4pt; height: 30pt'>
-					<input type="text" id=""
-						style="text-align: center; font-size: 8.0pt; font-family: 宋体; display: inline-block; height: 90%; width: 95%; padding: 0px; margin: 3px; border-radius: 0px"   />
-				</td>
-				<td  style='width: 62pt; border: solid black 1.0pt; border-left: none; padding: 0cm 5.4pt 0cm 5.4pt; height: 30pt' colspan="2">
-					<input type="text" id="study_institution1"
-						style="text-align: center; font-size: 8.0pt; font-family: 宋体; display: inline-block; height: 90%; width: 95%; padding: 0px; margin: 3px; border-radius: 0px"   />
-				</td>
-				<td  style='width: 62pt; border: solid black 1.0pt; border-left: none; padding: 0cm 5.4pt 0cm 5.4pt; height: 30pt' colspan="2">
-					<input type="text" id="study_position1"
-						style="text-align: center; font-size: 8.0pt; font-family: 宋体; display: inline-block; height: 90%; width: 95%; padding: 0px; margin: 3px; border-radius: 0px"   />
-				</td>
-				<td  style='width: 62pt; border: solid black 1.0pt; border-left: none; padding: 0cm 5.4pt 0cm 5.4pt; height: 30pt'>
-					<input type="text" id="study_start_date1"
-						style="text-align: center; font-size: 8.0pt; font-family: 宋体; display: inline-block; height: 90%; width: 95%; padding: 0px; margin: 3px; border-radius: 0px"   />
-				</td>
-				<td style='width: 84pt; border: solid black 1.0pt; border-left: none; padding: 0cm 5.4pt 0cm 5.4pt; height: 30pt'>
-					<input type="text" id="study_end_date1"
-						style="text-align: center; font-size: 8.0pt; font-family: 宋体; display: inline-block; height: 90%; width: 95%; padding: 0px; margin: 3px; border-radius: 0px"   />
-			   </td>
-			   <td style='width: 84pt; border: solid black 1.0pt; border-left: none; padding: 0cm 5.4pt 0cm 5.4pt; height: 30pt'>
-					<input type="text" id=""
-						style="text-align: center; font-size: 8.0pt; font-family: 宋体; display: inline-block; height: 90%; width: 95%; padding: 0px; margin: 3px; border-radius: 0px"   />
-				</td>
-			</tr>
-			<tr style='page-break-inside: avoid' id = "memberinfo2">
-				<td width=84 style='width: 62pt; border: solid black 1.0pt; border-left: none; padding: 0cm 5.4pt 0cm 5.4pt; height: 30pt'>
-					<input type="text" id=""
-						style="text-align: center; font-size: 8.0pt; font-family: 宋体; display: inline-block; height: 90%; width: 95%; padding: 0px; margin: 3px; border-radius: 0px"   />
-				</td>
-				<td width=84 style='width: 62pt; border: solid black 1.0pt; border-left: none; padding: 0cm 5.4pt 0cm 5.4pt; height: 30pt' colspan="2">
-					<input type="text" id="study_institution1"
-						style="text-align: center; font-size: 8.0pt; font-family: 宋体; display: inline-block; height: 90%; width: 95%; padding: 0px; margin: 3px; border-radius: 0px"   />
-				</td>
-				<td width=84 style='width: 62pt; border: solid black 1.0pt; border-left: none; padding: 0cm 5.4pt 0cm 5.4pt; height: 30pt' colspan="2">
-					<input type="text" id="study_position1"
-						style="text-align: center; font-size: 8.0pt; font-family: 宋体; display: inline-block; height: 90%; width: 95%; padding: 0px; margin: 3px; border-radius: 0px"   />
-				</td>
-				<td width=84 style='width: 62pt; border: solid black 1.0pt; border-left: none; padding: 0cm 5.4pt 0cm 5.4pt; height: 30pt'>
-					<input type="text" id="study_start_date1"
-						style="text-align: center; font-size: 8.0pt; font-family: 宋体; display: inline-block; height: 90%; width: 95%; padding: 0px; margin: 3px; border-radius: 0px"   />
-				</td>
-				<td width=84 style='width: 62pt; border: solid black 1.0pt; border-left: none; padding: 0cm 5.4pt 0cm 5.4pt; height: 30pt'>
-					<input type="text" id="study_end_date1"
-						style="text-align: center; font-size: 8.0pt; font-family: 宋体; display: inline-block; height: 90%; width: 95%; padding: 0px; margin: 3px; border-radius: 0px"   />
-			   </td>
-			   <td width=84 style='width: 62pt; border: solid black 1.0pt; border-left: none; padding: 0cm 5.4pt 0cm 5.4pt; height: 30pt'>
-					<input type="text" id=""
-						style="text-align: center; font-size: 8.0pt; font-family: 宋体; display: inline-block; height: 90%; width: 95%; padding: 0px; margin: 3px; border-radius: 0px"   />
-				</td>
-				
-			</tr>
-			</table>
-			<div style="text-align: left;margin-left:30px">
-							<a class="btn btn-small btn-info" href="javascript:void(0)" id="addmemeber">
-								<i class="icon-plus-sign"></i>添加
-							</a>
-		</div>
-		<table class=MsoNormalTable border=0 cellspacing=0 cellpadding=0 style='border-collapse: collapse'>
-		<tr style='page-break-inside: avoid' id = "memberinfo1">
-				<td width=36 rowspan=15 valign="middle" style='width: 6pt; border: solid windowtext 1.0pt;padding: 0cm 5.4pt 0cm 5.4pt'>
-					<div class=MsoNormal style='text-align: center'>
-						<span style='font-size: 14.0pt; font-family: 宋体'>团队核心成员</span>
-					</div>
-				</td>
-				<td width=84 style='width: 20pt; border: solid black 1.0pt; border-left: none; padding: 0cm 5.4pt 0cm 5.4pt; height: 30pt'>
-					<input type="text" id=""
-						style="text-align: center; font-size: 8.0pt; font-family: 宋体; display: inline-block; height: 90%; width: 95%; padding: 0px; margin: 3px; border-radius: 0px"   />
-				</td>
-				<td width=84 style='width: 122pt; border: solid black 1.0pt; border-left: none; padding: 0cm 5.4pt 0cm 5.4pt; height: 30pt' colspan="2">
-					<input type="text" id="study_institution1"
-						style="text-align: center; font-size: 8.0pt; font-family: 宋体; display: inline-block; height: 90%; width: 95%; padding: 0px; margin: 3px; border-radius: 0px"   />
-				</td>
-				<td width=84 style='width: 122pt; border: solid black 1.0pt; border-left: none; padding: 0cm 5.4pt 0cm 5.4pt; height: 30pt' colspan="2">
-					<input type="text" id="study_position1"
-						style="text-align: center; font-size: 8.0pt; font-family: 宋体; display: inline-block; height: 90%; width: 95%; padding: 0px; margin: 3px; border-radius: 0px"   />
-				</td>
-				<td width=84 style='width: 62pt; border: solid black 1.0pt; border-left: none; padding: 0cm 5.4pt 0cm 5.4pt; height: 30pt'>
-					<input type="text" id="study_start_date1"
-						style="text-align: center; font-size: 8.0pt; font-family: 宋体; display: inline-block; height: 90%; width: 95%; padding: 0px; margin: 3px; border-radius: 0px"   />
-				</td>
-				<td width=84 style='width: 122pt; border: solid black 1.0pt; border-left: none; padding: 0cm 5.4pt 0cm 5.4pt; height: 30pt'>
-					<input type="text" id="study_end_date1"
-						style="text-align: center; font-size: 8.0pt; font-family: 宋体; display: inline-block; height: 90%; width: 95%; padding: 0px; margin: 3px; border-radius: 0px"   />
-			   </td>
-			   <td width=84 style='width: 84pt; border: solid black 1.0pt; border-left: none; padding: 0cm 5.4pt 0cm 5.4pt; height: 30pt'>
-					<input type="text" id=""
-						style="text-align: center; font-size: 8.0pt; font-family: 宋体; display: inline-block; height: 90%; width: 95%; padding: 0px; margin: 3px; border-radius: 0px"   />
-				</td>
-			</tr>
-			<tr style='page-break-inside: avoid' id = "memberinfo2">
-				<td width=84 style='width: 62pt; border: solid black 1.0pt; border-left: none; padding: 0cm 5.4pt 0cm 5.4pt; height: 30pt'>
-					<input type="text" id=""
-						style="text-align: center; font-size: 8.0pt; font-family: 宋体; display: inline-block; height: 90%; width: 95%; padding: 0px; margin: 3px; border-radius: 0px"   />
-				</td>
-				<td width=84 style='width: 62pt; border: solid black 1.0pt; border-left: none; padding: 0cm 5.4pt 0cm 5.4pt; height: 30pt' colspan="2">
-					<input type="text" id="study_institution1"
-						style="text-align: center; font-size: 8.0pt; font-family: 宋体; display: inline-block; height: 90%; width: 95%; padding: 0px; margin: 3px; border-radius: 0px"   />
-				</td>
-				<td width=84 style='width: 62pt; border: solid black 1.0pt; border-left: none; padding: 0cm 5.4pt 0cm 5.4pt; height: 30pt' colspan="2">
-					<input type="text" id="study_position1"
-						style="text-align: center; font-size: 8.0pt; font-family: 宋体; display: inline-block; height: 90%; width: 95%; padding: 0px; margin: 3px; border-radius: 0px"   />
-				</td>
-				<td width=84 style='width: 62pt; border: solid black 1.0pt; border-left: none; padding: 0cm 5.4pt 0cm 5.4pt; height: 30pt'>
-					<input type="text" id="study_start_date1"
-						style="text-align: center; font-size: 8.0pt; font-family: 宋体; display: inline-block; height: 90%; width: 95%; padding: 0px; margin: 3px; border-radius: 0px"   />
-				</td>
-				<td width=84 style='width: 62pt; border: solid black 1.0pt; border-left: none; padding: 0cm 5.4pt 0cm 5.4pt; height: 30pt'>
-					<input type="text" id="study_end_date1"
-						style="text-align: center; font-size: 8.0pt; font-family: 宋体; display: inline-block; height: 90%; width: 95%; padding: 0px; margin: 3px; border-radius: 0px"   />
-			   </td>
-			   <td width=84 style='width: 62pt; border: solid black 1.0pt; border-left: none; padding: 0cm 5.4pt 0cm 5.4pt; height: 30pt'>
-					<input type="text" id=""
-						style="text-align: center; font-size: 8.0pt; font-family: 宋体; display: inline-block; height: 90%; width: 95%; padding: 0px; margin: 3px; border-radius: 0px"   />
-				</td>
-				
-			</tr>
-		</table>
-			<div style="text-align: left;margin-left:30px">
-				<a class="btn btn-small btn-info" href="javascript:void(0)" id="addmemeber">
-					<i class="icon-plus-sign"></i>添加
-				</a>
-			</div>
-		<table class=MsoNormalTable border=0 cellspacing=0 cellpadding=0 style='border-collapse: collapse'>
-				
-				<tr class="form-group form-group-lg">
-					<td width=40  colspan =12 style='width: 10pt; border: solid black 1.0pt; padding: 0cm 5.4pt 0cm 5.4pt; height: 30pt'>
-						<div class=MsoNormal>
-						<span style='font-size: 14.0pt; font-family: 宋体'>
-						 6.代表性论文（“第一作者”或“通讯作者”的论文）（不超过10篇）
-						</span>
-						</div>
-					</td>
-				</tr>
-				<tr style='page-break-inside: avoid'>
-				<td width=36 valign="middle" style='width: 6pt; border: solid windowtext 1.0pt; border-top: none; padding: 0cm 5.4pt 0cm 5.4pt'>
-					<div class=MsoNormal style='text-align: center'>
-						<span style='font-size: 14.0pt; font-family: 宋体'></span>
-					</div>
-				</td>
-				<td style='width: 30pt; border: solid black 1.0pt; border-left: none; padding: 0cm 5.4pt 0cm 5.4pt; height: 30pt' >
-					<div class=MsoNormal style='text-align: center'>
-						<span style='font-size: 14.0pt; font-family: 宋体'>序号</span>
-					</div>
-				</td>
-				<td  style='width: 122pt; border: solid black 1.0pt; border-left: none; padding: 0cm 5.4pt 0cm 5.4pt; height: 30pt' colspan =2>
-					<div class=MsoNormal  style='text-align: center'>
-						<span style='font-size: 14.0pt; font-family: 宋体'>论文名称</span>
-					</div>
-				</td>
-				<td  style='width: 62pt; border: solid black 1.0pt; border-left: none; padding: 0cm 5.4pt 0cm 5.4pt; height: 30pt' colspan =2>
-					<div class=MsoNormal style='text-align: center'>
-						<span style='font-size: 14.0pt; font-family: 宋体'>主要作者</span>
-					</div>
-				</td>
-				<td  style='width: 122pt; border: solid black 1.0pt; border-left: none; padding: 0cm 5.4pt 0cm 5.4pt; height: 30pt'>
-					<div class=MsoNormal style='text-align: center'>
-						<span style='font-size: 14.0pt; font-family: 宋体'>期刊名称
-						</span>
-					</div>
-				</td>
-				<td style='width: 62pt; border: solid black 1.0pt; border-left: none; padding: 0cm 5.4pt 0cm 5.4pt; height: 30pt'>
-					<div class=MsoNormal style='text-align: center'>
-						<span style='font-size: 14.0pt; font-family: 宋体'>年份、卷期及页码</span>
-					</div>
-				</td>
-				<td style='width: 50pt; border: solid black 1.0pt; border-left: none; padding: 0cm 5.4pt 0cm 5.4pt; height: 30pt'>
-					<div class=MsoNormal style='text-align: center'>
-						<span style='font-size: 14.0pt; font-family: 宋体'>影响因子</span>
-					</div>
-				</td>
-				<td style='width: 50pt; border: solid black 1.0pt; border-left: none; padding: 0cm 5.4pt 0cm 5.4pt; height: 30pt'>
-					<div class=MsoNormal style='text-align: center'>
-						<span style='font-size: 14.0pt; font-family: 宋体'>SCI他引次数</span>
-					</div>
-				</td>
-				<td style='width: 50pt; border: solid black 1.0pt; border-left: none; padding: 0cm 5.4pt 0cm 5.4pt; height: 30pt'>
-					<div class=MsoNormal style='text-align: center'>
-						<span style='font-size: 14.0pt; font-family: 宋体'>他引总次数</span>
-					</div>
-				</td>
-			</tr>
-			<tr style='page-break-inside: avoid' id = "memberinfo1">
-				<td width=36 rowspan=15 valign="middle" style='width: 6pt; border: solid windowtext 1.0pt; border-top: none; padding: 0cm 5.4pt 0cm 5.4pt'>
-					<div class=MsoNormal style='text-align: center'>
-						<span style='font-size: 14.0pt; font-family: 宋体'>团队负责人</span>
-					</div>
-				</td>
-				<td  style='width: 30pt; border: solid black 1.0pt; border-left: none; padding: 0cm 5.4pt 0cm 5.4pt; height: 30pt'>
-					<input type="text" id=""
-						style="text-align: center; font-size: 8.0pt; font-family: 宋体; display: inline-block; height: 90%; width: 95%; padding: 0px; margin: 3px; border-radius: 0px"   />
-				</td>
-				<td  style='width: 122pt; border: solid black 1.0pt; border-left: none; padding: 0cm 5.4pt 0cm 5.4pt; height: 30pt' colspan="2">
-					<input type="text" id="study_institution1"
-						style="text-align: center; font-size: 8.0pt; font-family: 宋体; display: inline-block; height: 90%; width: 95%; padding: 0px; margin: 3px; border-radius: 0px"   />
-				</td>
-				<td  style='width: 62pt; border: solid black 1.0pt; border-left: none; padding: 0cm 5.4pt 0cm 5.4pt; height: 30pt' colspan="2">
-					<input type="text" id="study_position1"
-						style="text-align: center; font-size: 8.0pt; font-family: 宋体; display: inline-block; height: 90%; width: 95%; padding: 0px; margin: 3px; border-radius: 0px"   />
-				</td>
-				<td  style='width: 122pt; border: solid black 1.0pt; border-left: none; padding: 0cm 5.4pt 0cm 5.4pt; height: 30pt'>
-					<input type="text" id="study_start_date1"
-						style="text-align: center; font-size: 8.0pt; font-family: 宋体; display: inline-block; height: 90%; width: 95%; padding: 0px; margin: 3px; border-radius: 0px"   />
-				</td>
-				<td style='width: 62pt; border: solid black 1.0pt; border-left: none; padding: 0cm 5.4pt 0cm 5.4pt; height: 30pt'>
-					<input type="text" id="study_end_date1"
-						style="text-align: center; font-size: 8.0pt; font-family: 宋体; display: inline-block; height: 90%; width: 95%; padding: 0px; margin: 3px; border-radius: 0px"   />
-			   </td>
-			   <td style='width: 50pt; border: solid black 1.0pt; border-left: none; padding: 0cm 5.4pt 0cm 5.4pt; height: 30pt'>
-					<input type="text" id=""
-						style="text-align: center; font-size: 8.0pt; font-family: 宋体; display: inline-block; height: 90%; width: 95%; padding: 0px; margin: 3px; border-radius: 0px"   />
-				</td>
-				<td style='width: 50pt; border: solid black 1.0pt; border-left: none; padding: 0cm 5.4pt 0cm 5.4pt; height: 30pt'>
-					<input type="text" id="study_end_date1"
-						style="text-align: center; font-size: 8.0pt; font-family: 宋体; display: inline-block; height: 90%; width: 95%; padding: 0px; margin: 3px; border-radius: 0px"   />
-			   </td>
-			   <td  style='width: 50pt; border: solid black 1.0pt; border-left: none; padding: 0cm 5.4pt 0cm 5.4pt; height: 30pt'>
-					<input type="text" id=""
-						style="text-align: center; font-size: 8.0pt; font-family: 宋体; display: inline-block; height: 90%; width: 95%; padding: 0px; margin: 3px; border-radius: 0px"   />
-				</td>
-			</tr>
-			<tr style='page-break-inside: avoid' id = "memberinfo2">
-				<td  style='width: 30pt; border: solid black 1.0pt; border-left: none; padding: 0cm 5.4pt 0cm 5.4pt; height: 30pt'>
-					<input type="text" id=""
-						style="text-align: center; font-size: 8.0pt; font-family: 宋体; display: inline-block; height: 90%; width: 95%; padding: 0px; margin: 3px; border-radius: 0px"   />
-				</td>
-				<td  style='width: 122pt; border: solid black 1.0pt; border-left: none; padding: 0cm 5.4pt 0cm 5.4pt; height: 30pt' colspan="2">
-					<input type="text" id="study_institution1"
-						style="text-align: center; font-size: 8.0pt; font-family: 宋体; display: inline-block; height: 90%; width: 95%; padding: 0px; margin: 3px; border-radius: 0px"   />
-				</td>
-				<td style='width: 62pt; border: solid black 1.0pt; border-left: none; padding: 0cm 5.4pt 0cm 5.4pt; height: 30pt' colspan="2">
-					<input type="text" id="study_position1"
-						style="text-align: center; font-size: 8.0pt; font-family: 宋体; display: inline-block; height: 90%; width: 95%; padding: 0px; margin: 3px; border-radius: 0px"   />
-				</td>
-				<td style='width: 122pt; border: solid black 1.0pt; border-left: none; padding: 0cm 5.4pt 0cm 5.4pt; height: 30pt'>
-					<input type="text" id="study_start_date1"
-						style="text-align: center; font-size: 8.0pt; font-family: 宋体; display: inline-block; height: 90%; width: 95%; padding: 0px; margin: 3px; border-radius: 0px"   />
-				</td>
-				<td  style='width: 62pt; border: solid black 1.0pt; border-left: none; padding: 0cm 5.4pt 0cm 5.4pt; height: 30pt'>
-					<input type="text" id="study_end_date1"
-						style="text-align: center; font-size: 8.0pt; font-family: 宋体; display: inline-block; height: 90%; width: 95%; padding: 0px; margin: 3px; border-radius: 0px"   />
-			   </td>
-			   <td style='width: 50pt; border: solid black 1.0pt; border-left: none; padding: 0cm 5.4pt 0cm 5.4pt; height: 30pt'>
-					<input type="text" id=""
-						style="text-align: center; font-size: 8.0pt; font-family: 宋体; display: inline-block; height: 90%; width: 95%; padding: 0px; margin: 3px; border-radius: 0px"   />
-				</td>
-				<td style='width: 50pt; border: solid black 1.0pt; border-left: none; padding: 0cm 5.4pt 0cm 5.4pt; height: 30pt'>
-					<input type="text" id="study_end_date1"
-						style="text-align: center; font-size: 8.0pt; font-family: 宋体; display: inline-block; height: 90%; width: 95%; padding: 0px; margin: 3px; border-radius: 0px"   />
-			   </td>
-			   <td  style='width: 50pt; border: solid black 1.0pt; border-left: none; padding: 0cm 5.4pt 0cm 5.4pt; height: 30pt'>
-					<input type="text" id=""
-						style="text-align: center; font-size: 8.0pt; font-family: 宋体; display: inline-block; height: 90%; width: 95%; padding: 0px; margin: 3px; border-radius: 0px"   />
-				</td>
-			</tr>
-			</table>
-			<div style="text-align: left;margin-left:30px">
-							<a class="btn btn-small btn-info" href="javascript:void(0)" id="addmemeber">
-								<i class="icon-plus-sign"></i>添加
-							</a>
-		</div>
-		<table class=MsoNormalTable border=0 cellspacing=0 cellpadding=0 style='border-collapse: collapse'>
-		<tr style='page-break-inside: avoid' id = "memberinfo1">
-				<td width=36 rowspan=15 valign="middle" style='width: 6pt; border: solid windowtext 1.0pt;padding: 0cm 5.4pt 0cm 5.4pt'>
-					<div class=MsoNormal style='text-align: center'>
-						<span style='font-size: 14.0pt; font-family: 宋体'>团队核心成员</span>
-					</div>
-				</td>
-				<td  style='width: 30pt; border: solid black 1.0pt; border-left: none; padding: 0cm 5.4pt 0cm 5.4pt; height: 30pt'>
-					<input type="text" id=""
-						style="text-align: center; font-size: 8.0pt; font-family: 宋体; display: inline-block; height: 90%; width: 95%; padding: 0px; margin: 3px; border-radius: 0px"   />
-				</td>
-				<td  style='width: 122pt; border: solid black 1.0pt; border-left: none; padding: 0cm 5.4pt 0cm 5.4pt; height: 30pt' colspan="2">
-					<input type="text" id="study_institution1"
-						style="text-align: center; font-size: 8.0pt; font-family: 宋体; display: inline-block; height: 90%; width: 95%; padding: 0px; margin: 3px; border-radius: 0px"   />
-				</td>
-				<td  style='width: 30pt; border: solid black 1.0pt; border-left: none; padding: 0cm 5.4pt 0cm 5.4pt; height: 30pt' colspan="2">
-					<input type="text" id="study_position1"
-						style="text-align: center; font-size: 8.0pt; font-family: 宋体; display: inline-block; height: 90%; width: 95%; padding: 0px; margin: 3px; border-radius: 0px"   />
-				</td>
-				<td  style='width: 122pt; border: solid black 1.0pt; border-left: none; padding: 0cm 5.4pt 0cm 5.4pt; height: 30pt'>
-					<input type="text" id="study_start_date1"
-						style="text-align: center; font-size: 8.0pt; font-family: 宋体; display: inline-block; height: 90%; width: 95%; padding: 0px; margin: 3px; border-radius: 0px"   />
-				</td>
-				<td  style='width: 30pt; border: solid black 1.0pt; border-left: none; padding: 0cm 5.4pt 0cm 5.4pt; height: 30pt'>
-					<input type="text" id="study_end_date1"
-						style="text-align: center; font-size: 8.0pt; font-family: 宋体; display: inline-block; height: 90%; width: 95%; padding: 0px; margin: 3px; border-radius: 0px"   />
-			   </td>
-			   <td style='width: 50pt; border: solid black 1.0pt; border-left: none; padding: 0cm 5.4pt 0cm 5.4pt; height: 30pt'>
-					<input type="text" id=""
-						style="text-align: center; font-size: 8.0pt; font-family: 宋体; display: inline-block; height: 90%; width: 95%; padding: 0px; margin: 3px; border-radius: 0px"   />
-				</td>
-				<td style='width: 50pt; border: solid black 1.0pt; border-left: none; padding: 0cm 5.4pt 0cm 5.4pt; height: 30pt'>
-					<input type="text" id="study_end_date1"
-						style="text-align: center; font-size: 8.0pt; font-family: 宋体; display: inline-block; height: 90%; width: 95%; padding: 0px; margin: 3px; border-radius: 0px"   />
-			   </td>
-			   <td  style='width: 50pt; border: solid black 1.0pt; border-left: none; padding: 0cm 5.4pt 0cm 5.4pt; height: 30pt'>
-					<input type="text" id=""
-						style="text-align: center; font-size: 8.0pt; font-family: 宋体; display: inline-block; height: 90%; width: 95%; padding: 0px; margin: 3px; border-radius: 0px"   />
-				</td>
-			</tr>
-			<tr style='page-break-inside: avoid' id = "memberinfo2">
-				<td  style='width: 30pt; border: solid black 1.0pt; border-left: none; padding: 0cm 5.4pt 0cm 5.4pt; height: 30pt'>
-					<input type="text" id=""
-						style="text-align: center; font-size: 8.0pt; font-family: 宋体; display: inline-block; height: 90%; width: 95%; padding: 0px; margin: 3px; border-radius: 0px"   />
-				</td>
-				<td  style='width: 122pt; border: solid black 1.0pt; border-left: none; padding: 0cm 5.4pt 0cm 5.4pt; height: 30pt' colspan="2">
-					<input type="text" id="study_institution1"
-						style="text-align: center; font-size: 8.0pt; font-family: 宋体; display: inline-block; height: 90%; width: 95%; padding: 0px; margin: 3px; border-radius: 0px"   />
-				</td>
-				<td  style='width: 62pt; border: solid black 1.0pt; border-left: none; padding: 0cm 5.4pt 0cm 5.4pt; height: 30pt' colspan="2">
-					<input type="text" id="study_position1"
-						style="text-align: center; font-size: 8.0pt; font-family: 宋体; display: inline-block; height: 90%; width: 95%; padding: 0px; margin: 3px; border-radius: 0px"   />
-				</td>
-				<td  style='width: 122pt; border: solid black 1.0pt; border-left: none; padding: 0cm 5.4pt 0cm 5.4pt; height: 30pt'>
-					<input type="text" id="study_start_date1"
-						style="text-align: center; font-size: 8.0pt; font-family: 宋体; display: inline-block; height: 90%; width: 95%; padding: 0px; margin: 3px; border-radius: 0px"   />
-				</td>
-				<td  style='width: 62pt; border: solid black 1.0pt; border-left: none; padding: 0cm 5.4pt 0cm 5.4pt; height: 30pt'>
-					<input type="text" id="study_end_date1"
-						style="text-align: center; font-size: 8.0pt; font-family: 宋体; display: inline-block; height: 90%; width: 95%; padding: 0px; margin: 3px; border-radius: 0px"   />
-			   </td>
-			   <td style='width: 50pt; border: solid black 1.0pt; border-left: none; padding: 0cm 5.4pt 0cm 5.4pt; height: 30pt'>
-					<input type="text" id=""
-						style="text-align: center; font-size: 8.0pt; font-family: 宋体; display: inline-block; height: 90%; width: 95%; padding: 0px; margin: 3px; border-radius: 0px"   />
-				</td>
-				<td style='width: 50pt; border: solid black 1.0pt; border-left: none; padding: 0cm 5.4pt 0cm 5.4pt; height: 30pt'>
-					<input type="text" id="study_end_date1"
-						style="text-align: center; font-size: 8.0pt; font-family: 宋体; display: inline-block; height: 90%; width: 95%; padding: 0px; margin: 3px; border-radius: 0px"   />
-			   </td>
-			   <td  style='width: 50pt; border: solid black 1.0pt; border-left: none; padding: 0cm 5.4pt 0cm 5.4pt; height: 30pt'>
-					<input type="text" id=""
-						style="text-align: center; font-size: 8.0pt; font-family: 宋体; display: inline-block; height: 90%; width: 95%; padding: 0px; margin: 3px; border-radius: 0px"   />
-				</td>
-				
-			</tr>
-		</table>
-			<div style="text-align: left;margin-left:30px">
-				<a class="btn btn-small btn-info" href="javascript:void(0)" id="addmemeber">
-					<i class="icon-plus-sign"></i>添加
-				</a>
-			</div>
-	</body>
+
+	<div class="xline" style="border-bottom: 1px solid #b3b3b3; height: 10px;"></div>
+		<p class=MsoNormal style='text-align: center'>
+			<b> <span lang=EN-US style='font-size: 18.0pt'>&nbsp;</span>
+			</b>
+		</p>
+		<p class=MsoNormal style='text-align: center'>
+			<b> <span style='font-size: 18.0pt; font-family: 宋体'>专&nbsp;利&nbsp;情&nbsp;况</span>
+			</b>
+		</p>
+		<%@ include file="/view/userBaseInfor/userZhuanli.jsp"%>
+		<p class=MsoNormal style='text-align: center'>
+			<b> <span lang=EN-US style='font-size: 7.5pt'>&nbsp;</span>
+			</b>
+		</p>
+
+
+<div class="xline" style="border-bottom: 1px solid #b3b3b3; height: 10px;"></div>
+		<p class=MsoNormal style='text-align: center'>
+			<b> <span lang=EN-US style='font-size: 18.0pt'>&nbsp;</span>
+			</b>
+		</p>
+		<p class=MsoNormal style='text-align: center'>
+			<b> <span style='font-size: 18.0pt; font-family: 宋体'>获&nbsp;奖&nbsp;情&nbsp;况</span>
+			</b>
+		</p>
+		<%@ include file="/view/userBaseInfor/userAward.jsp"%>
+		<p class=MsoNormal style='text-align: center'>
+			<b> <span lang=EN-US style='font-size: 7.5pt'>&nbsp;</span>
+			</b>
+		</p>
+
+
+<div class="xline" style="border-bottom: 1px solid #b3b3b3; height: 10px;"></div>
+		<p class=MsoNormal style='text-align: center'>
+			<b> <span lang=EN-US style='font-size: 18.0pt'>&nbsp;</span>
+			</b>
+		</p>
+		<p class=MsoNormal style='text-align: center'>
+			<b> <span style='font-size: 18.0pt; font-family: 宋体'>承&nbsp;担&nbsp;项&nbsp;目</span>
+			</b>
+		</p>
+		<%@ include file="/view/userBaseInfor/userProject.jsp"%>
+		<p class=MsoNormal style='text-align: center'>
+			<b> <span lang=EN-US style='font-size: 7.5pt'>&nbsp;</span>
+			</b>
+		</p>
+
+<div class="xline" style="border-bottom: 1px solid #b3b3b3; height: 10px;"></div>
+		<p class=MsoNormal style='text-align: center'>
+			<b> <span lang=EN-US style='font-size: 18.0pt'>&nbsp;</span>
+			</b>
+		</p>
+		<p class=MsoNormal style='text-align: center'>
+			<b> <span style='font-size: 18.0pt; font-family: 宋体'>学&nbsp;术&nbsp;报&nbsp;告</span>
+			</b>
+		</p>
+		<%@ include file="/view/userBaseInfor/userBaogao.jsp"%>
+		<p class=MsoNormal style='text-align: center'>
+			<b> <span lang=EN-US style='font-size: 7.5pt'>&nbsp;</span>
+			</b>
+		</p>
+
+		<p class=MsoNormal>
+			<span lang=EN-US>&nbsp;</span>
+		</p>
+
+	</div>
+
+</body>
+
 </html>
