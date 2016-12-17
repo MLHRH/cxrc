@@ -49,7 +49,7 @@ function initExpertMangerDataTables(data) {
 					"data" : "name",
 					"class" : "center"
 				}, {
-					"data" : "score",
+					"data" : "expert_score",
 					"class" : "center"
 				},{
 					"data" : null,
