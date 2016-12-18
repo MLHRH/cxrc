@@ -215,10 +215,13 @@ function initZhichengApplyDataTables(data) {
 					"class" : "center",
 					"render" : function(data) {
 						if (currentRole == "ROLE_USER") {
-							if (data.status == "0" || data.status == "3")
+							if (data.status == "0" )
 								return "<a class='btn btn-small btn-info' style='margin-right: 5px' href='javascript:void(0)' onClick='zhichengApplyDelete("
 										+ data.id
 										+ ")'><i class='icon-remove'></i>删除</a><a class='btn btn-small btn-info' style='margin-right: 5px' href='javascript:void(0)' onClick='zhichengApplyEdit("
+										+ data.id + ","+"\/"+data.apply_type+"\/"+","+zhichengId+")'><i class='icon-edit'></i>编辑</a>";
+							if( data.status == "3")
+								return "<a class='btn btn-small btn-inverse' style='margin-right: 5px' disabled='disabled'  href='javascript:void(0)'><i class='icon-remove'></i>删除</a><a class='btn btn-small btn-info' style='margin-right: 5px' href='javascript:void(0)' onClick='zhichengApplyEdit("
 										+ data.id + ","+"\/"+data.apply_type+"\/"+","+zhichengId+")'><i class='icon-edit'></i>编辑</a>";
 							else
 								return "<a class='btn btn-small btn-inverse' style='margin-right: 5px' disabled='disabled'  href='javascript:void(0)'><i class='icon-remove'></i>删除</a><a class='btn btn-small btn-inverse' style='margin-right: 5px'  disabled='disabled' href='javascript:void(0)' ><i class='icon-edit'></i>编辑</a>";

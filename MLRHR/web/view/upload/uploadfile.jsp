@@ -29,6 +29,12 @@
 
 <body>
 	<div class="container-fluid" style="margin-top: 10px;margin-left:5px; margin-bottom: 10px;">
+	<p class=MsoNormal style='text-align: center'>
+			
+			<div>
+			<b> <span style='font-size: 10.0pt; font-family: 幼圆; letter-spacing: 1.0pt'><font color=red >(只支持压缩文件上传,如*.zip;*.rar文件)</font></span>
+			</b></div>
+		</p>
 		<table>
 			<tr>
 				<td style="padding: 2px 10px 2px 10px;" >
