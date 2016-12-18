@@ -9,21 +9,21 @@ function initHrstatistic() {
 function init() {
 	var activeLiId = $("#myTab .active").attr('id');
 	if (activeLiId == "nav1") {
-		status = "已提交";
+		status = "0";
 	} else if (activeLiId == "nav2") {
-		status = "初审中";
+		status = "1";
 	} else if (activeLiId == "nav3") {
-		status = "初审未通过";
+		status = "2";
 	} else if (activeLiId == "nav4") {
-		status = "初审通过";
+		status = "3";
 	} else if (activeLiId == "nav5") {
-		status = "复审中";
+		status = "4";
 	} else if (activeLiId == "nav6") {
-		status = "复审通过";
+		status = "5";
 	} else if (activeLiId == "nav7") {
-		status = "复审未通过";
+		status = "6";
 	} else if (activeLiId == "nav8") {
-		status = "已结束";
+		status = "7";
 	}
 }
 function initDataSelected() {
@@ -176,7 +176,7 @@ function setStatus(sta) {
 		$("#nav6").removeClass("active")
 		$("#nav7").removeClass("active")
 		$("#nav8").removeClass("active")
-		status = "已提交";
+		status = "0";
 	} else if (sta == 1) {
 		$("#nav2").addClass("active")
 		$("#nav1").removeClass("active")
@@ -186,7 +186,7 @@ function setStatus(sta) {
 		$("#nav6").removeClass("active")
 		$("#nav7").removeClass("active")
 		$("#nav8").removeClass("active")
-		status = "初审中";
+		status = "1";
 	} else if (sta == 2) {
 		$("#nav3").addClass("active")
 		$("#nav1").removeClass("active")
@@ -196,7 +196,7 @@ function setStatus(sta) {
 		$("#nav6").removeClass("active")
 		$("#nav7").removeClass("active")
 		$("#nav8").removeClass("active")
-		status = "初审未通过";
+		status = "2";
 	} else if (sta == 3) {
 		$("#nav4").addClass("active")
 		$("#nav1").removeClass("active")
@@ -206,7 +206,7 @@ function setStatus(sta) {
 		$("#nav6").removeClass("active")
 		$("#nav7").removeClass("active")
 		$("#nav8").removeClass("active")
-		status = "初审通过";
+		status = "3";
 	}else if (sta == 4) {
 		$("#nav5").addClass("active")
 		$("#nav1").removeClass("active")
@@ -216,7 +216,7 @@ function setStatus(sta) {
 		$("#nav6").removeClass("active")
 		$("#nav7").removeClass("active")
 		$("#nav8").removeClass("active")
-		status = "复审中";
+		status = "4";
 	}else if (sta == 5) {
 		$("#nav6").addClass("active")
 		$("#nav1").removeClass("active")
@@ -226,7 +226,7 @@ function setStatus(sta) {
 		$("#nav5").removeClass("active")
 		$("#nav7").removeClass("active")
 		$("#nav8").removeClass("active")
-		status = "复审通过";
+		status = "5";
 	}else if (sta == 6) {
 		$("#nav7").addClass("active")
 		$("#nav1").removeClass("active")
@@ -236,7 +236,7 @@ function setStatus(sta) {
 		$("#nav5").removeClass("active")
 		$("#nav6").removeClass("active")
 		$("#nav8").removeClass("active")
-		status = "复审未通过";
+		status = "6";
 	}else if (sta == 7) {
 		$("#nav8").addClass("active")
 		$("#nav1").removeClass("active")
@@ -246,7 +246,7 @@ function setStatus(sta) {
 		$("#nav5").removeClass("active")
 		$("#nav6").removeClass("active")
 		$("#nav7").removeClass("active")
-		status = "已结束";
+		status = "7";
 	}
 	getData();
 }

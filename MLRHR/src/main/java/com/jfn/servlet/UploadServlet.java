@@ -27,7 +27,6 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import com.jfn.common.util.ContextUtil;
-import com.jfn.dao.FileDao;
 import com.jfn.entity.Attachfile;
 import com.jfn.service.FileService;
 
@@ -56,7 +55,8 @@ public class UploadServlet extends HttpServlet {
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		if (request.getParameter("getfile") != null && !request.getParameter("getfile").isEmpty()) {
-			Attachfile f = getFileDao().getFileByID(Integer.valueOf(request.getParameter("getfile")));
+			//Attachfile f = getFileDao().getFileByID(Integer.valueOf(request.getParameter("getfile")));
+			Attachfile f = new Attachfile();
 			File file = new File(f.getFile_path());
 			if (file.exists()) {
 				int bytes = 0;
@@ -76,15 +76,16 @@ public class UploadServlet extends HttpServlet {
 			}
 		}
 
-		if (request.getParameter("delfile") != null && !request.getParameter("delfile").isEmpty()) {
-			Attachfile af = getFileDao().getFileByID(Integer.valueOf(request.getParameter("delfile")));
+		/*if (request.getParameter("delfile") != null && !request.getParameter("delfile").isEmpty()) {
+			//Attachfile af = getFileDao().getFileByID(Integer.valueOf(request.getParameter("delfile")));
+			Attachfile af = new Attachfile();
 			if (getFileDao().deleteFile(af.getId())) {
 				File file = new File(af.getFile_path());
 				if (file.exists()) {
 					file.delete();
 				}
 			}
-		}
+		}*/
 		if (request.getParameter("delfile") == null && request.getParameter("getfile") == null) {
 			int fileType = 0;
 			int fileTypeNum = 0;
@@ -186,7 +187,8 @@ public class UploadServlet extends HttpServlet {
 					String dateTime = ft.format(date);
 					f.setUpload_time(dateTime);
 
-					int attach_id = getFileDao().newFile(f);
+					/*int attach_id = getFileDao().newFile(f);*/
+					int attach_id = 1;
 					JSONObject jsono = new JSONObject();
 					jsono.put("name", item.getName());
 					jsono.put("size", item.getSize());
@@ -228,7 +230,7 @@ public class UploadServlet extends HttpServlet {
 		return suffix;
 	}
 
-	private static FileDao getFileDao() {
+	/*private static FileDao getFileDao() {
 		return (FileDao) ContextUtil.getInst().getBean("fileDao");
-	}
+	}*/
 }

@@ -8,6 +8,28 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description" content="">
 <meta name="author" content="">
+<%@ include file="/common/common.jsp"%>
+<script type="text/javascript" src="${ctx}/view/zhicheng/js/ExpertScore.js"></script>
+<link href="${ctx}/static/styles/jquery.dataTables.css" type="text/css" rel="stylesheet" />
+<link rel="stylesheet" href="${ctx}/css/zTreeStyle/zTreeStyle.css" type="text/css">
+<script type="text/javascript" src="${ctx}/static/jquery/DataTables-1.10.3/js/jquery.dataTables.min.js"></script>
+<script type="text/javascript" src="${ctx}/static/jquery/jquery.dataTables.columnFilter.js"></script>
+<script type="text/javascript" src="${ctx}/static/jquery/openWindow.js"></script>
+<script type="text/javascript" src="${ctx}/static/jquery/notify.function.js"></script>
+<script type="text/javascript" src="${ctx}/js/jquery.ztree.core-3.5.js"></script>
+<script type="text/javascript" src="${ctx}/js/jquery.ztree.excheck-3.5.js"></script>
+<script type="text/javascript" src="${ctx}/js/jquery.ztree.exedit-3.5.js"></script>
+<script type="text/javascript" src="${ctx}/js/Chart.js"></script>
+
+<!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+<!--[if lt IE 9]>
+      <script src="../assets/js/html5shiv.js"></script>
+    <![endif]-->
+
+<!-- Fav and touch icons -->
+<%@ include file="/common/jquery.noty.jsp"%>
+<script type="text/javascript" src="${ctx}/static/jquery/notify.function.js"></script>
+<script type="text/javascript" src="${ctx}/static/jquery/openWindow.js"></script>
 <style type="text/css">
 .table td{
     vertical-align: middle;
@@ -17,18 +39,8 @@
 }
 </style>
 <body>
-	<form id="userBaogaoForm" class="form-horizontal"
-		style="margin: 0 0 0 0"></form>
-<!-- 	<div style="text-align: left;" class="add">
-		<a id="userBaogaoAddButton" class="btn btn-small btn-info" href="javascript:void(0)"
-			onClick="userBaogaoEdit()">
-			<i class="icon-plus-sign"></i>添加
-		</a>
-		<span>（注：此处仅填写"</span>
-		<span style="color: #FF8000;">重要报告</span>
-		<span>",在重要国际学术会议报告情况 </span>
-	</div> -->
 	<div class="xline" style="height: 5px"></div>
+	<input type="hidden" value="${applyid}" id="applyid">
 	<table id="expertScore"
 		class="table table-hover table-bordered table-striped" style="margin-bottom: 10px;">
 		<thead valign="middle">
@@ -38,12 +50,5 @@
 			</tr>
 		</thead>
 	</table>
-		<div class="control-group" align="center">
-						<div class="controls">
-							<!-- <a class='btn btn-info' style='margin-right: 5px' href='javascript:void(0)' onClick='PDFTemp()'><i class='icon-download'></i>导出PDF</a> -->
-							<button type="button" class="btn " onClick="javascript:history.back(-1);" style="margin-left: 10px">返回</button>
-						</div>
-					</div>
-				
 </body>
 </html>

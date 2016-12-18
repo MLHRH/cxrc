@@ -18,7 +18,7 @@ public class UploadFileDao {
 
 	@Autowired
 	private JdbcTemplate jdbcTemplate;
-	private final String SQL_INSERT_FILE = "insert into uploadfile (userid,applyid,filename,update,location) values(?,?,?,?,?,)";
+	private final String SQL_INSERT_FILE = "insert into uploadfile (userid,applyid,oldfilename,newfilename,uptime,location) values(?,?,?,?,?,?)";
 	private final String SQL_QUERY_FILE = "select * from uploadfile where applyid = ? ";
 	private final String SQL_QUERY_BY_ID = "select * from uploadfile where id = ?";
 	private final String SQL_DEL_FILE = "delete from uploadfile where id = ?";
@@ -29,7 +29,7 @@ public class UploadFileDao {
 	 * @return
 	 */
 	public boolean insertUploadFile(Attachfile file){
-		Object[] params  = new Object[]{file.getUserid(),file.getApplyid(),file.getFile_name(),
+		Object[] params  = new Object[]{file.getUserid(),file.getApplyid(),file.getOldfilename(),file.getNewfilename(),
 				file.getUpload_time(),file.getFile_path()};
 			 return jdbcTemplate.update(SQL_INSERT_FILE, params) == 1;
 	}
@@ -51,9 +51,10 @@ public class UploadFileDao {
 					file.setId(rs.getInt("id"));
 					file.setApplyid(rs.getInt("applyid"));
 					file.setUserid(rs.getInt("userid"));
-					file.setFile_name(rs.getString("filename"));
+					file.setOldfilename(rs.getString("oldfilename"));
+					file.setNewfilename(rs.getString("newfilename"));
 					file.setFile_path(rs.getString("location"));
-					file.setUpload_time(rs.getString("update"));
+					file.setUpload_time(rs.getString("uptime"));
 				}
 				return file;
 			}
@@ -78,9 +79,10 @@ public class UploadFileDao {
 					file.setId(rs.getInt("id"));
 					file.setApplyid(rs.getInt("applyid"));
 					file.setUserid(rs.getInt("userid"));
-					file.setFile_name(rs.getString("filename"));
+					file.setOldfilename(rs.getString("oldfilename"));
+					file.setNewfilename(rs.getString("newfilename"));
 					file.setFile_path(rs.getString("location"));
-					file.setUpload_time(rs.getString("update"));
+					file.setUpload_time(rs.getString("uptime"));
 				}
 				return file;
 			}
@@ -105,9 +107,10 @@ public class UploadFileDao {
 		public Attachfile mapRow(ResultSet rs, int num) throws SQLException {
 			Attachfile file = new Attachfile();
 			file.setId(rs.getInt("id"));
-			file.setFile_name(rs.getString("filename"));
+			file.setOldfilename(rs.getString("oldfilename"));
+			file.setNewfilename(rs.getString("newfilename"));
 			file.setFile_path(rs.getString("location"));
-			file.setUpload_time(rs.getString("update"));
+			file.setUpload_time(rs.getString("uptime"));
 			return file;
 		}
 	}

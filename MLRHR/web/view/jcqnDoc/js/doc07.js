@@ -6,7 +6,7 @@ var  user_id;
 // 被审核人ID
 var userid = $.query.get("userId");
 
-var apply_id =  $.query.get("apply_id") ;
+var apply_id =  $.query.get("applyid") ;
 function initjcqnDoc07() {
 //	user_id = user_id;
 	var arrData = new Array();

@@ -1,9 +1,15 @@
 //申请ID
 var applyid;
-$(document).ready(function() {
-	initUpFile();
-});
+var oTable = null;
+var currentRole;
+
 function initUpFile() {
+	$("#applyid").val(applyid);
+	console.log("申请ID："+applyid);
+	console.log("角色："+currentRole);
+	if(currentRole != "ROLE_USER"){
+		$("#importBtn").hide();
+	}
 	var arrData = new Array();
 	arrData.push({
 				"name" : "applyid",
@@ -52,11 +58,8 @@ function initFileMangerDataTables(data) {
 		"processing" : true,
 		"data" : data,
 		"columns" : [{
-					"data" : "file_name",
+					"data" : "oldfilename",
 					"class" : "center"
-				}, {
-					"data" : "file_size",
-					"class" : "center",
 				}, {
 					"data" : "upload_time",
 					"class" : "center"
@@ -64,12 +67,12 @@ function initFileMangerDataTables(data) {
 					"data" : null,
 					"class" : "center",
 					"render" : function(data) {
-						if(role_type != 2){
-							return "<a class='btn btn-small btn-info'  style='margin: 2.5px;' href='javascript:void(0)' onClick='download(" + data.id
+						if(currentRole != "ROLE_USER"){
+							return "<a class='btn btn-small btn-info'  style='margin: 2.5px;' href='javascript:void(0)' onClick='downLoadFile(" + data.id
 							+ ")'><i class='icon-edit'></i>下载</a>";
 						}
 						else{
-							return "<a class='btn btn-small btn-info'  style='margin: 2.5px;' href='javascript:void(0)' onClick='download(" + data.id
+							return "<a class='btn btn-small btn-info'  style='margin: 2.5px;' href='javascript:void(0)' onClick='downLoadFile(" + data.id
 							+ ")'><i class='icon-edit'></i>下载</a>"
 							+"<a class='btn btn-small btn-info'  style='margin: 2.5px;' href='javascript:void(0)' onClick='delFile(" + data.id
 							+ ")'><i class='icon-edit'></i>删除</a>";
@@ -88,8 +91,8 @@ function delFile(id){
 				});
 		$.ajax({
 			"dataType" : 'json',
-			"type" : "post",
-			"url" : "updateApplyGroup",
+			"type" : "get",
+			"url" : "delFile",
 			"data" : arrData,
 			"success" : function(data) {
 				if (data.status == 0) {
@@ -97,12 +100,13 @@ function delFile(id){
 						text : data.msg,
 						type : 'success',
 						dismissQueue : false,
+						maxVisible:false,
 						closeWith : ['click', 'button'],
 						timeout : 3000,
 						layout : 'top',
 						callback : {
 							afterClose : function() {
-								$('#myModal').modal('hide');
+								initUpFile();
 							}
 						},
 						theme : 'defaultTheme'
@@ -112,11 +116,13 @@ function delFile(id){
 						text : data.msg,
 						type : 'error',
 						dismissQueue : false,
+						maxVisible:false,
 						closeWith : ['click', 'button'],
 						timeout : 3000,
 						layout : 'center',
 						callback : {
 							afterClose : function() {
+								initUpFile();
 							}
 						},
 						theme : 'defaultTheme'
@@ -129,6 +135,6 @@ function delFile(id){
 		generatenoty('center', '更新失败！', 'error');
 	}
 }
-function download(id){
-	
+function downLoadFile(id){
+	location.href = 'downloadfile?fileid=' + id;
 }

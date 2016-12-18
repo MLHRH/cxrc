@@ -37,30 +37,43 @@ public class AttachController {
 	@ResponseBody
     @RequestMapping(value = "uploadFile",method = RequestMethod.POST)
     public Object  uploadFile(HttpServletRequest request){
-		User user = (User) request.getSession().getAttribute("loginuser");
     	JSONObject result = new JSONObject();
-    	try {
+    	
     		//上传文件到服务器
-    		Attachfile file = FileUtil.saveRequestFiles(request);
-    		if(file != null){
-    			//插入上传文件记录
-    			result = fileService.insetFileLog(file,user);
-    		}
-    		else{
-    			result.put(Constant.STATUS, Constant.STAUS_FAIL);
-    			result.put(Constant.MSG, "上传文件失败，请重新上传！");
-    		}
-		} catch (Exception e) {
-			result.put(Constant.STATUS, Constant.STAUS_FAIL);
-			result.put(Constant.MSG, "上传文件失败，请重新上传！");
+    	try {
+			result = (JSONObject) FileUtil.uploadFile(request);
+			result.put(Constant.MSG, Constant.STATUS_SUCCESS);
+		} catch (IllegalStateException e) {
+			result.put(Constant.MSG, Constant.STAUS_FAIL);
+		} catch (IOException e) {
+			result.put(Constant.MSG, Constant.STAUS_FAIL);
 		}
+    		
+    	return result;
+    }
+	@ResponseBody
+    @RequestMapping(value = "importFile",method = RequestMethod.POST)
+    public Object  importFile(HttpServletRequest request){
+		User user = (User) request.getSession().getAttribute("loginuser");
+		String newfilename = request.getParameter("filename");
+		String oldfilename = request.getParameter("oldfilename");
+		String path = request.getParameter("path");
+		String applyid = request.getParameter("applyid");
+		Attachfile file  = new Attachfile();
+		file.setApplyid(Integer.valueOf(applyid));
+		file.setFile_path(path);
+		file.setOldfilename(oldfilename);
+		file.setNewfilename(newfilename);
+    	JSONObject result = new JSONObject();
+    			//插入上传文件记录
+    	result = fileService.insetFileLog(file,user);
     	return result;
     }
     
 	@RequestMapping(value = "downloadfile", method = RequestMethod.GET)
 	public void download(HttpServletRequest request, HttpServletResponse response) {
-		int id =(Integer)request.getSession().getAttribute("id");
-		Attachfile file = fileService.getFileById(id);
+		String fileid = request.getParameter("fileid");
+		Attachfile file = fileService.getFileById(Integer.valueOf(fileid));
 		if(file != null){
 			try {
 				FileUtil.downloadFile(response, file);
@@ -80,7 +93,7 @@ public class AttachController {
 	@ResponseBody
 	@RequestMapping(value = "showUpLoadFile", method = RequestMethod.GET)
 	public Object showUpLoadFile(HttpServletRequest request, Model model) {
-		int applyid =(Integer)request.getSession().getAttribute("applyid");
+		Integer applyid =Integer.valueOf(request.getParameter("applyid"));
 		Attachfile file = fileService.getFileByApplyId(applyid);
 		List<Attachfile> files = new ArrayList<Attachfile>();
 		files.add(file);

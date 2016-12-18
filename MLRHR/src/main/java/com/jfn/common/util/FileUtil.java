@@ -30,8 +30,12 @@ public class FileUtil {
 	/*
      *采用spring提供的上传文件的方法
      */
-	public static Attachfile  uploadFile(HttpServletRequest request,Attachfile file) throws IllegalStateException, IOException
+	public static Object uploadFile(HttpServletRequest request) throws IllegalStateException, IOException
     {
+		JSONObject result = new JSONObject();
+		String serverName = "";
+		String clientName = "";
+		String extName = "";
 		//获取项目的跟路径
         String path = request.getSession().getServletContext().getRealPath("/")+"fileUpload/";
          //将当前上下文初始化给  CommonsMutipartResolver （多部分解析器）
@@ -50,22 +54,28 @@ public class FileUtil {
                 //一次遍历所有文件
                 MultipartFile files=multiRequest.getFile(iter.next().toString());
                 if(files!=null)
-                {   long time = System.currentTimeMillis();
-                    String realPath=path+time+files.getOriginalFilename();
+                {   clientName = files.getOriginalFilename();
+                	serverName = UUID.randomUUID().toString();
+                	 //扩展名格式：  
+                    if (clientName.lastIndexOf(".") >= 0) {
+                        extName = clientName.substring(clientName.lastIndexOf("."));
+                    }
+                    String realPath=path+serverName+extName;
                     File saveFile = new File(realPath);
                     if(!saveFile.getParentFile().exists()){
                     	saveFile.getParentFile().mkdirs();
                     }
                     //上传
                     files.transferTo(saveFile);
-                    file.setFile_name(time+files.getOriginalFilename());
-                    file.setFile_path(path);
+                    result.put("OLD", clientName);
+                    result.put("NEW", saveFile.getName());
+                    result.put("PATH", path);
                 }
                  
             }
            
         }
-        return file;
+        return result;
     }
 	
 	/**
@@ -75,7 +85,7 @@ public class FileUtil {
 	public static void downloadFile(HttpServletResponse response,Attachfile f) throws IOException {
 
 
-		File file = new File(f.getFile_path()+f.getFile_name());
+		File file = new File(f.getFile_path()+f.getNewfilename());
 		if (file.exists()) {
 			String mimetype = "";
 			javax.activation.MimetypesFileTypeMap mtMap = new javax.activation.MimetypesFileTypeMap();
@@ -84,7 +94,7 @@ public class FileUtil {
 			ServletOutputStream op = response.getOutputStream();
 			response.setContentType(mimetype);
 			response.setContentLength((int) file.length());
-			response.setHeader("Content-Disposition", "attachment; filename=\"" + f.getFile_name() + "\"");
+			response.setHeader("Content-Disposition", "attachment; filename=\"" + f.getOldfilename() + "\"");
 			byte[] bbuf = new byte[1024];
 			DataInputStream in = new DataInputStream(new FileInputStream(file));
 
@@ -101,7 +111,7 @@ public class FileUtil {
 	@SuppressWarnings("unchecked")
 	public static Attachfile saveRequestFiles(HttpServletRequest request) throws Exception {
 		//获取项目的跟路径
-		String directory = request.getSession().getServletContext().getRealPath("/")+"fileUpload/";
+		String directory = request.getSession().getServletContext().getRealPath("/")+"fileUpload\\";
 		DiskFileItemFactory fac = new DiskFileItemFactory();
         ServletFileUpload upload = new ServletFileUpload(fac);
         upload.setHeaderEncoding("utf-8");
@@ -123,7 +133,6 @@ public class FileUtil {
             if (!item.isFormField()) {
                 clientName = item.getName();
                 long size = item.getSize();
-                String type = item.getContentType();
                 if (clientName == null || clientName.trim().equals("")) {
                     continue;
                 }
@@ -141,7 +150,7 @@ public class FileUtil {
                 	}
                     item.write(saveFile);
                     file = new Attachfile();
-                    file.setFile_name(clientName);
+                    file.setOldfilename(clientName);
                     file.setFile_size(size);
                     file.setFile_path(directory);
                 } catch (Exception e) {

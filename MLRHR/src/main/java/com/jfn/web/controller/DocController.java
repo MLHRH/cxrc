@@ -138,6 +138,10 @@ public class DocController {
 	public String cxtddoc07(HttpServletRequest request, Model model) {
 		return "cxtdDoc/doc07";
 	}
+	@RequestMapping(value = "uploadfile", method = RequestMethod.GET)
+	public String uploadfile(HttpServletRequest request, Model model) {
+		return "upload/uploadfile";
+	}
 	
 	@RequestMapping(value = "docMain", method = RequestMethod.GET)
 	public String docMain(HttpServletRequest request, Model model) {

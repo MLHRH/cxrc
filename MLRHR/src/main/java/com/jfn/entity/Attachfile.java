@@ -7,8 +7,16 @@ public class Attachfile
 	private int userid;
 	private int applyid;
 	private String file_name;
+	private String newfilename;
+	private String oldfilename;
 	private String file_path;
 	private long file_size; 
+	public String getFile_name() {
+		return file_name;
+	}
+	public void setFile_name(String file_name) {
+		this.file_name = file_name;
+	}
 	private String upload_time; 
 	private int uploader_id;
 	private int file_type;
@@ -37,6 +45,18 @@ public class Attachfile
 	public void setUserid(int userid) {
 		this.userid = userid;
 	}
+	public String getNewfilename() {
+		return newfilename;
+	}
+	public void setNewfilename(String newfilename) {
+		this.newfilename = newfilename;
+	}
+	public String getOldfilename() {
+		return oldfilename;
+	}
+	public void setOldfilename(String oldfilename) {
+		this.oldfilename = oldfilename;
+	}
 	public int getApplyid() {
 		return applyid;
 	}
@@ -59,14 +79,6 @@ public class Attachfile
 	public void setId( int id )
 	{
 		this.id = id;
-	}
-	public String getFile_name()
-	{
-		return file_name;
-	}
-	public void setFile_name( String file_name )
-	{
-		this.file_name = file_name;
 	}
 	public String getFile_path()
 	{

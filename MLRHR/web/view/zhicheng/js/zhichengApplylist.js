@@ -191,21 +191,21 @@ function initZhichengApplyDataTables(data) {
 					"data" : null,
 					"class" : "center",
 					"render" : function(data) {
-						if (data.status == "已提交")
+						if (data.status == "0")
 							return "<a id='unpaid' href='javascript:void(0)' class='btn btn-small '><i class='icon-refresh'></i>已提交</a>";
-						if (data.status == "初审中")
+						if (data.status == "1")
 							return "<a id='unpaid' href='javascript:void(0)' class='btn btn-small btn-warning'><i class='icon-play-circle'></i>初审中</a>";
-						if (data.status == "初审未通过")
+						if (data.status == "2")
 							return "<a id='unpaid' href='javascript:void(0)' class='btn btn-small btn-danger'><i class='icon-remove'></i>初审未通过</a>";
-						if (data.status == "初审通过")
+						if (data.status == "3")
 							return "<a id='unpaid' href='javascript:void(0)' class='btn btn-small btn-success'><i class='icon-ok'></i>初审通过</a>";
-						if (data.status == "复审中")
+						if (data.status == "4")
 							return "<a id='unpaid' href='javascript:void(0)' class='btn btn-small btn-warning'><i class='icon-play-circle'></i>复审中</a>";
-						if (data.status == "复审通过")
+						if (data.status == "5")
 							return "<a id='unpaid' href='javascript:void(0)' class='btn btn-small btn-success'><i class='icon-ok'></i>复审通过</a>";
-						if (data.status == "复审未通过")
+						if (data.status == "6")
 							return "<a id='unpaid' href='javascript:void(0)' class='btn btn-small btn-danger'><i class='icon-remove'></i>复审未通过</a>";
-						if (data.status == "已结束")
+						if (data.status == "7")
 							return "<a id='unpaid' href='javascript:void(0)' class='btn btn-small btn-danger'><i class='icon-remove'></i>已结束</a>";
 						else
 							return "0";
@@ -214,39 +214,36 @@ function initZhichengApplyDataTables(data) {
 					"data" : null,
 					"class" : "center",
 					"render" : function(data) {
-								if (currentRole == "ROLE_USER") {
-									if (data.status == "已提交" || data.status == "初审通过")
-										return "<a class='btn btn-small btn-info' style='margin-right: 5px' href='javascript:void(0)' onClick='PDFCreater("
-												+ JSON.stringify(data)
-												+ ")'><i class='icon-download'></i>导出PDF</a><a class='btn btn-small btn-info' style='margin-right: 5px' href='javascript:void(0)' onClick='zhichengApplyDelete("
-												+ data.id
-												+ ")'><i class='icon-remove'></i>删除</a><a class='btn btn-small btn-info' style='margin-right: 5px' href='javascript:void(0)' onClick='zhichengApplyEdit("
-												+ data.id + ","+"\/"+data.apply_type+"\/"+","+zhichengId+")'><i class='icon-edit'></i>编辑</a>";
-									else
-										return "<a class='btn btn-small btn-info' style='margin-right: 5px' href='javascript:void(0)' onClick='PDFCreater("
-												+ JSON.stringify(data)
-												+ ")'><i class='icon-download'></i>导出PDF</a><a class='btn btn-small btn-inverse' style='margin-right: 5px' disabled='disabled'  href='javascript:void(0)'><i class='icon-remove'></i>删除</a><a class='btn btn-small btn-inverse' style='margin-right: 5px'  disabled='disabled' href='javascript:void(0)' ><i class='icon-edit'></i>编辑</a>";
-
-								}
-						if ((currentRole == "ROLE_EXPERT1") || (currentRole == "ROLE_EXPERT2")||(currentRole == "ROLE_HR") || (currentRole == "ROLE_PROFESSOR")) {
-							return "<a class='btn btn-small btn-info' style='margin-right: 5px' href='javascript:void(0)' onClick='PDFCreater(" + JSON.stringify(data)
-									+ ")'><i class='icon-download'></i>导出PDF</a><a class='btn btn-small btn-info' style='margin-right: 5px' href='javascript:void(0)' onClick='zhichengApplyEdit("
-									+ data.id +","+"\/"+data.apply_type+"\/"+","+id+","+user_id+")'><i class='icon-search'></i>审核</a>";}
 						if (currentRole == "ROLE_USER") {
-							return "<a class='btn btn-small btn-info' style='margin-right: 5px' href='javascript:void(0)' onClick='zhichengApplyDelete("
+							if (data.status == "0" || data.status == "3")
+								return "<a class='btn btn-small btn-info' style='margin-right: 5px' href='javascript:void(0)' onClick='zhichengApplyDelete("
 										+ data.id
-										+ ")'><i class='icon-remove'></i>删除</a>";
-							
+										+ ")'><i class='icon-remove'></i>删除</a><a class='btn btn-small btn-info' style='margin-right: 5px' href='javascript:void(0)' onClick='zhichengApplyEdit("
+										+ data.id + ","+"\/"+data.apply_type+"\/"+","+zhichengId+")'><i class='icon-edit'></i>编辑</a>";
+							else
+								return "<a class='btn btn-small btn-inverse' style='margin-right: 5px' disabled='disabled'  href='javascript:void(0)'><i class='icon-remove'></i>删除</a><a class='btn btn-small btn-inverse' style='margin-right: 5px'  disabled='disabled' href='javascript:void(0)' ><i class='icon-edit'></i>编辑</a>";
 
 						}
-					}
+				if ((currentRole == "ROLE_HR") || (currentRole == "ROLE_PROFESSOR")) {
+					return "<a class='btn btn-small btn-info' style='margin-right: 5px' href='javascript:void(0)' onClick='ExpertScore(" + data.id
+							+ ")'><i class='icon-download'></i>打分详情</a><a class='btn btn-small btn-info' style='margin-right: 5px' href='javascript:void(0)' onClick='ExpertVote(" + data.id
+							+ ")'><i class='icon-download'></i>投票详情</a><a class='btn btn-small btn-info' style='margin-right: 5px' href='javascript:void(0)' onClick='zhichengApplyEdit("
+							+ data.id +","+"\/"+data.apply_type+"\/"+","+id+","+user_id+")'><i class='icon-search'></i>审核</a>";}
+//				if (currentRole == "ROLE_USER") {
+//					return "<a class='btn btn-small btn-info' style='margin-right: 5px' href='javascript:void(0)' onClick='zhichengApplyDelete("
+//								+ data.id
+//								+ ")'><i class='icon-remove'></i>删除</a>";
+//					
+//
+//				}
+			}
 				}]
 	});
 }
 
 function zhichengApplyEdit(id,type,userId,user_id) {
 	console.log("申请类型："+type);
-	location.href = 'zhichengApply?id=' + id+"&applyType="+type+"&userId="+userId+"&user_id="+user_id;
+	location.href = 'zhichengApplyEdit?applyid=' + id+"&applyType="+type+"&userId="+userId+"&user_id="+user_id;
 }
 
 function zhichengApplyDelete(id) {
@@ -303,6 +300,34 @@ function zhichengApplyDelete(id) {
 								}
 							}]
 				});
+	}
+}
+//获取专家打分
+function ExpertScore(id) {
+	
+	if (id == null) {
+		$("#myModalTitle").text("暂无打分信息");
+		$(".modal-body").load("expertScoreDetail");
+		$('#myModal').modal();
+	} else {
+		
+		$("#myModalTitle").text("打分详情");
+		$(".modal-body").load("expertScoreDetail?applyid=" + id);
+		$('#myModal').modal();
+	}
+}
+//获取专家投票详情
+function ExpertVote(id) {
+	console.log("applyid:"+id);
+	if (id == null) {
+		$("#myModalTitle").text("暂无投票信息");
+		$(".modal-body").load("expertVoteDetail");
+		$('#myModal').modal();
+	} else {
+		
+		$("#myModalTitle").text("投票详情");
+		$(".modal-body").load("expertVoteDetail?applyid=" + id);
+		$('#myModal').modal();
 	}
 }
 // 生成PDF

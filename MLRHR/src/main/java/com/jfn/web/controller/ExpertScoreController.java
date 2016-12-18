@@ -25,11 +25,7 @@ public class ExpertScoreController {
 		// String userId = request.getParameter("user_id");
 		String expertId = request.getParameter("expert_id");
 		String apply_id = request.getParameter("apply_id");
-		System.err.println("-----------" + expertId);
 		ExpertScore expertScore = expertScoreService.getByExpertId01(Integer.parseInt(expertId),Integer.parseInt(apply_id));
-		// Gson gson = new Gson();
-		System.err.println(expertScore);
-		// return gson.toJson(jcqn);
 		return expertScore;
 	}
 
@@ -42,9 +38,6 @@ public class ExpertScoreController {
 //		System.err.println(request.getParameter("expert_id"));
 		int apply_id =Integer.valueOf(request.getParameter("apply_id"));
 		expertScore.setExpert_id(expert_id);
-
-		System.err.println("score="+expertScoreService.getByExpertId01(expert_id ,apply_id).getExpert_score());
-		System.err.println("pingyu="+expertScoreService.getByExpertId01(expert_id,apply_id).getExpert_pingyu());
 
 		int result = 0;
 		try {

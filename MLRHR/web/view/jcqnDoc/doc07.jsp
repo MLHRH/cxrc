@@ -18,8 +18,7 @@
 <td colspan="3">
 <p class=MsoNormal >
 			<b> <span style='font-size: 12.0pt;  letter-spacing: 1.0pt'>评语：</span></b>
-			<b> <span style='font-size: 10.0pt; letter-spacing: 1.0pt'><font color=red >(填写完成后，请先点击“保存修改”按钮再进行提交)</font></span>
-			</b>
+			
 		</p>
 						<textarea style="width: 900px; height: 200px" id="expert_pingyu"></textarea>
 					</td>

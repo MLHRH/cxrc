@@ -6,6 +6,8 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 
+import javax.lang.model.type.PrimitiveType;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataAccessException;
 import org.springframework.jdbc.core.JdbcTemplate;
@@ -20,6 +22,7 @@ import com.jfn.entity.AcctUserRole;
 import com.jfn.entity.ExpertGroup;
 import com.jfn.entity.ExpertScore;
 import com.jfn.entity.ExpertUser;
+import com.jfn.entity.ExpertVote;
 import com.jfn.entity.JcqnDoc04;
 import com.jfn.entity.ZhichengApply;
 
@@ -48,6 +51,13 @@ public class ZhichengApplyDao {
 	
 	private final String SQL_GET_EXPERT_SCORE ="SELECT es.expert_score AS score ,au.`name` FROM expert_score es LEFT JOIN acct_user au ON au.id = es.expert_id where es.apply_id =?";
 	
+	private final String SQL_GET_EXPERT_VOTE = "SELECT es.expert_vote AS expert_vote ,au.`name` FROM expert_vote es LEFT JOIN acct_user au ON au.id = es.expert_id WHERE es.apply_id =?";
+	
+	private final String SQL_INSERT_VOTE = "insert into expert_vote(expert_id,apply_id,expert_vote) values(?,?,?)";
+	
+	private final String SQL_SET_UPDATE_VOTE = "update expert_vote set expert_vote=? where expert_id=? and apply_id=?";
+	
+	private final String SQL_GetVOTE_BY_USERID = "select * from expert_vote where expert_id=? and apply_id=?";
 	SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 	public boolean insert(ZhichengApply Apply) {
 		Object[] params = new Object[]{Apply.getUser_id(),Apply.getGroup_id(),sdf.format(new Date()),Apply.getApply_type(), 
@@ -345,5 +355,66 @@ System.err.println(JSON.toJSON(Apply));
 			group.setName(rs.getString("name"));
 			return group;
 		}
+	}
+	
+	public List<ExpertVote> getExpertVote(Integer id){
+//		Object [] params = new Object[]{id};
+		return jdbcTemplate.query(SQL_GET_EXPERT_VOTE, 
+				new Object[] { id }, 
+				new ExpertVoteRowMapper());
+	}
+	
+	public class ExpertVoteRowMapper implements ParameterizedRowMapper<ExpertVote>
+	{
+		// 实现mapRow方法
+		@Override
+		public ExpertVote mapRow( ResultSet rs, int num ) throws SQLException
+		{
+			// 对类进行封装
+			ExpertVote group = new ExpertVote();
+			group.setExpert_vote(rs.getString("expert_vote"));
+			group.setName(rs.getString("name"));
+			return group;
+		}
+	}
+	
+	public boolean insertVote(ExpertVote expertvote) {
+		return jdbcTemplate.update(SQL_INSERT_VOTE,
+				new Object[] {expertvote.getExpert_id(),expertvote.getApply_id(),expertvote.getExpert_vote()}) == 1;
+	}
+	public boolean updateVote(ExpertVote expertScore){
+		Object[] params = new Object[] {	
+				 expertScore.getExpert_vote(),
+			     expertScore.getExpert_id(),
+			     expertScore.getApply_id()
+			    		     
+				
+		};
+		return jdbcTemplate.update(SQL_SET_UPDATE_VOTE,params) == 1;
+		
+		
+	}
+	
+	public ExpertVote getByExpertId( int expert_id ,int apply_id )
+	{
+		return jdbcTemplate.query( SQL_GetVOTE_BY_USERID, new Object[]{expert_id,apply_id},
+				new ResultSetExtractor<ExpertVote>()
+				{
+			@Override
+			public ExpertVote extractData( ResultSet rs )
+					throws SQLException, DataAccessException
+					{
+				ExpertVote expertScore = new ExpertVote(); 
+				if( rs.next() )
+				{
+					expertScore.setId(rs.getInt("id"));
+					expertScore.setExpert_id(rs.getInt("expert_id"));				
+					expertScore.setApply_id(rs.getInt("apply_id"));
+					expertScore.setExpert_vote(rs.getString("expert_vote"));
+		
+				}
+				return expertScore;
+					}
+				} );
 	}
 }

@@ -52,9 +52,16 @@ body {
 <script type="text/javascript" src="${ctx}/static/jquery/notify.function.js"></script>
 <script type="text/javascript" src="${ctx}/static/jquery/openWindow.js"></script>
 <script type="text/javascript" src="${ctx}/view/zhicheng/js/zhichengApplylist.js"></script>
-<script type="text/javascript" src="${ctx}/view/zhicheng/js/ExpertScore.js"></script>
 </head>
 <body><%@ include file="/common/bodyheader.jsp"%>
+	 <div class="modal hide" id="myModal" style="width: 700px;height:400px">
+		<div class="modal-header">
+			<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+			<h3 id="myModalTitle"></h3>
+		</div>
+		<div class="modal-body" style="min-height: 300px; max-height: 350px; padding-left: 30px; padding-right: 30px;">
+		</div>
+	</div> 
 	<div class="container-fluid">
 		<div class="row-fluid">
 			<div class="row-fluid">

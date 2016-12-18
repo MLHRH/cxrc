@@ -110,7 +110,7 @@ function initZhichengApplyDataTables(data) {
 
 function zhichengApplyEdit(id,type,userId,expert_id,expert) {
 	console.log("申请类型："+type);
-	location.href = 'zhichengApply?apply_id=' + id+"&applyType="+type+"&userId="+userId+"&user_id="+expert_id+"&expert="+expert;
+	location.href = 'zhichengApplyEdit?applyid=' + id+"&applyType="+type+"&userId="+userId+"&user_id="+expert_id+"&expert="+expert;
 }
 
 

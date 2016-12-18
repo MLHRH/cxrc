@@ -88,6 +88,7 @@ body {
 <script type="text/javascript" src="${ctx}/view/kjljDoc/js/doc04.js"></script>
 <script type="text/javascript" src="${ctx}/view/kjljDoc/js/doc05.js"></script>
 <script type="text/javascript" src="${ctx}/view/kjljDoc/js/doc07.js"></script>
+<script type="text/javascript" src="${ctx}/view/upload/js/uploadfile.js"></script>
 <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
 <!--[if lt IE 9]>
       <script src="../assets/js/html5shiv.js"></script>
@@ -161,24 +162,37 @@ body {
 					</div>-->
 					
 					<div class="control-group isHR" align="left">
-						<span class="text-error">审核变更：</span>
-						<select id="zhichengapply_status_new" style="font-size: 14px">
+					    <div><span class="text-error">审核变更：</span></div>
+					    <div>
+					    <select id="zhichengapply_status_new" style="font-size: 14px;width:150px">
 							<option value="-1">请选择</option>
-							<option value="已提交" class="isEXPERT1">已提交</option>
-							<option value="初审中" class="isEXPERT1">初审中</option>
-							<option value="初审未通过" class="isEXPERT1">初审未通过</option>
-							<option value="初审通过" class="isEXPERT1">初审通过</option>
-							<option value="复审中" class="isEXPERT1">复审中</option>
-							<option value="复审通过" class="isEXPERT1">复审通过</option>
-							<option value="复审未通过" class="isEXPERT1">复审未通过</option>
-							<option value="已结束">已结束</option>
+							<option value="0" class="isEXPERT1">已提交</option>
+							<option value="1" class="isEXPERT1">初审中</option>
+							<option value="2" class="isEXPERT1">初审未通过</option>
+							<option value="3" class="isEXPERT1">初审通过</option>
+							<option value="4" class="isEXPERT1">复审中</option>
+							<option value="5" class="isEXPERT1">复审通过</option>
+							<option value="6" class="isEXPERT1">复审未通过</option>
+							<option value="7">已结束</option>
 						</select>
+						</div>
+					</div> 
+					<div class="control-group isEXP2" align="left">
+					    <div><span class="text-error">投票：</span></div>
+					    <div>
+					    <select id="zhichengapply_vote" style="font-size: 14px;width:150px">
+							<option value="-1">请选择</option>
+							<option value="1" class="isEXPERT2">通过</option>
+							<option value="2" class="isEXPERT2">不通过</option>
+						</select>
+						</div>
 					</div> 
 
 					<div class="control-group" align="center">
 						<div class="controls">
 							<!-- 							<a class='btn btn-info' style='margin-right: 5px' href='javascript:void(0)' onClick='PDFTemp()'><i class='icon-download'></i>导出PDF</a> -->
 							<a id="tijiaoBtn" class="btn btn-success" href="javascript:void(0)" onClick="zhichengApplyUpdate()"> 提交 </a>
+							<a id="voteBtn" class="btn btn-success" href="javascript:void(0)" onClick="zhichengApplyUpdateVote()"> 投票 </a>
 							<button type="button" class="btn " onClick="javascript:history.back(-1);" style="margin-left: 10px">返回</button>
 						</div>
 					</div>

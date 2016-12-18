@@ -26,12 +26,14 @@ import org.springside.modules.security.springsecurity.SpringSecurityUtils;
 
 import com.alibaba.fastjson.JSON;
 import com.google.gson.JsonObject;
+import com.jfn.dao.NewsDao.newsRowMapper;
 import com.jfn.entity.AcctUserRole;
 import com.jfn.entity.ApplyGroup;
 import com.jfn.entity.ApplyMenu;
 import com.jfn.entity.ExpertGroup;
 import com.jfn.entity.ExpertScore;
 import com.jfn.entity.ExpertUser;
+import com.jfn.entity.ExpertVote;
 import com.jfn.entity.Group;
 import com.jfn.entity.Role;
 import com.jfn.entity.User;
@@ -104,22 +106,22 @@ public class ZhichengController {
 			HttpSession session = request.getSession();
 			User user =(User) session.getAttribute("loginuser");
 			AcctUserRole acctUserRole =zhichengapplyservice.getRoleByUserId(user.getId());
-			if(acctUserRole.getRole_id() != 4 && acctUserRole.getRole_id() != 5 ){			
-				List<ApplyMenu> menus2 =new ArrayList<ApplyMenu>();
-				        menus2.add(menus.get(0));
-				        menus2.add(menus.get(1));
-				        menus2.add(menus.get(2));
-				        menus2.add(menus.get(3));
-				        menus2.add(menus.get(4));
-				        menus2.add(menus.get(5));
-				        //申请状态为初审通过则显示文件上传选项
-				        if(apply.getStatus().equals("2")){
-				        	menus2.add(menus.get(6));
-				        }
-				         map.addObject("menus", menus2);
+			List<ApplyMenu> menus2 =new ArrayList<ApplyMenu>();
+	        menus2.add(menus.get(0));
+	        menus2.add(menus.get(1));
+	        menus2.add(menus.get(2));
+	        menus2.add(menus.get(3));
+	        menus2.add(menus.get(4));
+	        menus2.add(menus.get(5));
+			if(acctUserRole.getRole_id() == 4 ){			
+				       menus2.add(menus.get(6));
 			}else {
-			map.addObject("menus", menus);
+			
+		        	if(Integer.valueOf(apply.getStatus())>2){
+		        		menus2.add(menus.get(7));
+		        	}	       	
 			}
+			map.addObject("menus", menus2);
 			map.addObject("type",menus.get(0).getMenutype());
 			map.addObject("applyid",applyid);
 			map.addObject("apply_userid",apply.getUser_id());
@@ -144,8 +146,8 @@ public class ZhichengController {
 			ModelAndView map = new ModelAndView("zhicheng/zhichengApply");
 			HttpSession session = request.getSession();
 			User user =(User) session.getAttribute("loginuser");
-			AcctUserRole acctUserRole =zhichengapplyservice.getRoleByUserId(user.getId());
-			if(acctUserRole.getRole_id() != 4 && acctUserRole.getRole_id() != 5 ){			
+//			AcctUserRole acctUserRole =zhichengapplyservice.getRoleByUserId(user.getId());
+						
 				List<ApplyMenu> menus2 =new ArrayList<ApplyMenu>();
 				        menus2.add(menus.get(0));
 				        menus2.add(menus.get(1));
@@ -153,10 +155,8 @@ public class ZhichengController {
 				        menus2.add(menus.get(3));
 				        menus2.add(menus.get(4));
 				        menus2.add(menus.get(5));
-				         map.addObject("menus", menus2);
-			}else {
-			map.addObject("menus", menus);
-			}
+				        map.addObject("menus", menus2);
+			
 			map.addObject("type",applyType);
 			map.addObject("apply_userid",user.getId());
 			return map;
@@ -294,9 +294,6 @@ public class ZhichengController {
 		int result = 0;// 0:fail;1:success
 		String msg = "Failed to %s this zhicheng";
 		String id = request.getParameter("id");
-		System.err.println(request.getParameter("status"));
-		System.err.println(request.getParameter("expert2_score"));
-		System.err.println(request.getParameter("expert2_sug"));
 		try {
 			if ((id == null) || (id.length() < 1)) {
 				entity.setGroup_id("1");
@@ -312,6 +309,43 @@ public class ZhichengController {
 		}
 		jsonResponse.addProperty("result", result);
 		jsonResponse.addProperty("msg", String.format(msg, (id == null) ? "add" : "edit"));
+		return jsonResponse.toString();
+	}
+	
+	// 获取投票信息
+	@RequestMapping(value = "/zhichengApplyInteVote", method = RequestMethod.POST)
+	@ResponseBody
+	public ExpertVote zhichengApplyInteVote(HttpServletRequest request) {
+		// String userId = request.getParameter("user_id");
+		String expertId = request.getParameter("expert_id");
+		String apply_id = request.getParameter("apply_id");
+		ExpertVote expertvote = zhichengapplyservice.getByExpertId(Integer.parseInt(expertId),Integer.parseInt(apply_id));
+		return expertvote;
+	}
+	
+	// 投票提交(增加、修改)
+	@RequestMapping(value = "/zhichengApplyUpdateVote", method = RequestMethod.POST)
+	@ResponseBody
+	public String zhichengApplyUpdateVote(HttpServletRequest request, @ModelAttribute ExpertVote entity) {
+		JsonObject jsonResponse = new JsonObject();
+		int result = 0;// 0:fail;1:success
+		String msg = "Failed to %s this zhicheng";
+		String expert_id = request.getParameter("expert_id");
+		String apply_id = request.getParameter("apply_id");
+		try {
+			System.err.println(zhichengapplyservice.getByExpertId(Integer.parseInt(expert_id),Integer.parseInt(apply_id)).getExpert_vote());
+			if (zhichengapplyservice.getByExpertId(Integer.parseInt(expert_id),Integer.parseInt(apply_id)).getExpert_vote() != null) {			
+				result = zhichengapplyservice.updateVote(entity) ? 1 : 0;
+			} else {
+				result = zhichengapplyservice.insertVote(entity) ? 1 : 0;
+			}
+		} catch (Exception e) {
+			result = 0;
+			msg = msg + ": " + e.getMessage();
+			System.err.println(e);
+		}
+		jsonResponse.addProperty("result", result);
+//		jsonResponse.addProperty("msg", String.format(msg, (expert_id == null) ? "add" : "edit"));
 		return jsonResponse.toString();
 	}
 
@@ -358,10 +392,11 @@ public class ZhichengController {
 		if ((id != null) && (id.length() >= 1)) {
 			ZhichengApply zhichengapply = zhichengapplyservice.getById(id);
 			jsonArray.add(zhichengapply);
-			jsonArray.add(jo3);
-			return jsonArray.toString();
+		}else{
+			jsonArray.add(null);
 		}
-		return null;
+		jsonArray.add(jo3);
+		return jsonArray.toString();
 	}
 	
 	
@@ -372,7 +407,7 @@ public class ZhichengController {
 		HttpSession session = request.getSession();
 		User user =(User) session.getAttribute("loginuser");
 		ExpertUser  expertUser = zhichengapplyservice.getByUserId(user.getId());
-		String group_id = request.getParameter("groupId");
+		//String group_id = request.getParameter("groupId");
 		String role_type = request.getParameter("role_type");
 		List<ApplyGroup> list = groupService.getApplyGroupById(Integer.valueOf(expertUser.getGroup_id()),
 				Integer.valueOf(role_type));
@@ -399,11 +434,46 @@ public class ZhichengController {
 	@ResponseBody
 	@RequestMapping(value = "expertScoreList", method = RequestMethod.GET)
 	public Object initExpertScore(HttpServletRequest request){
-		String apply_id = request.getParameter("apply_id");
+		String apply_id = request.getParameter("applyid");
+		
 //		String role_type = request.getParameter("role_type");
 		List<ExpertScore> groups = zhichengapplyservice.gExpertScore(Integer.valueOf(apply_id));
 		return groups;
 	}
 	
+	@RequestMapping(value = "expertScoreDetail", method = RequestMethod.GET)
+	public String expertScoreDetail(HttpServletRequest request,Model model){
+		String applyid = request.getParameter("applyid");
+		model.addAttribute("applyid", applyid);
+		return "zhicheng/ExpertScore";
+	}
 	
+	/**
+	 * 获取专家投票情况列表
+	 * @param request
+	 * @return
+	 */
+	@ResponseBody
+	@RequestMapping(value = "expertVoteList", method = RequestMethod.GET)
+	public Object initExpertVote(HttpServletRequest request){
+		String apply_id = request.getParameter("applyid");
+		
+//		String role_type = request.getParameter("role_type");
+		List<ExpertVote> groups = zhichengapplyservice.gExpertVote(Integer.valueOf(apply_id));
+		for(int i =0; i<groups.size() ;i++){
+		 if(groups.get(i).getExpert_vote().equals("1")){
+			 groups.get(i).setExpert_vote("通过");
+		 }else if(groups.get(i).getExpert_vote().equals("2")){
+			 groups.get(i).setExpert_vote("不通过");
+		}
+		}
+		return groups;
+	}
+	
+	@RequestMapping(value = "expertVoteDetail", method = RequestMethod.GET)
+	public String expertVoteDetail(HttpServletRequest request,Model model){
+		String applyid = request.getParameter("applyid");
+		model.addAttribute("applyid", applyid);
+		return "zhicheng/ExpertVote";
+	}
 }

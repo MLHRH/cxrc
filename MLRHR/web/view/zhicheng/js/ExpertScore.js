@@ -1,10 +1,15 @@
+var oTable = null;
+$(document).ready(function() {
+	var applyid = $("#applyid").val();
+	console.log("打分详情"+applyid);
+	initExpertScore(applyid);
+});
+
 function initExpertScore(apply_id) {
-	
-//	var apply_id;
 	$.ajax({
 		type : 'get',
 		dataType : 'json',
-		url : 'expertScoreList?apply_id=' + apply_id,// 请求的路径
+		url : 'expertScoreList?applyid=' + apply_id,// 请求的路径
 		error : function() {// 请求失败处理函数
 			alert('请求失败');
 		},
@@ -50,14 +55,7 @@ function initExpertMangerDataTables(data) {
 					"class" : "center"
 				}, {
 					"data" : "expert_score",
-					"class" : "center"
-				},{
-					"data" : null,
 					"class" : "center",
-					"render" : function(data) {
-						return "<a class='btn btn-small btn-info'  style='margin: 2.5px;' href='javascript:void(0)' onClick='expertEdit(" + data.expertId
-								+ ")'><i class='icon-edit'></i>编辑</a>";
-					}
 				}]
 	});
 }
