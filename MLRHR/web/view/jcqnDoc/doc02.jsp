@@ -16,7 +16,17 @@
 				<span lang=EN-US>2(此表需到“我的档案”中完善)</span>
 			</span>
 		</p>
-
+      <div class="modal hide" id="myModal" style="width: 600px;">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+				<h3 id="myModalTitle">附件窗口</h3>
+			</div>
+			<div class="modal-body" style="min-height: 300px; max-height: 600px; padding-left: 0; padding-right: 0;"></div>
+			<div class="modal-footer">
+				<a id="myModalSave" class="btn btn-primary" style="margin-right: 5px" href='javascript:void(0)' onclick="" class='btn'>保存</a>
+				<a href='javascript:void(0)' data-dismiss='modal' class='btn'>取消</a>
+			</div>
+		</div>
 
 		<div class="xline" style="border-bottom: 1px solid #b3b3b3; height: 10px;"></div>
 

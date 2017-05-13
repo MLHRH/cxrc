@@ -105,7 +105,16 @@ function init(contentName) {
 		initkjljDoc01();
 		break;
 	case "kjljDoc02":
-		initkjljDoc02();
+		initUserPeixun();
+		initUserWork();
+		initUserSkill();
+		initUserExam();
+		initUserReport();
+		initUserChengguo();
+		initUserZhuanli();
+		initUserAward();
+		initUserProject();
+		initUserBaogao();
 		break;
 	case "kjljDoc03":
 		initkjljDoc03();
@@ -187,9 +196,9 @@ function save() {
 	case "kjljDoc01":
 		updatekjljDoc01();
 		break;
-	case "kjljDoc02":
-		updatekjljDoc02();
-		break;
+//	case "kjljDoc02":
+//		updatekjljDoc02();
+//		break;
 	case "kjljDoc03":
 		updatekjljDoc03();
 		break;

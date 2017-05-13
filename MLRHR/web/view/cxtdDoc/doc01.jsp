@@ -243,22 +243,22 @@
 		<table class=MsoNormalTable border=0 cellspacing=0 cellpadding=0 style='border-collapse: collapse'>
 				
 				<tr class="form-group form-group-lg">
-					<td width=70 style='width: 80pt; border: solid black 1.0pt; padding: 0cm 5.4pt 0cm 5.4pt; height: 30pt'>
+					<td width=70 style='width: 30pt; border: solid black 1.0pt; padding: 0cm 5.4pt 0cm 5.4pt; height: 30pt'>
 						<div class=MsoNormal align=center style='text-align: center'>
 							<span style='font-size: 14.0pt; font-family: 宋体'>姓名
 							</span>
 						</div>
 					</td>
-					<td width=95 style='text-align: center; width: 210pt; border: solid black 1.0pt; border-left: none; padding: 0; padding: 0; height: 30pt'>
+					<td width=95 style='text-align: center; width: 90pt; border: solid black 1.0pt; border-left: none; padding: 0; padding: 0; height: 30pt'>
 						<input type="text" id="leaderName"  style="text-align: center; font-size: 14.0pt; font-family: 宋体; display: inline-block; height: 95%; width: 90%; padding: 0px; margin: 3px; border-radius: 0px" />
 					</td>
-					<td width=84 style='width: 80pt; border: solid black 1.0pt; border-left: none; padding: 0cm 5.4pt 0cm 5.4pt; height: 30pt'>
+					<td width=84 style='width: 30pt; border: solid black 1.0pt; border-left: none; padding: 0cm 5.4pt 0cm 5.4pt; height: 30pt'>
 						<div class=MsoNormal align=center style='text-align: center'>	
 							<span style='font-size: 14.0pt; font-family: 宋体'>性别 
 							</span>
 						</div>	
 					</td>
-						<td width=84 style='text-align: center; width: 210pt; border: solid black 1.0pt; border-left: none; padding: 0; padding: 0; height: 30pt'>
+						<td width=84 style='text-align: center; width: 150pt; border: solid black 1.0pt; border-left: none; padding: 0; padding: 0; height: 30pt'>
 						<input type="text" id="leaderSex"  style="text-align: center; font-size: 14.0pt; font-family: 宋体; display: inline-block; height: 95%; width: 90%; padding: 0px; margin: 3px; border-radius: 0px" />
 					</td>
 						<td width=84 style='width: 80pt; border: solid black 1.0pt; border-left: none; padding: 0cm 5.4pt 0cm 5.4pt; height: 30pt'>
@@ -660,7 +660,7 @@
 				<tr style='page-break-inside: avoid' id="memberinfo_div">
 				<td width=36 rowspan=16 valign="middle" style='width: 6pt; border: solid windowtext 1.0pt; border-top: none; padding: 0cm 5.4pt 0cm 5.4pt'>
 					<div class=MsoNormal style='text-align: center'>
-						<span style='font-size: 14.0pt; font-family: 宋体'>团队核心成员（5-15人）</span>
+						<span style='font-size: 14.0pt; font-family: 宋体'>团队核心成员（11人）</span>
 					</div>
 				</td>
 				<td style='width: 62pt; border: solid black 1.0pt; border-left: none; padding: 0cm 5.4pt 0cm 5.4pt; height: 30pt' >

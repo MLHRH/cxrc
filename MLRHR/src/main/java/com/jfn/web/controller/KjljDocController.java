@@ -40,7 +40,6 @@ public class KjljDocController {
 				JsonObject jsonResponse = new JsonObject();
 				int user_id =(Integer)request.getSession().getAttribute("user_id");
 				kjlj.setUser_id(user_id);
-				System.err.println(kjlj.getAddresses());
 				int result = 0;
 				try {
 					if(kjljdoc01servive.getByUserId01(user_id).getName() != null){

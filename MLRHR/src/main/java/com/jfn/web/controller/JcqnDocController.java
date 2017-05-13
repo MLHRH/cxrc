@@ -68,7 +68,6 @@ public class JcqnDocController {
 				JsonObject jsonResponse = new JsonObject();
 				int user_id =(Integer)request.getSession().getAttribute("user_id");
 				jcqn.setUser_id(user_id);
-				System.err.println(jcqn.getAddresses());
 				int result = 0;
 				try {
 					if(jcqndoc01servive.getByUserId01(user_id).getName() != null){
