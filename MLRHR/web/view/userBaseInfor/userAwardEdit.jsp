@@ -53,18 +53,20 @@
 					</tr>
 		
 					<tr align="center">
-						<td class="td_Left">级&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp别：</td>
+						<td class="td_Left">等&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp级：</td>
 						<td class="td_Right">
 							<select id="user_award_grade" name="user_award_grade" class="input-block-level" style="width: 220px">
 								<option value="-1">请选择</option>
-								<option value="国家级" <c:if test="${user_award.grade == '国家级'}">selected</c:if>>国家级</option>
-								<option value="省部级" <c:if test="${user_award.grade == '省部级'}">selected</c:if>>省部级</option>
+								<option value="一等奖" <c:if test="${user_award.grade == '一等奖'}">selected</c:if>>一等奖</option>
+								<option value="二等奖" <c:if test="${user_award.grade == '二等奖'}">selected</c:if>>二等奖</option>
+								<option value="三等奖" <c:if test="${user_award.grade == '三等奖'}">selected</c:if>>三等奖</option>
+								<option value="四等奖" <c:if test="${user_award.grade == '四等奖'}">selected</c:if>>四等奖</option>
 								<option value="其它" <c:if test="${user_award.grade == '其它'}">selected</c:if>>其它</option>
 							</select>
 						</td>
 					</tr>
 					<tr align="center">
-						<td class="td_Left">排&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp名：</td>
+						<td class="td_Left">排&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp序：</td>
 						<td class="td_Right">
 							<select id="user_award_sort" name="user_award_sort" class="input-block-level" style="width: 220px">
 								<option value="-1">请选择</option>
@@ -83,7 +85,7 @@
 						</td>
 					</tr>
 						<tr align="center">
-						<td class="td_Left">日期：</td>
+						<td class="td_Left">获奖日期：</td>
 						<td class="td_Right">
 							<input type="text" onfocus="WdatePicker({isShowWeek:true,dateFmt:'yyyy.MM.dd'})" id="user_reward_time" value="${user_award.rewardTime}" />
 						</td>

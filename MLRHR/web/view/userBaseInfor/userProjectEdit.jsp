@@ -40,13 +40,13 @@
 						</td>
 					</tr>
 					<tr align="center">
-						<td class="td_Left">项目编号：</td>
+						<td class="td_Left">立项编号：</td>
 						<td class="td_Right">
 							<input type="text" id="user_project_project_number" value="${user_project.projectNumber}" />
 						</td>
 					</tr>
 					<tr align="center">
-						<td class="td_Left">项目经费：</td>
+						<td class="td_Left">经费（万元）：</td>
 						<td class="td_Right">
 							<input type="text" id="user_project_funds" value="${user_project.funds}" />
 						</td>
@@ -58,7 +58,7 @@
 						</td>
 					</tr>
 					<tr align="center">
-						<td class="td_Left">项目来源：</td>
+						<td class="td_Left">项目性质及来源：</td>
 						<td class="td_Right">
 							<input type="text" id="user_project_projectNature" value="${user_project.projectNature}" />
 						</td>

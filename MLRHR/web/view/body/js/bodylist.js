@@ -66,12 +66,12 @@ function zTreeBeforeClick(treeId, treeNode, clickFlag) {
 	if (currentRole == "ROLE_USER") {
 		return false;
 	}
-	if (currentRole == "ROLE_HR") {
-		return false;
-	}
-	if (currentRole == "ROLE_PROFESSOR") {
-		return true;
-	}
+//	if (currentRole == "ROLE_HR") {
+//		return false;
+//	}
+//	if (currentRole == "ROLE_PROFESSOR") {
+//		return true;
+//	}
 }
 function onClick(event, treeId, treeNode, clickFlag) {
 	setDetail(treeNode);

@@ -80,7 +80,10 @@ function initUserChengguoDataTables(data) {
 				},  {
 					"data" : "sciTimes",
 					"class" : "center"
-				}, {
+				},   {
+					"data" : "numberTotal",
+					"class" : "center"
+				},{
 					"data" : null,
 					"class" : "center",
 					"render" : function(data) {

@@ -43,47 +43,47 @@ function initjcqnDoc01() {
 					$('#email').val(data[1].email);
 					$('#zip_code').val(data[1].zip_code);
 					$('#addresses').val(data[1].addresses);
-					if(data[0][0]!=null){
-					$('#study_country').val(data[0][0].country);
-					$('#study_colleges').val(data[0][0].academy);
-					$('#study_major').val(data[0][0].major);
-					$('#study_education').val(data[0][0].xueli);
-					$('#study_start_time').val(data[0][0].start_date);
-					$('#study_end_time').val(data[0][0].end_date);
-					}
-					if(data[0][1]!=null){
-					$('#user_studcountry2').val(data[0][1].country);
-					$('#user_studcollege2').val(data[0][1].academy);
-					$('#user_studmajor2').val(data[0][1].major);
-					$('#user_studdegree2').val(data[0][1].xueli);
-					$('#user_studfirsttime2').val(data[0][1].start_date);
-					$('#user_studlasttime2').val(data[0][1].end_date);
-					}
-					if(data[2][0]!=null){
-					$('#user_workcountry').val(data[2][0].country);
-					$('#user_workcollege').val(data[2][0].work_content);
-					$('#user_workmajor').val(data[2][0].zhiwu);
-					$('#user_workdegree').val(data[2][0].start_date);
-					$('#user_workfirsttime').val(data[2][0].end_date);
-					}
-					if(data[2][1]!=null){
-					$('#work_country').val(data[2][1].country);
-					$('#work_company').val(data[2][1].work_content);
-					$('#work_position').val(data[2][1].zhiwu);
-					$('#work_start_time').val(data[2][1].start_date);
-					$('#work_end_time').val(data[2][1].end_date);
-					}
+				
+					$('#study_country').val(data[1].study_country);
+					$('#study_colleges').val(data[1].study_colleges);
+					$('#study_major').val(data[1].study_major);
+					$('#study_education').val(data[1].study_education);
+					$('#study_start_time').val(data[1].study_start_time);
+					$('#study_end_time').val(data[1].study_end_time);
+					
+					
+					$('#user_studcountry2').val(data[1].user_studcountry2);
+					$('#user_studcollege2').val(data[1].user_studcollege2);
+					$('#user_studmajor2').val(data[1].user_studmajor2);
+					$('#user_studdegree2').val(data[1].user_studdegree2);
+					$('#user_studfirsttime2').val(data[1].user_studfirsttime2);
+					$('#user_studlasttime2').val(data[1].user_studlasttime2);
+					
+					
+					$('#user_workcountry').val(data[1].user_workcountry);
+					$('#user_workcollege').val(data[1].user_workcollege);
+					$('#user_workmajor').val(data[1].user_workmajor);
+					$('#work_starttime').val(data[1].work_starttime);
+					$('#work_endtime').val(data[1].work_endtime);
+					
+					
+					$('#work_country').val(data[1].work_country);
+					$('#work_company').val(data[1].work_company);
+					$('#work_position').val(data[1].work_position);
+					$('#work_start_time').val(data[1].work_start_time);
+					$('#work_end_time').val(data[1].work_end_time);
+					
 					$('#journal_title').val(data[1].journal_title);
 					$('#organization_position').val(data[1].organization_position);
 					$('#organization_term').val(data[1].organization_term);
 					
-					$('#user_workboard2').val(data[1].journal_titlef);
-					$('#user_zhiwu2').val(data[1].organization_position1);
-					$('#user_renqi2').val(data[1].organization_term1);
+					$('#journal_title1').val(data[1].journal_title1);
+					$('#organization_position1').val(data[1].organization_position1);
+					$('#organization_term1').val(data[1].organization_term1);
 					
-					$('#user_workboard3').val(data[1].journal_title2);
-					$('#user_zhiwu3').val(data[1].organization_position2);
-					$('#user_renqi3').val(data[1].organization_term2);
+					$('#journal_title2').val(data[1].journal_title2);
+					$('#organization_position2').val(data[1].organization_position2);
+					$('#organization_term2').val(data[1].organization_term2);
 					
 					$('#unit_name').val(data[1].unit_name);
 					$('#organization_code').val(data[1].organization_code);
@@ -119,6 +119,10 @@ function initjcqnDoc01() {
 }
 function updatejcqnDoc01() {
 	arrData = new Array();
+	arrData.push({
+		"name" : "user_id",
+		"value" : userid
+	});
 arrData.push({
 		"name" : "name",
 		"value" : $("#userName2").val()
@@ -166,6 +170,107 @@ arrData.push({
 		"name" : "addresses",
 		"value" : $("#addresses").val()
 	});
+	
+	arrData.push({
+		"name" : "study_country",
+		"value" : $("#study_country").val()
+	});arrData.push({
+		"name" : "study_colleges",
+		"value" : $("#study_colleges").val()
+	});arrData.push({
+		"name" : "study_major",
+		"value" : $("#study_major").val()
+	});arrData.push({
+		"name" : "study_education",
+		"value" : $("#study_education").val()
+	});;arrData.push({
+		"name" : "study_start_time",
+		"value" : $("#study_start_time").val()
+	});arrData.push({
+		"name" : "study_end_time",
+		"value" : $("#study_end_time").val()
+	});arrData.push({
+		"name" : "user_studcountry2",
+		"value" : $("#user_studcountry2").val()
+	});arrData.push({
+		"name" : "user_studcollege2",
+		"value" : $("#user_studcollege2").val()
+	});arrData.push({
+		"name" : "user_studmajor2",
+		"value" : $("#user_studmajor2").val()
+	});arrData.push({
+		"name" : "user_studdegree2",
+		"value" : $("#user_studdegree2").val()
+	});arrData.push({
+		"name" : "user_studfirsttime2",
+		"value" : $("#user_studfirsttime2").val()
+	});arrData.push({
+		"name" : "user_studlasttime2",
+		"value" : $("#user_studlasttime2").val()
+	});
+	
+	arrData.push({
+		"name" : "work_country",
+		"value" : $("#work_country").val()
+	});arrData.push({
+		"name" : "work_company",
+		"value" : $("#work_company").val()
+	});arrData.push({
+		"name" : "work_position",
+		"value" : $("#work_position").val()
+	});arrData.push({
+		"name" : "work_start_time",
+		"value" : $("#work_start_time").val()
+	});arrData.push({
+		"name" : "work_end_time",
+		"value" : $("#work_end_time").val()
+	});arrData.push({
+		"name" : "user_workcountry",
+		"value" : $("#user_workcountry").val()
+	});arrData.push({
+		"name" : "user_workcollege",
+		"value" : $("#user_workcollege").val()
+	});arrData.push({
+		"name" : "user_workmajor",
+		"value" : $("#user_workmajor").val()
+	});arrData.push({
+		"name" : "work_starttime",
+		"value" : $("#work_starttime").val()
+	});arrData.push({
+		"name" : "work_endtime",
+		"value" : $("#work_endtime").val()
+	});
+	
+	
+	arrData.push({
+		"name" : "journal_title",
+		"value" : $("#journal_title").val()
+	});arrData.push({
+		"name" : "organization_position",
+		"value" : $("#organization_position").val()
+	});arrData.push({
+		"name" : "organization_term",
+		"value" : $("#organization_term").val()
+	});arrData.push({
+		"name" : "journal_title1",
+		"value" : $("#journal_title1").val()
+	});arrData.push({
+		"name" : "organization_position1",
+		"value" : $("#organization_position1").val()
+	});arrData.push({
+		"name" : "organization_term1",
+		"value" : $("#organization_term1").val()
+	});arrData.push({
+		"name" : "journal_title2",
+		"value" : $("#journal_title2").val()
+	});arrData.push({
+		"name" : "organization_position2",
+		"value" : $("#organization_position2").val()
+	});arrData.push({
+		"name" : "organization_term2",
+		"value" : $("#organization_term2").val()
+	});
+	
 	arrData.push({
 		"name" : "unit_name",
 		"value" : $("#unit_name").val()

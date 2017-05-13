@@ -45,6 +45,10 @@ function userChengguoEditSave() {
 				"name" : "sciTimes",
 				"value" : $("#user_chengguo_sci_times").val()
 			});
+			arrData.push({
+				"name" : "numberTotal",
+				"value" : $("#user_chengguo_number_total").val()
+			});
 		$.ajax({
 					"dataType" : 'json',
 					"type" : "post",

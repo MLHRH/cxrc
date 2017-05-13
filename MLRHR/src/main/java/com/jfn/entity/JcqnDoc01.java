@@ -24,34 +24,46 @@ public class JcqnDoc01 {
 	private String email;
 	private String zip_code;
 	private String addresses;
+	
+	private String user_studcountry2;
+	private String user_studcollege2;
+	private String user_studmajor2;
+	private String user_studdegree2;
+	private String user_studfirsttime2;
+	private String user_studlasttime2;
+	
 	private String study_country;
 	private String study_colleges;
 	private String study_major;
 	private String study_education;
 	private String study_start_time;
 	private String study_end_time;
+	
 	private String work_country;
 	private String work_company;
 	private String work_position ;
 	private String work_start_time;
 	private String work_end_time;
-	private String journal_title ;
 
-	public String getJournal_titlef() {
-		return journal_titlef;
-	}
 
-	public void setJournal_titlef(String journal_titlef) {
-		this.journal_titlef = journal_titlef;
-	}
+	
+	private String user_workcountry;
+	private String user_workcollege;
+	private String user_workmajor ;
+	private String work_starttime;
+	private String work_endtime;
+	
+
+	private String journal_title;
 	private String organization_position;
 	private String organization_term;
-	private String journal_titlef;
+	private String journal_title1;
 	private String organization_position1;
 	private String organization_term1;
 	private String journal_title2;
 	private String organization_position2;
 	private String organization_term2;
+	
 	private String unit_name ;
 	private String organization_code;
 	private String legal_representative ;
@@ -337,18 +349,97 @@ public class JcqnDoc01 {
 	public void setWork_fax(String work_fax) {
 		this.work_fax = work_fax;
 	}
-	public JcqnDoc01(Integer user_id, String name, String sex, String minzu, String birthday, String title,
-			String document_type, String document_number, String direction, String declaration_area, String telephone,
-			String fax, String mobile_phone, String email, String zip_code, String addresses, String study_country,
-			String study_colleges, String study_major, String study_education, String study_start_time,
-			String study_end_time, String work_country, String work_company, String work_position, String work_start_time,
-			String work_end_time, String journal_title, String organization_position, String organization_term,
-			String journal_titlef,
-			String organization_position1, String organization_term1, String journal_title2,
-			String organization_position2, String organization_term2,
-			String unit_name, String organization_code, String legal_representative, String supervisor_unit,
-			String unit_address, String postcode, String unit_contact, String work_telephone, String work_fax) {
+	
+	public JcqnDoc01() {
 		super();
+	}
+	public String getUser_studcountry2() {
+		return user_studcountry2;
+	}
+	public void setUser_studcountry2(String user_studcountry2) {
+		this.user_studcountry2 = user_studcountry2;
+	}
+	public String getUser_studcollege2() {
+		return user_studcollege2;
+	}
+	public void setUser_studcollege2(String user_studcollege2) {
+		this.user_studcollege2 = user_studcollege2;
+	}
+	public String getUser_studmajor2() {
+		return user_studmajor2;
+	}
+	public void setUser_studmajor2(String user_studmajor2) {
+		this.user_studmajor2 = user_studmajor2;
+	}
+	public String getUser_studdegree2() {
+		return user_studdegree2;
+	}
+	public void setUser_studdegree2(String user_studdegree2) {
+		this.user_studdegree2 = user_studdegree2;
+	}
+	public String getUser_studfirsttime2() {
+		return user_studfirsttime2;
+	}
+	public void setUser_studfirsttime2(String user_studfirsttime2) {
+		this.user_studfirsttime2 = user_studfirsttime2;
+	}
+	public String getUser_studlasttime2() {
+		return user_studlasttime2;
+	}
+	public void setUser_studlasttime2(String user_studlasttime2) {
+		this.user_studlasttime2 = user_studlasttime2;
+	}
+	public String getUser_workcountry() {
+		return user_workcountry;
+	}
+	public void setUser_workcountry(String user_workcountry) {
+		this.user_workcountry = user_workcountry;
+	}
+	public String getUser_workcollege() {
+		return user_workcollege;
+	}
+	public void setUser_workcollege(String user_workcollege) {
+		this.user_workcollege = user_workcollege;
+	}
+	public String getUser_workmajor() {
+		return user_workmajor;
+	}
+	public void setUser_workmajor(String user_workmajor) {
+		this.user_workmajor = user_workmajor;
+	}
+	public String getWork_starttime() {
+		return work_starttime;
+	}
+	public void setWork_starttime(String work_starttime) {
+		this.work_starttime = work_starttime;
+	}
+	public String getWork_endtime() {
+		return work_endtime;
+	}
+	public void setWork_endtime(String work_endtime) {
+		this.work_endtime = work_endtime;
+	}
+	public String getJournal_title1() {
+		return journal_title1;
+	}
+	public void setJournal_title1(String journal_title1) {
+		this.journal_title1 = journal_title1;
+	}
+	public JcqnDoc01(int id, Integer user_id, String name, String sex, String minzu, String birthday, String title,
+			String document_type, String document_number, String direction, String declaration_area, String telephone,
+			String fax, String mobile_phone, String email, String zip_code, String addresses, String user_studcountry2,
+			String user_studcollege2, String user_studmajor2, String user_studdegree2, String user_studfirsttime2,
+			String user_studlasttime2, String study_country, String study_colleges, String study_major,
+			String study_education, String study_start_time, String study_end_time, String work_country,
+			String work_company, String work_position, String work_start_time, String work_end_time,
+			String user_workcountry, String user_workcollege, String user_workmajor, String work_starttime,
+			String work_endtime, String journal_title, String organization_position, String organization_term,
+			String journal_title1, String organization_position1, String organization_term1, String journal_title2,
+			String organization_position2, String organization_term2, String unit_name, String organization_code,
+			String legal_representative, String supervisor_unit, String unit_address, String postcode,
+			String unit_contact, String work_telephone, String work_fax) {
+		super();
+		this.id = id;
 		this.user_id = user_id;
 		this.name = name;
 		this.sex = sex;
@@ -365,6 +456,12 @@ public class JcqnDoc01 {
 		this.email = email;
 		this.zip_code = zip_code;
 		this.addresses = addresses;
+		this.user_studcountry2 = user_studcountry2;
+		this.user_studcollege2 = user_studcollege2;
+		this.user_studmajor2 = user_studmajor2;
+		this.user_studdegree2 = user_studdegree2;
+		this.user_studfirsttime2 = user_studfirsttime2;
+		this.user_studlasttime2 = user_studlasttime2;
 		this.study_country = study_country;
 		this.study_colleges = study_colleges;
 		this.study_major = study_major;
@@ -376,10 +473,15 @@ public class JcqnDoc01 {
 		this.work_position = work_position;
 		this.work_start_time = work_start_time;
 		this.work_end_time = work_end_time;
+		this.user_workcountry = user_workcountry;
+		this.user_workcollege = user_workcollege;
+		this.user_workmajor = user_workmajor;
+		this.work_starttime = work_starttime;
+		this.work_endtime = work_endtime;
 		this.journal_title = journal_title;
 		this.organization_position = organization_position;
 		this.organization_term = organization_term;
-		this.journal_titlef = journal_titlef;
+		this.journal_title1 = journal_title1;
 		this.organization_position1 = organization_position1;
 		this.organization_term1 = organization_term1;
 		this.journal_title2 = journal_title2;
@@ -394,9 +496,6 @@ public class JcqnDoc01 {
 		this.unit_contact = unit_contact;
 		this.work_telephone = work_telephone;
 		this.work_fax = work_fax;
-	}
-	public JcqnDoc01() {
-		super();
 	}
 	
 

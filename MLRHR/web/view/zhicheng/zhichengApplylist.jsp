@@ -65,9 +65,12 @@ body {
 	<div class="container-fluid">
 		<div class="row-fluid">
 			<div class="row-fluid">
-				<div class="page-header">
+				<div class="page-header" id="shenbao">
 					<h2>人才申报</h2>
 				</div>
+				<div class="page-header" id="shenhe">
+					<h2>人才审核</h2>
+				</div> 
 				<div class="span8" style="width: 90%">
 
 					<security:authorize ifAnyGranted="ROLE_USER">

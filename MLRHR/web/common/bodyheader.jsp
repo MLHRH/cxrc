@@ -10,7 +10,7 @@
 			<div class="nav-collapse collapse" style="height: auto !important;">
 				<a href="javascript:void(0)" class="brand">国土资源科技创新人才工程管理信息系统</a>
 				<p class="navbar-text pull-right">
-					<a href="${ctx}/userBaseInfor" class="active">
+					<%-- <a href="${ctx}/userBaseInfor" class="active"> --%>
 						<i class="icon-user"></i> ${sessionScope.loginuser.name}
 					</a>
 					&nbsp;

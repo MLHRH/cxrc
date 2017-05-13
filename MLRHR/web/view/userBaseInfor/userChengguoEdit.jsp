@@ -40,7 +40,15 @@
 						
 						</td>
 					</tr>
-						<tr align="center">
+					
+					<tr align="center">
+						<td class="td_Left">作者排序（通讯作者标记*）：</td>
+						<td class="td_Right">
+						<textarea style="width: 205px; height: 60px" id="user_chengguo_author_sort">${user_chengguo.authorSort}</textarea>
+						
+						</td>
+					</tr>
+						<%-- <tr align="center">
 						<td class="td_Left">作者排序：</td>
 						<td class="td_Right">
 							<select id="user_chengguo_author_sort" name="user_chengguo_author_sort" class="input-block-level" style="width: 220px">
@@ -59,7 +67,7 @@
 								<option value="其它" <c:if test="${user_chengguo.authorSort == '其它'}">selected</c:if>>其它</option>
 							</select>
 						</td>
-					</tr>
+					</tr> --%>
 						
 						<tr align="center">
 						<td class="td_Left">期刊名称：</td>
@@ -68,7 +76,7 @@
 						</td>
 					</tr>
 					<tr align="center">
-						<td class="td_Left">刊物+论文年份、卷期及页码：</td>
+						<td class="td_Left">年份、卷期及页码：</td>
 						<td class="td_Right">
 <%-- 						<textarea style="width: 220px; height: 100px" id="user_chengguo_year_volume_pagenumber">${user_chengguo.yearVolumePagenumber}</textarea>
  --%>								<input type="text"  id="user_chengguo_year_volume_pagenumber" value="${user_chengguo.yearVolumePagenumber}" />
@@ -82,6 +90,8 @@
 							<input type="text"  id="user_chengguo_yingxiangyinzi" value="${user_chengguo.influenceFactor}" />
 						</td>
 					</tr>
+				
+					
 				<%-- 	<tr align="center">
 						<td class="td_Left">日期：</td>
 						<td class="td_Right">
@@ -105,6 +115,13 @@
 						<td class="td_Left">SCI他引次数：</td>
 						<td class="td_Right">
 							<input type="text"  id="user_chengguo_sci_times" value="${user_chengguo.sciTimes}" />
+						</td>
+					</tr>
+					 <tr align="center">
+						<td class="td_Left">他引总次数：</td>
+						<td class="td_Right">
+						
+							<input type="text"  id="user_chengguo_number_total" value="${user_chengguo.numberTotal}" />
 						</td>
 					</tr>
 				</table>

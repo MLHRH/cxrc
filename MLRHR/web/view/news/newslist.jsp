@@ -190,7 +190,7 @@ $(document).ready(function() {
 													<i class="icon-edit"></i>编辑
 												</button>
 
-												<a href="javascript:void(0)" onClick="delfile(${news.id})" id="btndel" class="btn btn-small btn-info">
+												<a href="javascript:void(0)" onClick="delfile('${news.id}')" id="btndel" class="btn btn-small btn-info">
 													<i class="icon-remove"></i>删除
 												</a>
 											</security:authorize>

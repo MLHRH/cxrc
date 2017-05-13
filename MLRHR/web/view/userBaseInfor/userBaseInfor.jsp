@@ -104,12 +104,12 @@ body {
 						<li id="userWork"><a href="javascript:void(0)">3. 工作经历</a></li>
 						<li id="userSkill"><a href="javascript:void(0)">4. 任现职前主要专业技术工作业绩登记</a></li>
 						<li id="userExam"><a href="javascript:void(0)">5. 考试经历</a></li>
-						<li id="userReport"><a href="javascript:void(0)">6. 重要专著</a></li>
+						<li id="userReport"><a href="javascript:void(0)">6. 重要专著情况（不超过5项）</a></li>
 				<li id="userChengguo"><a href="javascript:void(0)">7.代表性 论文（概要）</a></li>
-						<li id="userZhuanli"><a href="javascript:void(0)">8. 专利情况</a></li> 
-					<li id="userAward"><a href="javascript:void(0)">9. 获奖情况</a></li>
-				<li id="userProject"><a href="javascript:void(0)">10.承担项目</a></li> 
-					<li id="userBaogao"><a href="javascript:void(0)">11. 学术报告</a></li> 
+						<li id="userZhuanli"><a href="javascript:void(0)">8. 获得授权专利情况</a></li> 
+					<li id="userAward"><a href="javascript:void(0)">9. 获得主要科研学术奖励情况</a></li>
+				<li id="userProject"><a href="javascript:void(0)">10.承担主要科研任务情况</a></li> 
+					<li id="userBaogao"><a href="javascript:void(0)">11. 在重要国际学术会议报告情况</a></li> 
 <!-- 						<li id="userExam"><a href="javascript:void(0)">11. 考试成绩及答辩情况</a></li> -->
 <!-- 						<li id="doc02_middle"><a href="javascript:void(0)">12. 证书、证明材料管理</a></li> -->
 <!-- 						<li id="doc03_middle"><a href="javascript:void(0)">13. 业绩、成果材料管理</a></li> -->

@@ -38,6 +38,8 @@ function initZhichengApply(zhichengId) {
 								if (arr[i] == "ROLE_PROFESSOR") {
 									currentRole = arr[i];
 									$("#roleBack").show();
+									$("#shenhe").show();
+									$("#shenbao").hide();
 								}
 							}
 						if (currentRole == null)
@@ -45,6 +47,8 @@ function initZhichengApply(zhichengId) {
 								if (arr[i] == "ROLE_HR") {
 									currentRole = arr[i];
 									$("#roleBack").show();
+									$("#shenhe").show();
+									$("#shenbao").hide();
 								}
 							}
 						if (currentRole == null)
@@ -68,6 +72,8 @@ function initZhichengApply(zhichengId) {
 								if (arr[i] == "ROLE_USER") {
 									currentRole = arr[i];
 									$("#roleBack").hide();
+									$("#shenbao").show();
+									$("#shenhe").hide();
 								}
 							}
  

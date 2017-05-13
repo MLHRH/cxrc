@@ -18,7 +18,7 @@ public class JcqnDocThesis {
 
     private String sciTimes;
 
-//    private String numberTotal;
+    private String numberTotal;
     
 
     public int getId() {
@@ -93,11 +93,11 @@ public class JcqnDocThesis {
         this.sciTimes = sciTimes == null ? null : sciTimes.trim();
     }
 
-//    public String getNumberTotal() {
-//        return numberTotal;
-//    }
-//
-//    public void setNumberTotal(String numberTotal) {
-//        this.numberTotal = numberTotal == null ? null : numberTotal.trim();
-//    }
+    public String getNumberTotal() {
+        return numberTotal;
+    }
+
+    public void setNumberTotal(String numberTotal) {
+        this.numberTotal = numberTotal == null ? null : numberTotal.trim();
+    }
 }

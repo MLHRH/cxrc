@@ -1,0 +1,51 @@
+package com.jfn.service;
+
+import java.util.List;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
+
+import com.jfn.dao.NewsDao;
+import com.jfn.dao.ZhichengDoc02Dao;
+import com.jfn.entity.News;
+import com.jfn.entity.ZhichengDoc02;
+
+@Repository
+public class ZhichengDoc02Service {
+	
+	private static final Logger log = LoggerFactory.getLogger( ZhichengDoc02Service.class );
+	@Autowired
+	private ZhichengDoc02Dao zhichengdoc02Dao;
+	
+	
+	public ZhichengDoc02 getById(String Id) {
+		// TODO Auto-generated method stub
+		return zhichengdoc02Dao.getById(Integer.parseInt(Id));
+	}
+	public ZhichengDoc02 getByUserId( int user_id) {
+		// TODO Auto-generated method stub
+		return zhichengdoc02Dao.getByUserId( user_id);
+	}
+
+	public boolean insert(ZhichengDoc02 entity) {
+		// TODO Auto-generated method stub
+		return zhichengdoc02Dao.insert(entity);
+	}
+	public int newFile(ZhichengDoc02 entity) {
+		// TODO Auto-generated method stub
+		return zhichengdoc02Dao.newFile(entity);
+	}
+
+	public boolean update(ZhichengDoc02 entity) {
+		// TODO Auto-generated method stub
+		return zhichengdoc02Dao.update(entity);
+	}
+
+	public boolean delete(String zhichengId) {
+		// TODO Auto-generated method stub
+		return zhichengdoc02Dao.delete(Integer.parseInt(zhichengId));
+	}
+
+}

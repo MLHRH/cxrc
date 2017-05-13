@@ -22,9 +22,9 @@
 		<a id="userAwardAddButton" class="btn btn-small btn-info" href="javascript:void(0)" onClick="userAwardEdit()">
 			<i class="icon-plus-sign"></i>添加
 		</a>
-		<span>（注：此处最多填写</span>
+		<!-- <span>（注：此处最多填写</span>
 		<span style="color: #FF8000;">3</span>
-		<span>条获奖情况记录）</span>
+		<span>条获奖情况记录）</span> -->
 	</div>
 	<div class="xline" style="height: 5px"></div>
 	<table id="userAwardList" class="table table-hover table-bordered table-striped" style="margin-bottom: 10px;">
@@ -33,9 +33,9 @@
 				<th width="10%" style="text-align: center;">序号</th>
 				<th width="13%" style="text-align: center;">获奖项目名称</th>
 		        <th width="13%" style="text-align: center;">奖励名称</th>
-				<th width="13%" style="text-align: center;">级别</th>
-				<th width="13%" style="text-align: center;">排名</th>
-				<th width="13%" style="text-align: center;">时间</th>
+				<th width="13%" style="text-align: center;">等级</th>
+				<th width="13%" style="text-align: center;">排序</th>
+				<th width="13%" style="text-align: center;">获奖时间</th>
 				<th width="15%" style="text-align: center;">授予机构</th>
 				<th width="17%" style="text-align: center;">操作</th>
 			</tr>

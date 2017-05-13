@@ -23,11 +23,11 @@ public class UserChengguoDao {
 	@Autowired
 	private JdbcTemplate jdbcTemplate;
 
-	private final String SQL_INSERT_user_chengguo = "insert into jcqn_doc02_03(xuhao_id,user_id,thesis_topic,author_sort,journal_title,year_volume_pagenumber,influence_factor,sci_times) values(?,?,?,?,?,?,?,?)";
+	private final String SQL_INSERT_user_chengguo = "insert into jcqn_doc02_03(xuhao_id,user_id,thesis_topic,author_sort,journal_title,year_volume_pagenumber,influence_factor,sci_times,number_total) values(?,?,?,?,?,?,?,?,?)";
 
 	private final String SQL_Get_BY_ID = "select * from jcqn_doc02_03 where Id=?";
 	private final String SQL_GET_user_chengguo_LIST = "select * from jcqn_doc02_03 order by Id  ";
-	private final String SQL_SET_user_chengguo_UPDATE = "update jcqn_doc02_03 set xuhao_id=?,user_id=?,thesis_topic=?,author_sort=?,journal_title=?,year_volume_pagenumber=?,influence_factor=?,sci_times=? where id=?";
+	private final String SQL_SET_user_chengguo_UPDATE = "update jcqn_doc02_03 set xuhao_id=?,user_id=?,thesis_topic=?,author_sort=?,journal_title=?,year_volume_pagenumber=?,influence_factor=?,sci_times=?,number_total=? where id=?";
 
 	private final static String SQL_DEL_BY_ID = "delete from jcqn_doc02_03 where id = ?";
 	// 通过user_id查询
@@ -35,7 +35,7 @@ public class UserChengguoDao {
 
 	public boolean insert(JcqnDocThesis user_chengguo) {
 		return jdbcTemplate.update(SQL_INSERT_user_chengguo, new Object[] { user_chengguo.getXuhao_id(),user_chengguo.getUserId(), user_chengguo.getThesisTopic(), user_chengguo.getAuthorSort(), user_chengguo.getJournalTitle(),
-				user_chengguo.getYearVolumePagenumber(), user_chengguo.getInfluenceFactor(), user_chengguo.getSciTimes() }) == 1;
+				user_chengguo.getYearVolumePagenumber(), user_chengguo.getInfluenceFactor(), user_chengguo.getSciTimes(),user_chengguo.getNumberTotal() }) == 1;
 	}
 
 	public JcqnDocThesis get(int id) {
@@ -53,7 +53,7 @@ public class UserChengguoDao {
 					user_chengguo.setYearVolumePagenumber(rs.getString("year_volume_pagenumber"));
 					user_chengguo.setInfluenceFactor(rs.getString("influence_factor"));
 					user_chengguo.setSciTimes(rs.getString("sci_times"));
-
+					user_chengguo.setNumberTotal(rs.getString("number_total"));
 //					String temp = rs.getString("cg_date");
 //					if (temp != null) {
 //						String Year = temp.substring(0, 4);
@@ -84,7 +84,7 @@ public class UserChengguoDao {
 
 	public boolean Update(JcqnDocThesis user_chengguo) {
 		Object[] params = new Object[] { user_chengguo.getXuhao_id(),user_chengguo.getUserId(), user_chengguo.getThesisTopic(), user_chengguo.getAuthorSort(), user_chengguo.getJournalTitle(),
-				user_chengguo.getYearVolumePagenumber(), user_chengguo.getInfluenceFactor(), user_chengguo.getSciTimes(),user_chengguo.getId() };
+				user_chengguo.getYearVolumePagenumber(), user_chengguo.getInfluenceFactor(), user_chengguo.getSciTimes(),user_chengguo.getNumberTotal(),user_chengguo.getId() };
 		return jdbcTemplate.update(SQL_SET_user_chengguo_UPDATE, params) == 1;
 	}
 
@@ -119,6 +119,7 @@ public class UserChengguoDao {
 			user_chengguo.setYearVolumePagenumber(rs.getString("year_volume_pagenumber"));
 			user_chengguo.setInfluenceFactor(rs.getString("influence_factor"));
 			user_chengguo.setSciTimes(rs.getString("sci_times"));
+			user_chengguo.setNumberTotal(rs.getString("number_total"));
 			return user_chengguo;
 		}
 	}
