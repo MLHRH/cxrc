@@ -129,7 +129,7 @@ function init(contentName) {
 		initkjljDoc06();
 		break;
 	case "kjljDoc07":
-		initkjljDoc07();
+		initjcqnDoc07();
 		break;
 	case "cxtdDoc01":
 		initcxtdDoc01();
@@ -160,7 +160,7 @@ function init(contentName) {
 		initcxtdDoc06();
 		break;
 	case "cxtdDoc07":
-		initcxtdDoc07();
+		initjcqnDoc07();
 		break;
 	case "uploadfile":
 		initUpFile();
@@ -212,7 +212,7 @@ function save() {
 		updatekjljDoc06();
 		break;
 	case "kjljDoc07":
-		updatekjljDoc07();
+		updatejcqnDoc07();
 		break;
 	case "cxtdDoc01":
 		updatecxtdDoc01();
@@ -242,7 +242,7 @@ function save() {
 		updatecxtdDoc06();
 		break;
 	case "cxtdDoc07":
-		updatecxtdDoc07();
+		updatejcqnDoc07();
 		break;
 	default:
 		break;

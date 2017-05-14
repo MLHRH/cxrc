@@ -90,7 +90,7 @@ public class ZhichengApplyDao {
 					if (temp != null&&temp!="") {
 						String Year = temp.substring(0, 4);
 						String Month = temp.substring(5, 7);
-						String Day = temp.substring(8, 19);
+						String Day = temp.substring(8, 10);
 						temp = Year + "-" + Month + "-" + Day;
 					}
 
@@ -201,7 +201,7 @@ System.err.println(JSON.toJSON(Apply));
 			if (temp != null&&temp!="") {
 				String Year = temp.substring(0, 4);
 				String Month = temp.substring(5, 7);
-				String Day = temp.substring(8, 19);
+				String Day = temp.substring(8, 10);
 				temp = Year + "-" + Month + "-" + Day;
 			}
 
