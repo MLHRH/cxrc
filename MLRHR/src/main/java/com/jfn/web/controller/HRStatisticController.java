@@ -1,14 +1,5 @@
 package com.jfn.web.controller;
 
-import javax.servlet.http.HttpServletRequest;
-
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springside.modules.security.springsecurity.SpringSecurityUtils;
-
 import com.jfn.entity.Body;
 import com.jfn.entity.User;
 import com.jfn.service.AccountManager;
@@ -20,6 +11,14 @@ import com.jfn.service.UserProjectService;
 import com.jfn.service.UserService;
 import com.jfn.service.UserWorkService;
 import com.jfn.service.ZhichengApplyService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springside.modules.security.springsecurity.SpringSecurityUtils;
+
+import javax.servlet.http.HttpServletRequest;
 
 @Controller
 @RequestMapping("/")
@@ -57,9 +56,9 @@ public class HRStatisticController {
 	}
 
 	@RequestMapping(value = "userExportEdit", method = RequestMethod.GET)
-	public String userExportEdit(HttpServletRequest request, Model model) {
+	public String userExportEdit(HttpServletRequest request, Model model,String body_id) {
 		User user = accountManager.findUserByLoginName(SpringSecurityUtils.getCurrentUserName());
-		Body body = bodyservice.getById(user.getBody_id());
+		Body body = bodyservice.getById(body_id);
 		model.addAttribute("userName", user.getName());
 		model.addAttribute("bodyName", body.getName());
 		return "statistic/userExportEdit";

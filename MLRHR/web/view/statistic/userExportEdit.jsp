@@ -31,19 +31,13 @@ h3 {
 			<div class="control-group">
 				<table width="98%" border="0" cellpadding="2" cellspacing="1" align="center" style="margin-top: 8px">
 					<tr align="center">
-						<td class="td_Left">专业级别：</td>
-						<td class="td_Right">
-							<input style="" type="text" id="apply_userRank"  />
-						</td>
-					</tr>
-					<tr align="center">
 						<td class="td_Left">单&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp位：</td>
 						<td class="td_Right">
 							<input style="" type="text" id="apply_body" value="${bodyName}" />
 						</td>
 					</tr>
 					<tr align="center">
-						<td class="td_Left">填&nbsp&nbsp报&nbsp&nbsp人：</td>
+						<td class="td_Left">导&nbsp&nbsp出&nbsp&nbsp人：</td>
 						<td class="td_Right">
 							<input style="" type="text" id="apply_userName" value="${userName}" />
 						</td>
@@ -55,15 +49,15 @@ h3 {
 						</td>
 					</tr>
 					<tr align="center">
-						<td class="td_Left">填报时间：</td>
+						<td class="td_Left">导出时间：</td>
 						<td class="td_Right">
-							<input type="text" onfocus="WdatePicker({isShowWeek:true,dateFmt:'yyyy.MM.dd'})" id="apply_date" value="${user_chengguo.cg_date}" />
+							<input type="text" onfocus="WdatePicker({isShowWeek:true,dateFmt:'yyyy-MM-dd'})" id="apply_date" value="${user_chengguo.cg_date}" />
 						</td>
 					</tr>
 				</table>
 			</div>
 		</div>
-		<div style="text-align:left； padding: 20px;">
+		<div style="text-align:left;padding: 20px;">
 			<span>提示：上面填写数据将作为"</span>
 			<span style="color: #FF8000;">附件5 任职资格人员情况一览表 </span>
 			<span>"中表头信息。</span>
