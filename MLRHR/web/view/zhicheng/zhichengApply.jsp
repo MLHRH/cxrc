@@ -184,6 +184,7 @@ body {
 							<option value="-1">请选择</option>
 							<option value="1" class="isEXPERT2">通过</option>
 							<option value="2" class="isEXPERT2">不通过</option>
+							<option value="3" class="isEXPERT2">弃权</option>
 						</select>
 						</div>
 					</div> 

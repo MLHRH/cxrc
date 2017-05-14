@@ -1,10 +1,15 @@
 package com.jfn.web.controller;
 
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.context.SecurityContextImpl;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -38,8 +43,25 @@ public class cxtdDocController {
 	@ResponseBody
 	public Object cxtdDoc01Init(HttpServletRequest request){
 		
-		int userid =(Integer)request.getSession().getAttribute("user_id");
-		return  cxtdDocService.queryCxtdDoc01(userid);
+//		int userid =(Integer)request.getSession().getAttribute("user_id");
+		int userId = Integer.valueOf(request.getParameter("userId"));
+		Map<String, Object> doc01 = new HashMap<String, Object>();
+		doc01 =  cxtdDocService.queryCxtdDoc01(userId);
+		String authority = "";
+
+		SecurityContextImpl securityContextImpl = (SecurityContextImpl) request.getSession().getAttribute("SPRING_SECURITY_CONTEXT");
+		@SuppressWarnings("unchecked")
+		List<GrantedAuthority> authorities = (List<GrantedAuthority>) securityContextImpl.getAuthentication().getAuthorities();
+		for (GrantedAuthority grantedAuthority : authorities) {
+			authority = authority + grantedAuthority.getAuthority() + "|";
+		}
+
+		JSONObject jo3 = new JSONObject();
+		jo3.put("authority", authority);
+		List<Object> list =new ArrayList<Object>();
+		list.add(doc01);
+		list.add(jo3);
+		return list;
 		
 		}
 		
@@ -79,14 +101,30 @@ public class cxtdDocController {
 	// 获取信息
 	@RequestMapping(value = "/cxtdDoc03Init", method = RequestMethod.GET)
 	@ResponseBody
-	public CxtdDoc03 kjljDoc03Init(HttpServletRequest request) {
+	public String kjljDoc03Init(HttpServletRequest request) {
+		
+		String authority = "";
+
+		SecurityContextImpl securityContextImpl = (SecurityContextImpl) request.getSession().getAttribute("SPRING_SECURITY_CONTEXT");
+		@SuppressWarnings("unchecked")
+		List<GrantedAuthority> authorities = (List<GrantedAuthority>) securityContextImpl.getAuthentication().getAuthorities();
+		for (GrantedAuthority grantedAuthority : authorities) {
+			authority = authority + grantedAuthority.getAuthority() + "|";
+		}
+
+		JSONObject jo3 = new JSONObject();
+		jo3.put("authority", authority);
+		JSONArray jsonArray = new JSONArray();
+		
 		String userId = request.getParameter("userId");
 		System.err.println("-----------" + userId);
 		CxtdDoc03 cxtd = cxtdDocService.getDao03(Integer.parseInt(userId));
 		// Gson gson = new Gson();
 		System.err.println(cxtd);
 		// return gson.toJson(kjlj);
-		return cxtd;
+		jsonArray.add(cxtd);
+		jsonArray.add(jo3);
+		return jsonArray.toString();
 	}
 
 	// 添加、更新操作记录
@@ -119,14 +157,27 @@ public class cxtdDocController {
 	// 获取信息
 	@RequestMapping(value = "/cxtdDoc04Init", method = RequestMethod.GET)
 	@ResponseBody
-	public CxtdDoc04 kjljDoc04Init(HttpServletRequest request) {
+	public String  cxtdDoc04Init(HttpServletRequest request) {
+		
+		String authority = "";
+
+		SecurityContextImpl securityContextImpl = (SecurityContextImpl) request.getSession().getAttribute("SPRING_SECURITY_CONTEXT");
+		@SuppressWarnings("unchecked")
+		List<GrantedAuthority> authorities = (List<GrantedAuthority>) securityContextImpl.getAuthentication().getAuthorities();
+		for (GrantedAuthority grantedAuthority : authorities) {
+			authority = authority + grantedAuthority.getAuthority() + "|";
+		}
+
+		JSONObject jo3 = new JSONObject();
+		jo3.put("authority", authority);
+		JSONArray jsonArray = new JSONArray();
+		
 		String userId = request.getParameter("userId");
 		System.err.println("-----------" + userId);
-		CxtdDoc04 kjlj = cxtdDocService.getDoc4(Integer.parseInt(userId));
-		// Gson gson = new Gson();
-		System.err.println(kjlj);
-		// return gson.toJson(kjlj);
-		return kjlj;
+		CxtdDoc04 cxtd = cxtdDocService.getDoc4(Integer.parseInt(userId));
+		jsonArray.add(cxtd);
+		jsonArray.add(jo3);
+		return jsonArray.toString();
 	}
 
 	// 添加、更新操作记录
@@ -160,14 +211,27 @@ public class cxtdDocController {
 	// 获取信息
 	@RequestMapping(value = "/cxtdDoc05Init", method = RequestMethod.GET)
 	@ResponseBody
-	public CxtdDao05 kjljDoc05Init(HttpServletRequest request) {
+	public String  kjljDoc05Init(HttpServletRequest request) {
+		
+		String authority = "";
+
+		SecurityContextImpl securityContextImpl = (SecurityContextImpl) request.getSession().getAttribute("SPRING_SECURITY_CONTEXT");
+		@SuppressWarnings("unchecked")
+		List<GrantedAuthority> authorities = (List<GrantedAuthority>) securityContextImpl.getAuthentication().getAuthorities();
+		for (GrantedAuthority grantedAuthority : authorities) {
+			authority = authority + grantedAuthority.getAuthority() + "|";
+		}
+
+		JSONObject jo3 = new JSONObject();
+		jo3.put("authority", authority);
+		JSONArray jsonArray = new JSONArray();
 		String userId = request.getParameter("userId");
-		System.err.println("-----------" + userId);
+	
 		CxtdDao05 kjlj = cxtdDocService.getDoc05(Integer.parseInt(userId));
-		// Gson gson = new Gson();
-		System.err.println(kjlj);
-		// return gson.toJson(kjlj);
-		return kjlj;
+		jsonArray.add(kjlj);
+		jsonArray.add(jo3);
+//		return gson.toJson(jcqn);	
+		return jsonArray.toString();
 	}
 
 	// 添加、更新操作记录

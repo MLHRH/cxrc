@@ -32,9 +32,14 @@ public class CxtdDoc01Dao {
 	//团队负责人信息
 	//private final String SQL_SELECT_LEADER = "select * from cxtd_leader_info where user_id = ?";
 	private final String SQL_UPDATE_LEADER = "update cxtd_leader_info set name=?,sex=?,country=?,minzu=?,position=?,birthday=?,id_type=?,id_num=?,direction=?,subordinate_subject1=?,subordinate_subject2=?,telephone_fax=?,mobile_phone=?,email=?,zip_code=?,"
-			+"addresses=? where user_id=?";
+			+"addresses=?,study_country=?"
+			 +",study_colleges=?,study_major=?,study_education=?,study_start_time=?,study_end_time=?,user_studcountry2=?,user_studcollege2=?,user_studmajor2=?,user_studdegree2=?,user_studfirsttime2=?,user_studlasttime2=?"
+			 +",work_country=?,work_company=?,work_position=?,work_start_time=?,work_end_time=?,user_workcountry=?,user_workcollege=?,user_workmajor=?,work_starttime=?,work_endtime=?"
+			 + ",journal_title=?,organization_position=?,organization_term=?,journal_title1=?,organization_position1=?,organization_term1=?,journal_title2=?,organization_position2=?,organization_term2=? where user_id=?";
 	private final String SQL_INSERT_LEADER = "insert into cxtd_leader_info(user_id,team_id,name,sex,country,minzu,position,birthday,id_type,id_num,direction,subordinate_subject1,subordinate_subject2,telephone_fax,mobile_phone,email,zip_code,"
-			+"addresses) values(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
+			+"addresses,study_country,study_colleges,study_major,study_education,study_start_time,study_end_time,user_studcountry2,user_studcollege2,user_studmajor2,user_studdegree2,user_studfirsttime2,user_studlasttime2,"
+			+ "work_country,work_company,work_position,work_start_time,work_end_time,user_workcountry,user_workcollege,user_workmajor,work_starttime,work_endtime,"
+			+ "journal_title,organization_position,organization_term,journal_title1,organization_position1,organization_term1,journal_title2,organization_position2,organization_term2) values(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
 /*	private final String SQL_SELECT_STUDY = "select * from user_peixun where user_id=?";
 	private final String SQL_SELECT_WORK = "select * from user_work where user_id=?";*/
 	private final String SQL_SELECT_ZUZHI = "select * from cxtd_leader_zuzhi where user_id = ?";
@@ -209,27 +214,117 @@ public class CxtdDoc01Dao {
 				new ResultSetExtractor<CxtdLeaderInfo>(){
 			
 					public CxtdLeaderInfo extractData(ResultSet rs) throws SQLException, DataAccessException {
-						CxtdLeaderInfo LeaderInfo = new CxtdLeaderInfo();
+						CxtdLeaderInfo Leaderinfo = new CxtdLeaderInfo();
 						while (rs.next()) {
-							LeaderInfo.setId(rs.getInt("id"));
-							LeaderInfo.setName(rs.getString("name"));
-							LeaderInfo.setSex(rs.getString("sex"));
-							LeaderInfo.setCountry(rs.getString("country"));
-							LeaderInfo.setMinzu(rs.getString("minzu"));
-							LeaderInfo.setPosition(rs.getString("position"));
-							LeaderInfo.setBirthday(rs.getString("birthday"));
-							LeaderInfo.setDocumentType(rs.getString("id_type"));
-							LeaderInfo.setDocumentNumber(rs.getString("id_num"));
-							LeaderInfo.setDirection(rs.getString("direction"));
-							LeaderInfo.setSubordinateSubject1(rs.getString("subordinate_subject1"));
-							LeaderInfo.setSubordinateSubject2(rs.getString("subordinate_subject2"));
-							LeaderInfo.setTelephoneFax(rs.getString("telephone_fax"));
-							LeaderInfo.setMobilePhone(rs.getString("mobile_phone"));
-							LeaderInfo.setEmail(rs.getString("email"));
-							LeaderInfo.setZipCode(rs.getString("zip_code"));
-							LeaderInfo.setAddresses(rs.getString("addresses"));
+							Leaderinfo.setId(rs.getInt("id"));
+							Leaderinfo.setName(rs.getString("name"));
+							Leaderinfo.setSex(rs.getString("sex"));
+							Leaderinfo.setCountry(rs.getString("country"));
+							Leaderinfo.setMinzu(rs.getString("minzu"));
+							Leaderinfo.setPosition(rs.getString("position"));
+							Leaderinfo.setBirthday(rs.getString("birthday"));
+							Leaderinfo.setDocumentType(rs.getString("id_type"));
+							Leaderinfo.setDocumentNumber(rs.getString("id_num"));
+							Leaderinfo.setDirection(rs.getString("direction"));
+							Leaderinfo.setSubordinateSubject1(rs.getString("subordinate_subject1"));
+							Leaderinfo.setSubordinateSubject2(rs.getString("subordinate_subject2"));
+							Leaderinfo.setTelephoneFax(rs.getString("telephone_fax"));
+							Leaderinfo.setMobilePhone(rs.getString("mobile_phone"));
+							Leaderinfo.setEmail(rs.getString("email"));
+							Leaderinfo.setZipCode(rs.getString("zip_code"));
+							Leaderinfo.setAddresses(rs.getString("addresses"));
+							Leaderinfo.setStudy_country(rs.getString("study_country"));
+							Leaderinfo.setStudy_colleges(rs.getString("study_colleges"));
+							Leaderinfo.setStudy_major(rs.getString("study_major"));
+							Leaderinfo.setStudy_education(rs.getString("study_education"));
+							String temp2 = rs.getString("study_start_time");
+							if (temp2 != null && !temp2.equals("")) {
+								String Year = temp2.substring(0, 4);
+								String Month = temp2.substring(5, 7);
+								String Day = temp2.substring(8, 10);
+								temp2 = Year + "." + Month + "." + Day;
+							}
+
+							Leaderinfo.setStudy_start_time(temp2);
+							String temp1 = rs.getString("study_end_time");
+							if (temp1 != null && !temp1.equals("")) {
+								String Year = temp1.substring(0, 4);
+								String Month = temp1.substring(5, 7);
+								String Day = temp1.substring(8, 10);
+								temp1 = Year + "." + Month + "." + Day;
+							}
+
+							Leaderinfo.setStudy_end_time(temp1);
+							Leaderinfo.setUser_studcountry2(rs.getString("user_studcountry2"));
+							Leaderinfo.setUser_studcollege2(rs.getString("user_studcollege2"));
+							Leaderinfo.setUser_studmajor2(rs.getString("user_studmajor2"));
+							Leaderinfo.setUser_studdegree2(rs.getString("user_studdegree2"));
+							String temp4 = rs.getString("user_studfirsttime2");
+							if (temp4 != null && !temp4.equals("")) {
+								String Year = temp4.substring(0, 4);
+								String Month = temp4.substring(5, 7);
+								String Day = temp4.substring(8, 10);
+								temp4 = Year + "." + Month + "." + Day;
+							}
+							Leaderinfo.setUser_studfirsttime2(temp4);
+							String temp3 = rs.getString("user_studlasttime2");
+							if (temp3 != null && !temp3.equals("")) {
+								String Year = temp3.substring(0, 4);
+								String Month = temp3.substring(5, 7);
+								String Day = temp3.substring(8, 10);
+								temp3 = Year + "." + Month + "." + Day;
+							}
+							Leaderinfo.setUser_studlasttime2(temp3);
+							Leaderinfo.setWork_country(rs.getString("work_country"));
+							Leaderinfo.setWork_company(rs.getString("work_company"));
+							Leaderinfo.setWork_position(rs.getString("work_position"));
+							
+							String temp5 = rs.getString("work_start_time");
+							if (temp5 != null && !temp5.equals("")) {
+								String Year = temp5.substring(0, 4);
+								String Month = temp5.substring(5, 7);
+								String Day = temp5.substring(8, 10);
+								temp5 = Year + "." + Month + "." + Day;
+							}
+							Leaderinfo.setWork_start_time(temp5);
+							String temp6 = rs.getString("work_end_time");
+							if (temp6 != null && !temp6.equals("")) {
+								String Year = temp6.substring(0, 4);
+								String Month = temp6.substring(5, 7);
+								String Day = temp6.substring(8, 10);
+								temp6 = Year + "." + Month + "." + Day;
+							}
+							Leaderinfo.setWork_end_time(temp6);
+							Leaderinfo.setUser_workcountry(rs.getString("user_workcountry"));
+							Leaderinfo.setUser_workcollege(rs.getString("user_workcollege"));
+							Leaderinfo.setUser_workmajor(rs.getString("user_workmajor"));
+							String temp7 = rs.getString("work_starttime");
+							if (temp7 != null && !temp7.equals("")) {
+								String Year = temp7.substring(0, 4);
+								String Month = temp7.substring(5, 7);
+								String Day = temp7.substring(8, 10);
+								temp7 = Year + "." + Month + "." + Day;
+							}
+							Leaderinfo.setWork_starttime(temp7);
+							String temp8 = rs.getString("work_endtime");
+							if (temp8 != null && !temp8.equals("")) {
+								String Year = temp8.substring(0, 4);
+								String Month = temp8.substring(5, 7);
+								String Day = temp8.substring(8, 10);
+								temp8 = Year + "." + Month + "." + Day;
+							}
+							Leaderinfo.setWork_endtime(temp8);
+							Leaderinfo.setJournal_title(rs.getString("journal_title"));
+							Leaderinfo.setOrganization_position(rs.getString("organization_position"));
+							Leaderinfo.setOrganization_term(rs.getString("organization_term"));
+							Leaderinfo.setJournal_title1(rs.getString("journal_title1"));
+							Leaderinfo.setOrganization_position1(rs.getString("organization_position1"));
+							Leaderinfo.setOrganization_term1(rs.getString("organization_term1"));
+							Leaderinfo.setJournal_title2(rs.getString("journal_title2"));
+							Leaderinfo.setOrganization_position2(rs.getString("organization_position2"));
+							Leaderinfo.setOrganization_term2(rs.getString("organization_term2"));
 						}
-						return LeaderInfo;
+						return Leaderinfo;
 					}
 		});
 	}
@@ -257,6 +352,37 @@ public class CxtdDoc01Dao {
 				Leaderinfo.getEmail(),
 				Leaderinfo.getZipCode(),
 				Leaderinfo.getAddresses(),
+				Leaderinfo.getStudy_country(),
+				Leaderinfo.getStudy_colleges(),
+				Leaderinfo.getStudy_major(),
+				Leaderinfo.getStudy_education(),
+				Leaderinfo.getStudy_start_time(),
+				Leaderinfo.getStudy_end_time(),
+				Leaderinfo.getUser_studcountry2(),
+				Leaderinfo.getUser_studcollege2(),
+				Leaderinfo.getUser_studmajor2(),
+				Leaderinfo.getUser_studdegree2(),
+				Leaderinfo.getUser_studfirsttime2(),
+				Leaderinfo.getUser_studlasttime2(),
+				Leaderinfo.getWork_country(),
+				Leaderinfo.getWork_company(),
+				Leaderinfo.getWork_position(),
+				Leaderinfo.getWork_start_time(),
+				Leaderinfo.getWork_end_time(),
+				Leaderinfo.getUser_workcountry(),
+				Leaderinfo.getUser_workcollege(),
+				Leaderinfo.getUser_workmajor(),
+				Leaderinfo.getWork_starttime(),
+				Leaderinfo.getWork_endtime(),
+				Leaderinfo.getJournal_title(),
+				Leaderinfo.getOrganization_position(),
+				Leaderinfo.getOrganization_term(),
+				Leaderinfo.getJournal_title1(),
+				Leaderinfo.getOrganization_position1(),
+				Leaderinfo.getOrganization_term1(),
+				Leaderinfo.getJournal_title2(),
+				Leaderinfo.getOrganization_position2(),
+				Leaderinfo.getOrganization_term2(),
 				user_id
 		};
 		return jdbcTemplate.update(SQL_UPDATE_LEADER,params) == 1;
@@ -287,6 +413,37 @@ public class CxtdDoc01Dao {
 				Leaderinfo.getEmail(),
 				Leaderinfo.getZipCode(),
 				Leaderinfo.getAddresses(),
+				Leaderinfo.getStudy_country(),
+				Leaderinfo.getStudy_colleges(),
+				Leaderinfo.getStudy_major(),
+				Leaderinfo.getStudy_education(),
+				Leaderinfo.getStudy_start_time(),
+				Leaderinfo.getStudy_end_time(),
+				Leaderinfo.getUser_studcountry2(),
+				Leaderinfo.getUser_studcollege2(),
+				Leaderinfo.getUser_studmajor2(),
+				Leaderinfo.getUser_studdegree2(),
+				Leaderinfo.getUser_studfirsttime2(),
+				Leaderinfo.getUser_studlasttime2(),
+				Leaderinfo.getWork_country(),
+				Leaderinfo.getWork_company(),
+				Leaderinfo.getWork_position(),
+				Leaderinfo.getWork_start_time(),
+				Leaderinfo.getWork_end_time(),
+				Leaderinfo.getUser_workcountry(),
+				Leaderinfo.getUser_workcollege(),
+				Leaderinfo.getUser_workmajor(),
+				Leaderinfo.getWork_starttime(),
+				Leaderinfo.getWork_endtime(),
+				Leaderinfo.getJournal_title(),
+				Leaderinfo.getOrganization_position(),
+				Leaderinfo.getOrganization_term(),
+				Leaderinfo.getJournal_title1(),
+				Leaderinfo.getOrganization_position1(),
+				Leaderinfo.getOrganization_term1(),
+				Leaderinfo.getJournal_title2(),
+				Leaderinfo.getOrganization_position2(),
+				Leaderinfo.getOrganization_term2(),
 		};
 		return jdbcTemplate.update(SQL_INSERT_LEADER, params) == 1;
 	}

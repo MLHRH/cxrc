@@ -465,6 +465,8 @@ public class ZhichengController {
 			 groups.get(i).setExpert_vote("通过");
 		 }else if(groups.get(i).getExpert_vote().equals("2")){
 			 groups.get(i).setExpert_vote("不通过");
+		}else if(groups.get(i).getExpert_vote().equals("3")){
+			 groups.get(i).setExpert_vote("弃权");
 		}
 		}
 		return groups;
