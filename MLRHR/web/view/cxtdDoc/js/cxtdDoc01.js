@@ -477,7 +477,6 @@ function addmember(){
 	+'<td width=84 style="width: 62pt; border: solid black 1.0pt; border-left: none; padding: 0cm 5.4pt 0cm 5.4pt; height: 30pt">'
 	+'<input type="text" id="chengyuancompany'+flag+'" style="text-align: center; font-size: 14.0pt; font-family: 宋体; display: inline-block; height: 90%; width: 95%; padding: 0px; margin: 3px; border-radius: 0px"/></td>';
     if(index_meminfo == 0){
-    	alert("tianji!")
     	$('#memberinfo_div').after(add_div);
     }
     else{

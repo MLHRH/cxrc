@@ -81,6 +81,8 @@ body {
 <script type="text/javascript" src="${ctx}/view/jcqnDoc/js/doc05.js"></script>
 <script type="text/javascript" src="${ctx}/view/jcqnDoc/js/doc06.js"></script>
 <script type="text/javascript" src="${ctx}/view/jcqnDoc/js/doc07.js"></script> 
+<script type="text/javascript" src="${ctx}/view/jcqnDoc/js/doc08.js"></script> 
+<script type="text/javascript" src="${ctx}/view/jcqnDoc/js/doc09.js"></script> 
 
 <script type="text/javascript" src="${ctx}/view/kjljDoc/js/doc01.js"></script>
 <script type="text/javascript" src="${ctx}/view/kjljDoc/js/doc02.js"></script>
@@ -124,7 +126,7 @@ body {
 					<div id="nav">
 					<ul class="nav nav-list" id="orderedlist">
 					<c:forEach items="${menus}" varStatus="i" var="applymenu" >  
-                		<li id="${applymenu.menuid}"><a href="javascript:void(0)">${applymenu.menudetails}</a></li> 
+                		<li id="${applymenu.menuid}" style="clear:both"><a href="javascript:void(0)">${applymenu.menudetails}</a></li> 
             		</c:forEach>  
             		</ul>
 					</div>
@@ -186,6 +188,8 @@ body {
 							<option value="2" class="isEXPERT2">不通过</option>
 							<option value="3" class="isEXPERT2">弃权</option>
 						</select>
+						<label class="text-error">专家意见：</label>
+						<textarea  autoHeight="true" style="width: 95%; min-height: 50px; overflow:hidden;" id="zhichengapply_expert2_sug"></textarea>
 						</div>
 					</div> 
 

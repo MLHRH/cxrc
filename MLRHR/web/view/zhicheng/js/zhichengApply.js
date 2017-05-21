@@ -61,7 +61,6 @@ $(document).ready(function() {
 		});
 		$(this).addClass("active");
 		contentName = $(this).attr("id");
-
 		$("#content").load(contentName, function() {
 			init(contentName);
 		});
@@ -69,6 +68,7 @@ $(document).ready(function() {
 });
 
 function init(contentName) {
+
 	switch (contentName) {
 	case "jcqnDoc01":
 		initjcqnDoc01();
@@ -100,6 +100,12 @@ function init(contentName) {
 		break;
 	case "jcqnDoc07":
 		initjcqnDoc07();
+		break;
+	case "jcqnDoc08":
+		initExpertScore();
+		break;
+	case "jcqnDoc09":	
+		initExpertVote();
 		break;
 	case "kjljDoc01":
 		initkjljDoc01();
@@ -493,6 +499,7 @@ function zhichengApplyInteVote() {
 					var day = myDate.getDate();
 					$('#currentDate').html(year + "年" + month + "月" + day + "日");
 					$('#zhichengapply_vote').val(data.expert_vote);	
+					$('#zhichengapply_expert2_sug').val(data.expert_sug);
 									
 
 				} 
@@ -514,8 +521,13 @@ function zhichengApplyUpdateVote() {
 		arrData.push({
 			"name" : "expert_vote",
 			"value" : $("#zhichengapply_vote").val()
+			
 		});
-
+		arrData.push({
+			"name" : "expert_sug",
+			"value" : $("#zhichengapply_expert2_sug").val()
+			
+		});
 		$.ajax({
 			"dataType" : 'json',
 			"type" : "post",

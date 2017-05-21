@@ -1,32 +1,28 @@
-var oTable = null;
-$(document).ready(function() {
-	var applyid = $("#applyid").val();
-	console.log("意见详情"+applyid);
-	initExpertScore(applyid);
-});
 
-function initExpertScore(apply_id) {
+
+var apply_id =  $.query.get("applyid") ;
+function initExpertScore() {
 	$.ajax({
 		type : 'get',
 		dataType : 'json',
-		url : 'expertyijianList?applyid=' + apply_id,// 请求的路径
+		url : 'expertScoreListes?applyid=' + apply_id,// 请求的路径
 		error : function() {// 请求失败处理函数
 			alert('请求失败');
 		},
 		success : function(data) { // 请求成功后处理函数。
-			initExpertMangerDataTables(data);
+			initExpertMangerDataTable(data);
 			
 
 		}
 	});
 
 }
-function initExpertMangerDataTables(data) {
+function initExpertMangerDataTable(data) {
 	if (oTable) {
 		oTable.fnClearTable(false);
-		$('#expertScore').dataTable().fnDestroy();
+		$('#expertScoress').dataTable().fnDestroy();
 	}
-	oTable = $('#expertScore').dataTable({
+	oTable = $('#expertScoress').dataTable({
 		"aaSorting" : [[0, "desc"]],
 		"sDom" : "flrt<ip>",
 		"sPaginationType" : "full_numbers",
@@ -54,7 +50,7 @@ function initExpertMangerDataTables(data) {
 					"data" : "name",
 					"class" : "center"
 				}, {
-					"data" : "expert_score",
+					"data" : "expert_pingyu",
 					"class" : "center",
 				}]
 	});
