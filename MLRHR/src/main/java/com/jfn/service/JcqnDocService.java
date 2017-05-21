@@ -11,6 +11,10 @@ import com.jfn.dao.JcqnDoc02Dao;
 import com.jfn.dao.JcqnDoc03Dao;
 import com.jfn.dao.JcqnDoc04Dao;
 import com.jfn.dao.JcqnDoc05Dao;
+import com.jfn.dao.JcqnDoc08Dao;
+import com.jfn.dao.JcqnDoc09Dao;
+import com.jfn.entity.ExpertScore;
+import com.jfn.entity.ExpertVote;
 import com.jfn.entity.JcqnDoc01;
 import com.jfn.entity.JcqnDoc03;
 import com.jfn.entity.JcqnDoc04;
@@ -34,6 +38,10 @@ public class JcqnDocService {
 	private JcqnDoc04Dao jcqnDoc04Dao;
 	@Autowired
 	private JcqnDoc05Dao jcqnDoc05Dao;
+	@Autowired
+	private JcqnDoc08Dao jcqnDoc08Dao;
+	@Autowired
+	private JcqnDoc09Dao jcqnDoc09Dao;
 	public boolean insert01(JcqnDoc01 jcqnDoc01){
 		return jcqnDoc01Dao.insert(jcqnDoc01);
 		}
@@ -165,6 +173,15 @@ public class JcqnDocService {
 			
 			public boolean update05(JcqnDoc05 jcqnDoc05){
 				return jcqnDoc05Dao.update(jcqnDoc05);
+			}
+			
+			public List<ExpertScore> gExpertScore(int apply_id) {
+				return jcqnDoc08Dao.getExpertscore(apply_id);
+				
+			}
+			public List<ExpertVote> gExpertVote(int apply_id) {
+				return jcqnDoc09Dao.getExpertVote(apply_id);
+				
 			}
 		
 }

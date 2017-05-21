@@ -39,7 +39,7 @@ public class CxtdDoc01Dao {
 	private final String SQL_INSERT_LEADER = "insert into cxtd_leader_info(user_id,team_id,name,sex,country,minzu,position,birthday,id_type,id_num,direction,subordinate_subject1,subordinate_subject2,telephone_fax,mobile_phone,email,zip_code,"
 			+"addresses,study_country,study_colleges,study_major,study_education,study_start_time,study_end_time,user_studcountry2,user_studcollege2,user_studmajor2,user_studdegree2,user_studfirsttime2,user_studlasttime2,"
 			+ "work_country,work_company,work_position,work_start_time,work_end_time,user_workcountry,user_workcollege,user_workmajor,work_starttime,work_endtime,"
-			+ "journal_title,organization_position,organization_term,journal_title1,organization_position1,organization_term1,journal_title2,organization_position2,organization_term2) values(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
+			+ "journal_title,organization_position,organization_term,journal_title1,organization_position1,organization_term1,journal_title2,organization_position2,organization_term2) values(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
 /*	private final String SQL_SELECT_STUDY = "select * from user_peixun where user_id=?";
 	private final String SQL_SELECT_WORK = "select * from user_work where user_id=?";*/
 	private final String SQL_SELECT_ZUZHI = "select * from cxtd_leader_zuzhi where user_id = ?";

@@ -53,9 +53,9 @@ public class ZhichengApplyDao {
 	
 	private final String SQL_GET_EXPERT_VOTE = "SELECT es.expert_vote AS expert_vote ,au.`name` FROM expert_vote es LEFT JOIN acct_user au ON au.id = es.expert_id WHERE es.apply_id =?";
 	
-	private final String SQL_INSERT_VOTE = "insert into expert_vote(expert_id,apply_id,expert_vote) values(?,?,?)";
+	private final String SQL_INSERT_VOTE = "insert into expert_vote(expert_id,apply_id,expert_vote,expert_sug) values(?,?,?,?)";
 	
-	private final String SQL_SET_UPDATE_VOTE = "update expert_vote set expert_vote=? where expert_id=? and apply_id=?";
+	private final String SQL_SET_UPDATE_VOTE = "update expert_vote set expert_vote=?,expert_sug=? where expert_id=? and apply_id=?";
 	
 	private final String SQL_GetVOTE_BY_USERID = "select * from expert_vote where expert_id=? and apply_id=?";
 	SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
@@ -380,11 +380,12 @@ System.err.println(JSON.toJSON(Apply));
 	
 	public boolean insertVote(ExpertVote expertvote) {
 		return jdbcTemplate.update(SQL_INSERT_VOTE,
-				new Object[] {expertvote.getExpert_id(),expertvote.getApply_id(),expertvote.getExpert_vote()}) == 1;
+				new Object[] {expertvote.getExpert_id(),expertvote.getApply_id(),expertvote.getExpert_vote(),expertvote.getExpert_sug()}) == 1;
 	}
 	public boolean updateVote(ExpertVote expertScore){
 		Object[] params = new Object[] {	
 				 expertScore.getExpert_vote(),
+				 expertScore.getExpert_sug(),
 			     expertScore.getExpert_id(),
 			     expertScore.getApply_id()
 			    		     
@@ -411,6 +412,7 @@ System.err.println(JSON.toJSON(Apply));
 					expertScore.setExpert_id(rs.getInt("expert_id"));				
 					expertScore.setApply_id(rs.getInt("apply_id"));
 					expertScore.setExpert_vote(rs.getString("expert_vote"));
+					expertScore.setExpert_sug(rs.getString("expert_sug"));
 		
 				}
 				return expertScore;

@@ -30,7 +30,7 @@ public class ExportService{
         if(applyStrep ==1 ){
             excelBase.setApplyStep(1);
             //杰出青年
-            List<PersonFirstGroup> jcqnList= new ArrayList<>();
+            List<PersonFirstGroup> jcqnList= new ArrayList();
             for(int i = 0 ; i < groups.size() ;i++){
                 Group group = groups.get(i);
                 PersonFirstGroup personFirstGroup = new PersonFirstGroup();
@@ -41,7 +41,7 @@ public class ExportService{
                 jcqnList.add(personFirstGroup);
             }
             //科技领军
-            List<PersonFirstGroup> kjljList = new ArrayList<>();
+            List<PersonFirstGroup> kjljList = new ArrayList();
             for(int i = 0 ; i < groups.size() ;i++){
                 Group group = groups.get(i);
                 PersonFirstGroup personFirstGroup = new PersonFirstGroup();
@@ -52,7 +52,7 @@ public class ExportService{
                 kjljList.add(personFirstGroup);
             }
             //创新团队
-            List<TeamFirstGroup> teamList = new ArrayList<>();
+            List<TeamFirstGroup> teamList = new ArrayList();
             for(int i = 0 ; i < groups.size() ; i++){
                 Group group = groups.get(i);
                 TeamFirstGroup teamFirstGroup = new TeamFirstGroup();

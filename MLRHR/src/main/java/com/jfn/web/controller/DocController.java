@@ -142,6 +142,15 @@ public class DocController {
 	public String uploadfile(HttpServletRequest request, Model model) {
 		return "upload/uploadfile";
 	}
+	@RequestMapping(value = "jcqnDoc08", method = RequestMethod.GET)
+	public String jcqndoc08(HttpServletRequest request, Model model) {
+		return "jcqnDoc/doc08";
+	}
+	@RequestMapping(value = "jcqnDoc09", method = RequestMethod.GET)
+	public String jcqndoc09(HttpServletRequest request, Model model) {
+		return "jcqnDoc/doc09";
+	}
+	
 	
 	@RequestMapping(value = "docMain", method = RequestMethod.GET)
 	public String docMain(HttpServletRequest request, Model model) {

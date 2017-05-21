@@ -5,8 +5,15 @@ private int id ;
 private int expert_id;
 private int apply_id;
 private String expert_vote;
+private String expert_sug;
 private String name ;
 
+public String getExpert_sug() {
+	return expert_sug;
+}
+public void setExpert_sug(String expert_sug) {
+	this.expert_sug = expert_sug;
+}
 public String getName() {
 	return name;
 }
@@ -36,6 +43,9 @@ public String getExpert_vote() {
 }
 public void setExpert_vote(String expert_vote) {
 	this.expert_vote = expert_vote;
+}
+public ExpertVote() {
+	super();
 }
 
 }

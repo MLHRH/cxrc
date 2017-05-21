@@ -16,6 +16,8 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.google.gson.Gson;
 import com.google.gson.JsonObject;
+import com.jfn.entity.ExpertScore;
+import com.jfn.entity.ExpertVote;
 import com.jfn.entity.JcqnDoc01;
 import com.jfn.entity.JcqnDoc03;
 import com.jfn.entity.JcqnDoc04;
@@ -380,4 +382,28 @@ public class JcqnDocController {
 					
 				
 				}	
+				
+				
+				@ResponseBody
+				@RequestMapping(value = "expertScoreListes", method = RequestMethod.GET)
+				public Object initExpertScoer(HttpServletRequest request){
+					String apply_id = request.getParameter("applyid");
+					
+//					String role_type = request.getParameter("role_type");
+					List<ExpertScore> groups = jcqndoc01servive.gExpertScore(Integer.valueOf(apply_id));	
+					return groups;
+				}
+				
+				
+				@ResponseBody
+				@RequestMapping(value = "expertVoteLists", method = RequestMethod.GET)
+				public Object initExpertVote(HttpServletRequest request){
+					String apply_id = request.getParameter("applyid");
+					
+//					String role_type = request.getParameter("role_type");
+					List<ExpertVote> groups = jcqndoc01servive.gExpertVote(Integer.valueOf(apply_id));	
+					return groups;
+				}
+				
+				
 }
