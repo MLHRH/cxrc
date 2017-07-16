@@ -6,4 +6,12 @@ package com.jfn.vo;
 public class TeamFirstTrial extends TeamBaseExcel{
     private double score;
 
+	public double getScore() {
+		return score;
+	}
+
+	public void setScore(double score) {
+		this.score = score;
+	}
+
 }

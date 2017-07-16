@@ -11,8 +11,35 @@ public class ExcelBase{
     private List<PersonFirstGroup> jcqnList;
     private List<PersonFirstGroup> kjljList;
     private List<TeamFirstGroup> teamFirstGroups;
+    private List<PersonSecondGroup> jcqnListSecondGroups;
+    private List<PersonSecondGroup> kjljListSecondGroups;
+    private List<TeamSecondGroup> teamSecondGroups ;
+    
+    public List<PersonSecondGroup> getJcqnListSecondGroups() {
+		return jcqnListSecondGroups;
+	}
 
-    public Integer getApplyStep(){
+	public void setJcqnListSecondGroups(List<PersonSecondGroup> jcqnListSecondGroups) {
+		this.jcqnListSecondGroups = jcqnListSecondGroups;
+	}
+
+	public List<PersonSecondGroup> getKjljListSecondGroups() {
+		return kjljListSecondGroups;
+	}
+
+	public void setKjljListSecondGroups(List<PersonSecondGroup> kjljListSecondGroups) {
+		this.kjljListSecondGroups = kjljListSecondGroups;
+	}
+
+	public List<TeamSecondGroup> getTeamSecondGroups() {
+		return teamSecondGroups;
+	}
+
+	public void setTeamSecondGroups(List<TeamSecondGroup> teamSecondGroups) {
+		this.teamSecondGroups = teamSecondGroups;
+	}
+
+	public Integer getApplyStep(){
         return applyStep;
     }
 

@@ -1,7 +1,6 @@
 package com.jfn.web.controller;
 
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -9,31 +8,14 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-import com.jfn.entity.AcctUserRole;
 import com.jfn.entity.Calendar;
-import com.jfn.entity.User;
-import com.jfn.service.AccountManager;
 import com.jfn.service.CalendarService;
-import com.jfn.service.FileService;
-import com.jfn.service.NewsService;
-import com.jfn.service.ZhichengApplyService;
 
 @Controller
 @RequestMapping("/")
 public class DocController {
-
-	@Autowired
-	private FileService service;
-	@Autowired
-	private AccountManager accountManager;
-	@Autowired
-	private FileService fileservice;
-	@Autowired
-	private NewsService newsservice;
 	@Autowired
 	private CalendarService calendarservice;
-	@Autowired
-	private ZhichengApplyService zservice;
 /**
  * 杰出青年
  * @param request

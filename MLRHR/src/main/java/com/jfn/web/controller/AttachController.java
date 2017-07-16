@@ -93,9 +93,13 @@ public class AttachController {
 	@ResponseBody
 	@RequestMapping(value = "showUpLoadFile", method = RequestMethod.GET)
 	public Object showUpLoadFile(HttpServletRequest request, Model model) {
-		Integer applyid =Integer.valueOf(request.getParameter("applyid"));
-		Attachfile file = fileService.getFileByApplyId(applyid);
 		List<Attachfile> files = new ArrayList<Attachfile>();
+		String apply_id = request.getParameter("applyid");
+		if (apply_id == null || apply_id.equals("")) {
+			return files;
+		}
+		Integer applyid =Integer.valueOf(apply_id);
+		Attachfile file = fileService.getFileByApplyId(applyid);
 		files.add(file);
 		return files;
 		}

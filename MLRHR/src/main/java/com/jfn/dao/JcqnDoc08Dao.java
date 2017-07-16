@@ -19,7 +19,7 @@ import com.jfn.entity.JcqnDoc05;
 public class JcqnDoc08Dao {
 	@Autowired
 	private JdbcTemplate jdbcTemplate;
-	private final String SQL_Get_BY_APPLYID = "SELECT es.expert_pingyu AS expert_pingyu ,au.`name` FROM expert_score es LEFT JOIN acct_user au ON au.id = es.expert_id WHERE es.apply_id =?";
+	private final String SQL_Get_BY_APPLYID = "SELECT es.expert_score AS expert_score,es.expert_score AS expert_score,es.expert_pingyu AS expert_pingyu,au.`name` FROM expert_score es LEFT JOIN acct_user au ON au.id = es.expert_id WHERE es.apply_id =?";
 
 	public List<ExpertScore> getExpertscore(Integer id){
 //		Object [] params = new Object[]{id};
@@ -36,6 +36,7 @@ public class JcqnDoc08Dao {
 		{
 			// 对类进行封装
 			ExpertScore group = new ExpertScore();
+			group.setExpert_score(rs.getString("expert_score"));
 			group.setExpert_pingyu(rs.getString("expert_pingyu"));
 			group.setName(rs.getString("name"));
 			return group;

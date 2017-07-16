@@ -4,14 +4,50 @@ package com.jfn.vo;
  * Created by xubin on 2017/5/14
  */
 public class TeamBaseExcel{
+	private String applyId;
+	private String orther;
+	private String teamId ;
     private String teamName;
     private String searchDirection;
     private String relateProjectName;
     private String relateProjectCategory;
     private String institution;
     private String recommandInstitution;
+    private String teamLeader;
 
-    public String getTeamName(){
+    public String getApplyId() {
+		return applyId;
+	}
+
+	public void setApplyId(String applyId) {
+		this.applyId = applyId;
+	}
+
+	public String getOrther() {
+		return orther;
+	}
+
+	public void setOrther(String orther) {
+		this.orther = orther;
+	}
+
+	public String getTeamId() {
+		return teamId;
+	}
+
+	public void setTeamId(String teamId) {
+		this.teamId = teamId;
+	}
+
+	public String getTeamLeader() {
+		return teamLeader;
+	}
+
+	public void setTeamLeader(String teamLeader) {
+		this.teamLeader = teamLeader;
+	}
+
+	public String getTeamName(){
         return teamName;
     }
 

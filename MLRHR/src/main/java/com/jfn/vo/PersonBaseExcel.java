@@ -4,6 +4,7 @@ package com.jfn.vo;
  * Created by xubin on 2017/5/14
  */
 public class PersonBaseExcel{
+	private String applyId;
     private String name;
     private String sex;
     private String birthday;
@@ -11,8 +12,16 @@ public class PersonBaseExcel{
     private String researchDirection;
     private String institution;
     private String recommandInstitution;
+    
+    public String getApplyId() {
+		return applyId;
+	}
 
-    public String getName(){
+	public void setApplyId(String applyId) {
+		this.applyId = applyId;
+	}
+
+	public String getName(){
         return name;
     }
 

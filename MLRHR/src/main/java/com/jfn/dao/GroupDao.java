@@ -23,12 +23,15 @@ public class GroupDao {
 	private final String SQL_INSERT_GROUP = "INSERT INTO group_tree (pId,name) values(?,?)";
 	private final String SQL_UPDATE_GROUP = "UPDATE group_tree SET name = ? WHERE id = ? ";
 	private final String SQL_DEL_GROUP= "DELETE FROM group_tree where id = ? ";
-	private final String SQL_GET_APPLY_GROUP = "SELECT p.id,p.user_id,bo.`name` AS 'body',p.apply_date ,p.apply_type,u.`name` ,t.name AS 'group',ar.`name` AS role from apply p"
+	private final String SQL_GET_APPLY_GROUP = "SELECT p.id,p.user_id,bo.`name` AS 'body',p.apply_date ,p.apply_type,u.`name` ,t.name AS 'group',ar.`name` AS role,jc.`direction` ,kj.direction AS 'kjdirection' ,cx.research_direction  from apply p"
 			+" LEFT JOIN group_tree t on t.id = p.group_id"
 			+" LEFT JOIN acct_user u ON u.id = p.user_id"
 			+" LEFT JOIN acct_user_role r ON r.user_id = p.user_id"
 			+" LEFT JOIN acct_role ar on ar.id = r.role_id"
 			+" LEFT JOIN body bo on bo.id = u.body_id "
+			+" LEFT JOIN jcqn_doc01 jc on jc.user_id = p.user_id"
+			+" LEFT JOIN kjlj_doc01 kj on kj.user_id = p.user_id"
+			+" LEFT JOIN cxtd_base_info cx on cx.user_id = p.user_id"
 			+" WHERE group_id = ? and ar.id = ?";
 	private final String SQL_GET_EXPERT_GROUP = "SELECT e.id,e.team_leader_type,e.zhicheng,e.congshizhuanye ,a.`name` ,b.`name` AS body FROM expert_user e"
 			+" LEFT JOIN acct_user a on a.id = e.user_id"
@@ -221,6 +224,15 @@ public class GroupDao {
 			group.setType(rs.getString("apply_type"));
 			group.setDate(rs.getString("apply_date"));
 			group.setRole(rs.getString("role"));
+			if (rs.getString("apply_type").equals("杰出青年")) {
+				group.setDirection(rs.getString("direction"));					
+			}
+			if (rs.getString("apply_type").equals("科技领军")) {
+				group.setDirection(rs.getString("kjdirection"));					
+			}
+			if (rs.getString("apply_type").equals("创新团队")) {
+				group.setDirection(rs.getString("research_direction"));					
+			}
 			return group;
 		}
 	}

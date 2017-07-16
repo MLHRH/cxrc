@@ -84,7 +84,6 @@ public class FileUtil {
 	 */
 	public static void downloadFile(HttpServletResponse response,Attachfile f) throws IOException {
 
-
 		File file = new File(f.getFile_path()+f.getNewfilename());
 		if (file.exists()) {
 			String mimetype = "";
@@ -107,7 +106,31 @@ public class FileUtil {
 		}
 	     
 	}
-	
+	public static void downloadExcelFile(HttpServletResponse response,Attachfile f) throws IOException {
+
+		File file = new File(f.getFile_path()+f.getNewfilename());
+		if (file.exists()) {
+			/*String mimetype = "";*/
+			javax.activation.MimetypesFileTypeMap mtMap = new javax.activation.MimetypesFileTypeMap();
+			/*mimetype = mtMap.getContentType(file);*/
+			int bytes = 0;
+			ServletOutputStream op = response.getOutputStream();
+			response.setContentLength((int) file.length());
+			response.setHeader("Content-disposition",
+					"attachment; filename="+f.getNewfilename());// 设定输出文件头
+			response.setContentType("application/msexcel");//EXCEL格式  Microsoft excel
+			byte[] bbuf = new byte[1024];
+			DataInputStream in = new DataInputStream(new FileInputStream(file));
+
+			while ((in != null) && ((bytes = in.read(bbuf)) != -1)) {
+				op.write(bbuf, 0, bytes);
+			}
+			in.close();
+			op.flush();
+			op.close();
+		}
+	     
+	}
 	@SuppressWarnings("unchecked")
 	public static Attachfile saveRequestFiles(HttpServletRequest request) throws Exception {
 		//获取项目的跟路径

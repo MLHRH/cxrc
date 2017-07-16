@@ -133,13 +133,13 @@ public class ZhichengController {
 		}
 		int status = Integer.valueOf(apply.getStatus());
 		if (status < 4) {
-			if (expertUser != null
+			if (expertUser.getTeam_leader_type() != null
 					&& (expertUser.getTeam_leader_type() == 1 || expertUser.getTeam_leader_type() == 2)) {
 				menus2.add(menus.get(8));
 			}
 		}
 		if (status > 3) {
-			if (expertUser != null
+			if (expertUser.getTeam_leader_type() != null
 					&& (expertUser.getTeam_leader_type() == 1 || expertUser.getTeam_leader_type() == 2)) {
 				menus2.add(menus.get(9));
 			}

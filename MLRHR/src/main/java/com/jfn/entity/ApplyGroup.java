@@ -11,8 +11,16 @@ public class ApplyGroup extends Group{
 	private String type;
 	private String date;
 	private String group;
+	private String direction ;
 	private List<Body> bodys;
 	private List<Group> groups;
+
+	public String getDirection() {
+		return direction;
+	}
+	public void setDirection(String direction) {
+		this.direction = direction;
+	}
 	public Integer getUser_id() {
 		return user_id;
 	}
@@ -75,7 +83,7 @@ public class ApplyGroup extends Group{
 	}
 	@Override
 	public String toString() {
-		return "ApplyGroup [name=" + name + ", body=" + body + ", type=" + type + ", date=" + date + ", group=" + group
+		return "ApplyGroup [name=" + name + ", body=" + body + ", type=" + type + ", date=" + date + ", group=" + group+", direction="+direction
 				+ "]";
 	}
 
