@@ -9,7 +9,7 @@ function initExpertScore(apply_id) {
 	$.ajax({
 		type : 'get',
 		dataType : 'json',
-		url : 'expertyijianList?applyid=' + apply_id,// 请求的路径
+		url : 'expertScoreListes?applyid=' + apply_id,// 请求的路径
 		error : function() {// 请求失败处理函数
 			alert('请求失败');
 		},

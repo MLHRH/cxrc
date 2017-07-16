@@ -64,9 +64,6 @@ function initUserZhuanliDataTables(data) {
 		"processing" : true,
 		"data" : data,
 		"columns" : [{
-					"data" : "xuhao_id",
-					"class" : "center"
-				}, {
 					"data" : "patentName",
 						"class" : "center"
 				}, {

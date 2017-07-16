@@ -67,9 +67,6 @@ function initUserProjectDataTables(data) {
 		"processing" : true,
 		"data" : data,
 		"columns" : [{
-					"data" : "xuhao_id",
-					"class" : "center"
-				}, {
 					"data" : "entryName",
 					"class" : "center"
 				}, {

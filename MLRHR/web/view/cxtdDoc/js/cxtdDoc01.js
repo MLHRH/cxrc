@@ -26,7 +26,7 @@ function initcxtdDoc01(){
 			$('#sub_dir').val(data[0].baseinfo.researchDirection);
 			$('#sub_1').val(data[0].baseinfo.subordinateSubject1);
 			$('#sub_2').val(data[0].baseinfo.subordinateSubject2);
-			$('#other').val(data[0].baseinfo.orther);
+			$('#orther').val(data[0].baseinfo.orther);
 			$('#project_name').val(data[0].baseinfo.projectName);
 			$('#project_from').val(data[0].baseinfo.projectSource);
 			$('#unit_name').val(data[0].baseinfo.unitName);

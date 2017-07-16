@@ -27,12 +27,7 @@
 			<div class="control-group">
 				<input type="hidden" id="user_Baogao_id" name="id" value="${user_study.id}" />
 				<table width="98%" border="0" cellpadding="2" cellspacing="1" align="center" style="margin-top: 8px">
-					<tr align="center">
-						<td class="td_Left">序&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp号：</td>
-						<td class="td_Right">
-							<input type="text" id="user_Baogao_xuhao_id" value="${user_study.xuhao_id}" />
-						</td>
-					</tr>
+					
 					
 					<tr align="center">
 						<td class="td_Left">报告名称：</td>

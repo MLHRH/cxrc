@@ -263,42 +263,16 @@ function exportDoc07() {
 				"value" : $("#enddate_buy").val()
 			});
 	arrData.push({
-				"name" : "body_id",
-				"value" : body_id
-			});
-	arrData.push({
-				"name" : "status",
-				"value" : status
-			});
-	arrData.push({
-				"name" : "apply_type",
-				"value" : $("#apply_type").val()
-			});
-	arrData.push({
-				"name" : "apply_rank",
-				"value" : $("#apply_rank").val()
-			});
-	arrData.push({
-				"name" : "apply_userRank",
-				"value" : $("#apply_userRank").val()
-			});
-	arrData.push({
-				"name" : "apply_body",
-				"value" : $("#apply_body").val()
-			});
-	arrData.push({
-				"name" : "apply_userName",
-				"value" : $("#apply_userName").val()
-			});
-	arrData.push({
-				"name" : "apply_userMobile",
-				"value" : $("#apply_userMobile").val()
+				"name" : "zhichengapply_status_new",
+				"value" : $("#zhichengapply_status_new").val()
 			});
 	arrData.push({
 				"name" : "apply_date",
 				"value" : $("#apply_date").val()
 			});
-	$.ajax({
+	location.href = 'exportDoc07?startDate='+$("#startdate_buy").val()+'&endDate='+$("#enddate_buy").val()
+	+'&apply_date='+$("#apply_date").val()+'&zhichengapply_status_new='+$("#zhichengapply_status_new").val();
+	/*$.ajax({
 				type : 'post',
 				dataType : 'json',
 				data : arrData,
@@ -307,6 +281,7 @@ function exportDoc07() {
 					alert('请求失败');
 				},
 				success : function(rst) { // 请求成功后处理函数。
+					console.log(rst);
 					if (rst.filename != "") {
 						// alert('请求成功');
 						var curWwwPath = window.document.location.href;
@@ -318,17 +293,18 @@ function exportDoc07() {
 						// 获取带"/"的项目名，如：/uimcardprj
 						// var
 						// projectName=pathName.substring(0,pathName.substr(1).indexOf('/')+1);
-						var url = localhostPaht + "/exportFile/" + rst.filename;
-						window.open(url, "_blank");
+						var url = localhostPaht +"/"+ rst.path + rst.filename;
+						console.log(url);
+						window.location.href=url; 	
 					}
 				}
-			});
+			});*/
 }
 
 function showModel() {
 	$("#myModalSave").unbind("click");
 	$("#myModalSave").click(function() {
-				alert("导出EXCEL");
+		        exportDoc07();
 			});
 	$("#myModalTitle").text("添加报表表头信息");
 	$(".modal-body").load("userExportEdit?body_id="+body_id, initUserExportEdit);

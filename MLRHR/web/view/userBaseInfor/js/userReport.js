@@ -54,10 +54,7 @@ function initUserReportDataTables(data) {
 		},
 		"processing" : true,
 		"data" : data,
-		"columns" : [{
-					"data" : "xuhao_id",
-					"class" : "center"
-				}, {
+		"columns" : [ {
 					"data" : "treatiseName"
 				}, {
 					"data" : "press"

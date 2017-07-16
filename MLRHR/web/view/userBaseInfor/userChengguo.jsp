@@ -38,7 +38,6 @@
 	<table id="userChengguoList" class="table table-hover table-bordered table-striped" style="margin-bottom: 10px;">
 		<thead>
 			<tr>
-		     	<th width="5%" style="text-align: center;">序号</th>
 			 	<th width="10%" style="text-align: center;">论文题目</th>
 				<th width="15%" style="text-align: center;">作者排序（通讯作者请标注*）</th>
 			 	<th width="15%" style="text-align: center;">期刊名称</th>

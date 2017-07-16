@@ -49,6 +49,15 @@ h3 {
 						</td>
 					</tr>
 					<tr align="center">
+					    <td class="td_Left">导出阶段：</td>
+						<td class="td_Right">
+					    <select id="zhichengapply_status_new" style="font-size: 14px;width:150px">
+							<option value="1" class="isEXPERT1">初审阶段</option>
+							<option value="2" class="isEXPERT2">复审阶段</option>
+						</select>
+						</td>
+					</tr>
+					<tr align="center">
 						<td class="td_Left">导出时间：</td>
 						<td class="td_Right">
 							<input type="text" onfocus="WdatePicker({isShowWeek:true,dateFmt:'yyyy-MM-dd'})" id="apply_date" value="${user_chengguo.cg_date}" />

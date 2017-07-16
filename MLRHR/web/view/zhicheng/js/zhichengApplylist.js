@@ -20,7 +20,6 @@ $(document).ready(function() {
 			initCheckCalendar();
 		});
 function initZhichengApply(zhichengId) {
-	console.log(zhichengId);
 	if (zhichengId != null)
 		$.ajax({
 					type : 'get',

@@ -27,12 +27,6 @@
 			<div class="control-group">
 				<input type="hidden" id="user_chengguo_id" name="id" value="${user_chengguo.id}" />
 				<table width="98%" border="0" cellpadding="2" cellspacing="1" align="center" style="margin-top: 8px">
-				<tr align="center">
-						<td class="td_Left">序号：</td>
-						<td class="td_Right">
-							<input type="text"  id="user_chengguo_xuhao" value="${user_chengguo.xuhao_id}" />
-						</td>
-					</tr>
 					<tr align="center">
 						<td class="td_Left">论文题目：</td>
 						<td class="td_Right">

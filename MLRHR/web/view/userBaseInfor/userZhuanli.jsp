@@ -30,7 +30,6 @@
 	<table id="userZhuanliList" class="table table-hover table-bordered table-striped" style="margin-bottom: 10px;">
 		<thead>
 			<tr>
-			   <th width="5%" style="text-align: center;">序号</th>
 				<th width="15%" style="text-align: center;">专利名称</th>
 				<th width="10%" style="text-align: center;">授权号</th>
 				<th width="12%" style="text-align: center;">类别</th>

@@ -54,10 +54,7 @@ function initUserBaogaoDataTables(data) {
 		},
 		"processing" : true,
 		"data" : data,
-		"columns" : [{
-					"data" : "xuhao_id",
-					"class":"center"						
-				}, {
+		"columns" : [ {
 					"data" : "reportName"
 				}, {
 					"data" : "meetingName"

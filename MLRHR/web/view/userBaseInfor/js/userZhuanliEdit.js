@@ -10,10 +10,10 @@ function userZhuanliEditSave() {
 					"name" : "userId",
 					"value" : user_id
 				});
-		arrData.push({
-					"name" : "xuhao_id",
-					"value" : $("#user_zhuanli_xuhao").val()
-				});
+//		arrData.push({
+//					"name" : "xuhao_id",
+//					"value" : $("#user_zhuanli_xuhao").val()
+//				});
 		arrData.push({
 					"name" : "patentName",
 					"value" : $("#user_zhuanli_name").val()

@@ -10,10 +10,10 @@ function userReportEditSave() {
 			"name" : "userId",
 			"value" : user_id
 		});
-		arrData.push({
-			"name" : "xuhao_id",
-			"value" : $("#user_xuhao").val()
-		});
+//		arrData.push({
+//			"name" : "xuhao_id",
+//			"value" : $("#user_xuhao").val()
+//		});
 		var nameTemp = $("#user_report_name").val();
 //		while (nameTemp.length < 350) {
 //			nameTemp += " ";

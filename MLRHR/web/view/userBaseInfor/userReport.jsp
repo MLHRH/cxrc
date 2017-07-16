@@ -30,7 +30,6 @@
 	<table id="userReportList" class="table table-hover table-bordered table-striped" style="margin-bottom: 10px;">
 		<thead>
 			<tr>
-				<th width="8%" style="text-align: center;">序号</th>
 				<th width="35%" style="text-align: center;">专著名称</th>
 				<th width="20%" style="text-align: center;">出版社</th>
 				<th width="15%" style="text-align: center;">发行国家和地区</th>

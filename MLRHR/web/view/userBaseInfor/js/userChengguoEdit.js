@@ -10,10 +10,10 @@ function userChengguoEditSave() {
 					"name" : "userId",
 					"value" : user_id
 				});
-		 arrData.push({
-					"name" : "xuhao_id",
-					"value" : $("#user_chengguo_xuhao").val()
-				});
+//		 arrData.push({
+//					"name" : "xuhao_id",
+//					"value" : $("#user_chengguo_xuhao").val()
+//				});
 				
 		var nameTemp = $("#user_chengguo_thesis_topic").val();
 		while (nameTemp.length < 350) {

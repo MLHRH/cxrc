@@ -10,10 +10,10 @@ function userBaogaoEditSave() {
 					"name" : "userId",
 					"value" : user_id
 				});
-		arrData.push({
-					"name" : "xuhao_id",
-					"value" : $("#user_Baogao_xuhao_id").val()
-				});
+//		arrData.push({
+//					"name" : "xuhao_id",
+//					"value" : $("#user_Baogao_xuhao_id").val()
+//				});
 		arrData.push({
 					"name" : "reportName",
 					"value" : $("#user_Baogao_report_name").val()
@@ -50,7 +50,7 @@ function userBaogaoEditSave() {
 					"success" : function(rst) {
 						if (rst.result == 1) {
 							noty({
-										text : '教育经历 更新完成.请继续完善其他信息.',
+										text : '会议报告 更新完成.请继续完善其他信息.',
 										type : 'success',
 										dismissQueue : false,
 										closeWith : ['click', 'button'],

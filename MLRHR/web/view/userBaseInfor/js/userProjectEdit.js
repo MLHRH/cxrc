@@ -10,10 +10,10 @@ function userProjectEditSave() {
 			"name" : "userId",
 			"value" : user_id
 		});
-		arrData.push({
-			"name" : "xuhao_id",
-			"value" : $("#user_project_xuhao_id").val()
-		});
+//		arrData.push({
+//			"name" : "xuhao_id",
+//			"value" : $("#user_project_xuhao_id").val()
+//		});
 		arrData.push({
 			"name" : "entryName",
 			"value" : $("#user_project_project_name").val()

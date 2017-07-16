@@ -266,7 +266,10 @@ function initApplyMangerDataTables(data) {
 				}, {
 					"data" : "group",
 					"class" : "center"
-				},{
+				}, {
+					"data" : "direction",					
+					"class" : "center"
+				 },{
 					"data" : null,
 					"class" : "center",
 					"render" : function(data) {

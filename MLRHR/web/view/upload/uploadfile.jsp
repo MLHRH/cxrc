@@ -9,13 +9,11 @@
 <meta name="author" content="iugs">
 <%@ include file="/common/common.jsp"%>
 <%@ include file="/common/jquery.noty.jsp"%>
-<link href="${ctx}/static/styles/jquery.dataTables.css" type="text/css" rel="stylesheet" />
-<script type="text/javascript" src="${ctx}/static/jquery/DataTables-1.10.3/js/jquery.dataTables.min.js"></script>
-<script type="text/javascript" src="${ctx}/static/jquery/jquery.dataTables.columnFilter.js"></script>
 <script type="text/javascript" src="${ctx}/static/jquery/openWindow.js"></script>
 <script type="text/javascript" src="${ctx}/static/jquery/notify.function.js"></script>
 <script type="text/javascript" src="${ctx}/view/upload/js/uploadfile.js"></script>
 <link rel="stylesheet" href="${ctx }/static/uploadify/3.1/css/uploadify.css">
+<link rel="stylesheet" href="${ctx }/static/bootstrap/2.1.1/css/bootstrap.min.css">
 <script src="${ctx}/static/layer/layer.js"></script>
 <script src="${ctx}/static/uploadify/3.1/js/jquery.uploadify.min.js"></script>
 <script type="text/javascript" src="${ctx}/js/Chart.js"></script>
@@ -59,6 +57,8 @@
 							<th style="text-align:center;">操作</th>
 						</tr>
 					</thead>
+					<tbody id="fileList">
+					</tbody>
 				</table>
 			</div>
 	</div>
@@ -70,6 +70,11 @@
 		                <div class="modal-header" style="height:50px;">
 		                    <h4 style="width:150px;float:left;" class="modal-title" id="exampleModalLabel">附件上传</h4>
 		                </div>
+		                <p class=MsoNormal style='text-align: center'>
+			     <div>
+			      <b> <span style='font-size: 10.0pt; font-family: 幼圆; letter-spacing: 1.0pt'><font color=red >(  打开选择文件时间可能会较慢，请耐心等待)</font></span>
+			       </b></div>
+	           	</p>
 		                <div class="modal-body">
 		               	 
 		                	<form>
@@ -91,7 +96,7 @@
         					</div>
 		                </div>
 		                <div class="modal-footer">
-		                    <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+		                    <button type="button" class="btn btn-default" data-dismiss="modal" onclick="clearMessage()">关闭</button>
 		                    <button type="button" class="btn btn-primary" id="import">上传</button>
 		                </div>
 		            </div>
@@ -102,6 +107,7 @@
 	<hr>
 </body>
 <script type="text/javascript">
+var oTable = null;
 //导入按钮
 $("#importBtn").on("click",function(){
 	$("#filename").val("");
@@ -111,9 +117,9 @@ $("#importBtn").on("click",function(){
         show: true
     });
  });
-$('#exampleModal').on('hidden.bs.modal', function () {
+ $('#exampleModal').on('hidden.bs.modal', function () {
 	initUpFile();
-	});
+	}); 
 $('#import').click(function(){
 	if($("#filename").val()==''){
 		alert("没有选择文件，请选择后再导入");
@@ -184,6 +190,9 @@ function delAttach(obj) {
       $("#filename").val("");
       $("#oldfilename").val("");
       $("#path").val("");
+}
+function clearMessage(){
+	 $('#impsuccess').html("");
 }
 function errorCallback(event, queueId, fileObj, errorObj) {
 

@@ -28,13 +28,6 @@
 				<table width="98%" border="0" cellpadding="2" cellspacing="1" align="center" style="margin-top: 8px">
 				
 					<tr align="center">
-						<td class="td_Left">序号：</td>
-						<td class="td_Right">
-									
-									<input style="width: 300px;" type="text"  id="user_xuhao" value="${user_report.xuhao_id}" />
-						</td>
-					</tr>
-					<tr align="center">
 						<td class="td_Left">专著名称：</td>
 						<td class="td_Right">
 							<input style="width: 300px;" type="text"  id="user_report_name" value="${user_report.treatiseName}" />

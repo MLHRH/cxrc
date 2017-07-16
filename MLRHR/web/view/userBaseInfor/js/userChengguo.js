@@ -64,9 +64,6 @@ function initUserChengguoDataTables(data) {
 		"processing" : true,
 		"data" : data,
 		"columns" : [{
-					"data" : "xuhao_id",
-					"class" : "center"
-				}, {
 					"data" : "thesisTopic"
 				}, {
 					"data" : "authorSort",

@@ -123,12 +123,13 @@ body {
 						<table id="groupManager" class="table table-hover table-bordered table-striped" style="margin-bottom: 10px;">
 							<thead valign="middle">
 								<tr>
-									<th width="20%" style="text-align: center;">姓名</th>
-									<th width="20%" style="text-align: center;">所在机构</th>
+									<th width="10%" style="text-align: center;">姓名</th>
+									<th width="15%" style="text-align: center;">所在机构</th>
 									<th width="10%" style="text-align: center;">申请类别</th>
-									<th width="20%" style="text-align: center;">申请时间</th>
+									<th width="10%" style="text-align: center;">申请时间</th>
 									<th width="20%" style="text-align: center;">所在分组</th>
-									<th width="20%" style="text-align: center;">操作</th>
+									<th width="20%" style="text-align: center;">研究方向</th>
+									<th width="15%" style="text-align: center;">操作</th>
 								</tr>
 							</thead>
 						</table>

@@ -30,7 +30,6 @@
 	<table id="userAwardList" class="table table-hover table-bordered table-striped" style="margin-bottom: 10px;">
 		<thead>
 			<tr>
-				<th width="10%" style="text-align: center;">序号</th>
 				<th width="13%" style="text-align: center;">获奖项目名称</th>
 		        <th width="13%" style="text-align: center;">奖励名称</th>
 				<th width="13%" style="text-align: center;">等级</th>

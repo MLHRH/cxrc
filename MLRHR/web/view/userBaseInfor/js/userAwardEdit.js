@@ -10,10 +10,10 @@ function userAwardEditSave() {
 					"name" : "userId",
 					"value" : user_id
 				});
-		arrData.push({
-					"name" : "xuhao_id",
-					"value" : $("#user_award_xuhao_id").val()
-				});
+//		arrData.push({
+//					"name" : "xuhao_id",
+//					"value" : $("#user_award_xuhao_id").val()
+//				});
 		arrData.push({
 					"name" : "awardItemName",
 					"value" : $("#user_award_name").val()

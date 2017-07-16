@@ -32,7 +32,7 @@
 	<table id="userProjectList" class="table table-hover table-bordered table-striped" style="margin-bottom: 10px;">
 		<thead>
 			<tr>
-			    <th width="8%" style="text-align: center;">序号</th>
+			  <!--   <th width="8%" style="text-align: center;">序号</th> -->
 				<th width="15%" style="text-align: center;">项目名称</th>
 				<th width="10%" style="text-align: center;">立项编号</th>
 				<th width="10%" style="text-align: center;">经费(万元)</th>
