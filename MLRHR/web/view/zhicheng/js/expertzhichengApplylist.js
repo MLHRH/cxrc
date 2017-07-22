@@ -21,7 +21,6 @@ $(document).ready(function() {
 
 var groupId ;
 function initZhichengApply() {
-	console.log(groupId);
 //	if (zhichengId != null)
 	var arrData = new Array();
 
@@ -109,7 +108,6 @@ function initZhichengApplyDataTables(data) {
 }
 
 function zhichengApplyEdit(id,type,userId,expert_id,expert) {
-	console.log("申请类型："+type);
 	location.href = 'zhichengApplyEdit?applyid=' + id+"&applyType="+type+"&userId="+userId+"&user_id="+expert_id+"&expert="+expert;
 }
 

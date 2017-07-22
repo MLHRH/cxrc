@@ -174,6 +174,7 @@ public class ZhichengController {
 		// =zhichengapplyservice.getRoleByUserId(user.getId());
 
 		List<ApplyMenu> menus2 = new ArrayList<ApplyMenu>();
+		menus2.add(menus.get(10));
 		menus2.add(menus.get(0));
 		menus2.add(menus.get(1));
 		menus2.add(menus.get(2));
@@ -222,6 +223,7 @@ public class ZhichengController {
 		AcctUserRole acctUserRole = zhichengapplyservice.getRoleByUserId(user.getId());
 		if (acctUserRole.getRole_id() != 4 && acctUserRole.getRole_id() != 5) {
 			List<ApplyMenu> menus2 = new ArrayList<ApplyMenu>();
+			menus2.add(menus.get(10));
 			menus2.add(menus.get(0));
 			menus2.add(menus.get(1));
 			menus2.add(menus.get(2));

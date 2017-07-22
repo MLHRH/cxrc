@@ -79,7 +79,6 @@ body {
 <script type="text/javascript" src="${ctx}/view/jcqnDoc/js/doc03.js"></script>
 <script type="text/javascript" src="${ctx}/view/jcqnDoc/js/doc04.js"></script>
 <script type="text/javascript" src="${ctx}/view/jcqnDoc/js/doc05.js"></script>
-<script type="text/javascript" src="${ctx}/view/jcqnDoc/js/doc06.js"></script>
 <script type="text/javascript" src="${ctx}/view/jcqnDoc/js/doc07.js"></script> 
 <script type="text/javascript" src="${ctx}/view/jcqnDoc/js/doc08.js"></script> 
 <script type="text/javascript" src="${ctx}/view/jcqnDoc/js/doc09.js"></script> 

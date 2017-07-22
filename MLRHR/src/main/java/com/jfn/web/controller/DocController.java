@@ -47,6 +47,10 @@ public class DocController {
 	public String jcqndoc06(HttpServletRequest request, Model model) {
 		return "jcqnDoc/doc06";
 	}
+	@RequestMapping(value = "jcqnDoc00", method = RequestMethod.GET)
+	public String jcqndoc00(HttpServletRequest request, Model model) {
+		return "jcqnDoc/doc00";
+	}
 	@RequestMapping(value = "jcqnDoc07", method = RequestMethod.GET)
 	public String jcqndoc07(HttpServletRequest request, Model model) {		
 			return "jcqnDoc/doc07";
@@ -82,6 +86,10 @@ public class DocController {
 	public String kjljdoc06(HttpServletRequest request, Model model) {
 		return "kjljDoc/doc06";
 	}
+	@RequestMapping(value = "kjljDoc00", method = RequestMethod.GET)
+	public String kjljdoc00(HttpServletRequest request, Model model) {
+		return "kjljDoc/doc00";
+	}
 	@RequestMapping(value = "kjljDoc07", method = RequestMethod.GET)
 	public String kjljdoc07(HttpServletRequest request, Model model) {
 		return "kjljDoc/doc07";
@@ -115,6 +123,10 @@ public class DocController {
 	@RequestMapping(value = "cxtdDoc06", method = RequestMethod.GET)
 	public String cxtddoc06(HttpServletRequest request, Model model) {
 		return "cxtdDoc/doc06";
+	}
+	@RequestMapping(value = "cxtdDoc00", method = RequestMethod.GET)
+	public String cxtddoc00(HttpServletRequest request, Model model) {
+		return "cxtdDoc/doc00";
 	}
 	@RequestMapping(value = "cxtdDoc07", method = RequestMethod.GET)
 	public String cxtddoc07(HttpServletRequest request, Model model) {

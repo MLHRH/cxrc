@@ -40,11 +40,9 @@ $(document).ready(function() {
 		$(".isEXP").hide();
 		$(".isEXP2").hide();
 		document.getElementById("voteBtn").style.display = "none";
-		console.log("当前登陆角色："+currentRole);
 	} else {
 		initApplication();
 		zhichengApplyInteVote();
-		console.log("当前登陆角色："+currentRole);
 	}
 	$("#content").load("docMain");
 	$("#editSave").hide();
@@ -70,6 +68,9 @@ $(document).ready(function() {
 function init(contentName) {
 
 	switch (contentName) {
+	case "jcqnDoc00":
+		initjcqnDoc00();
+		break;
 	case "jcqnDoc01":
 		initjcqnDoc01();
 		break;
@@ -677,7 +678,7 @@ function getDocList() {
 }
 function applyMenu() {
 	var type = $('#apply_type').val();
-	if(type !="杰出青年"){
+//	if(type !="杰出青年"){
 		location.href = 'applyMenu?applytype=' + type;
-	}
+//	}
 }

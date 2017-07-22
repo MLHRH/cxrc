@@ -6,8 +6,6 @@ function initUpFile() {
 	if(applyid != null){
 		$("#applyid").val(applyid);		
 	}
-	console.log("申请ID："+applyid);
-	console.log("角色："+currentRole);
 	if(currentRole != "ROLE_USER"){
 		$("#importBtn").hide();
 	}
