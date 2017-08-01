@@ -187,14 +187,14 @@ public class JcqnDoc01Dao {
 							jcqndoc01.setName(rs.getString("name"));
 							jcqndoc01.setSex(rs.getString("sex"));
 							jcqndoc01.setMinzu(rs.getString("minzu"));
-							String temp = rs.getString("birthday");
-							if (temp != null && !temp.equals("")) {
-								String Year = temp.substring(0, 4);
-								String Month = temp.substring(5, 7);
-								String Day = temp.substring(8, 10);
-								temp = Year + "." + Month + "." + Day;
-							}
-							jcqndoc01.setBirthday(temp);
+//							String temp = rs.getString("birthday");
+//							if (temp != null && !temp.equals("")) {
+//								String Year = temp.substring(0, 4);
+//								String Month = temp.substring(5, 7);
+//								String Day = temp.substring(8, 10);
+//								temp = Year + "." + Month + "." + Day;
+//							}
+							jcqndoc01.setBirthday(rs.getString("birthday"));
 							jcqndoc01.setTitle(rs.getString("title"));
 							jcqndoc01.setDocument_type(rs.getString("document_type"));
 							jcqndoc01.setDocument_number(rs.getString("document_number"));
@@ -324,14 +324,14 @@ public class JcqnDoc01Dao {
 							jcqndoc01.setName(rs.getString("name"));
 							jcqndoc01.setSex(rs.getString("sex"));
 							jcqndoc01.setMinzu(rs.getString("minzu"));
-							String temp = rs.getString("birthday");
-							if (temp != null && !temp.equals("")) {
-								String Year = temp.substring(0, 4);
-								String Month = temp.substring(5, 7);
-								String Day = temp.substring(8, 10);
-								temp = Year + "." + Month + "." + Day;
-							}
-							jcqndoc01.setBirthday(temp);
+//							String temp = rs.getString("birthday");
+//							if (temp != null && !temp.equals("")) {
+//								String Year = temp.substring(0, 4);
+//								String Month = temp.substring(5, 7);
+//								String Day = temp.substring(8, 10);
+//								temp = Year + "." + Month + "." + Day;
+//							}
+							jcqndoc01.setBirthday(rs.getString("birthday"));
 							jcqndoc01.setTitle(rs.getString("title"));
 							jcqndoc01.setDocument_type(rs.getString("document_type"));
 							jcqndoc01.setDocument_number(rs.getString("document_number"));
@@ -467,12 +467,12 @@ public class JcqnDoc01Dao {
 			jcqndoc01.setSex(rs.getString("sex"));
 			jcqndoc01.setMinzu(rs.getString("minzu"));
 			String temp = rs.getString("birthday");
-			if (temp != null && !temp.equals("")) {
-				String Year = temp.substring(0, 4);
-				String Month = temp.substring(5, 7);
-				String Day = temp.substring(8, 10);
-				temp = Year + "." + Month + "." + Day;
-			}
+//			if (temp != null && !temp.equals("")) {
+//				String Year = temp.substring(0, 4);
+//				String Month = temp.substring(5, 7);
+//				String Day = temp.substring(8, 10);
+//				temp = Year + "." + Month + "." + Day;
+//			}
 			jcqndoc01.setBirthday(temp);
 			jcqndoc01.setTitle(rs.getString("title"));
 			jcqndoc01.setDocument_type(rs.getString("document_type"));

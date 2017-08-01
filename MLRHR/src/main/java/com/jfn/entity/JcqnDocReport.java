@@ -17,8 +17,18 @@ public class JcqnDocReport {
     private String meetingPlace;
 
     private String reportType;
+    
+    private String peopleName;
 
-    public int getXuhao_id() {
+    public String getPeopleName() {
+		return peopleName;
+	}
+
+	public void setPeopleName(String peopleName) {
+		this.peopleName = peopleName;
+	}
+
+	public int getXuhao_id() {
 		return xuhao_id;
 	}
 

@@ -182,12 +182,12 @@ public class KjljDoc01Dao {
 					kjljdoc01.setSex(rs.getString("sex"));
 					kjljdoc01.setMinzu(rs.getString("minzu"));
 					String temp = rs.getString("birthday");
-					if (temp != null && !temp.equals("")) {
-						String Year = temp.substring(0, 4);
-						String Month = temp.substring(5, 7);
-						String Day = temp.substring(8, 10);
-						temp = Year + "." + Month + "." + Day;
-					}
+//					if (temp != null && !temp.equals("")) {
+//						String Year = temp.substring(0, 4);
+//						String Month = temp.substring(5, 7);
+//						String Day = temp.substring(8, 10);
+//						temp = Year + "." + Month + "." + Day;
+//					}
 					kjljdoc01.setBirthday(temp);
 					kjljdoc01.setTitle(rs.getString("title"));
 					kjljdoc01.setDocument_type(rs.getString("document_type"));
@@ -317,12 +317,12 @@ public class KjljDoc01Dao {
 					kjljdoc01.setSex(rs.getString("sex"));
 					kjljdoc01.setMinzu(rs.getString("minzu"));
 					String temp = rs.getString("birthday");
-					if (temp != null && !temp.equals("")) {
-						String Year = temp.substring(0, 4);
-						String Month = temp.substring(5, 7);
-						String Day = temp.substring(8, 10);
-						temp = Year + "." + Month + "." + Day;
-					}
+//					if (temp != null && !temp.equals("")) {
+//						String Year = temp.substring(0, 4);
+//						String Month = temp.substring(5, 7);
+//						String Day = temp.substring(8, 10);
+//						temp = Year + "." + Month + "." + Day;
+//					}
 					kjljdoc01.setBirthday(temp);
 					kjljdoc01.setTitle(rs.getString("title"));
 					kjljdoc01.setDocument_type(rs.getString("document_type"));
@@ -457,12 +457,12 @@ public class KjljDoc01Dao {
 			kjljdoc01.setSex(rs.getString("sex"));
 			kjljdoc01.setMinzu(rs.getString("minzu"));
 			String temp = rs.getString("birthday");
-			if (temp != null && !temp.equals("")) {
-				String Year = temp.substring(0, 4);
-				String Month = temp.substring(5, 7);
-				String Day = temp.substring(8, 10);
-				temp = Year + "." + Month + "." + Day;
-			}
+//			if (temp != null && !temp.equals("")) {
+//				String Year = temp.substring(0, 4);
+//				String Month = temp.substring(5, 7);
+//				String Day = temp.substring(8, 10);
+//				temp = Year + "." + Month + "." + Day;
+//			}
 			kjljdoc01.setBirthday(temp);
 			kjljdoc01.setTitle(rs.getString("title"));
 			kjljdoc01.setDocument_type(rs.getString("document_type"));

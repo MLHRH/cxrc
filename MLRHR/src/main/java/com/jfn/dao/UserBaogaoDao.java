@@ -23,11 +23,11 @@ public class UserBaogaoDao {
 	@Autowired
 	private JdbcTemplate jdbcTemplate;
 
-	private final String SQL_INSERT_user_study = "insert into jcqn_doc02_05(xuhao_id,user_id,report_name,meeting_name,organizers,meeting_time,meeting_place,report_type) values(?,?,?,?,?,?,?,?)";
+	private final String SQL_INSERT_user_study = "insert into jcqn_doc02_05(xuhao_id,user_id,report_name,meeting_name,organizers,meeting_time,meeting_place,report_type,people_name) values(?,?,?,?,?,?,?,?,?)";
 
 	private final String SQL_Get_BY_ID = "select * from jcqn_doc02_05 where Id=?";
 	private final String SQL_GET_user_study_LIST = "select * from jcqn_doc02_05 order by Id  ";
-	private final String SQL_SET_user_study_UPDATE = "update jcqn_doc02_05 set xuhao_id=?,user_id=?,report_name=?,meeting_name=?,organizers=?,meeting_time=?,meeting_place=?,report_type=? where id=?";
+	private final String SQL_SET_user_study_UPDATE = "update jcqn_doc02_05 set xuhao_id=?,user_id=?,report_name=?,meeting_name=?,organizers=?,meeting_time=?,meeting_place=?,report_type=?,people_name=? where id=?";
 
 	private final static String SQL_DEL_BY_ID = "delete from jcqn_doc02_05 where id = ?";
 	// 通过user_id查询
@@ -37,7 +37,7 @@ public class UserBaogaoDao {
 
 	public boolean insert(JcqnDocReport user_study) {
 		return jdbcTemplate.update(SQL_INSERT_user_study, new Object[] { user_study.getXuhao_id(),user_study.getUserId(), user_study.getReportName(), user_study.getMeetingName(), user_study.getOrganizers(), user_study.getMeetingTime(),
-				user_study.getMeetingPlace(), user_study.getReportType() }) == 1;
+				user_study.getMeetingPlace(), user_study.getReportType(),user_study.getPeopleName() }) == 1;
 	}
 
 	public JcqnDocReport get(int id) {
@@ -63,6 +63,7 @@ public class UserBaogaoDao {
 					user_study.setMeetingTime(temp);
 					user_study.setMeetingPlace(rs.getString("meeting_place"));
 					user_study.setReportType(rs.getString("report_type"));
+					user_study.setPeopleName(rs.getString("people_name"));
 			
 
 				}
@@ -94,7 +95,7 @@ public class UserBaogaoDao {
 					user_study.setMeetingTime(temp);
 					user_study.setMeetingPlace(rs.getString("meeting_place"));
 					user_study.setReportType(rs.getString("report_type"));
-			
+					user_study.setPeopleName(rs.getString("people_name"));
 
 				}
 				return user_study;
@@ -112,7 +113,7 @@ public class UserBaogaoDao {
 
 	public boolean Update(JcqnDocReport user_study) {
 		Object[] params = new Object[] { user_study.getXuhao_id(),user_study.getUserId(), user_study.getReportName(), user_study.getMeetingName(), user_study.getOrganizers(), user_study.getMeetingTime(),
-				user_study.getMeetingPlace(), user_study.getReportType(),user_study.getId() };
+				user_study.getMeetingPlace(), user_study.getReportType(),user_study.getPeopleName(),user_study.getId() };
 		return jdbcTemplate.update(SQL_SET_user_study_UPDATE, params) == 1;
 	}
 
@@ -155,6 +156,7 @@ public class UserBaogaoDao {
 			user_study.setMeetingTime(temp);
 			user_study.setMeetingPlace(rs.getString("meeting_place"));
 			user_study.setReportType(rs.getString("report_type"));
+			user_study.setPeopleName(rs.getString("people_name"));
 			return user_study;
 		}
 	}
