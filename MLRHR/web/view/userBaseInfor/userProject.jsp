@@ -38,7 +38,7 @@
 				<th width="10%" style="text-align: center;">经费(万元)</th>
 				<th width="10%" style="text-align: center;">起止年月</th>
 				<th width="20%" style="text-align: center;">项目性质及来源</th>
-				<th width="15%" style="text-align: center;">担任角色</th>
+				<th width="15%" style="text-align: center;">参与的其他团队成员</th>
 				<th width="25%" style="text-align: center;">操作</th>
 			</tr>
 		</thead>

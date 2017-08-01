@@ -64,7 +64,7 @@
 						</td>
 					</tr>
 						<tr align="center">
-						<td class="td_Left">承担角色：</td>
+						<td class="td_Left">参与的其他团队成员：</td>
 						<td class="td_Right">
 							<input type="text" id="user_project_role" value="${user_project.role}" />
 						</td>

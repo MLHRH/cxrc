@@ -312,7 +312,7 @@ arrData.push({
 				},
 				success : function(rst) {
 					if (rst.result == 1) {
-						alert("success!");
+						alert("保存成功，请继续操作!");
 
 					} else {
 						generatenoty('center', rst.msg, 'error');

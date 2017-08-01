@@ -66,10 +66,9 @@ function initUserBaogaoDataTables(data) {
 					"data" : "meetingPlace"
 				}, {
 					"data" : "reportType"
-				},
-				// {
-				// "data" : "zhengmingren"
-				// },
+				}, {
+				    "data" : "peopleName"
+				 },
 				{
 					"data" : null,
 					"class" : "center",

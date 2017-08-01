@@ -939,9 +939,9 @@
 				
 			
 				<tr style='page-break-inside: avoid' id="memberinfo_div">
-				<td width=36 rowspan=16 valign="middle" style='width: 6pt; border: solid windowtext 1.0pt; border-top: none; padding: 0cm 5.4pt 0cm 5.4pt'>
+				<td width=36 rowspan=40 valign="middle" style='width: 6pt; border: solid windowtext 1.0pt; border-top: none; padding: 0cm 5.4pt 0cm 5.4pt'>
 					<div class=MsoNormal style='text-align: center'>
-						<span style='font-size: 14.0pt; font-family: 宋体'>团队核心成员（11人）</span>
+						<span style='font-size: 14.0pt; font-family: 宋体'>团队核心成员（5-15人）</span>
 					</div>
 				</td>
 				<td style='width: 62pt; border: solid black 1.0pt; border-left: none; padding: 0cm 5.4pt 0cm 5.4pt; height: 30pt' >

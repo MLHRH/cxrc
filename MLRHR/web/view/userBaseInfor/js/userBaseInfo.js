@@ -1,10 +1,10 @@
-var contentName = "userBase";
+var contentName = "userProject";
 var user_id=0;
 $(document).ready(function() {
 	user_id = $("#userId").val();
-	initUserBase();
-	$("#content").load("userBase");
-	$("#userBase").addClass("active");
+	initUserProject();
+	$("#content").load("userProject");
+	$("#userProject").addClass("active");
 	// 左侧导航添加选中效果
 	$("#orderedlist li").click(function() {
 		$("li").each(function() {
@@ -34,27 +34,27 @@ $(document).ready(function() {
 
 function init(contentName) {
 	switch (contentName) {
-	case "userBase":
-		initUserBase();
-		break;
+//	case "userBase":
+//		initUserBase();
+//		break;
 	case "userBaogao":
 		initUserBaogao();
 		break;
-	case "userWork":
-		initUserWork();
-		break;
-	case "userSkill":
-		initUserSkill();
-		break;
-	case "userSkill_2":
-		initUserSkill_2();
-		break;
+//	case "userWork":
+//		initUserWork();
+//		break;
+//	case "userSkill":
+//		initUserSkill();
+//		break;
+//	case "userSkill_2":
+//		initUserSkill_2();
+//		break;
 	case "userProject":
 		initUserProject();
 		break;
-	case "userPeixun":
-		initUserPeixun();
-		break;
+//	case "userPeixun":
+//		initUserPeixun();
+//		break;
 	case "userReport":
 		initUserReport();
 		break;

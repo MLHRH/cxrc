@@ -54,19 +54,19 @@
 						</td>
 					</tr>
 					<tr align="center">
-						<td class="td_Left">发明人排序：</td>
+						<td class="td_Left">发明人或设计人排序：</td>
 						<td class="td_Right">
 							<input type="text" id="user_zhuanli_sort" value="${user_zhuanli.inventorSort}" />
 						</td>
 					</tr>
 							<tr align="center">
-						<td class="td_Left">日期：</td>
+						<td class="td_Left">授权日期：</td>
 						<td class="td_Right">
 							<input type="text" onfocus="WdatePicker({isShowWeek:true,dateFmt:'yyyy.MM.dd'})" id="user_zhuanli_date" value="${user_zhuanli.authorizedTime}" />
 						</td>
 					</tr>
 					<tr align="center">
-						<td class="td_Left">授权国别组织	：</td>
+						<td class="td_Left">授权国别或组织	：</td>
 						<td class="td_Right">
 							<input type="text" id="user_zhuanli_authorized_national" value="${user_zhuanli.authorizedNational}" />
 						</td>

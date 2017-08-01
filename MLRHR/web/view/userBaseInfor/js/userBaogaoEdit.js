@@ -41,6 +41,10 @@ function userBaogaoEditSave() {
 						"name" : "reportType",
 						"value" : $("#user_Baogao_report_type").val()
 					});
+			arrData.push({
+				"name" : "peopleName",
+				"value" : $("#user_Baogao_report_people_name").val()
+			});
 
 		$.ajax({
 					"dataType" : 'json',

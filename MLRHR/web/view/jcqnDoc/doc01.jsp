@@ -72,8 +72,7 @@
 				</td>
 				<td width=85 colspan=2 valign="middle"
 					style='width: 63.8pt; border-top: none; border-left: none; border-bottom: solid windowtext 1.0pt; border-right: solid windowtext 1.0pt; padding: 0cm 5.4pt 0cm 5.4pt; height: 37.7pt'>
-					<input type="text"  id="user_birthday" onfocus="WdatePicker({isShowWeek:true,dateFmt:'yyyy.MM.dd'})"
-						style="text-align: center; font-size: 16.0pt; font-family: 仿宋; display: inline-block; height: 90%; width: 95%; padding: 0px; margin: 3px; border-radius: 0px" />
+					<input type="text"  id="user_birthday" style="text-align: center; font-size: 16.0pt; font-family: 仿宋; display: inline-block; height: 90%; width: 95%; padding: 0px; margin: 3px; border-radius: 0px" />
 				</td>
 				<td width=113 colspan=2 valign="middle"
 					style='width: 3.0cm; border-top: none; border-left: none; border-bottom: solid windowtext 1.0pt; border-right: solid windowtext 1.0pt; padding: 0cm 5.4pt 0cm 5.4pt; height: 39.05pt'>

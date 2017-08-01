@@ -94,12 +94,12 @@
 			<b> <span style='font-size: 18.0pt; font-family: 宋体'>承担主要科研任务情况</span>
 			</b>
 		</p>
-		<%@ include file="/view/userBaseInfor/userProject.jsp"%>
+		<%-- <%@ include file="/view/userBaseInfor/userProject.jsp"%> --%>
+		<jsp:include page="/view/userBaseInfor/userProject.jsp" flush="true" />
 		<p class=MsoNormal style='text-align: center'>
 			<b> <span lang=EN-US style='font-size: 7.5pt'>&nbsp;</span>
 			</b>
 		</p>
-		
 		<div class="xline" style="border-bottom: 1px solid #b3b3b3; height: 10px;"></div>
 		<p class=MsoNormal style='text-align: center'>
 			<b> <span lang=EN-US style='font-size: 18.0pt'>&nbsp;</span>

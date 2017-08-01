@@ -13,6 +13,10 @@
 			<b> <span style='font-size: 22.0pt; font-family: 幼圆; letter-spacing: 1.0pt'>推荐人选自我评价</span>
 			</b>
 		</p>
+		<p class=MsoNormal style='text-align: center'>
+			<b> <span style='font-size: 10.0pt; font-family: 仿宋; letter-spacing: 1.0pt'>主要包括研究能力和学术技术水平、对所属科学技术领域和相关产业影响等方面的情况。（1000字以内）</span>
+			</b>		
+		</p>
  </div></td></tr>
 <tr style='page-break-inside: avoid; height: 3pt'>
 <td colspan="3">
