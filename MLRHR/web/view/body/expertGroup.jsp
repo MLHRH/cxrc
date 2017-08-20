@@ -52,6 +52,15 @@
 						</td>
 					</tr>
 					<tr align="center" style="line-height: 50px">
+						<td class="td_Left">是否为复审专家：</td>
+						<td class="td_Right">
+							<select name="fushenexpert" id="fushen_expert">
+								<option value = "1" ${roleId == 1?'selected':'' }>是</option>
+								<option value = "2" ${roleId == 2?'selected':'' }>否</option>
+							</select>
+						</td>
+					</tr>
+					<tr align="center" style="line-height: 50px">
 						<td class="td_Left">组内级别：</td>
 						<td class="td_Right">
 							<select name="level" id="team_leader_type">

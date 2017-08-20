@@ -13,7 +13,10 @@ function expertGroupSave() {
 			"name" : "teamLeaderType",
 			"value" : $("#team_leader_type").val()
 		});
-		
+		arrData.push({
+			"name" : "fushenexpert",
+			"value" : $("#fushen_expert").val()
+		});
 		$.ajax({
 			"dataType" : 'json',
 			"type" : "post",

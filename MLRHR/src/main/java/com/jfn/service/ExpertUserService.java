@@ -84,4 +84,9 @@ public class ExpertUserService {
 		
 	}
 
+	public ExpertUser getById(String expertId) {
+		// TODO Auto-generated method stub
+		return expertUserDao.getById(expertId);
+	}
+
 }

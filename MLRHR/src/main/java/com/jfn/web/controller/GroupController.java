@@ -16,10 +16,14 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.alibaba.fastjson.JSONObject;
 import com.jfn.common.util.Constant;
+import com.jfn.entity.AcctUserRole;
 import com.jfn.entity.ApplyGroup;
 import com.jfn.entity.ExpertGroup;
+import com.jfn.entity.ExpertUser;
 import com.jfn.entity.Group;
+import com.jfn.service.ExpertUserService;
 import com.jfn.service.GroupService;
+import com.jfn.service.UserRoleService;
 
 import net.sf.json.JSONArray;
 
@@ -27,6 +31,10 @@ import net.sf.json.JSONArray;
 public class GroupController {
 	@Autowired 
 	private GroupService groupService;
+	@Autowired
+	private ExpertUserService expertUserService ;
+	@Autowired
+	private UserRoleService userRoleService;
 	@RequestMapping(value = "group", method = RequestMethod.GET)
 	public String bodyManger(HttpServletRequest request, Model model) {
 		return "body/group";
@@ -106,6 +114,13 @@ public class GroupController {
 	public String getExpertGroupInfo(HttpServletRequest request,Model model){
 		String expertId = request.getParameter("expertId");
 		ExpertGroup expertGroup = groupService.getExpertGroup(Integer.valueOf(expertId));
+		ExpertUser expertUser = expertUserService.getById(expertId);
+		AcctUserRole userRole = userRoleService.getByUserId(expertUser.getUser_id());
+		if (userRole.getRole_id() == 5) {
+			model.addAttribute("roleId",1);
+		}else {
+			model.addAttribute("roleId",2);
+		}
 		model.addAttribute("expertInfo", expertGroup);
 		return "body/expertGroup";
 	}
@@ -126,9 +141,28 @@ public class GroupController {
 		String expertId = request.getParameter("expertId");
 		String groupId = request.getParameter("groupId");
 		String teamLeaderType = request.getParameter("teamLeaderType");
+		String fushenexpert = request.getParameter("fushenexpert");
+		Boolean fushen = false ;
+		if (fushenexpert.equals("1")) {
+			fushen =true;
+		}
 		JSONObject result = new JSONObject();
-		groupService.updateExpertGroup(Integer.valueOf(groupId), Integer.valueOf(teamLeaderType),
-				Integer.valueOf(expertId) ,result);
+		ExpertUser expertUser = expertUserService.getById(expertId);
+		AcctUserRole userRole = userRoleService.getByUserId(expertUser.getUser_id());
+		    if (userRole.getRole_id() == 4 && fushen == true) {		
+		    int role_id = 5 ;
+		    userRoleService.update(role_id,expertUser.getUser_id());
+			groupService.updateExpertGroup(Integer.valueOf(groupId), Integer.valueOf(teamLeaderType),
+					Integer.valueOf(expertId) ,result);
+		}else if (userRole.getRole_id() == 5 && fushen == false) {
+			int role_id = 4 ;
+			userRoleService.update(role_id,expertUser.getUser_id());
+			groupService.updateExpertGroup(Integer.valueOf(groupId), Integer.valueOf(teamLeaderType),
+					Integer.valueOf(expertId) ,result);
+		}else {
+			groupService.updateExpertGroup(Integer.valueOf(groupId), Integer.valueOf(teamLeaderType),
+					Integer.valueOf(expertId) ,result);			
+		}
 		
 		return result;
 	}

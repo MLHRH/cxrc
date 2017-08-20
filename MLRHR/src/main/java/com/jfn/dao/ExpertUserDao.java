@@ -27,7 +27,7 @@ public class ExpertUserDao {
 	private final String SQL_GET_ALL = "select*from expert_user";
 	private final String SQL_GET_BY_GROUP_ID = "select*from expert_user where group_id=?";
 	private final String SQL_GET_BY_USER_ID ="select*from expert_user where user_id=?";
-
+	private final String SQL_GET_BY_ID ="select*from expert_user where id=?";
 	public boolean update(ExpertUser expertUser) {
 		Object[] params = new Object[] {
 
@@ -80,7 +80,7 @@ public class ExpertUserDao {
 					expertUser.setWithin_beijing(rs.getString("within_beijing"));
 					expertUser.setXingzhengzhiwu(rs.getString("xingzhengzhiwu"));
 					expertUser.setZhicheng(rs.getString("zhicheng"));
-							expertUser.setUser_id(rs.getInt("user_id"));
+					expertUser.setUser_id(rs.getInt("user_id"));
 
 				}
 				return expertUser;
@@ -110,6 +110,34 @@ public class ExpertUserDao {
 			expertUser.setZhicheng(rs.getString("zhicheng"));
 			return expertUser;
 		}
+	}
+
+	public ExpertUser getById(String expertId) {
+
+		return jdbcTemplate.query(SQL_GET_BY_ID, new Object[] { expertId },
+				new ResultSetExtractor<ExpertUser>() {
+			@Override
+			public ExpertUser extractData(ResultSet rs)
+					throws SQLException, DataAccessException {
+				ExpertUser expertUser = new ExpertUser();
+				if (rs.next()) {
+					expertUser.setAddress(rs.getString("address"));
+					expertUser.setBirthday(rs.getString("birthday"));
+					expertUser.setCongshizhuanye(rs.getString("congshizhuanye"));
+					expertUser.setGender(rs.getString("gender"));
+					expertUser.setGroup_id(rs.getInt("group_id"));
+					expertUser.setMinzu(rs.getString("minzu"));
+					expertUser.setTeam_leader_type(rs.getInt("team_leader_type"));
+					expertUser.setWithin_beijing(rs.getString("within_beijing"));
+					expertUser.setXingzhengzhiwu(rs.getString("xingzhengzhiwu"));
+					expertUser.setZhicheng(rs.getString("zhicheng"));
+					expertUser.setUser_id(rs.getInt("user_id"));
+
+				}
+				return expertUser;
+			}
+		});
+
 	}
 
 }
