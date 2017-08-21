@@ -129,7 +129,7 @@ body {
 					</div>
 					<div style="text-align: left;">
 						<b> <span style='font-size: 10.0pt; font-family: 黑体; letter-spacing: 1.0pt'><font color=red >(添加专家后，需要专家先登录完善个人档案后再进行审核)</font></span>
-			</b
+			</b>
 					</div>
 					<div class="xline" style="border-bottom: 1px dashed #b3b3b3; height: 10px"></div>
 					<div id="userDetail" class="row-fluid" style="padding-top: 10px;">
