@@ -2,18 +2,33 @@
 var applyid;
 var oTable = null;
 var currentRole;
+var userid;
 function initUpFile() {
 	if(applyid != null){
 		$("#applyid").val(applyid);		
 	}
-
-		$("#importBtn").hide();
+	//被审核人的ID存在时。此时是审核模式。采用被审核人的ID初始化。
+	if(userId != null && userId !=""){
+		userid = userId;
+	}
+	else{
+		userid = user_id;
+	}
 	
+		$("#test1").hide();
 	var arrData = new Array();
 	arrData.push({
 				"name" : "applyid",
 				"value" : applyid,
 			});
+	arrData.push({
+		"name" : "userid",
+		"value" : userid,
+	});
+	arrData.push({
+		"name" : "applytype",
+		"value" : $('#apply_type').val(),
+	});
 	$.ajax({
 				type : 'get',
 				dataType : 'json',
@@ -32,8 +47,20 @@ function initUpFile() {
 								currentRole = "ROLE_USER";
 							}
 						}
-						if(currentRole == "ROLE_USER"){
-							$("#importBtn").show();
+						if(currentRole == "ROLE_USER" ){
+							$("#test1").show();
+						}
+						if(currentRole == "ROLE_PROFESSOR" ){
+							$("#test1").hide();
+						}
+						if(currentRole == "ROLE_HR" ){
+							$("#test1").hide();
+						}
+						if(currentRole == "ROLE_EXPERT1" ){
+							$("#test1").hide();
+						}
+						if(currentRole == "ROLE_EXPERT2" ){
+							$("#test1").hide();
 						}
 					intTables(data[0]);
 				}
@@ -86,39 +113,11 @@ function delFile(id){
 			"url" : "delFile",
 			"data" : arrData,
 			"success" : function(data) {
-				if (data.status == 0) {
-					noty({
-						text : data.msg,
-						type : 'success',
-						dismissQueue : false,
-						maxVisible:false,
-						closeWith : ['click', 'button'],
-						timeout : 3000,
-						layout : 'top',
-						callback : {
-							afterClose : function() {
-								initUpFile();
-							}
-						},
-						theme : 'defaultTheme'
-					});
-				} else if (data.status == 1) {
-					noty({
-						text : data.msg,
-						type : 'error',
-						dismissQueue : false,
-						maxVisible:false,
-						closeWith : ['click', 'button'],
-						timeout : 3000,
-						layout : 'center',
-						callback : {
-							afterClose : function() {
-								initUpFile();
-							}
-						},
-						theme : 'defaultTheme'
-					});
-				} 
+				layer.msg(data.msg)
+				initUpFile();
+			},
+			"error":function(){
+				layer.msg("删除失败")
 			}
 		});
 	}

@@ -24,121 +24,6 @@ function initcxtdDoc01() {
 				},
 				// 请求成功后处理函数。
 				success : function(data) {
-					// team baseinfo
-					$('#baseinfoid').val(data[0].baseinfo.id);
-					$('#teamName').val(data[0].baseinfo.teamName);
-					$('#sub_dir').val(data[0].baseinfo.researchDirection);
-					$('#sub_1').val(data[0].baseinfo.subordinateSubject1);
-					$('#sub_2').val(data[0].baseinfo.subordinateSubject2);
-					$('#orther').val(data[0].baseinfo.orther);
-					$('#project_name').val(data[0].baseinfo.projectName);
-					$('#project_from').val(data[0].baseinfo.projectSource);
-					$('#unit_name').val(data[0].baseinfo.unitName);
-					$('#org_code').val(data[0].baseinfo.organizationCode);
-					$('#legal_rep').val(data[0].baseinfo.legalRepresentative);
-					$('#competent_dep').val(
-							data[0].baseinfo.competentDepartment);
-					$('#unit_add').val(data[0].baseinfo.unitAddresses);
-					$('#zip_code').val(data[0].baseinfo.zipCode);
-					$('#contacts').val(data[0].baseinfo.contacts);
-					$('#mobile_phone').val(data[0].baseinfo.mobilePhone);
-					$('#t_email').val(data[0].baseinfo.email);
-					$('#fax').val(data[0].baseinfo.fax);
-					$('#telephone').val(data[0].baseinfo.telephone);
-					$('#teamID').val(data[0].baseinfo.teamId)
-					// team leader
-					$('#leaderinfoid').val(data[0].leaderinfo.id);
-					$('#leaderCountry').val(data[0].leaderinfo.country);
-					$('#leaderName').val(data[0].leaderinfo.name);
-					$('#leaderSex').val(data[0].leaderinfo.sex);
-					$('#leaderNation').val(data[0].leaderinfo.minzu);
-					$('#leaderTechnical_position').val(
-							data[0].leaderinfo.position);
-					$('#leaderBirthday').val(data[0].leaderinfo.birthday);
-					$('#leaderId_type').val(data[0].leaderinfo.documentType);
-					$('#leaderId_num').val(data[0].leaderinfo.documentNumber);
-					$('#leaderProfessional_direction').val(
-							data[0].leaderinfo.direction);
-					$('#leaderSubject1').val(
-							data[0].leaderinfo.subordinateSubject1);
-					$('#leaderSubject2').val(
-							data[0].leaderinfo.subordinateSubject2);
-					$('#leaderAddress').val(data[0].leaderinfo.addresses);
-					$('#leaderZip_code').val(data[0].leaderinfo.zipCode);
-					$('#leaderFax').val(data[0].leaderinfo.telephoneFax);
-					$('#leaderPhone').val(data[0].leaderinfo.mobilePhone);
-					$('#leaderEmail').val(data[0].leaderinfo.email);
-					// 学习经历
-					$('#study_country').val(data[0].leaderinfo.study_country);
-					$('#study_colleges').val(data[0].leaderinfo.study_colleges);
-					$('#study_major').val(data[0].leaderinfo.study_major);
-					$('#study_education').val(
-							data[0].leaderinfo.study_education);
-					$('#study_start_time').val(
-							data[0].leaderinfo.study_start_time);
-					$('#study_end_time').val(data[0].leaderinfo.study_end_time);
-
-					$('#user_studcountry2').val(
-							data[0].leaderinfo.user_studcountry2);
-					$('#user_studcollege2').val(
-							data[0].leaderinfo.user_studcollege2);
-					$('#user_studmajor2').val(
-							data[0].leaderinfo.user_studmajor2);
-					$('#user_studdegree2').val(
-							data[0].leaderinfo.user_studdegree2);
-					$('#user_studfirsttime2').val(
-							data[0].leaderinfo.user_studfirsttime2);
-					$('#user_studlasttime2').val(
-							data[0].leaderinfo.user_studlasttime2);
-					// 工作经历
-					$('#user_workcountry').val(
-							data[0].leaderinfo.user_workcountry);
-					$('#user_workcollege').val(
-							data[0].leaderinfo.user_workcollege);
-					$('#user_workmajor').val(data[0].leaderinfo.user_workmajor);
-					$('#work_starttime').val(data[0].leaderinfo.work_starttime);
-					$('#work_endtime').val(data[0].leaderinfo.work_endtime);
-
-					$('#work_country').val(data[0].leaderinfo.work_country);
-					$('#work_company').val(data[0].leaderinfo.work_company);
-					$('#work_position').val(data[0].leaderinfo.work_position);
-					$('#work_start_time').val(
-							data[0].leaderinfo.work_start_time);
-					$('#work_end_time').val(data[0].leaderinfo.work_end_time);
-					// 期刊任职情况
-					$('#journal_title').val(data[0].leaderinfo.journal_title);
-					$('#organization_position').val(
-							data[0].leaderinfo.organization_position);
-					$('#organization_term').val(
-							data[0].leaderinfo.organization_term);
-
-					$('#journal_title1').val(data[0].leaderinfo.journal_title1);
-					$('#organization_position1').val(
-							data[0].leaderinfo.organization_position1);
-					$('#organization_term1').val(
-							data[0].leaderinfo.organization_term1);
-
-					$('#journal_title2').val(data[0].leaderinfo.journal_title2);
-					$('#organization_position2').val(
-							data[0].leaderinfo.organization_position2);
-					$('#organization_term2').val(
-							data[0].leaderinfo.organization_term2);
-					// 成员分类统计人数
-					$('#memnumid').val(data[0].memnum.id);
-					$('#member_num').val(data[0].memnum.num);
-					$('#age56').val(data[0].memnum.age_56);
-					$('#age46_55').val(data[0].memnum.age_46_55);
-					$('#age36_45').val(data[0].memnum.age_36_45);
-					$('#age35').val(data[0].memnum.age_35);
-					$('#gaoji').val(data[0].memnum.gaoji);
-					$('#fugao').val(data[0].memnum.fugao);
-					$('#zhongji').val(data[0].memnum.zhongji);
-					$('#z_orther').val(data[0].memnum.z_orther);
-					$('#boshi').val(data[0].memnum.boshi);
-					$('#shuoshi').val(data[0].memnum.shuoshi);
-					$('#benke').val(data[0].memnum.benke);
-					$('#x_orther').val(data[0].memnum.x_orther);
-
 					// 团队成员信息
 					Member(data[0].mlist.length);
 					for (index_meminfo = 0; index_meminfo < data[0].mlist.length; index_meminfo++) {
@@ -212,6 +97,69 @@ function initcxtdDoc01() {
 								data[0].zlist[index_zuzhi].zuzhi_renqi);
 
 					}
+					// team baseinfo
+					$('#baseinfoid').val(data[0].baseinfo.id);
+					$('#teamName').val(data[0].baseinfo.teamName);
+					$('#sub_dir').val(data[0].baseinfo.researchDirection);
+					$('#sub_1').val(data[0].baseinfo.subordinateSubject1);
+					$('#sub_2').val(data[0].baseinfo.subordinateSubject2);
+					$('#orther').val(data[0].baseinfo.orther);
+					$('#project_name').val(data[0].baseinfo.projectName);
+					$('#project_from').val(data[0].baseinfo.projectSource);
+					$('#unit_name').val(data[0].baseinfo.unitName);
+					$('#org_code').val(data[0].baseinfo.organizationCode);
+					$('#legal_rep').val(data[0].baseinfo.legalRepresentative);
+					$('#competent_dep').val(
+							data[0].baseinfo.competentDepartment);
+					$('#unit_add').val(data[0].baseinfo.unitAddresses);
+					$('#zip_code').val(data[0].baseinfo.zipCode);
+					$('#contacts').val(data[0].baseinfo.contacts);
+					$('#mobile_phone').val(data[0].baseinfo.mobilePhone);
+					$('#t_email').val(data[0].baseinfo.email);
+					$('#fax').val(data[0].baseinfo.fax);
+					$('#telephone').val(data[0].baseinfo.telephone);
+					$('#teamID').val(data[0].baseinfo.teamId)
+					// team leader
+					$('#leaderinfoid').val(data[0].leaderinfo.id);
+					$('#leaderCountry').val(data[0].leaderinfo.country);
+					$('#leaderName').val(data[0].leaderinfo.name);
+					$('#leaderSex').val(data[0].leaderinfo.sex);
+					$('#leaderNation').val(data[0].leaderinfo.minzu);
+					$('#leaderTechnical_position').val(
+							data[0].leaderinfo.position);
+					$('#leaderBirthday').val(data[0].leaderinfo.birthday);
+					$('#leaderId_type').val(data[0].leaderinfo.documentType);
+					$('#leaderId_num').val(data[0].leaderinfo.documentNumber);
+					$('#leaderProfessional_direction').val(
+							data[0].leaderinfo.direction);
+					$('#leaderSubject1').val(
+							data[0].leaderinfo.subordinateSubject1);
+					$('#leaderSubject2').val(
+							data[0].leaderinfo.subordinateSubject2);
+					$('#leaderAddress').val(data[0].leaderinfo.addresses);
+					$('#leaderZip_code').val(data[0].leaderinfo.zipCode);
+					$('#leaderFax').val(data[0].leaderinfo.telephoneFax);
+					$('#leaderPhone').val(data[0].leaderinfo.mobilePhone);
+					$('#leaderEmail').val(data[0].leaderinfo.email);
+					// 学习经历
+					
+					// 成员分类统计人数
+					$('#memnumid').val(data[0].memnum.id);
+					$('#member_num').val(data[0].memnum.num);
+					$('#age56').val(data[0].memnum.age_56);
+					$('#age46_55').val(data[0].memnum.age_46_55);
+					$('#age36_45').val(data[0].memnum.age_36_45);
+					$('#age35').val(data[0].memnum.age_35);
+					$('#gaoji').val(data[0].memnum.gaoji);
+					$('#fugao').val(data[0].memnum.fugao);
+					$('#zhongji').val(data[0].memnum.zhongji);
+					$('#z_orther').val(data[0].memnum.z_orther);
+					$('#boshi').val(data[0].memnum.boshi);
+					$('#shuoshi').val(data[0].memnum.shuoshi);
+					$('#benke').val(data[0].memnum.benke);
+					$('#x_orther').val(data[0].memnum.x_orther);
+
+				
 
 					var authority = data[1].authority;
 					var arr = authority.split("|");

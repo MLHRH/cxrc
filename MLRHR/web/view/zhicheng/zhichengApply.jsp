@@ -90,6 +90,9 @@ body {
 <script type="text/javascript" src="${ctx}/view/kjljDoc/js/doc05.js"></script>
 <script type="text/javascript" src="${ctx}/view/kjljDoc/js/doc07.js"></script>
 <script type="text/javascript" src="${ctx}/view/upload/js/uploadfile.js"></script>
+<link rel="stylesheet" href="${ctx }/static/bootstrap/2.1.1/css/bootstrap.min.css">
+<link rel="stylesheet" href="${ctx }/static/layui/css/layui.css">
+<script src="${ctx }/static/layui/layui.js"></script>
 <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
 <!--[if lt IE 9]>
       <script src="../assets/js/html5shiv.js"></script>

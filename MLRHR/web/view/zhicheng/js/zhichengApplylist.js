@@ -154,6 +154,7 @@ function checkApply() {
 			});
 }
 function initZhichengApplyDataTables(data) {
+	console.log(data)
 	if (oTable) {
 		oTable.fnClearTable(false);
 		$('#zhichengApplyList').dataTable().fnDestroy();

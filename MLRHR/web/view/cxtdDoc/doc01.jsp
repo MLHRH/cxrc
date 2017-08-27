@@ -21,7 +21,7 @@
 			<b> <span style='font-size: 22.0pt; font-family: 幼圆; letter-spacing: 1.0pt'>基本信息</span>
 			</b>
 		</p>
-		<input type = "hidden" id="baseinfoid">
+		<input type = "hidden" id="baseinfoid" value="">
 
 		<table class=MsoNormalTable border=1 cellspacing=0 cellpadding=0 width=631 style='width: 100%; border-collapse: collapse; border: none'>
 			<tr style='page-break-inside: avoid; height: 30pt'>

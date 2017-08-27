@@ -13,12 +13,12 @@ var userId=$.query.get("userId") ;;
 var apply_type="";
 var expert_id =$.query.get("expert_id");
 var applyid =$.query.get("applyid");
-//var status ;
-//applyMenu();
+
 $(document).ready(function() {
 	if(type != null && type !=""){
 		apply_type = type.substring(1,type.length-1);
 	}
+	console.log(apply_type)
 	$.fn.autoHeight = function() {
 		function autoHeight(elem) {
 			elem.style.height = 'auto';
@@ -68,9 +68,9 @@ $(document).ready(function() {
 function init(contentName) {
 
 	switch (contentName) {
-	case "jcqnDoc00":
-		initjcqnDoc00();
-		break;
+//	case "jcqnDoc00":
+//		initjcqnDoc00();
+//		break;
 	case "jcqnDoc01":
 		initjcqnDoc01();
 		break;
@@ -96,9 +96,9 @@ function init(contentName) {
 	case "jcqnDoc05":
 		initjcqnDoc05();
 		break;
-	case "jcqnDoc06":
-		initjcqnDoc06();
-		break;
+//	case "jcqnDoc06":
+//		initjcqnDoc06();
+//		break;
 	case "jcqnDoc07":
 		initjcqnDoc07();
 		break;
@@ -132,9 +132,9 @@ function init(contentName) {
 	case "kjljDoc05":
 		initkjljDoc05();
 		break;
-	case "kjljDoc06":
-		initkjljDoc06();
-		break;
+//	case "kjljDoc06":
+//		initkjljDoc06();
+//		break;
 	case "kjljDoc07":
 		initjcqnDoc07();
 		break;
@@ -163,9 +163,9 @@ function init(contentName) {
 	case "cxtdDoc05":
 		initcxtdDoc05();
 		break;
-	case "cxtdDoc06":
-		initcxtdDoc06();
-		break;
+//	case "cxtdDoc06":
+//		initcxtdDoc06();
+//		break;
 	case "cxtdDoc07":
 		initjcqnDoc07();
 		break;
