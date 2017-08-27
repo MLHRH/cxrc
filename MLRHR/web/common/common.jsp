@@ -6,13 +6,13 @@
 <script src="${ctx}/static/jquery/1.8.3/jquery.min.js"></script>
 <script src="${ctx}/static/bootstrap/2.1.1/js/bootstrap.min.js"></script>
 <link href="${ctx}/css/jfn.css" rel="stylesheet">
-<script type="text/javascript">
+<!-- <script type="text/javascript">
 	if (!!window.ActiveXObject || "ActiveXObject" in window) {
 		$.ajaxSetup({
 			cache : false
 		});
 	}
-</script>
+</script> -->
 <link rel="shortcut icon" href="images/logo.ico" type="image/x-icon" />
 <link rel="icon" href="images/logo.ico" type="image/x-icon" />
 
