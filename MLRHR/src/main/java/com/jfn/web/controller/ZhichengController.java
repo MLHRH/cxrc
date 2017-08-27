@@ -119,6 +119,7 @@ public class ZhichengController {
 		menus2.add(menus.get(3));
 		menus2.add(menus.get(4));
 		menus2.add(menus.get(5));
+		menus2.add(menus.get(7));
 		if (acctUserRole.getRole_id() == 4) {
 			menus2.add(menus.get(6));
 		} else {
@@ -231,6 +232,7 @@ public class ZhichengController {
 			menus2.add(menus.get(3));
 			menus2.add(menus.get(4));
 			menus2.add(menus.get(5));
+			menus2.add(menus.get(7));
 			map.addObject("menus", menus2);
 		} else {
 			map.addObject("menus", menus);

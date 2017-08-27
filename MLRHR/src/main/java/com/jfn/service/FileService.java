@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.alibaba.fastjson.JSONObject;
+import com.itextpdf.text.pdf.PdfStructTreeController.returnType;
 import com.jfn.common.util.Constant;
 import com.jfn.dao.UploadFileDao;
 import com.jfn.entity.Attachfile;
@@ -64,13 +65,18 @@ public class FileService
 		return result;
 	}
 	/**
-	 * 查询文件信息
+	 * 复审查询文件信息
 	 * @param applyid
 	 * @return
 	 */
 	public Attachfile getFileByApplyId(int applyid){
 		return uploadFileDao.queryFile(applyid);
 	}
+	
+	public Attachfile getFileByTypeAndStep(int userId,String applyType,int applyStep){
+		return uploadFileDao.queryFileByTypeAndStep(userId, applyType, applyStep);
+	}
+	
 	public Attachfile getFileById(int id){
 		return uploadFileDao.queryFileById(id);
 	}
@@ -91,7 +97,11 @@ public class FileService
 	 * @return
 	 */
 	private boolean isNotExisted(Attachfile file){
-		return uploadFileDao.queryFile(file.getApplyid()) == null ? true:false;
+		if(file.getApplyStep() == 1){
+			return uploadFileDao.queryFile(file.getApplyid()) == null ? true:false;
+		}else{
+			return uploadFileDao.queryFileByTypeAndStep(file.getUserid(),file.getApplyType(),file.getApplyStep()) == null ? true:false;
+		}
 	}
 	
 	

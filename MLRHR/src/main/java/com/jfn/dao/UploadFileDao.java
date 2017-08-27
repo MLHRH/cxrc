@@ -18,7 +18,7 @@ public class UploadFileDao {
 
 	@Autowired
 	private JdbcTemplate jdbcTemplate;
-	private final String SQL_INSERT_FILE = "insert into uploadfile (userid,applyid,oldfilename,newfilename,uptime,location) values(?,?,?,?,?,?)";
+	private final String SQL_INSERT_FILE = "insert into uploadfile (userid,applyid,oldfilename,newfilename,uptime,location,applytype,applystep) values(?,?,?,?,?,?,?,?)";
 	private final String SQL_QUERY_FILE = "select * from uploadfile where applyid = ? ";
 	private final String SQL_QUERY_BY_ID = "select * from uploadfile where id = ?";
 	private final String SQL_DEL_FILE = "delete from uploadfile where id = ?";
@@ -30,11 +30,11 @@ public class UploadFileDao {
 	 */
 	public boolean insertUploadFile(Attachfile file){
 		Object[] params  = new Object[]{file.getUserid(),file.getApplyid(),file.getOldfilename(),file.getNewfilename(),
-				file.getUpload_time(),file.getFile_path()};
+				file.getUpload_time(),file.getFile_path(),file.getApplyType(),file.getApplyStep()};
 			 return jdbcTemplate.update(SQL_INSERT_FILE, params) == 1;
 	}
 	/**
-	 * 查询file信息
+	 * 复审查询file信息
 	 * @param applyid
 	 * @return
 	 */
@@ -69,6 +69,35 @@ public class UploadFileDao {
 	public Attachfile queryFileById(int id){
 		Object[] params = new Object[]{id};
 		return jdbcTemplate.query(SQL_QUERY_BY_ID, params, new ResultSetExtractor<Attachfile>() {
+
+			@Override
+			public Attachfile extractData(ResultSet rs) throws SQLException,
+					DataAccessException {
+				Attachfile file = null;
+				if(rs.next()){
+					file = new Attachfile();
+					file.setId(rs.getInt("id"));
+					file.setApplyid(rs.getInt("applyid"));
+					file.setUserid(rs.getInt("userid"));
+					file.setOldfilename(rs.getString("oldfilename"));
+					file.setNewfilename(rs.getString("newfilename"));
+					file.setFile_path(rs.getString("location"));
+					file.setUpload_time(rs.getString("uptime"));
+				}
+				return file;
+			}
+		});
+	}
+	
+	
+	/**
+	 * 初审查询file信息
+	 * @param applyid
+	 * @return
+	 */
+	public Attachfile queryFileByTypeAndStep(int userId,String applyType,int applyStep){
+		Object[] params = new Object[]{userId,applyType,applyStep};
+		return jdbcTemplate.query("select * from uploadfile where userid =? and applytype=? and applystep = ?", params, new ResultSetExtractor<Attachfile>() {
 
 			@Override
 			public Attachfile extractData(ResultSet rs) throws SQLException,

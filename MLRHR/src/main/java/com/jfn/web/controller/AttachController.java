@@ -1,6 +1,7 @@
 package com.jfn.web.controller;
 
 import java.io.IOException;
+import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -24,8 +25,10 @@ import com.jfn.common.util.Constant;
 import com.jfn.common.util.FileUtil;
 import com.jfn.entity.Attachfile;
 import com.jfn.entity.User;
+import com.jfn.entity.ZhichengApply;
 import com.jfn.service.FileService;
 import com.jfn.service.ZhichengApplyService;
+import com.sun.corba.se.impl.ior.GenericIdentifiable;
 
 @Controller
 @RequestMapping("/")
@@ -36,22 +39,35 @@ public class AttachController {
 	private FileService fileService;
 	@Autowired
 	private ZhichengApplyService zhichengApplyService;
+
 	
 	@ResponseBody
     @RequestMapping(value = "uploadFile",method = RequestMethod.POST)
-    public Object  uploadFile(HttpServletRequest request){
+    public Object  uploadFile(HttpServletRequest request,String applyId,String applyType){
     	JSONObject result = new JSONObject();
-    	
+    	User user = (User) request.getSession().getAttribute("loginuser");
     		//上传文件到服务器
     	try {
 			result = (JSONObject) FileUtil.uploadFile(request);
-			result.put(Constant.MSG, Constant.STATUS_SUCCESS);
+			Attachfile file  = new Attachfile();
+			if (applyId != null && !applyId.equals("")) {
+				file.setApplyid(Integer.valueOf(applyId));				
+			}
+			file.setFile_path((String)result.get("PATH"));
+			file.setOldfilename((String)result.get("OLD"));
+			file.setNewfilename((String)result.get("NEW"));
+			file.setApplyType(applyType);
+			if(null!=applyId && !"".equals(applyId)){
+				file.setApplyStep(1);
+			}else{
+				file.setApplyStep(0);
+			}
+			result = fileService.insetFileLog(file,user);
 		} catch (IllegalStateException e) {
-			result.put(Constant.MSG, Constant.STAUS_FAIL);
+			result.put(Constant.MSG,"系统异常");
 		} catch (IOException e) {
-			result.put(Constant.MSG, Constant.STAUS_FAIL);
+			result.put(Constant.MSG,"系统异常");
 		}
-    		
     	return result;
     }
 	@ResponseBody
@@ -91,13 +107,17 @@ public class AttachController {
 	 * @param request
 	 * @param model
 	 * @return
+	 * @throws UnsupportedEncodingException 
 	 */
 	
 	@ResponseBody
 	@RequestMapping(value = "showUpLoadFile", method = RequestMethod.GET)
-	public Object showUpLoadFile(HttpServletRequest request, Model model) {
+	public Object showUpLoadFile(HttpServletRequest request, Model model) throws UnsupportedEncodingException {
 		List<Attachfile> files = new ArrayList<Attachfile>();
 		String apply_id = request.getParameter("applyid");
+		String user_id = request.getParameter("userid"); 
+		String apply_type = request.getParameter("applytype"); 
+		apply_type = new String(apply_type.getBytes("ISO8859-1"), "UTF-8");
 		String authority = "";
 
 		SecurityContextImpl securityContextImpl = (SecurityContextImpl) request.getSession().getAttribute("SPRING_SECURITY_CONTEXT");
@@ -110,16 +130,25 @@ public class AttachController {
 		JSONObject jo3 = new JSONObject();
 		jo3.put("authority", authority);
 		JSONArray jsonArray = new JSONArray();
+		Attachfile file = null;
 		if (apply_id == null || apply_id.equals("")) {
+			file = fileService.getFileByTypeAndStep(Integer.valueOf(user_id), apply_type, 0);
+			files.add(file);
 			jsonArray.add(files);
 			jsonArray.add(jo3);
 			return jsonArray.toString();
+		}else{
+			Integer applyid =Integer.valueOf(apply_id);
+			ZhichengApply apply = zhichengApplyService.getById(apply_id);
+			if(Integer.valueOf(apply.getStatus()) < 4){
+				file = fileService.getFileByTypeAndStep(Integer.valueOf(user_id), apply_type, 0);
+			}else{
+				 file = fileService.getFileByApplyId(applyid);
+			}
+			files.add(file);
+			jsonArray.add(files);
+			jsonArray.add(jo3);
 		}
-		Integer applyid =Integer.valueOf(apply_id);
-		Attachfile file = fileService.getFileByApplyId(applyid);
-		files.add(file);
-		jsonArray.add(files);
-		jsonArray.add(jo3);
 		return jsonArray.toString();
 		}
 	

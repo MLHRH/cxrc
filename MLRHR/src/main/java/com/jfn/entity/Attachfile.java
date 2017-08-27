@@ -11,6 +11,21 @@ public class Attachfile
 	private String oldfilename;
 	private String file_path;
 	private long file_size; 
+	private String applyType;
+	private int applyStep;
+	
+	public String getApplyType() {
+		return applyType;
+	}
+	public void setApplyType(String applyType) {
+		this.applyType = applyType;
+	}
+	public int getApplyStep() {
+		return applyStep;
+	}
+	public void setApplyStep(int applyStep) {
+		this.applyStep = applyStep;
+	}
 	public String getFile_name() {
 		return file_name;
 	}
