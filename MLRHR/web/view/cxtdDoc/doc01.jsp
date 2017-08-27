@@ -399,7 +399,7 @@
 						<input type="text" id="leaderEmail"  style="text-align: center; font-size: 14.0pt; font-family: 宋体; display: inline-block; height: 95%; width: 90%; padding: 0px; margin: 3px; border-radius: 0px" />
 					</td>
 			</tr>
-				<tr style='page-break-inside: avoid'>
+				<!-- <tr style='page-break-inside: avoid'>
 				<td width=16  colspan=1.5 rowspan=3 valign="middle" style='width: 26.7pt; border: solid windowtext 1.0pt; border-top: none; padding: 0cm 5.4pt 0cm 5.4pt'>
 					<div class=MsoNormal style='text-align: center'>
 						<span style='font-size: 14.0pt; font-family: 宋体'>学习经历</span>
@@ -679,41 +679,48 @@
 						style="text-align: center; font-size: 16.0pt; font-family: 仿宋; display: inline-block; height: 90%; width: 95%; padding: 0px; margin: 3px; border-radius: 0px"   />
 				</td>
 				 
-			</tr> 
-		<!-- 	<tr style='page-break-inside: avoid'>
+			</tr>  -->
+		 	<tr style='page-break-inside: avoid'>
 				<td>
 					<div class=MsoNormal style='text-align: center'>
-						<span style='font-size: 14.0pt; font-family: 宋体'>学习经历</span>
+						<a class="btn btn-small btn-info" href="javascript:void(0)" id="addstudy" onclick="addstudy()">
+				          <i class="icon-plus-sign"></i>添加
+		             	</a>
 					</div>
 				</td>
 			</tr>
 			<tr style='page-break-inside: avoid' id="study">
-				<td width=84 style='width: 62pt; border: solid black 1.0pt; border-left: none; padding: 0cm 5.4pt 0cm 5.4pt; height: 30pt' >
+			<td width=10 colspan=0.5 rowspan=1 valign="middle" style='width: 3pt; border: solid windowtext 1.0pt; border-top: none; padding: 0cm 5.4pt 0cm 5.4pt'>
+					<div class=MsoNormal style='text-align: center'>
+						<span style='font-size: 14.0pt; font-family: 宋体'>学习经历</span>
+					</div>
+				</td>
+				<td width=84  colspan=2.5 style='width: 82pt; border: solid black 1.0pt; border-left: none; padding: 0cm 5.4pt 0cm 5.4pt; height: 30pt' >
 					<div class=MsoNormal style='text-align: center'>
 						<span style='font-size: 14.0pt; font-family: 宋体'>国家</span>
 					</div>
 				</td>
-				<td width=84 style='width: 62pt; border: solid black 1.0pt; border-left: none; padding: 0cm 5.4pt 0cm 5.4pt; height: 30pt'>
+				<td width=84 colspan=2 style='width: 52pt; border: solid black 1.0pt; border-left: none; padding: 0cm 5.4pt 0cm 5.4pt; height: 30pt'>
 					<div class=MsoNormal style='text-align: center'>
 						<span style='font-size: 14.0pt; font-family: 宋体'>院校</span>
 					</div>
 				</td>
-				<td width=84 style='width: 62pt; border: solid black 1.0pt; border-left: none; padding: 0cm 5.4pt 0cm 5.4pt; height: 30pt'>
+				<td width=84 colspan=2 style='width: 52pt; border: solid black 1.0pt; border-left: none; padding: 0cm 5.4pt 0cm 5.4pt; height: 30pt'>
 					<div class=MsoNormal style='text-align: center'>
 						<span style='font-size: 14.0pt; font-family: 宋体'>专业</span>
 					</div>
 				</td>
-				<td width=84 style='width: 62pt; border: solid black 1.0pt; border-left: none; padding: 0cm 5.4pt 0cm 5.4pt; height: 30pt'>
+				<td width=84 colspan=2 style='width: 62pt; border: solid black 1.0pt; border-left: none; padding: 0cm 5.4pt 0cm 5.4pt; height: 30pt'>
 					<div class=MsoNormal style='text-align: center'>
 						<span style='font-size: 14.0pt; font-family: 宋体'>学历/学位</span>
 					</div>
 				</td>
-				<td width=42 style='width: 62pt; border: solid black 1.0pt; border-left: none; padding: 0cm 5.4pt 0cm 5.4pt; height: 30pt'>
+				<td width=42 colspan=2 style='width: 62pt; border: solid black 1.0pt; border-left: none; padding: 0cm 5.4pt 0cm 5.4pt; height: 30pt'>
 					<div class=MsoNormal style='text-align: center'>
 						<span style='font-size: 14.0pt; font-family: 宋体'>起始时间</span>
 					</div>
 				</td>
-				<td width=42 style='width: 62pt; border: solid black 1.0pt; border-left: none; padding: 0cm 5.4pt 0cm 5.4pt; height: 30pt'>
+				<td width=42 colspan=2 style='width: 62pt; border: solid black 1.0pt; border-left: none; padding: 0cm 5.4pt 0cm 5.4pt; height: 30pt'>
 					<div class=MsoNormal style='text-align: center'>
 						<span style='font-size: 14.0pt; font-family: 宋体'>结束时间</span>
 					</div>
@@ -722,48 +729,51 @@
 			<tr style='page-break-inside: avoid'>
 				<td>
 					<div class=MsoNormal style='text-align: center'>
-						<span style='font-size: 14.0pt; font-family: 宋体'>工作经历</span>
+						<a class="btn btn-small btn-info" href="javascript:void(0)" id="addwork" onclick="addwork()">
+				          <i class="icon-plus-sign"></i>添加
+		             	</a>
 					</div>
 				</td>
 			</tr>
-			<tr style='page-break-inside: avoid' id="work">
-				<td width=84 style='width: 62pt; border: solid black 1.0pt; border-left: none; padding: 0cm 5.4pt 0cm 5.4pt; height: 30pt' >
+			<tr style='page-break-inside: avoid;margin-top:10px' id="work" >
+				<td width=36 colspan=1 rowspan=1 valign="middle" style='width: 6pt; border: solid windowtext 1.0pt; border-top: none; padding: 0cm 5.4pt 0cm 5.4pt'>
+					<div class=MsoNormal style='text-align: center'>
+						<span style='font-size: 14.0pt; font-family: 宋体'>工作经历</span>
+					</div>
+				</td>
+				<td width=84 colspan=3 style='width: 62pt; border: solid black 1.0pt; border-left: none; padding: 0cm 5.4pt 0cm 5.4pt; height: 30pt' >
 					<div class=MsoNormal style='text-align: center'>
 						<span style='font-size: 14.0pt; font-family: 宋体'>国家</span>
 					</div>
 				</td>
-				<td width=84 style='width: 62pt; border: solid black 1.0pt; border-left: none; padding: 0cm 5.4pt 0cm 5.4pt; height: 30pt'>
+				<td width=84 colspan=2 style='width: 62pt; border: solid black 1.0pt; border-left: none; padding: 0cm 5.4pt 0cm 5.4pt; height: 30pt'>
 					<div class=MsoNormal style='text-align: center'>
 						<span style='font-size: 14.0pt; font-family: 宋体'>单位</span>
 					</div>
 				</td>
-				<td width=84 style='width: 62pt; border: solid black 1.0pt; border-left: none; padding: 0cm 5.4pt 0cm 5.4pt; height: 30pt'>
+				<td width=84 colspan=3 style='width: 62pt; border: solid black 1.0pt; border-left: none; padding: 0cm 5.4pt 0cm 5.4pt; height: 30pt'>
 					<div class=MsoNormal style='text-align: center'>
 						<span style='font-size: 14.0pt; font-family: 宋体'>职务</span>
 					</div>
 				</td>
-				<td width=84 style='width: 62pt; border: solid black 1.0pt; border-left: none; padding: 0cm 5.4pt 0cm 5.4pt; height: 30pt'>
+				<td width=84 colspan=2 style='width: 62pt; border: solid black 1.0pt; border-left: none; padding: 0cm 5.4pt 0cm 5.4pt; height: 30pt'>
 					<div class=MsoNormal style='text-align: center'>
 						<span style='font-size: 14.0pt; font-family: 宋体'>起始时间</span>
 					</div>
 				</td>
-				<td width=84 colspan=2 style='width: 62pt; border: solid black 1.0pt; border-left: none; padding: 0cm 5.4pt 0cm 5.4pt; height: 30pt'>
+				<td width=84 colspan=2 colspan=2 style='width: 62pt; border: solid black 1.0pt; border-left: none; padding: 0cm 5.4pt 0cm 5.4pt; height: 30pt'>
 					<div class=MsoNormal style='text-align: center'>
 						<span style='font-size: 14.0pt; font-family: 宋体'>结束时间</span>
 					</div>
 				</td>
 				
+				
 			</tr>
 			
 			
-			团队负责人组织期刊任职情况
-			<tr style='page-break-inside: avoid'>
-				<td>
-					<div class=MsoNormal style='text-align: center'>
-						<span style='font-size: 14.0pt; font-family: 宋体'>国内外学术组织及重要学术期刊任职情况</span>
-					</div>
-				</td>
-				<td>
+			<!-- 团队负责人组织期刊任职情况 -->
+			<tr style='page-break-inside: avoid;'>
+				<td  style="width:100px">
 					<div style="text-align: left;margin-left:30px">
 						<a class="btn btn-small btn-info" href="javascript:void(0)" id="addzuzhi" onclick="addzuzhi()">
 							<i class="icon-plus-sign"></i>添加
@@ -772,22 +782,27 @@
 				</td>
 			</tr>
 			<tr style='page-break-inside: avoid' id="zhuzhi">
+			<td width=36  colspan=3 rowspan=1 valign="middle" style='width: 6pt; border: solid windowtext 1.0pt; border-top: none; padding: 0cm 5.4pt 0cm 5.4pt'>
+					<div class=MsoNormal style='text-align: center'>
+						<span style='font-size: 14.0pt; font-family: 宋体'>国内外学术组织及重要学术期刊任职情况</span>
+					</div>
+				</td>
 				<td width=487 colspan=3 style='width: 365.5pt; border-top: none; border-left: none;  border: solid black 1.0pt;  padding: 0cm 5.0pt 0cm 5.0pt; height: 30pt' >
 					<div class=MsoNormal style='text-align: center'>
 						<span style='font-size: 14.0pt; font-family: 宋体'>组织或期刊名称</span>
 					</div>
 				</td>
-				<td width=84 style='width: 62pt; border: solid black 1.0pt; border-left: none; padding: 0cm 5.4pt 0cm 5.4pt; height: 30pt'>
+				<td width=84 colspan=3 style='width: 62pt; border: solid black 1.0pt; border-left: none; padding: 0cm 5.4pt 0cm 5.4pt; height: 30pt'>
 					<div class=MsoNormal style='text-align: center'>
 						<span style='font-size: 14.0pt; font-family: 宋体'>职位</span>
 					</div>
 				</td>
-				<td width=84 colspan=2 style='width: 62pt; border: solid black 1.0pt; border-left: none; padding: 0cm 5.4pt 0cm 5.4pt; height: 30pt'>
+				<td width=84 colspan=3 style='width: 62pt; border: solid black 1.0pt; border-left: none; padding: 0cm 5.4pt 0cm 5.4pt; height: 30pt'>
 					<div class=MsoNormal style='text-align: center'>
 						<span style='font-size: 14.0pt; font-family: 宋体'>任期</span>
 					</div>
 				</td>
-			</tr> -->
+			</tr>  
 		</table>
 		<input type="hidden" id="teamID" value="">
 		

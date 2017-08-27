@@ -6,9 +6,9 @@ function initUpFile() {
 	if(applyid != null){
 		$("#applyid").val(applyid);		
 	}
-	if(currentRole != "ROLE_USER"){
+
 		$("#importBtn").hide();
-	}
+	
 	var arrData = new Array();
 	arrData.push({
 				"name" : "applyid",
@@ -23,7 +23,19 @@ function initUpFile() {
 					alert('请求失败');
 				},
 				success : function(data) { // 请求成功后处理函数。
-					intTables(data);
+					var authority = data[1].authority;
+					var arr = authority.split("|");
+//					if (currentRole == null)
+					var isUser = false;
+						for (var i = 0; i < arr.length - 1; i++) {
+							if (arr[i] == "ROLE_USER") {
+								currentRole = "ROLE_USER";
+							}
+						}
+						if(currentRole == "ROLE_USER"){
+							$("#importBtn").show();
+						}
+					intTables(data[0]);
 				}
 			});
 }
@@ -59,59 +71,7 @@ function intTables(data){
 		}
 	}
 }
-function initFileMangerDataTables(data) {
-	if (oTable) {
-		oTable.fnClearTable(false);
-		$('#fileManager').dataTable().fnDestroy();
-	}
-	oTable = $('#fileManager').dataTable({
-		"aaSorting" : [[0, "desc"]],
-		"sDom" : "flrt<ip>",
-		"sPaginationType" : "full_numbers",
-		"bDestory" : true,
-		"bRetrieve" : true,
-		"bStateSave" : false,
-		"oLanguage" : {
-			"sLengthMenu" : "每页显示 _MENU_ 条记录",
-			"sZeroRecords" : "对不起，查询不到任何相关数据",
-			"sInfo" : "当前显示 _START_ 到 _END_ 条，共 _TOTAL_ 条记录",
-			"sInfoEmpty" : "找不到相关数据",
-			"sInfoFiltered" : "数据表中共为 _MAX_ 条记录",
-			"sProcessing" : "正在加载中...",
-			"sSearch" : "搜索",
-			"oPaginate" : {
-				"sFirst" : "第一页",
-				"sPrevious" : " 上一页 ",
-				"sNext" : " 下一页 ",
-				"sLast" : " 最后一页 "
-			}
-		},
-		"processing" : true,
-		"data" : data,
-		"columns" : [{
-					"data" : "oldfilename",
-					"class" : "center"
-				}, {
-					"data" : "upload_time",
-					"class" : "center"
-				},{
-					"data" : null,
-					"class" : "center",
-					"render" : function(data) {
-						if(currentRole != "ROLE_USER"){
-							return "<a class='btn btn-small btn-info'  style='margin: 2.5px;' href='javascript:void(0)' onClick='downLoadFile(" + data.id
-							+ ")'><i class='icon-edit'></i>下载</a>";
-						}
-						else{
-							return "<a class='btn btn-small btn-info'  style='margin: 2.5px;' href='javascript:void(0)' onClick='downLoadFile(" + data.id
-							+ ")'><i class='icon-edit'></i>下载</a>"
-							+"<a class='btn btn-small btn-info'  style='margin: 2.5px;' href='javascript:void(0)' onClick='delFile(" + data.id
-							+ ")'><i class='icon-edit'></i>删除</a>";
-						}
-					}
-				}]
-	});
-}
+
 
 function delFile(id){
 	arrData = new Array();

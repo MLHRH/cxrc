@@ -2,6 +2,10 @@
 var index_zuzhi = 0;
 // 团队成员记录条数
 var index_meminfo = 0;
+// 初始化工作经历
+var index_work = 0;
+// 初始化学习经历
+var index_study = 0;
 // 初始化DOC01
 var id;
 function initcxtdDoc01() {
@@ -159,6 +163,56 @@ function initcxtdDoc01() {
 						$('#chengyuancompany' + index_meminfo).val(
 								data[0].mlist[index_meminfo].work_company);
 					}
+					// 学习经历信息
+					Study(data[0].plist);
+					for (index_study = 0; index_study < data[0].plist.length; index_study++) {
+						$('#studyid' + index_study).val(
+								data[0].plist[index_study].id);
+						$('#study_country' + index_study).val(
+								data[0].plist[index_study].country);
+						$('#study_colleges' + index_study).val(
+								data[0].plist[index_study].academy);
+						$('#study_major' + index_study).val(
+								data[0].plist[index_study].major);
+						$('#study_education' + index_study).val(
+								data[0].plist[index_study].xueli);
+						$('#study_start_time' + index_study).val(
+								data[0].plist[index_study].start_date);
+						$('#study_end_time' + index_study).val(
+								data[0].plist[index_study].end_date);
+					}
+
+					// 工作经历信息
+					Work(data[0].wlist);
+					for (index_work = 0; index_work < data[0].wlist.length; index_work++) {
+						$('#workid' + index_work).val(
+								data[0].wlist[index_work].id);
+						$('#work_country' + index_work).val(
+								data[0].wlist[index_work].country);
+						$('#work_institution' + index_work).val(
+								data[0].wlist[index_work].work_content);
+						$('#work_position' + index_work).val(
+								data[0].wlist[index_work].zhiwu);
+						$('#work_start_date' + index_work).val(
+								data[0].wlist[index_work].start_date);
+						$('#work_end_date' + index_work).val(
+								data[0].wlist[index_work].end_date);
+
+					}
+					// 组织任期情况
+					Zuzhi(data[0].zlist);
+					for (index_zuzhi = 0; index_zuzhi < data[0].zlist.length; index_zuzhi++) {
+						$('#zuzhiid' + index_zuzhi).val(
+								data[0].zlist[index_zuzhi].id);
+						$('#zuzhi_name' + index_zuzhi).val(
+								data[0].zlist[index_zuzhi].zuzhi_name);
+						$('#zuzhi_job' + index_zuzhi).val(
+								data[0].zlist[index_zuzhi].zuzhi_job);
+						$('#zuzhi_renqi' + index_zuzhi).val(
+								data[0].zlist[index_zuzhi].zuzhi_renqi);
+
+					}
+
 					var authority = data[1].authority;
 					var arr = authority.split("|");
 					// if (currentRole == null)
@@ -198,6 +252,9 @@ function updatecxtdDoc01() {
 	var CxtdMemNum = {};
 	var arrZuzhi = [];
 	var arrMemInfo = [];
+	var arrstudy = [];
+	var arrwork = [];
+	var arrzuzhi = [];
 	var type;
 	if ($('#imp_science').is(':checked')) {
 		type = "0"
@@ -291,14 +348,6 @@ function updatecxtdDoc01() {
 	CxtdLeaderinfo.organization_position2 = $('#organization_position2').val();
 	CxtdLeaderinfo.organization_term2 = $('#organization_term2').val();
 
-	// 组织期刊
-	for (var i = 0; i <= index_zuzhi - 1; i++) {
-		CxtdLeaderZuzhi.id = $('#zuzhi_id' + i).val();
-		CxtdLeaderZuzhi.name = $('#zuzhi_name' + i).val();
-		CxtdLeaderZuzhi.job = $('#zuzhi_job' + i).val();
-		CxtdLeaderZuzhi.renqi = $('#zuzhi_renqi' + i).val();
-		arrZuzhi[i] = CxtdLeaderZuzhi;
-	}
 	// 创新团队人数分类统计
 	CxtdMemNum.num = $('#member_num').val();
 	CxtdMemNum.team_id = $('#teamId').val();
@@ -339,12 +388,61 @@ function updatecxtdDoc01() {
 		}
 		arrMemInfo.push(CxtdMemberInfo);
 	}
+
+	// 学习信息
+	for (var i = 0; i <= index_study; i++) {
+		var CxtdStudy = {};
+		CxtdStudy.id = $('#studyid' + i).val();
+		CxtdStudy.country = $('#study_country' + i).val();
+		CxtdStudy.academy = $('#study_colleges' + i).val();
+		CxtdStudy.major = $('#study_major' + i).val();
+		CxtdStudy.xueli = $('#study_education' + i).val();
+		CxtdStudy.start_date = $('#study_start_time' + i).val();
+		CxtdStudy.end_date = $('#study_end_time' + i).val();
+		if (CxtdStudy.country == null && CxtdStudy.academy == null
+				&& CxtdStudy.major == null && CxtdStudy.xueli == null
+				&& CxtdStudy.start_date == null && CxtdStudy.end_date == null) {
+			break;
+		}
+		arrstudy.push(CxtdStudy);
+	}
+
+	// 工作信息
+	for (var i = 0; i <= index_work; i++) {
+		var CxtdWork = {};
+		CxtdWork.id = $('#workid' + i).val();
+		CxtdWork.country = $('#work_country' + i).val();
+		CxtdWork.work_content = $('#work_institution' + i).val();
+		CxtdWork.zhiwu = $('#work_position' + i).val();
+		CxtdWork.start_date = $('#work_start_date' + i).val();
+		CxtdWork.end_date = $('#work_end_date' + i).val();
+		if (CxtdWork.country == null && CxtdWork.work_content == null
+				&& CxtdWork.zhiwu == null && CxtdWork.start_date == null
+				&& CxtdWork.end_date == null) {
+			break;
+		}
+		arrwork.push(CxtdWork);
+	}
+	// 组织信息
+	for (var i = 0; i <= index_zuzhi; i++) {
+		var CxtdZuzhi = {};
+		CxtdZuzhi.id = $('#zuzhiid' + i).val();
+		CxtdZuzhi.zuzhi_name = $('#zuzhi_name' + i).val();
+		CxtdZuzhi.zuzhi_job = $('#zuzhi_job' + i).val();
+		CxtdZuzhi.zuzhi_renqi = $('#zuzhi_renqi' + i).val();
+		if (CxtdZuzhi.zuzhi_name == null && CxtdZuzhi.zuzhi_job == null
+				&& CxtdZuzhi.zuzhi_renqi == null) {
+           break;
+		}
+		arrzuzhi.push(CxtdZuzhi);
+	}
 	var baseInfo = JSON.stringify(CxtdBaseInfo);
 	var leaderInfo = JSON.stringify(CxtdLeaderinfo);
-	var zList = JSON.stringify(arrZuzhi);
 	var mList = JSON.stringify(arrMemInfo);
 	var memNum = JSON.stringify(CxtdMemNum);
-
+	var studyList = JSON.stringify(arrstudy);
+	var workList = JSON.stringify(arrwork);
+	var zuzhiList = JSON.stringify(arrzuzhi);
 	// var cxtddoc01 = JSON.stringify(cxtdDoc01);
 	$.ajax({
 		type : 'POST',
@@ -352,9 +450,12 @@ function updatecxtdDoc01() {
 		data : {
 			"baseinfo" : baseInfo,
 			"leaderinfo" : leaderInfo,
-			"zuzhis" : zList,
+			"zuzhis" : zuzhiList,
 			"meminfos" : mList,
+			"studys" : studyList,
+			"works" : workList,
 			"memnum" : memNum
+
 		},
 		url : 'cxtdDoc01Update',
 		error : function() {
@@ -382,6 +483,130 @@ function updatecxtdDoc01() {
 		}
 	})
 
+}
+
+function Study(data) {
+	$('#study').find('td').each(function(index) {
+		if (index == 0) {
+			$(this).prop("rowSpan", Number(data.length) + 1)
+		}
+	})
+	for (var i = 0; i < data.length; i++) {
+		var add_study_div = '</tr><tr style="page-break-inside: avoid" id = "study'
+				+ i
+				+ '">'
+				+ '<input type="hidden" value="'
+				+ data[i].id
+				+ '" id=studyid'
+				+ i
+				+ '>'
+				+ '<td width=84 colspan=2 style="width: 62pt; border: solid black 1.0pt; border-left: none; padding: 0cm 5.4pt 0cm 5.4pt; height: 30pt">'
+				+ '<input type="text" id="study_country'
+				+ i
+				+ '" style="text-align: center; font-size: 14.0pt; font-family: 宋体; display: inline-block; height: 90%; width: 95%; padding: 0px; margin: 3px; border-radius: 0px"/></td>'
+				+ '<td width=84 colspan=2 style="width: 62pt; border: solid black 1.0pt; border-left: none; padding: 0cm 5.4pt 0cm 5.4pt; height: 30pt">'
+				+ '<input type="text" id="study_colleges'
+				+ i
+				+ '" style="text-align: center; font-size: 14.0pt; font-family: 宋体; display: inline-block; height: 90%; width: 95%; padding: 0px; margin: 3px; border-radius: 0px"/></td>'
+				+ '<td width=84 colspan=2 style="width: 62pt; border: solid black 1.0pt; border-left: none; padding: 0cm 5.4pt 0cm 5.4pt; height: 30pt">'
+				+ '<input type="text" id="study_major'
+				+ i
+				+ '" style="text-align: center; font-size: 14.0pt; font-family: 宋体; display: inline-block; height: 90%; width: 95%; padding: 0px; margin: 3px; border-radius: 0px"/></td>'
+				+ '<td width=84 colspan=2 style="width: 62pt; border: solid black 1.0pt; border-left: none; padding: 0cm 5.4pt 0cm 5.4pt; height: 30pt">'
+				+ '<input type="text" id="study_education'
+				+ i
+				+ '" style="text-align: center; font-size: 14.0pt; font-family: 宋体; display: inline-block; height: 90%; width: 95%; padding: 0px; margin: 3px; border-radius: 0px"/></td>'
+				+ '<td width=84 colspan=2 style="width: 62pt; border: solid black 1.0pt; border-left: none; padding: 0cm 5.4pt 0cm 5.4pt; height: 30pt">'
+				+ '<input type="text" id="study_start_time'
+				+ i
+				+ '" style="text-align: center; font-size: 14.0pt; font-family: 宋体; display: inline-block; height: 90%; width: 95%; padding: 0px; margin: 3px; border-radius: 0px"/></td>'
+				+ '<td width=84 colspan=2 style="width: 62pt; border: solid black 1.0pt; border-left: none; padding: 0cm 5.4pt 0cm 5.4pt; height: 30pt">'
+				+ '<input type="text" id="study_end_time'
+				+ i
+				+ '" style="text-align: center; font-size: 14.0pt; font-family: 宋体; display: inline-block; height: 90%; width: 95%; padding: 0px; margin: 3px; border-radius: 0px"/></td>';
+		if (i == 0) {
+			$('#study').after(add_study_div);
+		} else {
+			$('#study' + (i - 1)).after(add_study_div);
+		}
+	}
+}
+function Work(data) {
+	$('#work').find('td').each(function(index) {
+		if (index == 0) {
+			$(this).prop("rowSpan", Number(data.length) + 1)
+		}
+	})
+	for (var i = 0; i < data.length; i++) {
+		var add_work_div = '</tr><tr style="page-break-inside: avoid" id = "work'
+				+ i
+				+ '">'
+				+ '<input type="hidden" value="'
+				+ data[i].id
+				+ '" id=workid'
+				+ i
+				+ '>'
+				+ '<td width=84 colspan=3 style="width: 62pt; border: solid black 1.0pt; border-left: none; padding: 0cm 5.4pt 0cm 5.4pt; height: 30pt">'
+				+ '<input type="text" id="work_country'
+				+ i
+				+ '" style="text-align: center; font-size: 14.0pt; font-family: 宋体; display: inline-block; height: 90%; width: 95%; padding: 0px; margin: 3px; border-radius: 0px"/></td>'
+				+ '<td width=84 colspan=2 style="width: 62pt; border: solid black 1.0pt; border-left: none; padding: 0cm 5.4pt 0cm 5.4pt; height: 30pt">'
+				+ '<input type="text" id="work_institution'
+				+ i
+				+ '" style="text-align: center; font-size: 14.0pt; font-family: 宋体; display: inline-block; height: 90%; width: 95%; padding: 0px; margin: 3px; border-radius: 0px"/></td>'
+				+ '<td width=84 colspan=3 style="width: 62pt; border: solid black 1.0pt; border-left: none; padding: 0cm 5.4pt 0cm 5.4pt; height: 30pt">'
+				+ '<input type="text" id="work_position'
+				+ i
+				+ '" style="text-align: center; font-size: 14.0pt; font-family: 宋体; display: inline-block; height: 90%; width: 95%; padding: 0px; margin: 3px; border-radius: 0px"/></td>'
+				+ '<td width=84 colspan=2 style="width: 62pt; border: solid black 1.0pt; border-left: none; padding: 0cm 5.4pt 0cm 5.4pt; height: 30pt">'
+				+ '<input type="text" id="work_start_date'
+				+ i
+				+ '" style="text-align: center; font-size: 14.0pt; font-family: 宋体; display: inline-block; height: 90%; width: 95%; padding: 0px; margin: 3px; border-radius: 0px"/></td>'
+				+ '<td width=84 colspan=2 style="width: 62pt; border: solid black 1.0pt; border-left: none; padding: 0cm 5.4pt 0cm 5.4pt; height: 30pt">'
+				+ '<input type="text" id="work_end_date'
+				+ i
+				+ '" style="text-align: center; font-size: 14.0pt; font-family: 宋体; display: inline-block; height: 90%; width: 95%; padding: 0px; margin: 3px; border-radius: 0px"/></td>';
+		if (i == 0) {
+			$('#work').after(add_work_div);
+		} else {
+			$('#work' + (i - 1)).after(add_work_div);
+		}
+	}
+}
+
+function Zuzhi(data) {
+	$('#zhuzhi').find('td').each(function(index) {
+		if (index == 0) {
+			$(this).prop("rowSpan", Number(data.length) + 1)
+		}
+	})
+	for (var i = 0; i < Number(data.length); i++) {
+		var add_zuzhi_div = '</tr><tr style="page-break-inside: avoid" id = "zuzhi'
+				+ i
+				+ '">'
+				+ '<input type="hidden" value="'
+				+ data[i].id
+				+ '" id=zuzhiid'
+				+ i
+				+ '>'
+				+ '<td width=84 colspan=3 style="width: 62pt; border: solid black 1.0pt; border-left: none; padding: 0cm 5.4pt 0cm 5.4pt; height: 30pt">'
+				+ '<input type="text" id="zuzhi_name'
+				+ i
+				+ '" style="text-align: center; font-size: 14.0pt; font-family: 宋体; display: inline-block; height: 90%; width: 95%; padding: 0px; margin: 3px; border-radius: 0px"/></td>'
+				+ '<td width=84 colspan=3 style="width: 62pt; border: solid black 1.0pt; border-left: none; padding: 0cm 5.4pt 0cm 5.4pt; height: 30pt">'
+				+ '<input type="text" id="zuzhi_job'
+				+ i
+				+ '" style="text-align: center; font-size: 14.0pt; font-family: 宋体; display: inline-block; height: 90%; width: 95%; padding: 0px; margin: 3px; border-radius: 0px"/></td>'
+				+ '<td width=84 colspan=3 style="width: 62pt; border: solid black 1.0pt; border-left: none; padding: 0cm 5.4pt 0cm 5.4pt; height: 30pt">'
+				+ '<input type="text" id="zuzhi_renqi'
+				+ i
+				+ '" style="text-align: center; font-size: 14.0pt; font-family: 宋体; display: inline-block; height: 90%; width: 95%; padding: 0px; margin: 3px; border-radius: 0px"/></td>';
+		if (i == 0) {
+			$('#zhuzhi').after(add_zuzhi_div);
+		} else {
+			$('#zuzhi' + (i - 1)).after(add_zuzhi_div);
+		}
+	}
 }
 
 function Member(index) {
@@ -432,143 +657,116 @@ function Member(index) {
 		}
 	}
 }
+function addstudy() {
+	var flag = index_study;
+	$('#study').find('td').each(function(index) {
+		if (index == 0) {
+			$(this).prop("rowSpan", Number($(this).attr('rowSpan')) + 2)
+		}
+	})
+	var addStudy_div = '<tr><input type="hidden" id=studyid'
+			+ flag
+			+ '/></tr>'
+			+ '<td width=84 colspan=2 style="width: 62pt; border: solid black 1.0pt; border-left: none; padding: 0cm 5.4pt 0cm 5.4pt; height: 30pt">'
+			+ '<input type="text" id="study_country'
+			+ flag
+			+ '" style="text-align: center; font-size: 14.0pt; font-family: 宋体; display: inline-block; height: 90%; width: 95%; padding: 0px; margin: 3px; border-radius: 0px"/></td>'
+			+ '<td width=84 colspan=2 style="width: 62pt; border: solid black 1.0pt; border-left: none; padding: 0cm 5.4pt 0cm 5.4pt; height: 30pt">'
+			+ '<input type="text" id="study_colleges'
+			+ flag
+			+ '" style="text-align: center; font-size: 14.0pt; font-family: 宋体; display: inline-block; height: 90%; width: 95%; padding: 0px; margin: 3px; border-radius: 0px"/></td>'
+			+ '<td width=84 colspan=2 style="width: 62pt; border: solid black 1.0pt; border-left: none; padding: 0cm 5.4pt 0cm 5.4pt; height: 30pt">'
+			+ '<input type="text" id="study_major'
+			+ flag
+			+ '" style="text-align: center; font-size: 14.0pt; font-family: 宋体; display: inline-block; height: 90%; width: 95%; padding: 0px; margin: 3px; border-radius: 0px"/></td>'
+			+ '<td width=84 colspan=2 style="width: 62pt; border: solid black 1.0pt; border-left: none; padding: 0cm 5.4pt 0cm 5.4pt; height: 30pt">'
+			+ '<input type="text" id="study_education'
+			+ flag
+			+ '" style="text-align: center; font-size: 14.0pt; font-family: 宋体; display: inline-block; height: 90%; width: 95%; padding: 0px; margin: 3px; border-radius: 0px"/></td>'
+			+ '<td width=84 colspan=2 style="width: 62pt; border: solid black 1.0pt; border-left: none; padding: 0cm 5.4pt 0cm 5.4pt; height: 30pt">'
+			+ '<input type="text" id="study_start_time'
+			+ flag
+			+ '" style="text-align: center; font-size: 14.0pt; font-family: 宋体; display: inline-block; height: 90%; width: 95%; padding: 0px; margin: 3px; border-radius: 0px"/></td>'
+			+ '<td width=84 colspan=2 style="width: 62pt; border: solid black 1.0pt; border-left: none; padding: 0cm 5.4pt 0cm 5.4pt; height: 30pt">'
+			+ '<input type="text" id="study_end_time'
+			+ flag
+			+ '" style="text-align: center; font-size: 14.0pt; font-family: 宋体; display: inline-block; height: 90%; width: 95%; padding: 0px; margin: 3px; border-radius: 0px"/></td>';
+	if (index_study == 0) {
+		$('#study').after(addStudy_div);
+	} else {
+		// $('#work'+(i-1)).after(addWork_div);
+		$('#study').after(addStudy_div);
+	}
+}
+function addwork() {
+	var flag = index_work;
+	$('#work').find('td').each(function(index) {
+		if (index == 0) {
+			$(this).prop("rowSpan", Number($(this).attr('rowSpan')) + 2)
+			console.log($(this))
+		}
+	})
+	var addWork_div = '<tr><input type="hidden" id=workid'
+			+ flag
+			+ '/></tr>'
+			+ '<td width=84 colspan=3 style="width: 62pt; border: solid black 1.0pt; border-left: none; padding: 0cm 5.4pt 0cm 5.4pt; height: 30pt">'
+			+ '<input type="text" id="work_country'
+			+ flag
+			+ '" style="text-align: center; font-size: 14.0pt; font-family: 宋体; display: inline-block; height: 90%; width: 95%; padding: 0px; margin: 3px; border-radius: 0px"/></td>'
+			+ '<td width=84 colspan=2 style="width: 62pt; border: solid black 1.0pt; border-left: none; padding: 0cm 5.4pt 0cm 5.4pt; height: 30pt">'
+			+ '<input type="text" id="work_institution'
+			+ flag
+			+ '" style="text-align: center; font-size: 14.0pt; font-family: 宋体; display: inline-block; height: 90%; width: 95%; padding: 0px; margin: 3px; border-radius: 0px"/></td>'
+			+ '<td width=84 colspan=3 style="width: 62pt; border: solid black 1.0pt; border-left: none; padding: 0cm 5.4pt 0cm 5.4pt; height: 30pt">'
+			+ '<input type="text" id="work_position'
+			+ flag
+			+ '" style="text-align: center; font-size: 14.0pt; font-family: 宋体; display: inline-block; height: 90%; width: 95%; padding: 0px; margin: 3px; border-radius: 0px"/></td>'
+			+ '<td width=84 colspan=2 style="width: 62pt; border: solid black 1.0pt; border-left: none; padding: 0cm 5.4pt 0cm 5.4pt; height: 30pt">'
+			+ '<input type="text" id="work_start_date'
+			+ flag
+			+ '" style="text-align: center; font-size: 14.0pt; font-family: 宋体; display: inline-block; height: 90%; width: 95%; padding: 0px; margin: 3px; border-radius: 0px"/></td>'
+			+ '<td width=84 colspan=2 style="width: 62pt; border: solid black 1.0pt; border-left: none; padding: 0cm 5.4pt 0cm 5.4pt; height: 30pt">'
+			+ '<input type="text" id="work_end_date'
+			+ flag
+			+ '" style="text-align: center; font-size: 14.0pt; font-family: 宋体; display: inline-block; height: 90%; width: 95%; padding: 0px; margin: 3px; border-radius: 0px"/></td>';
+	if (index_work == 0) {
+		$('#work').after(addWork_div);
+	} else {
+		// $('#work'+(i-1)).after(addWork_div);
+		$('#work').after(addWork_div);
+	}
+}
 
-// function Work(index){
-// var flag = index;
-// for( var i = 0 ; i < flag ; i++){
-// var addWork_div='<tr style="page-break-inside: avoid;" id="work_index"'+i+'>'
-// +'<td width=84 style="width: 62pt; border: solid black 1.0pt; border-left:
-// none; padding: 0cm 5.4pt 0cm 5.4pt; height: 30pt">'
-// +'<input type="text" id="work_country'+i+'" style="text-align: center;
-// font-size: 14.0pt; font-family: 宋体; display: inline-block; height: 90%;
-// width: 95%; padding: 0px; margin: 3px; border-radius: 0px" /></td>'
-// +'<td width=84 style="width: 62pt; border: solid black 1.0pt; border-left:
-// none; padding: 0cm 5.4pt 0cm 5.4pt; height: 30pt">'
-// +'<input type="text" id="work_institution'+i+'" style="text-align: center;
-// font-size: 14.0pt; font-family: 宋体; display: inline-block; height: 90%;
-// width: 95%; padding: 0px; margin: 3px; border-radius: 0px"/></td>'
-// +'<td width=84 style="width: 62pt; border: solid black 1.0pt; border-left:
-// none; padding: 0cm 5.4pt 0cm 5.4pt; height: 30pt">'
-// +'<input type="text" id="work_position'+i+'" style="text-align: center;
-// font-size: 14.0pt; font-family: 宋体; display: inline-block; height: 90%;
-// width: 95%; padding: 0px; margin: 3px; border-radius: 0px"/></td>'
-// +'<td width=84 style="width: 62pt; border: solid black 1.0pt; border-left:
-// none; padding: 0cm 5.4pt 0cm 5.4pt; height: 30pt">'
-// +'<input type="text" id="work_start_date'+i+'" style="text-align: center;
-// font-size: 14.0pt; font-family: 宋体; display: inline-block; height: 90%;
-// width: 95%; padding: 0px; margin: 3px; border-radius: 0px"/></td>'
-// +'<td width=84 colspan=2 style="width: 62pt; border: solid black 1.0pt;
-// border-left: none; padding: 0cm 5.4pt 0cm 5.4pt; height: 30pt">'
-// +'<input type="text" id="work_end_date'+i+'" style="text-align: center;
-// font-size: 14.0pt; font-family: 宋体; display: inline-block; height: 90%;
-// width: 95%; padding: 0px; margin: 3px; border-radius: 0px"/></td></tr>';
-// if(i == 0){
-// $('#work').after(addWork_div);
-// }
-// else{
-// $('#work_index'+(i-1)).after(addWork_div);
-//			
-// }
-// }
-//	
-// }
-// function Study(index){
-// var flag = index;
-// for(var i = 0 ; i < flag ; i++){
-// var addStudy_div='<tr style="page-break-inside: avoid" id=study_index'+i+'>'
-// +'<td width=84 style="width: 62pt; border: solid black 1.0pt; border-left:
-// none; padding: 0cm 5.4pt 0cm 5.4pt; height: 30pt">'
-// +'<input type="text" id="study_country'+i+'" style="text-align: center;
-// font-size: 14.0pt; font-family: 宋体; display: inline-block; height: 90%;
-// width: 95%; padding: 0px; margin: 3px; border-radius: 0px"/></td>'
-// +'<td width=84 style="width: 62pt; border: solid black 1.0pt; border-left:
-// none; padding: 0cm 5.4pt 0cm 5.4pt; height: 30pt">'
-// +'<input type="text" id="study_institution'+i+'" style="text-align: center;
-// font-size: 14.0pt; font-family: 宋体; display: inline-block; height: 90%;
-// width: 95%; padding: 0px; margin: 3px; border-radius: 0px"/></td>'
-// +'<td width=84 style="width: 62pt; border: solid black 1.0pt; border-left:
-// none; padding: 0cm 5.4pt 0cm 5.4pt; height: 30pt">'
-// +'<input type="text" id="study_position'+i+'" style="text-align: center;
-// font-size: 14.0pt; font-family: 宋体; display: inline-block; height: 90%;
-// width: 95%; padding: 0px; margin: 3px; border-radius: 0px"/></td>'
-// +'<td width=84 style="width: 62pt; border: solid black 1.0pt; border-left:
-// none; padding: 0cm 5.4pt 0cm 5.4pt; height: 30pt">'
-// +'<input type="text" id="degree'+i+'" style="text-align: center; font-size:
-// 14.0pt; font-family: 宋体; display: inline-block; height: 90%; width: 95%;
-// padding: 0px; margin: 3px; border-radius: 0px"/></td>'
-// +'<td width=84 style="width: 62pt; border: solid black 1.0pt; border-left:
-// none; padding: 0cm 5.4pt 0cm 5.4pt; height: 30pt">'
-// +'<input type="text" id="study_start_date'+i+'" style="text-align: center;
-// font-size: 14.0pt; font-family: 宋体; display: inline-block; height: 90%;
-// width: 95%; padding: 0px; margin: 3px; border-radius: 0px"/></td>'
-// +'<td width=42 style="width: 31pt; border: solid black 1.0pt; border-left:
-// none; padding: 0cm 5.4pt 0cm 5.4pt; height: 30pt">'
-// +'<input type="text" id="study_end_date'+i+'" style="text-align: center;
-// font-size: 14.0pt; font-family: 宋体; display: inline-block; height: 90%;
-// width: 95%; padding: 0px; margin: 3px; border-radius: 0px" /></td></tr>';
-// if(i == 0){
-// $('#study').after(addStudy_div);
-// }
-// else{
-// $('#study_index'+(i-1)).after(addStudy_div);
-// }
-// }
-// }
-// function Zhuzhi(index){
-// var flag = index;
-// for(var i = 0 ; i < flag ; i++){
-// var addZhuzhi_div='<tr><input type="hidden" id=zuzhi_id'+i+'/></tr>'
-// +'<tr style="page-break-inside: avoid" id=zuzhi_div'+i+'><td width=487
-// colspan=3 valign=top style="width: 365.5pt; border-top: none; border-left:
-// none; border: solid black 1.0pt; padding: 0cm 5.0pt 0cm 5.0pt; height:
-// 30pt">'
-// +'<input type="text" id="zuzhi_name'+i+'" style="text-align: center;
-// font-size: 14.0pt; font-family: 宋体; display: inline-block; height: 90%;
-// width: 95%; padding: 0px; margin: 3px; border-radius: 0px"/> '
-// +'</td><td width=84 style="width: 62pt; border: solid black 1.0pt;
-// border-left: none; padding: 0cm 5.4pt 0cm 5.4pt; height: 30pt">'
-// +'<input type="text" id="zuzhi_job'+i+'" style="text-align: center;
-// font-size: 14.0pt; font-family: 宋体; display: inline-block; height: 90%;
-// width: 95%; padding: 0px; margin: 3px; border-radius: 0px"/>'
-// +'</td><td width=84 colspan=2 style="width: 62pt; border: solid black 1.0pt;
-// border-left: none; padding: 0cm 5.4pt 0cm 5.4pt; height: 30pt">'
-// +'<input type="text" id="zuzhi_renqi'+i+'"style="text-align: center;
-// font-size: 14.0pt; font-family: 宋体; display: inline-block; height: 90%;
-// width: 95%; padding: 0px; margin: 3px; border-radius: 0px" /></td></tr>';
-// if(i == 0){
-// $('#zhuzhi').after(addZhuzhi_div);
-// }
-// else{
-// $('#zuzhi_div'+(i-1)).after(addZhuzhi_div);
-// }
-// }
-// }
+function addzuzhi() {
+	var flag = index_zuzhi;
+	$('#zhuzhi').find('td').each(function(index) {
+		if (index == 0) {
+			$(this).prop("rowSpan", Number($(this).attr('rowSpan')) + 2)
+		}
+	})
+	var addZuzhi_div = '<tr><input type="hidden" id=zuzhiid'
+			+ flag
+			+ '/></tr>'
+			+ '<td width=84 colspan=3 style="width: 62pt; border: solid black 1.0pt; border-left: none; padding: 0cm 5.4pt 0cm 5.4pt; height: 30pt">'
+			+ '<input type="text" id="zuzhi_name'
+			+ flag
+			+ '" style="text-align: center; font-size: 14.0pt; font-family: 宋体; display: inline-block; height: 90%; width: 95%; padding: 0px; margin: 3px; border-radius: 0px"/></td>'
+			+ '<td width=84 colspan=3 style="width: 62pt; border: solid black 1.0pt; border-left: none; padding: 0cm 5.4pt 0cm 5.4pt; height: 30pt">'
+			+ '<input type="text" id="zuzhi_job'
+			+ flag
+			+ '" style="text-align: center; font-size: 14.0pt; font-family: 宋体; display: inline-block; height: 90%; width: 95%; padding: 0px; margin: 3px; border-radius: 0px"/></td>'
+			+ '<td width=84 colspan=3 style="width: 62pt; border: solid black 1.0pt; border-left: none; padding: 0cm 5.4pt 0cm 5.4pt; height: 30pt">'
+			+ '<input type="text" id="zuzhi_renqi'
+			+ flag
+			+ '" style="text-align: center; font-size: 14.0pt; font-family: 宋体; display: inline-block; height: 90%; width: 95%; padding: 0px; margin: 3px; border-radius: 0px"/></td>';
+	if (index_zuzhi == 0) {
+		$('#zhuzhi').after(addZuzhi_div);
+	} else {
+		// $('#work'+(i-1)).after(addWork_div);
+		$('#zhuzhi').after(addZuzhi_div);
+	}
+}
 
-// function addzuzhi(){
-// alert("addzuzhi");
-// var flag = index_zuzhi+1;
-//	
-// var addZhuzhi_div='<tr><input type="hidden" id=zuzhi_id'+flag+'/></tr>'
-// +'<tr style="page-break-inside: avoid" id=zuzhi_div'+flag+'><td width=487
-// colspan=3 valign=top style="width: 365.5pt; border-top: none; border-left:
-// none; border: solid black 1.0pt; padding: 0cm 5.0pt 0cm 5.0pt; height:
-// 30pt">'
-// +'<input type="text" id="zuzhi_name'+flag+'" style="text-align: center;
-// font-size: 14.0pt; font-family: 宋体; display: inline-block; height: 90%;
-// width: 95%; padding: 0px; margin: 3px; border-radius: 0px"/> '
-// +'</td><td width=84 style="width: 62pt; border: solid black 1.0pt;
-// border-left: none; padding: 0cm 5.4pt 0cm 5.4pt; height: 30pt">'
-// +'<input type="text" id="zuzhi_job'+flag+'" style="text-align: center;
-// font-size: 14.0pt; font-family: 宋体; display: inline-block; height: 90%;
-// width: 95%; padding: 0px; margin: 3px; border-radius: 0px"/>'
-// +'</td><td width=84 colspan=2 style="width: 62pt; border: solid black 1.0pt;
-// border-left: none; padding: 0cm 5.4pt 0cm 5.4pt; height: 30pt">'
-// +'<input type="text" id="zuzhi_renqi'+flag+'"style="text-align: center;
-// font-size: 14.0pt; font-family: 宋体; display: inline-block; height: 90%;
-// width: 95%; padding: 0px; margin: 3px; border-radius: 0px" /></td></tr>';
-// $('#zuzhi_div'+(index_zuzhi)).after(addZhuzhi_div);
-// index_zuzhi++;
-// }
 function addmember() {
 	var flag = index_meminfo;
 	if (flag > 14) {

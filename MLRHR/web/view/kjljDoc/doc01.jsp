@@ -68,7 +68,7 @@
 				<input type="text" id="user_minzu"
 				style="text-align: center; font-size: 16.0pt; font-family: 仿宋; display: inline-block; height: 90%; width: 95%; padding: 0px; margin: 3px; border-radius: 0px" />
 			</td>
-			<td width=95 rowspan=2 valign="middle"
+			<td width=95 colspan=2 rowspan=2 valign="middle"
 				style='width: 70.9pt; border: solid windowtext 1.0pt; border-left: none; padding: 0cm 5.4pt 0cm 5.4pt; height: 40.8pt'>
 				<p class=MsoNormal style='text-align: center'>
 					<span lang=EN-US style='font-size: 14.0pt'>&nbsp;</span>
@@ -226,296 +226,130 @@
 		</tr>
 
 		<tr style='page-break-inside: avoid'>
-			<td width=36 rowspan=3 valign="middle"
-				style='width: 26.7pt; border: solid windowtext 1.0pt; border-top: none; padding: 0cm 5.4pt 0cm 5.4pt'>
-				<div class=MsoNormal style='text-align: center'>
-					<span style='font-size: 14.0pt; font-family: 宋体'>学习经历</span>
-				</div>
-			</td>
-			<td width=99 colspan=1 valign="middle"
-				style='width: 99.2pt; border-top: none; border-left: none; border-bottom: solid windowtext 1.0pt; border-right: solid windowtext 1.0pt; padding: 0cm 5.4pt 0cm 5.4pt'>
-				<div class=MsoNormal style='text-align: center'>
-					<span style='font-size: 14.0pt; font-family: 宋体'>国家</span>
-				</div>
-			</td>
-			<td width=99 colspan=2 valign="middle"
-				style='width: 106.3pt; border-top: none; border-left: none; border-bottom: solid windowtext 1.0pt; border-right: solid windowtext 1.0pt; padding: 0cm 5.4pt 0cm 5.4pt'>
-				<div class=MsoNormal style='text-align: center'>
-					<span style='font-size: 14.0pt; font-family: 宋体'>院校</span>
-				</div>
-			</td>
-			<td width=99 colspan=2 valign="middle"
-				style='width: 3.0cm; border-top: none; border-left: none; border-bottom: solid windowtext 1.0pt; border-right: solid windowtext 1.0pt; padding: 0cm 5.4pt 0cm 5.4pt'>
-				<div class=MsoNormal style='text-align: center'>
-					<span style='font-size: 14.0pt; font-family: 宋体'>专业</span>
-				</div>
-			</td>
-			<td width=99 colspan=2 valign="middle"
-				style='width: 2.0cm; border-top: none; border-left: none; border-bottom: solid windowtext 1.0pt; border-right: solid windowtext 1.0pt; padding: 0cm 5.4pt 0cm 5.4pt'>
-				<div class=MsoNormal style='text-align: center'>
-					<span style='font-size: 14.0pt; font-family: 宋体'>学历/学位</span>
-				</div>
-			</td>
-			<td width=99 colspan=2 valign="middle"
-				style='width: 99.25pt; border-top: none; border-left: none; border-bottom: solid windowtext 1.0pt; border-right: solid windowtext 1.0pt; padding: 0cm 5.4pt 0cm 5.4pt'>
-				<div class=MsoNormal style='text-align: center'>
-					<span style='font-size: 14.0pt; font-family: 宋体'>起始时间</span>
-				</div>
-			</td>
-			<td width=99 colspan=2 valign="middle"
-				style='width: 99.25pt; border-top: none; border-left: none; border-bottom: solid windowtext 1.0pt; border-right: solid windowtext 1.0pt; padding: 0cm 5.4pt 0cm 5.4pt'>
-				<div class=MsoNormal style='text-align: center'>
-					<span style='font-size: 14.0pt; font-family: 宋体'>结束时间</span>
-				</div>
-			</td>
-
-		</tr>
-		<tr style='page-break-inside: avoid; height: 38pt'>
-			<td width=99 colspan=1 valign="middle"
-				style='width: 99.2pt; border-top: none; border-left: none; border-bottom: solid windowtext 1.0pt; border-right: solid windowtext 1.0pt; padding: 0cm 5.4pt 0cm 5.4pt; height: 38pt'>
-				<input type="text" id="study_country"
-				style="text-align: center; font-size: 16.0pt; font-family: 仿宋; display: inline-block; height: 90%; width: 95%; padding: 0px; margin: 3px; border-radius: 0px" />
-			</td>
-			<td width=99 colspan=2 valign="middle"
-				style='width: 106.3pt; border-top: none; border-left: none; border-bottom: solid windowtext 1.0pt; border-right: solid windowtext 1.0pt; padding: 0cm 5.4pt 0cm 5.4pt; height: 38pt'>
-				<input type="text" id="study_colleges"
-				style="text-align: center; font-size: 16.0pt; font-family: 仿宋; display: inline-block; height: 90%; width: 95%; padding: 0px; margin: 3px; border-radius: 0px" />
-			</td>
-			<td width=99 colspan=2 valign="middle"
-				style='width: 3.0cm; border-top: none; border-left: none; border-bottom: solid windowtext 1.0pt; border-right: solid windowtext 1.0pt; padding: 0cm 5.4pt 0cm 5.4pt; height: 38pt'>
-				<input type="text" id="study_major"
-				style="text-align: center; font-size: 16.0pt; font-family: 仿宋; display: inline-block; height: 90%; width: 95%; padding: 0px; margin: 3px; border-radius: 0px" />
-			</td>
-			<td width=99 colspan=2 valign="middle"
-				style='width: 2.0cm; border-top: none; border-left: none; border-bottom: solid windowtext 1.0pt; border-right: solid windowtext 1.0pt; padding: 0cm 5.4pt 0cm 5.4pt; height: 38pt'>
-				<input type="text" id="study_education"
-				style="text-align: center; font-size: 16.0pt; font-family: 仿宋; display: inline-block; height: 90%; width: 95%; padding: 0px; margin: 3px; border-radius: 0px" />
-			</td>
-			<td width=99 colspan=2 valign="middle"
-				style='width: 99.25pt; border-top: none; border-left: none; border-bottom: solid windowtext 1.0pt; border-right: solid windowtext 1.0pt; padding: 0cm 5.4pt 0cm 5.4pt; height: 38pt'>
-				<input type="text" id="study_start_time"
-				onfocus="WdatePicker({isShowWeek:true,dateFmt:'yyyy.MM.dd'})"
-				style="text-align: center; font-size: 16.0pt; font-family: 仿宋; display: inline-block; height: 90%; width: 95%; padding: 0px; margin: 3px; border-radius: 0px" />
-			</td>
-			<td width=99 colspan=2 valign="middle"
-				style='width: 99.25pt; border-top: none; border-left: none; border-bottom: solid windowtext 1.0pt; border-right: solid windowtext 1.0pt; padding: 0cm 5.4pt 0cm 5.4pt; height: 38pt'>
-				<input type="text" id="study_end_time"
-				onfocus="WdatePicker({isShowWeek:true,dateFmt:'yyyy.MM.dd'})"
-				style="text-align: center; font-size: 16.0pt; font-family: 仿宋; display: inline-block; height: 90%; width: 95%; padding: 0px; margin: 3px; border-radius: 0px" />
-			</td>
-		</tr>
-		<tr style='page-break-inside: avoid; height: 38pt'>
-			<td width=99 colspan=1 valign="middle"
-				style='width: 99.2pt; border-top: none; border-left: none; border-bottom: solid windowtext 1.0pt; border-right: solid windowtext 1.0pt; padding: 0cm 5.4pt 0cm 5.4pt; height: 38pt'>
-				<input type="text" id="user_studcountry2"
-				style="text-align: center; font-size: 16.0pt; font-family: 仿宋; display: inline-block; height: 90%; width: 95%; padding: 0px; margin: 3px; border-radius: 0px" />
-			</td>
-			<td width=99 colspan=2 valign="middle"
-				style='width: 106.3pt; border-top: none; border-left: none; border-bottom: solid windowtext 1.0pt; border-right: solid windowtext 1.0pt; padding: 0cm 5.4pt 0cm 5.4pt; height: 38pt'>
-				<input type="text" id="user_studcollege2"
-				style="text-align: center; font-size: 16.0pt; font-family: 仿宋; display: inline-block; height: 90%; width: 95%; padding: 0px; margin: 3px; border-radius: 0px" />
-			</td>
-			<td width=99 colspan=2 valign="middle"
-				style='width: 3.0cm; border-top: none; border-left: none; border-bottom: solid windowtext 1.0pt; border-right: solid windowtext 1.0pt; padding: 0cm 5.4pt 0cm 5.4pt; height: 38pt'>
-				<input type="text" id="user_studmajor2"
-				style="text-align: center; font-size: 16.0pt; font-family: 仿宋; display: inline-block; height: 90%; width: 95%; padding: 0px; margin: 3px; border-radius: 0px" />
-			</td>
-			<td width=99 colspan=2 valign="middle"
-				style='width: 2.0cm; border-top: none; border-left: none; border-bottom: solid windowtext 1.0pt; border-right: solid windowtext 1.0pt; padding: 0cm 5.4pt 0cm 5.4pt; height: 38pt'>
-				<input type="text" id="user_studdegree2"
-				style="text-align: center; font-size: 16.0pt; font-family: 仿宋; display: inline-block; height: 90%; width: 95%; padding: 0px; margin: 3px; border-radius: 0px" />
-			</td>
-			<td width=99 colspan=2 valign="middle"
-				style='width: 99.25pt; border-top: none; border-left: none; border-bottom: solid windowtext 1.0pt; border-right: solid windowtext 1.0pt; padding: 0cm 5.4pt 0cm 5.4pt; height: 38pt'>
-				<input type="text" id="user_studfirsttime2"
-				onfocus="WdatePicker({isShowWeek:true,dateFmt:'yyyy.MM.dd'})"
-				style="text-align: center; font-size: 16.0pt; font-family: 仿宋; display: inline-block; height: 90%; width: 95%; padding: 0px; margin: 3px; border-radius: 0px" />
-			</td>
-			<td width=99 colspan=2 valign="middle"
-				style='width: 99.25pt; border-top: none; border-left: none; border-bottom: solid windowtext 1.0pt; border-right: solid windowtext 1.0pt; padding: 0cm 5.4pt 0cm 5.4pt; height: 38pt'>
-				<input type="text" id="user_studlasttime2"
-				onfocus="WdatePicker({isShowWeek:true,dateFmt:'yyyy.MM.dd'})"
-				style="text-align: center; font-size: 16.0pt; font-family: 仿宋; display: inline-block; height: 90%; width: 95%; padding: 0px; margin: 3px; border-radius: 0px" />
-			</td>
-		</tr>
-		<tr style='page-break-inside: avoid'>
-			<td width=36 rowspan=3 valign="middle"
-				style='width: 26.7pt; border: solid windowtext 1.0pt; border-top: none; padding: 0cm 5.4pt 0cm 5.4pt'>
-				<div class=MsoNormal style='text-align: center'>
-					<span style='font-size: 14.0pt; font-family: 宋体'>工作经历</span>
-				</div>
-			</td>
-			<td width=99 colspan=2 valign="middle"
-				style='width: 99.2pt; border-top: none; border-left: none; border-bottom: solid windowtext 1.0pt; border-right: solid windowtext 1.0pt; padding: 0cm 5.4pt 0cm 5.4pt'>
-				<div class=MsoNormal style='text-align: center'>
-					<span style='font-size: 14.0pt; font-family: 宋体'>国家</span>
-				</div>
-			</td>
-			<td width=99 colspan=2 valign="middle"
-				style='width: 106.3pt; border-top: none; border-left: none; border-bottom: solid windowtext 1.0pt; border-right: solid windowtext 1.0pt; padding: 0cm 5.4pt 0cm 5.4pt'>
-				<div class=MsoNormal style='text-align: center'>
-					<span style='font-size: 14.0pt; font-family: 宋体'>单位</span>
-				</div>
-			</td>
-			<td width=99 colspan=2 valign="middle"
-				style='width: 3.0cm; border-top: none; border-left: none; border-bottom: solid windowtext 1.0pt; border-right: solid windowtext 1.0pt; padding: 0cm 5.4pt 0cm 5.4pt'>
-				<div class=MsoNormal style='text-align: center'>
-					<span style='font-size: 14.0pt; font-family: 宋体'>职务</span>
-				</div>
-			</td>
-			<td width=99 colspan=3 valign="middle"
-				style='width: 2.0cm; border-top: none; border-left: none; border-bottom: solid windowtext 1.0pt; border-right: solid windowtext 1.0pt; padding: 0cm 5.4pt 0cm 5.4pt'>
-				<div class=MsoNormal style='text-align: center'>
-					<span style='font-size: 14.0pt; font-family: 宋体'>起始时间</span>
-				</div>
-			</td>
-			<td width=99 colspan=2 valign="middle"
-				style='width: 99.25pt; border-top: none; border-left: none; border-bottom: solid windowtext 1.0pt; border-right: solid windowtext 1.0pt; padding: 0cm 5.4pt 0cm 5.4pt'>
-				<div class=MsoNormal style='text-align: center'>
-					<span style='font-size: 14.0pt; font-family: 宋体'>结束时间</span>
-				</div>
-			</td>
-
-		</tr>
-		<tr style='page-break-inside: avoid; height: 38pt'>
-			<td width=99 colspan=2 valign="middle"
-				style='width: 99.2pt; border-top: none; border-left: none; border-bottom: solid windowtext 1.0pt; border-right: solid windowtext 1.0pt; padding: 0cm 5.4pt 0cm 5.4pt; height: 38pt'>
-				<input type="text" id="work_country"
-				style="text-align: center; font-size: 16.0pt; font-family: 仿宋; display: inline-block; height: 90%; width: 95%; padding: 0px; margin: 3px; border-radius: 0px" />
-			</td>
-			<td width=99 colspan=2 valign="middle"
-				style='width: 106.3pt; border-top: none; border-left: none; border-bottom: solid windowtext 1.0pt; border-right: solid windowtext 1.0pt; padding: 0cm 5.4pt 0cm 5.4pt; height: 38pt'>
-				<input type="text" id="work_company"
-				style="text-align: center; font-size: 16.0pt; font-family: 仿宋; display: inline-block; height: 90%; width: 95%; padding: 0px; margin: 3px; border-radius: 0px" />
-			</td>
-			<td width=99 colspan=2 valign="middle"
-				style='width: 3.0cm; border-top: none; border-left: none; border-bottom: solid windowtext 1.0pt; border-right: solid windowtext 1.0pt; padding: 0cm 5.4pt 0cm 5.4pt; height: 38pt'>
-				<input type="text" id="work_position"
-				style="text-align: center; font-size: 16.0pt; font-family: 仿宋; display: inline-block; height: 90%; width: 95%; padding: 0px; margin: 3px; border-radius: 0px" />
-			</td>
-			<td width=99 colspan=3 valign="middle"
-				style='width: 2.0cm; border-top: none; border-left: none; border-bottom: solid windowtext 1.0pt; border-right: solid windowtext 1.0pt; padding: 0cm 5.4pt 0cm 5.4pt; height: 38pt'>
-				<input type="text" id="work_start_time"
-				onfocus="WdatePicker({isShowWeek:true,dateFmt:'yyyy.MM.dd'})"
-				style="text-align: center; font-size: 16.0pt; font-family: 仿宋; display: inline-block; height: 90%; width: 95%; padding: 0px; margin: 3px; border-radius: 0px" />
-			</td>
-			<td width=99 colspan=2 valign="middle"
-				style='width: 99.25pt; border-top: none; border-left: none; border-bottom: solid windowtext 1.0pt; border-right: solid windowtext 1.0pt; padding: 0cm 5.4pt 0cm 5.4pt; height: 38pt'>
-				<input type="text" id="work_end_time"
-				onfocus="WdatePicker({isShowWeek:true,dateFmt:'yyyy.MM.dd'})"
-				style="text-align: center; font-size: 16.0pt; font-family: 仿宋; display: inline-block; height: 90%; width: 95%; padding: 0px; margin: 3px; border-radius: 0px" />
-			</td>
-		</tr>
-		<tr style='page-break-inside: avoid; height: 38pt'>
-			<td width=99 colspan=2 valign="middle"
-				style='width: 99.2pt; border-top: none; border-left: none; border-bottom: solid windowtext 1.0pt; border-right: solid windowtext 1.0pt; padding: 0cm 5.4pt 0cm 5.4pt; height: 38pt'>
-				<input type="text" id="user_workcountry"
-				style="text-align: center; font-size: 16.0pt; font-family: 仿宋; display: inline-block; height: 90%; width: 95%; padding: 0px; margin: 3px; border-radius: 0px" />
-			</td>
-			<td width=99 colspan=2 valign="middle"
-				style='width: 106.3pt; border-top: none; border-left: none; border-bottom: solid windowtext 1.0pt; border-right: solid windowtext 1.0pt; padding: 0cm 5.4pt 0cm 5.4pt; height: 38pt'>
-				<input type="text" id="user_workcollege"
-				style="text-align: center; font-size: 16.0pt; font-family: 仿宋; display: inline-block; height: 90%; width: 95%; padding: 0px; margin: 3px; border-radius: 0px" />
-			</td>
-			<td width=99 colspan=2 valign="middle"
-				style='width: 3.0cm; border-top: none; border-left: none; border-bottom: solid windowtext 1.0pt; border-right: solid windowtext 1.0pt; padding: 0cm 5.4pt 0cm 5.4pt; height: 38pt'>
-				<input type="text" id="user_workmajor"
-				style="text-align: center; font-size: 16.0pt; font-family: 仿宋; display: inline-block; height: 90%; width: 95%; padding: 0px; margin: 3px; border-radius: 0px" />
-			</td>
-			<td width=99 colspan=3 valign="middle"
-				style='width: 2.0cm; border-top: none; border-left: none; border-bottom: solid windowtext 1.0pt; border-right: solid windowtext 1.0pt; padding: 0cm 5.4pt 0cm 5.4pt; height: 38pt'>
-				<input type="text" id="work_starttime"
-				onfocus="WdatePicker({isShowWeek:true,dateFmt:'yyyy.MM.dd'})"
-				style="text-align: center; font-size: 16.0pt; font-family: 仿宋; display: inline-block; height: 90%; width: 95%; padding: 0px; margin: 3px; border-radius: 0px" />
-			</td>
-			<td width=99 colspan=2 valign="middle"
-				style='width: 99.25pt; border-top: none; border-left: none; border-bottom: solid windowtext 1.0pt; border-right: solid windowtext 1.0pt; padding: 0cm 5.4pt 0cm 5.4pt; height: 38pt'>
-				<input type="text" id="work_endtime"
-				onfocus="WdatePicker({isShowWeek:true,dateFmt:'yyyy.MM.dd'})"
-				style="text-align: center; font-size: 16.0pt; font-family: 仿宋; display: inline-block; height: 90%; width: 95%; padding: 0px; margin: 3px; border-radius: 0px" />
-			</td>
-		</tr>
-		<tr style='page-break-inside: avoid'>
-			<td width=36 rowspan=4 valign="middle"
-				style='width: 26.7pt; border: solid windowtext 1.0pt; border-top: none; padding: 0cm 5.4pt 0cm 5.4pt'>
-				<div class=MsoNormal style='text-align: center'>
-					<span style='font-size: 14.0pt; font-family: 宋体'>国内外学术组织及重要学术期刊任职情况</span>
-				</div>
-			</td>
-			<td width=99 colspan=5 valign="middle"
-				style='width: 99.2pt; border-top: none; border-left: none; border-bottom: solid windowtext 1.0pt; border-right: solid windowtext 1.0pt; padding: 0cm 5.4pt 0cm 5.4pt'>
-				<div class=MsoNormal style='text-align: center'>
-					<span style='font-size: 14.0pt; font-family: 宋体'>组织或期刊名称</span>
-				</div>
-			</td>
-			<td width=99 colspan=3 valign="middle"
-				style='width: 106.3pt; border-top: none; border-left: none; border-bottom: solid windowtext 1.0pt; border-right: solid windowtext 1.0pt; padding: 0cm 5.4pt 0cm 5.4pt'>
-				<div class=MsoNormal style='text-align: center'>
-					<span style='font-size: 14.0pt; font-family: 宋体'>职务</span>
-				</div>
-			</td>
-			<td width=99 colspan=3 valign="middle"
-				style='width: 3.0cm; border-top: none; border-left: none; border-bottom: solid windowtext 1.0pt; border-right: solid windowtext 1.0pt; padding: 0cm 5.4pt 0cm 5.4pt'>
-				<div class=MsoNormal style='text-align: center'>
-					<span style='font-size: 14.0pt; font-family: 宋体'>任期</span>
-				</div>
-			</td>
-
-
-		</tr>
-		<tr style='page-break-inside: avoid; height: 38pt'>
-			<td width=99 colspan=5 valign="middle"
-				style='width: 99.2pt; border-top: none; border-left: none; border-bottom: solid windowtext 1.0pt; border-right: solid windowtext 1.0pt; padding: 0cm 5.4pt 0cm 5.4pt; height: 38pt'>
-				<input type="text" id="journal_title"
-				style="text-align: center; font-size: 16.0pt; font-family: 仿宋; display: inline-block; height: 90%; width: 95%; padding: 0px; margin: 3px; border-radius: 0px" />
-			</td>
-			<td width=99 colspan=3 valign="middle"
-				style='width: 106.3pt; border-top: none; border-left: none; border-bottom: solid windowtext 1.0pt; border-right: solid windowtext 1.0pt; padding: 0cm 5.4pt 0cm 5.4pt; height: 38pt'>
-				<input type="text" id="organization_position"
-				style="text-align: center; font-size: 16.0pt; font-family: 仿宋; display: inline-block; height: 90%; width: 95%; padding: 0px; margin: 3px; border-radius: 0px" />
-			</td>
-			<td width=99 colspan=3 valign="middle"
-				style='width: 3.0cm; border-top: none; border-left: none; border-bottom: solid windowtext 1.0pt; border-right: solid windowtext 1.0pt; padding: 0cm 5.4pt 0cm 5.4pt; height: 38pt'>
-				<input type="text" id="organization_term"
-				style="text-align: center; font-size: 16.0pt; font-family: 仿宋; display: inline-block; height: 90%; width: 95%; padding: 0px; margin: 3px; border-radius: 0px" />
-			</td>
-
-		</tr>
-		<tr style='page-break-inside: avoid; height: 38pt'>
-			<td width=99 colspan=5 valign="middle"
-				style='width: 99.2pt; border-top: none; border-left: none; border-bottom: solid windowtext 1.0pt; border-right: solid windowtext 1.0pt; padding: 0cm 5.4pt 0cm 5.4pt; height: 38pt'>
-				<input type="text" id="journal_title1"
-				style="text-align: center; font-size: 16.0pt; font-family: 仿宋; display: inline-block; height: 90%; width: 95%; padding: 0px; margin: 3px; border-radius: 0px" />
-			</td>
-			<td width=99 colspan=3 valign="middle"
-				style='width: 106.3pt; border-top: none; border-left: none; border-bottom: solid windowtext 1.0pt; border-right: solid windowtext 1.0pt; padding: 0cm 5.4pt 0cm 5.4pt; height: 38pt'>
-				<input type="text" id="organization_position1"
-				style="text-align: center; font-size: 16.0pt; font-family: 仿宋; display: inline-block; height: 90%; width: 95%; padding: 0px; margin: 3px; border-radius: 0px" />
-			</td>
-			<td width=99 colspan=3 valign="middle"
-				style='width: 3.0cm; border-top: none; border-left: none; border-bottom: solid windowtext 1.0pt; border-right: solid windowtext 1.0pt; padding: 0cm 5.4pt 0cm 5.4pt; height: 38pt'>
-				<input type="text" id="organization_term1"
-				style="text-align: center; font-size: 16.0pt; font-family: 仿宋; display: inline-block; height: 90%; width: 95%; padding: 0px; margin: 3px; border-radius: 0px" />
-			</td>
-
-		</tr>
-		<tr style='page-break-inside: avoid; height: 38pt'>
-			<td width=99 colspan=5 valign="middle"
-				style='width: 99.2pt; border-top: none; border-left: none; border-bottom: solid windowtext 1.0pt; border-right: solid windowtext 1.0pt; padding: 0cm 5.4pt 0cm 5.4pt; height: 38pt'>
-				<input type="text" id="journal_title2"
-				style="text-align: center; font-size: 16.0pt; font-family: 仿宋; display: inline-block; height: 90%; width: 95%; padding: 0px; margin: 3px; border-radius: 0px" />
-			</td>
-			<td width=99 colspan=3 valign="middle"
-				style='width: 106.3pt; border-top: none; border-left: none; border-bottom: solid windowtext 1.0pt; border-right: solid windowtext 1.0pt; padding: 0cm 5.4pt 0cm 5.4pt; height: 38pt'>
-				<input type="text" id="organization_position2"
-				style="text-align: center; font-size: 16.0pt; font-family: 仿宋; display: inline-block; height: 90%; width: 95%; padding: 0px; margin: 3px; border-radius: 0px" />
-			</td>
-			<td width=99 colspan=3 valign="middle"
-				style='width: 3.0cm; border-top: none; border-left: none; border-bottom: solid windowtext 1.0pt; border-right: solid windowtext 1.0pt; padding: 0cm 5.4pt 0cm 5.4pt; height: 38pt'>
-				<input type="text" id="organization_term2"
-				style="text-align: center; font-size: 16.0pt; font-family: 仿宋; display: inline-block; height: 90%; width: 95%; padding: 0px; margin: 3px; border-radius: 0px" />
-			</td>
-
+				<td>
+					<div class=MsoNormal style='text-align: center'>
+						<a class="btn btn-small btn-info" href="javascript:void(0)" id="addstudy" onclick="addstudy()">
+				          <i class="icon-plus-sign"></i>添加
+		             	</a>
+					</div>
+				</td>
+			</tr>
+			<tr style='page-break-inside: avoid' id="study">
+			<td width=10 colspan=0.5 rowspan=1 valign="middle" style='width: 3pt; border: solid windowtext 1.0pt; border-top: none; padding: 0cm 5.4pt 0cm 5.4pt'>
+					<div class=MsoNormal style='text-align: center'>
+						<span style='font-size: 14.0pt; font-family: 宋体'>学习经历</span>
+					</div>
+				</td>
+				<td width=84  colspan=2.5 style='width: 82pt; border: solid black 1.0pt; border-left: none; padding: 0cm 5.4pt 0cm 5.4pt; height: 30pt' >
+					<div class=MsoNormal style='text-align: center'>
+						<span style='font-size: 14.0pt; font-family: 宋体'>国家</span>
+					</div>
+				</td>
+				<td width=84 colspan=2 style='width: 52pt; border: solid black 1.0pt; border-left: none; padding: 0cm 5.4pt 0cm 5.4pt; height: 30pt'>
+					<div class=MsoNormal style='text-align: center'>
+						<span style='font-size: 14.0pt; font-family: 宋体'>院校</span>
+					</div>
+				</td>
+				<td width=84 colspan=2 style='width: 52pt; border: solid black 1.0pt; border-left: none; padding: 0cm 5.4pt 0cm 5.4pt; height: 30pt'>
+					<div class=MsoNormal style='text-align: center'>
+						<span style='font-size: 14.0pt; font-family: 宋体'>专业</span>
+					</div>
+				</td>
+				<td width=84 colspan=2 style='width: 62pt; border: solid black 1.0pt; border-left: none; padding: 0cm 5.4pt 0cm 5.4pt; height: 30pt'>
+					<div class=MsoNormal style='text-align: center'>
+						<span style='font-size: 14.0pt; font-family: 宋体'>学历/学位</span>
+					</div>
+				</td>
+				<td width=42 colspan=2 style='width: 62pt; border: solid black 1.0pt; border-left: none; padding: 0cm 5.4pt 0cm 5.4pt; height: 30pt'>
+					<div class=MsoNormal style='text-align: center'>
+						<span style='font-size: 14.0pt; font-family: 宋体'>起始时间</span>
+					</div>
+				</td>
+				<td width=42 colspan=2 style='width: 62pt; border: solid black 1.0pt; border-left: none; padding: 0cm 5.4pt 0cm 5.4pt; height: 30pt'>
+					<div class=MsoNormal style='text-align: center'>
+						<span style='font-size: 14.0pt; font-family: 宋体'>结束时间</span>
+					</div>
+				</td>
+			</tr>
+			<tr style='page-break-inside: avoid'>
+				<td>
+					<div class=MsoNormal style='text-align: center'>
+						<a class="btn btn-small btn-info" href="javascript:void(0)" id="addwork" onclick="addwork()">
+				          <i class="icon-plus-sign"></i>添加
+		             	</a>
+					</div>
+				</td>
+			</tr>
+			<tr style='page-break-inside: avoid;margin-top:10px' id="work" >
+				<td width=36 colspan=1 rowspan=1 valign="middle" style='width: 6pt; border: solid windowtext 1.0pt; border-top: none; padding: 0cm 5.4pt 0cm 5.4pt'>
+					<div class=MsoNormal style='text-align: center'>
+						<span style='font-size: 14.0pt; font-family: 宋体'>工作经历</span>
+					</div>
+				</td>
+				<td width=84 colspan=3 style='width: 62pt; border: solid black 1.0pt; border-left: none; padding: 0cm 5.4pt 0cm 5.4pt; height: 30pt' >
+					<div class=MsoNormal style='text-align: center'>
+						<span style='font-size: 14.0pt; font-family: 宋体'>国家</span>
+					</div>
+				</td>
+				<td width=84 colspan=2 style='width: 62pt; border: solid black 1.0pt; border-left: none; padding: 0cm 5.4pt 0cm 5.4pt; height: 30pt'>
+					<div class=MsoNormal style='text-align: center'>
+						<span style='font-size: 14.0pt; font-family: 宋体'>单位</span>
+					</div>
+				</td>
+				<td width=84 colspan=3 style='width: 62pt; border: solid black 1.0pt; border-left: none; padding: 0cm 5.4pt 0cm 5.4pt; height: 30pt'>
+					<div class=MsoNormal style='text-align: center'>
+						<span style='font-size: 14.0pt; font-family: 宋体'>职务</span>
+					</div>
+				</td>
+				<td width=84 colspan=2 style='width: 62pt; border: solid black 1.0pt; border-left: none; padding: 0cm 5.4pt 0cm 5.4pt; height: 30pt'>
+					<div class=MsoNormal style='text-align: center'>
+						<span style='font-size: 14.0pt; font-family: 宋体'>起始时间</span>
+					</div>
+				</td>
+				<td width=84 colspan=2 colspan=2 style='width: 62pt; border: solid black 1.0pt; border-left: none; padding: 0cm 5.4pt 0cm 5.4pt; height: 30pt'>
+					<div class=MsoNormal style='text-align: center'>
+						<span style='font-size: 14.0pt; font-family: 宋体'>结束时间</span>
+					</div>
+				</td>
+				
+				
+			</tr>
+			<!-- 团队负责人组织期刊任职情况 -->
+			<tr style='page-break-inside: avoid;'>
+				<td  style="width:100px">
+					<div style="text-align: left;margin-left:30px">
+						<a class="btn btn-small btn-info" href="javascript:void(0)" id="addzuzhi" onclick="addzuzhi()">
+							<i class="icon-plus-sign"></i>添加
+						</a>
+					</div>
+				</td>
+			</tr>
+			<tr style='page-break-inside: avoid' id="zhuzhi">
+			<td width=36  colspan=3 rowspan=1 valign="middle" style='width: 6pt; border: solid windowtext 1.0pt; border-top: none; padding: 0cm 5.4pt 0cm 5.4pt'>
+					<div class=MsoNormal style='text-align: center'>
+						<span style='font-size: 14.0pt; font-family: 宋体'>国内外学术组织及重要学术期刊任职情况</span>
+					</div>
+				</td>
+				<td width=487 colspan=3 style='width: 365.5pt; border-top: none; border-left: none;  border: solid black 1.0pt;  padding: 0cm 5.0pt 0cm 5.0pt; height: 30pt' >
+					<div class=MsoNormal style='text-align: center'>
+						<span style='font-size: 14.0pt; font-family: 宋体'>组织或期刊名称</span>
+					</div>
+				</td>
+				<td width=84 colspan=3 style='width: 62pt; border: solid black 1.0pt; border-left: none; padding: 0cm 5.4pt 0cm 5.4pt; height: 30pt'>
+					<div class=MsoNormal style='text-align: center'>
+						<span style='font-size: 14.0pt; font-family: 宋体'>职位</span>
+					</div>
+				</td>
+				<td width=84 colspan=3 style='width: 62pt; border: solid black 1.0pt; border-left: none; padding: 0cm 5.4pt 0cm 5.4pt; height: 30pt'>
+					<div class=MsoNormal style='text-align: center'>
+						<span style='font-size: 14.0pt; font-family: 宋体'>任期</span>
+					</div>
+				</td>
+			</tr>  
+			<tr style='page-break-inside: avoid; height: 41.75pt'>	
+		   <p class=MsoNormal style='text-indent: 18.0pt'>
+			<span lang=EN-US style='font-size: 9.0pt; font-family: 仿宋'>&nbsp;</span>
+		</p>
 		</tr>
 		<tr style='page-break-inside: avoid; height: 41.75pt'>
 			<td width=130 colspan=2

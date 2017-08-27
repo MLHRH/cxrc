@@ -15,7 +15,7 @@
 <link rel="stylesheet" href="${ctx }/static/uploadify/3.1/css/uploadify.css">
 <link rel="stylesheet" href="${ctx }/static/bootstrap/2.1.1/css/bootstrap.min.css">
 <script src="${ctx}/static/layer/layer.js"></script>
-<script src="${ctx}/static/uploadify/3.1/js/jquery.uploadify.min.js"></script>
+<script src="${ctx}/static/uploadify/3.1/js/jquery.uploadify.js"></script>
 <script type="text/javascript" src="${ctx}/js/Chart.js"></script>
 <style>
 		.icon-cancel{

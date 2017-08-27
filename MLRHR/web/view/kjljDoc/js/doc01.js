@@ -5,6 +5,12 @@ var userBaseInfor_id;
 var id;
 var userid;
 var currentRole;
+//组织期刊的记录条数
+var index_zuzhi = 0;
+// 初始化工作经历
+var index_work = 0;
+// 初始化学习经历
+var index_study = 0;
 function initkjljDoc01() {
 	//被审核人的ID存在时。此时是审核模式。采用被审核人的ID初始化。
 	if(userId != null && userId !=""){
@@ -43,48 +49,6 @@ function initkjljDoc01() {
 					$('#email').val(data[1].email);
 					$('#zip_code').val(data[1].zip_code);
 					$('#addresses').val(data[1].addresses);
-				
-					$('#study_country').val(data[1].study_country);
-					$('#study_colleges').val(data[1].study_colleges);
-					$('#study_major').val(data[1].study_major);
-					$('#study_education').val(data[1].study_education);
-					$('#study_start_time').val(data[1].study_start_time);
-					$('#study_end_time').val(data[1].study_end_time);
-					
-					
-					$('#user_studcountry2').val(data[1].user_studcountry2);
-					$('#user_studcollege2').val(data[1].user_studcollege2);
-					$('#user_studmajor2').val(data[1].user_studmajor2);
-					$('#user_studdegree2').val(data[1].user_studdegree2);
-					$('#user_studfirsttime2').val(data[1].user_studfirsttime2);
-					$('#user_studlasttime2').val(data[1].user_studlasttime2);
-					
-					
-					$('#user_workcountry').val(data[1].user_workcountry);
-					$('#user_workcollege').val(data[1].user_workcollege);
-					$('#user_workmajor').val(data[1].user_workmajor);
-					$('#work_starttime').val(data[1].work_starttime);
-					$('#work_endtime').val(data[1].work_endtime);
-					
-					
-					$('#work_country').val(data[1].work_country);
-					$('#work_company').val(data[1].work_company);
-					$('#work_position').val(data[1].work_position);
-					$('#work_start_time').val(data[1].work_start_time);
-					$('#work_end_time').val(data[1].work_end_time);
-					
-					$('#journal_title').val(data[1].journal_title);
-					$('#organization_position').val(data[1].organization_position);
-					$('#organization_term').val(data[1].organization_term);
-					
-					$('#journal_title1').val(data[1].journal_title1);
-					$('#organization_position1').val(data[1].organization_position1);
-					$('#organization_term1').val(data[1].organization_term1);
-					
-					$('#journal_title2').val(data[1].journal_title2);
-					$('#organization_position2').val(data[1].organization_position2);
-					$('#organization_term2').val(data[1].organization_term2);
-					
 					$('#unit_name').val(data[1].unit_name);
 					$('#organization_code').val(data[1].organization_code);
 					$('#legal_representative').val(data[1].legal_representative);
@@ -97,6 +61,57 @@ function initkjljDoc01() {
 					$('#unit_address').val(data[1].unit_address);
 					$('#postcode').val(data[1].postcode);
 					$('#unit_contact').val(data[1].unit_contact);
+					
+					
+					// 学习经历信息
+					Study(data[2].plist);
+					for (index_study = 0; index_study < data[2].plist.length; index_study++) {
+						$('#studyid' + index_study).val(
+								data[2].plist[index_study].id);
+						$('#study_country' + index_study).val(
+								data[2].plist[index_study].country);
+						$('#study_colleges' + index_study).val(
+								data[2].plist[index_study].academy);
+						$('#study_major' + index_study).val(
+								data[2].plist[index_study].major);
+						$('#study_education' + index_study).val(
+								data[2].plist[index_study].xueli);
+						$('#study_start_time' + index_study).val(
+								data[2].plist[index_study].start_date);
+						$('#study_end_time' + index_study).val(
+								data[2].plist[index_study].end_date);
+					}
+
+					// 工作经历信息
+					Work(data[2].wlist);
+					for (index_work = 0; index_work < data[2].wlist.length; index_work++) {
+						$('#workid' + index_work).val(
+								data[2].wlist[index_work].id);
+						$('#work_country' + index_work).val(
+								data[2].wlist[index_work].country);
+						$('#work_institution' + index_work).val(
+								data[2].wlist[index_work].work_content);
+						$('#work_position' + index_work).val(
+								data[2].wlist[index_work].zhiwu);
+						$('#work_start_date' + index_work).val(
+								data[2].wlist[index_work].start_date);
+						$('#work_end_date' + index_work).val(
+								data[2].wlist[index_work].end_date);
+
+					}
+					// 组织任期情况
+					Zuzhi(data[2].zlist);
+					for (index_zuzhi = 0; index_zuzhi < data[2].zlist.length; index_zuzhi++) {
+						$('#zuzhiid' + index_zuzhi).val(
+								data[2].zlist[index_zuzhi].id);
+						$('#zuzhi_name' + index_zuzhi).val(
+								data[2].zlist[index_zuzhi].zuzhi_name);
+						$('#zuzhi_job' + index_zuzhi).val(
+								data[2].zlist[index_zuzhi].zuzhi_job);
+						$('#zuzhi_renqi' + index_zuzhi).val(
+								data[2].zlist[index_zuzhi].zuzhi_renqi);
+
+					}
 					var authority = data[3].authority;
 					var arr = authority.split("|");
 //					if (currentRole == null)
@@ -117,196 +132,332 @@ function initkjljDoc01() {
 				} 
 			});
 }
+
+function Study(data) {
+	$('#study').find('td').each(function(index) {
+		if (index == 0) {
+			$(this).prop("rowSpan", Number(data.length) + 1)
+		}
+	})
+	for (var i = 0; i < data.length; i++) {
+		var add_study_div = '</tr><tr style="page-break-inside: avoid" id = "study'
+				+ i
+				+ '">'
+				+ '<input type="hidden" value="'
+				+ data[i].id
+				+ '" id=studyid'
+				+ i
+				+ '>'
+				+ '<td width=84 colspan=2 style="width: 62pt; border: solid black 1.0pt; border-left: none; padding: 0cm 5.4pt 0cm 5.4pt; height: 30pt">'
+				+ '<input type="text" id="study_country'
+				+ i
+				+ '" style="text-align: center; font-size: 14.0pt; font-family: 宋体; display: inline-block; height: 90%; width: 95%; padding: 0px; margin: 3px; border-radius: 0px"/></td>'
+				+ '<td width=84 colspan=2 style="width: 62pt; border: solid black 1.0pt; border-left: none; padding: 0cm 5.4pt 0cm 5.4pt; height: 30pt">'
+				+ '<input type="text" id="study_colleges'
+				+ i
+				+ '" style="text-align: center; font-size: 14.0pt; font-family: 宋体; display: inline-block; height: 90%; width: 95%; padding: 0px; margin: 3px; border-radius: 0px"/></td>'
+				+ '<td width=84 colspan=2 style="width: 62pt; border: solid black 1.0pt; border-left: none; padding: 0cm 5.4pt 0cm 5.4pt; height: 30pt">'
+				+ '<input type="text" id="study_major'
+				+ i
+				+ '" style="text-align: center; font-size: 14.0pt; font-family: 宋体; display: inline-block; height: 90%; width: 95%; padding: 0px; margin: 3px; border-radius: 0px"/></td>'
+				+ '<td width=84 colspan=2 style="width: 62pt; border: solid black 1.0pt; border-left: none; padding: 0cm 5.4pt 0cm 5.4pt; height: 30pt">'
+				+ '<input type="text" id="study_education'
+				+ i
+				+ '" style="text-align: center; font-size: 14.0pt; font-family: 宋体; display: inline-block; height: 90%; width: 95%; padding: 0px; margin: 3px; border-radius: 0px"/></td>'
+				+ '<td width=84 colspan=2 style="width: 62pt; border: solid black 1.0pt; border-left: none; padding: 0cm 5.4pt 0cm 5.4pt; height: 30pt">'
+				+ '<input type="text" id="study_start_time'
+				+ i
+				+ '" style="text-align: center; font-size: 14.0pt; font-family: 宋体; display: inline-block; height: 90%; width: 95%; padding: 0px; margin: 3px; border-radius: 0px"/></td>'
+				+ '<td width=84 colspan=2 style="width: 62pt; border: solid black 1.0pt; border-left: none; padding: 0cm 5.4pt 0cm 5.4pt; height: 30pt">'
+				+ '<input type="text" id="study_end_time'
+				+ i
+				+ '" style="text-align: center; font-size: 14.0pt; font-family: 宋体; display: inline-block; height: 90%; width: 95%; padding: 0px; margin: 3px; border-radius: 0px"/></td>';
+		if (i == 0) {
+			$('#study').after(add_study_div);
+		} else {
+			$('#study' + (i - 1)).after(add_study_div);
+		}
+	}
+}
+function Work(data) {
+	$('#work').find('td').each(function(index) {
+		if (index == 0) {
+			$(this).prop("rowSpan", Number(data.length) + 1)
+		}
+	})
+	for (var i = 0; i < data.length; i++) {
+		var add_work_div = '</tr><tr style="page-break-inside: avoid" id = "work'
+				+ i
+				+ '">'
+				+ '<input type="hidden" value="'
+				+ data[i].id
+				+ '" id=workid'
+				+ i
+				+ '>'
+				+ '<td width=84 colspan=3 style="width: 62pt; border: solid black 1.0pt; border-left: none; padding: 0cm 5.4pt 0cm 5.4pt; height: 30pt">'
+				+ '<input type="text" id="work_country'
+				+ i
+				+ '" style="text-align: center; font-size: 14.0pt; font-family: 宋体; display: inline-block; height: 90%; width: 95%; padding: 0px; margin: 3px; border-radius: 0px"/></td>'
+				+ '<td width=84 colspan=2 style="width: 62pt; border: solid black 1.0pt; border-left: none; padding: 0cm 5.4pt 0cm 5.4pt; height: 30pt">'
+				+ '<input type="text" id="work_institution'
+				+ i
+				+ '" style="text-align: center; font-size: 14.0pt; font-family: 宋体; display: inline-block; height: 90%; width: 95%; padding: 0px; margin: 3px; border-radius: 0px"/></td>'
+				+ '<td width=84 colspan=3 style="width: 62pt; border: solid black 1.0pt; border-left: none; padding: 0cm 5.4pt 0cm 5.4pt; height: 30pt">'
+				+ '<input type="text" id="work_position'
+				+ i
+				+ '" style="text-align: center; font-size: 14.0pt; font-family: 宋体; display: inline-block; height: 90%; width: 95%; padding: 0px; margin: 3px; border-radius: 0px"/></td>'
+				+ '<td width=84 colspan=2 style="width: 62pt; border: solid black 1.0pt; border-left: none; padding: 0cm 5.4pt 0cm 5.4pt; height: 30pt">'
+				+ '<input type="text" id="work_start_date'
+				+ i
+				+ '" style="text-align: center; font-size: 14.0pt; font-family: 宋体; display: inline-block; height: 90%; width: 95%; padding: 0px; margin: 3px; border-radius: 0px"/></td>'
+				+ '<td width=84 colspan=2 style="width: 62pt; border: solid black 1.0pt; border-left: none; padding: 0cm 5.4pt 0cm 5.4pt; height: 30pt">'
+				+ '<input type="text" id="work_end_date'
+				+ i
+				+ '" style="text-align: center; font-size: 14.0pt; font-family: 宋体; display: inline-block; height: 90%; width: 95%; padding: 0px; margin: 3px; border-radius: 0px"/></td>';
+		if (i == 0) {
+			$('#work').after(add_work_div);
+		} else {
+			$('#work' + (i - 1)).after(add_work_div);
+		}
+	}
+}
+
+function Zuzhi(data) {
+	$('#zhuzhi').find('td').each(function(index) {
+		if (index == 0) {
+			$(this).prop("rowSpan", Number(data.length) + 1)
+		}
+	})
+	for (var i = 0; i < Number(data.length); i++) {
+		var add_zuzhi_div = '</tr><tr style="page-break-inside: avoid" id = "zuzhi'
+				+ i
+				+ '">'
+				+ '<input type="hidden" value="'
+				+ data[i].id
+				+ '" id=zuzhiid'
+				+ i
+				+ '>'
+				+ '<td width=84 colspan=3 style="width: 62pt; border: solid black 1.0pt; border-left: none; padding: 0cm 5.4pt 0cm 5.4pt; height: 30pt">'
+				+ '<input type="text" id="zuzhi_name'
+				+ i
+				+ '" style="text-align: center; font-size: 14.0pt; font-family: 宋体; display: inline-block; height: 90%; width: 95%; padding: 0px; margin: 3px; border-radius: 0px"/></td>'
+				+ '<td width=84 colspan=3 style="width: 62pt; border: solid black 1.0pt; border-left: none; padding: 0cm 5.4pt 0cm 5.4pt; height: 30pt">'
+				+ '<input type="text" id="zuzhi_job'
+				+ i
+				+ '" style="text-align: center; font-size: 14.0pt; font-family: 宋体; display: inline-block; height: 90%; width: 95%; padding: 0px; margin: 3px; border-radius: 0px"/></td>'
+				+ '<td width=84 colspan=3 style="width: 62pt; border: solid black 1.0pt; border-left: none; padding: 0cm 5.4pt 0cm 5.4pt; height: 30pt">'
+				+ '<input type="text" id="zuzhi_renqi'
+				+ i
+				+ '" style="text-align: center; font-size: 14.0pt; font-family: 宋体; display: inline-block; height: 90%; width: 95%; padding: 0px; margin: 3px; border-radius: 0px"/></td>';
+		if (i == 0) {
+			$('#zhuzhi').after(add_zuzhi_div);
+		} else {
+			$('#zuzhi' + (i - 1)).after(add_zuzhi_div);
+		}
+	}
+}
+function addstudy() {
+	var flag = index_study;
+	$('#study').find('td').each(function(index) {
+		if (index == 0) {
+			$(this).prop("rowSpan", Number($(this).attr('rowSpan')) + 2)
+		}
+	})
+	var addStudy_div = '<tr><input type="hidden" id=studyid'
+			+ flag
+			+ '/></tr>'
+			+ '<td width=84 colspan=2 style="width: 62pt; border: solid black 1.0pt; border-left: none; padding: 0cm 5.4pt 0cm 5.4pt; height: 30pt">'
+			+ '<input type="text" id="study_country'
+			+ flag
+			+ '" style="text-align: center; font-size: 14.0pt; font-family: 宋体; display: inline-block; height: 90%; width: 95%; padding: 0px; margin: 3px; border-radius: 0px"/></td>'
+			+ '<td width=84 colspan=2 style="width: 62pt; border: solid black 1.0pt; border-left: none; padding: 0cm 5.4pt 0cm 5.4pt; height: 30pt">'
+			+ '<input type="text" id="study_colleges'
+			+ flag
+			+ '" style="text-align: center; font-size: 14.0pt; font-family: 宋体; display: inline-block; height: 90%; width: 95%; padding: 0px; margin: 3px; border-radius: 0px"/></td>'
+			+ '<td width=84 colspan=2 style="width: 62pt; border: solid black 1.0pt; border-left: none; padding: 0cm 5.4pt 0cm 5.4pt; height: 30pt">'
+			+ '<input type="text" id="study_major'
+			+ flag
+			+ '" style="text-align: center; font-size: 14.0pt; font-family: 宋体; display: inline-block; height: 90%; width: 95%; padding: 0px; margin: 3px; border-radius: 0px"/></td>'
+			+ '<td width=84 colspan=2 style="width: 62pt; border: solid black 1.0pt; border-left: none; padding: 0cm 5.4pt 0cm 5.4pt; height: 30pt">'
+			+ '<input type="text" id="study_education'
+			+ flag
+			+ '" style="text-align: center; font-size: 14.0pt; font-family: 宋体; display: inline-block; height: 90%; width: 95%; padding: 0px; margin: 3px; border-radius: 0px"/></td>'
+			+ '<td width=84 colspan=2 style="width: 62pt; border: solid black 1.0pt; border-left: none; padding: 0cm 5.4pt 0cm 5.4pt; height: 30pt">'
+			+ '<input type="text" id="study_start_time'
+			+ flag
+			+ '" style="text-align: center; font-size: 14.0pt; font-family: 宋体; display: inline-block; height: 90%; width: 95%; padding: 0px; margin: 3px; border-radius: 0px"/></td>'
+			+ '<td width=84 colspan=2 style="width: 62pt; border: solid black 1.0pt; border-left: none; padding: 0cm 5.4pt 0cm 5.4pt; height: 30pt">'
+			+ '<input type="text" id="study_end_time'
+			+ flag
+			+ '" style="text-align: center; font-size: 14.0pt; font-family: 宋体; display: inline-block; height: 90%; width: 95%; padding: 0px; margin: 3px; border-radius: 0px"/></td>';
+	if (index_study == 0) {
+		$('#study').after(addStudy_div);
+	} else {
+		// $('#work'+(i-1)).after(addWork_div);
+		$('#study').after(addStudy_div);
+	}
+}
+function addwork() {
+	var flag = index_work;
+	$('#work').find('td').each(function(index) {
+		if (index == 0) {
+			$(this).prop("rowSpan", Number($(this).attr('rowSpan')) + 2)
+			console.log($(this))
+		}
+	})
+	var addWork_div = '<tr><input type="hidden" id=workid'
+			+ flag
+			+ '/></tr>'
+			+ '<td width=84 colspan=3 style="width: 62pt; border: solid black 1.0pt; border-left: none; padding: 0cm 5.4pt 0cm 5.4pt; height: 30pt">'
+			+ '<input type="text" id="work_country'
+			+ flag
+			+ '" style="text-align: center; font-size: 14.0pt; font-family: 宋体; display: inline-block; height: 90%; width: 95%; padding: 0px; margin: 3px; border-radius: 0px"/></td>'
+			+ '<td width=84 colspan=2 style="width: 62pt; border: solid black 1.0pt; border-left: none; padding: 0cm 5.4pt 0cm 5.4pt; height: 30pt">'
+			+ '<input type="text" id="work_institution'
+			+ flag
+			+ '" style="text-align: center; font-size: 14.0pt; font-family: 宋体; display: inline-block; height: 90%; width: 95%; padding: 0px; margin: 3px; border-radius: 0px"/></td>'
+			+ '<td width=84 colspan=3 style="width: 62pt; border: solid black 1.0pt; border-left: none; padding: 0cm 5.4pt 0cm 5.4pt; height: 30pt">'
+			+ '<input type="text" id="work_position'
+			+ flag
+			+ '" style="text-align: center; font-size: 14.0pt; font-family: 宋体; display: inline-block; height: 90%; width: 95%; padding: 0px; margin: 3px; border-radius: 0px"/></td>'
+			+ '<td width=84 colspan=2 style="width: 62pt; border: solid black 1.0pt; border-left: none; padding: 0cm 5.4pt 0cm 5.4pt; height: 30pt">'
+			+ '<input type="text" id="work_start_date'
+			+ flag
+			+ '" style="text-align: center; font-size: 14.0pt; font-family: 宋体; display: inline-block; height: 90%; width: 95%; padding: 0px; margin: 3px; border-radius: 0px"/></td>'
+			+ '<td width=84 colspan=2 style="width: 62pt; border: solid black 1.0pt; border-left: none; padding: 0cm 5.4pt 0cm 5.4pt; height: 30pt">'
+			+ '<input type="text" id="work_end_date'
+			+ flag
+			+ '" style="text-align: center; font-size: 14.0pt; font-family: 宋体; display: inline-block; height: 90%; width: 95%; padding: 0px; margin: 3px; border-radius: 0px"/></td>';
+	if (index_work == 0) {
+		$('#work').after(addWork_div);
+	} else {
+		// $('#work'+(i-1)).after(addWork_div);
+		$('#work').after(addWork_div);
+	}
+}
+
+function addzuzhi() {
+	var flag = index_zuzhi;
+	$('#zhuzhi').find('td').each(function(index) {
+		if (index == 0) {
+			$(this).prop("rowSpan", Number($(this).attr('rowSpan')) + 2)
+		}
+	})
+	var addZuzhi_div = '<tr><input type="hidden" id=zuzhiid'
+			+ flag
+			+ '/></tr>'
+			+ '<td width=84 colspan=3 style="width: 62pt; border: solid black 1.0pt; border-left: none; padding: 0cm 5.4pt 0cm 5.4pt; height: 30pt">'
+			+ '<input type="text" id="zuzhi_name'
+			+ flag
+			+ '" style="text-align: center; font-size: 14.0pt; font-family: 宋体; display: inline-block; height: 90%; width: 95%; padding: 0px; margin: 3px; border-radius: 0px"/></td>'
+			+ '<td width=84 colspan=3 style="width: 62pt; border: solid black 1.0pt; border-left: none; padding: 0cm 5.4pt 0cm 5.4pt; height: 30pt">'
+			+ '<input type="text" id="zuzhi_job'
+			+ flag
+			+ '" style="text-align: center; font-size: 14.0pt; font-family: 宋体; display: inline-block; height: 90%; width: 95%; padding: 0px; margin: 3px; border-radius: 0px"/></td>'
+			+ '<td width=84 colspan=3 style="width: 62pt; border: solid black 1.0pt; border-left: none; padding: 0cm 5.4pt 0cm 5.4pt; height: 30pt">'
+			+ '<input type="text" id="zuzhi_renqi'
+			+ flag
+			+ '" style="text-align: center; font-size: 14.0pt; font-family: 宋体; display: inline-block; height: 90%; width: 95%; padding: 0px; margin: 3px; border-radius: 0px"/></td>';
+	if (index_zuzhi == 0) {
+		$('#zhuzhi').after(addZuzhi_div);
+	} else {
+		// $('#work'+(i-1)).after(addWork_div);
+		$('#zhuzhi').after(addZuzhi_div);
+	}
+}
+
 function updatekjljDoc01() {
-	arrData = new Array();
-	arrData.push({
-		"name" : "user_id",
-		"value" : userid
-	});
-arrData.push({
-		"name" : "name",
-		"value" : $("#userName2").val()
-	});arrData.push({
-					"name" : "birthday",
-					"value" : $("#user_birthday").val()
-				});
-	arrData.push({
-		"name" : "sex",
-		"value" : $("#sex").val()
-	});arrData.push({
-		"name" : "minzu",
-		"value" : $("#user_minzu").val()
-	});arrData.push({
-		"name" : "title",
-		"value" : $("#title").val()
-	});arrData.push({
-		"name" : "document_type",
-		"value" : $("#document_type").val()
-	});arrData.push({
-		"name" : "document_number",
-		"value" : $("#document_number").val()
-	});arrData.push({
-		"name" : "direction",
-		"value" : $("#direction").val()
-	});arrData.push({
-		"name" : "declaration_area",
-		"value" : $("#declaration_area").val()
-	});arrData.push({
-		"name" : "telephone",
-		"value" : $("#telephone").val()
-	});arrData.push({
-		"name" : "fax",
-		"value" : $("#fax").val()
-	});arrData.push({
-		"name" : "mobile_phone",
-		"value" : $("#mobile_phone").val()
-	});arrData.push({
-		"name" : "email",
-		"value" : $("#email").val()
-	});arrData.push({
-		"name" : "zip_code",
-		"value" : $("#zip_code").val()
-	});arrData.push({
-		"name" : "addresses",
-		"value" : $("#addresses").val()
-	});
 	
-	arrData.push({
-		"name" : "study_country",
-		"value" : $("#study_country").val()
-	});arrData.push({
-		"name" : "study_colleges",
-		"value" : $("#study_colleges").val()
-	});arrData.push({
-		"name" : "study_major",
-		"value" : $("#study_major").val()
-	});arrData.push({
-		"name" : "study_education",
-		"value" : $("#study_education").val()
-	});;arrData.push({
-		"name" : "study_start_time",
-		"value" : $("#study_start_time").val()
-	});arrData.push({
-		"name" : "study_end_time",
-		"value" : $("#study_end_time").val()
-	});arrData.push({
-		"name" : "user_studcountry2",
-		"value" : $("#user_studcountry2").val()
-	});arrData.push({
-		"name" : "user_studcollege2",
-		"value" : $("#user_studcollege2").val()
-	});arrData.push({
-		"name" : "user_studmajor2",
-		"value" : $("#user_studmajor2").val()
-	});arrData.push({
-		"name" : "user_studdegree2",
-		"value" : $("#user_studdegree2").val()
-	});arrData.push({
-		"name" : "user_studfirsttime2",
-		"value" : $("#user_studfirsttime2").val()
-	});arrData.push({
-		"name" : "user_studlasttime2",
-		"value" : $("#user_studlasttime2").val()
-	});
+	var arrstudy = [];
+	var arrwork = [];
+	var arrzuzhi = [];
+	for (var i = 0; i <= index_study; i++) {
+		var CxtdStudy = {};
+		CxtdStudy.id = $('#studyid' + i).val();
+		CxtdStudy.country = $('#study_country' + i).val();
+		CxtdStudy.academy = $('#study_colleges' + i).val();
+		CxtdStudy.major = $('#study_major' + i).val();
+		CxtdStudy.xueli = $('#study_education' + i).val();
+		CxtdStudy.start_date = $('#study_start_time' + i).val();
+		CxtdStudy.end_date = $('#study_end_time' + i).val();
+		if (CxtdStudy.country == null && CxtdStudy.academy == null
+				&& CxtdStudy.major == null && CxtdStudy.xueli == null
+				&& CxtdStudy.start_date == null && CxtdStudy.end_date == null) {
+			break;
+		}
+		arrstudy.push(CxtdStudy);
+	}
+
+	// 工作信息
+	for (var i = 0; i <= index_work; i++) {
+		var CxtdWork = {};
+		CxtdWork.id = $('#workid' + i).val();
+		CxtdWork.country = $('#work_country' + i).val();
+		CxtdWork.work_content = $('#work_institution' + i).val();
+		CxtdWork.zhiwu = $('#work_position' + i).val();
+		CxtdWork.start_date = $('#work_start_date' + i).val();
+		CxtdWork.end_date = $('#work_end_date' + i).val();
+		if (CxtdWork.country == null && CxtdWork.work_content == null
+				&& CxtdWork.zhiwu == null && CxtdWork.start_date == null
+				&& CxtdWork.end_date == null) {
+			break;
+		}
+		arrwork.push(CxtdWork);
+	}
+	// 组织信息
+	for (var i = 0; i <= index_zuzhi; i++) {
+		var CxtdZuzhi = {};
+		CxtdZuzhi.id = $('#zuzhiid' + i).val();
+		CxtdZuzhi.zuzhi_name = $('#zuzhi_name' + i).val();
+		CxtdZuzhi.zuzhi_job = $('#zuzhi_job' + i).val();
+		CxtdZuzhi.zuzhi_renqi = $('#zuzhi_renqi' + i).val();
+		if (CxtdZuzhi.zuzhi_name == null && CxtdZuzhi.zuzhi_job == null
+				&& CxtdZuzhi.zuzhi_renqi == null) {
+           break;
+		}
+		arrzuzhi.push(CxtdZuzhi);
+	}
+	var studyList = JSON.stringify(arrstudy);
+	var workList = JSON.stringify(arrwork);
+	var zuzhiList = JSON.stringify(arrzuzhi);
 	
-	arrData.push({
-		"name" : "work_country",
-		"value" : $("#work_country").val()
-	});arrData.push({
-		"name" : "work_company",
-		"value" : $("#work_company").val()
-	});arrData.push({
-		"name" : "work_position",
-		"value" : $("#work_position").val()
-	});arrData.push({
-		"name" : "work_start_time",
-		"value" : $("#work_start_time").val()
-	});arrData.push({
-		"name" : "work_end_time",
-		"value" : $("#work_end_time").val()
-	});arrData.push({
-		"name" : "user_workcountry",
-		"value" : $("#user_workcountry").val()
-	});arrData.push({
-		"name" : "user_workcollege",
-		"value" : $("#user_workcollege").val()
-	});arrData.push({
-		"name" : "user_workmajor",
-		"value" : $("#user_workmajor").val()
-	});arrData.push({
-		"name" : "work_starttime",
-		"value" : $("#work_starttime").val()
-	});arrData.push({
-		"name" : "work_endtime",
-		"value" : $("#work_endtime").val()
-	});
-	
-	
-	arrData.push({
-		"name" : "journal_title",
-		"value" : $("#journal_title").val()
-	});arrData.push({
-		"name" : "organization_position",
-		"value" : $("#organization_position").val()
-	});arrData.push({
-		"name" : "organization_term",
-		"value" : $("#organization_term").val()
-	});arrData.push({
-		"name" : "journal_title1",
-		"value" : $("#journal_title1").val()
-	});arrData.push({
-		"name" : "organization_position1",
-		"value" : $("#organization_position1").val()
-	});arrData.push({
-		"name" : "organization_term1",
-		"value" : $("#organization_term1").val()
-	});arrData.push({
-		"name" : "journal_title2",
-		"value" : $("#journal_title2").val()
-	});arrData.push({
-		"name" : "organization_position2",
-		"value" : $("#organization_position2").val()
-	});arrData.push({
-		"name" : "organization_term2",
-		"value" : $("#organization_term2").val()
-	});
-	
-	arrData.push({
-		"name" : "unit_name",
-		"value" : $("#unit_name").val()
-	});arrData.push({
-		"name" : "organization_code",
-		"value" : $("#organization_code").val()
-	});arrData.push({
-		"name" : "legal_representative",
-		"value" : $("#legal_representative").val()
-	});arrData.push({
-		"name" : "supervisor_unit",
-		"value" : $("#supervisor_unit").val()
-	});
-	arrData.push({
-				"name" : "unit_address",
-				"value" : $("#unit_address").val()
-			});
-	arrData.push({
-		"name" : "postcode",
-		"value" : $("#postcode").val()
-	});arrData.push({
-		"name" : "unit_contact",
-		"value" : $("#unit_contact").val()
-	});arrData.push({
-		"name" : "work_telephone",
-		"value" : $("#work_telephone").val()
-	});arrData.push({
-		"name" : "work_fax",
-		"value" : $("#work_fax").val()
-	});
+	var kjlj = {};
+	kjlj.user_id = userid;
+	kjlj.name = $("#userName2").val();
+    kjlj.birthday = $("#user_birthday").val();
+	kjlj.sex = $("#sex").val();
+	kjlj.minzu = $("#user_minzu").val();
+    kjlj.title = $("#title").val();
+	kjlj.document_type=$("#document_type").val();
+	kjlj.document_number= $("#document_number").val();
+	kjlj.direction=$("#direction").val();
+	kjlj.declaration_area=$("#declaration_area").val();
+	kjlj.telephone=$("#telephone").val();
+    kjlj.fax= $("#fax").val();
+	kjlj.mobile_phone=$("#mobile_phone").val();
+	kjlj.email=$("#email").val();
+	kjlj.zip_code=$("#zip_code").val();
+	kjlj.addresses=$("#addresses").val();
+    kjlj.unit_name=$("#unit_name").val();
+	kjlj.organization_code=$("#organization_code").val();
+	kjlj.legal_representative=$("#legal_representative").val();
+	kjlj.supervisor_unit=$("#supervisor_unit").val();
+	kjlj.unit_address=$("#unit_address").val();
+	kjlj.postcode=$("#postcode").val();
+	kjlj.unit_contact=$("#unit_contact").val();
+	kjlj.work_telephone= $("#work_telephone").val();
+	kjlj.work_fax=$("#work_fax").val();
 	
 	$.ajax({
 				dataType : "json",
-				type : "post",
+				type : "POST",
 				url : "kjljDoc01Update",
-				data :arrData,
+				data : {
+					"kjlj" : JSON.stringify(kjlj),
+					"zuzhis" : zuzhiList,
+					"studys" : studyList,
+					"works" : workList
+				},
 				error : function() {// 请求失败处理函数
 					alert('请求失败');
 				},

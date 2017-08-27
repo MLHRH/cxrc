@@ -82,10 +82,10 @@ function validateUserEdit() {
 		generatenoty('center', "请输入身份证号码！", 'error');
 		return false;
 	}
-	if ($("#user_email").val() == "") {
-		generatenoty('center', "请输入邮箱！", 'error');
-		return false;
-	}
+//	if ($("#user_email").val() == "") {
+//		generatenoty('center', "请输入邮箱！", 'error');
+//		return false;
+//	}
 	if ($("#user_password").val() == "") {
 		generatenoty('center', "请输入登陆密码！", 'error');
 		return false;
