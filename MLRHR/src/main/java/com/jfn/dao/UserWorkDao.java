@@ -3,7 +3,6 @@ package com.jfn.dao;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.text.SimpleDateFormat;
-import java.util.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,7 +12,6 @@ import org.springframework.jdbc.core.ResultSetExtractor;
 import org.springframework.jdbc.core.simple.ParameterizedRowMapper;
 import org.springframework.stereotype.Repository;
 
-import com.jfn.dao.NewsDao.newsRowMapper;
 import com.jfn.entity.UserWork;
 
 /**
@@ -26,11 +24,11 @@ public class UserWorkDao {
 	@Autowired
 	private JdbcTemplate jdbcTemplate;
 
-	private final String SQL_INSERT_user_work = "insert into user_work(user_id,start_date,country,work_content,zhiwu,end_date,toNow) values(?,?,?,?,?,?,?)";
+	private final String SQL_INSERT_user_work = "insert into user_work(user_id,start_date,country,work_content,zhiwu,end_date) values(?,?,?,?,?,?)";
 
 	private final String SQL_Get_BY_ID = "select * from user_work where Id=?";
 	private final String SQL_GET_user_work_LIST = "select * from user_work order by Id  ";
-	private final String SQL_SET_user_work_UPDATE = "update user_work set user_id=?,start_date=?,country=?,work_content=?,zhiwu=?,end_date=?,toNow=? where id=?";
+	private final String SQL_SET_user_work_UPDATE = "update user_work set user_id=?,start_date=?,country=?,work_content=?,zhiwu=?,end_date=? where id=?";
 
 	private final static String SQL_DEL_BY_ID = "delete from user_work where id = ?";
 	// 通过user_id查询
@@ -39,17 +37,12 @@ public class UserWorkDao {
 	SimpleDateFormat sdf = new SimpleDateFormat("yyyy.MM.dd");
 
 	public boolean insert(UserWork user_work) {
-		if (Integer.parseInt(user_work.getToNow()) == 1) {
+	
 			return jdbcTemplate.update(SQL_INSERT_user_work,
 					new Object[] { user_work.getUser_id(), user_work.getStart_date(), user_work.getCountry(),
-							user_work.getWork_content(), user_work.getZhiwu(), sdf.format(new Date()),
-							user_work.getToNow() }) == 1;
-		} else {
-			return jdbcTemplate.update(SQL_INSERT_user_work,
-					new Object[] { user_work.getUser_id(), user_work.getStart_date(), user_work.getCountry(),
-							user_work.getWork_content(), user_work.getZhiwu(), user_work.getEnd_date(),
-							user_work.getToNow() }) == 1;
-		}
+							user_work.getWork_content(), user_work.getZhiwu(), user_work.getEnd_date()
+							 }) == 1;
+
 	}
 
 	public UserWork get(int id) {
@@ -60,32 +53,11 @@ public class UserWorkDao {
 				if (rs.next()) {
 					user_work.setId(rs.getInt("id"));
 					user_work.setUser_id(rs.getString("user_id"));
-
-					String temp = rs.getString("start_date");
-					if (temp != null) {
-						String Year = temp.substring(0, 4);
-						String Month = temp.substring(5, 7);
-						String Day = temp.substring(8, 10);
-						temp = Year + "." + Month + "." + Day;
-					}
-					user_work.setStart_date(temp);
+					user_work.setStart_date(rs.getString("start_date"));
 					user_work.setCountry(rs.getString("country"));
 					user_work.setWork_content(rs.getString("work_content"));
 					user_work.setZhiwu(rs.getString("zhiwu"));
-
-					temp = rs.getString("end_date");
-					if (temp != null) {
-						String Year = temp.substring(0, 4);
-						String Month = temp.substring(5, 7);
-						String Day = temp.substring(8, 10);
-						temp = Year + "." + Month + "." + Day;
-					}
-					user_work.setEnd_date(temp);
-					user_work.setToNow(rs.getString("toNow"));
-
-					// user_work.setEnd_date(rs.getString("end_date"));
-					//
-					// user_work.setToNow(rs.getString("toNow"));
+					user_work.setEnd_date(rs.getString("end_date"));
 
 				}
 				return user_work;
@@ -102,19 +74,13 @@ public class UserWorkDao {
 	 */
 
 	public boolean Update(UserWork user_work) {
-		if (Integer.parseInt(user_work.getToNow()) == 1) {
+		
 			Object[] params = new Object[] { user_work.getUser_id(), user_work.getStart_date(),
 
 					user_work.getCountry(), user_work.getWork_content(), user_work.getZhiwu(),
-					sdf.format(new Date()), user_work.getToNow(), user_work.getId() };
+					user_work.getEnd_date(),  user_work.getId() };
 			return jdbcTemplate.update(SQL_SET_user_work_UPDATE, params) == 1;
-		} else {
-			Object[] params = new Object[] { user_work.getUser_id(), user_work.getStart_date(),
 
-					user_work.getCountry(), user_work.getWork_content(), user_work.getZhiwu(),
-					user_work.getEnd_date(), 	user_work.getToNow(), user_work.getId() };
-			return jdbcTemplate.update(SQL_SET_user_work_UPDATE, params) == 1;
-		}
 
 	}
 
@@ -142,34 +108,11 @@ public class UserWorkDao {
 			UserWork user_work = new UserWork();
 			user_work.setId(rs.getInt("id"));
 			user_work.setUser_id(rs.getString("user_id"));
-
-			String temp = rs.getString("start_date");
-			if (temp != null) {
-				String Year = temp.substring(0, 4);
-				String Month = temp.substring(5, 7);
-				String Day = temp.substring(8, 10);
-				temp = Year + "." + Month + "." + Day;
-			}
-			user_work.setStart_date(temp);
+			user_work.setStart_date(rs.getString("start_date"));
 			user_work.setCountry(rs.getString("country"));
-
 			user_work.setWork_content(rs.getString("work_content"));
 			user_work.setZhiwu(rs.getString("zhiwu"));
-
-			temp = rs.getString("end_date");
-			if (temp != null) {
-				String Year = temp.substring(0, 4);
-				String Month = temp.substring(5, 7);
-				String Day = temp.substring(8, 10);
-				temp = Year + "." + Month + "." + Day;
-			}
-			user_work.setEnd_date(temp);
-			user_work.setToNow(rs.getString("toNow"));
-			// user_work.setEnd_date(rs.getString("end_date"));
-			// user_work.setJob(rs.getString("job"));
-			// user_work.setWork_content(rs.getString("work_content"));
-			// user_work.setZhiwu(rs.getString("zhiwu"));
-			// user_work.setToNow(rs.getString("toNow"));
+			user_work.setEnd_date(rs.getString("end_date"));
 			return user_work;
 		}
 	}

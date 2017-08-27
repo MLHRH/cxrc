@@ -23,12 +23,12 @@ public class UserPeixunDao {
 	@Autowired
 	private JdbcTemplate jdbcTemplate;
 
-	private final String SQL_INSERT_user_peixun = "insert into user_peixun(user_id,start_date,end_date,major,country,zhengmingren,academy,xuezhi,xueli,isTop) values(?,?,?,?,?,?,?,?,?,?)";
+	private final String SQL_INSERT_user_peixun = "insert into user_peixun(user_id,start_date,end_date,major,country,academy,xueli) values(?,?,?,?,?,?,?)";
 
 	private final String SQL_Get_BY_ID = "select * from user_peixun where Id=?";
-	private final String SQL_Get_BY_USERID = "select * from user_peixun where user_id=? order by isTop desc limit 1";
+	private final String SQL_Get_BY_USERID = "select * from user_peixun where user_id=? order by end_date desc limit 1";
 	private final String SQL_GET_user_peixun_LIST = "select * from user_peixun order by Id  ";
-	private final String SQL_SET_user_peixun_UPDATE = "update user_peixun set user_id=?,start_date=?,end_date=?,major=?,country=?,zhengmingren=?,academy=?,xuezhi=?,xueli=?,isTop=? where id=?";
+	private final String SQL_SET_user_peixun_UPDATE = "update user_peixun set user_id=?,start_date=?,end_date=?,major=?,country=?,academy=?,xueli=? where id=?";
 
 	private final static String SQL_DEL_BY_ID = "delete from user_peixun where id = ?";
 	// 通过user_id查询
@@ -36,8 +36,8 @@ public class UserPeixunDao {
 
 	public boolean insert(UserPeixun user_peixun) {
 		return jdbcTemplate.update(SQL_INSERT_user_peixun,
-				new Object[] { user_peixun.getUser_id(), user_peixun.getStart_date(), user_peixun.getEnd_date(), user_peixun.getMajor(), user_peixun.getCountry(), user_peixun.getZhengmingren(),
-						user_peixun.getAcademy(), user_peixun.getXuezhi(), user_peixun.getXueli(), user_peixun.getIsTop() }) == 1;
+				new Object[] { user_peixun.getUser_id(), user_peixun.getStart_date(), user_peixun.getEnd_date(), user_peixun.getMajor(), user_peixun.getCountry(),
+						user_peixun.getAcademy(),  user_peixun.getXueli() }) == 1;
 	}
 
 	public UserPeixun get(int id) {
@@ -48,33 +48,12 @@ public class UserPeixunDao {
 				if (rs.next()) {
 					user_peixun.setId(rs.getInt("id"));
 					user_peixun.setUser_id(rs.getString("user_id"));
-
-					String temp = rs.getString("start_date");
-					if (temp != null) {
-						String Year = temp.substring(0, 4);
-						String Month = temp.substring(5, 7);
-						String Day = temp.substring(8, 10);
-						temp = Year + "." + Month + "." + Day;
-					}
-
-					user_peixun.setStart_date(temp);
-
-					temp = rs.getString("end_date");
-					if (temp != null) {
-						String Year = temp.substring(0, 4);
-						String Month = temp.substring(5, 7);
-						String Day = temp.substring(8, 10);
-						temp = Year + "." + Month + "." + Day;
-					}
-					user_peixun.setEnd_date(temp);
-
+					user_peixun.setStart_date(rs.getString("start_date"));
+					user_peixun.setEnd_date(rs.getString("end_date"));
 					user_peixun.setMajor(rs.getString("major"));
 					user_peixun.setCountry(rs.getString("country"));
-					user_peixun.setZhengmingren(rs.getString("zhengmingren"));
 					user_peixun.setAcademy(rs.getString("academy"));
-					user_peixun.setXuezhi(rs.getString("xuezhi"));
 					user_peixun.setXueli(rs.getString("xueli"));
-					user_peixun.setIsTop(rs.getString("isTop"));
 				}
 				return user_peixun;
 			}
@@ -89,33 +68,12 @@ public class UserPeixunDao {
 				if (rs.next()) {
 					user_peixun.setId(rs.getInt("id"));
 					user_peixun.setUser_id(rs.getString("user_id"));
-
-					String temp = rs.getString("start_date");
-					if (temp != null) {
-						String Year = temp.substring(0, 4);
-						String Month = temp.substring(5, 7);
-						String Day = temp.substring(8, 10);
-						temp = Year + "." + Month + "." + Day;
-					}
-
-					user_peixun.setStart_date(temp);
-
-					temp = rs.getString("end_date");
-					if (temp != null) {
-						String Year = temp.substring(0, 4);
-						String Month = temp.substring(5, 7);
-						String Day = temp.substring(8, 10);
-						temp = Year + "." + Month + "." + Day;
-					}
-					user_peixun.setEnd_date(temp);
-
+					user_peixun.setStart_date(rs.getString("start_date"));
+					user_peixun.setEnd_date(rs.getString("end_date"));
 					user_peixun.setMajor(rs.getString("major"));
 					user_peixun.setCountry(rs.getString("country"));
-					user_peixun.setZhengmingren(rs.getString("zhengmingren"));
 					user_peixun.setAcademy(rs.getString("academy"));
-					user_peixun.setXuezhi(rs.getString("xuezhi"));
 					user_peixun.setXueli(rs.getString("xueli"));
-					user_peixun.setIsTop(rs.getString("isTop"));
 				}
 				return user_peixun;
 			}
@@ -132,7 +90,7 @@ public class UserPeixunDao {
 
 	public boolean Update(UserPeixun user_peixun) {
 		Object[] params = new Object[] { user_peixun.getUser_id(), user_peixun.getStart_date(), user_peixun.getEnd_date(), user_peixun.getMajor(), user_peixun.getCountry(),
-				user_peixun.getZhengmingren(), user_peixun.getAcademy(), user_peixun.getXuezhi(), user_peixun.getXueli(), user_peixun.getIsTop(), user_peixun.getId() };
+				 user_peixun.getAcademy(),  user_peixun.getXueli(), user_peixun.getId() };
 		return jdbcTemplate.update(SQL_SET_user_peixun_UPDATE, params) == 1;
 	}
 
@@ -160,33 +118,12 @@ public class UserPeixunDao {
 			UserPeixun user_peixun = new UserPeixun();
 			user_peixun.setId(rs.getInt("id"));
 			user_peixun.setUser_id(rs.getString("user_id"));
-
-			String temp = rs.getString("start_date");
-			if (temp != null) {
-				String Year = temp.substring(0, 4);
-				String Month = temp.substring(5, 7);
-				String Day = temp.substring(8, 10);
-				temp = Year + "." + Month + "." + Day;
-			}
-
-			user_peixun.setStart_date(temp);
-
-			temp = rs.getString("end_date");
-			if (temp != null) {
-				String Year = temp.substring(0, 4);
-				String Month = temp.substring(5, 7);
-				String Day = temp.substring(8, 10);
-				temp = Year + "." + Month + "." + Day;
-			}
-			user_peixun.setEnd_date(temp);
-
+			user_peixun.setStart_date(rs.getString("start_date"));
+			user_peixun.setEnd_date(rs.getString("end_date"));
 			user_peixun.setMajor(rs.getString("major"));
 			user_peixun.setCountry(rs.getString("country"));
-			user_peixun.setZhengmingren(rs.getString("zhengmingren"));
 			user_peixun.setAcademy(rs.getString("academy"));
-			user_peixun.setXuezhi(rs.getString("xuezhi"));
 			user_peixun.setXueli(rs.getString("xueli"));
-			user_peixun.setIsTop(rs.getString("isTop"));
 			return user_peixun;
 		}
 	}

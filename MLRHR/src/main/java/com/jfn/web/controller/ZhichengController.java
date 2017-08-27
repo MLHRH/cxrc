@@ -181,6 +181,7 @@ public class ZhichengController {
 		menus2.add(menus.get(3));
 		menus2.add(menus.get(4));
 		menus2.add(menus.get(5));
+		menus2.add(menus.get(7));
 		map.addObject("menus", menus2);
 
 		map.addObject("type", applyType);
@@ -216,7 +217,7 @@ public class ZhichengController {
 		if (type != null && type.length() > 4) {
 			type = type.substring(1, 5);
 		}
-		List<ApplyMenu> menus = applyMenuService.getMenu(applytype);
+		List<ApplyMenu> menus = applyMenuService.getMenu(type);
 		ModelAndView map = new ModelAndView("zhicheng/zhichengApply");
 		HttpSession session = request.getSession();
 		User user = (User) session.getAttribute("loginuser");

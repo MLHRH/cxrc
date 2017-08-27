@@ -10,12 +10,15 @@ import javax.servlet.http.HttpServletResponse;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.context.SecurityContextImpl;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
 import com.jfn.common.util.Constant;
 import com.jfn.common.util.FileUtil;
@@ -95,13 +98,29 @@ public class AttachController {
 	public Object showUpLoadFile(HttpServletRequest request, Model model) {
 		List<Attachfile> files = new ArrayList<Attachfile>();
 		String apply_id = request.getParameter("applyid");
+		String authority = "";
+
+		SecurityContextImpl securityContextImpl = (SecurityContextImpl) request.getSession().getAttribute("SPRING_SECURITY_CONTEXT");
+		@SuppressWarnings("unchecked")
+		List<GrantedAuthority> authorities = (List<GrantedAuthority>) securityContextImpl.getAuthentication().getAuthorities();
+		for (GrantedAuthority grantedAuthority : authorities) {
+			authority = authority + grantedAuthority.getAuthority() + "|";
+		}
+
+		JSONObject jo3 = new JSONObject();
+		jo3.put("authority", authority);
+		JSONArray jsonArray = new JSONArray();
 		if (apply_id == null || apply_id.equals("")) {
-			return files;
+			jsonArray.add(files);
+			jsonArray.add(jo3);
+			return jsonArray.toString();
 		}
 		Integer applyid =Integer.valueOf(apply_id);
 		Attachfile file = fileService.getFileByApplyId(applyid);
 		files.add(file);
-		return files;
+		jsonArray.add(files);
+		jsonArray.add(jo3);
+		return jsonArray.toString();
 		}
 	
 	/**

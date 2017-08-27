@@ -1,59 +1,67 @@
 package com.jfn.entity;
 
 public class UesrZuzhi {
-	
-	private Integer userId;
+	private Integer id;
+	private Integer user_id;
+
+	private String zuzhi_name;
 	/*
-	 * 日期*/
-	private String date;
+	 * 角色
+	 */
+	private String zuzhi_job;
 	/*
-	 * 姓名*/
-	private String name;
-	/*
-	 * 角色*/
-	private String jiaose;
-	/*
-	 * 类型*/
-	private String type;
-	/*
-	 * 其他*/
-	private String other;
-	public Integer getUserId() {
-		return userId;
+	 * 类型
+	 */
+	private String zuzhi_renqi;
+
+	public Integer getId() {
+		return id;
 	}
-	public void setUserId(Integer userId) {
-		this.userId = userId;
+
+	public void setId(Integer id) {
+		this.id = id;
 	}
-	public String getDate() {
-		return date;
+
+	public Integer getUser_id() {
+		return user_id;
 	}
-	public void setDate(String date) {
-		this.date = date;
+
+	public void setUser_id(Integer user_id) {
+		this.user_id = user_id;
 	}
-	public String getName() {
-		return name;
+
+	public String getZuzhi_name() {
+		return zuzhi_name;
 	}
-	public void setName(String name) {
-		this.name = name;
+
+	public void setZuzhi_name(String zuzhi_name) {
+		this.zuzhi_name = zuzhi_name;
 	}
-	public String getJiaose() {
-		return jiaose;
+
+	public String getZuzhi_job() {
+		return zuzhi_job;
 	}
-	public void setJiaose(String jiaose) {
-		this.jiaose = jiaose;
+
+	public void setZuzhi_job(String zuzhi_job) {
+		this.zuzhi_job = zuzhi_job;
 	}
-	public String getType() {
-		return type;
+
+	public String getZuzhi_renqi() {
+		return zuzhi_renqi;
 	}
-	public void setType(String type) {
-		this.type = type;
+
+	public void setZuzhi_renqi(String zuzhi_renqi) {
+		this.zuzhi_renqi = zuzhi_renqi;
 	}
-	public String getOther() {
-		return other;
+
+	public UesrZuzhi() {
+		super();
 	}
-	public void setOther(String other) {
-		this.other = other;
+
+	@Override
+	public String toString() {
+		return "UserWork [id=" + id + ", user_id=" + user_id + ", zuzhi_name=" + zuzhi_name + ", zuzhi_job=" + zuzhi_job
+				+ ", zuzhi_renqi=" + zuzhi_renqi + "]";
 	}
-	
 
 }

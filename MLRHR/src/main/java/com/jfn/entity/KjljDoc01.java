@@ -2,12 +2,6 @@ package com.jfn.entity;
 
 public class KjljDoc01 {     
 	private  int id;
-	public int getId() {
-		return id;
-	}
-	public void setId(int id) {
-		this.id = id;
-	}
 	private Integer user_id;
 	private String name;
 	private String sex;
@@ -24,46 +18,6 @@ public class KjljDoc01 {
 	private String email;
 	private String zip_code;
 	private String addresses;
-	
-	private String user_studcountry2;
-	private String user_studcollege2;
-	private String user_studmajor2;
-	private String user_studdegree2;
-	private String user_studfirsttime2;
-	private String user_studlasttime2;
-	
-	private String study_country;
-	private String study_colleges;
-	private String study_major;
-	private String study_education;
-	private String study_start_time;
-	private String study_end_time;
-	
-	private String work_country;
-	private String work_company;
-	private String work_position ;
-	private String work_start_time;
-	private String work_end_time;
-
-
-	
-	private String user_workcountry;
-	private String user_workcollege;
-	private String user_workmajor ;
-	private String work_starttime;
-	private String work_endtime;
-	
-
-	private String journal_title;
-	private String organization_position;
-	private String organization_term;
-	private String journal_title1;
-	private String organization_position1;
-	private String organization_term1;
-	private String journal_title2;
-	private String organization_position2;
-	private String organization_term2;
-	
 	private String unit_name ;
 	private String organization_code;
 	private String legal_representative ;
@@ -73,6 +27,12 @@ public class KjljDoc01 {
 	private String unit_contact;
 	private String work_telephone;
 	private String work_fax;
+	public int getId() {
+		return id;
+	}
+	public void setId(int id) {
+		this.id = id;
+	}
 	public Integer getUser_id() {
 		return user_id;
 	}
@@ -169,192 +129,6 @@ public class KjljDoc01 {
 	public void setAddresses(String addresses) {
 		this.addresses = addresses;
 	}
-	public String getUser_studcountry2() {
-		return user_studcountry2;
-	}
-	public void setUser_studcountry2(String user_studcountry2) {
-		this.user_studcountry2 = user_studcountry2;
-	}
-	public String getUser_studcollege2() {
-		return user_studcollege2;
-	}
-	public void setUser_studcollege2(String user_studcollege2) {
-		this.user_studcollege2 = user_studcollege2;
-	}
-	public String getUser_studmajor2() {
-		return user_studmajor2;
-	}
-	public void setUser_studmajor2(String user_studmajor2) {
-		this.user_studmajor2 = user_studmajor2;
-	}
-	public String getUser_studdegree2() {
-		return user_studdegree2;
-	}
-	public void setUser_studdegree2(String user_studdegree2) {
-		this.user_studdegree2 = user_studdegree2;
-	}
-	public String getUser_studfirsttime2() {
-		return user_studfirsttime2;
-	}
-	public void setUser_studfirsttime2(String user_studfirsttime2) {
-		this.user_studfirsttime2 = user_studfirsttime2;
-	}
-	public String getUser_studlasttime2() {
-		return user_studlasttime2;
-	}
-	public void setUser_studlasttime2(String user_studlasttime2) {
-		this.user_studlasttime2 = user_studlasttime2;
-	}
-	public String getStudy_country() {
-		return study_country;
-	}
-	public void setStudy_country(String study_country) {
-		this.study_country = study_country;
-	}
-	public String getStudy_colleges() {
-		return study_colleges;
-	}
-	public void setStudy_colleges(String study_colleges) {
-		this.study_colleges = study_colleges;
-	}
-	public String getStudy_major() {
-		return study_major;
-	}
-	public void setStudy_major(String study_major) {
-		this.study_major = study_major;
-	}
-	public String getStudy_education() {
-		return study_education;
-	}
-	public void setStudy_education(String study_education) {
-		this.study_education = study_education;
-	}
-	public String getStudy_start_time() {
-		return study_start_time;
-	}
-	public void setStudy_start_time(String study_start_time) {
-		this.study_start_time = study_start_time;
-	}
-	public String getStudy_end_time() {
-		return study_end_time;
-	}
-	public void setStudy_end_time(String study_end_time) {
-		this.study_end_time = study_end_time;
-	}
-	public String getWork_country() {
-		return work_country;
-	}
-	public void setWork_country(String work_country) {
-		this.work_country = work_country;
-	}
-	public String getWork_company() {
-		return work_company;
-	}
-	public void setWork_company(String work_company) {
-		this.work_company = work_company;
-	}
-	public String getWork_position() {
-		return work_position;
-	}
-	public void setWork_position(String work_position) {
-		this.work_position = work_position;
-	}
-	public String getWork_start_time() {
-		return work_start_time;
-	}
-	public void setWork_start_time(String work_start_time) {
-		this.work_start_time = work_start_time;
-	}
-	public String getWork_end_time() {
-		return work_end_time;
-	}
-	public void setWork_end_time(String work_end_time) {
-		this.work_end_time = work_end_time;
-	}
-	public String getUser_workcountry() {
-		return user_workcountry;
-	}
-	public void setUser_workcountry(String user_workcountry) {
-		this.user_workcountry = user_workcountry;
-	}
-	public String getUser_workcollege() {
-		return user_workcollege;
-	}
-	public void setUser_workcollege(String user_workcollege) {
-		this.user_workcollege = user_workcollege;
-	}
-	public String getUser_workmajor() {
-		return user_workmajor;
-	}
-	public void setUser_workmajor(String user_workmajor) {
-		this.user_workmajor = user_workmajor;
-	}
-	public String getWork_starttime() {
-		return work_starttime;
-	}
-	public void setWork_starttime(String work_starttime) {
-		this.work_starttime = work_starttime;
-	}
-	public String getWork_endtime() {
-		return work_endtime;
-	}
-	public void setWork_endtime(String work_endtime) {
-		this.work_endtime = work_endtime;
-	}
-	public String getJournal_title() {
-		return journal_title;
-	}
-	public void setJournal_title(String journal_title) {
-		this.journal_title = journal_title;
-	}
-	public String getOrganization_position() {
-		return organization_position;
-	}
-	public void setOrganization_position(String organization_position) {
-		this.organization_position = organization_position;
-	}
-	public String getOrganization_term() {
-		return organization_term;
-	}
-	public void setOrganization_term(String organization_term) {
-		this.organization_term = organization_term;
-	}
-	public String getJournal_title1() {
-		return journal_title1;
-	}
-	public void setJournal_title1(String journal_title1) {
-		this.journal_title1 = journal_title1;
-	}
-	public String getOrganization_position1() {
-		return organization_position1;
-	}
-	public void setOrganization_position1(String organization_position1) {
-		this.organization_position1 = organization_position1;
-	}
-	public String getOrganization_term1() {
-		return organization_term1;
-	}
-	public void setOrganization_term1(String organization_term1) {
-		this.organization_term1 = organization_term1;
-	}
-	public String getJournal_title2() {
-		return journal_title2;
-	}
-	public void setJournal_title2(String journal_title2) {
-		this.journal_title2 = journal_title2;
-	}
-	public String getOrganization_position2() {
-		return organization_position2;
-	}
-	public void setOrganization_position2(String organization_position2) {
-		this.organization_position2 = organization_position2;
-	}
-	public String getOrganization_term2() {
-		return organization_term2;
-	}
-	public void setOrganization_term2(String organization_term2) {
-		this.organization_term2 = organization_term2;
-	}
 	public String getUnit_name() {
 		return unit_name;
 	}
@@ -409,80 +183,20 @@ public class KjljDoc01 {
 	public void setWork_fax(String work_fax) {
 		this.work_fax = work_fax;
 	}
-	public KjljDoc01(int id, Integer user_id, String name, String sex, String minzu, String birthday, String title,
-			String document_type, String document_number, String direction, String declaration_area, String telephone,
-			String fax, String mobile_phone, String email, String zip_code, String addresses, String user_studcountry2,
-			String user_studcollege2, String user_studmajor2, String user_studdegree2, String user_studfirsttime2,
-			String user_studlasttime2, String study_country, String study_colleges, String study_major,
-			String study_education, String study_start_time, String study_end_time, String work_country,
-			String work_company, String work_position, String work_start_time, String work_end_time,
-			String user_workcountry, String user_workcollege, String user_workmajor, String work_starttime,
-			String work_endtime, String journal_title, String organization_position, String organization_term,
-			String journal_title1, String organization_position1, String organization_term1, String journal_title2,
-			String organization_position2, String organization_term2, String unit_name, String organization_code,
-			String legal_representative, String supervisor_unit, String unit_address, String postcode,
-			String unit_contact, String work_telephone, String work_fax) {
-		super();
-		this.id = id;
-		this.user_id = user_id;
-		this.name = name;
-		this.sex = sex;
-		this.minzu = minzu;
-		this.birthday = birthday;
-		this.title = title;
-		this.document_type = document_type;
-		this.document_number = document_number;
-		this.direction = direction;
-		this.declaration_area = declaration_area;
-		this.telephone = telephone;
-		this.fax = fax;
-		this.mobile_phone = mobile_phone;
-		this.email = email;
-		this.zip_code = zip_code;
-		this.addresses = addresses;
-		this.user_studcountry2 = user_studcountry2;
-		this.user_studcollege2 = user_studcollege2;
-		this.user_studmajor2 = user_studmajor2;
-		this.user_studdegree2 = user_studdegree2;
-		this.user_studfirsttime2 = user_studfirsttime2;
-		this.user_studlasttime2 = user_studlasttime2;
-		this.study_country = study_country;
-		this.study_colleges = study_colleges;
-		this.study_major = study_major;
-		this.study_education = study_education;
-		this.study_start_time = study_start_time;
-		this.study_end_time = study_end_time;
-		this.work_country = work_country;
-		this.work_company = work_company;
-		this.work_position = work_position;
-		this.work_start_time = work_start_time;
-		this.work_end_time = work_end_time;
-		this.user_workcountry = user_workcountry;
-		this.user_workcollege = user_workcollege;
-		this.user_workmajor = user_workmajor;
-		this.work_starttime = work_starttime;
-		this.work_endtime = work_endtime;
-		this.journal_title = journal_title;
-		this.organization_position = organization_position;
-		this.organization_term = organization_term;
-		this.journal_title1 = journal_title1;
-		this.organization_position1 = organization_position1;
-		this.organization_term1 = organization_term1;
-		this.journal_title2 = journal_title2;
-		this.organization_position2 = organization_position2;
-		this.organization_term2 = organization_term2;
-		this.unit_name = unit_name;
-		this.organization_code = organization_code;
-		this.legal_representative = legal_representative;
-		this.supervisor_unit = supervisor_unit;
-		this.unit_address = unit_address;
-		this.postcode = postcode;
-		this.unit_contact = unit_contact;
-		this.work_telephone = work_telephone;
-		this.work_fax = work_fax;
-	}
 	public KjljDoc01() {
 		super();
 	}
 	
+	@Override
+	public String toString() {
+		return "KjljDoc01 [id=" + id + ", user_id=" + user_id + ", name=" + name + ", sex=" + sex + ", minzu="
+				+ minzu + ", birthday=" + birthday + ", title=" + title + ", document_type=" + document_type
+				+ ", document_number=" + document_number + ", direction=" + direction + ", declaration_area="
+				+ declaration_area + ", telephone=" + telephone + ", fax=" + fax + ", mobile_phone=" + mobile_phone
+				+ ", email=" + email + ", zip_code=" + zip_code + ", addresses=" + addresses + ", unit_name="
+				+ unit_name + ", organization_code=" + organization_code + ", legal_representative="
+				+ legal_representative + ", supervisor_unit=" + supervisor_unit + ", unit_address=" + unit_address
+				+ ", postcode=" + postcode + ", unit_contact=" + unit_contact + ", work_telephone=" + work_telephone
+				+ ", work_fax=" + work_fax + "]";
+	}
 }

@@ -14,6 +14,7 @@ import com.jfn.dao.CxtdDoc03Dao;
 import com.jfn.dao.CxtdDoc04Dao;
 import com.jfn.dao.UserPeixunDao;
 import com.jfn.dao.UserWorkDao;
+import com.jfn.dao.UserZuzhiDao;
 import com.jfn.entity.CxtdBaseInfo;
 import com.jfn.entity.CxtdDao05;
 import com.jfn.entity.CxtdDoc01;
@@ -23,6 +24,7 @@ import com.jfn.entity.CxtdLeaderInfo;
 import com.jfn.entity.CxtdLeaderZuzhi;
 import com.jfn.entity.CxtdMemberInfo;
 import com.jfn.entity.CxtdMemberNum;
+import com.jfn.entity.UesrZuzhi;
 import com.jfn.entity.UserPeixun;
 import com.jfn.entity.UserWork;
 
@@ -41,6 +43,8 @@ public class cxtdDocService {
 	private CxtdDoc04Dao cxtdDoc04Dao;
 	@Autowired
 	private CxtdDao05Dao cxtdDao05Dao;
+	@Autowired
+	private UserZuzhiDao zuzhiDao ;
 	
 	/**
 	 * 初始化doc01
@@ -56,7 +60,7 @@ public class cxtdDocService {
 			CxtdLeaderInfo leaderInfo = cxtddoc01Dao.queryCxtdLeaderInfo(user_id);
 			List<UserPeixun> pList = userPeixunDao.getAllByUserId(String.valueOf(user_id));
 			List<UserWork> wList = userWorkDao.getAllByUserId(String.valueOf(user_id));
-			List<CxtdLeaderZuzhi> zList = cxtddoc01Dao.getAllByUserId(String.valueOf(user_id));
+			List<UesrZuzhi> zList = zuzhiDao.getAllByUserId(String.valueOf(user_id));
 			CxtdMemberNum memNum = cxtddoc01Dao.queryCxtdMemberNum(team_id);
 		    List<CxtdMemberInfo> mList = cxtddoc01Dao.queryCxtdMemberInfo(team_id);
 		    System.err.print(mList);
@@ -80,10 +84,6 @@ public class cxtdDocService {
 		baseInfo.toString();
 		CxtdLeaderInfo leaderInfo = cxtddoc01.getLeaderInfo();
 		leaderInfo.toString();
-		List<CxtdLeaderZuzhi> zList = cxtddoc01.getzList();
-		for(int i = 0 ; i < zList.size() ; i++){
-			zList.get(i).toString();
-		}
 		List<CxtdMemberInfo> mList = cxtddoc01.getmList();
 		for(CxtdMemberInfo info : mList){
 			info.toString();
@@ -113,12 +113,7 @@ public class cxtdDocService {
 			else{
 				cxtddoc01Dao.insertCxtdLeaderInfo(leaderInfo, user_id,team_id);
 			}
-			//更新国内外学术组织及重要学术期刊任职情况
-			List<CxtdLeaderZuzhi> List = cxtddoc01Dao.getAllByUserId(String.valueOf(user_id));
-		          	cxtddoc01Dao.deletezu(user_id);
-					for(CxtdLeaderZuzhi ss : zList){
-				cxtddoc01Dao.insertCxtdLeaderZuzhi(ss, user_id);
-			}
+		
 			//团队人数统计
 			CxtdMemberNum mNum = cxtddoc01Dao.queryCxtdMemberNum(team_id);
 			if (mNum.getId() != null) {

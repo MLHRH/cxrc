@@ -20,14 +20,7 @@ public class UserWork {
 
 	private String end_date;
 	private String country;
-	private String toNow;
-	
-	public String getToNow() {
-		return toNow;
-	}
-	public void setToNow(String toNow) {
-		this.toNow = toNow;
-	}
+
 	public Integer getId() {
 		return id;
 	}
@@ -72,7 +65,13 @@ public class UserWork {
 	}
 
 
-
+	@Override
+	public String toString() {
+		return "UserWork [id=" + id + ", user_id=" + user_id + ", country="
+				+ country + ", work_content=" + work_content + ", zhiwu=" + zhiwu
+				+ ",start_date=" + start_date
+				+ ", end_date=" + end_date +"]";
+	}
 	
 	
 }

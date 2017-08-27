@@ -1,7 +1,9 @@
 package com.jfn.web.controller;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -14,8 +16,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.alibaba.fastjson.JSON;
+import com.alibaba.fastjson.JSONArray;
+import com.alibaba.fastjson.JSONObject;
 import com.google.gson.Gson;
 import com.google.gson.JsonObject;
+import com.jfn.dao.UserAwardDao.user_awardRowMapper;
 import com.jfn.entity.ExpertScore;
 import com.jfn.entity.ExpertVote;
 import com.jfn.entity.JcqnDoc01;
@@ -28,6 +34,7 @@ import com.jfn.entity.JcqnDocProject;
 import com.jfn.entity.JcqnDocReport;
 import com.jfn.entity.JcqnDocThesis;
 import com.jfn.entity.JcqnDocTreatise;
+import com.jfn.entity.UesrZuzhi;
 import com.jfn.entity.UserPeixun;
 import com.jfn.entity.UserWork;
 import com.jfn.service.JcqnDocService;
@@ -39,9 +46,8 @@ import com.jfn.service.UserProjectService;
 import com.jfn.service.UserReportService;
 import com.jfn.service.UserWorkService;
 import com.jfn.service.UserZhuanliService;
+import com.jfn.service.UserZuzhiService;
 
-import net.sf.json.JSONArray;
-import net.sf.json.JSONObject;
 @Controller
 @RequestMapping("/")
 public class JcqnDocController {
@@ -63,19 +69,55 @@ public class JcqnDocController {
 	private UserBaogaoService userBaogaoService;
 	@Autowired
 	private UserReportService userReportService;
+	@Autowired
+	private UserPeixunService userPeixunService;
+	@Autowired
+	private UserWorkService userWorkService;
+	@Autowired
+	private UserZuzhiService userZuzhiService;
 	//更新操作记录
 			@RequestMapping(value="/jcqnDoc01Update", method =RequestMethod.POST)
 			@ResponseBody
-			public String jcqnDoc01Update(JcqnDoc01 jcqn,HttpServletRequest request){
+			public String jcqnDoc01Update(String jcqn,String works, String studys,String zuzhis ,HttpServletRequest request){
 				JsonObject jsonResponse = new JsonObject();
+				JcqnDoc01 jcqnd = JSON.parseObject(jcqn, JcqnDoc01.class);
+				List<UesrZuzhi> zuzhiList = JSONArray.parseArray(zuzhis, UesrZuzhi.class);
+				List<UserWork> userWorks = JSONArray.parseArray(works, UserWork.class);
+				List<UserPeixun> userPeixuns = JSONArray.parseArray(studys, UserPeixun.class);
+				
 				int user_id =(Integer)request.getSession().getAttribute("user_id");
-				jcqn.setUser_id(user_id);
+				
+				for (UserPeixun userPeixun : userPeixuns) {	
+					userPeixun.setUser_id(user_id + "");
+					if (userPeixun.getId() == null || userPeixun.getId().equals("") || userPeixun.getId().equals("null")) {
+						userPeixunService.user_peixunInsert(userPeixun);
+					} else {
+						userPeixunService.user_peixunUpdate(userPeixun);
+					}
+				}
+				for (UserWork userWork : userWorks) {
+					userWork.setUser_id(user_id + "");
+					if (userWork.getId() == null || userWork.getId().equals("") || userWork.getId().equals("null")) {
+						userWorkService.user_workInsert(userWork);
+					} else {
+						userWorkService.user_workUpdate(userWork);
+					}
+				}
+				for (UesrZuzhi uesrZuzhi : zuzhiList) {
+					uesrZuzhi.setUser_id(user_id);
+					if (uesrZuzhi.getId() == null || uesrZuzhi.getId().equals("") || uesrZuzhi.getId().equals("null")) {
+						userZuzhiService.zuzhiInsert(uesrZuzhi);
+					} else {
+						userZuzhiService.zuzhiUpdate(uesrZuzhi);
+					}
+				}
+				jcqnd.setUser_id(user_id);
 				int result = 0;
 				try {
 					if(jcqndoc01servive.getByUserId01(user_id).getName() != null){
-					result = jcqndoc01servive.update01(jcqn)? 1:0;}
+					result = jcqndoc01servive.update01(jcqnd)? 1:0;}
 					else{
-						result =jcqndoc01servive.insert01(jcqn)?1:0; 
+						result =jcqndoc01servive.insert01(jcqnd)?1:0; 
 					}
 					
 				} catch (Exception e) {
@@ -109,20 +151,19 @@ public class JcqnDocController {
 				List<Object> list =new ArrayList<Object>();
 				JcqnDoc01 jcqn = jcqndoc01servive.getByUserId01(Integer.parseInt(userId));
 
-				ArrayList<UserPeixun> userPeixuns=new ArrayList<UserPeixun>();
-			    for(UserPeixun study:ups.getAllByUserId(userId)) {
-			    	userPeixuns.add(study);
-			    }
-			ArrayList<UserWork> work = new ArrayList<UserWork>();
-			for (UserWork wor : uws.getAllByUserId(userId)) {
-				work.add(wor);
-			}
+				List<UserPeixun> userPeixuns=ups.getAllByUserId(userId);
+		    	List<UserWork> work = uws.getAllByUserId(userId);
+                List<UesrZuzhi> uesrZuzhis = userZuzhiService.getAllByUser(userId);
 
+			Map<String, Object> doc01 = new HashMap<String, Object>();
+			doc01.put("plist", userPeixuns);
+			doc01.put("wlist", work);
+			doc01.put("zlist", uesrZuzhis);
 			list.add(userPeixuns);
 			list.add(jcqn);
-			list.add(work);
+			list.add(doc01);
 			list.add(jo3);
-				Gson gson = new Gson();
+		   Gson gson = new Gson();
          
 			return gson.toJson(list);
 
