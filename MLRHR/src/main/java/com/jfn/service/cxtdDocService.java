@@ -62,9 +62,7 @@ public class cxtdDocService {
 			List<UserWork> wList = userWorkDao.getAllByUserId(String.valueOf(user_id));
 			List<UesrZuzhi> zList = zuzhiDao.getAllByUserId(String.valueOf(user_id));
 			CxtdMemberNum memNum = cxtddoc01Dao.queryCxtdMemberNum(team_id);
-		    List<CxtdMemberInfo> mList = cxtddoc01Dao.queryCxtdMemberInfo(team_id);
-		    System.err.print(mList);
-			
+		    List<CxtdMemberInfo> mList = cxtddoc01Dao.queryCxtdMemberInfo(team_id);			
 			doc01.put("baseinfo", baseInfo);
 			doc01.put("leaderinfo", leaderInfo);
 			doc01.put("plist", pList);

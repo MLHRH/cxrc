@@ -18,6 +18,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
+import com.google.gson.Gson;
 import com.google.gson.JsonObject;
 import com.jfn.entity.CxtdBaseInfo;
 import com.jfn.entity.CxtdDao05;
@@ -55,7 +56,7 @@ public class cxtdDocController {
 	 */
 	@RequestMapping(value = "/cxtdDoc01Init", method = RequestMethod.GET)
 	@ResponseBody
-	public Object cxtdDoc01Init(HttpServletRequest request) {
+	public String cxtdDoc01Init(HttpServletRequest request) {
 
 		// int userid =(Integer)request.getSession().getAttribute("user_id");
 		int userId = Integer.valueOf(request.getParameter("userId"));
@@ -77,7 +78,9 @@ public class cxtdDocController {
 		List<Object> list = new ArrayList<Object>();
 		list.add(doc01);
 		list.add(jo3);
-		return list;
+		 Gson gson = new Gson();
+         
+			return gson.toJson(list);
 
 	}
 
