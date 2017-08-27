@@ -1,0 +1,47 @@
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/svn/MLRHR/!svn/ver/1/src/core/java/org/springside/modules/utils/encode
+END
+JsonBinder.class
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svn/MLRHR/!svn/ver/1/src/core/java/org/springside/modules/utils/encode/JsonBinder.class
+END
+EncodeUtils.class
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/svn/MLRHR/!svn/ver/1/src/core/java/org/springside/modules/utils/encode/EncodeUtils.class
+END
+JaxbBinder.java
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svn/MLRHR/!svn/ver/1/src/core/java/org/springside/modules/utils/encode/JaxbBinder.java
+END
+JaxbBinder.class
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svn/MLRHR/!svn/ver/1/src/core/java/org/springside/modules/utils/encode/JaxbBinder.class
+END
+JaxbBinder$CollectionWrapper.class
+K 25
+svn:wc:ra_dav:version-url
+V 106
+/svn/MLRHR/!svn/ver/1/src/core/java/org/springside/modules/utils/encode/JaxbBinder$CollectionWrapper.class
+END
+JsonBinder.java
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svn/MLRHR/!svn/ver/1/src/core/java/org/springside/modules/utils/encode/JsonBinder.java
+END
+EncodeUtils.java
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svn/MLRHR/!svn/ver/1/src/core/java/org/springside/modules/utils/encode/EncodeUtils.java
+END

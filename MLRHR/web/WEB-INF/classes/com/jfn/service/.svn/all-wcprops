@@ -1,0 +1,191 @@
+K 25
+svn:wc:ra_dav:version-url
+V 51
+/svn/MLRHR/!svn/ver/1/src/main/java/com/jfn/service
+END
+FileService.java
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/svn/MLRHR/!svn/ver/1/src/main/java/com/jfn/service/FileService.java
+END
+HeaderFooter.java
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/svn/MLRHR/!svn/ver/1/src/main/java/com/jfn/service/HeaderFooter.java
+END
+IMailService.java
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/svn/MLRHR/!svn/ver/1/src/main/java/com/jfn/service/IMailService.java
+END
+MailManager.java
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/svn/MLRHR/!svn/ver/1/src/main/java/com/jfn/service/MailManager.java
+END
+BodyService.java
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/svn/MLRHR/!svn/ver/1/src/main/java/com/jfn/service/BodyService.java
+END
+UserAwardService.java
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/svn/MLRHR/!svn/ver/1/src/main/java/com/jfn/service/UserAwardService.java
+END
+UserSkill_2Service.java
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/svn/MLRHR/!svn/ver/1/src/main/java/com/jfn/service/UserSkill_2Service.java
+END
+UserChengguoService.java
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/svn/MLRHR/!svn/ver/1/src/main/java/com/jfn/service/UserChengguoService.java
+END
+MyPDFCreater.java
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/svn/MLRHR/!svn/ver/1/src/main/java/com/jfn/service/MyPDFCreater.java
+END
+ZhichengApplyService.java
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/svn/MLRHR/!svn/ver/1/src/main/java/com/jfn/service/ZhichengApplyService.java
+END
+AccountManager.java
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/svn/MLRHR/!svn/ver/1/src/main/java/com/jfn/service/AccountManager.java
+END
+UserStudyService.java
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/svn/MLRHR/!svn/ver/1/src/main/java/com/jfn/service/UserStudyService.java
+END
+UserPeixunService.java
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/svn/MLRHR/!svn/ver/1/src/main/java/com/jfn/service/UserPeixunService.java
+END
+UserBaseInforService.java
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/svn/MLRHR/!svn/ver/1/src/main/java/com/jfn/service/UserBaseInforService.java
+END
+CalendarService.java
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/svn/MLRHR/!svn/ver/1/src/main/java/com/jfn/service/CalendarService.java
+END
+UserReportService.java
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/svn/MLRHR/!svn/ver/1/src/main/java/com/jfn/service/UserReportService.java
+END
+UserSkillService.java
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/svn/MLRHR/!svn/ver/1/src/main/java/com/jfn/service/UserSkillService.java
+END
+UserService.java
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/svn/MLRHR/!svn/ver/1/src/main/java/com/jfn/service/UserService.java
+END
+ActionLogService.java
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/svn/MLRHR/!svn/ver/1/src/main/java/com/jfn/service/ActionLogService.java
+END
+UserWorkService.java
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/svn/MLRHR/!svn/ver/1/src/main/java/com/jfn/service/UserWorkService.java
+END
+ZhichengDoc02Service.java
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/svn/MLRHR/!svn/ver/1/src/main/java/com/jfn/service/ZhichengDoc02Service.java
+END
+UserExamService.java
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/svn/MLRHR/!svn/ver/1/src/main/java/com/jfn/service/UserExamService.java
+END
+UserBusinessService.java
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/svn/MLRHR/!svn/ver/1/src/main/java/com/jfn/service/UserBusinessService.java
+END
+ZhichengDoc08Service.java
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/svn/MLRHR/!svn/ver/1/src/main/java/com/jfn/service/ZhichengDoc08Service.java
+END
+FileUploadManager.java
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/svn/MLRHR/!svn/ver/1/src/main/java/com/jfn/service/FileUploadManager.java
+END
+UserProjectService.java
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/svn/MLRHR/!svn/ver/1/src/main/java/com/jfn/service/UserProjectService.java
+END
+UserDetailsServiceImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svn/MLRHR/!svn/ver/1/src/main/java/com/jfn/service/UserDetailsServiceImpl.java
+END
+EmailCenter.java
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/svn/MLRHR/!svn/ver/1/src/main/java/com/jfn/service/EmailCenter.java
+END
+LoginService.java
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/svn/MLRHR/!svn/ver/1/src/main/java/com/jfn/service/LoginService.java
+END
+UserZhuanliService.java
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/svn/MLRHR/!svn/ver/1/src/main/java/com/jfn/service/UserZhuanliService.java
+END
+NewsService.java
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/svn/MLRHR/!svn/ver/1/src/main/java/com/jfn/service/NewsService.java
+END

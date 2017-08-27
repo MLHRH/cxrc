@@ -1,0 +1,164 @@
+package com.jfn.dao;
+
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.DataAccessException;
+import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.jdbc.core.PreparedStatementCreator;
+import org.springframework.jdbc.core.ResultSetExtractor;
+import org.springframework.jdbc.core.simple.ParameterizedRowMapper;
+import org.springframework.jdbc.support.GeneratedKeyHolder;
+import org.springframework.jdbc.support.KeyHolder;
+import org.springframework.stereotype.Repository;
+
+import com.jfn.entity.ZhichengDoc08;
+
+@Repository
+public class ZhichengDoc08Dao {
+	@Autowired
+	private JdbcTemplate jdbcTemplate;
+
+	private final String SQL_INSERT = "insert into zhicheng_doc08(user_id,user_name,xuewei,xueli,tuijian_name,tuijian_zhiwu,tuijian_danwei,tuijian_liyou,tuijian_zhuanjia,"
+			+ "tuijian_name_2,tuijian_zhiwu_2,tuijian_danwei_2,tuijian_liyou_2,tuijian_zhuanjia_2) values(?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
+	private final String SQL_Get_BY_ID = "select * from zhicheng_doc08 where Id=?";
+	private final String SQL_Get_BY_USERID = "select * from zhicheng_doc08 where user_id=?  order by id desc ";
+	private final String SQL_SET_UPDATE = "update zhicheng_doc08 set user_id=?,user_name=?,xuewei=? ,xueli=? ,tuijian_name=? ,tuijian_zhiwu=? ,tuijian_danwei=? ,tuijian_liyou=?,tuijian_zhuanjia=?,"
+			+ "tuijian_name_2=? ,tuijian_zhiwu_2=? ,tuijian_danwei_2=? ,tuijian_liyou_2=?,tuijian_zhuanjia_2=? where id=?";
+	private final String SQL_DEL_BY_ID = "delete from zhicheng_doc08 where id = ?";
+
+	public int newFile(final ZhichengDoc08 zhichengdoc08) {
+		KeyHolder keyHolder = new GeneratedKeyHolder();
+
+		jdbcTemplate.update(new PreparedStatementCreator() {
+			@Override
+			public java.sql.PreparedStatement createPreparedStatement(Connection conn) throws SQLException {
+				java.sql.PreparedStatement ps = conn.prepareStatement(SQL_INSERT, new String[] {});
+
+				ps = conn.prepareStatement(SQL_INSERT, Statement.RETURN_GENERATED_KEYS);
+				ps.setInt(1, zhichengdoc08.getUser_id());
+				ps.setString(2, zhichengdoc08.getUser_name());
+				ps.setString(3, zhichengdoc08.getXuewei());
+				ps.setString(4, zhichengdoc08.getXueli());
+				ps.setString(5, zhichengdoc08.getTuijian_name());
+				ps.setString(6, zhichengdoc08.getTuijian_zhiwu());
+				ps.setString(7, zhichengdoc08.getTuijian_danwei());
+				ps.setString(8, zhichengdoc08.getTuijian_liyou());
+				ps.setString(9, zhichengdoc08.getTuijian_zhuanjia());
+				ps.setString(10, zhichengdoc08.getTuijian_name_2());
+				ps.setString(11, zhichengdoc08.getTuijian_zhiwu_2());
+				ps.setString(12, zhichengdoc08.getTuijian_danwei_2());
+				ps.setString(13, zhichengdoc08.getTuijian_liyou_2());
+				ps.setString(14, zhichengdoc08.getTuijian_zhuanjia_2());
+
+				return ps;
+			}
+		}, keyHolder);
+		return keyHolder.getKey().intValue();
+	}
+
+	public boolean insert(ZhichengDoc08 zhichengdoc08) {
+		return jdbcTemplate.update(
+				SQL_INSERT,
+				new Object[] { zhichengdoc08.getUser_id(), zhichengdoc08.getUser_name(), zhichengdoc08.getXuewei(), zhichengdoc08.getXueli(), zhichengdoc08.getTuijian_name(),
+						zhichengdoc08.getTuijian_zhiwu(), zhichengdoc08.getTuijian_danwei(), zhichengdoc08.getTuijian_liyou(), zhichengdoc08.getTuijian_zhuanjia(), zhichengdoc08.getTuijian_name_2(),
+						zhichengdoc08.getTuijian_zhiwu_2(), zhichengdoc08.getTuijian_danwei_2(), zhichengdoc08.getTuijian_liyou_2(), zhichengdoc08.getTuijian_zhuanjia_2() }) == 1;
+	}
+
+	public ZhichengDoc08 getById(int id) {
+		return jdbcTemplate.query(SQL_Get_BY_ID, new Object[] { id }, new ResultSetExtractor<ZhichengDoc08>() {
+			@Override
+			public ZhichengDoc08 extractData(ResultSet rs) throws SQLException, DataAccessException {
+				ZhichengDoc08 zhichengdoc08 = new ZhichengDoc08();
+				if (rs.next()) {
+					zhichengdoc08.setId(rs.getInt("id"));
+					zhichengdoc08.setUser_id(rs.getInt("user_id"));
+					zhichengdoc08.setUser_name(rs.getString("user_name"));
+					zhichengdoc08.setXuewei(rs.getString("xuewei"));
+					zhichengdoc08.setXueli(rs.getString("xueli"));
+					zhichengdoc08.setTuijian_name(rs.getString("tuijian_name"));
+					zhichengdoc08.setTuijian_zhiwu(rs.getString("tuijian_zhiwu"));
+					zhichengdoc08.setTuijian_danwei(rs.getString("tuijian_danwei"));
+					zhichengdoc08.setTuijian_liyou(rs.getString("tuijian_liyou"));
+					zhichengdoc08.setTuijian_zhuanjia(rs.getString("tuijian_zhuanjia"));
+					zhichengdoc08.setTuijian_name_2(rs.getString("tuijian_name_2"));
+					zhichengdoc08.setTuijian_zhiwu_2(rs.getString("tuijian_zhiwu_2"));
+					zhichengdoc08.setTuijian_danwei_2(rs.getString("tuijian_danwei_2"));
+					zhichengdoc08.setTuijian_liyou_2(rs.getString("tuijian_liyou_2"));
+					zhichengdoc08.setTuijian_zhuanjia_2(rs.getString("tuijian_zhuanjia_2"));
+				}
+				return zhichengdoc08;
+			}
+		});
+	}
+
+	public ZhichengDoc08 getByUserId(int user_id) {
+		return jdbcTemplate.query(SQL_Get_BY_USERID, new Object[] { user_id }, new ResultSetExtractor<ZhichengDoc08>() {
+			@Override
+			public ZhichengDoc08 extractData(ResultSet rs) throws SQLException, DataAccessException {
+				ZhichengDoc08 zhichengdoc08 = new ZhichengDoc08();
+				if (rs.next()) {
+					zhichengdoc08.setId(rs.getInt("id"));
+					zhichengdoc08.setUser_id(rs.getInt("user_id"));
+					zhichengdoc08.setUser_name(rs.getString("user_name"));
+					zhichengdoc08.setXuewei(rs.getString("xuewei"));
+					zhichengdoc08.setXueli(rs.getString("xueli"));
+					zhichengdoc08.setTuijian_name(rs.getString("tuijian_name"));
+					zhichengdoc08.setTuijian_zhiwu(rs.getString("tuijian_zhiwu"));
+					zhichengdoc08.setTuijian_danwei(rs.getString("tuijian_danwei"));
+					zhichengdoc08.setTuijian_liyou(rs.getString("tuijian_liyou"));
+					zhichengdoc08.setTuijian_zhuanjia(rs.getString("tuijian_zhuanjia"));
+					zhichengdoc08.setTuijian_name_2(rs.getString("tuijian_name_2"));
+					zhichengdoc08.setTuijian_zhiwu_2(rs.getString("tuijian_zhiwu_2"));
+					zhichengdoc08.setTuijian_danwei_2(rs.getString("tuijian_danwei_2"));
+					zhichengdoc08.setTuijian_liyou_2(rs.getString("tuijian_liyou_2"));
+					zhichengdoc08.setTuijian_zhuanjia_2(rs.getString("tuijian_zhuanjia_2"));
+				}
+				return zhichengdoc08;
+			}
+		});
+	}
+
+	public boolean update(ZhichengDoc08 zhichengdoc08) {
+		Object[] params = new Object[] { zhichengdoc08.getUser_id(), zhichengdoc08.getUser_name(), zhichengdoc08.getXuewei(), zhichengdoc08.getXueli(), zhichengdoc08.getTuijian_name(),
+				zhichengdoc08.getTuijian_zhiwu(), zhichengdoc08.getTuijian_danwei(), zhichengdoc08.getTuijian_liyou(), zhichengdoc08.getTuijian_zhuanjia(), zhichengdoc08.getTuijian_name_2(),
+				zhichengdoc08.getTuijian_zhiwu_2(), zhichengdoc08.getTuijian_danwei_2(), zhichengdoc08.getTuijian_liyou_2(), zhichengdoc08.getTuijian_zhuanjia_2(), zhichengdoc08.getId() };
+		return jdbcTemplate.update(SQL_SET_UPDATE, params) == 1;
+	}
+
+	public boolean delete(int id) {
+		return jdbcTemplate.update(SQL_DEL_BY_ID, new Object[] { id }) == 1;
+	}
+
+	/**
+	 * 定义内部类实现RowMapper接口
+	 */
+	public class zhichengdoc08RowMapper implements ParameterizedRowMapper<ZhichengDoc08> {
+		// 实现mapRow方法
+		@Override
+		public ZhichengDoc08 mapRow(ResultSet rs, int num) throws SQLException {
+			// 对类进行封装
+			ZhichengDoc08 zhichengdoc08 = new ZhichengDoc08();
+			zhichengdoc08.setId(rs.getInt("id"));
+			zhichengdoc08.setUser_id(rs.getInt("user_id"));
+			zhichengdoc08.setUser_name(rs.getString("user_name"));
+			zhichengdoc08.setXuewei(rs.getString("xuewei"));
+			zhichengdoc08.setXueli(rs.getString("xueli"));
+			zhichengdoc08.setTuijian_name(rs.getString("tuijian_name"));
+			zhichengdoc08.setTuijian_zhiwu(rs.getString("tuijian_zhiwu"));
+			zhichengdoc08.setTuijian_danwei(rs.getString("tuijian_danwei"));
+			zhichengdoc08.setTuijian_liyou(rs.getString("tuijian_liyou"));
+			zhichengdoc08.setTuijian_zhuanjia(rs.getString("tuijian_zhuanjia"));
+			zhichengdoc08.setTuijian_name_2(rs.getString("tuijian_name_2"));
+			zhichengdoc08.setTuijian_zhiwu_2(rs.getString("tuijian_zhiwu_2"));
+			zhichengdoc08.setTuijian_danwei_2(rs.getString("tuijian_danwei_2"));
+			zhichengdoc08.setTuijian_liyou_2(rs.getString("tuijian_liyou_2"));
+			zhichengdoc08.setTuijian_zhuanjia_2(rs.getString("tuijian_zhuanjia_2"));
+
+			return zhichengdoc08;
+		}
+	}
+}

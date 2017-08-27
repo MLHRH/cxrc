@@ -4,7 +4,7 @@
 	<classpathentry kind="src" path="src/core/java"/>
 	<classpathentry kind="con" path="org.eclipse.jst.j2ee.internal.web.container"/>
 	<classpathentry kind="con" path="org.eclipse.jst.j2ee.internal.module.container"/>
-	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/jdk1.8.0_111">
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/jdk1.8.0_45">
 		<attributes>
 			<attribute name="owner.project.facets" value="java"/>
 		</attributes>
@@ -73,6 +73,6 @@
 	<classpathentry kind="lib" path="web/WEB-INF/lib/junit-4.10.jar"/>
 	<classpathentry kind="lib" path="web/WEB-INF/lib/spring-test-3.1.2.RELEASE.jar"/>
 	<classpathentry kind="lib" path="web/WEB-INF/lib/fastjson-1.2.5.jar"/>
-	<classpathentry kind="con" path="org.eclipse.jst.server.core.container/org.eclipse.jst.server.tomcat.runtimeTarget/Apache Tomcat v8.5"/>
+	<classpathentry kind="con" path="org.eclipse.jst.server.core.container/org.eclipse.jst.server.tomcat.runtimeTarget/Apache Tomcat v7.0"/>
 	<classpathentry kind="output" path="web/WEB-INF/classes"/>
 </classpath>
