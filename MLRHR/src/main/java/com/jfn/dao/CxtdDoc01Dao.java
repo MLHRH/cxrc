@@ -24,7 +24,7 @@ public class CxtdDoc01Dao {
 	//private final String SQL_SELECT_TIME = "select id from user_team where userid=?";
 	//团队基本信息
 	private final String SQL_UPDATE_BASE = "update cxtd_base_info set team_name=?,research_direction=?,subordinate_subject1=?,subordinate_subject2=?,"
-				+"project_type=?,project_name=?,project_source=?,unit_name=?,organization_code=?,legal_representative=?,competent_department=?,unit_addresses=?,"
+				+"project_type=?,orther=?,project_name=?,project_source=?,unit_name=?,organization_code=?,legal_representative=?,competent_department=?,unit_addresses=?,"
 				+"zip_code=?,contacts=?,mobile_phone=?,email=?,fax=?,telephone=? where user_id=?";
 	private final String SQL_INSERT_BASE = "insert into cxtd_base_info( user_id,team_id,team_name,research_direction,subordinate_subject1,subordinate_subject2,"
 				+"project_type,orther,project_name,project_source,unit_name,organization_code,legal_representative,competent_department,unit_addresses,"
@@ -109,6 +109,7 @@ public class CxtdDoc01Dao {
 					public CxtdBaseInfo extractData(ResultSet rs) throws SQLException, DataAccessException {
 						CxtdBaseInfo baseinfo = new CxtdBaseInfo();
 						while (rs.next()) {
+							baseinfo.setId(rs.getInt("id"));
 							baseinfo.setTeamId(rs.getInt("team_id"));
 							baseinfo.setTeamName(rs.getString("team_name"));
 							baseinfo.setResearchDirection(rs.getString("research_direction"));
@@ -154,6 +155,7 @@ public class CxtdDoc01Dao {
 				baseinfo.getSubordinateSubject1(),
 				baseinfo.getSubordinateSubject2(),
 				baseinfo.getProjectType(),
+				baseinfo.getOrther(),
 				baseinfo.getProjectName(),
 				baseinfo.getProjectSource(),
 				baseinfo.getUnitName(),

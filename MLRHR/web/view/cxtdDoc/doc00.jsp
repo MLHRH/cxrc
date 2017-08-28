@@ -116,6 +116,9 @@
 		<p class=MsoNormal align=center style='text-align: center'>
 			<span style='font-size: 26.0pt; font-family: 仿宋'>填写说明</span>
 		</p>
+		<p class=MsoNormal align=center style='text-align: center'>
+			<span style='font-size: 12.0pt;color:red; font-family: 仿宋'>（按模板转为纸质版盖章后上传到附件）</span>
+		</p>
 		<p class=MsoNormal style='text-indent: 18.0pt'>
 			<span lang=EN-US style='font-size: 9.0pt; font-family: 仿宋'>&nbsp;</span>
 		</p>

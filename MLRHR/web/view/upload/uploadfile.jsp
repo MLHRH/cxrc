@@ -17,7 +17,7 @@
 	<p class=MsoNormal style='text-align: center'>
 			
 			<div>
-			<b> <span style='font-size: 10.0pt; font-family: 幼圆; letter-spacing: 1.0pt'><font color=red >(只支持压缩文件上传,如*.zip;*.rar文件)</font></span>
+			<b> <span style='font-size: 10.0pt; font-family: 幼圆; letter-spacing: 1.0pt'><font color=red >(只支持压缩文件上传,如*.zip;*.rar文件)(附件说明：1，相关方向最具代表性论文（不超过10篇）、学术奖励（不超过5项）、承担科研项目（不超过5项）的证明材料；2，国际学术组织及重要学术期刊任职证明材料；3，材料以PDF格式；4，所有文件打包为压缩格式上传)</font></span>
 			</b></div>
 		</p>
 		<div style="margin-top:10px">

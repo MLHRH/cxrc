@@ -122,12 +122,7 @@ public class ZhichengController {
 		menus2.add(menus.get(7));
 		if (acctUserRole.getRole_id() == 4) {
 			menus2.add(menus.get(6));
-		} else {
-
-			if (Integer.valueOf(apply.getStatus()) > 2) {
-				menus2.add(menus.get(7));
-			}
-		}
+		} 
 		if (acctUserRole.getRole_id() == 3 || acctUserRole.getRole_id() == 6) {
 			menus2.add(menus.get(8));
 			menus2.add(menus.get(9));

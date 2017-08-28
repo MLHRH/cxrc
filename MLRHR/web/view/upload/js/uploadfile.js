@@ -69,9 +69,7 @@ function initUpFile() {
 function intTables(data){
 	var tbody = document.getElementById("fileList");
 	var b = tbody.childNodes
-	for(var i = 0;i<b.length ; i++){
-		tbody.removeChild(b[i]);
-	}
+	$('#fileList').empty()
 	if(data[0] != null){
 		for(var i = 0 ; i < data.length ;i++){
 			var tr = document.createElement("tr");

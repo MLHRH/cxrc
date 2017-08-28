@@ -191,8 +191,9 @@ body {
 							<option value="3" class="isEXPERT2">弃权</option>
 						</select>
 						<label class="text-error">专家意见：</label>
-						<textarea  autoHeight="true" style="width: 95%; min-height: 50px; overflow:hidden;" id="zhichengapply_expert2_sug"></textarea>
+						   <textarea  autoHeight="true" style="width: 95%; min-height: 50px; overflow:hidden;" id="zhichengapply_expert2_sug"></textarea>
 						</div>
+						<div style="color:#F00;font-size:12px">(请按国土资源高层次创新型科技人才培养工程科技领军人才评议考量重点，从个人能力、研发业绩、研发规划、条件保障等方面形成专家评议意见，不超过300字)</div>
 					</div> 
 
 					<div class="control-group" align="center">

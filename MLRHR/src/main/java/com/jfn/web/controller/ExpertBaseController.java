@@ -67,11 +67,15 @@ public class ExpertBaseController {
 
 	@RequestMapping(value = "/baseEdit", method = RequestMethod.POST)
 	@ResponseBody
-	public String ExperbaseUpdate(String data, HttpServletRequest request) {
+	public Object ExperbaseUpdate(String data,String email,String body, HttpServletRequest request) {
 		JsonObject jsonResponse = new JsonObject();
 		int user_id = (Integer) request.getSession().getAttribute("user_id");
 		ExpertUser expertUser = JSON.parseObject(data, ExpertUser.class);
 		expertUser.setUser_id(user_id);
+		User user = service.getById(user_id+"");
+		user.setEmail(email);
+		user.setBody_id(body);
+		service.userUpdate(user);
 		int result = 0;
 		try {
 			if (expertUserService.getByUserId(user_id).getUser_id() != null) {
@@ -86,8 +90,8 @@ public class ExpertBaseController {
 			result = 0;
 		}
 		jsonResponse.addProperty("result", result);
-		System.err.println(jsonResponse.toString());
-		return jsonResponse.toString();
+		Gson gson = new Gson();
+		return gson.toJson(jsonResponse);
 
 	}
 

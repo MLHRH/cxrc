@@ -3,7 +3,9 @@ package com.jfn.web.controller;
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -113,7 +115,7 @@ public class AttachController {
 	@ResponseBody
 	@RequestMapping(value = "showUpLoadFile", method = RequestMethod.GET)
 	public Object showUpLoadFile(HttpServletRequest request, Model model) throws UnsupportedEncodingException {
-		List<Attachfile> files = new ArrayList<Attachfile>();
+		Set<Attachfile> files = new HashSet<Attachfile>();
 		String apply_id = request.getParameter("applyid");
 		String user_id = request.getParameter("userid"); 
 		String apply_type = request.getParameter("applytype"); 
@@ -130,9 +132,8 @@ public class AttachController {
 		JSONObject jo3 = new JSONObject();
 		jo3.put("authority", authority);
 		JSONArray jsonArray = new JSONArray();
-		Attachfile file = null;
 		if (apply_id == null || apply_id.equals("")) {
-			file = fileService.getFileByTypeAndStep(Integer.valueOf(user_id), apply_type, 0);
+			Attachfile	file = fileService.getFileByTypeAndStep(Integer.valueOf(user_id), apply_type, 0);
 			files.add(file);
 			jsonArray.add(files);
 			jsonArray.add(jo3);
@@ -140,16 +141,23 @@ public class AttachController {
 		}else{
 			Integer applyid =Integer.valueOf(apply_id);
 			ZhichengApply apply = zhichengApplyService.getById(apply_id);
-			if(Integer.valueOf(apply.getStatus()) < 4){
-				file = fileService.getFileByTypeAndStep(Integer.valueOf(user_id), apply_type, 0);
-			}else{
-				 file = fileService.getFileByApplyId(applyid);
-			}
-			files.add(file);
+//			if(Integer.valueOf(apply.getStatus()) < 3){
+//				Attachfile file = fileService.getFileByTypeAndStep(Integer.valueOf(user_id), apply_type, 0);
+//				files.add(file);
+//			}else{
+			    Attachfile file = fileService.getFileByTypeAndStep(Integer.valueOf(user_id), apply_type, 0);
+			   if (file != null) {
+				   files.add(file);				
+			      }
+				Attachfile  file1= fileService.getFileByApplyId(applyid);
+				if (file1 != null) {
+					files.add(file1);				
+				}
+//			}
 			jsonArray.add(files);
 			jsonArray.add(jo3);
+			return jsonArray.toString();
 		}
-		return jsonArray.toString();
 		}
 	
 	/**

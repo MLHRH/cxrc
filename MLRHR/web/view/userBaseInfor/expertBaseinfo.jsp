@@ -24,41 +24,13 @@ body {
 	
 }
 </style>
-<%-- <link href="${ctx}/static/jquery-validation/1.10.0/validate.css" type="text/css" rel="stylesheet" />
-<link href="${ctx}/static/styles/jquery.dataTables.css" type="text/css" rel="stylesheet" />
-<link type="text/css" rel="stylesheet" href="${ctx}/static/jquery/lightSlider/css/lightSlider.css" />
-<link type="text/css" rel="stylesheet" href="${ctx}/static/jquery/magiczoomplus/magiczoomplus.css" media="screen" />
-
-<script type="text/javascript" src="${ctx}/static/jquery/DataTables-1.10.3/js/jquery.dataTables.min.js"></script>
-<script type="text/javascript" src="${ctx}/static/jquery-validation/1.10.0/jquery.validate.min.js"></script>
-<script type="text/javascript" src="${ctx}/static/My97DatePicker/WdatePicker.js"></script>
-<script type="text/javascript" src="${ctx}/static/jquery/openWindow.js"></script>
-<script type="text/javascript" src="${ctx}/static/jquery/notify.function.js"></script>
-<script type="text/javascript" src="${ctx}/static/jquery/lightSlider/js/jquery.lightSlider.min.js"></script>
-<script type="text/javascript" src="${ctx}/static/jquery/magiczoomplus/magiczoomplus.js"></script>
-<script type="text/javascript" src="${ctx}/static/jquery/pdfobject.js"></script> --%>
 
 <script type="text/javascript" src="${ctx}/view/userBaseInfor/js/expertUserBase.js"></script>
 
-
-
-<%-- <script type="text/javascript" src="${ctx}/view/doc/js/doc02.js"></script>
-<script type="text/javascript" src="${ctx}/view/doc/js/doc02_middle.js"></script>
-<script type="text/javascript" src="${ctx}/view/doc/js/doc03.js"></script>
-<script type="text/javascript" src="${ctx}/view/doc/js/doc03_middle.js"></script>
-<script type="text/javascript" src="${ctx}/view/fileManager/js/checkFile.js"></script>
-<script type="text/javascript" src="${ctx}/view/fileManager/js/checkFilePDF.js"></script> --%>
-
-
-<!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
-<!--[if lt IE 9]>
-      <script src="../assets/js/html5shiv.js"></script>
-    <![endif]-->
-
-<!-- Fav and touch icons -->
 <%@ include file="/common/jquery.noty.jsp"%>
 </head>
-<body><%@ include file="/common/bodyheader.jsp"%>
+<body>
+<%@ include file="/common/bodyheader.jsp"%>
 	<div class="modal hide" id="myModal" style="width: 600px;">
 		<div class="modal-header">
 			<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
@@ -121,7 +93,7 @@ body {
 					</td>
 					<td style="width: 150px; padding-left: 50px">电子邮箱：</td>
 					<td>
-						<input type="text" id="user_email" style="width: 200px" value="${user.email}" readOnly />
+						<input type="text" id="user_email" style="width: 200px" value="${user.email}"/>
 					</td>
 				</tr>
 				
@@ -138,7 +110,7 @@ body {
 					</td>
 					<td style="width: 150px; padding-left: 50px">所在单位：</td>
 					<td>
-						<select name="user_body_id_select" id="user_body_id_select" class="input-block-level" readOnly>
+						<select name="user_body_id_select" id="user_body_id_select" class="input-block-level" >
 							<c:forEach var="body" items="${bodyList}">
 								<option value=${body.id } id="user_body_id" <c:if test="${body.id==user.body_id}">selected="true"</c:if>>${body.name}</option>
 							</c:forEach>
@@ -174,37 +146,56 @@ body {
 
 			<div class="control-group">
 				<div class="controls" style="margin-left: 295px">
-					<input id="submit_base" type="submit" class="btn btn-primary" onClick="update();" value="保存" >
-					<button type="button" class="btn " onClick="javascript:history.back(-1);" >返回</button>
+					<button type="button" class="btn btn-primary" id="save_btn">保存</button>
+					<button type="button" class="btn btn-default " onClick="javascript:history.back(-1);" >返回</button>
 				</div>
 			</div>
 		</div>
-	</form>
-		
-		
-		
-		
-<!-- 		<div class="row-fluid">
-			<div class="span3" style="float: left; text-align: left;">
-				<div class="well sidebar-nav" style="padding: 9px 0;">
-					<ul class="nav nav-list" id="orderedlist">
-						<li id="expertBase"><a href="javascript:void(0)"> 基本信息</a></li>
-						<li id="userExam"><a href="javascript:void(0)">11. 考试成绩及答辩情况</a></li>
-						<li id="doc02_middle"><a href="javascript:void(0)">12. 证书、证明材料管理</a></li>
-						<li id="doc03_middle"><a href="javascript:void(0)">13. 业绩、成果材料管理</a></li>
-					</ul>
-				</div>
-			</div> -->
 
-			<div class="span9" style="margin-left: 20px; padding: 3px;">
-				<div class="row-fluid" id="content"></div>
-				<!--/row-->
-			</div>
-			<!--/span-->
+		<!-- <div class="span9" style="margin-left: 20px; padding: 3px;">
+		<div class="row-fluid" id="content"></div>
+				
 		</div>
+		</div> -->
 		<input type="hidden" id="userId" value="${sessionScope.loginuser.id}" />
 		<%@ include file="/common/footer.jsp"%>
 	</div>
 	<!--/.fluid-container-->
 </body>
+<script>
+$('#save_btn').bind("click",function(){
+	arrData = {};
+	arrData.birthday = $('#user_birthday').val();
+	arrData.gender = $('#user_sex').val();
+	arrData.minzu = $('#user_minzu').val();
+	arrData.congshizhuanye = $('#user_congshizhuanye').val();
+	arrData.zhicheng = $('#user_current_zhicheng').val();
+	arrData.xingzhengzhiwu = $('#user_xingzhengzhiwu').val();
+	arrData.within_beijing = $('#within_beijing').val();
+	arrData.address = $('#user_address').val();
+	arrData.group_id = group_id;
+	var baseInfo = JSON.stringify(arrData);user_body_id_select
+	var body = $('#user_body_id_select').val();
+	$.ajax({
+		dataType : 'json',
+		type : "POST",
+		url : "baseEdit",
+		async:true,
+		data : {"data":baseInfo,
+			   "email":$('#user_email').val(),
+			   "body":body
+		   },
+		success : function(rst) {
+			alert("保存成功");
+			console.log(rst)
+			initExpertBase();
+		},
+		error:function(rst){
+			alert('保存失败');
+			console.log(rst)
+			initExpertBase();
+		}
+	});
+})
+</script>
 </html>
