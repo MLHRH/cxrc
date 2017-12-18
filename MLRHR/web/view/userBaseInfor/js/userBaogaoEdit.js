@@ -1,5 +1,7 @@
+var checkSubmitFlg;
 function userBaogaoEditSave() {
 	if (validateUserBaogaoEdit()) {
+		checkSubmitFlg = true;
 		arrData = new Array();
 		if ($("#user_Baogao_id").val() != "")
 			arrData.push({
@@ -41,10 +43,10 @@ function userBaogaoEditSave() {
 						"name" : "reportType",
 						"value" : $("#user_Baogao_report_type").val()
 					});
-			arrData.push({
-				"name" : "peopleName",
-				"value" : $("#user_Baogao_report_people_name").val()
-			});
+//			arrData.push({
+//				"name" : "peopleName",
+//				"value" : $("#user_Baogao_report_people_name").val()
+//			});
 
 		$.ajax({
 					"dataType" : 'json',
@@ -63,6 +65,7 @@ function userBaogaoEditSave() {
 										callback : {
 											afterClose : function() {
 												$('#myModal').modal('hide');
+												checkSubmitFlg = false;
 											}
 										},
 										theme : 'defaultTheme'
@@ -75,10 +78,10 @@ function userBaogaoEditSave() {
 	}
 }
 function validateUserBaogaoEdit() {
-	if ($("#user_Baogao_meeting_time").val() == "") {
+/*	if ($("#user_Baogao_meeting_time").val() == "") {
 		generatenoty('center', "请选择时间！", 'error');
 		return false;
-	}
+	}*/
 //	if ($("#user_Baogao_end_date").val() == "") {
 //		generatenoty('center', "请选择结束时间！", 'error');
 //		return false;
@@ -107,5 +110,8 @@ function validateUserBaogaoEdit() {
 //		generatenoty('center', "请选择学位类型", 'error');
 //		return false;
 //	}
+	if(checkSubmitFlg == true){
+		return false; 
+	}
 	return true;
 }

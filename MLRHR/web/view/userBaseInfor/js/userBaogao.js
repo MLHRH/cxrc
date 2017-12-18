@@ -66,9 +66,10 @@ function initUserBaogaoDataTables(data) {
 					"data" : "meetingPlace"
 				}, {
 					"data" : "reportType"
-				}, {
-				    "data" : "peopleName"
-				 },
+				},
+//				{
+//				    "data" : "peopleName"
+//				 },
 				{
 					"data" : null,
 					"class" : "center",

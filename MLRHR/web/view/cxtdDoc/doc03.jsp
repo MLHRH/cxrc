@@ -18,10 +18,14 @@
 			</b>		
 		</p>
  </div></td></tr>
-<tr style='page-break-inside: avoid; height: 3pt'>
-<td colspan="3">
-						<textarea style="width: 900px; height: 1000px" id="selfAssessment"></textarea>
-					</td>
+ <div>
+                <td> 
+				 <textarea name ="selfAssessment" class="ckeditor" id="selfAssessment"></textarea>
+					 <script type="text/javascript">
+					 editor=CKEDITOR.replace('selfAssessment');
+                      </script> 
+				</td>
+          </div>
 </td></tr>
 </body>
 </html>

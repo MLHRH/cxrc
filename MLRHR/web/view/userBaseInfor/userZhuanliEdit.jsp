@@ -60,9 +60,9 @@
 						</td>
 					</tr>
 							<tr align="center">
-						<td class="td_Left">授权日期：</td>
+						<td class="td_Left">授权时间：</td>
 						<td class="td_Right">
-							<input type="text" onfocus="WdatePicker({isShowWeek:true,dateFmt:'yyyy.MM.dd'})" id="user_zhuanli_date" value="${user_zhuanli.authorizedTime}" />
+							<input type="text"  id="user_zhuanli_date" value="${user_zhuanli.authorizedTime}" />
 						</td>
 					</tr>
 					<tr align="center">

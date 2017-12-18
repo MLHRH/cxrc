@@ -50,7 +50,7 @@
 					<tr align="center">
 						<td class="td_Left">会议时间：</td>
 						<td class="td_Right">
-							<input type="text" onfocus="WdatePicker({isShowWeek:true,dateFmt:'yyyy.MM.dd'})" id="user_Baogao_meeting_time" value="${user_study.meetingTime}" />
+							<input type="text"  id="user_Baogao_meeting_time" value="${user_study.meetingTime}" />
 						</td>
 					</tr>
 					<tr align="center">
@@ -65,12 +65,12 @@
 							<input type="text" id="user_Baogao_report_type" value="${user_study.reportType}" />
 						</td>
 					</tr>
-					<tr align="center">
+					<%-- <tr align="center">
 						<td class="td_Left">报告人：</td>
 						<td class="td_Right">
 							<input type="text" id="user_Baogao_report_people_name" value="${user_study.peopleName}" />
 						</td>
-					</tr>
+					</tr> --%>
 					<!-- 					<tr align="center"> -->
 					<!-- 						<td class="td_Left">证&nbsp明&nbsp人：</td> -->
 					<!-- 						<td class="td_Right"><input type="text" -->

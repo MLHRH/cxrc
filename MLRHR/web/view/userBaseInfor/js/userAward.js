@@ -30,7 +30,7 @@ function initUserAward() {
 }
 
 function initUserAwardDataTables(data) {
-	if (data.length >= 4) {
+	if (data.length >= 10) {
 		$('#userAwardAddButton').attr("disabled", true);
 		$('#userAwardAddButton').removeAttr("onclick");
 		$('#userAwardAddButton').attr("class", "btn btn-small btn-inverse");

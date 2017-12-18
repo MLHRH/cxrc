@@ -1,5 +1,7 @@
+var checkSubmitFlg;
 function userZhuanliEditSave() {
 	if (validateuserZhuanliEdit()) {
+		checkSubmitFlg = true;
 		arrData = new Array();
 		if ($("#user_zhuanli_id").val() != "")
 			arrData.push({
@@ -57,6 +59,7 @@ function userZhuanliEditSave() {
 										callback : {
 											afterClose : function() {
 												$('#myModal').modal('hide');
+												checkSubmitFlg = false;
 											}
 										},
 										theme : 'defaultTheme'
@@ -70,10 +73,10 @@ function userZhuanliEditSave() {
 }
 function validateuserZhuanliEdit() {
 	// 校验方法
-	if ($("#user_zhuanli_date").val() == "") {
-		generatenoty('center', "请选择日期！", 'error');
-		return false;
-	}
+//	if ($("#user_zhuanli_date").val() == "") {
+//		generatenoty('center', "请选择日期！", 'error');
+//		return false;
+//	}
 //	if ($("#user_zhuanli_jiaose").val() == "-1") {
 //		generatenoty('center', "请选择排名！", 'error');
 //		return false;
@@ -82,5 +85,8 @@ function validateuserZhuanliEdit() {
 //		generatenoty('center', "请选择级别！", 'error');
 //		return false;
 //	}
+	if(checkSubmitFlg == true){
+		return false; 
+	}
 	return true;
 }

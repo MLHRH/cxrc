@@ -27,13 +27,14 @@ function initkjljDoc03() {
 
 function updatekjljDoc03() {
 	var arrData = new Array();
+	var content = editor.getData();
 	arrData.push({
 		"name" : "userId",
 		"value" : user_id
 	});
 	arrData.push({
 		"name":"selfAssessment",
-		"value":$('#selfAssessment').val()
+		"value":content
 	});
 
 	$.ajax({

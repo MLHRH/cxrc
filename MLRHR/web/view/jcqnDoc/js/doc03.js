@@ -25,7 +25,6 @@ function initjcqnDoc03() {
 					var month = myDate.getMonth() + 1;
 					var day = myDate.getDate();
 					$('#currentDate').html(year + "年" + month + "月" + day + "日");
-					
 					$('#selfAssessment').val(data[0].selfAssessment);	
 					var authority = data[1].authority;
 					var arr = authority.split("|");
@@ -47,13 +46,14 @@ function initjcqnDoc03() {
 
 function updatejcqnDoc03() {
 	var arrData = new Array();
+	var content = editor.getData();
 	arrData.push({
 		"name" : "userId",
 		"value" : user_id
 	});
 	arrData.push({
 		"name":"selfAssessment",
-		"value":$('#selfAssessment').val()
+		"value":content
 	});
 
 	$.ajax({

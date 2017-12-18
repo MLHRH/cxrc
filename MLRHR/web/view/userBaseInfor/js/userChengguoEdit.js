@@ -1,5 +1,7 @@
+var checkSubmitFlg = false; 
 function userChengguoEditSave() {
 	if (validateuserChengguoEdit()) {
+		checkSubmitFlg = true;
 		arrData = new Array();
 		if ($("#user_chengguo_id").val() != "")
 			arrData.push({
@@ -66,6 +68,7 @@ function userChengguoEditSave() {
 										callback : {
 											afterClose : function() {
 												$('#myModal').modal('hide');
+												checkSubmitFlg = false;
 											}
 										},
 										theme : 'defaultTheme'
@@ -86,6 +89,9 @@ function validateuserChengguoEdit() {
 	if ($("#user_chengguo_author_sort").val() == "-1") {
 		generatenoty('center', "请选择排名！", 'error');
 		return false;
+	}
+	if(checkSubmitFlg == true){
+		return false; 
 	}
 //	if ($("#user_chengguo_type").val() == "-1") {
 //		generatenoty('center', "请选择级别！", 'error');

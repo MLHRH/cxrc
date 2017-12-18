@@ -1,5 +1,7 @@
+var checkSubmitFlg ;
 function userReportEditSave() {
-//	if (validateuserReportEdit()) {
+	if (validateuserReportEdit()) {
+		checkSubmitFlg = true;
 		arrData = new Array();
 		if ($("#user_report_id").val() != "")
 			arrData.push({
@@ -52,6 +54,7 @@ function userReportEditSave() {
 						callback : {
 							afterClose : function() {
 								$('#myModal').modal('hide');
+								checkSubmitFlg = false;
 							}
 						},
 						theme : 'defaultTheme'
@@ -62,8 +65,8 @@ function userReportEditSave() {
 			}
 		});
 	}
-//}	
-//function validateuserReportEdit() {
+}	
+function validateuserReportEdit() {
 //	// 校验方法
 //	if ($("#user_report_date").val() == "") {
 //		generatenoty('center', "请选择日期！", 'error');
@@ -118,5 +121,9 @@ function userReportEditSave() {
 //	// console.log('行（段）总数： ', part);
 //	
 //	return w_c_str.length+temp;
-//	
-
+//
+	if(checkSubmitFlg == true){
+		return false; 
+	}
+	return true;
+}

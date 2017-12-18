@@ -39,7 +39,7 @@
 				<th width="10%"  style="text-align:center;">时间</th>
 				<th width="8%"  style="text-align:center;">地点</th>
 				<th width="10%"  style="text-align:center;">报告类别</th>
-                <th width="8%"  style="text-align:center;">报告人</th>
+                <!-- <th width="8%"  style="text-align:center;">报告人</th> -->
 				<th width="15%"  style="text-align:center;">操作</th>
 			</tr>
 		</thead>

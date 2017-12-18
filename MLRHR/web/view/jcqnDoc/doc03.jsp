@@ -3,6 +3,8 @@
 <html lang="en">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<%@ include file="/common/common.jsp"%>
+ <script type="text/javascript" src="${ctx}/static/ckeditor/ckeditor.js"></script>
 <title>doc03</title>
 </head>
 <body>
@@ -18,10 +20,14 @@
 			</b>		
 		</p>
  </div></td></tr>
-<tr style='page-break-inside: avoid; text-align: centerheight: 3pt'>
-     <td colspan="3">
-						<textarea style="width: 900px; height: 1000px" id="selfAssessment"></textarea>
-					</td>
-</td></tr>
+          <div>
+                <td> 
+				 <textarea name ="selfAssessment" class="ckeditor" id="selfAssessment"></textarea>
+					 <script type="text/javascript">
+					 editor=CKEDITOR.replace('selfAssessment');
+                      </script> 
+				</td>
+          </div>
 </body>
+ 
 </html>

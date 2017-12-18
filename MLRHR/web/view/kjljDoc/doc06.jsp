@@ -144,9 +144,7 @@
 			<span lang=EN-US style='font-size: 9.0pt; font-family: 仿宋'>&nbsp;</span>
 		</p>
 
-		<p class=MsoNormal style='text-indent: 32.05pt; line-height: 24.0pt'>
-			<span style='font-size: 16.0pt; font-family: 仿宋'>说明：此表申报人确认后，由单位组织人事部门审核。组织人事部门应对申报人所提供的学历、任职资格证书，外语、计算机合格证，获奖证书、论文著作、研究报告等业绩成果原件与复印件审核无误后，签字并盖章。</span>
-		</p>
+	
 
 	</div>
 

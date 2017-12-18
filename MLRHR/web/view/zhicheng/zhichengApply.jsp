@@ -6,6 +6,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>国土资源科技创新人才工程管理信息系统</title>
 <%@ include file="/common/common.jsp"%>
+ <script type="text/javascript" src="${ctx}/static/ckeditor/ckeditor.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description" content="">
 <meta name="author" content="">

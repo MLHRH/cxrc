@@ -1,5 +1,7 @@
+var checkSubmitFlg = false; 
 function userProjectEditSave() {
 	if (validateuserProjectEdit()) {
+		checkSubmitFlg = true;
 		arrData = new Array();
 		if ($("#user_project_id").val() != "")
 			arrData.push({
@@ -59,6 +61,7 @@ function userProjectEditSave() {
 						callback : {
 							afterClose : function() {
 								$('#myModal').modal('hide');
+								checkSubmitFlg = false;
 							}
 						},
 						theme : 'defaultTheme'
@@ -84,5 +87,8 @@ function validateuserProjectEdit() {
 //		generatenoty('center', "开始时间不能晚于结束时间！", 'error');
 //		return false;
 //	}
+	if(checkSubmitFlg == true){
+		return false; 
+	}
 	return true;
 }

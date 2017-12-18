@@ -1,5 +1,7 @@
+var checkSubmitFlg = false; 
 function userAwardEditSave() {
 	if (validateuserAwardEdit()) {
+		checkSubmitFlg = true;
 		arrData = new Array();
 		if ($("#user_award_id").val() != "")
 			arrData.push({
@@ -59,6 +61,7 @@ function userAwardEditSave() {
 										callback : {
 											afterClose : function() {
 												$('#myModal').modal('hide');
+												checkSubmitFlg = false;
 											}
 										},
 										theme : 'defaultTheme'
@@ -75,6 +78,9 @@ function validateuserAwardEdit() {
 	if ($("#user_reward_time").val() == "") {
 		generatenoty('center', "请选择开始时间！", 'error');
 		return false;
+	}
+	if(checkSubmitFlg == true){
+		return false; 
 	}
 	return true;
 }

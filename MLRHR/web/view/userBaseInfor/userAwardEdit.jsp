@@ -57,6 +57,8 @@
 						<td class="td_Right">
 							<select id="user_award_grade" name="user_award_grade" class="input-block-level" style="width: 220px">
 								<option value="-1">请选择</option>
+								<option value="国家级" <c:if test="${user_award.grade == '国家级'}">selected</c:if>>国家级</option>
+								<option value="省部级" <c:if test="${user_award.grade == '省部级'}">selected</c:if>>省部级</option>
 								<option value="一等奖" <c:if test="${user_award.grade == '一等奖'}">selected</c:if>>一等奖</option>
 								<option value="二等奖" <c:if test="${user_award.grade == '二等奖'}">selected</c:if>>二等奖</option>
 								<option value="三等奖" <c:if test="${user_award.grade == '三等奖'}">selected</c:if>>三等奖</option>
@@ -87,7 +89,7 @@
 						<tr align="center">
 						<td class="td_Left">获奖日期：</td>
 						<td class="td_Right">
-							<input type="text" onfocus="WdatePicker({isShowWeek:true,dateFmt:'yyyy.MM.dd'})" id="user_reward_time" value="${user_award.rewardTime}" />
+							<input type="text"  id="user_reward_time" value="${user_award.rewardTime}" />
 						</td>
 					</tr>
 					
