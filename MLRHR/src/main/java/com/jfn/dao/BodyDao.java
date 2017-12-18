@@ -22,7 +22,7 @@ public class BodyDao
 	@Autowired
 	private JdbcTemplate jdbcTemplate;
 
-	private final String SQL_INSERT_body = "insert into body(pId,,bodyType,name,code,legal_person,telephone,mobile,telefax,zip_code,contact,address,email,web) values(?,?,?,?,?,?,?,?,?,?,?,?,?)";
+	private final String SQL_INSERT_body = "insert into body(pId,bodyType,name,code,legal_person,telephone,mobile,telefax,zip_code,contact,address,email,web) values(?,?,?,?,?,?,?,?,?,?,?,?,?)";
 
 	private final String SQL_Get_BY_ID = "select * from body where Id=?";
 	private final String SQL_GET_body_LIST = "select * from body order by Id  ";
@@ -34,7 +34,7 @@ public class BodyDao
 	{
 		return jdbcTemplate.update(
 				SQL_INSERT_body,
-				new Object[]{ body.getEmail(), body.getAddress(), body.getBodyType(),body.getContact(),body.getName(),body.getpId(),body.getTelefax(),body.getTelephone(),body.getWeb()} ) == 1;
+				new Object[]{body.getpId(), body.getBodyType(),body.getName(),body.getCode(),body.getLegal_person(),body.getTelephone(),body.getMobile(),body.getTelefax(),body.getZip_code(),body.getContact(), body.getAddress(), body.getEmail(),body.getWeb()} ) == 1;
 	}
 	
 	public Body get( int id )
