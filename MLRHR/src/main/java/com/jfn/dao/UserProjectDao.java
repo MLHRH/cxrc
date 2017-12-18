@@ -28,7 +28,7 @@ public class UserProjectDao {
 	private final String SQL_INSERT_user_project = "insert into jcqn_doc02_01(xuhao_id,userId,entryName,projectNumber,funds,startStopTime,projectNature,role) values(?,?,?,?,?,?,?,?)";
 
 	private final String SQL_Get_BY_ID = "select * from jcqn_doc02_01 where Id=?";
-	private final String SQL_GET_user_project_LIST = "select * from jcqn_doc02_01 order by Id  ";
+	private final String SQL_GET_user_project_LIST = "select * from jcqn_doc02_01 order by Id asc ";
 	private final String SQL_SET_user_project_UPDATE = "update jcqn_doc02_01 set xuhao_id=?,userId=?,entryName=?,projectNumber=?,funds=?,startStopTime=?,projectNature=?,role=? where id=?";
 
 	private final static String SQL_DEL_BY_ID = "delete from jcqn_doc02_01 where id = ?";

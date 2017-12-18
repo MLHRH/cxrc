@@ -63,14 +63,14 @@ public class UserAwardDao {
 					user_award.setPrizeName(rs.getString("prize_name"));
 					user_award.setGrade(rs.getString("grade"));
 					user_award.setSort(rs.getString("sort"));
-					String temp = rs.getString("reward_time");
-					if (temp != null) {
-						String Year = temp.substring(0, 4);
-						String Month = temp.substring(5, 7);
-						String Day = temp.substring(8, 10);
-						temp = Year + "." + Month + "." + Day;
-					}
-					user_award.setRewardTime(temp);
+//					String temp = rs.getString("reward_time");
+//					if (temp != null) {
+//						String Year = temp.substring(0, 4);
+//						String Month = temp.substring(5, 7);
+//						String Day = temp.substring(8, 10);
+//						temp = Year + "." + Month + "." + Day;
+//					}
+					user_award.setRewardTime(rs.getString("reward_time"));
 					user_award.setGrantInstitution(rs.getString("grant_institution"));
 
 				}
@@ -133,13 +133,13 @@ public class UserAwardDao {
 			user_award.setGrade(rs.getString("grade"));
 			user_award.setSort(rs.getString("sort"));
 			String temp = rs.getString("reward_time");
-			if (temp != null) {
-				String Year = temp.substring(0, 4);
-				String Month = temp.substring(5, 7);
-				String Day = temp.substring(8, 10);
-				temp = Year + "." + Month + "." + Day;
-			}
-			user_award.setRewardTime(temp);
+//			if (temp != null) {
+//				String Year = temp.substring(0, 4);
+//				String Month = temp.substring(5, 7);
+//				String Day = temp.substring(8, 10);
+//				temp = Year + "." + Month + "." + Day;
+//			}
+			user_award.setRewardTime(rs.getString("reward_time"));
 			user_award.setGrantInstitution(rs.getString("grant_institution"));
 			return user_award;
 		}

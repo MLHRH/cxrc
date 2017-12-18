@@ -54,14 +54,14 @@ public class UserZhuanliDao {
 					user_zhuanli.setType(rs.getString("type"));
 					user_zhuanli.setInventorSort(rs.getString("inventor_sort"));
 
-					String temp = rs.getString("authorized_time");
-					if (temp != null) {
-						String Year = temp.substring(0, 4);
-						String Month = temp.substring(5, 7);
-						String Day = temp.substring(8, 10);
-						temp = Year + "." + Month + "." + Day;
-					}
-					user_zhuanli.setAuthorizedTime(temp);
+//					String temp = rs.getString("authorized_time");
+//					if (temp != null) {
+//						String Year = temp.substring(0, 4);
+//						String Month = temp.substring(5, 7);
+//						String Day = temp.substring(8, 10);
+//						temp = Year + "." + Month + "." + Day;
+//					}
+					user_zhuanli.setAuthorizedTime(rs.getString("authorized_time"));
 					user_zhuanli.setAuthorizedNational(rs.getString("authorized_national"));
 
 				}
@@ -117,14 +117,14 @@ public class UserZhuanliDao {
 				user_zhuanli.setType(rs.getString("type"));
 				user_zhuanli.setInventorSort(rs.getString("inventor_sort"));
 
-				String temp = rs.getString("authorized_time");
-				if (temp != null) {
-					String Year = temp.substring(0, 4);
-					String Month = temp.substring(5, 7);
-					String Day = temp.substring(8, 10);
-					temp = Year + "." + Month + "." + Day;
-				}
-				user_zhuanli.setAuthorizedTime(temp);
+//				String temp = rs.getString("authorized_time");
+//				if (temp != null) {
+//					String Year = temp.substring(0, 4);
+//					String Month = temp.substring(5, 7);
+//					String Day = temp.substring(8, 10);
+//					temp = Year + "." + Month + "." + Day;
+//				}
+				user_zhuanli.setAuthorizedTime(rs.getString("authorized_time"));
 				user_zhuanli.setAuthorizedNational(rs.getString("authorized_national"));
 
 			

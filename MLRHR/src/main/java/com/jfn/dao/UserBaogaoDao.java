@@ -53,14 +53,14 @@ public class UserBaogaoDao {
 					user_study.setMeetingName(rs.getString("report_name"));
 					user_study.setOrganizers(rs.getString("organizers"));
 					
-					String temp = rs.getString("meeting_time");
-					if (temp != null) {
-						String Year = temp.substring(0, 4);
-						String Month = temp.substring(5, 7);
-						String Day = temp.substring(8, 10);
-						temp = Year + "." + Month + "." + Day;
-					}
-					user_study.setMeetingTime(temp);
+//					String temp = rs.getString("meeting_time");
+//					if (temp != null) {
+//						String Year = temp.substring(0, 4);
+//						String Month = temp.substring(5, 7);
+//						String Day = temp.substring(8, 10);
+//						temp = Year + "." + Month + "." + Day;
+//					}
+					user_study.setMeetingTime(rs.getString("meeting_time"));
 					user_study.setMeetingPlace(rs.getString("meeting_place"));
 					user_study.setReportType(rs.getString("report_type"));
 					user_study.setPeopleName(rs.getString("people_name"));
@@ -85,14 +85,14 @@ public class UserBaogaoDao {
 					user_study.setMeetingName(rs.getString("report_name"));
 					user_study.setOrganizers(rs.getString("organizers"));
 					
-					String temp = rs.getString("meeting_time");
-					if (temp != null) {
-						String Year = temp.substring(0, 4);
-						String Month = temp.substring(5, 7);
-						String Day = temp.substring(8, 10);
-						temp = Year + "." + Month + "." + Day;
-					}
-					user_study.setMeetingTime(temp);
+//					String temp = rs.getString("meeting_time");
+//					if (temp != null) {
+//						String Year = temp.substring(0, 4);
+//						String Month = temp.substring(5, 7);
+//						String Day = temp.substring(8, 10);
+//						temp = Year + "." + Month + "." + Day;
+//					}
+					user_study.setMeetingTime(rs.getString("meeting_time"));
 					user_study.setMeetingPlace(rs.getString("meeting_place"));
 					user_study.setReportType(rs.getString("report_type"));
 					user_study.setPeopleName(rs.getString("people_name"));
@@ -146,14 +146,14 @@ public class UserBaogaoDao {
 			user_study.setMeetingName(rs.getString("report_name"));
 			user_study.setOrganizers(rs.getString("organizers"));
 			
-			String temp = rs.getString("meeting_time");
-			if (temp != null) {
-				String Year = temp.substring(0, 4);
-				String Month = temp.substring(5, 7);
-				String Day = temp.substring(8, 10);
-				temp = Year + "." + Month + "." + Day;
-			}
-			user_study.setMeetingTime(temp);
+//			String temp = rs.getString("meeting_time");
+//			if (temp != null) {
+//				String Year = temp.substring(0, 4);
+//				String Month = temp.substring(5, 7);
+//				String Day = temp.substring(8, 10);
+//				temp = Year + "." + Month + "." + Day;
+//			}
+			user_study.setMeetingTime(rs.getString("meeting_time"));
 			user_study.setMeetingPlace(rs.getString("meeting_place"));
 			user_study.setReportType(rs.getString("report_type"));
 			user_study.setPeopleName(rs.getString("people_name"));
