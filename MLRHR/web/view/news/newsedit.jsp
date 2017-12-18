@@ -240,7 +240,7 @@ div[data-role="editor-toolbar"] {
 							</div>
 						</div>
 
-						<div class="control-group">
+						<!-- <div class="control-group">
 							<label class="control-label" for="doc">附件管理</label>
 							<div class="controls">
 								<div id="doc">
@@ -249,7 +249,7 @@ div[data-role="editor-toolbar"] {
 									</a>
 								</div>
 							</div>
-						</div>
+						</div> -->
 						<div class="control-group">
 							<label class="control-label" for="doc">发布形式</label>
 							<div class="controls">
@@ -259,20 +259,20 @@ div[data-role="editor-toolbar"] {
 											<input type="radio" name="type" id="news_type" value="0" />
 											新闻
 										</label>
-										<label class="radio">
+										<!-- <label class="radio">
 											<input type="radio" name="type" id="news_type" value="1" checked />
 											附件
-										</label>
+										</label> -->
 									</c:if>
 									<c:if test="${news.type!=1}">
 										<label class="radio">
 											<input type="radio" name="type" id="news_type" value="0" checked />
 											新闻
 										</label>
-										<label class="radio">
+										<!-- <label class="radio">
 											<input type="radio" name="type" id="news_type" value="1" />
 											附件
-										</label>
+										</label> -->
 									</c:if>
 
 								</div>
