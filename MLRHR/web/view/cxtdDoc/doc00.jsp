@@ -138,31 +138,34 @@
 						<span lang=EN-US style='font-size: 16.0pt; font-family: 仿宋'>&nbsp;</span>
 					</p>
 					<p class=MsoNormal style='text-indent: 32.0pt'>
-						<span style='font-size: 16.0pt; font-family: 仿宋'>二、编号由国土资源部科技主管司局统一填写。</span>
+						<span style='font-size: 16.0pt; font-family: 仿宋'>二、团队名称”要体现具体研发方向。</span>
+					</p>
+					<p class=MsoNormal style='text-indent: 32.0pt'>
+						<span style='font-size: 16.0pt; font-family: 仿宋'>三、编号由国土资源部科技主管司局统一填写。</span>
 					</p>
 					<p class=MsoNormal style='text-indent: 32.0pt'>
 						<span lang=EN-US style='font-size: 16.0pt; font-family: 仿宋'>&nbsp;</span>
 					</p>
 					<p class=MsoNormal style='text-indent: 32.0pt'>
-						<span style='font-size: 16.0pt; font-family: 仿宋'>三、“领域”从“土地科技”、“基础研究”、“地质矿产”、“地质环境”、“国土资源综合管理”中选择。</span>
+						<span style='font-size: 16.0pt; font-family: 仿宋'>四、“领域”从“土地科技”、“基础研究”、“地质矿产”、“地质环境”、“国土资源综合管理”中选择。</span>
 					</p>
 					<p class=MsoNormal style='text-indent: 32.0pt'>
 						<span lang=EN-US style='font-size: 16.0pt; font-family: 仿宋'>&nbsp;</span>
 					</p>
 					<p class=MsoNormal style='text-indent: 32.0pt'>
-						<span lang=EN-US style='font-size: 16.0pt; font-family: 仿宋'>四、“学习经历”从大学填起。</span>
+						<span lang=EN-US style='font-size: 16.0pt; font-family: 仿宋'>五、“学习经历”从大学填起。</span>
 					</p>
 					<p class=MsoNormal style='text-indent: 32.0pt'>
 						<span lang=EN-US style='font-size: 16.0pt; font-family: 仿宋'>&nbsp;</span>
 					</p>
 					<p class=MsoNormal style='text-indent: 32.0pt'>
-						<span lang=EN-US style='font-size: 16.0pt; font-family: 仿宋'>五、“项目性质及来源”主要说明项目的委托方，相关计划名称等。</span>
+						<span lang=EN-US style='font-size: 16.0pt; font-family: 仿宋'>六、“项目性质及来源”主要说明项目的委托方，相关计划名称等。</span>
 					</p>
 					<p class=MsoNormal style='text-indent: 32.0pt'>
 						<span lang=EN-US style='font-size: 16.0pt; font-family: 仿宋'>&nbsp;</span>
 					</p>
 					<p class=MsoNormal style='text-indent: 32.0pt'>
-						<span lang=EN-US style='font-size: 16.0pt; font-family: 仿宋'>六、表中栏目没有内容一律填“无”</span>
+						<span lang=EN-US style='font-size: 16.0pt; font-family: 仿宋'>七、表中栏目没有内容一律填“无”</span>
 					</p>
 				</td>
 			</tr>
