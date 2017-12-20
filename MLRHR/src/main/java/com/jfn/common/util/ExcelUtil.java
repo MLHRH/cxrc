@@ -359,7 +359,7 @@ public class ExcelUtil{
         headList.add("研究方向");
         headList.add("单位名称");
         headList.add("推荐单位");
-        headList.add("得票率");
+//        headList.add("得票率");
         headList.add("同意");
         headList.add("不同意");
         headList.add("弃权");
@@ -406,10 +406,10 @@ public class ExcelUtil{
                      Cell researchDirection = rowdata2.createCell(5);
                      Cell institution = rowdata2.createCell(6);
                      Cell recommandInstitution = rowdata2.createCell(7);
-                     Cell depiaolu = rowdata2.createCell(8);
-                     Cell tongyi = rowdata2.createCell(9);
-                     Cell butongyi = rowdata2.createCell(10);
-                     Cell qiquan = rowdata2.createCell(11);
+//                     Cell depiaolu = rowdata2.createCell(8);
+                     Cell tongyi = rowdata2.createCell(8);
+                     Cell butongyi = rowdata2.createCell(9);
+                     Cell qiquan = rowdata2.createCell(10);
                      bianho.setCellValue(b);
                   	 b++;
                  	name.setCellValue(pTrial.getName());
@@ -427,7 +427,7 @@ public class ExcelUtil{
                         institution.setCellValue(pTrial.getInstitution());
                     
                         recommandInstitution.setCellValue(pTrial.getRecommandInstitution());
-                        depiaolu.setCellValue(pTrial.getVoteRate());
+//                        depiaolu.setCellValue(pTrial.getVoteRate());
                         tongyi.setCellValue(pTrial.getAgreeNum());
                         butongyi.setCellValue(pTrial.getDisagreeNum());
                         qiquan.setCellValue(pTrial.getWaiverNum());
@@ -472,7 +472,7 @@ public class ExcelUtil{
         headList.add("研究方向");
         headList.add("单位名称");
         headList.add("推荐单位");
-        headList.add("得票率");
+//        headList.add("得票率");
         headList.add("同意");
         headList.add("不同意");
         headList.add("弃权");
@@ -518,10 +518,10 @@ public class ExcelUtil{
                      Cell researchDirection = rowdata2.createCell(5);
                      Cell institution = rowdata2.createCell(6);
                      Cell recommandInstitution = rowdata2.createCell(7);
-                     Cell depiaolu = rowdata2.createCell(8);
-                     Cell tongyi = rowdata2.createCell(9);
-                     Cell butongyi = rowdata2.createCell(10);
-                     Cell qiquan = rowdata2.createCell(11);
+//                     Cell depiaolu = rowdata2.createCell(8);
+                     Cell tongyi = rowdata2.createCell(8);
+                     Cell butongyi = rowdata2.createCell(9);
+                     Cell qiquan = rowdata2.createCell(10);
                  	bianho.setCellValue(b);
                  	b++;
                  	name.setCellValue(pTrial.getName());
@@ -539,7 +539,7 @@ public class ExcelUtil{
                         institution.setCellValue(pTrial.getInstitution());
                     
                         recommandInstitution.setCellValue(pTrial.getRecommandInstitution());
-                        depiaolu.setCellValue(pTrial.getVoteRate());
+//                        depiaolu.setCellValue(pTrial.getVoteRate());
                         tongyi.setCellValue(pTrial.getAgreeNum());
                         butongyi.setCellValue(pTrial.getDisagreeNum());
                         qiquan.setCellValue(pTrial.getWaiverNum());
@@ -570,7 +570,7 @@ public class ExcelUtil{
         headList.add("依托项目类别");
         headList.add("单位名称");
         headList.add("团队负责人");
-        headList.add("得票率");
+//        headList.add("得票率");
         headList.add("同意");
         headList.add("不同意");
         headList.add("弃权");
@@ -623,10 +623,10 @@ public class ExcelUtil{
 //                     Cell institution = rowdata2.createCell(6);
 //                     团队负责人
                      Cell teamLeader = rowdata2.createCell(6);
-                     Cell depiaolu = rowdata2.createCell(7);
-                     Cell tongyi = rowdata2.createCell(8);
-                     Cell butongyi = rowdata2.createCell(9);
-                     Cell qiquan = rowdata2.createCell(10);
+//                     Cell depiaolu = rowdata2.createCell(7);
+                     Cell tongyi = rowdata2.createCell(7);
+                     Cell butongyi = rowdata2.createCell(8);
+                     Cell qiquan = rowdata2.createCell(9);
                  	bianho.setCellValue(b);
                  	b++;
                  	teamName.setCellValue(pTrial.getTeamName());
@@ -653,7 +653,7 @@ public class ExcelUtil{
                  	researchDirection.setCellValue(pTrial.getInstitution());
 //                 	institution.setCellValue(pTrial.getRecommandInstitution());
                  	teamLeader.setCellValue(pTrial.getTeamLeader());                      
-                       depiaolu.setCellValue(pTrial.getVoteRate());
+//                       depiaolu.setCellValue(pTrial.getVoteRate());
                        tongyi.setCellValue(pTrial.getAgreeNum());
                        butongyi.setCellValue(pTrial.getDisagreeNum());
                        qiquan.setCellValue(pTrial.getWaiverNum());

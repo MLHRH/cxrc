@@ -185,14 +185,28 @@ public class KjljDocController {
 	// 获取信息
 	@RequestMapping(value = "/kjljDoc03Init", method = RequestMethod.GET)
 	@ResponseBody
-	public KjljDoc03 kjljDoc03Init(HttpServletRequest request) {
+	public String kjljDoc03Init(HttpServletRequest request) {
+		String authority = "";
+
+		SecurityContextImpl securityContextImpl = (SecurityContextImpl) request.getSession().getAttribute("SPRING_SECURITY_CONTEXT");
+		@SuppressWarnings("unchecked")
+		List<GrantedAuthority> authorities = (List<GrantedAuthority>) securityContextImpl.getAuthentication().getAuthorities();
+		for (GrantedAuthority grantedAuthority : authorities) {
+			authority = authority + grantedAuthority.getAuthority() + "|";
+		}
+
+		JSONObject jo3 = new JSONObject();
+		jo3.put("authority", authority);
 		String userId = request.getParameter("userId");
 		System.err.println("-----------" + userId);
+		JSONArray jsonArray = new JSONArray();
 		KjljDoc03 kjlj = kjljdoc01servive.getByUserId03(Integer.parseInt(userId));
 		// Gson gson = new Gson();
 		System.err.println(kjlj);
 		// return gson.toJson(kjlj);
-		return kjlj;
+		jsonArray.add(kjlj);
+		jsonArray.add(jo3);
+		return jsonArray.toString();
 	}
 
 	// 添加、更新操作记录
@@ -225,14 +239,28 @@ public class KjljDocController {
 	// 获取信息
 	@RequestMapping(value = "/kjljDoc04Init", method = RequestMethod.GET)
 	@ResponseBody
-	public KjljDoc04 kjljDoc04Init(HttpServletRequest request) {
+	public String kjljDoc04Init(HttpServletRequest request) {
+		String authority = "";
+
+		SecurityContextImpl securityContextImpl = (SecurityContextImpl) request.getSession().getAttribute("SPRING_SECURITY_CONTEXT");
+		@SuppressWarnings("unchecked")
+		List<GrantedAuthority> authorities = (List<GrantedAuthority>) securityContextImpl.getAuthentication().getAuthorities();
+		for (GrantedAuthority grantedAuthority : authorities) {
+			authority = authority + grantedAuthority.getAuthority() + "|";
+		}
+
+		JSONObject jo3 = new JSONObject();
+		jo3.put("authority", authority);
+		JSONArray jsonArray = new JSONArray();
 		String userId = request.getParameter("userId");
 		System.err.println("-----------" + userId);
 		KjljDoc04 kjlj = kjljdoc01servive.getByUserId04(Integer.parseInt(userId));
 		// Gson gson = new Gson();
 		System.err.println(kjlj);
 		// return gson.toJson(kjlj);
-		return kjlj;
+		jsonArray.add(kjlj);
+		jsonArray.add(jo3);
+		return jsonArray.toString();
 	}
 
 	// 添加、更新操作记录
@@ -265,14 +293,29 @@ public class KjljDocController {
 	// 获取信息
 	@RequestMapping(value = "/kjljDoc05Init", method = RequestMethod.GET)
 	@ResponseBody
-	public KjljDoc05 kjljDoc05Init(HttpServletRequest request) {
+	public String kjljDoc05Init(HttpServletRequest request) {
+		String authority = "";
+
+		SecurityContextImpl securityContextImpl = (SecurityContextImpl) request.getSession().getAttribute("SPRING_SECURITY_CONTEXT");
+		@SuppressWarnings("unchecked")
+		List<GrantedAuthority> authorities = (List<GrantedAuthority>) securityContextImpl.getAuthentication().getAuthorities();
+		for (GrantedAuthority grantedAuthority : authorities) {
+			authority = authority + grantedAuthority.getAuthority() + "|";
+		}
+
+		JSONObject jo3 = new JSONObject();
+		jo3.put("authority", authority);
+		JSONArray jsonArray = new JSONArray();
 		String userId = request.getParameter("userId");
 		System.err.println("-----------" + userId);
 		KjljDoc05 kjlj = kjljdoc01servive.getByUserId05(Integer.parseInt(userId));
 		// Gson gson = new Gson();
 		System.err.println(kjlj);
 		// return gson.toJson(kjlj);
-		return kjlj;
+		jsonArray.add(kjlj);
+		jsonArray.add(jo3);
+//		return gson.toJson(jcqn);	
+		return jsonArray.toString();
 	}
 
 	// 添加、更新操作记录

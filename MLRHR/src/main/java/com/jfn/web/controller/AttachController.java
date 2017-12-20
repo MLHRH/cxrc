@@ -119,7 +119,9 @@ public class AttachController {
 		String apply_id = request.getParameter("applyid");
 		String user_id = request.getParameter("userid"); 
 		String apply_type = request.getParameter("applytype"); 
-		apply_type = new String(apply_type.getBytes("ISO8859-1"), "UTF-8");
+		if (!apply_type.equals("杰出青年") && !apply_type.equals("科技领军") && !apply_type.equals("创新团队")) {
+			apply_type = new String(apply_type.getBytes("ISO8859-1"), "UTF-8");					
+		}
 		String authority = "";
 
 		SecurityContextImpl securityContextImpl = (SecurityContextImpl) request.getSession().getAttribute("SPRING_SECURITY_CONTEXT");
