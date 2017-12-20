@@ -1,13 +1,21 @@
 var objUser = new Object();
  
 var userBaseInfor_id;
-
+var userid;
+var currentRole;
 
 function initkjljDoc04() {
+	//被审核人的ID存在时。此时是审核模式。采用被审核人的ID初始化。
+	if(userId != null && userId !=""){
+		userid = userId;
+	}
+	else{
+		userid = user_id;
+	}
 	$.ajax({
 				type : 'get',
 				dataType : 'json',
-				url : 'kjljDoc04Init?userId=' + user_id,// 请求的路径
+				url : 'kjljDoc04Init?userId=' + userid,// 请求的路径
 				error : function() {// 请求失败处理函数
 					alert('请求失败');
 				},
@@ -18,8 +26,20 @@ function initkjljDoc04() {
 					var day = myDate.getDate();
 					$('#currentDate').html(year + "年" + month + "月" + day + "日");
 					
-					$('#futurePlans').val(data.futurePlans);				
-					
+					$('#futurePlans').val(data[0].futurePlans);				
+					var authority = data[1].authority;
+					var arr = authority.split("|");
+//					if (currentRole == null)
+					var isUser = false;
+						for (var i = 0; i < arr.length - 1; i++) {
+							if (arr[i] == "ROLE_USER") {
+									isUser = true;
+							}
+						}
+						if(isUser == false){
+							$("#futurePlans").attr("disabled",
+									true);
+						}
 				} 
 			});
 	
@@ -27,13 +47,14 @@ function initkjljDoc04() {
 
 function updatekjljDoc04() {
 	var arrData = new Array();
+	var content = editor.getData();
 	arrData.push({
 		"name" : "userId",
 		"value" : user_id
 	});
 	arrData.push({
 		"name":"futurePlans",
-		"value":$('#futurePlans').val()
+		"value":content
 	});
 
 	$.ajax({

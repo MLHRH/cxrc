@@ -86,10 +86,10 @@ function validateuserChengguoEdit() {
 //		generatenoty('center', "请选择日期！", 'error');
 //		return false;
 //	}
-	if ($("#user_chengguo_author_sort").val() == "-1") {
-		generatenoty('center', "请选择排名！", 'error');
-		return false;
-	}
+//	if ($("#user_chengguo_author_sort").val() == "-1") {
+//		generatenoty('center', "请选择排名！", 'error');
+//		return false;
+//	}
 	if(checkSubmitFlg == true){
 		return false; 
 	}

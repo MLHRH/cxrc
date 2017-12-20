@@ -20,10 +20,7 @@
  </div></td></tr>
  <div>
                 <td> 
-				 <textarea name ="selfAssessment" class="ckeditor" id="selfAssessment"></textarea>
-					 <script type="text/javascript">
-					 editor=CKEDITOR.replace('selfAssessment');
-                      </script> 
+				 <textarea style="width: 900px; height: 1000px" id="selfAssessment"></textarea>
 				</td>
           </div>
 </body>

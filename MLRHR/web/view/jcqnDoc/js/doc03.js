@@ -46,14 +46,13 @@ function initjcqnDoc03() {
 
 function updatejcqnDoc03() {
 	var arrData = new Array();
-	var content = editor.getData();
 	arrData.push({
 		"name" : "userId",
 		"value" : user_id
 	});
 	arrData.push({
 		"name":"selfAssessment",
-		"value":content
+		"value":$('#selfAssessment').val()
 	});
 
 	$.ajax({

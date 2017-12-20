@@ -10,7 +10,7 @@
 <td width=487 colspan=7 valign=topstyle='width: 365.5pt; border-top: none; border-left: none;  border: solid black 1.0pt;  padding: 0cm 5.0pt 0cm 5.0pt; height: 3pt' >
 <div class=MsoNormal '>
 <p class=MsoNormal style='text-align: center'>
-			<b> <span style='font-size: 18.0pt; font-family: 幼圆; letter-spacing: 1.0pt'>工作单位发展需求与推荐人选的相关性及工作单位提供的支持保障措施</span>
+			<b> <span style='font-size: 18.0pt; font-family: 幼圆; letter-spacing: 1.0pt'>工作单位发展需求与推荐团队的相关性及工作单位提供的支持保障措施</span>
 			</b>
 		</p>
  </div></td></tr>

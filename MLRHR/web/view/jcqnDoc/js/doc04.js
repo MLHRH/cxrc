@@ -46,13 +46,14 @@ function initjcqnDoc04() {
 
 function updatejcqnDoc04() {
 	var arrData = new Array();
+	var content = editor.getData();
 	arrData.push({
 		"name" : "userId",
 		"value" : user_id
 	});
 	arrData.push({
 		"name":"futurePlans",
-		"value":$('#futurePlans').val()
+		"value":content
 	});
 
 	$.ajax({

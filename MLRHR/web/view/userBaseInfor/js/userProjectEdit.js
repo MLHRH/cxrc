@@ -75,10 +75,10 @@ function userProjectEditSave() {
 }
 function validateuserProjectEdit() {
 	// 校验方法
-	if ($("#user_project_xuhao_id").val() == "") {
-		generatenoty('center', "请填写序号！", 'error');
-		return false;
-	}
+//	if ($("#user_project_xuhao_id").val() == "") {
+//		generatenoty('center', "请填写序号！", 'error');
+//		return false;
+//	}
 //	if ($("#user_project_end_date").val() == "") {
 //		generatenoty('center', "请选择结束时间！", 'error');
 //		return false;

@@ -3,6 +3,10 @@
 <html lang="en">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<c:set var="ctx" value="${pageContext.request.contextPath}" />
+<%@ taglib prefix="security" uri="http://www.springframework.org/security/tags"%>
+<script type="text/javascript" src="${ctx}/static/ckeditor/ckeditor.js"></script>
 <title>doc04</title>
 </head>
 <body>
@@ -16,7 +20,10 @@
  </div></td></tr>
 <tr style='page-break-inside: avoid; height: 3pt'>
 <td colspan="3">
-						<textarea style="width: 900px; height: 1000px" id="futurePlans"></textarea>
+						 <textarea name ="futurePlans" class="ckeditor" id="futurePlans"></textarea>
+					 <script type="text/javascript">
+					     editor=CKEDITOR.replace('futurePlans');
+                      </script> 
 					</td>
 </td></tr>
 </body>

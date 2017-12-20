@@ -75,10 +75,10 @@ function userAwardEditSave() {
 }
 function validateuserAwardEdit() {
 	// 校验方法
-	if ($("#user_reward_time").val() == "") {
-		generatenoty('center', "请选择开始时间！", 'error');
-		return false;
-	}
+//	if ($("#user_reward_time").val() == "") {
+//		generatenoty('center', "请选择开始时间！", 'error');
+//		return false;
+//	}
 	if(checkSubmitFlg == true){
 		return false; 
 	}

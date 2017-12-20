@@ -53,7 +53,7 @@ function updatecxtdDoc03() {
 	});
 	arrData.push({
 		"name":"selfAssessment",
-		"value":content
+		"value":$('#selfAssessment').val()
 	});
 
 	$.ajax({

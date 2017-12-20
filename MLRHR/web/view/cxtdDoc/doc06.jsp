@@ -31,10 +31,10 @@
 							<span lang=EN-US style='font-size: 16.0pt; font-family: 仿宋'>&nbsp;</span>
 						</p>
 						<p class=MsoNormal>
-							<span lang=EN-US style='font-size: 16.0pt; font-family: 仿宋'>1.申请人承诺</span>
+							<span lang=EN-US style='font-size: 16.0pt; font-family: 仿宋'>1.团队负责人承诺</span>
 						</p>
 						<p class=MsoNormal style='text-indent: 32.0pt'>
-							<span style='font-size: 16.0pt; font-family: 仿宋'>本人承诺推荐材料中所有信息真实可靠，若有失实和造假行为，本人愿承担一切责任。</span>
+							<span style='font-size: 16.0pt; font-family: 仿宋'>本人代表团队承诺推荐材料中所有信息真实可靠，若有失实和造假行为，本人愿承担一切责任。</span>
 						</p>
 						<p class=MsoNormal style='text-indent: 32.0pt'>
 							<span lang=EN-US style='font-size: 16.0pt; font-family: 仿宋'>&nbsp;</span>
@@ -66,11 +66,11 @@
 							<span lang=EN-US style='font-size: 16.0pt; font-family: 仿宋'>&nbsp;</span>
 						</p>
 						<p class=MsoNormal>
-							<span style='font-size: 16.0pt; font-family: 仿宋'>2.工作单位意见（工作单位对推荐人选相关陈述的真实性，以及支持保障措施的落实作出承诺，并明确是否同意推荐）</span>
+							<span style='font-size: 16.0pt; font-family: 仿宋'>2.工作单位意见（工作单位对推荐团队相关陈述的真实性，以及支持保障措施的落实作出承诺，并明确是否同意推荐）</span>
 							
 						</p>
 						<p class=MsoNormal style='text-indent: 32.0pt'>
-							<span lang=EN-US style='font-size: 16.0pt; font-family: 仿宋'>&nbsp;</span>
+							<span lang=EN-US style='font-size: 16.0pt; font-family: 仿宋'>&nbsp;推荐人相关陈述属实，本单位承诺支持保障措施的落实，同意推荐</span>
 						</p>
 						<p class=MsoNormal style='text-indent: 32.0pt'>
 							<span lang=EN-US style='font-size: 16.0pt; font-family: 仿宋'>&nbsp;</span>
@@ -106,7 +106,7 @@
 							<span lang=EN-US style='font-size: 16.0pt; font-family: 仿宋'>&nbsp;</span>
 						</p>
 						<p class=MsoNormal>
-							<span style='font-size: 16.0pt; font-family: 仿宋'>3.推荐单位意见（推荐部门是否同意推荐并承诺相关支持措施）</span>
+							<span style='font-size: 16.0pt; font-family: 仿宋'>3.推荐单位意见（推荐部门或地方同意推荐并承诺相关支持措施）</span>
 							
 						</p>
 						<p class=MsoNormal style='text-indent: 32.0pt'>
