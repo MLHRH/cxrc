@@ -202,6 +202,7 @@ body {
 							<!-- 							<a class='btn btn-info' style='margin-right: 5px' href='javascript:void(0)' onClick='PDFTemp()'><i class='icon-download'></i>导出PDF</a> -->
 							<a id="tijiaoBtn" class="btn btn-success" href="javascript:void(0)" onClick="zhichengApplyUpdate()"> 提交 </a>
 							<a id="voteBtn" class="btn btn-success" href="javascript:void(0)" onClick="zhichengApplyUpdateVote()"> 投票 </a>
+						   <a id="exportBtn" class="btn btn-success" href="javascript:void(0)" onClick="zhichengApplyExport()"> 导出 </a>
 							<button type="button" class="btn " onClick="javascript:history.back(-1);" style="margin-left: 10px">返回</button>
 						</div>
 					</div>

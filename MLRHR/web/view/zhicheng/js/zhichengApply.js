@@ -317,7 +317,7 @@ function initApplication() {
 						$(".isEXP2").hide();
 						$(".span2").show();
 						$(".isSTA").show();
-						$("#editSave").hide();tijiaoBtn
+						$("#editSave").hide();
 						document.getElementById("voteBtn").style.display = "none";
 						currentRole = arr[i];
 					}
@@ -372,6 +372,50 @@ function initApplication() {
 		}
 	});
 }
+
+function zhichengApplyExport() {
+		arrData = new Array();
+		if(userId == null){
+			arrData.push({
+				"name" : "user_id",
+				"value" : user_id
+			});	
+		}else{
+		arrData.push({
+			"name" : "user_id",
+			"value" : userId
+		});
+		}
+		arrData.push({
+			"name" : "apply_type",
+			"value" : $("#apply_type").val()
+		});
+
+		$.ajax({
+			"dataType" : 'json',
+			"type" : "post",
+			"url" : "zhichengApplyExport",
+			"data" : arrData,
+			"success" : function(rst) {
+				if (rst.result == 1) {
+					noty({
+						text : '人才申请导出成功！',
+						type : 'success',
+						dismissQueue : false,
+						closeWith : [ 'click', 'button' ],
+						timeout : 1500,
+						layout : 'top',						
+						theme : 'defaultTheme'
+					});
+				} else {
+					generatenoty('center', rst.msg, 'error');
+				}
+			}
+		});
+
+}
+
+
 function zhichengApplyUpdate() {
 	if (validateZhichengApplyUpdate()) {
 		arrData = new Array();
