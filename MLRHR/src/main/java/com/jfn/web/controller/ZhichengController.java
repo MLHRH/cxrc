@@ -1,5 +1,8 @@
 package com.jfn.web.controller;
 
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
 import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
 import java.util.LinkedHashSet;
@@ -7,11 +10,8 @@ import java.util.List;
 import java.util.Set;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-
-import net.sf.json.JSONArray;
-import net.sf.json.JSONObject;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.context.SecurityContextImpl;
@@ -25,18 +25,36 @@ import org.springframework.web.servlet.ModelAndView;
 import org.springside.modules.security.springsecurity.SpringSecurityUtils;
 
 import com.alibaba.fastjson.JSON;
+import com.alibaba.fastjson.JSONArray;
+import com.alibaba.fastjson.JSONObject;
 import com.google.gson.JsonObject;
+import com.jfn.common.util.BasePDFWrite;
+import com.jfn.common.util.FileUtil;
 import com.jfn.dao.NewsDao.newsRowMapper;
 import com.jfn.entity.AcctUserRole;
 import com.jfn.entity.ApplyGroup;
 import com.jfn.entity.ApplyMenu;
+import com.jfn.entity.Attachfile;
 import com.jfn.entity.ExpertGroup;
 import com.jfn.entity.ExpertScore;
 import com.jfn.entity.ExpertUser;
 import com.jfn.entity.ExpertVote;
 import com.jfn.entity.Group;
+import com.jfn.entity.JcqnDoc01;
+import com.jfn.entity.JcqnDoc03;
+import com.jfn.entity.JcqnDoc04;
+import com.jfn.entity.JcqnDoc05;
+import com.jfn.entity.JcqnDocPatent;
+import com.jfn.entity.JcqnDocPrize;
+import com.jfn.entity.JcqnDocProject;
+import com.jfn.entity.JcqnDocReport;
+import com.jfn.entity.JcqnDocThesis;
+import com.jfn.entity.JcqnDocTreatise;
 import com.jfn.entity.Role;
+import com.jfn.entity.UesrZuzhi;
 import com.jfn.entity.User;
+import com.jfn.entity.UserPeixun;
+import com.jfn.entity.UserWork;
 import com.jfn.entity.ZhichengApply;
 import com.jfn.service.AccountManager;
 import com.jfn.service.ApplyMenuService;
@@ -44,17 +62,31 @@ import com.jfn.service.BodyService;
 import com.jfn.service.CalendarService;
 import com.jfn.service.ExpertUserService;
 import com.jfn.service.GroupService;
+import com.jfn.service.JcqnDocService;
+import com.jfn.service.UserAwardService;
+import com.jfn.service.UserBaogaoService;
 import com.jfn.service.UserChengguoService;
 import com.jfn.service.UserExamService;
 import com.jfn.service.UserPeixunService;
 import com.jfn.service.UserProjectService;
+import com.jfn.service.UserReportService;
 import com.jfn.service.UserService;
 import com.jfn.service.UserWorkService;
+import com.jfn.service.UserZhuanliService;
+import com.jfn.service.UserZuzhiService;
 import com.jfn.service.ZhichengApplyService;
 
 @Controller
 @RequestMapping("/")
 public class ZhichengController {
+	@Autowired
+	private JcqnDocService jcqndoc01servive;
+	@Autowired
+	private UserPeixunService ups;
+	@Autowired
+	private UserWorkService uws;
+	@Autowired
+	private UserZuzhiService userZuzhiService;
 	@Autowired
 	private ZhichengApplyService zervice;
 
@@ -65,16 +97,19 @@ public class ZhichengController {
 	private UserChengguoService cgservice;
 
 	@Autowired
-	private UserExamService eservice;
+	private UserBaogaoService eservice;
 
 	@Autowired
-	private UserPeixunService pxservice;
+	private UserReportService rservice;
+	
+	@Autowired
+	private UserAwardService userAwardService;
 
 	@Autowired
 	private UserProjectService pservice;
 
 	@Autowired
-	private UserWorkService wservice;
+	private UserZhuanliService wservice;
 	@Autowired
 	private AccountManager accountManager;
 	@Autowired
@@ -384,6 +419,67 @@ public class ZhichengController {
 		// null) ? "add" : "edit"));
 		return jsonResponse.toString();
 	}
+	
+	// 导出文档
+		@RequestMapping(value = "/zhichengApplyExport", method = RequestMethod.POST)
+		@ResponseBody
+		public void zhichengApplyExport(HttpServletRequest request,HttpServletResponse response, @ModelAttribute ExpertVote entity) throws Exception {
+			request.setCharacterEncoding("utf-8");
+			String userId = request.getParameter("user_id");
+			String applytype = request.getParameter("apply_type");
+			if (!applytype.equals("杰出青年") && !applytype.equals("科技领军") && !applytype.equals("创新团队")) {
+				try {
+					applytype = new String(applytype.getBytes("ISO8859-1"), "UTF-8");
+				} catch (UnsupportedEncodingException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}		
+			}
+//			承担主要科研任务情况
+			List<JcqnDocProject> jcqnDocProjects = pservice.getAllByUserId(userId);
+//			获得主要科研学术奖励情况
+			List<JcqnDocPrize> jcqnDocPrizes = userAwardService.getAllByUserId(userId);
+//			代表性论文
+			List<JcqnDocThesis> jcqnDocThesis = cgservice.getAllByUserId(userId);
+//			获得授权专利情况
+			List<JcqnDocPatent> jcqnDocPatents = wservice.getAllByUserId(userId);
+//			在重要国际学术会议报告情况
+			List<JcqnDocReport> jcqnDocReports = eservice.getAllByUserId(userId);
+//			重要专著情况（不超过5项）
+			List<JcqnDocTreatise> jcqnDocTreatises = rservice.getAllByUserId(userId);
+//			推荐人选自我评价
+			JcqnDoc03 jcqn03 = jcqndoc01servive.getByUserId03(Integer.parseInt(userId));
+//			未来研究计划及当前研究基础
+			JcqnDoc04 jcqn04 = jcqndoc01servive.getByUserId04(Integer.parseInt(userId));
+//			工作单位发展需求与推荐人选的相关性及工作单位提供的支持保障措施
+			JcqnDoc05 jcqn05 = jcqndoc01servive.getByUserId05(Integer.parseInt(userId));
+			JSONObject result = new JSONObject();
+			if(applytype.equals("杰出青年")){
+				JcqnDoc01 jcqn = jcqndoc01servive.getByUserId01(Integer.parseInt(userId));
+				List<UserPeixun> userPeixuns=ups.getAllByUserId(userId);
+		    	List<UserWork> work = uws.getAllByUserId(userId);
+	            List<UesrZuzhi> uesrZuzhis = userZuzhiService.getAllByUser(userId);
+	            String path = request.getSession().getServletContext().getRealPath("/")+"fileUpload/";
+				String fileName="jcqn.pdf";
+				File file = new File(path,fileName);
+	        	if(!file.exists()){
+	        		file.mkdirs();
+	        	}
+				file.createNewFile();
+				new BasePDFWrite(file,response).generateJcqnPDF(jcqn,userPeixuns,work,uesrZuzhis,jcqnDocProjects,jcqnDocPrizes,jcqnDocThesis,
+						jcqnDocPatents,jcqnDocReports,jcqnDocTreatises,jcqn03,jcqn04,jcqn05);
+				Attachfile f = new Attachfile();
+				f.setNewfilename(fileName);
+				f.setFile_path(path);
+				f.setOldfilename(fileName);
+				result.put("filename", fileName);
+				result.put("path", path);
+				System.err.println(result.toJSONString());
+				 FileUtil.downloadPdfFile(response, f);
+			}
+			
+            
+		}
 
 	// 通过id删除职称单条信息
 	@RequestMapping(value = "zhichengApplyDelete", method = RequestMethod.POST)

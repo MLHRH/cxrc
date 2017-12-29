@@ -1,5 +1,6 @@
 package com.jfn.common.util;
 
+import java.io.BufferedInputStream;
 import java.io.DataInputStream;
 import java.io.File;
 import java.io.FileInputStream;
@@ -185,5 +186,70 @@ public class FileUtil {
         return file;
 	}
 
+	public static void downloadPdfFile(HttpServletResponse response,Attachfile f) throws IOException {
+
+//		String _file = f.getFile_path()+f.getNewfilename();
+		 //设置发送到客户端响应的内容类型，浏览器会根据不同的MIME，调用不同的模块处理  
+        response.setContentType("application/pdf");   
+        ServletOutputStream out = response.getOutputStream();  
+        File pdf = null;  
+        BufferedInputStream buf = null;  
+          
+        try {  
+            //调用初始化在web.xml中存放的参量  
+//            String path ="D:\\MyData\\.metadata\\.plugins\\org.eclipse.wst.server.core\\tmp0\\wtpwebapps\\MLRHR\\fileUpload\\jcqn.pdf"; 
+//            String path = "C:\\Users\\bm\\Desktop\\T3.pdf";
+            String path = (f.getFile_path()+f.getNewfilename()).replace("/", "\\");
+            System.err.println(path);
+            pdf = new File(path);  
+            response.setContentLength((int) pdf.length());  //设置文件长度  
+            FileInputStream input = new FileInputStream(pdf);  
+            //带缓冲区的输入流  dd
+            //ileInputStream是字节流，BufferedInputStream是字节缓冲流，使用BufferedInputStream读资源比FileInputStream读取资源的效率高  
+            buf = new BufferedInputStream(input);  
+            int readBytes = 0;  
+              
+            while ((readBytes = buf.read()) != -1) {  
+                out.write(readBytes);  
+            }  
+        } catch (Exception e) {  
+            System.out.println("文件没有找到");  
+        }finally {  
+            if (out != null) {  
+                out.close();  
+            }  
+            if (buf != null) {  
+                buf.close();  
+            }  
+        }  
+		/*if (file.exists()) {
+			String mimetype = "";
+//			javax.activation.MimetypesFileTypeMap mtMap = new javax.activation.MimetypesFileTypeMap();
+			mimetype = mtMap.getContentType(file);
+			int bytes = -1;
+			ServletOutputStream op = response.getOutputStream();
+			response.setContentLength((int) file.length());
+//			response.setHeader("Content-disposition", "attachment; filename="+f.getNewfilename());// 设定输出文件头
+//			response.setContentType("text/html;charset=UTF-8");			
+			response.setHeader("Content-type", "application/force-download");
+			response.setHeader("Content-type", "application/pdf");
+			response.setHeader("Content-disposition", "attachment; filename="+f.getNewfilename());  
+//			response.setCharacterEncoding("UTF-8"); 
+			 response.setContentType("application/pdf");//PDF格式 
+			byte[] bbuf = new byte[1024*1024];
+			DataInputStream in = new DataInputStream(new FileInputStream(file));
+//			FileInputStream in = new FileInputStream(file);
+			while ((in != null) && ((bytes = in.read(bbuf)) != -1)) {
+				op.write(bbuf, 0, bytes);
+			}
+//			while((bytes = in.read(bbuf, 0, 1024*1024)) != -1){  
+//				op.write(bbuf, 0, 1024*1024);  
+//	        } 
+			in.close();
+			op.flush();
+			op.close();*/
+//		}
+	     
+	}
 
 }
