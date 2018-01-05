@@ -482,7 +482,7 @@ public class ZhichengController {
 				String fileName="jcqn.pdf";
 				File file = new File(path,fileName);
 	        	if(!file.exists()){
-	        		file.mkdirs();
+	        		file.mkdir();
 	        	}
 				file.createNewFile();
 				new BasePDFWrite(file,response).generateJcqnPDF(jcqn,userPeixuns,work,uesrZuzhis,jcqnDocProjects,jcqnDocPrizes,jcqnDocThesis,
@@ -505,14 +505,15 @@ public class ZhichengController {
 //			             工作单位发展需求与推荐人选的相关性及工作单位提供的支持保障措施
 				 KjljDoc05 kjlj05 = kjljDocService.getByUserId05(Integer.parseInt(userId));
 //	            String path = request.getSession().getServletContext().getRealPath("/")+"fileUpload/";
-				String fileName="jcqn.pdf";
-				File file = new File(path,fileName);
+				String fileName="kjlj.pdf";
+				File file = new File(path);
 //		        File file = new File("C:\\Users\\bm\\Desktop\\kjlj.pdf");
 	        	if(!file.exists()){
 	        		file.mkdirs();
 	        	}
-				file.createNewFile();
-				new BasePDFWrite(file,response).generateKjljPDF(kjlj,userPeixuns,work,uesrZuzhis,jcqnDocProjects,jcqnDocPrizes,jcqnDocThesis,
+	        	File file1 = new File(path,fileName);
+	        	file1.createNewFile();
+				new BasePDFWrite(file1,response).generateKjljPDF(kjlj,userPeixuns,work,uesrZuzhis,jcqnDocProjects,jcqnDocPrizes,jcqnDocThesis,
 						jcqnDocPatents,jcqnDocReports,jcqnDocTreatises,kjlj03,kjlj04,kjlj05);
 				Attachfile f = new Attachfile();
 				f.setNewfilename(fileName);
@@ -540,16 +541,17 @@ public class ZhichengController {
 				 CxtdDoc04 cxtdDoc04 = cxtdDocService.getDoc4(Integer.parseInt(userId));
 //			             工作单位发展需求与推荐人选的相关性及工作单位提供的支持保障措施
 				 CxtdDoc05 cxtdDoc05 = cxtdDocService.getDoc05(Integer.parseInt(userId));
-//	            String path = request.getSession().getServletContext().getRealPath("/")+"fileUpload/cxtd/";
-				String fileName="jcqn.pdf";
-				File file = new File(path,fileName);
+//	            String path = request.getSession().getServletContext().getRealPath("/")+"fileUpload/";
+				String fileName="cxtd.pdf";
+				File file = new File(path);
 //		        File file = new File("C:\\Users\\bm\\Desktop\\cxtd.pdf");
 
 	        	if(!file.exists()){
 	        		file.mkdirs();
 	        	}
-				file.createNewFile();
-				new BasePDFWrite(file,response).generateCxtdPDF(baseInfo,leaderInfo,memNum,mList,userPeixuns,work,uesrZuzhis,jcqnDocProjects,jcqnDocPrizes,jcqnDocThesis,
+	        	File file1 = new File(path,fileName);
+	        	file1.createNewFile();
+				new BasePDFWrite(file1,response).generateCxtdPDF(baseInfo,leaderInfo,memNum,mList,userPeixuns,work,uesrZuzhis,jcqnDocProjects,jcqnDocPrizes,jcqnDocThesis,
 						jcqnDocPatents,jcqnDocReports,jcqnDocTreatises,cxtdDoc03,cxtdDoc04,cxtdDoc05);
 				Attachfile f = new Attachfile();
 				f.setNewfilename(fileName);

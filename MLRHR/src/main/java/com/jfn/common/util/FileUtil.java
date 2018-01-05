@@ -190,6 +190,8 @@ public class FileUtil {
 
 //		String _file = f.getFile_path()+f.getNewfilename();
 		 //设置发送到客户端响应的内容类型，浏览器会根据不同的MIME，调用不同的模块处理  
+		response.setHeader("Content-disposition",
+				"attachment; filename="+f.getNewfilename());// 设定输出文件头
         response.setContentType("application/pdf");   
         ServletOutputStream out = response.getOutputStream();  
         File pdf = null;  

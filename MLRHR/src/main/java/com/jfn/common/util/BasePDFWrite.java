@@ -462,7 +462,11 @@ public class BasePDFWrite {
         float[] width9 = {12f};
         PdfPTable table9 = createTable(width9); 
         table9.setSplitRows(false);
-        table9.addCell(createCell(this.tagToLowerCaseAndComplete(this.reEscapeHtml(jcqn04.getFuturePlans())), textfont_H,Element.ALIGN_MIDDLE, Element.ALIGN_LEFT,1,1));
+        if (jcqn04.getFuturePlans() != null && jcqn04.getFuturePlans().equals("")) {
+        	table9.addCell(createCell(this.tagToLowerCaseAndComplete(this.reEscapeHtml(jcqn04.getFuturePlans())), textfont_H,Element.ALIGN_MIDDLE, Element.ALIGN_LEFT,1,1));			
+		}else {
+			table9.addCell(createCell(jcqn04.getFuturePlans(), textfont_H,Element.ALIGN_MIDDLE, Element.ALIGN_LEFT,1,1));
+		}
         document.add(table9);
         document.add(createParagraph("工作单位发展需求与推荐人选的相关性及工作单位提供的支持保障措施",keyFont,Element.ALIGN_CENTER));
         //表格信息
@@ -737,7 +741,11 @@ public class BasePDFWrite {
         float[] width9 = {12f};
         PdfPTable table9 = createTable(width9); 
         table9.setSplitRows(false);
-        table9.addCell(createCell(this.tagToLowerCaseAndComplete(this.reEscapeHtml(jcqn04.getFuturePlans())), textfont_H,Element.ALIGN_MIDDLE, Element.ALIGN_LEFT,1,1));
+        if (jcqn04.getFuturePlans() != null && jcqn04.getFuturePlans().equals("")) {
+        	table9.addCell(createCell(this.tagToLowerCaseAndComplete(this.reEscapeHtml(jcqn04.getFuturePlans())), textfont_H,Element.ALIGN_MIDDLE, Element.ALIGN_LEFT,1,1));			
+		}else {
+			table9.addCell(createCell(jcqn04.getFuturePlans(), textfont_H,Element.ALIGN_MIDDLE, Element.ALIGN_LEFT,1,1));
+		}
         document.add(table9);
         document.add(createParagraph("工作单位发展需求与推荐人选的相关性及工作单位提供的支持保障措施",keyFont,Element.ALIGN_CENTER));
         //表格信息
@@ -801,7 +809,8 @@ public class BasePDFWrite {
             String c1 = type.substring(2,3);
     			if(a1.equals("0") || b1.equals("0") || c1.equals("0")){
     				a = "重大科研项目";
-    			}else if(a1.equals("1") || b1.equals("1") || c1.equals("1")){
+    			}
+    			if(a1.equals("1") || b1.equals("1") || c1.equals("1")){
     				b = "重点工程项目";
     			}
     		}
@@ -1023,6 +1032,7 @@ public class BasePDFWrite {
 	    	  c_table.addCell(createCell(mInfo.getWork_company(), textfont_H,Element.ALIGN_MIDDLE, Element.ALIGN_CENTER,2,1)); 
 			}
 		} 
+        document.add(c_table);
         document.add(createParagraph("近五年科研情况",keyFont,Element.ALIGN_CENTER));
         float[] width2 = {8f,8f,8f,8f,8f,8f,8f,8f,8f,8f,8f,8f};
         PdfPTable table2 = createTable(width2); 
@@ -1145,7 +1155,11 @@ public class BasePDFWrite {
         float[] width9 = {12f};
         PdfPTable table9 = createTable(width9); 
         table9.setSplitRows(false);
-        table9.addCell(createCell(this.tagToLowerCaseAndComplete(this.reEscapeHtml(jcqn04.getFuturePlans())), textfont_H,Element.ALIGN_MIDDLE, Element.ALIGN_LEFT,1,1));
+        if (jcqn04.getFuturePlans() != null && jcqn04.getFuturePlans().equals("")) {
+        	table9.addCell(createCell(this.tagToLowerCaseAndComplete(this.reEscapeHtml(jcqn04.getFuturePlans())), textfont_H,Element.ALIGN_MIDDLE, Element.ALIGN_LEFT,1,1));			
+		}else {
+			table9.addCell(createCell(jcqn04.getFuturePlans(), textfont_H,Element.ALIGN_MIDDLE, Element.ALIGN_LEFT,1,1));
+		}
         document.add(table9);
         document.add(createParagraph("工作单位发展需求与推荐人选的相关性及工作单位提供的支持保障措施",keyFont,Element.ALIGN_CENTER));
         //表格信息
