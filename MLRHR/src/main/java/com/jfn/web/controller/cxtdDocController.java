@@ -21,7 +21,7 @@ import com.alibaba.fastjson.JSONObject;
 import com.google.gson.Gson;
 import com.google.gson.JsonObject;
 import com.jfn.entity.CxtdBaseInfo;
-import com.jfn.entity.CxtdDao05;
+import com.jfn.entity.CxtdDoc05;
 import com.jfn.entity.CxtdDoc01;
 import com.jfn.entity.CxtdDoc03;
 import com.jfn.entity.CxtdDoc04;
@@ -279,7 +279,7 @@ public class cxtdDocController {
 		JSONArray jsonArray = new JSONArray();
 		String userId = request.getParameter("userId");
 
-		CxtdDao05 kjlj = cxtdDocService.getDoc05(Integer.parseInt(userId));
+		CxtdDoc05 kjlj = cxtdDocService.getDoc05(Integer.parseInt(userId));
 		jsonArray.add(kjlj);
 		jsonArray.add(jo3);
 		// return gson.toJson(jcqn);
@@ -289,7 +289,7 @@ public class cxtdDocController {
 	// 添加、更新操作记录
 	@RequestMapping(value = "/cxtdDoc05Update", method = RequestMethod.POST)
 	@ResponseBody
-	public String kjljDoc05Update(CxtdDao05 cxtdDao05, HttpServletRequest request) {
+	public String kjljDoc05Update(CxtdDoc05 cxtdDao05, HttpServletRequest request) {
 		JsonObject jsonResponse = new JsonObject();
 		int user_id = (Integer) request.getSession().getAttribute("user_id");
 		cxtdDao05.setUser_id(user_id);

@@ -16,7 +16,7 @@ import com.jfn.dao.UserPeixunDao;
 import com.jfn.dao.UserWorkDao;
 import com.jfn.dao.UserZuzhiDao;
 import com.jfn.entity.CxtdBaseInfo;
-import com.jfn.entity.CxtdDao05;
+import com.jfn.entity.CxtdDoc05;
 import com.jfn.entity.CxtdDoc01;
 import com.jfn.entity.CxtdDoc03;
 import com.jfn.entity.CxtdDoc04;
@@ -168,15 +168,15 @@ public class cxtdDocService {
 		return cxtdDoc04Dao.update(cxtdDoc04);
 	}
 
-	public boolean insertDoc05(CxtdDao05 cxtdDao05) {
+	public boolean insertDoc05(CxtdDoc05 cxtdDao05) {
 		return cxtdDao05Dao.insert(cxtdDao05);
 	}
 
-	public CxtdDao05 getDoc05(int user_id) {
+	public CxtdDoc05 getDoc05(int user_id) {
 		return cxtdDao05Dao.getByUserId(user_id);
 	}
 
-	public boolean updateDoc05(CxtdDao05 cxtdDao05) {
+	public boolean updateDoc05(CxtdDoc05 cxtdDao05) {
 		return cxtdDao05Dao.update(cxtdDao05);
 	}
 }

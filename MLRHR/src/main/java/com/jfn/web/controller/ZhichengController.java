@@ -1,17 +1,18 @@
 package com.jfn.web.controller;
 
 import java.io.File;
-import java.io.FileOutputStream;
-import java.io.IOException;
 import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.LinkedHashSet;
 import java.util.List;
+import java.util.Map;
 import java.util.Set;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.context.SecurityContextImpl;
@@ -28,14 +29,22 @@ import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
 import com.google.gson.JsonObject;
+import com.jfn.common.util.BaseCxtdPDFWrite;
+import com.jfn.common.util.BaseKjljPDFWrite;
 import com.jfn.common.util.BasePDFWrite;
 import com.jfn.common.util.FileUtil;
-import com.jfn.dao.NewsDao.newsRowMapper;
 import com.jfn.entity.AcctUserRole;
 import com.jfn.entity.ApplyGroup;
 import com.jfn.entity.ApplyMenu;
 import com.jfn.entity.Attachfile;
-import com.jfn.entity.ExpertGroup;
+import com.jfn.entity.CxtdBaseInfo;
+import com.jfn.entity.CxtdDoc01;
+import com.jfn.entity.CxtdDoc03;
+import com.jfn.entity.CxtdDoc04;
+import com.jfn.entity.CxtdDoc05;
+import com.jfn.entity.CxtdLeaderInfo;
+import com.jfn.entity.CxtdMemberInfo;
+import com.jfn.entity.CxtdMemberNum;
 import com.jfn.entity.ExpertScore;
 import com.jfn.entity.ExpertUser;
 import com.jfn.entity.ExpertVote;
@@ -50,6 +59,10 @@ import com.jfn.entity.JcqnDocProject;
 import com.jfn.entity.JcqnDocReport;
 import com.jfn.entity.JcqnDocThesis;
 import com.jfn.entity.JcqnDocTreatise;
+import com.jfn.entity.KjljDoc01;
+import com.jfn.entity.KjljDoc03;
+import com.jfn.entity.KjljDoc04;
+import com.jfn.entity.KjljDoc05;
 import com.jfn.entity.Role;
 import com.jfn.entity.UesrZuzhi;
 import com.jfn.entity.User;
@@ -63,10 +76,10 @@ import com.jfn.service.CalendarService;
 import com.jfn.service.ExpertUserService;
 import com.jfn.service.GroupService;
 import com.jfn.service.JcqnDocService;
+import com.jfn.service.KjljDocService;
 import com.jfn.service.UserAwardService;
 import com.jfn.service.UserBaogaoService;
 import com.jfn.service.UserChengguoService;
-import com.jfn.service.UserExamService;
 import com.jfn.service.UserPeixunService;
 import com.jfn.service.UserProjectService;
 import com.jfn.service.UserReportService;
@@ -75,10 +88,15 @@ import com.jfn.service.UserWorkService;
 import com.jfn.service.UserZhuanliService;
 import com.jfn.service.UserZuzhiService;
 import com.jfn.service.ZhichengApplyService;
+import com.jfn.service.cxtdDocService;
 
 @Controller
 @RequestMapping("/")
 public class ZhichengController {
+	@Autowired
+	private cxtdDocService cxtdDocService;
+	@Autowired
+	private KjljDocService kjljDocService;
 	@Autowired
 	private JcqnDocService jcqndoc01servive;
 	@Autowired
@@ -424,7 +442,6 @@ public class ZhichengController {
 		@RequestMapping(value = "/zhichengApplyExport", method = RequestMethod.POST)
 		@ResponseBody
 		public void zhichengApplyExport(HttpServletRequest request,HttpServletResponse response, @ModelAttribute ExpertVote entity) throws Exception {
-			request.setCharacterEncoding("utf-8");
 			String userId = request.getParameter("user_id");
 			String applytype = request.getParameter("apply_type");
 			if (!applytype.equals("杰出青年") && !applytype.equals("科技领军") && !applytype.equals("创新团队")) {
@@ -435,6 +452,12 @@ public class ZhichengController {
 					e.printStackTrace();
 				}		
 			}
+//			学校经历
+			List<UserPeixun> userPeixuns=ups.getAllByUserId(userId);
+//	    	工作经历
+			List<UserWork> work = uws.getAllByUserId(userId);
+//          组织任期情况
+			List<UesrZuzhi> uesrZuzhis = userZuzhiService.getAllByUser(userId);
 //			承担主要科研任务情况
 			List<JcqnDocProject> jcqnDocProjects = pservice.getAllByUserId(userId);
 //			获得主要科研学术奖励情况
@@ -447,19 +470,18 @@ public class ZhichengController {
 			List<JcqnDocReport> jcqnDocReports = eservice.getAllByUserId(userId);
 //			重要专著情况（不超过5项）
 			List<JcqnDocTreatise> jcqnDocTreatises = rservice.getAllByUserId(userId);
-//			推荐人选自我评价
-			JcqnDoc03 jcqn03 = jcqndoc01servive.getByUserId03(Integer.parseInt(userId));
-//			未来研究计划及当前研究基础
-			JcqnDoc04 jcqn04 = jcqndoc01servive.getByUserId04(Integer.parseInt(userId));
-//			工作单位发展需求与推荐人选的相关性及工作单位提供的支持保障措施
-			JcqnDoc05 jcqn05 = jcqndoc01servive.getByUserId05(Integer.parseInt(userId));
 			JSONObject result = new JSONObject();
+			String path = request.getSession().getServletContext().getRealPath("/")+"fileUpload/";
 			if(applytype.equals("杰出青年")){
+//				基本信息
 				JcqnDoc01 jcqn = jcqndoc01servive.getByUserId01(Integer.parseInt(userId));
-				List<UserPeixun> userPeixuns=ups.getAllByUserId(userId);
-		    	List<UserWork> work = uws.getAllByUserId(userId);
-	            List<UesrZuzhi> uesrZuzhis = userZuzhiService.getAllByUser(userId);
-	            String path = request.getSession().getServletContext().getRealPath("/")+"fileUpload/";
+//			            推荐人选自我评价
+				JcqnDoc03 jcqn03 = jcqndoc01servive.getByUserId03(Integer.parseInt(userId));
+//			              未来研究计划及当前研究基础
+				JcqnDoc04 jcqn04 = jcqndoc01servive.getByUserId04(Integer.parseInt(userId));
+//			             工作单位发展需求与推荐人选的相关性及工作单位提供的支持保障措施
+				JcqnDoc05 jcqn05 = jcqndoc01servive.getByUserId05(Integer.parseInt(userId));
+//				String path = request.getSession().getServletContext().getRealPath("/")+"fileUpload/";
 				String fileName="jcqn.pdf";
 				File file = new File(path,fileName);
 	        	if(!file.exists()){
@@ -476,8 +498,71 @@ public class ZhichengController {
 				result.put("path", path);
 				System.err.println(result.toJSONString());
 				 FileUtil.downloadPdfFile(response, f);
+			}else if(applytype.equals("科技领军")){
+//				基本信息
+				 KjljDoc01 kjlj = kjljDocService.getByUserId01(Integer.parseInt(userId));
+//			               推荐人选自我评价
+				 KjljDoc03 kjlj03 = kjljDocService.getByUserId03(Integer.parseInt(userId));
+//			              未来研究计划及当前研究基础
+				 KjljDoc04 kjlj04 = kjljDocService.getByUserId04(Integer.parseInt(userId));
+//			             工作单位发展需求与推荐人选的相关性及工作单位提供的支持保障措施
+				 KjljDoc05 kjlj05 = kjljDocService.getByUserId05(Integer.parseInt(userId));
+//	            String path = request.getSession().getServletContext().getRealPath("/")+"fileUpload/";
+				String fileName="jcqn.pdf";
+				File file = new File(path,fileName);
+//		        File file = new File("C:\\Users\\bm\\Desktop\\kjlj.pdf");
+	        	if(!file.exists()){
+	        		file.mkdirs();
+	        	}
+				file.createNewFile();
+				new BasePDFWrite(file,response).generateKjljPDF(kjlj,userPeixuns,work,uesrZuzhis,jcqnDocProjects,jcqnDocPrizes,jcqnDocThesis,
+						jcqnDocPatents,jcqnDocReports,jcqnDocTreatises,kjlj03,kjlj04,kjlj05);
+				Attachfile f = new Attachfile();
+				f.setNewfilename(fileName);
+				f.setFile_path(path);
+				f.setOldfilename(fileName);
+				result.put("filename", fileName);
+				result.put("path", path);
+				System.err.println(result.toJSONString());
+				 FileUtil.downloadPdfFile(response, f);
+			}else if(applytype.equals("创新团队")){
+//				基本信息
+				Map<String, Object> doc01 = new HashMap<String, Object>();
+				doc01 = cxtdDocService.queryCxtdDoc01(Integer.parseInt(userId));
+//				基本信息
+				CxtdBaseInfo baseInfo = (CxtdBaseInfo) doc01.get("baseinfo");
+//				领导人信息
+				CxtdLeaderInfo leaderInfo = (CxtdLeaderInfo) doc01.get("leaderinfo");
+//			            团队成员人数 
+				CxtdMemberNum memNum = (CxtdMemberNum) doc01.get("memnum");
+//				成员信息
+				List<CxtdMemberInfo> mList = (List<CxtdMemberInfo>) doc01.get("mlist");
+//				推荐人选自我评价
+				 CxtdDoc03 cxtdDoc03 = cxtdDocService.getDao03(Integer.parseInt(userId));
+//			              未来研究计划及当前研究基础
+				 CxtdDoc04 cxtdDoc04 = cxtdDocService.getDoc4(Integer.parseInt(userId));
+//			             工作单位发展需求与推荐人选的相关性及工作单位提供的支持保障措施
+				 CxtdDoc05 cxtdDoc05 = cxtdDocService.getDoc05(Integer.parseInt(userId));
+//	            String path = request.getSession().getServletContext().getRealPath("/")+"fileUpload/cxtd/";
+				String fileName="jcqn.pdf";
+				File file = new File(path,fileName);
+//		        File file = new File("C:\\Users\\bm\\Desktop\\cxtd.pdf");
+
+	        	if(!file.exists()){
+	        		file.mkdirs();
+	        	}
+				file.createNewFile();
+				new BasePDFWrite(file,response).generateCxtdPDF(baseInfo,leaderInfo,memNum,mList,userPeixuns,work,uesrZuzhis,jcqnDocProjects,jcqnDocPrizes,jcqnDocThesis,
+						jcqnDocPatents,jcqnDocReports,jcqnDocTreatises,cxtdDoc03,cxtdDoc04,cxtdDoc05);
+				Attachfile f = new Attachfile();
+				f.setNewfilename(fileName);
+				f.setFile_path(path);
+				f.setOldfilename(fileName);
+				result.put("filename", fileName);
+				result.put("path", path);
+				System.err.println(result.toJSONString());
+				 FileUtil.downloadPdfFile(response, f);
 			}
-			
             
 		}
 
