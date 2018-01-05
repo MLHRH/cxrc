@@ -46,7 +46,6 @@ function initcxtdDoc03(){
 
 function updatecxtdDoc03() {
 	var arrData = new Array();
-	var content = editor.getData();
 	arrData.push({
 		"name" : "userId",
 		"value" : user_id
