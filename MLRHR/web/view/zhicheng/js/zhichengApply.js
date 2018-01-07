@@ -374,13 +374,13 @@ function initApplication() {
 }
 
 function zhichengApplyExport() {
-		arrData = new Array();
+		/*arrData = new Array();
 		if(userId == null){
 			arrData.push({
 				"name" : "user_id",
 				"value" : user_id
 			});	
-		}else{
+		}else{ssss
 		arrData.push({
 			"name" : "user_id",
 			"value" : userId
@@ -389,9 +389,10 @@ function zhichengApplyExport() {
 		arrData.push({
 			"name" : "apply_type",
 			"value" : $("#apply_type").val()
-		});
+		});*/
+		location.href="zhichengApplyExport?user_id="+user_id+'&apply_type='+$('#apply_type').val()
 
-		$.ajax({
+		/*$.ajax({
 			"dataType" : 'json',
 			"type" : "post",
 			"url" : "zhichengApplyExport",
@@ -411,7 +412,7 @@ function zhichengApplyExport() {
 					generatenoty('center', rst.msg, 'error');
 				}
 			}
-		});
+		});*/
 
 }
 
