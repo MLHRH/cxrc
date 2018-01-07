@@ -436,7 +436,7 @@ public class ZhichengController {
 	}
 	
 	// 导出文档
-		@RequestMapping(value = "/zhichengApplyExport", method = RequestMethod.POST)
+		@RequestMapping(value = "/zhichengApplyExport", method = RequestMethod.GET)
 		@ResponseBody
 		public void zhichengApplyExport(HttpServletRequest request,HttpServletResponse response, @ModelAttribute ExpertVote entity) throws Exception {
 			String userId = request.getParameter("user_id");
@@ -480,12 +480,13 @@ public class ZhichengController {
 				JcqnDoc05 jcqn05 = jcqndoc01servive.getByUserId05(Integer.parseInt(userId));
 //				String path = request.getSession().getServletContext().getRealPath("/")+"fileUpload/";
 				String fileName="jcqn.pdf";
-				File file = new File(path,fileName);
+				File file = new File(path);
 	        	if(!file.exists()){
-	        		file.mkdir();
+	        		file.mkdirs();
 	        	}
-				file.createNewFile();
-				new BasePDFWrite(file,response).generateJcqnPDF(jcqn,userPeixuns,work,uesrZuzhis,jcqnDocProjects,jcqnDocPrizes,jcqnDocThesis,
+	        	File file1 = new File(path,fileName);
+	        	file1.createNewFile();
+				new BasePDFWrite(file1,response).generateJcqnPDF(jcqn,userPeixuns,work,uesrZuzhis,jcqnDocProjects,jcqnDocPrizes,jcqnDocThesis,
 						jcqnDocPatents,jcqnDocReports,jcqnDocTreatises,jcqn03,jcqn04,jcqn05);
 				Attachfile f = new Attachfile();
 				f.setNewfilename(fileName);
