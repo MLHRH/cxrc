@@ -29,11 +29,9 @@ function init() {
 function initDataSelected() {
 	var now = new Date();
 	var nowBack = new Date(now.getFullYear(), now.getMonth()+1, now.getDate() + 1);
-
 	var sYear = nowBack.getFullYear(); 
 	var sMonth = nowBack.getMonth(); 
 	var sDate = nowBack.getDate()-1;
-	
 	var start = sYear + "-" + (sMonth < 10 ? "0" + sMonth : sMonth) + "-" + (sDate < 10 ? "0" + sDate : sDate)
 	var end = now.getFullYear() + "-" + ((now.getMonth() + 1) < 10 ? "0" + (now.getMonth() + 1) : (now.getMonth() + 1)) + "-" + (sDate < 10 ? "0" + sDate : sDate)
 	$("#startdate_buy").val(start);
