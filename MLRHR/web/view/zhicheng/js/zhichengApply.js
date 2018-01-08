@@ -390,7 +390,11 @@ function zhichengApplyExport() {
 			"name" : "apply_type",
 			"value" : $("#apply_type").val()
 		});*/
-		location.href="zhichengApplyExport?user_id="+user_id+'&apply_type='+$('#apply_type').val()
+	if(userId == null){
+		location.href="zhichengApplyExport?user_id="+user_id+'&apply_type='+$('#apply_type').val()		
+	}else{
+		location.href="zhichengApplyExport?user_id="+userId+'&apply_type='+$('#apply_type').val()
+	}
 
 		/*$.ajax({
 			"dataType" : 'json',
