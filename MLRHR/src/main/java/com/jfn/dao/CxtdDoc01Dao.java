@@ -49,7 +49,7 @@ public class CxtdDoc01Dao {
 	//团队成员情况
 	private final String SQL_SELECT_MEMBER_NUM="select * from cxtd_member_num where team_id=?";
 	private final String SQL_UPDATE_MEMBER_NUM = "update cxtd_member_num set num=?,age_56=?,age_46_55=?,age_36_45=?,"
-			+ "age_35=?,gaoji=?,fugao=?,zhongji=?,z_orther=?,boshi=?,shuoshi=?,benke=?,z_orther=? where team_id=? ";
+			+ "age_35=?,gaoji=?,fugao=?,zhongji=?,z_orther=?,boshi=?,shuoshi=?,benke=?,x_orther=? where team_id=? ";
 	private final String SQL_INSERT_MEMBER_NUM="insert into cxtd_member_num(team_id,num,age_56,age_46_55,age_36_45,age_35,"
 			+ "gaoji,fugao,zhongji,z_orther,boshi,shuoshi,benke,x_orther)values(?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
 	
@@ -560,7 +560,7 @@ public class CxtdDoc01Dao {
 					num.getBoshi(),
 					num.getShuoshi(),
 					num.getBenke(),
-					num.getZ_orther(),
+					num.getX_orther(),
 					team_id
 			};
 			return jdbcTemplate.update(SQL_UPDATE_MEMBER_NUM,params) == 1;
