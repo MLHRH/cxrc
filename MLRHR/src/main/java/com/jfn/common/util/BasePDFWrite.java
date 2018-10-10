@@ -9,6 +9,7 @@ import java.util.regex.Pattern;
 
 import javax.servlet.http.HttpServletResponse;
 
+import com.itextpdf.text.Chunk;
 import com.itextpdf.text.Document;
 import com.itextpdf.text.Element;
 import com.itextpdf.text.Font;
@@ -474,7 +475,54 @@ public class BasePDFWrite {
         PdfPTable table10 = createTable(width10); 
         table10.setSplitRows(false);
         table10.addCell(createCell(jcqn05.getNeedsRelevanceSupport(), textfont_H,Element.ALIGN_MIDDLE, Element.ALIGN_LEFT,1,1));
-        document.add(table10);          
+        document.add(table10); 
+        
+        document.add(createParagraph("承诺与推荐意见",keyFont,Element.ALIGN_CENTER));
+       
+        //段落  
+        Paragraph p1 = new Paragraph("————————————————————————————————————————————————————————————————", textfont_H);
+        document.add(p1);
+        p1 = new Paragraph("1.申请人承诺", textfont_H);
+        p1.setFirstLineIndent(100);
+        document.add(p1);
+        p1 = new Paragraph("本人承诺推荐材料中所有信息真实可靠，若有失实和造假行为，本人愿承担一切责任。", textfont_H);
+        p1.setFirstLineIndent(123);
+        p1.setSpacingAfter(15);
+        document.add(p1);
+        p1 = new Paragraph("（签字）：", textfont_H);
+        p1.setFirstLineIndent(403);
+        document.add(p1);
+        p1 = new Paragraph("年       月          日", textfont_H);
+        p1.setFirstLineIndent(403);
+        document.add(p1);
+        p1 = new Paragraph("————————————————————————————————————————————————————————————————", textfont_H);
+        document.add(p1);
+        p1 = new Paragraph("2.工作单位意见（工作单位对推荐人选相关陈述的真实性，以及支"
+        		+ "持保障措施的落实作出承诺，并明确是否同意推荐）", textfont_H);
+        p1.setFirstLineIndent(100);
+        p1.setSpacingAfter(15);
+        document.add(p1);
+        
+        p1 = new Paragraph("单位法定代表人（签章）：      （公章）", textfont_H);
+        p1.setFirstLineIndent(403);
+        document.add(p1);
+        p1 = new Paragraph("年       月          日", textfont_H);
+        p1.setFirstLineIndent(403);
+        document.add(p1);
+        
+        p1 = new Paragraph("————————————————————————————————————————————————————————————————", textfont_H);
+        document.add(p1);
+        
+        p1 = new Paragraph("3.推荐单位意见（推荐部门是否同意推荐并承诺相关支持措施）", textfont_H);
+        p1.setFirstLineIndent(100);
+        p1.setSpacingAfter(15);
+        document.add(p1);
+        p1 = new Paragraph("（公章）：", textfont_H);
+        p1.setFirstLineIndent(403);
+        document.add(p1);
+        p1 = new Paragraph("年       月          日", textfont_H);
+        p1.setFirstLineIndent(403);
+        document.add(p1);
         document.close();    
     }
 
@@ -753,7 +801,54 @@ public class BasePDFWrite {
         PdfPTable table10 = createTable(width10); 
         table10.setSplitRows(false);
         table10.addCell(createCell(jcqn05.getNeedsRelevanceSupport(), textfont_H,Element.ALIGN_MIDDLE, Element.ALIGN_LEFT,1,1));
-        document.add(table10);          
+        document.add(table10); 
+        
+        document.add(createParagraph("承诺与推荐意见",keyFont,Element.ALIGN_CENTER));
+        
+        //段落  
+        Paragraph p1 = new Paragraph("————————————————————————————————————————————————————————————————", textfont_H);
+        document.add(p1);
+        p1 = new Paragraph("1.申请人承诺", textfont_H);
+        p1.setFirstLineIndent(100);
+        document.add(p1);
+        p1 = new Paragraph("本人承诺推荐材料中所有信息真实可靠，若有失实和造假行为，本人愿承担一切责任。", textfont_H);
+        p1.setFirstLineIndent(123);
+        p1.setSpacingAfter(15);
+        document.add(p1);
+        p1 = new Paragraph("（签字）：", textfont_H);
+        p1.setFirstLineIndent(403);
+        document.add(p1);
+        p1 = new Paragraph("年       月          日", textfont_H);
+        p1.setFirstLineIndent(403);
+        document.add(p1);
+        p1 = new Paragraph("————————————————————————————————————————————————————————————————", textfont_H);
+        document.add(p1);
+        p1 = new Paragraph("2.工作单位意见（工作单位对推荐人选相关陈述的真实性，以及支"
+        		+ "持保障措施的落实作出承诺，并明确是否同意推荐）", textfont_H);
+        p1.setFirstLineIndent(100);
+        p1.setSpacingAfter(15);
+        document.add(p1);
+        
+        p1 = new Paragraph("单位法定代表人（签章）：      （公章）", textfont_H);
+        p1.setFirstLineIndent(403);
+        document.add(p1);
+        p1 = new Paragraph("年       月          日", textfont_H);
+        p1.setFirstLineIndent(403);
+        document.add(p1);
+        
+        p1 = new Paragraph("————————————————————————————————————————————————————————————————", textfont_H);
+        document.add(p1);
+        
+        p1 = new Paragraph("3.推荐单位意见（推荐部门是否同意推荐并承诺相关支持措施）", textfont_H);
+        p1.setFirstLineIndent(100);
+        p1.setSpacingAfter(15);
+        document.add(p1);
+        p1 = new Paragraph("（公章）：", textfont_H);
+        p1.setFirstLineIndent(403);
+        document.add(p1);
+        p1 = new Paragraph("年       月          日", textfont_H);
+        p1.setFirstLineIndent(403);
+        document.add(p1);
         document.close();    
     }
     public void generateCxtdPDF(CxtdBaseInfo baseInfo,CxtdLeaderInfo leaderInfo,CxtdMemberNum memNum,List<CxtdMemberInfo> mList,
@@ -1167,7 +1262,54 @@ public class BasePDFWrite {
         PdfPTable table10 = createTable(width10); 
         table10.setSplitRows(false);
         table10.addCell(createCell(jcqn05.getNeedsRelevanceSupport(), textfont_H,Element.ALIGN_MIDDLE, Element.ALIGN_LEFT,1,1));
-        document.add(table10);          
+        document.add(table10);
+        
+        document.add(createParagraph("承诺与推荐意见",keyFont,Element.ALIGN_CENTER));
+        
+        //段落  
+        Paragraph p1 = new Paragraph("————————————————————————————————————————————————————————————————", textfont_H);
+        document.add(p1);
+        p1 = new Paragraph("1.申请人承诺", textfont_H);
+        p1.setFirstLineIndent(100);
+        document.add(p1);
+        p1 = new Paragraph("本人承诺推荐材料中所有信息真实可靠，若有失实和造假行为，本人愿承担一切责任。", textfont_H);
+        p1.setFirstLineIndent(123);
+        p1.setSpacingAfter(15);
+        document.add(p1);
+        p1 = new Paragraph("（签字）：", textfont_H);
+        p1.setFirstLineIndent(403);
+        document.add(p1);
+        p1 = new Paragraph("年       月          日", textfont_H);
+        p1.setFirstLineIndent(403);
+        document.add(p1);
+        p1 = new Paragraph("————————————————————————————————————————————————————————————————", textfont_H);
+        document.add(p1);
+        p1 = new Paragraph("2.工作单位意见（工作单位对推荐人选相关陈述的真实性，以及支"
+        		+ "持保障措施的落实作出承诺，并明确是否同意推荐）", textfont_H);
+        p1.setFirstLineIndent(100);
+        p1.setSpacingAfter(15);
+        document.add(p1);
+        
+        p1 = new Paragraph("单位法定代表人（签章）：      （公章）", textfont_H);
+        p1.setFirstLineIndent(403);
+        document.add(p1);
+        p1 = new Paragraph("年       月          日", textfont_H);
+        p1.setFirstLineIndent(403);
+        document.add(p1);
+        
+        p1 = new Paragraph("————————————————————————————————————————————————————————————————", textfont_H);
+        document.add(p1);
+        
+        p1 = new Paragraph("3.推荐单位意见（推荐部门是否同意推荐并承诺相关支持措施）", textfont_H);
+        p1.setFirstLineIndent(100);
+        p1.setSpacingAfter(15);
+        document.add(p1);
+        p1 = new Paragraph("（公章）：", textfont_H);
+        p1.setFirstLineIndent(403);
+        document.add(p1);
+        p1 = new Paragraph("年       月          日", textfont_H);
+        p1.setFirstLineIndent(403);
+        document.add(p1);
         document.close();    
     }
     /** 
