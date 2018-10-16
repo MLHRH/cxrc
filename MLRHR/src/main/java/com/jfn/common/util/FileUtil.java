@@ -94,7 +94,8 @@ public class FileUtil {
 			ServletOutputStream op = response.getOutputStream();
 			response.setContentType(mimetype);
 			response.setContentLength((int) file.length());
-			response.setHeader("Content-Disposition", "attachment; filename=\"" + f.getOldfilename() + "\"");
+			response.setHeader("Content-Type","text/html;charset=utf-8");
+			response.setHeader("Content-Disposition", "attachment; filename=\"" +java.net.URLEncoder.encode( f.getOldfilename(), "UTF-8") + "\"");
 			byte[] bbuf = new byte[1024];
 			DataInputStream in = new DataInputStream(new FileInputStream(file));
 

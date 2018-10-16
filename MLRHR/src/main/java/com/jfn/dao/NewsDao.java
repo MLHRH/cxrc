@@ -19,7 +19,7 @@ public class NewsDao {
 	@Autowired
 	private JdbcTemplate jdbcTemplate;
 
-	private final String SQL_INSERT_news = "insert into news(title,author,pub_date,content,first,top,type) values(?,?,?,?,?,?,?)";
+	private final String SQL_INSERT_news = "insert into news(id,title,author,pub_date,content,first,top,type) values(?,?,?,?,?,?,?,?)";
 
 	private final String SQL_Get_BY_ID = "select * from news where Id=?";
 	private final String SQL_GET_news_LIST = "select * from news order by first, pub_date desc ";
@@ -29,7 +29,7 @@ public class NewsDao {
 	private final static String SQL_DEL_BY_ID = "delete from news where id = ?";
 
 	public boolean insert(News news) {
-		return jdbcTemplate.update(SQL_INSERT_news, new Object[] { news.getTitle(), news.getAuthor(), new Date(), news.getContent(), news.getFirst(), news.getTop(), news.getType() }) == 1;
+		return jdbcTemplate.update(SQL_INSERT_news, new Object[] { news.getId(),news.getTitle(), news.getAuthor(), new Date(), news.getContent(), news.getFirst(), news.getTop(), news.getType() }) == 1;
 	}
 
 	public News get(int id) {

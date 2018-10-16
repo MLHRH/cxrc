@@ -2,6 +2,7 @@ package com.jfn.dao;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataAccessException;
@@ -10,7 +11,9 @@ import org.springframework.jdbc.core.ResultSetExtractor;
 import org.springframework.jdbc.core.simple.ParameterizedRowMapper;
 import org.springframework.stereotype.Repository;
 
+import com.jfn.dao.UserAwardDao.user_awardRowMapper;
 import com.jfn.entity.Attachfile;
+import com.jfn.entity.JcqnDocPrize;
 
 
 @Repository
@@ -22,6 +25,7 @@ public class UploadFileDao {
 	private final String SQL_QUERY_FILE = "select * from uploadfile where applyid = ? ";
 	private final String SQL_QUERY_BY_ID = "select * from uploadfile where id = ?";
 	private final String SQL_DEL_FILE = "delete from uploadfile where id = ?";
+	private final String SQL_GET_FLIE_LIST = "select * from uploadfile where applyid = ? ";
 	
 	/**
 	 * 插入上传文件数据
@@ -126,6 +130,12 @@ public class UploadFileDao {
 		Object[] params = new Object[]{id};
 		return jdbcTemplate.update(SQL_DEL_FILE, params) == 1 ;
 	}
+	
+	public List<Attachfile> allQueryFile(int applyid) {
+		// TODO Auto-generated method stub
+		Object[] params = new Object[]{applyid};
+		return jdbcTemplate.query(SQL_GET_FLIE_LIST,params, new fileRowMapper());
+	}
 	/**
 	 * 
 	 * @author Administrator
@@ -136,6 +146,8 @@ public class UploadFileDao {
 		public Attachfile mapRow(ResultSet rs, int num) throws SQLException {
 			Attachfile file = new Attachfile();
 			file.setId(rs.getInt("id"));
+			file.setApplyid(rs.getInt("applyid"));
+			file.setUserid(rs.getInt("userid"));
 			file.setOldfilename(rs.getString("oldfilename"));
 			file.setNewfilename(rs.getString("newfilename"));
 			file.setFile_path(rs.getString("location"));

@@ -32,10 +32,20 @@ public class NewsController
 	public String newsAdd( HttpServletRequest request, Model model )
 	{
 		News new_news = new News();
+		int id = (int) ((Math.random() * 9 + 1) * 100000);
 		new_news.setTop("none");
 		new_news.setFirst("1");
+		new_news.setId(id);
+//		service.newsInsert(new_news);
 		model.addAttribute( "news", new_news);
 		return "news/newsedit";
+	}
+	
+	@RequestMapping(value = "newuploadfile", method = RequestMethod.GET)
+	public String uploadfile(HttpServletRequest request, Model model) {
+		String newsId = request.getParameter( "id" );
+		model.addAttribute("newId", newsId);
+		return "upload/newuploadfile";
 	}
  
 	@RequestMapping(value = "newslist", method = RequestMethod.GET)
@@ -122,10 +132,9 @@ public class NewsController
 		User user = accountManager.findUserByLoginName( SpringSecurityUtils
 				.getCurrentUserName() );
 		entity.setAuthor(user.getName());
-		
-		if(( id == null )||(id.length()<1))
-		{
-			
+		News news = service.getById( id );
+		if(( news.getId() == null ))
+		{		
 			result = service.newsInsert( entity ) ? 1 : 0;
 		}
 		else

@@ -2,6 +2,7 @@ package com.jfn.service;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
@@ -33,15 +34,20 @@ public class FileService
 		boolean flag = false;
 		file.setUserid(user.getId());
 		file.setUpload_time(dateFormat(new Date()));
-		//判断之前上传的文件是否删除
-		if(isNotExisted(file)){
+		if(file.getApplyType().equals("news")) {
 			flag = uploadFileDao.insertUploadFile(file);
+		}else {
+			//判断之前上传的文件是否删除
+			if(isNotExisted(file)){
+				flag = uploadFileDao.insertUploadFile(file);
+			}
+			else{
+				result.put(Constant.STATUS, Constant.STAUS_FAIL);
+				result.put(Constant.MSG, "请先行删除之前上传的文件");
+				return result;
+			}
 		}
-		else{
-			result.put(Constant.STATUS, Constant.STAUS_FAIL);
-			result.put(Constant.MSG, "请先行删除之前上传的文件");
-			return result;
-		}
+		
 		if(flag){
 			result.put(Constant.STATUS, Constant.STATUS_SUCCESS);
 			result.put(Constant.MSG,"上传文件成功！");
@@ -71,6 +77,10 @@ public class FileService
 	 */
 	public Attachfile getFileByApplyId(int applyid){
 		return uploadFileDao.queryFile(applyid);
+	}
+	
+	public List<Attachfile> getAllFileByApplyId(int applyid){
+		return uploadFileDao.allQueryFile(applyid);
 	}
 	
 	public Attachfile getFileByTypeAndStep(int userId,String applyType,int applyStep){
