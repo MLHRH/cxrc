@@ -81,11 +81,20 @@ div[data-role="editor-toolbar"] {
 <script type="text/javascript" src="${ctx}/static/bootstrap/wysiwyg/bootstrap-wysiwyg.js"></script>
 <script type="text/javascript" src="${ctx}/static/bootstrap/wysiwyg/external/google-code-prettify/prettify.js"></script>
 <script type="text/javascript" src="${ctx}/static/bootstrap/wysiwyg/external/jquery.hotkeys.js"></script>
+<script type="text/javascript" src="${ctx}/view/upload/js/newuploadfile.js"></script>
 <%@ include file="/common/jquery.noty.jsp"%>
 <script>
+
 	$(document).ready(function() {
 		$('#news_content').wysiwyg();
 	});
+	
+	function uploadNewsFileinfo() {
+		var id = $("#id").val();
+		/* $("#newsFileDocTitle").text("查看"); */
+		$("#newsFileDocBodyId").load("newuploadfile?ft=1&num=1&id="+id);
+		$('#newsFileDoc').modal();
+	}
 </script>
 <body>
 	<%@ include file="/common/bodyheader.jsp"%>
@@ -96,20 +105,39 @@ div[data-role="editor-toolbar"] {
 				<div class="page-header">
 					<h2>${news.title}</h2>
 				</div>
-
+               <div class="modal hide" id="newsFileDoc" style="width: 794px;">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+						<h3 id="newsFileDocTitle">附件窗口</h3>
+					</div>
+					<div id="newsFileDocBodyId" class="modal-body" style="min-height: 300px; max-height: 500px;"></div>
+					<div class="modal-footer">
+						<a href="javascript:void(0)" data-dismiss="modal" class="btn">关闭</a>
+					</div>
+				</div>
 				<div class="span11">
 					<div class="well">
+					<input type="hidden" id="id" name="id" value="${news.id}" />
 						<h2></h2>
 						<p>${news.author}|${news.pub_date}</p>
-						<c:if test="${news.type==0}">
+						<%-- <c:if test="${news.type==0}"> --%>
 							<div id="news_content">${news.content}</div>
-						</c:if>
+						<%-- </c:if>
 						<c:if test="${news.type==1}">
 							<a href="${news.content}" style="cursor：pointer">附件下载</a>
-						</c:if>
-
-					</div>
+						</c:if> --%>
 					<div class="control-group">
+					<div class="control-group">
+							<label class="control-label" for="doc">附件</label>
+							<div class="controls">
+								<div id="doc">
+									<a class="btn btn-small btn-info" href="javascript:void(0)" onClick="uploadNewsFileinfo()">
+										<i class="icon-upload"></i>查看
+									</a>
+								</div>
+							</div>
+						</div> 
+					</div>
 						<div class="controls">
 							<button type="button" class="btn " onClick="javascript:history.back(-1);">返回</button>
 						</div>
@@ -123,4 +151,5 @@ div[data-role="editor-toolbar"] {
 	</div>
 	<!--/.fluid-container-->
 </body>
+
 </html>

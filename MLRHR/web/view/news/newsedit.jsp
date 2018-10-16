@@ -85,7 +85,7 @@ div[data-role="editor-toolbar"] {
 <script>
 	$(document).ready(function() {
 		$('#inputcontent').wysiwyg();
-		$("#submit").click(function() {
+		$("#newsubmit").click(function() {
 			$("#newsedit").validate({
 				highlight : function(label) {
 					$(label).closest('.control-group').addClass('error');
@@ -129,9 +129,16 @@ div[data-role="editor-toolbar"] {
 							if (rst.result == 1) {
 								noty({
 									text : '新闻更新成功！',
-									type : 'success',
+									buttons: [
+									    {addClass: 'btn btn-primary',id:"test3" ,text: '确定', onClick: function($noty) {
+									        // this = button element 也就是当前的按钮
+									        // $noty = $noty element 也就是当前这个提示信息对象
+									        $noty.close();
+									         noty({text: '操作成功', type: 'success'}); 
+									      }
+									    }
+									  ],
 									dismissQueue : false,
-									closeWith : [ 'click', 'button' ],
 									timeout : 3000,
 									layout : 'top',
 									callback : {
@@ -151,8 +158,9 @@ div[data-role="editor-toolbar"] {
 		});
 	});
 	function uploadNewsFile() {
+		var id = $("#id").val();
 		$("#newsFileDocTitle").text("管理附件");
-		$("#newsFileDocBodyId").load("uploadfile?ft=1&num=1");
+		$("#newsFileDocBodyId").load("newuploadfile?ft=1&num=1&id="+id);
 		$('#newsFileDoc').modal();
 	}
 </script>
@@ -240,7 +248,7 @@ div[data-role="editor-toolbar"] {
 							</div>
 						</div>
 
-						<!-- <div class="control-group">
+						 <div class="control-group">
 							<label class="control-label" for="doc">附件管理</label>
 							<div class="controls">
 								<div id="doc">
@@ -249,7 +257,7 @@ div[data-role="editor-toolbar"] {
 									</a>
 								</div>
 							</div>
-						</div> -->
+						</div> 
 						<div class="control-group">
 							<label class="control-label" for="doc">发布形式</label>
 							<div class="controls">
@@ -281,7 +289,7 @@ div[data-role="editor-toolbar"] {
 
 						<div class="control-group">
 							<div class="controls">
-								<input id="submit" type="submit" class="btn btn-primary" value="提交">
+								<input id="newsubmit" type="submit" class="btn btn-primary" value="提交">
 								<button type="button" class="btn " onClick="javascript:history.back(-1);">返回</button>
 							</div>
 						</div>
