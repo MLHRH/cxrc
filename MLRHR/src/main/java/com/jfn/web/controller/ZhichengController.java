@@ -181,7 +181,7 @@ public class ZhichengController {
 		if (status < 4) {
 			if (expertUser.getTeam_leader_type() != null
 					&& (expertUser.getTeam_leader_type() == 1 || expertUser.getTeam_leader_type() == 2)) {
-				menus2.add(menus.get(8));
+				menus2.add(menus.get(9));
 			}
 		}
 		if (status > 3) {
